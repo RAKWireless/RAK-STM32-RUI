@@ -1,0 +1,32 @@
+#**********************************************
+# Jlink with nrfjprog
+#**********************************************
+nrfjprog.name=J-Link
+nrfjprog.program.tool=bootburn
+nrfjprog.program.cmd={runtime.tools.nrfjprog.path}/nrfjprog
+nrfjprog.program.cmd.windows={runtime.tools.nrfjprog.path}/nrfjprog.exe
+
+# Burn bootloader pattern
+nrfjprog.program.burn_pattern="{program.cmd}" --program "{bootloader.file}" -f nrf52 --sectorerase --reset
+
+# Jlink to upload sketch
+nrfjprog.program.params.quiet=
+nrfjprog.program.params.verbose=
+nrfjprog.program.pattern="{program.cmd}" --reset --program "{build.path}/{build.project_name}.hex" --sectorerase -f nrf52
+
+#**********************************************
+# nrfutil
+#**********************************************
+#nrfutil_boot.name=Bootloader DFU for Bluefruit nRF52
+#nrfutil_boot.program.tool=bootburn
+#nrfutil_boot.program.cmd=nrfutil
+#nrfutil_boot.program.cmd.windows={runtime.platform.path}/tools/nrfutil/win32/nrfutil.exe
+#nrfutil_boot.program.cmd.macosx={runtime.platform.path}/tools/nrfutil/macos/nrfutil
+#
+## Burn bootloader pattern
+#nrfutil_boot.program.burn_pattern={program.cmd} dfu serial -pkg "{bootloader.file}.zip" --port {serial.port} 
+#
+## Remind user to select Jlink when used to upload sketch
+#nrfutil_boot.program.params.quiet=
+#nrfutil_boot.program.params.verbose=
+#nrfutil_boot.program.pattern=echo Please select <J-Link for Bluefruit nRF52> as programmer

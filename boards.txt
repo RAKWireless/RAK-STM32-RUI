@@ -1,0 +1,101 @@
+# Copyright (c) 2014-2015 Arduino LLC.  All right reserved.
+# Copyright (c) 2016 Sandeep Mistry All right reserved.
+# Copyright (c) 2017 Adafruit Industries.  All right reserved.
+#
+# This library is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Lesser General Public
+# License as published by the Free Software Foundation; either
+# version 2.1 of the License, or (at your option) any later version.
+#
+# This library is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+# See the GNU Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public
+# License along with this library; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+menu.softdevice=Bootloader
+menu.debug=Debug
+
+# ----------------------------------
+# WisDuo RAK3172 Evaluation Board
+# ----------------------------------
+WisDuoRAK3172EvaluationBoard.name=WisDuo RAK3172 Evaluation Board
+WisDuoRAK3172EvaluationBoard.bootloader.tool=bootburn
+WisDuoRAK3172EvaluationBoard.build.variant_h=variant_{build.board}.h
+WisDuoRAK3172EvaluationBoard.build.series=rak3172
+
+# Upload
+WisDuoRAK3172EvaluationBoard.upload.tool=uploader_3372
+WisDuoRAK3172EvaluationBoard.upload.protocol=uploader_3372
+WisDuoRAK3172EvaluationBoard.upload.use_1200bps_touch=true
+WisDuoRAK3172EvaluationBoard.upload.wait_for_upload_port=true
+WisDuoRAK3172EvaluationBoard.upload.maximum_size=815104
+WisDuoRAK3172EvaluationBoard.upload.maximum_data_size=237568
+
+# Build
+WisDuoRAK3172EvaluationBoard.build.mcu=cortex-m4
+WisDuoRAK3172EvaluationBoard.build.f_cpu=64000000
+WisDuoRAK3172EvaluationBoard.build.board=WisDuo_RAK3172_Evaluation_Board
+WisDuoRAK3172EvaluationBoard.build.core=STM32WLE
+WisDuoRAK3172EvaluationBoard.build.variant=WisDuo_RAK3172_Evaluation_Board
+WisDuoRAK3172EvaluationBoard.build.usb_manufacturer="RAKwireless"
+WisDuoRAK3172EvaluationBoard.build.usb_product="WisDuo RAK3172 Evaluation Board"
+WisDuoRAK3172EvaluationBoard.build.extra_flags=-DSTM32WL55xx {build.flags.usb}
+WisDuoRAK3172EvaluationBoard.build.ldscript=flash_stm32wle5xx.ld
+WisDuoRAK3172EvaluationBoard.build.vid=0x1A86
+WisDuoRAK3172EvaluationBoard.build.pid=0x7523
+
+# Debug Menu
+WisDuoRAK3172EvaluationBoard.menu.debug.l0=Level 0 (Release)
+WisDuoRAK3172EvaluationBoard.menu.debug.l0.build.debug_flags=-DCFG_DEBUG=0
+WisDuoRAK3172EvaluationBoard.menu.debug.l1=Level 1 (Error Message)
+WisDuoRAK3172EvaluationBoard.debug.l1.build.debug_flags=-DCFG_DEBUG=1
+WisDuoRAK3172EvaluationBoard.menu.debug.l2=Level 2 (Full Debug)
+WisDuoRAK3172EvaluationBoard.menu.debug.l2.build.debug_flags=-DCFG_DEBUG=2
+WisDuoRAK3172EvaluationBoard.menu.debug.l3=Level 3 (Segger SystemView)
+WisDuoRAK3172EvaluationBoard.menu.debug.l3.build.debug_flags=-DCFG_DEBUG=3
+WisDuoRAK3172EvaluationBoard.menu.debug.l3.build.sysview_flags=-DCFG_SYSVIEW=1
+
+# ----------------------------------
+# WisDuo RAK3172-SiP Board
+# ----------------------------------
+WisDuoRAK3172SiPBoard.name=WisDuo RAK3272-SiP Board
+WisDuoRAK3172SiPBoard.bootloader.tool=bootburn
+WisDuoRAK3172SiPBoard.build.variant_h=variant_{build.board}.h
+WisDuoRAK3172SiPBoard.build.series=rak3172-sip
+
+# Upload
+WisDuoRAK3172SiPBoard.upload.tool=uploader_3372
+WisDuoRAK3172SiPBoard.upload.protocol=uploader_3372
+WisDuoRAK3172SiPBoard.upload.use_1200bps_touch=true
+WisDuoRAK3172SiPBoard.upload.wait_for_upload_port=true
+WisDuoRAK3172SiPBoard.upload.maximum_size=815104
+WisDuoRAK3172SiPBoard.upload.maximum_data_size=237568
+
+# Build
+WisDuoRAK3172SiPBoard.build.mcu=cortex-m4
+WisDuoRAK3172SiPBoard.build.f_cpu=64000000
+WisDuoRAK3172SiPBoard.build.board=WisDuo_RAK3272-SiP_Board
+WisDuoRAK3172SiPBoard.build.core=STM32WLE
+WisDuoRAK3172SiPBoard.build.variant=WisDuo_RAK3272-SiP_Board
+WisDuoRAK3172SiPBoard.build.usb_manufacturer="RAKwireless"
+WisDuoRAK3172SiPBoard.build.usb_product="WisDuo RAK3272-SiP Board"
+WisDuoRAK3172SiPBoard.build.extra_flags=-DSTM32WL55xx {build.flags.usb}
+WisDuoRAK3172SiPBoard.build.ldscript=flash_stm32wle5xx.ld
+WisDuoRAK3172SiPBoard.build.vid=0x1A86
+WisDuoRAK3172SiPBoard.build.pid=0x7523
+
+# Debug Menu
+WisDuoRAK3172SiPBoard.menu.debug.l0=Level 0 (Release)
+WisDuoRAK3172SiPBoard.menu.debug.l0.build.debug_flags=-DCFG_DEBUG=0
+WisDuoRAK3172SiPBoard.menu.debug.l1=Level 1 (Error Message)
+WisDuoRAK3172SiPBoard.debug.l1.build.debug_flags=-DCFG_DEBUG=1
+WisDuoRAK3172SiPBoard.menu.debug.l2=Level 2 (Full Debug)
+WisDuoRAK3172SiPBoard.menu.debug.l2.build.debug_flags=-DCFG_DEBUG=2
+WisDuoRAK3172SiPBoard.menu.debug.l3=Level 3 (Segger SystemView)
+WisDuoRAK3172SiPBoard.menu.debug.l3.build.debug_flags=-DCFG_DEBUG=3
+WisDuoRAK3172SiPBoard.menu.debug.l3.build.sysview_flags=-DCFG_SYSVIEW=1
+

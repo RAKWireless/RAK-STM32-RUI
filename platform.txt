@@ -1,0 +1,164 @@
+# Copyright (c) 2014-2015 Arduino LLC.  All right reserved.
+# Copyright (c) 2016 Sandeep Mistry All right reserved.
+# Copyright (c) 2017 Adafruit Industries.  All rights reserved.
+# Copyright (c) 2020 Shenzhen RAKwireless Technology Co., Ltd. All rights reserved     
+#
+# This library is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Lesser General Public
+# License as published by the Free Software Foundation; either
+# version 2.1 of the License, or (at your option) any later version.
+#
+# This library is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+# See the GNU Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public
+# License along with this library; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+name=RAKwireless RUI STM32 Modules
+
+# Compile variables
+# -----------------
+
+compiler.warning_flags=-w
+compiler.warning_flags.none=-w
+compiler.warning_flags.default=
+compiler.warning_flags.more=-Wall
+compiler.warning_flags.all=-Wall -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -Wno-pointer-arith
+
+# Allow changing optimization settings via platform.local.txt / boards.local.txt
+compiler.optimization_flag=-Os
+
+compiler.path={runtime.tools.arm-none-eabi-gcc.path}/bin/
+compiler.c.cmd=arm-none-eabi-gcc
+compiler.c.flags=-mcpu={build.mcu} -mthumb -c -g {compiler.warning_flags} {build.float_flags} -std=gnu11 -ffunction-sections -fdata-sections --param max-inline-insns-single=500 -MMD
+compiler.c.elf.cmd=arm-none-eabi-gcc
+compiler.c.elf.flags={compiler.optimization_flag} -Wl,--gc-sections -save-temps
+compiler.S.cmd=arm-none-eabi-gcc
+compiler.S.flags=-c -g -x assembler-with-cpp
+compiler.cpp.cmd=arm-none-eabi-g++
+compiler.cpp.flags=-mcpu={build.mcu} -mthumb -c -g {compiler.warning_flags} {build.float_flags} -std=gnu++11 -ffunction-sections -fdata-sections -fno-threadsafe-statics --param max-inline-insns-single=500 -fno-rtti -fno-exceptions -MMD
+compiler.ar.cmd=arm-none-eabi-ar
+compiler.ar.flags=rcs
+compiler.objcopy.cmd=arm-none-eabi-objcopy
+compiler.objcopy.eep.flags=-O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0
+compiler.elf2bin.flags=-O binary -S
+compiler.elf2bin.cmd=arm-none-eabi-objcopy
+compiler.elf2hex.flags=-O ihex
+compiler.elf2hex.cmd=arm-none-eabi-objcopy
+compiler.ldflags=-mcpu={build.mcu} -mthumb {build.float_flags} -Wl,--cref -Wl,--check-sections -Wl,--gc-sections -Wl,--unresolved-symbols=report-all -Wl,--warn-common --specs=nano.specs --specs=nosys.specs {build.flags.lib_path}
+compiler.size.cmd=arm-none-eabi-size
+
+# this can be overriden in boards.txt
+build.float_flags=-mfpu=fpv4-sp-d16 -u _printf_float
+build.debug_flags=-DCFG_DEBUG=0
+build.logger_flags=-DCFG_LOGGER=1
+build.sysview_flags=-DCFG_SYSVIEW=0
+build.variant_h=variant.h
+
+# common compiler for nrf
+#rtos.path={build.core.path}/freertos
+#nordic.path={runtime.platform.path}/cores/nRF5/external/nRF5_SDK/nRF5_SDK_17.0.2_d674dde
+lora.path={runtime.platform.path}/cores/{build.core}/external/lora
+
+
+# build.logger_flags and build.sysview_flags and intentionally empty,
+# to allow modification via a user's own boards.local.txt or platform.local.txt files.
+build.flags.default= {compiler.optimization_flag} {build.flags.feature} {build.debug_flags} {build.logger_flags} {build.sysview_flags} {build.flags.inc_path}
+build.info.flags=-DVARIANT_H="{build.variant_h}"
+build.info.flags=-D{build.series}
+
+
+# usb flags
+build.flags.usb= -DUSBCON -DUSE_TINYUSB -DUSB_VID={build.vid} -DUSB_PID={build.pid} '-DUSB_MANUFACTURER={build.usb_manufacturer}' '-DUSB_PRODUCT={build.usb_product}'
+
+# These can be overridden in platform.local.txt
+compiler.c.extra_flags=
+compiler.c.elf.extra_flags=
+compiler.cpp.extra_flags= -DDEBUG
+compiler.S.extra_flags=
+compiler.ar.extra_flags=
+compiler.libraries.ldflags=
+compiler.elf2bin.extra_flags=
+compiler.elf2hex.extra_flags=
+
+
+# Compile patterns
+# ----------------
+
+## Compile c files
+recipe.c.o.pattern="{compiler.path}{compiler.c.cmd}" {compiler.c.flags} -DF_CPU={build.f_cpu} -DARDUINO={runtime.ide.version} -DARDUINO_{build.board} -DARDUINO_ARCH_{build.arch} '-DARDUINO_BSP_VERSION="{version}"' {compiler.c.extra_flags} {build.extra_flags} {build.flags.default} {includes} "{source_file}" -o "{object_file}"
+
+## Compile c++ files
+recipe.cpp.o.pattern="{compiler.path}{compiler.cpp.cmd}" {compiler.cpp.flags} -DF_CPU={build.f_cpu} -DARDUINO={runtime.ide.version} -DARDUINO_{build.board} -DARDUINO_ARCH_{build.arch} '-DARDUINO_BSP_VERSION="{version}"' {compiler.cpp.extra_flags} {build.extra_flags} {build.flags.default} {includes} "{source_file}" -o "{object_file}"
+
+## Compile S files
+recipe.S.o.pattern="{compiler.path}{compiler.S.cmd}" {compiler.S.flags} -DF_CPU={build.f_cpu} -DARDUINO={runtime.ide.version} -DARDUINO_{build.board} -DARDUINO_ARCH_{build.arch} {compiler.S.extra_flags} {build.extra_flags} {build.flags.default} {includes} "{source_file}" -o "{object_file}"
+
+## Create archives
+recipe.ar.pattern="{compiler.path}{compiler.ar.cmd}" {compiler.ar.flags} {compiler.ar.extra_flags} "{archive_file_path}" "{object_file}"
+
+## Combine gc-sections, archives, and objects
+recipe.c.combine.pattern="{compiler.path}{compiler.c.elf.cmd}" "-L{build.path}" {compiler.c.elf.flags} {compiler.c.elf.extra_flags} "-L{build.core.path}/component/core/soc/stm32wle5xx" "-T{build.ldscript}" "-Wl,-Map,{build.path}/{build.project_name}.map" {compiler.ldflags} -o "{build.path}/{build.project_name}.elf" {object_files} {compiler.libraries.ldflags} -Wl,--start-group -lc -lm -lnosys -lstdc++ "{build.path}/{archive_file}" {build.flags.lib} -Wl,--end-group
+
+## Create output (bin file)
+recipe.objcopy.bin.pattern="{compiler.path}{compiler.elf2bin.cmd}" {compiler.elf2bin.flags} {compiler.elf2bin.extra_flags} "{build.path}/{build.project_name}.elf" "{build.path}/{build.project_name}.bin"
+
+## Create output (hex file)
+recipe.objcopy.hex.pattern="{compiler.path}{compiler.elf2hex.cmd}" {compiler.elf2hex.flags} {compiler.elf2hex.extra_flags} "{build.path}/{build.project_name}.elf" "{build.path}/{build.project_name}.hex"
+
+## Create dfu package zip file
+#recipe.objcopy.zip.pattern="{runtime.tools.pc-nrfutil.path}/nrfutil" pkg generate --hw-version 52 --application-version 1 --application "{build.path}/{build.project_name}.hex" --sd-req {build.sd_fwid} --key-file {runtime.platform.path}/security/private.key "{build.path}/{build.project_name}.zip"
+
+## Save bin
+recipe.output.tmp_file_bin={build.project_name}.bin
+recipe.output.save_file_bin={build.project_name}.save.bin
+
+## Save hex
+recipe.output.tmp_file_hex={build.project_name}.hex
+recipe.output.save_file_hexu={build.project_name}.save.hex
+
+## Compute size
+recipe.size.pattern="{compiler.path}{compiler.size.cmd}" -A "{build.path}/{build.project_name}.elf"
+recipe.size.regex=^(?:\.text|\.data|)\s+([0-9]+).*
+recipe.size.regex.data=^(?:\.data|\.bss)\s+([0-9]+).*
+
+## Export Compiled Binary
+recipe.output.tmp_file={build.project_name}.hex
+recipe.output.save_file={build.project_name}.{build.variant}.hex
+
+tools.uploader_3372.cmd={runtime.tools.uploader_3372.path}/uploader_3372.py
+tools.uploader_3372.cmd.windows={runtime.tools.uploader_3372.path}/uploader_3372.exe
+tools.uploader_3372.cmd.macosx=python3 {runtime.tools.uploader_3372.path}/uploader_3372.py
+
+tools.uploader_3372.upload.params.verbose=--verbose
+tools.uploader_3372.upload.params.quiet=
+tools.uploader_3372.upload.pattern={cmd} -f "{build.path}/{build.project_name}.bin" -p {serial.port} 
+#***************************************************
+# prebuild hooks for buildtime
+#***************************************************
+recipe.hooks.sketch.prebuild.1.pattern=python3 {runtime.tools.buildtime.path}/buildtime.py
+recipe.hooks.sketch.prebuild.1.pattern.windows={runtime.tools.buildtime.path}/buildtime.exe {runtime.platform.path}/cores/{build.core}/version.c
+
+#***************************************************
+# Burning bootloader with either jlink or nrfutil
+#***************************************************
+
+# Bootloader version
+tools.bootburn.bootloader.file={runtime.platform.path}/prebuilt/bootloader.hex
+
+tools.bootburn.bootloader.params.verbose=
+tools.bootburn.bootloader.params.quiet=
+tools.bootburn.bootloader.pattern={program.burn_pattern}
+
+# erase flash page while programming
+tools.bootburn.erase.params.verbose=
+tools.bootburn.erase.params.quiet=
+tools.bootburn.erase.pattern=
+build.flags.feature= -DSUPPORT_LORA -DLORA_IO_SPI_PORT=2 -DSYS_RTC_COUNTER_PORT=2 -DATCMD_CUST_TABLE_SIZE=64 -DWAN_TYPE=0 -DLORA_STACK_VER=0x040407 -DRAK3372+RAK5005-O_V1.0 -Drak3172 -DCORE_CM4 -DUSE_HAL_DRIVER -DSTM32WL55xx -DREGION_AS923 -DREGION_AU915 -DREGION_CN470 -DREGION_CN779 -DREGION_EU433 -DREGION_EU868 -DREGION_KR920 -DREGION_IN865 -DREGION_US915 -DREGION_RU864 -DSOFT_SE -DSECURE_ELEMENT_PRE_PROVISIONED -DLORAMAC_CLASSB_ENABLED -DWISBLOCK_BASE_5005_O -DRUI_SDK
+build.flags.lib_path=-L{runtime.platform.path}/variants/{build.variant} -L{runtime.platform.path}/cores/STM32WLE/app -L{runtime.platform.path}/cores/STM32WLE/component/core/mcu/stm32wle5xx -L{runtime.platform.path}/cores/STM32WLE/component/core/mcu/stm32wle5xx/uhal -L{runtime.platform.path}/cores/STM32WLE/external -L{runtime.platform.path}/cores/STM32WLE/component/core/board/{build.series} -L{runtime.platform.path}/cores/STM32WLE/component/udrv/serial -L{runtime.platform.path}/cores/STM32WLE/component/udrv/flash -L{runtime.platform.path}/cores/STM32WLE/component/udrv/timer -L{runtime.platform.path}/cores/STM32WLE/component/service/nvm -L{runtime.platform.path}/cores/STM32WLE/component/udrv/system -L{runtime.platform.path}/cores/STM32WLE/component/udrv/powersave -L{runtime.platform.path}/cores/STM32WLE/component/udrv/wdt -L{runtime.platform.path}/cores/STM32WLE/component/udrv/gpio -L{runtime.platform.path}/cores/STM32WLE/component/udrv/twimst -L{runtime.platform.path}/cores/STM32WLE/component/udrv/delay -L{runtime.platform.path}/cores/STM32WLE/component/udrv/rtc -L{runtime.platform.path}/cores/STM32WLE/component/service/lora -L{runtime.platform.path}/cores/STM32WLE/component/udrv/delay -L{runtime.platform.path}/cores/STM32WLE/component/udrv/spimst -L{runtime.platform.path}/cores/STM32WLE/component/udrv/gpio -L{runtime.platform.path}/cores/STM32WLE/component/udrv/rtc -L{runtime.platform.path}/cores/STM32WLE/component/udrv/twimst -L{runtime.platform.path}/cores/STM32WLE/component/udrv/dfu -L{runtime.platform.path}/cores/STM32WLE/component/udrv/pwm -L{runtime.platform.path}/cores/STM32WLE/component/udrv/adc -L{runtime.platform.path}/cores/STM32WLE/component/service/battery -L{runtime.platform.path}/cores/STM32WLE/component/service/mode -L{runtime.platform.path}/cores/STM32WLE/component/rui_v3_api -L{runtime.platform.path}/cores/STM32WLE/component/fund/event_queue -L{runtime.platform.path}/cores/STM32WLE/component/fund/circular_queue
+build.flags.lib=-lboot -luhal -ludrv_serial -ludrv_flash -ludrv_timer -ludrv_system -ludrv_powersave -ludrv_wdt -ludrv_gpio -ludrv_twimst -ludrv_delay -ludrv_rtc -ludrv_delay -ludrv_spimst -ludrv_gpio -ludrv_rtc -ludrv_twimst -ludrv_dfu -ludrv_pwm -ludrv_adc -lrui_v3_api
+build.flags.inc_path=-I{runtime.platform.path}/variants/{build.variant} -Iapp/RAK3172-E/src -I{runtime.platform.path}/cores/STM32WLE/component/inc -I{runtime.platform.path}/cores/STM32WLE/component/core/mcu/stm32wle5xx -I{runtime.platform.path}/cores/STM32WLE/component/core/mcu/stm32wle5xx/uhal -I{runtime.platform.path}/cores/STM32WLE/component/core/mcu/stm32wle5xx/uhal/serial -I{runtime.platform.path}/cores/STM32WLE/component/core/mcu/none/uhal -I{runtime.platform.path}/cores/STM32WLE/component/core/board/{build.series} -I{runtime.platform.path}/cores/STM32WLE/component/udrv -I{runtime.platform.path}/cores/STM32WLE/component/udrv/serial -I{runtime.platform.path}/cores/STM32WLE/component/udrv/timer -I{runtime.platform.path}/cores/STM32WLE/component/udrv/delay -I{runtime.platform.path}/cores/STM32WLE/component/udrv/spimst -I{runtime.platform.path}/cores/STM32WLE/component/udrv/powersave -I{runtime.platform.path}/cores/STM32WLE/component/udrv/gpio -I{runtime.platform.path}/cores/STM32WLE/component/udrv/rtc -I{runtime.platform.path}/cores/STM32WLE/component/udrv/twimst -I{runtime.platform.path}/cores/STM32WLE/component/udrv/dfu -I{runtime.platform.path}/cores/STM32WLE/component/udrv/pwm -I{runtime.platform.path}/cores/STM32WLE/component/udrv/adc -I{runtime.platform.path}/cores/STM32WLE/component/udrv/system -I{runtime.platform.path}/cores/STM32WLE/component/udrv/ble -I{runtime.platform.path}/cores/STM32WLE/component/udrv/flash -I{runtime.platform.path}/cores/STM32WLE/component/udrv/wdt -I{runtime.platform.path}/cores/STM32WLE/component/udrv/nfc -I{runtime.platform.path}/cores/STM32WLE/component/service/lora -I{runtime.platform.path}/cores/STM32WLE/component/service/lora/packages -I{runtime.platform.path}/cores/STM32WLE/component/service/nvm -I{runtime.platform.path}/cores/STM32WLE/component/service/battery -I{runtime.platform.path}/cores/STM32WLE/component/service/mode -I{runtime.platform.path}/cores/STM32WLE/component/service/mode/cli -I{runtime.platform.path}/cores/STM32WLE/component/service/mode/transparent -I{runtime.platform.path}/cores/STM32WLE/component/service/mode/protocol -I{runtime.platform.path}/cores/STM32WLE/component/rui_v3_api -I{runtime.platform.path}/cores/STM32WLE/component/fund/event_queue -I{runtime.platform.path}/cores/STM32WLE/component/fund/circular_queue -I{runtime.platform.path}/cores/STM32WLE/external/lora/LoRaMac-node-4.4.7/src/mac -I{runtime.platform.path}/cores/STM32WLE/external/lora/LoRaMac-node-4.4.7/src/mac/region -I{runtime.platform.path}/cores/STM32WLE/external/lora/LoRaMac-node-4.4.7/src/radio -I{runtime.platform.path}/cores/STM32WLE/external/lora/LoRaMac-node-4.4.7/src/system -I{runtime.platform.path}/cores/STM32WLE/external/lora/LoRaMac-node-4.4.7/src/peripherals -I{runtime.platform.path}/cores/STM32WLE/external/lora/LoRaMac-node-4.4.7/src/apps/LoRaMac/common/LmHandler -I{runtime.platform.path}/cores/STM32WLE/external/lora/LoRaMac-node-4.4.7/src/boards -I{runtime.platform.path}/cores/STM32WLE/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include -I{runtime.platform.path}/cores/STM32WLE/external/STM32CubeWL/Drivers/CMSIS/Include -I{runtime.platform.path}/cores/STM32WLE/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc -I{runtime.platform.path}/cores/STM32WLE/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver -I{runtime.platform.path}/cores/STM32WLE/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy -I{runtime.platform.path}/cores/STM32WLE/external/STM32CubeWL/Utilities/timer -I{runtime.platform.path}/cores/STM32WLE/external/STM32CubeWL/Utilities/lpm/tiny_lpm -I{runtime.platform.path}/cores/STM32WLE/external/STM32CubeWL/Utilities/misc -I{runtime.platform.path}/cores/STM32WLE/external/STM32CubeWL/Utilities/sequencer -I{runtime.platform.path}/cores/STM32WLE/external/STM32CubeWL/Utilities/trace/adv_trace -I{runtime.platform.path}/cores/STM32WLE/external/lora/LoRaMac-node-4.4.7/src/mac -I{runtime.platform.path}/cores/STM32WLE/external/lora/LoRaMac-node-4.4.7/src/boards -I{runtime.platform.path}/cores/STM32WLE/external/lora/LoRaMac-node-4.4.7/src/mac/region -I{runtime.platform.path}/cores/STM32WLE/external/lora/LoRaMac-node-4.4.7/src/radio -I{runtime.platform.path}/cores/STM32WLE/external/lora/LoRaMac-node-4.4.7/src/peripherals/ -I{runtime.platform.path}/cores/STM32WLE/external/STM32CubeWL/Libraries/queue -I{runtime.platform.path}/cores/STM32WLE/external/STM32CubeWL/Libraries/include -I{runtime.platform.path}/cores/STM32WLE/external/STM32CubeWL/Libraries/scheduler -I{runtime.platform.path}/cores/STM32WLE/external/FatFs/source -I{runtime.platform.path}/cores/STM32WLE/external/spiffs/src
+version=3.2.0
