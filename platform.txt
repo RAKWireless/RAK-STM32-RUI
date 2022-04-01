@@ -129,13 +129,13 @@ recipe.size.regex.data=^(?:\.data|\.bss)\s+([0-9]+).*
 recipe.output.tmp_file={build.project_name}.hex
 recipe.output.save_file={build.project_name}.{build.variant}.hex
 
-tools.uploader_3372.cmd={runtime.tools.uploader_3372.path}/uploader_3372.py
-tools.uploader_3372.cmd.windows={runtime.tools.uploader_3372.path}/uploader_3372.exe
-tools.uploader_3372.cmd.macosx=python3 {runtime.tools.uploader_3372.path}/uploader_3372.py
+tools.uploader_ymodem.cmd={runtime.tools.uploader_ymodem.path}/uploader_ymodem.py
+tools.uploader_ymodem.cmd.windows={runtime.tools.uploader_ymodem.path}/uploader_ymodem.exe
+tools.uploader_ymodem.cmd.macosx=python3 {runtime.tools.uploader_ymodem.path}/uploader_ymodem.py
 
-tools.uploader_3372.upload.params.verbose=--verbose
-tools.uploader_3372.upload.params.quiet=
-tools.uploader_3372.upload.pattern={cmd} -f "{build.path}/{build.project_name}.bin" -p {serial.port} 
+tools.uploader_ymodem.upload.params.verbose=--verbose
+tools.uploader_ymodem.upload.params.quiet=
+tools.uploader_ymodem.upload.pattern={cmd} -f "{build.path}/{build.project_name}.bin" -p {serial.port} 
 #***************************************************
 # prebuild hooks for buildtime
 #***************************************************

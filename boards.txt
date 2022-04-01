@@ -28,8 +28,8 @@ WisDuoRAK3172EvaluationBoard.build.variant_h=variant_{build.board}.h
 WisDuoRAK3172EvaluationBoard.build.series=rak3172
 
 # Upload
-WisDuoRAK3172EvaluationBoard.upload.tool=uploader_3372
-WisDuoRAK3172EvaluationBoard.upload.protocol=uploader_3372
+WisDuoRAK3172EvaluationBoard.upload.tool=uploader_ymodem
+WisDuoRAK3172EvaluationBoard.upload.protocol=uploader_ymodem
 WisDuoRAK3172EvaluationBoard.upload.use_1200bps_touch=true
 WisDuoRAK3172EvaluationBoard.upload.wait_for_upload_port=true
 WisDuoRAK3172EvaluationBoard.upload.maximum_size=815104
@@ -68,8 +68,8 @@ WisDuoRAK3172SiPBoard.build.variant_h=variant_{build.board}.h
 WisDuoRAK3172SiPBoard.build.series=rak3172-sip
 
 # Upload
-WisDuoRAK3172SiPBoard.upload.tool=uploader_3372
-WisDuoRAK3172SiPBoard.upload.protocol=uploader_3372
+WisDuoRAK3172SiPBoard.upload.tool=uploader_ymodem
+WisDuoRAK3172SiPBoard.upload.protocol=uploader_ymodem
 WisDuoRAK3172SiPBoard.upload.use_1200bps_touch=true
 WisDuoRAK3172SiPBoard.upload.wait_for_upload_port=true
 WisDuoRAK3172SiPBoard.upload.maximum_size=815104
