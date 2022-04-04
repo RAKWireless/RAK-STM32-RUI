@@ -1,126 +1,191 @@
+#define OTAA_PERIOD   (10000)
+/*************************************
 
-beacon_bgw_t beaconBGW;
-bool ret;
-void setup()
+   LoRaWAN band setting:
+     RAK_REGION_EU433
+     RAK_REGION_CN470
+     RAK_REGION_RU864
+     RAK_REGION_IN865
+     RAK_REGION_EU868
+     RAK_REGION_US915
+     RAK_REGION_AU915
+     RAK_REGION_KR920
+     RAK_REGION_AS923
+
+ *************************************/
+#define OTAA_BAND     (RAK_REGION_EU868)
+#define OTAA_DEVEUI   {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x88}
+#define OTAA_APPEUI   {0x0E, 0x0D, 0x0D, 0x01, 0x0E, 0x01, 0x02, 0x0E}
+#define OTAA_APPKEY   {0x2B, 0x7E, 0x15, 0x16, 0x28, 0xAE, 0xD2, 0xA6, 0xAB, 0xF7, 0x15, 0x88, 0x09, 0xCF, 0x4F, 0x3E}
+
+/** Packet buffer for sending */
+uint8_t collected_data[64] = { 0 };
+
+void
+recvCallback (SERVICE_LORA_RECEIVE_T * data)
 {
-  Serial.begin(115200);
-
-  Serial.println("RAKwireless LoRaWan Ckass B Example");
-  Serial.println("------------------------------------------------------");
-  // OTAA Device EUI MSB
-  uint8_t node_device_eui[8] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08};
-  // OTAA Application EUI MSB
-  uint8_t node_app_eui[8] = {0x0E, 0x0D, 0x0D, 0x01, 0x0E, 0x01, 0x02, 0x03};
-  // OTAA Application Key MSB
-  uint8_t node_app_key[16] = {0x2B, 0x7E, 0x15, 0x16, 0x28, 0xAE, 0xD2, 0xA6, 0xAB, 0xF7, 0x15, 0x88, 0x09, 0xCF, 0x4F, 0x3C};
-
-  if(!(ret = api.lorawan.appeui.set(node_app_eui, 8)))
+  if (data->BufferSize > 0)
   {
-       Serial.printf("LoRaWan Class B - set device EUI is incorrect! \r\n");
-       return;
-  }
-  if(!(ret = api.lorawan.appkey.set(node_app_key, 16)))
-  {
-       Serial.printf("LoRaWan Class B - set application EUI is incorrect! \r\n");
-       return;
-  }
-  if(!(ret = api.lorawan.deui.set(node_device_eui, 8)))
-  {
-       Serial.printf("LoRaWan Class B - set application key is incorrect! \r\n");
-       return;
-  }
-
-  /*************************************
-   *
-   * LoRaWAN band setting:
-   *   EU433: 0
-   *   CN470: 1
-   *   RU864: 2
-   *   IN865: 3
-   *   EU868: 4
-   *   US915: 5
-   *   AU915: 6
-   *   KR920: 7
-   *   AS923: 8
-   *
-   * ************************************/
-
-  if(!(ret = api.lorawan.band.set(4)))
-  {
-       Serial.printf("LoRaWan Class B - set band is incorrect! \r\n");
-       return;
-  }
-  if(!(ret = api.lorawan.deviceClass.set(1)))
-  {
-       Serial.printf("LoRaWan Class B - set device class is incorrect! \r\n");
-       return;
-  }
-  if(!(ret = api.lorawan.njm.set(1)))
-  {
-       Serial.printf("LoRaWan Class B - set network join mode is incorrect! \r\n");
-       return;
-  }
-  if(!(ret = api.lorawan.join()))
-  {
-       Serial.printf("LoRaWan Class B - join fail! \r\n");
-       return;
-  }
-
-  /**Wait for Join success */
-  while (api.lorawan.njs.get() == 0)
-  {
-    Serial.print("Waiting for Lorawan join...");
-    api.lorawan.join();
-    delay(10000);
+    Serial.println ("Something received!");
+    for (int i = 0; i < data->BufferSize; i++)
+    {
+      Serial.printf ("%x", data->Buffer[i]);
+    }
+    Serial.print ("\r\n");
   }
 }
 
-void loop()
+void
+joinCallback (int32_t status)
 {
-  uint8_t rbuff[16];
+  Serial.printf ("Join status: %d\r\n", status);
+}
 
-  Serial.print("Network Join Status=");
-  Serial.println(api.lorawan.njs.get());
-
-  api.lorawan.appskey.get(rbuff, 16);
-  Serial.print("Application Session Key=0x");
-  for (int i = 0; i < 16; i++)
+void
+sendCallback (int32_t status)
+{
+  if (status == 0)
   {
-    Serial.printf("%x", rbuff[i]);
+    Serial.println ("Successfully sent");
   }
-  Serial.print("\r\n");
-
-  api.lorawan.nwkskey.get(rbuff, 16);
-  Serial.print("Network Session Key=0x");
-  for (int i = 0; i < 16; i++)
+  else
   {
-    Serial.printf("%x", rbuff[i]);
+    Serial.println ("Sending failed");
   }
-  Serial.print("\r\n");
+}
 
-  api.lorawan.netid.get(rbuff, 16);
-  Serial.print("24-bit Network Identifier(NetId)=0x");
-  for (int i = 0; i < 3; i++)
+void
+setup ()
+{
+  Serial.begin (115200, RAK_AT_MODE);
+
+  Serial.println ("RAKwireless LoRaWan OTAA Example");
+  Serial.println ("------------------------------------------------------");
+
+  // OTAA Device EUI MSB first
+  uint8_t node_device_eui[8] = OTAA_DEVEUI;
+  // OTAA Application EUI MSB first
+  uint8_t node_app_eui[8] = OTAA_APPEUI;
+  // OTAA Application Key MSB first
+  uint8_t node_app_key[16] = OTAA_APPKEY;
+
+  if (!api.lorawan.appeui.set (node_app_eui, 8))
   {
-    Serial.printf("%x", rbuff[i]);
+    Serial.printf ("LoRaWan OTAA - set application EUI is incorrect! \r\n");
+    return;
   }
-  Serial.print("\r\n");
-
-  api.lorawan.daddr.get(rbuff, 16);
-  Serial.print("Device Address=0x");
-  for (int i = 0; i < 4; i++)
+  if (!api.lorawan.appkey.set (node_app_key, 16))
   {
-    Serial.printf("%x", rbuff[i]);
+    Serial.printf ("LoRaWan OTAA - set application key is incorrect! \r\n");
+    return;
   }
-  Serial.print("\r\n");
+  if (!api.lorawan.deui.set (node_device_eui, 8))
+  {
+    Serial.printf ("LoRaWan OTAA - set device EUI is incorrect! \r\n");
+    return;
+  }
 
-  beaconBGW = api.lorawan.bgw.get();
+  if (!api.lorawan.band.set (OTAA_BAND))
+  {
+    Serial.printf ("LoRaWan OTAA - set band is incorrect! \r\n");
+    return;
+  }
+  if (!api.lorawan.deviceClass.set (RAK_LORA_CLASS_B))
+  {
+    Serial.printf ("LoRaWan OTAA - set device class is incorrect! \r\n");
+    return;
+  }
+  if (!api.lorawan.njm.set (RAK_LORA_OTAA))	// Set the network join mode to OTAA
+  {
+    Serial.printf ("LoRaWan OTAA - set network join mode is incorrect! \r\n");
+    return;
+  }
+  if (!api.lorawan.join ())	// Join to Gateway
+  {
+    Serial.printf ("LoRaWan OTAA - join fail! \r\n");
+    return;
+  }
 
-  Serial.printf("GPS Coordinate = %u\r\n", (unsigned int)beaconBGW.GPS_coordinate);
-  Serial.printf("Latitude = %f\r\n", (float)beaconBGW.latitude * (float)90 / (float)8388607);
-  Serial.printf("longitude = %f\r\n", (float)beaconBGW.longitude * (float)180 / (float)8388607);
-  Serial.printf("Net ID = %u\r\n", (unsigned int)beaconBGW.net_ID);
-  Serial.printf("Gateway ID = %u\r\n", (unsigned int)beaconBGW.gateway_ID);
+  /** Wait for Join success */
+  while (api.lorawan.njs.get () == 0)
+  {
+    Serial.print ("Wait for LoRaWAN join...");
+    api.lorawan.join ();
+    delay (10000);
+  }
 
-  delay(1000);
+  if (!api.lorawan.adr.set (true))
+  {
+    Serial.printf
+      ("LoRaWan OTAA - set adaptive data rate is incorrect! \r\n");
+    return;
+  }
+  if (!api.lorawan.rety.set (1))
+  {
+    Serial.printf ("LoRaWan OTAA - set retry times is incorrect! \r\n");
+    return;
+  }
+  if (!api.lorawan.cfm.set (1))
+  {
+    Serial.printf ("LoRaWan OTAA - set confirm mode is incorrect! \r\n");
+    return;
+  }
+
+  /** Check LoRaWan Status*/
+  Serial.printf ("Duty cycle is %s\r\n", api.lorawan.dcs.get ()? "ON" : "OFF");	// Check Duty Cycle status
+  Serial.printf ("Packet is %s\r\n", api.lorawan.cfm.get ()? "CONFIRMED" : "UNCONFIRMED");	// Check Confirm status
+  uint8_t assigned_dev_addr[4] = { 0 };
+  api.lorawan.daddr.get (assigned_dev_addr, 4);
+  Serial.printf ("Device Address is %02X%02X%02X%02X\r\n", assigned_dev_addr[0], assigned_dev_addr[1], assigned_dev_addr[2], assigned_dev_addr[3]);	// Check Device Address
+  Serial.printf ("Uplink period is %ums\r\n", OTAA_PERIOD);
+  Serial.println ("");
+  api.lorawan.registerRecvCallback (recvCallback);
+  api.lorawan.registerJoinCallback (joinCallback);
+  api.lorawan.registerSendCallback (sendCallback);
+}
+
+void
+uplink_routine ()
+{
+  /** Payload of Uplink */
+  uint8_t data_len = 0;
+  collected_data[data_len++] = (uint8_t) 't';
+  collected_data[data_len++] = (uint8_t) 'e';
+  collected_data[data_len++] = (uint8_t) 's';
+  collected_data[data_len++] = (uint8_t) 't';
+
+  Serial.println ("Data Packet:");
+  for (int i = 0; i < data_len; i++)
+  {
+    Serial.printf ("0x%02X ", collected_data[i]);
+  }
+  Serial.println ("");
+
+  /** Send the data package */
+  if (api.lorawan.send (data_len, (uint8_t *) & collected_data, 2, true, 1))
+  {
+    Serial.println ("Sending is requested");
+  }
+  else
+  {
+    Serial.println ("Sending failed");
+  }
+}
+
+void
+loop ()
+{
+  static uint64_t last = 0;
+  static uint64_t elapsed;
+
+  if ((elapsed = millis () - last) > OTAA_PERIOD)
+  {
+    uplink_routine ();
+
+    last = millis ();
+  }
+
+  //Serial.printf("Try sleep %ums..", OTAA_PERIOD);
+  api.system.sleep.all (OTAA_PERIOD);
+  //Serial.println("Wakeup..");
 }

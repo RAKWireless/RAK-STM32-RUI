@@ -1,166 +1,171 @@
-bool ret;
-void recv_cb(SERVICE_LORA_RECEIVE_T *data)
+#define ABP_PERIOD   (5000)
+/*************************************
+
+   LoRaWAN band setting:
+     RAK_REGION_EU433
+     RAK_REGION_CN470
+     RAK_REGION_RU864
+     RAK_REGION_IN865
+     RAK_REGION_EU868
+     RAK_REGION_US915
+     RAK_REGION_AU915
+     RAK_REGION_KR920
+     RAK_REGION_AS923
+
+ *************************************/
+#define ABP_BAND     (RAK_REGION_US915)
+#define ABP_DEVADDR  {0x05, 0x05, 0x06, 0x06}
+#define ABP_APPSKEY  {0xB4, 0x91, 0xCC, 0x10, 0x17, 0x0E, 0x89, 0x04, 0x33, 0xCA, 0x5B, 0x13, 0x1E, 0x74, 0x20, 0x07}
+#define ABP_NWKSKEY  {0xBF, 0x9B, 0x75, 0xBC, 0xD6, 0x08, 0x06, 0xDD, 0x80, 0xED, 0xB8, 0xE6, 0x83, 0x29, 0x9D, 0x22}
+
+/** Packet buffer for sending */
+uint8_t collected_data[64] = { 0 };
+
+void
+recvCallback (SERVICE_LORA_RECEIVE_T * data)
 {
-  Serial.println("Something received!");
-  for (int i = 0; i < data->BufferSize; i++)
+  if (data->BufferSize > 0)
   {
-    Serial.printf("%x", data->Buffer[i]);
+    Serial.println ("Something received!");
+    for (int i = 0; i < data->BufferSize; i++)
+    {
+      Serial.printf ("%x", data->Buffer[i]);
+    }
+    Serial.print ("\r\n");
   }
-  Serial.print("\r\n");
 }
 
-void join_cb(int32_t status)
+void
+sendCallback (int32_t status)
 {
-  Serial.printf("Join status: %d\r\n", status);
+  if (status == 0)
+  {
+    Serial.println ("Successfully sent");
+  }
+  else
+  {
+    Serial.println ("Sending failed");
+  }
 }
 
-void send_cb(int32_t status)
+void
+setup ()
 {
-  Serial.printf("Send status: %d\r\n", status);
-}
+  Serial.begin (115200, RAK_AT_MODE);
 
-void setup()
-{
-  Serial.begin(115200, RAK_AT_MODE);
+  Serial.println ("RAKwireless LoRaWan ABP Example");
+  Serial.println ("------------------------------------------------------");
 
-  Serial.println("RAKwireless LoRaWan ABP Example");
-  Serial.println("------------------------------------------------------");
-  // ABP Device Address
-  uint8_t node_dev_addr[4] = {0x05, 0x05, 0x06, 0x06};
+  // ABP Device Address MSB first
+  uint8_t node_dev_addr[4] = ABP_DEVADDR;
   // ABP Application Session Key
-  uint8_t node_app_skey[16] = {0x25, 0xC4, 0xF1, 0xD1, 0x78, 0xC8, 0x8D, 0x01, 0xA8, 0x80, 0xC2, 0x79, 0xA7, 0x9F, 0x34, 0x3B};
+  uint8_t node_app_skey[16] = ABP_APPSKEY;
   // ABP Network Session Key
-  uint8_t node_nwk_skey[16] = {0xD6, 0x03, 0x37, 0xAC, 0x97, 0x4C, 0x43, 0x2F, 0xF3, 0x7A, 0xF9, 0xA7, 0x9B, 0xE8, 0x50, 0xF7};
+  uint8_t node_nwk_skey[16] = ABP_NWKSKEY;
 
-  if(!(ret = api.lorawan.daddr.set(node_dev_addr, 4)))
+  if (!api.lorawan.daddr.set (node_dev_addr, 4))
   {
-       Serial.printf("LoRaWan ABP - set device addr is incorrect! \r\n");
-       return;
+    Serial.printf ("LoRaWan ABP - set device addr is incorrect! \r\n");
+    return;
   }
-  if(!(ret = api.lorawan.appskey.set(node_app_skey, 16)))
+  if (!api.lorawan.appskey.set (node_app_skey, 16))
   {
-       Serial.printf("LoRaWan ABP - set apps key is incorrect! \r\n");
-       return;
+    Serial.
+      printf ("LoRaWan ABP - set application session key is incorrect! \r\n");
+    return;
   }
-  if(!(ret = api.lorawan.nwkskey.set(node_nwk_skey, 16)))
+  if (!api.lorawan.nwkskey.set (node_nwk_skey, 16))
   {
-       Serial.printf("LoRaWan ABP - set network session key is incorrect! \r\n");
-       return;
+    Serial.
+      printf ("LoRaWan ABP - set network session key is incorrect! \r\n");
+    return;
+  }
+  if (!api.lorawan.band.set (ABP_BAND))
+  {
+    Serial.printf ("LoRaWan ABP - set band is incorrect! \r\n");
+    return;
+  }
+  if (!api.lorawan.deviceClass.set (RAK_LORA_CLASS_A))
+  {
+    Serial.printf ("LoRaWan ABP - set device class is incorrect! \r\n");
+    return;
+  }
+  if (!api.lorawan.njm.set (RAK_LORA_ABP))	// Set the network join mode to ABP
+  {
+    Serial.printf ("LoRaWan ABP - set network join mode is incorrect! \r\n");
+    return;
   }
 
-  /*************************************
-   *
-   * LoRaWAN band setting:
-   *   EU433: 0
-   *   CN470: 1
-   *   RU864: 2
-   *   IN865: 3
-   *   EU868: 4
-   *   US915: 5
-   *   AU915: 6
-   *   KR920: 7
-   *   AS923: 8
-   *
-   * ************************************/
+  if (!api.lorawan.adr.set (true))
+  {
+    Serial.printf ("LoRaWan ABP - set adaptive data rate is incorrect! \r\n");
+    return;
+  }
+  if (!api.lorawan.rety.set (1))
+  {
+    Serial.printf ("LoRaWan ABP - set retry times is incorrect! \r\n");
+    return;
+  }
+  if (!api.lorawan.cfm.set (1))
+  {
+    Serial.printf ("LoRaWan ABP - set confirm mode is incorrect! \r\n");
+    return;
+  }
 
-  
-  if(!(ret = api.lorawan.band.set(4)))
-  {
-       Serial.printf("LoRaWan ABP - set band is incorrect! \r\n");
-       return;
-  }
-  if(!(ret = api.lorawan.njm.set(0)))
-  {
-       Serial.printf("LoRaWan ABP - set network join mode is incorrect! \r\n");
-       return;
-  }
-  if(!(ret = api.lorawan.join()))
-  {
-       Serial.printf("LoRaWan ABP - join fail! \r\n");
-       return;
-  }
-  
-  api.lorawan.registerRecvCallback(recv_cb);
-  api.lorawan.registerJoinCallback(join_cb);
-  api.lorawan.registerSendCallback(send_cb);
+  /** Check LoRaWan Status*/
+  Serial.printf ("Duty cycle is %s\r\n", api.lorawan.dcs.get ()? "ON" : "OFF");	// Check Duty Cycle status
+  Serial.printf ("Packet is %s\r\n", api.lorawan.cfm.get ()? "CONFIRMED" : "UNCONFIRMED");	// Check Confirm status
+  uint8_t assigned_dev_addr[4] = { 0 };
+  api.lorawan.daddr.get (assigned_dev_addr, 4);
+  Serial.printf ("Device Address is %02X%02X%02X%02X\r\n", assigned_dev_addr[0], assigned_dev_addr[1], assigned_dev_addr[2], assigned_dev_addr[3]);	// Check Device Address
+  Serial.printf ("Uplink period is %ums\r\n", ABP_PERIOD);
+  Serial.println ("");
+  api.lorawan.registerRecvCallback (recvCallback);
+  api.lorawan.registerSendCallback (sendCallback);
+}
 
-  /**Wait for Join success */
-  while (api.lorawan.njs.get() == 0)
+void
+uplink_routine ()
+{
+  /** Payload of Uplink */
+  uint8_t data_len = 0;
+  collected_data[data_len++] = (uint8_t) 't';
+  collected_data[data_len++] = (uint8_t) 'e';
+  collected_data[data_len++] = (uint8_t) 's';
+  collected_data[data_len++] = (uint8_t) 't';
+
+  Serial.println ("Data Packet:");
+  for (int i = 0; i < data_len; i++)
   {
-    Serial.print("Waiting for Lorawan join...");
-    api.lorawan.join();
-    delay(10000);
+    Serial.printf ("0x%02X ", collected_data[i]);
+  }
+  Serial.println ("");
+
+  /** Send the data package */
+  if (api.lorawan.send (data_len, (uint8_t *) & collected_data, 2, true, 1))
+  {
+    Serial.println ("Sending is requested");
+  }
+  else
+  {
+    Serial.println ("Sending failed");
   }
 }
 
-void loop()
+void
+loop ()
 {
-  uint8_t rbuff[16];
-  uint8_t payload[] = "example";
+  static uint64_t last = 0;
+  static uint64_t elapsed;
 
-  Serial.print("Network Join Status=");
-  Serial.println(api.lorawan.njs.get());
-
-  api.lorawan.deui.get(rbuff, 8);
-  Serial.print("Device EUI=0x");
-  for (int i = 0; i < 8; i++)
+  if ((elapsed = millis () - last) > ABP_PERIOD)
   {
-    Serial.printf("%02x", rbuff[i]);
-  }
-  Serial.print("\r\n");
+    uplink_routine ();
 
-  api.lorawan.appeui.get(rbuff, 8);
-  Serial.print("Application EUI=0x");
-  for (int i = 0; i < 8; i++)
-  {
-    Serial.printf("%02x", rbuff[i]);
+    last = millis ();
   }
-  Serial.print("\r\n");
 
-  api.lorawan.appkey.get(rbuff, 16);
-  Serial.print("Application Key=0x");
-  for (int i = 0; i < 8; i++)
-  {
-    Serial.printf("%02x", rbuff[i]);
-  }
-  Serial.print("\r\n");
-
-  api.lorawan.appskey.get(rbuff, 16);
-  Serial.print("Application Session Key=0x");
-  for (int i = 0; i < 16; i++)
-  {
-    Serial.printf("%02x", rbuff[i]);
-  }
-  Serial.print("\r\n");
-
-  api.lorawan.nwkskey.get(rbuff, 16);
-  Serial.print("Network Session Key=0x");
-  for (int i = 0; i < 16; i++)
-  {
-    Serial.printf("%02x", rbuff[i]);
-  }
-  Serial.print("\r\n");
-
-  api.lorawan.netid.get(rbuff, 16);
-  Serial.print("24-bit Network Identifier(NetId)=0x");
-  for (int i = 0; i < 3; i++)
-  {
-    Serial.printf("%02x", rbuff[i]);
-  }
-  Serial.print("\r\n");
-
-  api.lorawan.daddr.get(rbuff, 16);
-  Serial.print("Device Address=0x");
-  for (int i = 0; i < 4; i++)
-  {
-    Serial.printf("%02x", rbuff[i]);
-  }
-  Serial.print("\r\n");
-
-  if(!(ret = api.lorawan.send(sizeof(payload), payload, 129, false, 0)))
-  {
-       Serial.printf("LoRaWan ABP - send fail! \r\n");
-       return;
-  }
-  delay(1000);
+  //Serial.printf("Try sleep %ums..", ABP_PERIOD);
+  api.system.sleep.all (ABP_PERIOD);
+  //Serial.println("Wakeup..");
 }
