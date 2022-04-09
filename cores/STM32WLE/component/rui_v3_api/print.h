@@ -6,8 +6,9 @@
 #include <string.h>
 #include <stdio.h>
 
+#include "Printable.h"
 #include "pgmspace.h"
-#include "AString.h"
+#include "WString.h"
 
 //define for convertion
 #define DEC 10

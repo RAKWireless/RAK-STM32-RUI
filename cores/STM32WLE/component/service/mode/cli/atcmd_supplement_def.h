@@ -24,7 +24,7 @@
  *
  * | Command            | Input parameter    | Return value                                                      | Return code        |
  * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
- * | AT+BAND?           | --                 | AT+BAND: get or set the active region (0 = EU433, 1 = CN70, 2 = RU864, 3 = IN865, 4 = EU868, 5 = US915, 6 = AU915, 7 = KR920, 8 = AS923)                             | OK                 |
+ * | AT+BAND?           | --                 | AT+BAND: get or set the active region (0 = EU433, 1 = CN470, 2 = RU864, 3 = IN865, 4 = EU868, 5 = US915, 6 = AU915, 7 = KR920, 8 = AS923)                             | OK                 |
  * | AT+BAND=?          | --                 | [0,1,2,3,4,5,6,7,8]                                               | OK                 |
  * | AT+BAND=\<Input\>  | [0,1,2,3,4,5,6,7,8]| --                                                                | OK / AT_PARAM_ERROR|
  * | Example<br>AT+BAND=| 1                  | --                                                                | OK                 |

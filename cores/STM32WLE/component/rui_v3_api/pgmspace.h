@@ -10,7 +10,7 @@
 
 #define __ATTR_PROGMEM__ __attribute__((section(".progmem")))
 
-#define PROGMEM __ATTR_PROGMEM__
+#define PROGMEM
 
 #define PGM_P const char *
 

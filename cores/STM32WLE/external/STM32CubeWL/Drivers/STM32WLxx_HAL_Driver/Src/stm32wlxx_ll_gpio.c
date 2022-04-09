@@ -1,5 +1,5 @@
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_ll_gpio.c"
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3//"
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_ll_gpio.c"
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3//"
 # 1 "<built-in>"
 #define __STDC__ 1
 #define __STDC_VERSION__ 199901L
@@ -484,7 +484,7 @@
 #define rak3172 1
 #define CORE_CM4 1
 #define USE_HAL_DRIVER 1
-#define STM32WL55xx 1
+#define STM32WLE5xx 1
 #define REGION_AS923 1
 #define REGION_AU915 1
 #define REGION_CN470 1
@@ -499,4 +499,4 @@
 #define SECURE_ELEMENT_PRE_PROVISIONED 1
 #define LORAMAC_CLASSB_ENABLED 1
 #define WISBLOCK_BASE_5005_O 1
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_ll_gpio.c"
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_ll_gpio.c"

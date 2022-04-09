@@ -1,3 +1,7 @@
+/*************************************
+ * This example is from https://github.com/Kongduino/RUI3_LoRa_P2P_PING_PONG
+ *************************************/
+
 long startTime;
 bool rx_done = false;
 double myFreq = 868000000;

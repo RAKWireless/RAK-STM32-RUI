@@ -186,7 +186,7 @@ at_cmd_info atcmd_info_tbl[] =
     {ATCMD_CHE,      /*52*/         At_Che,                0, "get or set eight channels mode (only for US915 AU915 CN470)", AT_CHE_PERM},
     {ATCMD_CHS,      /*53*/         At_Chs,                0, "get or set single channels mode (only for US915 AU915 CN470)", AT_CHS_PERM},
 #endif
-    {ATCMD_BAND,     /*54*/         At_Band,               0, "get or set the active region (0 = EU433, 1 = CN70, 2 = RU864, 3 = IN865, 4 = EU868, 5 = US915, 6 = AU915, 7 = KR920, 8 = AS923)", AT_BAND_PERM},
+    {ATCMD_BAND,     /*54*/         At_Band,               0, "get or set the active region (0 = EU433, 1 = CN470, 2 = RU864, 3 = IN865, 4 = EU868, 5 = US915, 6 = AU915, 7 = KR920, 8 = AS923)", AT_BAND_PERM},
 /* LoRaWAN P2P */
     {ATCMD_NWM,      /*55*/         At_NwkWorkMode,        0, "get or set the network working mode (0 = P2P_LORA, 1 = LoRaWAN, 2 = P2P_FSK)", AT_NWM_PERM},
     {ATCMD_PFREQ,    /*56*/         At_P2pFreq,            0, "configure P2P Frequency", AT_PFREQ_PERM},

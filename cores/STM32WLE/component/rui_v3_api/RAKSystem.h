@@ -19,25 +19,42 @@
 
 using namespace std;
 
+/**@addtogroup	RUI_System_Data_Type
+ * @{
+ */
+
+/**@par	Description
+ * 	The permission setting of AT command
+ */
+/* ATCMD PERMISSION */
+typedef enum {
+    RAK_ATCMD_PERM_READ          = ATCMD_PERM_READ,             ///< Read permission allows for reading a variable data only and disables any write functionality.
+    RAK_ATCMD_PERM_WRITE         = ATCMD_PERM_WRITE,            ///< Write permission allows for writting a variable data only and disables any read functionality.
+    RAK_ATCMD_PERM_WRITEONCEREAD = ATCMD_PERM_WRITEONCEREAD,    ///< Special functionality that allows for setting variable once and only allows for reading after.
+    RAK_ATCMD_PERM_DISABLE       = ATCMD_PERM_DISABLE,          ///< Disables the AT command from being used.
+} RAK_AT_PERMISSION;
+
+/**@}*/
+
 /** @def CHANGE_ATCMD_PERM(ATCMD,ATCMD_PERMISSIONS);
      * @ingroup System_Misc
      * @brief change AT command permission
 
         PERMISSION LEVEL:\n
-            ATCMD_PERM_READ,\n
-            ATCMD_PERM_WRITE,\n
-            ATCMD_PERM_WRITEONCEREAD,\n
-            ATCMD_PERM_DISABLE\n
-        AT commands' default permission are ATCMD_PERM_READ | ATCMD_PERM_WRITE
+            RAK_ATCMD_PERM_READ,\n
+            RAK_ATCMD_PERM_WRITE,\n
+            RAK_ATCMD_PERM_WRITEONCEREAD,\n
+            RAK_ATCMD_PERM_DISABLE\n
+        AT commands' default permission are RAK_ATCMD_PERM_READ | RAK_ATCMD_PERM_WRITE
      * @par		Example
      * @verbatim
-       CHANGE_ATCMD_PERM("AT+APPKEY",ATCMD_PERM_READ);
-       CHANGE_ATCMD_PERM("AT+APPSKEY",ATCMD_PERM_WRITE);
-       CHANGE_ATCMD_PERM("AT+DEVADDR",ATCMD_PERM_WRITEONCEREAD);
-       CHANGE_ATCMD_PERM("AT+APPEUI",ATCMD_PERM_DISABLE);
-       CHANGE_ATCMD_PERM("AT+NETID",ATCMD_PERM_READ | ATCMD_PERM_WRITE);
-       CHANGE_ATCMD_PERM("AT+ALIAS",ATCMD_PERM_READ | ATCMD_PERM_WRITE);
-       CHANGE_ATCMD_PERM("AT+HWID",ATCMD_PERM_READ | ATCMD_PERM_WRITE);
+       CHANGE_ATCMD_PERM("AT+APPKEY", RAK_ATCMD_PERM_READ);
+       CHANGE_ATCMD_PERM("AT+APPSKEY", RAK_ATCMD_PERM_WRITE);
+       CHANGE_ATCMD_PERM("AT+DEVADDR", RAK_ATCMD_PERM_WRITEONCEREAD);
+       CHANGE_ATCMD_PERM("AT+APPEUI", RAK_ATCMD_PERM_DISABLE);
+       CHANGE_ATCMD_PERM("AT+NETID", RAK_ATCMD_PERM_READ | RAK_ATCMD_PERM_WRITE);
+       CHANGE_ATCMD_PERM("AT+ALIAS", RAK_ATCMD_PERM_READ | RAK_ATCMD_PERM_WRITE);
+       CHANGE_ATCMD_PERM("AT+HWID", RAK_ATCMD_PERM_READ | RAK_ATCMD_PERM_WRITE);
 
        void setup()
        {
@@ -49,15 +66,12 @@ using namespace std;
        @endverbatim
     */
 
-
-
 #define CHANGE_ATCMD_PERM(_atcmd_name,_atcmd_perm)                 \
     ATCMD_ITEM(atcmd_queue, atcmd_permission_item UNIQUE_NAME(permissions)) =   \
     {                                       \
     .atcmd_id = _atcmd_name,                \
     .permission = _atcmd_perm,              \
     }
-
 
 #ifdef SUPPORT_FS
 /**@addtogroup	RUI_System_Data_Type
@@ -503,7 +517,7 @@ class RAKSystem {
       
       void setup()
       {
-          api.system.atMode.add("LED", "This controls both green and blue LEDs.", "LED", led_handle, ATCMD_PERM_WRITE | ATCMD_PERM_READ);
+          api.system.atMode.add("LED", "This controls both green and blue LEDs.", "LED", led_handle, RAK_ATCMD_PERM_WRITE | RAK_ATCMD_PERM_READ);
       }
       
       void loop()
@@ -511,7 +525,7 @@ class RAKSystem {
       }
 	   @endverbatim
 	 */
-        bool add(char *cmd, char *usage, char *title, PF_handle handle,unsigned int perm = ATCMD_PERM_WRITE | ATCMD_PERM_READ);
+        bool add(char *cmd, char *usage, char *title, PF_handle handle,unsigned int perm = RAK_ATCMD_PERM_WRITE | RAK_ATCMD_PERM_READ);
     };
 
 #ifdef SUPPORT_FS
@@ -911,7 +925,7 @@ class RAKSystem {
             }
            @endverbatim
      */
-        bool    set(char *,uint32_t);
+        bool    set(char * buf,uint32_t len);
     /**@par     Description
      *      Set the alias name for device.
      * @ingroup System_Alias
@@ -937,7 +951,7 @@ class RAKSystem {
             }
            @endverbatim
      */
-        bool    get(char *,uint32_t);
+        bool    get(char * buf,uint32_t len);
     };
     pword pword;
     bat bat;

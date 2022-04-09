@@ -2,7 +2,7 @@
 #define __RAK_BLE_SETTINGS_H__
 
 #include "udrv_ble.h"
-#include "AString.h"
+#include "WString.h"
 
 /**@addtogroup	RUI_Ble_Data_Type
  * @{
@@ -30,7 +30,7 @@ class RAKBleSettings {
 	/**@par	Description
 	 *	Set the current transmit power level for the module's radio
 	 * @par	Syntax
-	 *	api.ble.setting.txPower.set(txpwr)
+	 *	api.ble.settings.txPower.set(txpwr)
 	 *
 	 * @param	txpwr	The TX power level (dBm), which can be one of the following values (from lowest to higher transmit power):\n
 0~8 , -4,-8,-12,-16,-20,-40
@@ -43,7 +43,7 @@ class RAKBleSettings {
 	/**@par	Description
 	 *	Get the current transmit power level (in dBm)
 	 * @par	Syntax
-	 *	api.ble.setting.txPower.get()
+	 *	api.ble.settings.txPower.get()
 	 * @return	the current transmit power 
 	 */
         int8_t get();
@@ -69,7 +69,7 @@ class RAKBleSettings {
 	/**@par	Description
 	 *	Get the current advertisement interval.
 	 * @par	Syntax
-	 *	api.ble.setting.advertiseInterval.get()
+	 *	api.ble.settings.advertiseInterval.get()
 	 * @return	Return the current advertisement interval(1000ms ~10240ms)
 	 */
         int32_t get();
@@ -84,7 +84,7 @@ class RAKBleSettings {
 	/**@par	Description
 	 *	Set the name for this device. Used in advertisements and as the Device Name available to a connected peer.
 	 * @par	Syntax
-	 *	api.ble.setting.broadcastName.set(ble_name, device_name_length)
+	 *	api.ble.settings.broadcastName.set(ble_name, device_name_length)
 	 *
 	 * @param	ble_name	setting device name an array of data to send as bytes
 	 * @param	device_name_length	the number of bytes to transmit
@@ -97,7 +97,7 @@ class RAKBleSettings {
 	/**@par	Description
 	 *	Get the current BLE Device Name
 	 * @par	Syntax
-	 *	api.ble.setting.broadcastName.get()
+	 *	api.ble.settings.broadcastName.get()
 	 * @return	the current BLE Device Name
 	 */
         char* get();
@@ -109,7 +109,7 @@ class RAKBleSettings {
      *		Support current BLE UART Service mode switch to beacon mode
      * @ingroup	BLE_Setting
      * @par	Syntax
-     * 		api.ble.setting.blemode(ble_mode)
+     * 		api.ble.settings.blemode(ble_mode)
      * @param	ble_mode	RAK_BLE_BEACON_MODE	
      * @return	void
      */

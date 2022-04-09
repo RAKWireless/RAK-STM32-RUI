@@ -1780,7 +1780,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set device class to Class_A  %s\r\n", api.lorawan.deviceClass.set(0) ? "Success" : "Fail");
+           Serial.printf("Set device class to Class_A  %s\r\n", api.lorawan.deviceClass.set(RAK_LORA_CLASS_A) ? "Success" : "Fail");
        }
 
        void loop()
@@ -1821,7 +1821,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set device class to Class_A  %s\r\n", api.lorawan.deviceClass.set(0) ? "Success" : "Fail");
+           Serial.printf("Set device class to Class_A  %s\r\n", api.lorawan.deviceClass.set(RAK_LORA_CLASS_A) ? "Success" : "Fail");
        }
 
        void loop()

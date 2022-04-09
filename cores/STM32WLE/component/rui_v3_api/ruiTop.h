@@ -7,6 +7,7 @@
 #include "udrv_pwm.h"
 #include "pin_define.h"
 #include "variant.h"
+#include "binary.h"
 
 #include <math.h>
 
@@ -33,25 +34,6 @@ enum BitOrder {
 #define DEG_TO_RAD 0.017453292519943295769236907684886
 #define RAD_TO_DEG 57.295779513082320876798154814105
 #define EULER 2.718281828459045235360287471352
-
-//#define analogInPinToBit(P)        ( )
-#define portOutputRegister(port)   ( &(port->OUT) )
-#define portInputRegister(port)    ( (volatile uint32_t*) &(port->IN) )
-#define portModeRegister(port)     ( &(port->DIR) )
-#define digitalPinHasPWM(P)        ( g_ADigitalPinMap[P] > 1 )
-
-#define digitalPinToBitMask(P)     ( 1UL << ( g_ADigitalPinMap[P] < 32 ? g_ADigitalPinMap[P] : (g_ADigitalPinMap[P]-32) ) )
-
-#define digitalPinToPinName(P)     g_ADigitalPinMap[P]
-
-#ifdef NRF_P1
-#define digitalPinToPort(P)        ( (g_ADigitalPinMap[P] < 32) ? NRF_P0 : NRF_P1 )
-#else
-#define digitalPinToPort(P)        ( NRF_P0 )
-#endif
-
-// Interrupts
-#define digitalPinToInterrupt(P)   ( P )
 
 /**@addtogroup	Time
  * @{ */
@@ -972,7 +954,7 @@ void yield(void);
 /** @} */
 
 #include "ACharacter.h"
-#include "AString.h"
+#include "WString.h"
 #include "app.h"
 #include "RAKUnifiedApi.h"
 #include "HardwareSerial.h"
