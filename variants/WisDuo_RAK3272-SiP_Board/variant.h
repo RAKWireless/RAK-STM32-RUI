@@ -11,7 +11,8 @@
  *        Headers
  *----------------------------------------------------------------------------*/
 #include <stdint.h>
-
+#include "PinNames.h"
+#include "pins_arduino.h"
 #ifdef __cplusplus
 extern "C"
 {
@@ -20,19 +21,6 @@ extern "C"
 extern const uint32_t g_ADigitalPinMap[]; 
 #define pgm_read_byte(addr) (*(const unsigned char *)(addr))
 
-#define portOutputRegister(port)   ( &(port->OUT) )
-#define portInputRegister(port)    ( (volatile uint32_t*) &(port->IN) )
-#define portModeRegister(port)     ( &(port->DIR) )
-#define digitalPinHasPWM(P)        ( g_ADigitalPinMap[P] > 1 )
-
-#define digitalPinToBitMask(P)     ( 1UL << ( g_ADigitalPinMap[P] < 32 ? g_ADigitalPinMap[P] : (g_ADigitalPinMap[P]-32) ) )
-
-#define digitalPinToPinName(P)     g_ADigitalPinMap[P]
-
-#define digitalPinToPort(P)        PinToPort(P) 
-
-// Interrupts
-#define digitalPinToInterrupt(P)   ( P )
 /*----------------------------------------------------------------------------
  *        Pins
  *----------------------------------------------------------------------------*/

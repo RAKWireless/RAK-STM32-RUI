@@ -42489,7 +42489,30 @@ typedef enum {
   PADC_VBAT,
 
   ANA_START,
-# 279 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/PinNames.h"
+# 277 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/PinNames.h"
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/PinNamesVar.h" 1
+
+#define __PIN_NAMES_VAR_H__ 
+
+
+PA_1_ALT1 = PA_1 | 0x100,
+PA_2_ALT1 = PA_2 | 0x100,
+PA_3_ALT1 = PA_3 | 0x100,
+PA_7_ALT1 = PA_7 | 0x100,
+PB_8_ALT1 = PB_8 | 0x100,
+
+
+
+
+  SYS_WKUP1 = PA_0,
+
+
+  SYS_WKUP2 = PC_13,
+
+
+  SYS_WKUP3 = PB_3,
+# 278 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/PinNames.h" 2
+
   P_END = NC
 } PinName;
 # 15 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/variant.h" 2
@@ -43067,11 +43090,11 @@ extern const uint32_t g_ADigitalPinMap[];
 #define SPIM1_MISO WB_SPI_MISO
 #define SPIM1_SCK WB_SPI_CLK
 
-#define ADC1 WB_A0
-#define ADC2 WB_A1
-#define ADC3 WB_IO4
-#define ADC4 WB_IO7
-#define ADC5 WB_IO5
+#define _ADC1 WB_A0
+#define _ADC2 WB_A1
+#define _ADC3 WB_IO4
+#define _ADC4 WB_IO7
+#define _ADC5 WB_IO5
 
 #define SWDIO PA13
 #define SWCLK PA14

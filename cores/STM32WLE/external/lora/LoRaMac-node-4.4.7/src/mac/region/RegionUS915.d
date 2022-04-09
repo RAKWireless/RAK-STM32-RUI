@@ -75,6 +75,7 @@ out/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionUS915.c: \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h \
+ /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/PinNamesVar.h \
  /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/pins_arduino.h \
  /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/pins_arduino_analog.h \
  /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/pins_arduino_digital.h

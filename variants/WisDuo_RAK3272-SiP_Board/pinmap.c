@@ -1,7 +1,4 @@
-
-/** \addtogroup hal */
-/** @{*/
-/* mbed Microcontroller Library
+/*
  * Copyright (c) 2006-2013 ARM Limited
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,32 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#ifndef _PINMAP_H
-#define _PINMAP_H
+//Based on mbed-os/hal/mbed_pinmap_common.c
+#include "pinmap.h"
 
-#include "PinNames.h"
-#include <stdbool.h>
-#include <string.h>
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-typedef struct {
-  PinName pin;
-  void *peripheral;
-  int function;
-} PinMap;
-
-bool pin_in_pinmap(PinName pin, const PinMap *map);
-
-// No peripheral
-#define NP       0U
-
-#ifdef __cplusplus
+bool pin_in_pinmap(PinName pin, const PinMap *map)
+{
+  if (pin != (PinName)NC) {
+    while (map->pin != NC) {
+      if (map->pin == pin) {
+        return true;
+      }
+      map++;
+    }
+  }
+  return false;
 }
-#endif
 
-#endif
-
-/** @}*/
