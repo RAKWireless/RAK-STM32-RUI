@@ -13,7 +13,7 @@
 
 #include <string>
 
-#include "print.h"
+#include "Print.h"
 
 using namespace std;
 class Stream : public Print
