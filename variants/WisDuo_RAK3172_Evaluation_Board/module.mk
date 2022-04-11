@@ -4,6 +4,7 @@ LIB_SRC += board_basic.c
 LIB_SRC += timer_if.c
 LIB_SRC += PeripheralPins.c 
 LIB_SRC += pinmap.c
+LIB_SRC += PortNames.c
 ifneq ($(strip $(SUPPORT_LORA)),0)
 LIB_SRC += radio_board_if.c
 LIB_SRC += board.c

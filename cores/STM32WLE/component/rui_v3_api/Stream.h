@@ -23,6 +23,14 @@ class Stream : public Print
     unsigned long startTime;
 
     int timedRead();
+    
+    struct MultiTarget {
+      const char *str;
+      size_t len;
+      size_t index;
+    };
+
+    int findMulti(struct MultiTarget *targets, int tCount);
   public:
     virtual void flush() = 0;
     virtual int peek() = 0;
@@ -245,6 +253,16 @@ class Stream : public Print
    */
   String readStringUntil(char terminator);
 
+  bool find(const char *target);
+  bool find(const uint8_t *target);
+  bool find(const char *target, size_t length);
+  bool find(const uint8_t *target, size_t length);
+  bool find(char target);
+  
+  bool findUntil(const char *target, const char *terminator);
+  bool findUntil(const uint8_t *target, const char *terminator);
+  bool findUntil(const char *target, size_t targetLen, const char *terminate, size_t termLen);
+  bool findUntil(const uint8_t *target, size_t targetLen, const char *terminate, size_t termLen);
 };
 
 #endif
