@@ -66,7 +66,7 @@ enum BitOrder {
  * 		the parameter. There are a thousand microseconds in a millisecond and a 
  * 		million microseconds in a second
  * @par	Syntax
- *	delayMicroSecond(us);
+ *	delayMicroseconds(us);
  * @param	us 	the number of microseconds to pause
  * @par     Example
  * @verbatim
@@ -80,7 +80,7 @@ enum BitOrder {
      time = micros();
    
      Serial.println(time); //prints time since program started
-     delayMircosecond(1000);          // wait a second so as not to send massive amounts of data
+     delayMircoseconds(1000);          // wait a second so as not to send massive amounts of data
    }
    @endverbatim
  */
@@ -128,7 +128,7 @@ unsigned long millis();
      time = micros();
    
      Serial.println(time); //prints time since program started
-     delayMircosecond(1000);          // wait a second so as not to send massive amounts of data
+     delayMircoseconds(1000);          // wait a second so as not to send massive amounts of data
    }
    @endverbatim
  */

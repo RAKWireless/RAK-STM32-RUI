@@ -134,7 +134,7 @@ class TwoWire : public Stream
        }
        @endverbatim
      */
-    uint32_t endTransmission(uint8_t sendStop = false);
+    uint32_t endTransmission(uint8_t sendStop = true);
 
     /**@par	Description
      *      	Used by the master to request bytes from a slave device. The bytes may then be retrieved with the available() and read() functions

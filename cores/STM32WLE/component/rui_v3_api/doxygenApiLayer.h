@@ -98,12 +98,8 @@
 	 * @ingroup	System
 	 */
 
-	/**@defgroup	System_Serial	Serial
-	 * @ingroup	System
-	 */
-
         /**@defgroup    System_Pword  pword
-         * @ingroup System_Serial
+         * @ingroup System_Misc
          */
 
 	/**@defgroup	System_Misc	Misc

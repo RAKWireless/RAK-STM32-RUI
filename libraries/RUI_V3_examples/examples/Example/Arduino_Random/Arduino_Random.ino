@@ -18,7 +18,7 @@ void setup()
 void loop()
 {
   Serial.print("Random number(0 ~ 999) : ");
-  uint32_t l = random(1000); // generate a random number between 0 and 999
+  uint32_t l = random(1000);	// generate a random number between 0 and 999
   Serial.println(l);
   delay(1000);
 }

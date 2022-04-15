@@ -15,6 +15,7 @@ extern "C" {
 
 #include <stdint.h>
 #include <stddef.h>
+#include <stdbool.h>
 
 typedef enum {
     UDRV_TWIMST_0 = 0x0,   
@@ -28,7 +29,7 @@ struct udrv_twimst_api {
     void (*TWIMST_INIT) (udrv_twimst_port port);
     void (*TWIMST_DEINIT) (udrv_twimst_port port);
     void (*TWIMST_SETUP_FREQ) (udrv_twimst_port port, uint32_t clk_HZ);
-    int32_t (*TWIMST_WRITE) (udrv_twimst_port port, uint8_t address, uint8_t *data, uint16_t len);
+    int32_t (*TWIMST_WRITE) (udrv_twimst_port port, uint8_t address, uint8_t *data, uint16_t len, bool send_stop);
     int32_t (*TWIMST_READ) (udrv_twimst_port port, uint8_t address, uint8_t *data, uint16_t len);
     uint8_t (*TWIMST_SUSPEND) (void);
     uint8_t (*TWIMST_RESUME) (void);
@@ -48,7 +49,7 @@ void udrv_twimst_setup_freq (udrv_twimst_port port, uint32_t clk_Hz);
  * @param     length: number of bytes in array
  * Output     error code
  */
-int32_t udrv_twimst_write (udrv_twimst_port port, uint8_t address, uint8_t *data, uint16_t length);
+int32_t udrv_twimst_write (udrv_twimst_port port, uint8_t address, uint8_t *data, uint16_t length, bool send_stop);
 
 /*
  * Function udrv_twimst_read

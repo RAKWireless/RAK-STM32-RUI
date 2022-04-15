@@ -11,13 +11,20 @@
 #include "udrv_powersave.h"
 #include "udrv_gpio.h"
 
-/**@brief modes that trigger the device when sleeping
+/**@addtogroup	RUI_System_Data_Type
+ * @{
  */
-typedef enum _RUI_WAKEUP_TRIGGER_MODE
+
+/**@par Description
+ *      modes that trigger the device when sleeping
+ */
+typedef enum
 {
-  RUI_WAKEUP_RISING_EDGE,	/**< Trigger device when rising. */
-  RUI_WAKEUP_FALLING_EDGE,	/**< Trigger device when falling. */
+  RUI_WAKEUP_RISING_EDGE,	///< Trigger device when rising.
+  RUI_WAKEUP_FALLING_EDGE,	///< Trigger device when falling.
 } RUI_WAKEUP_TRIGGER_MODE;
+
+/**@}*/
 
 class sleep {
   public:
