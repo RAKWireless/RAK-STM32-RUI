@@ -14,17 +14,20 @@ void setup()
   // OTAA Application Key MSB
   uint8_t node_app_key[16] =
       { 0x2B, 0x7E, 0x15, 0x16, 0x28, 0xAE, 0xD2, 0xA6, 0xAB, 0xF7, 0x15,
-0x88, 0x09, 0xCF, 0x4F, 0x3E };
+    0x88, 0x09, 0xCF, 0x4F, 0x3E
+  };
 
   /**LoRaWan Multicast Session*/
 
   uint8_t node_mc_address[4] = { 0x01, 0x02, 0x03, 0x04 };
   uint8_t node_mc_AppSKey[16] =
       { 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x01, 0x02, 0x03,
-0x04, 0x05, 0x06, 0x07, 0x08 };
+    0x04, 0x05, 0x06, 0x07, 0x08
+  };
   uint8_t node_mc_NwkSKey[16] =
       { 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x01, 0x02, 0x03,
-0x04, 0x05, 0x06, 0x07, 0x08 };
+    0x04, 0x05, 0x06, 0x07, 0x08
+  };
 
   RAK_LORA_McSession session = {
     .McDevclass = 2,
@@ -45,14 +48,12 @@ void setup()
     return;
   }
   if (!(ret = api.lorawan.appkey.set(node_app_key, 16))) {
-    Serial.
-	printf
+    Serial.printf
 	("LoRaWan Multicast - set application EUI is incorrect! \r\n");
     return;
   }
   if (!(ret = api.lorawan.deui.set(node_device_eui, 8))) {
-    Serial.
-	printf
+    Serial.printf
 	("LoRaWan Multicast - set application key is incorrect! \r\n");
     return;
   }
@@ -76,14 +77,13 @@ void setup()
     return;
   }
   if (!(ret = api.lorawan.njm.set(1))) {
-    Serial.
-	printf
+    Serial.printf
 	("LoRaWan Multicast - set network join mode is incorrect! \r\n");
     return;
   }
   if (!(ret = api.lorawan.deviceClass.set(2))) {
-    Serial.
-	printf("LoRaWan Multicast - set device class is incorrect! \r\n");
+    Serial.printf
+	("LoRaWan Multicast - set device class is incorrect! \r\n");
     return;
   }
 

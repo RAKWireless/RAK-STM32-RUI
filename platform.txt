@@ -72,7 +72,7 @@ build.info.flags=-D{build.series}
 
 
 # usb flags
-build.flags.usb= -DUSBCON -DUSE_TINYUSB -DUSB_VID={build.vid} -DUSB_PID={build.pid} '-DUSB_MANUFACTURER={build.usb_manufacturer}' '-DUSB_PRODUCT={build.usb_product}'
+build.flags.usb= -DUSBCON -DUSB_VID={build.vid} -DUSB_PID={build.pid} '-DUSB_MANUFACTURER={build.usb_manufacturer}' '-DUSB_PRODUCT={build.usb_product}'
 
 # These can be overridden in platform.local.txt
 compiler.c.extra_flags=

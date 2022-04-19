@@ -43,16 +43,7 @@ _Static_assert(NUM_ANALOG_INPUTS <= MAX_ANALOG_INPUTS,
 /* Default for Arduino connector compatibility */
 /* SPI Definitions */
 #ifndef PIN_SPI_SS
-  #define PIN_SPI_SS                10
-#endif
-#ifndef PIN_SPI_SS1
-  #define PIN_SPI_SS1               4
-#endif
-#ifndef PIN_SPI_SS2
-  #define PIN_SPI_SS2               7
-#endif
-#ifndef PIN_SPI_SS3
-  #define PIN_SPI_SS3               8
+  #define PIN_SPI_SS                4
 #endif
 #ifndef PIN_SPI_MOSI
   #define PIN_SPI_MOSI              11
@@ -65,9 +56,6 @@ _Static_assert(NUM_ANALOG_INPUTS <= MAX_ANALOG_INPUTS,
 #endif
 
 static const uint32_t SS   = PIN_SPI_SS;
-static const uint32_t SS1  = PIN_SPI_SS1;
-static const uint32_t SS2  = PIN_SPI_SS2;
-static const uint32_t SS3  = PIN_SPI_SS3;
 static const uint32_t MOSI = PIN_SPI_MOSI;
 static const uint32_t MISO = PIN_SPI_MISO;
 static const uint32_t SCK  = PIN_SPI_SCK;

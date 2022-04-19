@@ -42817,16 +42817,7 @@ _Static_assert(0 <= 0,
 
 
 
-#define PIN_SPI_SS 10
-
-
-#define PIN_SPI_SS1 4
-
-
-#define PIN_SPI_SS2 7
-
-
-#define PIN_SPI_SS3 8
+#define PIN_SPI_SS 4
 
 
 #define PIN_SPI_MOSI 11
@@ -42838,10 +42829,7 @@ _Static_assert(0 <= 0,
 #define PIN_SPI_SCK 13
 
 
-static const uint32_t SS = 10;
-static const uint32_t SS1 = 4;
-static const uint32_t SS2 = 7;
-static const uint32_t SS3 = 8;
+static const uint32_t SS = 4;
 static const uint32_t MOSI = 11;
 static const uint32_t MISO = 12;
 static const uint32_t SCK = 13;
@@ -42864,13 +42852,13 @@ extern const PinName digitalPin[];
 extern const uint32_t analogInputPin[];
 
 #define NOT_AN_INTERRUPT (uint32_t)NC
-# 103 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/pins_arduino.h"
+# 91 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/pins_arduino.h"
 #define digitalPinToPinName(p) ((((uint32_t)(p) & PNUM_MASK) < NUM_DIGITAL_PINS) ? (PinName)(digitalPin[(uint32_t)(p) & PNUM_MASK] | ((p) & ALTX_MASK)) : NC)
 
 
 
 uint32_t pinNametoDigitalPin(PinName p);
-# 119 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/pins_arduino.h"
+# 107 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/pins_arduino.h"
 #define analogInputToDigitalPin(p) (NUM_DIGITAL_PINS)
 
 
@@ -42904,7 +42892,7 @@ PinName analogInputToPinName(uint32_t pin);
 
 
 #define portClearRegister(P) (&(P->BRR))
-# 164 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/pins_arduino.h"
+# 152 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/pins_arduino.h"
 #define portModeRegister(P) (&(P->MODER))
 
 #define portConfigRegister(P) (portModeRegister(P))
@@ -42915,12 +42903,12 @@ PinName analogInputToPinName(uint32_t pin);
 
 
 #define digitalPinFirstOccurence(p) (pinNametoDigitalPin(digitalPinToPinName(p)))
-# 183 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/pins_arduino.h"
+# 171 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/pins_arduino.h"
 #define pinIsAnalogInput digitalpinIsAnalogInput
 
-# 184 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/pins_arduino.h" 3 4
+# 172 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/pins_arduino.h" 3 4
 _Bool 
-# 184 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/pins_arduino.h"
+# 172 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/pins_arduino.h"
     digitalpinIsAnalogInput(uint32_t pin);
 uint32_t digitalPinToAnalogInput(uint32_t pin);
 

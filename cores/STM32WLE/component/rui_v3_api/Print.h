@@ -2,8 +2,6 @@
 #define __PRINT_H__
 
 #include <inttypes.h>
-#include <string>
-#include <string.h>
 #include <stdio.h>
 
 #include "Printable.h"
@@ -58,7 +56,7 @@ class Print
     {
       return write((const uint8_t *)buffer, size);
     }
-    size_t write(string str)
+    size_t write(String str)
     {
         return write((const uint8_t *)str.c_str(), str.length());
     }
@@ -67,7 +65,6 @@ class Print
     size_t print(const __FlashStringHelper *);
     size_t print(const char *);
     size_t print(const String &);
-    size_t print(const string);
     size_t print(char[]);
     size_t print(char);
     size_t print(unsigned char, int = DEC);
@@ -136,8 +133,7 @@ class Print
     //println
     size_t println(const __FlashStringHelper *);
     size_t println(const char *);
-    size_t println(const String &);
-    size_t println(const string);
+    size_t println(const String &s);
     size_t println(char[]);
     size_t println(char);
     size_t println(unsigned char, int = DEC);

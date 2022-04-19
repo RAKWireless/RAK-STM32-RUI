@@ -1,8 +1,7 @@
 #ifndef __RAK_SYSTEM_H__
 #define __RAK_STSTEM_H__
 
-#include <string>
-#include <sstream>
+#include "WString.h"
 
 #include "sleep.h"
 #include "atcmd.h"
@@ -134,7 +133,7 @@ class RAKSystem {
 
     class firmwareVersion {
       private:
-        string ver;
+        String ver;
 
       public:
         firmwareVersion();
@@ -144,7 +143,7 @@ class RAKSystem {
 	 * @ingroup	Firmware_Version
 	 * @par		Syntax
 	 * 		api.system.firmwareVersion.get()
-	 * @return	firmware version(Type: string)
+	 * @return	firmware version(Type: String)
 	 * @par		Example
 	 * @verbatim	
 	   void setup()
@@ -159,12 +158,12 @@ class RAKSystem {
 	   }
 	   @endverbatim
 	 */
-        const string get();
+        const String get();
     };
 
     class cliVersion {
       private:
-        string ver;
+        String ver;
 
       public:
         cliVersion();
@@ -174,7 +173,7 @@ class RAKSystem {
 	 * @ingroup	Cli_Version
 	 * @par		Syntax
 	 *		api.system.cliVersion.get()
-	 * @return	cli version(Type: string)
+	 * @return	cli version(Type: String)
 	 * @par         Example
          * @verbatim
            void setup()
@@ -190,12 +189,12 @@ class RAKSystem {
            @endverbatim
 
 	 */
-        const string get();
+        const String get();
     };
 
     class apiVersion {
       private:
-        string ver;
+        String ver;
 
       public:
         apiVersion();
@@ -205,7 +204,7 @@ class RAKSystem {
 	 * @ingroup	Api_Version
 	 * @par		Syntax
 	 * 		api.system.apiVersion.get()
-	 * @return	api version(Type: string)
+	 * @return	api version(Type: String)
 	 * @par         Example
          * @verbatim
            void setup()
@@ -221,12 +220,12 @@ class RAKSystem {
            @endverbatim
 
 	 */
-        const string get();
+        const String get();
     };
 
     class modelId {
       private:
-        string id;
+        String id;
 
       public:
         modelId();
@@ -236,7 +235,7 @@ class RAKSystem {
 	 * @ingroup	Model_ID
 	 * @par		Syntax
 	 * 		api.system.modelId.get()
-	 * @return	model ID(Type: string)
+	 * @return	model ID(Type: String)
 	 * @par         Example
          * @verbatim
            void setup()
@@ -252,12 +251,12 @@ class RAKSystem {
            @endverbatim
 
 	 */
-        const string get();
+        const String get();
     };
 
     class chipId {
       private:
-        string id;
+        String id;
 
       public:
         chipId();
@@ -267,7 +266,7 @@ class RAKSystem {
 	 * @ingroup	Chip_ID
 	 * @par		Syntax
 	 *		api.system.chipId.get()
-	 * @return	chip ID(Type: string)
+	 * @return	chip ID(Type: String)
 	 * @par         Example
          * @verbatim
            void setup()
@@ -283,7 +282,7 @@ class RAKSystem {
            @endverbatim
 
 	 */
-        const string get();
+        const String get();
     };
     
     firmwareVersion firmwareVersion;
@@ -347,7 +346,7 @@ class RAKSystem {
 	 * @par		Syntax
 	 * 		api.system.pword.set(passwd_Str)\n
 	 * 		api.system.pword.set(passwd_Char, len)
-	 * @param	passwd_Str	the password to lock the Default Serial(Type: string)
+	 * @param	passwd_Str	the password to lock the Default Serial(Type: String)
 	 * @param	passwd_Char	the password to lock the Default Serial(Type: cahr *)
 	 * @param	len		the length of passwod
 	 * @return	bool
@@ -359,7 +358,7 @@ class RAKSystem {
 
 	   void setup()
 	   {
-	     string password = "12345678";
+	     String password = "12345678";
 	     api.system.pword.set(password); // set the password to 12345678
 	     api.system.pword.lock();        // lock the default port 
 	   }
@@ -376,7 +375,7 @@ class RAKSystem {
 	   @endverbatim
 	 */
         bool set(char *passwd, uint32_t len);
-        bool set(string passwd);
+        bool set(String passwd);
 
 	/**@par		Description
 	 *		This api allow user to lock the default serial with the pass set in api.system.pword.set()	
@@ -391,7 +390,7 @@ class RAKSystem {
 
            void setup()
            {
-             string password = "12345678";
+             String password = "12345678";
              api.system.pword.set(password); // set the password to 12345678
              api.system.pword.lock();        // lock the default port
            }
@@ -422,7 +421,7 @@ class RAKSystem {
 
            void setup()
            {
-             string password = "12345678";
+             String password = "12345678";
              api.system.pword.set(password); // set the password to 12345678
              api.system.pword.lock();        // lock the default port
            }

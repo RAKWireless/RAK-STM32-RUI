@@ -2,7 +2,7 @@
 #define __RAK_BLE_CUS_H__
 
 #include <inttypes.h>
-#include <string>
+#include "WString.h"
 
 #include "RAKBleUart.h"
 #include "udrv_ble.h"

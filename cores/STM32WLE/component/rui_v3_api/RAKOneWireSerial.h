@@ -2,7 +2,7 @@
 #define __RAK_ONEWIRESERIAL_H__
 
 #include <cstdint>
-#include <string>
+#include "WString.h"
 #include <cstring>
 
 #include "udrv_errno.h"

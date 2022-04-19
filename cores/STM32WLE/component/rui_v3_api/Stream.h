@@ -11,7 +11,7 @@
 #ifndef __STREAM_H__
 #define __STREAM_H__
 
-#include <string>
+#include "WString.h"
 
 #include "Print.h"
 

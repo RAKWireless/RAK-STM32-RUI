@@ -11,17 +11,14 @@ void setup()
   Serial.println("------------------------------------------------------");
   /* Lock serial port with password => 12345678 */
   string password = "12345678";
-  Serial.
-      println
+  Serial.println
       ("Type 12345678 and then press enter to unlock the serial port:");
-  Serial.
-      println
+  Serial.println
       ("(If the password is not correct, the serial port will be auto unlocked after 30s..)");
 
   bool ret;
   if (!(ret = api.system.pword.set(password))) {
-    Serial.
-	printf
+    Serial.printf
 	("System serial Lock - set password parameter is incorrect! \r\n");
     return;
   }

@@ -80,14 +80,14 @@ void setup()
   }
   if (!api.lorawan.njm.set(RAK_LORA_ABP))	// Set the network join mode to ABP
   {
-    Serial.
-	printf("LoRaWan ABP - set network join mode is incorrect! \r\n");
+    Serial.printf
+	("LoRaWan ABP - set network join mode is incorrect! \r\n");
     return;
   }
 
   if (!api.lorawan.adr.set(true)) {
-    Serial.
-	printf("LoRaWan ABP - set adaptive data rate is incorrect! \r\n");
+    Serial.printf
+	("LoRaWan ABP - set adaptive data rate is incorrect! \r\n");
     return;
   }
   if (!api.lorawan.rety.set(1)) {

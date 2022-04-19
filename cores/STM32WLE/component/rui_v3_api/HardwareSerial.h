@@ -10,7 +10,7 @@
 #define __HARDWARE_SERIAL_H__
 
 #include <inttypes.h>
-#include <string>
+#include "WString.h"
 
 #include "Stream.h"
 #include "udrv_serial.h"
@@ -77,7 +77,7 @@ class HardwareSerial : public Stream
     }
 
     void begin(uint32_t baud, uint8_t config, RAK_SERIAL_MODE mode = RAK_DEFAULT_MODE); 
-    bool password(string new_passwd);
+    bool password(String new_passwd);
     size_t write(uint8_t n) {return write(&n, 1);}
 
     /**@addtogroup	Serial

@@ -4,7 +4,7 @@
 #ifdef SUPPORT_LORA
 
 #include <cstdint>
-#include <string>
+#include "WString.h"
 #include <cstring>
 
 #include "udrv_errno.h"
@@ -2933,7 +2933,7 @@ public:
        }
            @endverbatim
 	 */
-    string get();
+    String get();
   };
 
   /**@par	Description
@@ -2949,7 +2949,7 @@ public:
 	 * @par	Syntax
 	 *	api.lorawan.ver.get()
 	 *
-	 * @return	the LoRaWan version(Type: string)
+	 * @return	the LoRaWan version(Type: String)
 	 * @par         Example
          * @verbatim
        void setup()
@@ -2965,7 +2965,7 @@ public:
 
            @endverbatim
 	 */
-    string get();
+    String get();
   };
 
   /**@par	Description
