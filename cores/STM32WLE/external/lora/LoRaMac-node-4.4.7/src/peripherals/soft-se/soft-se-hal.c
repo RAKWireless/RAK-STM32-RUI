@@ -480,8 +480,8 @@
 #define ATCMD_CUST_TABLE_SIZE 64
 #define WAN_TYPE 0
 #define LORA_STACK_VER 0x040407
-#define RAK3372 +RAK5005-O_V1.0 1
-#define rak3172 1
+#define RAK3272_SIP_VA 1
+#define rak3172 -sip 1
 #define CORE_CM4 1
 #define USE_HAL_DRIVER 1
 #define STM32WLE5xx 1
@@ -498,11 +498,10 @@
 #define SOFT_SE 1
 #define SECURE_ELEMENT_PRE_PROVISIONED 1
 #define LORAMAC_CLASSB_ENABLED 1
-#define WISBLOCK_BASE_5005_O 1
 # 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/peripherals/soft-se/soft-se-hal.c"
 # 26 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/peripherals/soft-se/soft-se-hal.c"
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/board.h" 1
-# 24 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/board.h"
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/board.h" 1
+# 24 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/board.h"
 #define __BOARD_H__ 
 
 
@@ -1099,10 +1098,10 @@ typedef __uint_least64_t uint_least64_t;
 
 
 #define _GCC_WRAP_STDINT_H 
-# 32 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/board.h" 2
+# 32 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/board.h" 2
 
 
-# 33 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/board.h"
+# 33 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/board.h"
 void BoardGetUniqueId( uint8_t *id );
 # 27 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/peripherals/soft-se/soft-se-hal.c" 2
 # 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/radio/radio.h" 1

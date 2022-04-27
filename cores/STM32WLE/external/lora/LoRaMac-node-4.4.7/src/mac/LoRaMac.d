@@ -3,14 +3,14 @@ out/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c: \
  /home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/Region.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h \
- /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/timer.h \
+ /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/timer.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_compiler.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h \
- /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/utilities_conf.h \
+ /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/utilities_conf.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_mem.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h \
- /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/systime.h \
+ /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/systime.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_systime.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionNvm.h \
