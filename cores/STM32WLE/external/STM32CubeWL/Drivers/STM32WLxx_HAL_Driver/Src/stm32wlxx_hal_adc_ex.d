@@ -1,7 +1,7 @@
 out/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_adc_ex.c: \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_adc_ex.c \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h \
- /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h \
+ /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_def.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h \

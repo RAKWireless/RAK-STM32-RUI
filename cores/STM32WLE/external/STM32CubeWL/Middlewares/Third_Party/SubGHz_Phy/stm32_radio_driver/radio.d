@@ -1,10 +1,10 @@
 out/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c: \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c \
- /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/timer.h \
+ /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/timer.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_compiler.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h \
- /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/utilities_conf.h \
+ /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/utilities_conf.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_mem.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/../radio.h \
@@ -12,11 +12,11 @@ out/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/r
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio_fw.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/radio_ex.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio_driver.h \
- /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/radio_conf.h \
- /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/subghz.h \
- /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/main.h \
+ /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/radio_conf.h \
+ /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/subghz.h \
+ /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/main.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h \
- /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h \
+ /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_def.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h \
@@ -61,9 +61,9 @@ out/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/r
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h \
- /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/mw_log_conf.h \
+ /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/mw_log_conf.h \
  /home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/trace/adv_trace/stm32_adv_trace.h \
- /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/radio_board_if.h \
- /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/mw_log_conf.h \
+ /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/radio_board_if.h \
+ /home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/mw_log_conf.h \
  /home/eddieho/tmp/phase2_release/rui-v3/component/udrv/system/udrv_system.h \
  /home/eddieho/tmp/phase2_release/rui-v3/component/udrv/timer/udrv_timer.h

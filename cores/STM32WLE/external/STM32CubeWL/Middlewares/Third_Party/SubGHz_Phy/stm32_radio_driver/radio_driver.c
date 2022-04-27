@@ -480,8 +480,8 @@
 #define ATCMD_CUST_TABLE_SIZE 64
 #define WAN_TYPE 0
 #define LORA_STACK_VER 0x040407
-#define RAK3272_SIP_VA 1
-#define rak3172 -sip 1
+#define RAK3372 +RAK5005-O_V1.0 1
+#define rak3172 1
 #define CORE_CM4 1
 #define USE_HAL_DRIVER 1
 #define STM32WLE5xx 1
@@ -498,10 +498,11 @@
 #define SOFT_SE 1
 #define SECURE_ELEMENT_PRE_PROVISIONED 1
 #define LORAMAC_CLASSB_ENABLED 1
+#define WISBLOCK_BASE_5005_O 1
 # 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio_driver.c"
 # 34 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio_driver.c"
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/radio_conf.h" 1
-# 24 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/radio_conf.h"
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/radio_conf.h" 1
+# 24 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/radio_conf.h"
 #define __RADIO_CONF_H__ 
 
 
@@ -509,8 +510,8 @@
 
 
 
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/subghz.h" 1
-# 21 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/subghz.h"
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/subghz.h" 1
+# 21 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/subghz.h"
 #define __SUBGHZ_H__ 
 
 
@@ -518,8 +519,8 @@
 
 
 
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/main.h" 1
-# 24 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/main.h"
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/main.h" 1
+# 24 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/main.h"
 #define __MAIN_H 
 
 
@@ -536,10 +537,10 @@
 
 
 
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h"
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 1
+# 22 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
 #define STM32WLxx_HAL_CONF_H 
-# 35 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h"
+# 35 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
 #define HAL_MODULE_ENABLED 
 #define HAL_ADC_MODULE_ENABLED 
 
@@ -596,7 +597,7 @@
 #define USE_HAL_UART_REGISTER_CALLBACKS 0u
 #define USE_HAL_USART_REGISTER_CALLBACKS 0u
 #define USE_HAL_WWDG_REGISTER_CALLBACKS 0u
-# 100 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h"
+# 100 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
 #define HSE_VALUE 32000000UL
 
 
@@ -610,7 +611,7 @@
 
 
 #define MSI_VALUE 4000000UL
-# 121 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h"
+# 121 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
 #define HSI_VALUE 16000000UL
 
 
@@ -619,7 +620,7 @@
 
 
 #define LSI_VALUE 32000UL
-# 138 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h"
+# 138 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
 #define LSE_VALUE 32768UL
 
 
@@ -633,14 +634,14 @@
 
 
 #define LSE_STARTUP_TIMEOUT 5000UL
-# 160 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h"
+# 160 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
 #define VDD_VALUE 3300U
 #define TICK_INT_PRIORITY ((1uL <<__NVIC_PRIO_BITS) - 1uL)
 #define USE_RTOS 0U
 #define PREFETCH_ENABLE 0U
 #define INSTRUCTION_CACHE_ENABLE 1U
 #define DATA_CACHE_ENABLE 1U
-# 181 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h"
+# 181 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
 #define USE_SPI_CRC 1U
 
 
@@ -18389,7 +18390,7 @@ uint32_t HAL_DMA_GetError(DMA_HandleTypeDef *hdma);
 
 
 #define IS_DMA_PRIORITY(PRIORITY) (((PRIORITY) == DMA_PRIORITY_LOW ) || ((PRIORITY) == DMA_PRIORITY_MEDIUM) || ((PRIORITY) == DMA_PRIORITY_HIGH) || ((PRIORITY) == DMA_PRIORITY_VERY_HIGH))
-# 193 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h" 2
+# 193 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
 
 
 
@@ -20810,7 +20811,7 @@ uint32_t HAL_ADC_GetError(ADC_HandleTypeDef *hadc);
 HAL_StatusTypeDef ADC_ConversionStop(ADC_HandleTypeDef *hadc);
 HAL_StatusTypeDef ADC_Enable(ADC_HandleTypeDef *hadc);
 HAL_StatusTypeDef ADC_Disable(ADC_HandleTypeDef *hadc);
-# 197 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h" 2
+# 197 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
 
 
 
@@ -21053,8 +21054,8 @@ void HAL_MPU_ConfigRegion(MPU_Region_InitTypeDef *MPU_Init);
 #define IS_MPU_REGION_SIZE(SIZE) (((SIZE) == MPU_REGION_SIZE_32B) || ((SIZE) == MPU_REGION_SIZE_64B) || ((SIZE) == MPU_REGION_SIZE_128B) || ((SIZE) == MPU_REGION_SIZE_256B) || ((SIZE) == MPU_REGION_SIZE_512B) || ((SIZE) == MPU_REGION_SIZE_1KB) || ((SIZE) == MPU_REGION_SIZE_2KB) || ((SIZE) == MPU_REGION_SIZE_4KB) || ((SIZE) == MPU_REGION_SIZE_8KB) || ((SIZE) == MPU_REGION_SIZE_16KB) || ((SIZE) == MPU_REGION_SIZE_32KB) || ((SIZE) == MPU_REGION_SIZE_64KB) || ((SIZE) == MPU_REGION_SIZE_128KB) || ((SIZE) == MPU_REGION_SIZE_256KB) || ((SIZE) == MPU_REGION_SIZE_512KB) || ((SIZE) == MPU_REGION_SIZE_1MB) || ((SIZE) == MPU_REGION_SIZE_2MB) || ((SIZE) == MPU_REGION_SIZE_4MB) || ((SIZE) == MPU_REGION_SIZE_8MB) || ((SIZE) == MPU_REGION_SIZE_16MB) || ((SIZE) == MPU_REGION_SIZE_32MB) || ((SIZE) == MPU_REGION_SIZE_64MB) || ((SIZE) == MPU_REGION_SIZE_128MB) || ((SIZE) == MPU_REGION_SIZE_256MB) || ((SIZE) == MPU_REGION_SIZE_512MB) || ((SIZE) == MPU_REGION_SIZE_1GB) || ((SIZE) == MPU_REGION_SIZE_2GB) || ((SIZE) == MPU_REGION_SIZE_4GB))
 # 441 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cortex.h"
 #define IS_MPU_SUB_REGION_DISABLE(SUBREGION) ((SUBREGION) < (uint16_t)0x00FFU)
-# 205 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h" 2
-# 220 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h"
+# 205 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
+# 220 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
 # 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_exti.h" 1
 # 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_exti.h"
 #define STM32WLxx_HAL_EXTI_H 
@@ -21248,7 +21249,7 @@ void HAL_EXTI_IRQHandler(EXTI_HandleTypeDef *hexti);
 uint32_t HAL_EXTI_GetPending(EXTI_HandleTypeDef *hexti, uint32_t Edge);
 void HAL_EXTI_ClearPending(EXTI_HandleTypeDef *hexti, uint32_t Edge);
 void HAL_EXTI_GenerateSWI(EXTI_HandleTypeDef *hexti);
-# 221 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h" 2
+# 221 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
 
 
 
@@ -21719,7 +21720,7 @@ HAL_StatusTypeDef FLASH_WaitForLastOperation(uint32_t Timeout);
 #define IS_OB_PCROP_CONFIG(__VALUE__) (((__VALUE__) & ~(OB_PCROP_ZONE_A | OB_PCROP_ZONE_B | OB_PCROP_RDP_ERASE)) == 0U)
 # 990 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define IS_FLASH_LATENCY(__VALUE__) (((__VALUE__) == FLASH_LATENCY_0) || ((__VALUE__) == FLASH_LATENCY_1) || ((__VALUE__) == FLASH_LATENCY_2))
-# 225 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h" 2
+# 225 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
 
 
 
@@ -21971,8 +21972,8 @@ void HAL_GPIO_TogglePin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin);
 HAL_StatusTypeDef HAL_GPIO_LockPin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin);
 void HAL_GPIO_EXTI_IRQHandler(uint16_t GPIO_Pin);
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
-# 229 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h" 2
-# 240 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h"
+# 229 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
+# 240 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
 # 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h" 1
 # 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
 #define STM32WLxx_HAL_I2C_H 
@@ -22455,8 +22456,8 @@ uint32_t HAL_I2C_GetError(I2C_HandleTypeDef *hi2c);
 #define I2C_CHECK_FLAG(__ISR__,__FLAG__) ((((__ISR__) & ((__FLAG__) & I2C_FLAG_MASK)) == ((__FLAG__) & I2C_FLAG_MASK)) ? SET : RESET)
 
 #define I2C_CHECK_IT_SOURCE(__CR1__,__IT__) ((((__CR1__) & (__IT__)) == (__IT__)) ? SET : RESET)
-# 241 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h" 2
-# 256 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h"
+# 241 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
+# 256 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
 # 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_iwdg.h" 1
 # 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_iwdg.h"
 #define STM32WLxx_HAL_IWDG_H 
@@ -22543,8 +22544,8 @@ HAL_StatusTypeDef HAL_IWDG_Refresh(IWDG_HandleTypeDef *hiwdg);
 
 
 #define IS_IWDG_WINDOW(__WINDOW__) ((__WINDOW__) <= IWDG_WINR_WIN)
-# 257 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h" 2
-# 268 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h"
+# 257 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
+# 268 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
 # 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h" 1
 # 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
 #define STM32WLxx_HAL_PWR_H 
@@ -24065,7 +24066,7 @@ void HAL_PWR_EnableSEVOnPend(void);
 void HAL_PWR_DisableSEVOnPend(void);
 
 void HAL_PWR_PVDCallback(void);
-# 269 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h" 2
+# 269 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
 
 
 
@@ -28002,7 +28003,7 @@ void HAL_RCC_NMI_IRQHandler(void);
 void HAL_RCC_CSSCallback(void);
 
 uint32_t HAL_RCC_GetResetSource(void);
-# 273 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h" 2
+# 273 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
 
 
 
@@ -29247,8 +29248,8 @@ HAL_StatusTypeDef RTC_EnterInitMode(RTC_HandleTypeDef *hrtc);
 HAL_StatusTypeDef RTC_ExitInitMode(RTC_HandleTypeDef *hrtc);
 uint8_t RTC_ByteToBcd2(uint8_t Value);
 uint8_t RTC_Bcd2ToByte(uint8_t Value);
-# 281 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h" 2
-# 292 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h"
+# 281 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
+# 292 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
 # 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h" 1
 # 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
 #define STM32WLxx_HAL_SPI_H 
@@ -29731,7 +29732,7 @@ void HAL_SPI_AbortCpltCallback(SPI_HandleTypeDef *hspi);
 # 828 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
 HAL_SPI_StateTypeDef HAL_SPI_GetState(SPI_HandleTypeDef *hspi);
 uint32_t HAL_SPI_GetError(SPI_HandleTypeDef *hspi);
-# 293 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h" 2
+# 293 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
 
 
 
@@ -31098,7 +31099,7 @@ void HAL_SUBGHZ_RxTxTimeoutCallback(SUBGHZ_HandleTypeDef *hsubghz);
 # 390 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h"
 HAL_SUBGHZ_StateTypeDef HAL_SUBGHZ_GetState(SUBGHZ_HandleTypeDef *hsubghz);
 uint32_t HAL_SUBGHZ_GetError(SUBGHZ_HandleTypeDef *hsubghz);
-# 297 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h" 2
+# 297 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
 
 
 
@@ -32798,7 +32799,7 @@ void TIM_DMAError(DMA_HandleTypeDef *hdma);
 void TIM_DMACaptureCplt(DMA_HandleTypeDef *hdma);
 void TIM_DMACaptureHalfCplt(DMA_HandleTypeDef *hdma);
 void TIM_CCxChannelCmd(TIM_TypeDef *TIMx, uint32_t Channel, uint32_t ChannelState);
-# 301 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h" 2
+# 301 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
 
 
 
@@ -33848,8 +33849,8 @@ HAL_StatusTypeDef UART_WaitOnFlagUntilTimeout(UART_HandleTypeDef *huart, uint32_
 void UART_AdvFeatureConfig(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef UART_Start_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
 HAL_StatusTypeDef UART_Start_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
-# 305 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h" 2
-# 329 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/stm32wlxx_hal_conf.h"
+# 305 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
+# 329 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
 #define assert_param(expr) ((void)0U)
 # 31 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h" 2
 # 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h" 1
@@ -34810,7 +34811,7 @@ void HAL_SYSCFG_DisableVREFBUF(void);
 
 void HAL_SYSCFG_EnableIOAnalogSwitchBooster(void);
 void HAL_SYSCFG_DisableIOAnalogSwitchBooster(void);
-# 32 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/main.h" 2
+# 32 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/main.h" 2
 
 
 
@@ -36431,12 +36432,12 @@ _putchar_unlocked(int _c)
 }
 # 797 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdio.h" 3
 
-# 36 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/main.h" 2
+# 36 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/main.h" 2
 
 
-# 37 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/main.h"
+# 37 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/main.h"
 void Error_Handler(void);
-# 29 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/subghz.h" 2
+# 29 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/subghz.h" 2
 
 
 
@@ -36449,7 +36450,7 @@ extern SUBGHZ_HandleTypeDef hsubghz;
 
 
 void MX_SUBGHZ_Init(void);
-# 32 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/radio_conf.h" 2
+# 32 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/radio_conf.h" 2
 # 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_mem.h" 1
 # 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_mem.h"
 #define __STM32_MEM_H__ 
@@ -36460,8 +36461,8 @@ void MX_SUBGHZ_Init(void);
 
 
 
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/utilities_conf.h" 1
-# 24 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/utilities_conf.h"
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/utilities_conf.h" 1
+# 24 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/utilities_conf.h"
 #define __UTILITIES_CONF_H__ 
 
 
@@ -36470,11 +36471,11 @@ void MX_SUBGHZ_Init(void);
 
 
 # 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_compiler.h" 1
-# 32 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/utilities_conf.h" 2
+# 32 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/utilities_conf.h" 2
 
 
 # 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_mem.h" 1
-# 35 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/utilities_conf.h" 2
+# 35 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/utilities_conf.h" 2
 
 # 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h" 1
 # 21 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h"
@@ -36613,8 +36614,8 @@ char *strsignal (int __signo);
 
 # 54 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h"
 int tiny_vsnprintf_like(char *buf, const int size, const char *fmt, va_list args);
-# 37 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/utilities_conf.h" 2
-# 49 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/utilities_conf.h"
+# 37 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/utilities_conf.h" 2
+# 49 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/utilities_conf.h"
 #define VLEVEL_OFF 0
 #define VLEVEL_ALWAYS 0
 
@@ -36626,7 +36627,7 @@ int tiny_vsnprintf_like(char *buf, const int size, const char *fmt, va_list args
 #define TS_ON 1
 
 #define T_REG_OFF 0
-# 78 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/utilities_conf.h"
+# 78 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/utilities_conf.h"
 #define UTIL_PLACE_IN_SECTION(__x__) __attribute__((section (__x__)))
 
 
@@ -36675,7 +36676,7 @@ int tiny_vsnprintf_like(char *buf, const int size, const char *fmt, va_list args
 
 
 #define UTILS_EXIT_CRITICAL_SECTION() __set_PRIMASK(primask_bit)
-# 135 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/utilities_conf.h"
+# 135 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/utilities_conf.h"
 #define UTIL_ADV_TRACE_CONDITIONNAL 
 #define UTIL_ADV_TRACE_UNCHUNK_MODE 
 #define UTIL_ADV_TRACE_DEBUG(...) 
@@ -36701,9 +36702,9 @@ void UTIL_MEM_cpy_8( void *dst, const void *src, uint16_t size );
 void UTIL_MEM_cpyr_8( void *dst, const void *src, uint16_t size );
 # 65 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_mem.h"
 void UTIL_MEM_set_8( void *dst, uint8_t value, uint16_t size );
-# 33 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/radio_conf.h" 2
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/mw_log_conf.h" 1
-# 24 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/mw_log_conf.h"
+# 33 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/radio_conf.h" 2
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/mw_log_conf.h" 1
+# 24 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/mw_log_conf.h"
 #define __MW_LOG_CONF_H__ 
 
 
@@ -36850,14 +36851,14 @@ uint32_t UTIL_ADV_TRACE_GetRegion(void);
 
 
 void UTIL_ADV_TRACE_ResetRegion(uint32_t Region);
-# 32 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/mw_log_conf.h" 2
-# 58 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/mw_log_conf.h"
+# 32 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/mw_log_conf.h" 2
+# 58 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/mw_log_conf.h"
 #define MW_LOG(TS,VL,...) 
-# 34 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/radio_conf.h" 2
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/radio_board_if.h" 1
-# 24 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/radio_board_if.h"
+# 34 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/radio_conf.h" 2
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/radio_board_if.h" 1
+# 24 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/radio_board_if.h"
 #define RADIO_BOARD_IF_H 
-# 33 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/radio_board_if.h"
+# 33 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/radio_board_if.h"
 #define USE_BSP_DRIVER 
 
 
@@ -36869,22 +36870,22 @@ void UTIL_ADV_TRACE_ResetRegion(uint32_t Region);
 #define RBI_CONF_RFO_LP_HP 0
 #define RBI_CONF_RFO_LP 1
 #define RBI_CONF_RFO_HP 2
-# 61 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/radio_board_if.h"
-#define IS_TCXO_SUPPORTED 1U
+# 61 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/radio_board_if.h"
+#define IS_TCXO_SUPPORTED 0U
 #define RBI_CONF_RFO RBI_CONF_RFO_HP
 #define IS_DCDC_SUPPORTED 1U
-# 112 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/radio_board_if.h"
-#define RF_SW_CTRL1_PIN GPIO_PIN_0
-#define RF_SW_CTRL1_GPIO_PORT GPIOA
-#define RF_SW_CTRL1_GPIO_CLK_ENABLE() __HAL_RCC_GPIOA_CLK_ENABLE()
-#define RF_SW_CTRL1_GPIO_CLK_DISABLE() __HAL_RCC_GPIOA_CLK_DISABLE()
+# 112 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/radio_board_if.h"
+#define RF_SW_CTRL1_PIN GPIO_PIN_8
+#define RF_SW_CTRL1_GPIO_PORT GPIOB
+#define RF_SW_CTRL1_GPIO_CLK_ENABLE() __HAL_RCC_GPIOB_CLK_ENABLE()
+#define RF_SW_CTRL1_GPIO_CLK_DISABLE() __HAL_RCC_GPIOB_CLK_DISABLE()
 
 
 
-#define RF_SW_CTRL2_PIN GPIO_PIN_1
-#define RF_SW_CTRL2_GPIO_PORT GPIOA
-#define RF_SW_CTRL2_GPIO_CLK_ENABLE() __HAL_RCC_GPIOA_CLK_ENABLE()
-#define RF_SW_CTRL2_GPIO_CLK_DISABLE() __HAL_RCC_GPIOA_CLK_DISABLE()
+#define RF_SW_CTRL2_PIN GPIO_PIN_13
+#define RF_SW_CTRL2_GPIO_PORT GPIOC
+#define RF_SW_CTRL2_GPIO_CLK_ENABLE() __HAL_RCC_GPIOC_CLK_ENABLE()
+#define RF_SW_CTRL2_GPIO_CLK_DISABLE() __HAL_RCC_GPIOC_CLK_DISABLE()
 
 
 
@@ -36896,7 +36897,7 @@ typedef enum
   RBI_SWITCH_RFO_LP = 2,
   RBI_SWITCH_RFO_HP = 3,
 } RBI_Switch_TypeDef;
-# 163 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/radio_board_if.h"
+# 163 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/radio_board_if.h"
 int32_t RBI_Init(void);
 
 
@@ -36904,7 +36905,7 @@ int32_t RBI_Init(void);
 
 
 int32_t RBI_DeInit(void);
-# 181 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/radio_board_if.h"
+# 181 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/radio_board_if.h"
 int32_t RBI_ConfigRFSwitch(RBI_Switch_TypeDef Config);
 
 
@@ -36928,8 +36929,8 @@ int32_t RBI_IsTCXO(void);
 
 
 int32_t RBI_IsDCDC(void);
-# 35 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/radio_conf.h" 2
-# 51 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/radio_conf.h"
+# 35 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/radio_conf.h" 2
+# 51 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/radio_conf.h"
 #define DBG_GPIO_RADIO_RX(set_rst) 
 
 
@@ -36970,7 +36971,7 @@ int32_t RBI_IsDCDC(void);
 
 
 
-#define TCXO_CTRL_VOLTAGE TCXO_CTRL_3_0V
+#define TCXO_CTRL_VOLTAGE TCXO_CTRL_1_7V
 
 
 
@@ -36984,7 +36985,7 @@ int32_t RBI_IsDCDC(void);
 
 
 #define DCDC_ENABLE ( 1UL )
-# 120 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/radio_conf.h"
+# 120 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/radio_conf.h"
 #define CRITICAL_SECTION_BEGIN() UTILS_ENTER_CRITICAL_SECTION( )
 
 
@@ -38105,7 +38106,7 @@ uint8_t SUBGRF_GetFskBandwidthRegValue( uint32_t bandwidth );
 
 void SUBGRF_GetCFO( uint32_t BitRate, int32_t * Cfo);
 # 36 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio_driver.c" 2
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/mw_log_conf.h" 1
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/mw_log_conf.h" 1
 # 37 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio_driver.c" 2
 
 
@@ -38237,7 +38238,7 @@ void SUBGRF_Init( DioIrqHandler dioIrq )
 
     if (1U == RBI_IsTCXO() )
     {
-        SUBGRF_SetTcxoMode( TCXO_CTRL_3_0V, ( 1UL ) << 6 );
+        SUBGRF_SetTcxoMode( TCXO_CTRL_1_7V, ( 1UL ) << 6 );
         SUBGRF_WriteRegister( 0x0911, 0x00 );
 
 

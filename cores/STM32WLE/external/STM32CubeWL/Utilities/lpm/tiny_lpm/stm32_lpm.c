@@ -480,8 +480,8 @@
 #define ATCMD_CUST_TABLE_SIZE 64
 #define WAN_TYPE 0
 #define LORA_STACK_VER 0x040407
-#define RAK3272_SIP_VA 1
-#define rak3172 -sip 1
+#define RAK3372 +RAK5005-O_V1.0 1
+#define rak3172 1
 #define CORE_CM4 1
 #define USE_HAL_DRIVER 1
 #define STM32WLE5xx 1
@@ -498,6 +498,7 @@
 #define SOFT_SE 1
 #define SECURE_ELEMENT_PRE_PROVISIONED 1
 #define LORAMAC_CLASSB_ENABLED 1
+#define WISBLOCK_BASE_5005_O 1
 # 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/lpm/tiny_lpm/stm32_lpm.c"
 # 21 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/lpm/tiny_lpm/stm32_lpm.c"
 # 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/lpm/tiny_lpm/stm32_lpm.h" 1
@@ -1173,8 +1174,8 @@ void UTIL_LPM_SetOffMode( UTIL_LPM_bm_t lpm_id_bm, UTIL_LPM_State_t state );
 
 void UTIL_LPM_EnterLowPower( void );
 # 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/lpm/tiny_lpm/stm32_lpm.c" 2
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/utilities_conf.h" 1
-# 24 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/utilities_conf.h"
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/utilities_conf.h" 1
+# 24 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/utilities_conf.h"
 #define __UTILITIES_CONF_H__ 
 
 
@@ -2312,7 +2313,7 @@ __attribute__((always_inline)) static inline int32_t __SMMLA (int32_t op1, int32
 
 #pragma GCC diagnostic pop
 # 55 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_compiler.h" 2
-# 32 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/utilities_conf.h" 2
+# 32 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/utilities_conf.h" 2
 
 
 # 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_mem.h" 1
@@ -2325,7 +2326,7 @@ __attribute__((always_inline)) static inline int32_t __SMMLA (int32_t op1, int32
 
 
 
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/utilities_conf.h" 1
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/utilities_conf.h" 1
 # 31 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_mem.h" 2
 
 
@@ -2340,7 +2341,7 @@ void UTIL_MEM_cpy_8( void *dst, const void *src, uint16_t size );
 void UTIL_MEM_cpyr_8( void *dst, const void *src, uint16_t size );
 # 65 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_mem.h"
 void UTIL_MEM_set_8( void *dst, uint8_t value, uint16_t size );
-# 35 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/utilities_conf.h" 2
+# 35 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/utilities_conf.h" 2
 
 # 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h" 1
 # 21 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h"
@@ -3624,8 +3625,8 @@ char *strsignal (int __signo);
 
 # 54 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h"
 int tiny_vsnprintf_like(char *buf, const int size, const char *fmt, va_list args);
-# 37 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/utilities_conf.h" 2
-# 49 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/utilities_conf.h"
+# 37 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/utilities_conf.h" 2
+# 49 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/utilities_conf.h"
 #define VLEVEL_OFF 0
 #define VLEVEL_ALWAYS 0
 
@@ -3637,7 +3638,7 @@ int tiny_vsnprintf_like(char *buf, const int size, const char *fmt, va_list args
 #define TS_ON 1
 
 #define T_REG_OFF 0
-# 78 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/utilities_conf.h"
+# 78 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/utilities_conf.h"
 #define UTIL_PLACE_IN_SECTION(__x__) __attribute__((section (__x__)))
 
 
@@ -3686,7 +3687,7 @@ int tiny_vsnprintf_like(char *buf, const int size, const char *fmt, va_list args
 
 
 #define UTILS_EXIT_CRITICAL_SECTION() __set_PRIMASK(primask_bit)
-# 135 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/utilities_conf.h"
+# 135 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/utilities_conf.h"
 #define UTIL_ADV_TRACE_CONDITIONNAL 
 #define UTIL_ADV_TRACE_UNCHUNK_MODE 
 #define UTIL_ADV_TRACE_DEBUG(...) 
