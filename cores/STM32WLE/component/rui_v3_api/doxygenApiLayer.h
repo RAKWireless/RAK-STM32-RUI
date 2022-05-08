@@ -102,10 +102,18 @@
          * @ingroup System_Misc
          */
 
+        /**@defgroup    System_Timer  timer
+         * @ingroup System
+         */
+
 	/**@defgroup	System_Misc	Misc
 	 * @ingroup	System
 	 */
     
+        /**@defgroup    System_Pword  pword
+         * @ingroup System_Misc
+         */
+
         /**@defgroup    System_Alias  alias
          * @ingroup System_Misc
          */
@@ -151,6 +159,9 @@
 	
 /**@defgroup	ble	Ble
  */
+    /**@defgroup    BLE_func BLE Function
+     * @ingroup ble
+     */
 
         /**@defgroup	RUI_Ble_Data_Type	RUI Ble Data Type
 	 * @ingroup	ble

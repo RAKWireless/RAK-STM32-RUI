@@ -23,6 +23,28 @@ using namespace std;
  */
 
 /**@par	Description
+ * 	The ID of timer
+ */
+typedef enum {
+    RAK_TIMER_0 = TIMER_0,	///< timer ID #0
+    RAK_TIMER_1 = TIMER_1,	///< timer ID #1
+    RAK_TIMER_2 = TIMER_2,	///< timer ID #2
+    RAK_TIMER_3 = TIMER_3,	///< timer ID #3
+    RAK_TIMER_4 = TIMER_4,	///< timer ID #4
+    RAK_TIMER_ID_MAX = TIMER_ID_MAX,	///< this is the number of all available timers
+} RAK_TIMER_ID;
+
+/**@par	Description
+ * 	The handler function of timer
+ */
+typedef void (*RAK_TIMER_HANDLER) (void *data);
+
+typedef enum {
+    RAK_TIMER_ONESHOT = HTMR_ONESHOT,	///< This timer is only triggered one time
+    RAK_TIMER_PERIODIC = HTMR_PERIODIC,	///< This timer is triggered periodically
+} RAK_TIMER_MODE;
+
+/**@par	Description
  * 	The permission setting of AT command
  */
 /* ATCMD PERMISSION */
@@ -952,6 +974,111 @@ class RAKSystem {
      */
         bool    get(char * buf,uint32_t len);
     };
+    class timer {
+      public :
+    /**@par     Description
+     *      Create a timer.
+     * @ingroup System_Timer
+     * @par     Syntax
+     *  api.system.timer.create(id, handler, mode)
+     * @param   id the timer ID
+     * @param   handler the handler function for this timer
+     * @param   mode the mode of this timer
+     * @return  bool
+     * @retval  TRUE for creating timer successfully
+     * @retval  FALSE for creating timer failure
+     * @par         Example
+         * @verbatim
+            void handler(void *data)
+            {
+              Serial.printf("[%lu]This is the handler\r\n", millis());
+            }
+            void setup()
+            {
+              Serial.begin(115200);
+
+              if (api.system.timer.create(RAK_TIMER_0, (RAK_TIMER_HANDLER)handler, RAK_TIMER_PERIODIC) != true) {
+                Serial.printf("Creating timer failed.\r\n");
+              } else if (api.system.timer.start(RAK_TIMER_0, 1000, NULL) != true) {
+                Serial.printf("Starting timer failed.\r\n");
+              }
+            }
+            void loop()
+            {
+            }
+           @endverbatim
+     */
+        bool    create(RAK_TIMER_ID id, RAK_TIMER_HANDLER handler, RAK_TIMER_MODE mode);
+    /**@par     Description
+     *      Start a timer.
+     * @ingroup System_Timer
+     * @par     Syntax
+     *  api.system.timer.start(id, ms, data)
+     * @param   id the timer ID
+     * @param   ms the period of timer
+     * @param   data the data passed to timer handler function
+     * @return  bool
+     * @retval  TRUE for starting timer successfully
+     * @retval  FALSE for starting timer failure
+     * @par         Example
+         * @verbatim
+            void handler(void *data)
+            {
+              Serial.printf("[%lu]This is the handler\r\n", millis());
+            }
+            void setup()
+            {
+              Serial.begin(115200);
+
+              if (api.system.timer.create(RAK_TIMER_0, (RAK_TIMER_HANDLER)handler, RAK_TIMER_PERIODIC) != true) {
+                Serial.printf("Creating timer failed.\r\n");
+              } else if (api.system.timer.start(RAK_TIMER_0, 1000, NULL) != true) {
+                Serial.printf("Starting timer failed.\r\n");
+              }
+            }
+            void loop()
+            {
+            }
+           @endverbatim
+     */
+        bool    start(RAK_TIMER_ID id, uint32_t ms, void *data);
+    /**@par     Description
+     *      Stop a timer.
+     * @ingroup System_Timer
+     * @par     Syntax
+     *  api.system.timer.stop(id)
+     * @param   id the timer ID
+     * @return  bool
+     * @retval  TRUE for stoping timer successfully
+     * @retval  FALSE for stoping timer failure
+     * @par         Example
+         * @verbatim
+            void handler(void *data)
+            {
+              Serial.printf("[%lu]This is the handler\r\n", millis());
+            }
+            void setup()
+            {
+              Serial.begin(115200);
+
+              if (api.system.timer.create(RAK_TIMER_0, (RAK_TIMER_HANDLER)handler, RAK_TIMER_PERIODIC) != true) {
+                Serial.printf("Creating timer failed.\r\n");
+              } else if (api.system.timer.start(RAK_TIMER_0, 1000, NULL) != true) {
+                Serial.printf("Starting timer failed.\r\n");
+              }
+            }
+            void loop()
+            {
+              if (millis() > 60000) {
+                if (api.system.timer.stop(RAK_TIMER_0) != true) {
+                  Serial.printf("Stoping timer failed.\r\n");
+                }
+              }
+            }
+           @endverbatim
+     */
+        bool    stop(RAK_TIMER_ID id);
+    };
     pword pword;
     bat bat;
     atMode atMode;
@@ -961,7 +1088,7 @@ class RAKSystem {
     flash flash;
 #endif
     alias alias;
-
+    timer timer;
 };
 
 /**@example	System_FS/src/app.cpp

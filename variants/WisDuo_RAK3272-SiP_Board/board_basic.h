@@ -156,5 +156,37 @@ typedef struct {
     uint8_t alias[16];
 } rui_cfg_t;
 
+typedef struct {
+    rui_cfg_t cfg;
+    uint32_t magic;
+    /**************************************************
+     *                                                *
+     * XXX: MUST put new RUI config here.             *
+     *                                                *
+     **************************************************/
+} rui_cfg_new_t;
+
+typedef struct {
+    uint32_t crc_verify;
+#ifdef SUPPORT_LORA
+    uint8_t lora_work_mode;
+    S_LORAP2P_PARAM g_lora_p2p_cfg_t;
+#endif
+#ifdef SUPPORT_BLE
+    ble_central_cfg_t g_ble_cfg_t;
+#endif
+#ifdef SUPPORT_LORA
+    lora_cfg_t g_lora_cfg_t;
+#endif
+    rtc_delta_t g_rtc_delta_t;
+    SERVICE_MODE_TYPE mode_type[SERIAL_MAX];
+    uint32_t baudrate;
+    uint8_t atcmd_echo;
+    uint8_t serial_passwd[9];
+    uint32_t auto_sleep_time;
+    uint8_t sn[18];
+    uint8_t alias[16];
+} rui_cfg_legacy_t;
+
 uint32_t get_batt_table_size(void);
 #endif

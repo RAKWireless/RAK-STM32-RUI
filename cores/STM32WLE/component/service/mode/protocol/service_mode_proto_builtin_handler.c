@@ -2069,6 +2069,15 @@ void service_mode_proto_atcmd_request_handler (SERIAL_PORT port, uint8_t *payloa
                 case 8:
                     band = SERVICE_LORA_AS923;
                     break;
+                case 9:
+                    band = SERVICE_LORA_AS923_2;
+                    break;
+                case 10:
+                    band = SERVICE_LORA_AS923_3;
+                    break;
+                case 11:
+                    band = SERVICE_LORA_AS923_4;
+                    break;
                 default:
                     nRet = AT_PARAM_ERROR;
                     break;
@@ -2120,6 +2129,16 @@ void service_mode_proto_atcmd_request_handler (SERIAL_PORT port, uint8_t *payloa
                     case SERVICE_LORA_AS923:
                         *(buff+sizeof(header)) = 8;
                         break;
+                    case SERVICE_LORA_AS923_2:
+                        *(buff+sizeof(header)) = 9;
+                        break;
+                    case SERVICE_LORA_AS923_3:
+                        *(buff+sizeof(header)) = 10;
+                        break;
+                    case SERVICE_LORA_AS923_4:
+                        *(buff+sizeof(header)) = 11;
+                        break;
+                    
 #ifdef LEGACY
                     case SERVICE_LORA_US915_HYBRID:
 #endif

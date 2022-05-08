@@ -1,5 +1,5 @@
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3//"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3//"
 # 1 "<built-in>"
 #define __STDC__ 1
 #define __STDC_VERSION__ 199901L
@@ -499,10 +499,10 @@
 #define SECURE_ELEMENT_PRE_PROVISIONED 1
 #define LORAMAC_CLASSB_ENABLED 1
 #define WISBLOCK_BASE_5005_O 1
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
-# 112 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h" 1
-# 23 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
+# 112 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h" 1
+# 23 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
 #define __STM32WLxx_HAL_H 
 
 
@@ -510,10 +510,10 @@
 
 
 
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
 #define STM32WLxx_HAL_CONF_H 
-# 35 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
+# 35 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
 #define HAL_MODULE_ENABLED 
 #define HAL_ADC_MODULE_ENABLED 
 
@@ -570,7 +570,7 @@
 #define USE_HAL_UART_REGISTER_CALLBACKS 0u
 #define USE_HAL_USART_REGISTER_CALLBACKS 0u
 #define USE_HAL_WWDG_REGISTER_CALLBACKS 0u
-# 100 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
+# 100 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
 #define HSE_VALUE 32000000UL
 
 
@@ -584,7 +584,7 @@
 
 
 #define MSI_VALUE 4000000UL
-# 121 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
+# 121 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
 #define HSI_VALUE 16000000UL
 
 
@@ -593,7 +593,7 @@
 
 
 #define LSI_VALUE 32000UL
-# 138 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
+# 138 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
 #define LSE_VALUE 32768UL
 
 
@@ -607,14 +607,14 @@
 
 
 #define LSE_STARTUP_TIMEOUT 5000UL
-# 160 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
+# 160 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
 #define VDD_VALUE 3300U
 #define TICK_INT_PRIORITY ((1uL <<__NVIC_PRIO_BITS) - 1uL)
 #define USE_RTOS 0U
 #define PREFETCH_ENABLE 0U
 #define INSTRUCTION_CACHE_ENABLE 1U
 #define DATA_CACHE_ENABLE 1U
-# 181 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
+# 181 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
 #define USE_SPI_CRC 1U
 
 
@@ -626,8 +626,8 @@
 
 
 
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
 #define STM32WLxx_HAL_DMA_H 
 
 
@@ -635,8 +635,8 @@
 
 
 
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_def.h" 1
-# 23 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_def.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_def.h" 1
+# 23 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_def.h"
 #define __STM32WLxx_HAL_DEF 
 
 
@@ -644,22 +644,22 @@
 
 
 
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h" 1
-# 38 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h" 1
+# 38 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h"
 #define __STM32WLxx_H 
-# 52 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h"
+# 52 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h"
 #define STM32WL 
-# 81 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h"
+# 81 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h"
 #define __STM32WLxx_CMSIS_VERSION_MAIN (0x01U)
 #define __STM32WLxx_CMSIS_VERSION_SUB1 (0x01U)
 #define __STM32WLxx_CMSIS_VERSION_SUB2 (0x00U)
 #define __STM32WLxx_CMSIS_VERSION_RC (0x00U)
 #define __STM32WLxx_CMSIS_DEVICE_VERSION ((__STM32WLxx_CMSIS_VERSION_MAIN << 24) |(__STM32WLxx_CMSIS_VERSION_SUB1 << 16) |(__STM32WLxx_CMSIS_VERSION_SUB2 << 8 ) |(__STM32WLxx_CMSIS_VERSION_RC))
-# 101 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h"
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h" 1
-# 36 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
+# 101 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h" 1
+# 36 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define __STM32WLE5xx_H 
-# 53 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
+# 53 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 typedef enum
 {
 
@@ -734,7 +734,7 @@ typedef enum
   DMA2_Channel7_IRQn = 60,
   DMAMUX1_OVR_IRQn = 61
 } IRQn_Type;
-# 137 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
+# 137 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define __CM4_REV 1U
 #define __MPU_PRESENT 1U
 #define __VTOR_PRESENT 1U
@@ -742,17 +742,17 @@ typedef enum
 #define __Vendor_SysTickConfig 0U
 #define __FPU_PRESENT 0U
 
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h" 1
-# 32 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h" 1
+# 32 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 #define __CORE_CM4_H_GENERIC 
 
-# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdint.h" 1 3 4
-# 9 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdint.h" 3 4
-# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 1 3 4
-# 10 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdint.h" 1 3 4
+# 9 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdint.h" 3 4
+# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 1 3 4
+# 10 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define _STDINT_H 
 
-# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 1 3 4
+# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 1 3 4
 
 
 
@@ -760,15 +760,15 @@ typedef enum
 
 #define _MACHINE__DEFAULT_TYPES_H 
 
-# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 1 3 4
-# 22 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3 4
+# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 1 3 4
+# 22 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3 4
 #define _SYS_FEATURES_H 
 
 
 
 
 
-# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_newlib_version.h" 1 3 4
+# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_newlib_version.h" 1 3 4
 
 
 
@@ -778,7 +778,7 @@ typedef enum
 #define __NEWLIB__ 3
 #define __NEWLIB_MINOR__ 3
 #define __NEWLIB_PATCHLEVEL__ 0
-# 29 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 2 3 4
+# 29 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 2 3 4
 
 
 
@@ -791,7 +791,7 @@ typedef enum
 
 
 #define __GNUC_PREREQ__(ma,mi) __GNUC_PREREQ(ma, mi)
-# 249 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3 4
+# 249 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3 4
 #define __ATFILE_VISIBLE 0
 
 
@@ -827,7 +827,7 @@ typedef enum
 
 
 #define __MISC_VISIBLE 0
-# 299 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3 4
+# 299 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3 4
 #define __POSIX_VISIBLE 0
 
 
@@ -835,11 +835,11 @@ typedef enum
 
 
 #define __SVID_VISIBLE 0
-# 319 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3 4
+# 319 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3 4
 #define __XSI_VISIBLE 0
-# 330 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3 4
+# 330 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3 4
 #define __SSP_FORTIFY_LEVEL 0
-# 9 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 2 3 4
+# 9 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 2 3 4
 
 
 
@@ -847,7 +847,7 @@ typedef enum
 
 
 #define __EXP(x) __ ##x ##__
-# 26 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
+# 26 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
 #define __have_longlong64 1
 
 
@@ -864,7 +864,7 @@ typedef enum
 
 
 
-# 41 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
+# 41 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
 typedef signed char __int8_t;
 
 typedef unsigned char __uint8_t;
@@ -886,7 +886,7 @@ typedef short unsigned int __uint16_t;
 
 
 #define ___int16_t_defined 1
-# 77 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
+# 77 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
 typedef long int __int32_t;
 
 typedef long unsigned int __uint32_t;
@@ -894,7 +894,7 @@ typedef long unsigned int __uint32_t;
 
 
 #define ___int32_t_defined 1
-# 103 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
+# 103 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
 typedef long long int __int64_t;
 
 typedef long long unsigned int __uint64_t;
@@ -902,7 +902,7 @@ typedef long long unsigned int __uint64_t;
 
 
 #define ___int64_t_defined 1
-# 134 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
+# 134 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
 typedef signed char __int_least8_t;
 
 typedef unsigned char __uint_least8_t;
@@ -910,7 +910,7 @@ typedef unsigned char __uint_least8_t;
 
 
 #define ___int_least8_t_defined 1
-# 160 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
+# 160 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
 typedef short int __int_least16_t;
 
 typedef short unsigned int __uint_least16_t;
@@ -918,7 +918,7 @@ typedef short unsigned int __uint_least16_t;
 
 
 #define ___int_least16_t_defined 1
-# 182 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
+# 182 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
 typedef long int __int_least32_t;
 
 typedef long unsigned int __uint_least32_t;
@@ -926,7 +926,7 @@ typedef long unsigned int __uint_least32_t;
 
 
 #define ___int_least32_t_defined 1
-# 200 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
+# 200 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
 typedef long long int __int_least64_t;
 
 typedef long long unsigned int __uint_least64_t;
@@ -960,11 +960,11 @@ typedef long long unsigned int __uintmax_t;
 typedef int __intptr_t;
 
 typedef unsigned int __uintptr_t;
-# 244 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
+# 244 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
 #undef __EXP
-# 13 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 2 3 4
-# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 1 3 4
-# 10 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
+# 13 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 2 3 4
+# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 1 3 4
+# 10 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
 #define _SYS__INTSUP_H 
 
 
@@ -972,7 +972,7 @@ typedef unsigned int __uintptr_t;
 
 
 #define __STDINT_EXP(x) __ ##x ##__
-# 35 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
+# 35 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
        
        
        
@@ -997,7 +997,7 @@ typedef unsigned int __uintptr_t;
 #define __int20__ +2
 #define int +2
 #define long +4
-# 67 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
+# 67 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
 #define _INTPTR_EQ_INT 
 
 
@@ -1014,11 +1014,11 @@ typedef unsigned int __uintptr_t;
 
 
 #define __INT8 "hh"
-# 93 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
+# 93 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
 #define __INT16 "h"
-# 104 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
+# 104 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
 #define __INT32 "l"
-# 113 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
+# 113 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
 #define __INT64 "ll"
 
 
@@ -1027,7 +1027,7 @@ typedef unsigned int __uintptr_t;
 
 
 #define __FAST8 
-# 129 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
+# 129 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
 #define __FAST16 
 
 
@@ -1036,17 +1036,17 @@ typedef unsigned int __uintptr_t;
 
 
 #define __FAST32 
-# 147 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
+# 147 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
 #define __FAST64 "ll"
 
 
 
 #define __LEAST8 "hh"
-# 162 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
+# 162 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
 #define __LEAST16 "h"
-# 173 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
+# 173 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
 #define __LEAST32 "l"
-# 182 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
+# 182 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
 #define __LEAST64 "ll"
 
 #undef signed
@@ -1060,18 +1060,18 @@ typedef unsigned int __uintptr_t;
        
        
        
-# 194 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
+# 194 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
 #undef __int20
        
-# 195 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
+# 195 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
 #undef __int20__
        
        
-# 14 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 2 3 4
-# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_stdint.h" 1 3 4
-# 10 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_stdint.h" 3 4
+# 14 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 2 3 4
+# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_stdint.h" 1 3 4
+# 10 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_stdint.h" 3 4
 #define _SYS__STDINT_H 
-# 20 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_stdint.h" 3 4
+# 20 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_stdint.h" 3 4
 typedef __int8_t int8_t ;
 #define _INT8_T_DECLARED 
 
@@ -1136,7 +1136,7 @@ typedef __intptr_t intptr_t;
 
 typedef __uintptr_t uintptr_t;
 #define _UINTPTR_T_DECLARED 
-# 15 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 2 3 4
+# 15 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 2 3 4
 
 
 
@@ -1164,7 +1164,7 @@ typedef __uint_least32_t uint_least32_t;
 typedef __int_least64_t int_least64_t;
 typedef __uint_least64_t uint_least64_t;
 #define __int_least64_t_defined 1
-# 51 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 51 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
   typedef int int_fast8_t;
   typedef unsigned int uint_fast8_t;
 #define __int_fast8_t_defined 1
@@ -1198,11 +1198,11 @@ typedef __uint_least64_t uint_least64_t;
   typedef long long int int_fast64_t;
   typedef long long unsigned int uint_fast64_t;
 #define __int_fast64_t_defined 1
-# 128 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 128 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INTPTR_MIN (-__INTPTR_MAX__ - 1)
 #define INTPTR_MAX (__INTPTR_MAX__)
 #define UINTPTR_MAX (__UINTPTR_MAX__)
-# 152 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 152 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INT8_MIN (-__INT8_MAX__ - 1)
 #define INT8_MAX (__INT8_MAX__)
 #define UINT8_MAX (__UINT8_MAX__)
@@ -1216,7 +1216,7 @@ typedef __uint_least64_t uint_least64_t;
 #define INT_LEAST8_MIN (-__INT_LEAST8_MAX__ - 1)
 #define INT_LEAST8_MAX (__INT_LEAST8_MAX__)
 #define UINT_LEAST8_MAX (__UINT_LEAST8_MAX__)
-# 174 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 174 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INT16_MIN (-__INT16_MAX__ - 1)
 #define INT16_MAX (__INT16_MAX__)
 #define UINT16_MAX (__UINT16_MAX__)
@@ -1230,39 +1230,39 @@ typedef __uint_least64_t uint_least64_t;
 #define INT_LEAST16_MIN (-__INT_LEAST16_MAX__ - 1)
 #define INT_LEAST16_MAX (__INT_LEAST16_MAX__)
 #define UINT_LEAST16_MAX (__UINT_LEAST16_MAX__)
-# 196 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 196 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INT32_MIN (-__INT32_MAX__ - 1)
 #define INT32_MAX (__INT32_MAX__)
 #define UINT32_MAX (__UINT32_MAX__)
-# 212 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 212 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INT_LEAST32_MIN (-__INT_LEAST32_MAX__ - 1)
 #define INT_LEAST32_MAX (__INT_LEAST32_MAX__)
 #define UINT_LEAST32_MAX (__UINT_LEAST32_MAX__)
-# 230 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 230 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INT64_MIN (-__INT64_MAX__ - 1)
 #define INT64_MAX (__INT64_MAX__)
 #define UINT64_MAX (__UINT64_MAX__)
-# 246 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 246 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INT_LEAST64_MIN (-__INT_LEAST64_MAX__ - 1)
 #define INT_LEAST64_MAX (__INT_LEAST64_MAX__)
 #define UINT_LEAST64_MAX (__UINT_LEAST64_MAX__)
-# 262 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 262 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INT_FAST8_MIN (-__INT_FAST8_MAX__ - 1)
 #define INT_FAST8_MAX (__INT_FAST8_MAX__)
 #define UINT_FAST8_MAX (__UINT_FAST8_MAX__)
-# 278 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 278 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INT_FAST16_MIN (-__INT_FAST16_MAX__ - 1)
 #define INT_FAST16_MAX (__INT_FAST16_MAX__)
 #define UINT_FAST16_MAX (__UINT_FAST16_MAX__)
-# 294 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 294 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INT_FAST32_MIN (-__INT_FAST32_MAX__ - 1)
 #define INT_FAST32_MAX (__INT_FAST32_MAX__)
 #define UINT_FAST32_MAX (__UINT_FAST32_MAX__)
-# 310 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 310 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INT_FAST64_MIN (-__INT_FAST64_MAX__ - 1)
 #define INT_FAST64_MAX (__INT_FAST64_MAX__)
 #define UINT_FAST64_MAX (__UINT_FAST64_MAX__)
-# 326 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 326 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INTMAX_MAX (__INTMAX_MAX__)
 #define INTMAX_MIN (-INTMAX_MAX - 1)
 
@@ -1301,9 +1301,9 @@ typedef __uint_least64_t uint_least64_t;
 
 
 #define WCHAR_MIN (__WCHAR_MIN__)
-# 374 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 374 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define WCHAR_MAX (__WCHAR_MAX__)
-# 384 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 384 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define WINT_MAX (__WINT_MAX__)
 
 
@@ -1318,34 +1318,34 @@ typedef __uint_least64_t uint_least64_t;
 
 #define INT8_C(x) __INT8_C(x)
 #define UINT8_C(x) __UINT8_C(x)
-# 408 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 408 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INT16_C(x) __INT16_C(x)
 #define UINT16_C(x) __UINT16_C(x)
-# 420 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 420 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INT32_C(x) __INT32_C(x)
 #define UINT32_C(x) __UINT32_C(x)
-# 433 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 433 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INT64_C(x) __INT64_C(x)
 #define UINT64_C(x) __UINT64_C(x)
-# 449 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 449 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INTMAX_C(x) __INTMAX_C(x)
 #define UINTMAX_C(x) __UINTMAX_C(x)
-# 10 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdint.h" 2 3 4
+# 10 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdint.h" 2 3 4
 
 
 
 #define _GCC_WRAP_STDINT_H 
-# 35 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h" 2
-# 63 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_version.h" 1
-# 32 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_version.h"
+# 35 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h" 2
+# 63 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_version.h" 1
+# 32 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_version.h"
 #define __CMSIS_VERSION_H 
 
 
 #define __CM_CMSIS_VERSION_MAIN ( 5U)
 #define __CM_CMSIS_VERSION_SUB ( 3U)
 #define __CM_CMSIS_VERSION ((__CM_CMSIS_VERSION_MAIN << 16U) | __CM_CMSIS_VERSION_SUB )
-# 64 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h" 2
+# 64 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h" 2
 
 
 #define __CM4_CMSIS_VERSION_MAIN (__CM_CMSIS_VERSION_MAIN)
@@ -1354,15 +1354,15 @@ typedef __uint_least64_t uint_least64_t;
 
 
 #define __CORTEX_M (4U)
-# 109 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 109 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 #define __FPU_USED 0U
-# 162 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_compiler.h" 1
-# 26 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_compiler.h"
+# 162 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_compiler.h" 1
+# 26 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_compiler.h"
 #define __CMSIS_COMPILER_H 
-# 54 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_compiler.h"
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h" 1
-# 26 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 54 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_compiler.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h" 1
+# 26 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 #define __CMSIS_GCC_H 
 
 
@@ -1370,7 +1370,7 @@ typedef __uint_least64_t uint_least64_t;
 #pragma GCC diagnostic ignored "-Wsign-conversion"
 #pragma GCC diagnostic ignored "-Wconversion"
 #pragma GCC diagnostic ignored "-Wunused-parameter"
-# 41 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 41 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 #define __ASM __asm
 
 
@@ -1405,7 +1405,7 @@ typedef __uint_least64_t uint_least64_t;
 #pragma GCC diagnostic ignored "-Wpacked"
 #pragma GCC diagnostic ignored "-Wattributes"
   
-# 74 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 74 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
  struct __attribute__((packed)) T_UINT32 { uint32_t v; };
 #pragma GCC diagnostic pop
 #define __UNALIGNED_UINT32(x) (((struct T_UINT32 *)(x))->v)
@@ -1450,7 +1450,7 @@ typedef __uint_least64_t uint_least64_t;
 
 
 #define __COMPILER_BARRIER() __ASM volatile("":::"memory")
-# 131 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 131 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline __attribute__((__noreturn__)) void __cmsis_start(void)
 {
   extern void _start(void) __attribute__((__noreturn__));
@@ -1503,7 +1503,7 @@ __attribute__((always_inline)) static inline __attribute__((__noreturn__)) void 
 
 
 #define __VECTOR_TABLE_ATTRIBUTE __attribute((used, section(".vectors")))
-# 196 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 196 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline void __enable_irq(void)
 {
   __asm volatile ("cpsie i" : : : "memory");
@@ -1533,12 +1533,12 @@ __attribute__((always_inline)) static inline uint32_t __get_CONTROL(void)
   __asm volatile ("MRS %0, control" : "=r" (result) );
   return(result);
 }
-# 248 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 248 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline void __set_CONTROL(uint32_t control)
 {
   __asm volatile ("MSR control, %0" : : "r" (control) : "memory");
 }
-# 272 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 272 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __get_IPSR(void)
 {
   uint32_t result;
@@ -1588,12 +1588,12 @@ __attribute__((always_inline)) static inline uint32_t __get_PSP(void)
   __asm volatile ("MRS %0, psp" : "=r" (result) );
   return(result);
 }
-# 344 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 344 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline void __set_PSP(uint32_t topOfProcStack)
 {
   __asm volatile ("MSR psp, %0" : : "r" (topOfProcStack) : );
 }
-# 368 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 368 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __get_MSP(void)
 {
   uint32_t result;
@@ -1601,12 +1601,12 @@ __attribute__((always_inline)) static inline uint32_t __get_MSP(void)
   __asm volatile ("MRS %0, msp" : "=r" (result) );
   return(result);
 }
-# 398 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 398 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline void __set_MSP(uint32_t topOfMainStack)
 {
   __asm volatile ("MSR msp, %0" : : "r" (topOfMainStack) : );
 }
-# 449 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 449 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __get_PRIMASK(void)
 {
   uint32_t result;
@@ -1614,12 +1614,12 @@ __attribute__((always_inline)) static inline uint32_t __get_PRIMASK(void)
   __asm volatile ("MRS %0, primask" : "=r" (result) :: "memory");
   return(result);
 }
-# 479 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 479 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline void __set_PRIMASK(uint32_t priMask)
 {
   __asm volatile ("MSR primask, %0" : : "r" (priMask) : "memory");
 }
-# 506 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 506 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline void __enable_fault_irq(void)
 {
   __asm volatile ("cpsie f" : : : "memory");
@@ -1649,12 +1649,12 @@ __attribute__((always_inline)) static inline uint32_t __get_BASEPRI(void)
   __asm volatile ("MRS %0, basepri" : "=r" (result) );
   return(result);
 }
-# 558 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 558 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline void __set_BASEPRI(uint32_t basePri)
 {
   __asm volatile ("MSR basepri, %0" : : "r" (basePri) : "memory");
 }
-# 583 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 583 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline void __set_BASEPRI_MAX(uint32_t basePri)
 {
   __asm volatile ("MSR basepri_max, %0" : : "r" (basePri) : "memory");
@@ -1673,15 +1673,15 @@ __attribute__((always_inline)) static inline uint32_t __get_FAULTMASK(void)
   __asm volatile ("MRS %0, faultmask" : "=r" (result) );
   return(result);
 }
-# 624 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 624 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline void __set_FAULTMASK(uint32_t faultMask)
 {
   __asm volatile ("MSR faultmask, %0" : : "r" (faultMask) : "memory");
 }
-# 833 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 833 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __get_FPSCR(void)
 {
-# 849 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 849 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
   return(0U);
 
 }
@@ -1694,11 +1694,11 @@ __attribute__((always_inline)) static inline uint32_t __get_FPSCR(void)
 
 __attribute__((always_inline)) static inline void __set_FPSCR(uint32_t fpscr)
 {
-# 872 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 872 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
   (void)fpscr;
 
 }
-# 894 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 894 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 #define __CMSIS_GCC_OUT_REG(r) "=r" (r)
 #define __CMSIS_GCC_RW_REG(r) "+r" (r)
 #define __CMSIS_GCC_USE_REG(r) "r" (r)
@@ -1730,7 +1730,7 @@ __attribute__((always_inline)) static inline void __set_FPSCR(uint32_t fpscr)
 
 
 #define __SEV() __ASM volatile ("sev")
-# 933 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 933 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline void __ISB(void)
 {
   __asm volatile ("isb 0xF":::"memory");
@@ -1757,7 +1757,7 @@ __attribute__((always_inline)) static inline void __DMB(void)
 {
   __asm volatile ("dmb 0xF":::"memory");
 }
-# 967 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 967 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __REV(uint32_t value)
 {
 
@@ -1769,7 +1769,7 @@ __attribute__((always_inline)) static inline uint32_t __REV(uint32_t value)
 
 
 }
-# 986 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 986 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __REV16(uint32_t value)
 {
   uint32_t result;
@@ -1777,7 +1777,7 @@ __attribute__((always_inline)) static inline uint32_t __REV16(uint32_t value)
   __asm volatile ("rev16 %0, %1" : "=r" (result) : "r" (value) );
   return result;
 }
-# 1001 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1001 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline int16_t __REVSH(int16_t value)
 {
 
@@ -1789,7 +1789,7 @@ __attribute__((always_inline)) static inline int16_t __REVSH(int16_t value)
 
 
 }
-# 1021 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1021 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __ROR(uint32_t op1, uint32_t op2)
 {
   op2 %= 32U;
@@ -1799,9 +1799,9 @@ __attribute__((always_inline)) static inline uint32_t __ROR(uint32_t op1, uint32
   }
   return (op1 >> op2) | (op1 << (32U - op2));
 }
-# 1039 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1039 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 #define __BKPT(value) __ASM volatile ("bkpt "#value)
-# 1048 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1048 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __RBIT(uint32_t value)
 {
   uint32_t result;
@@ -1810,20 +1810,20 @@ __attribute__((always_inline)) static inline uint32_t __RBIT(uint32_t value)
 
 
    __asm volatile ("rbit %0, %1" : "=r" (result) : "r" (value) );
-# 1068 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1068 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
   return result;
 }
-# 1078 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1078 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint8_t __CLZ(uint32_t value)
 {
-# 1089 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1089 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
   if (value == 0U)
   {
     return 32U;
   }
   return __builtin_clz(value);
 }
-# 1107 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1107 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint8_t __LDREXB(volatile uint8_t *addr)
 {
     uint32_t result;
@@ -1838,7 +1838,7 @@ __attribute__((always_inline)) static inline uint8_t __LDREXB(volatile uint8_t *
 
    return ((uint8_t) result);
 }
-# 1129 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1129 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint16_t __LDREXH(volatile uint16_t *addr)
 {
     uint32_t result;
@@ -1853,7 +1853,7 @@ __attribute__((always_inline)) static inline uint16_t __LDREXH(volatile uint16_t
 
    return ((uint16_t) result);
 }
-# 1151 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1151 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __LDREXW(volatile uint32_t *addr)
 {
     uint32_t result;
@@ -1861,7 +1861,7 @@ __attribute__((always_inline)) static inline uint32_t __LDREXW(volatile uint32_t
    __asm volatile ("ldrex %0, %1" : "=r" (result) : "Q" (*addr) );
    return(result);
 }
-# 1168 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1168 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __STREXB(uint8_t value, volatile uint8_t *addr)
 {
    uint32_t result;
@@ -1869,7 +1869,7 @@ __attribute__((always_inline)) static inline uint32_t __STREXB(uint8_t value, vo
    __asm volatile ("strexb %0, %2, %1" : "=&r" (result), "=Q" (*addr) : "r" ((uint32_t)value) );
    return(result);
 }
-# 1185 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1185 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __STREXH(uint16_t value, volatile uint16_t *addr)
 {
    uint32_t result;
@@ -1877,7 +1877,7 @@ __attribute__((always_inline)) static inline uint32_t __STREXH(uint16_t value, v
    __asm volatile ("strexh %0, %2, %1" : "=&r" (result), "=Q" (*addr) : "r" ((uint32_t)value) );
    return(result);
 }
-# 1202 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1202 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __STREXW(uint32_t value, volatile uint32_t *addr)
 {
    uint32_t result;
@@ -1895,11 +1895,11 @@ __attribute__((always_inline)) static inline void __CLREX(void)
 {
   __asm volatile ("clrex" ::: "memory");
 }
-# 1236 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1236 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 #define __SSAT(ARG1,ARG2) __extension__ ({ int32_t __RES, __ARG1 = (ARG1); __ASM ("ssat %0, %1, %2" : "=r" (__RES) : "I" (ARG2), "r" (__ARG1) ); __RES; })
-# 1252 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1252 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 #define __USAT(ARG1,ARG2) __extension__ ({ uint32_t __RES, __ARG1 = (ARG1); __ASM ("usat %0, %1, %2" : "=r" (__RES) : "I" (ARG2), "r" (__ARG1) ); __RES; })
-# 1268 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1268 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __RRX(uint32_t value)
 {
   uint32_t result;
@@ -1907,7 +1907,7 @@ __attribute__((always_inline)) static inline uint32_t __RRX(uint32_t value)
   __asm volatile ("rrx %0, %1" : "=r" (result) : "r" (value) );
   return(result);
 }
-# 1283 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1283 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint8_t __LDRBT(volatile uint8_t *ptr)
 {
     uint32_t result;
@@ -1922,7 +1922,7 @@ __attribute__((always_inline)) static inline uint8_t __LDRBT(volatile uint8_t *p
 
    return ((uint8_t) result);
 }
-# 1305 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1305 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint16_t __LDRHT(volatile uint16_t *ptr)
 {
     uint32_t result;
@@ -1937,7 +1937,7 @@ __attribute__((always_inline)) static inline uint16_t __LDRHT(volatile uint16_t 
 
    return ((uint16_t) result);
 }
-# 1327 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1327 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __LDRT(volatile uint32_t *ptr)
 {
     uint32_t result;
@@ -1945,22 +1945,22 @@ __attribute__((always_inline)) static inline uint32_t __LDRT(volatile uint32_t *
    __asm volatile ("ldrt %0, %1" : "=r" (result) : "Q" (*ptr) );
    return(result);
 }
-# 1342 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1342 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline void __STRBT(uint8_t value, volatile uint8_t *ptr)
 {
    __asm volatile ("strbt %1, %0" : "=Q" (*ptr) : "r" ((uint32_t)value) );
 }
-# 1354 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1354 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline void __STRHT(uint16_t value, volatile uint16_t *ptr)
 {
    __asm volatile ("strht %1, %0" : "=Q" (*ptr) : "r" ((uint32_t)value) );
 }
-# 1366 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1366 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline void __STRT(uint32_t value, volatile uint32_t *ptr)
 {
    __asm volatile ("strt %1, %0" : "=Q" (*ptr) : "r" (value) );
 }
-# 1621 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1621 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __SADD8(uint32_t op1, uint32_t op2)
 {
   uint32_t result;
@@ -2468,7 +2468,7 @@ __attribute__((always_inline)) static inline int32_t __QSUB( int32_t op1, int32_
   __asm volatile ("qsub %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
   return(result);
 }
-# 2148 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 2148 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 #define __PKHBT(ARG1,ARG2,ARG3) ( ((((uint32_t)(ARG1)) ) & 0x0000FFFFUL) | ((((uint32_t)(ARG2)) << (ARG3)) & 0xFFFF0000UL) )
 
 
@@ -2488,11 +2488,11 @@ __attribute__((always_inline)) static inline int32_t __SMMLA (int32_t op1, int32
 
 
 #pragma GCC diagnostic pop
-# 55 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_compiler.h" 2
-# 163 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h" 2
-# 174 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 55 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_compiler.h" 2
+# 163 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h" 2
+# 174 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 #define __CORE_CM4_H_DEPENDANT 
-# 219 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 219 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 #define __I volatile const
 
 #define __O volatile
@@ -2502,7 +2502,7 @@ __attribute__((always_inline)) static inline int32_t __SMMLA (int32_t op1, int32
 #define __IM volatile const
 #define __OM volatile
 #define __IOM volatile
-# 259 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 259 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 typedef union
 {
   struct
@@ -2636,7 +2636,7 @@ typedef union
 
 #define CONTROL_nPRIV_Pos 0U
 #define CONTROL_nPRIV_Msk (1UL )
-# 406 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 406 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 typedef struct
 {
   volatile uint32_t ISER[8U];
@@ -2657,7 +2657,7 @@ typedef struct
 
 #define NVIC_STIR_INTID_Pos 0U
 #define NVIC_STIR_INTID_Msk (0x1FFUL )
-# 440 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 440 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 typedef struct
 {
   volatile const uint32_t CPUID;
@@ -2923,7 +2923,7 @@ typedef struct
 
 #define SCB_DFSR_HALTED_Pos 0U
 #define SCB_DFSR_HALTED_Msk (1UL )
-# 719 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 719 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 typedef struct
 {
         uint32_t RESERVED0[1U];
@@ -2950,7 +2950,7 @@ typedef struct
 
 #define SCnSCB_ACTLR_DISMCYCINT_Pos 0U
 #define SCnSCB_ACTLR_DISMCYCINT_Msk (1UL )
-# 759 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 759 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 typedef struct
 {
   volatile uint32_t CTRL;
@@ -2989,7 +2989,7 @@ typedef struct
 
 #define SysTick_CALIB_TENMS_Pos 0U
 #define SysTick_CALIB_TENMS_Msk (0xFFFFFFUL )
-# 811 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 811 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 typedef struct
 {
   volatile union
@@ -3064,7 +3064,7 @@ typedef struct
 
 #define ITM_LSR_Present_Pos 0U
 #define ITM_LSR_Present_Msk (1UL )
-# 899 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 899 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 typedef struct
 {
   volatile uint32_t CTRL;
@@ -3198,7 +3198,7 @@ typedef struct
 
 #define DWT_FUNCTION_FUNCTION_Pos 0U
 #define DWT_FUNCTION_FUNCTION_Msk (0xFUL )
-# 1046 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 1046 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 typedef struct
 {
   volatile const uint32_t SSPSR;
@@ -3346,7 +3346,7 @@ typedef struct
 
 #define TPI_DEVTYPE_MajorType_Pos 0U
 #define TPI_DEVTYPE_MajorType_Msk (0xFUL << TPI_DEVTYPE_MajorType_Pos)
-# 1208 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 1208 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 typedef struct
 {
   volatile const uint32_t TYPE;
@@ -3428,7 +3428,7 @@ typedef struct
 
 #define MPU_RASR_ENABLE_Pos 0U
 #define MPU_RASR_ENABLE_Msk (1UL )
-# 1304 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 1304 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 typedef struct
 {
         uint32_t RESERVED0[1U];
@@ -3527,7 +3527,7 @@ typedef struct
 
 #define FPU_MVFR2_VFP_Misc_Pos 4U
 #define FPU_MVFR2_VFP_Misc_Msk (0xFUL << FPU_MVFR2_VFP_Misc_Pos)
-# 1416 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 1416 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 typedef struct
 {
   volatile uint32_t DHCSR;
@@ -3619,7 +3619,7 @@ typedef struct
 
 #define CoreDebug_DEMCR_VC_CORERESET_Pos 0U
 #define CoreDebug_DEMCR_VC_CORERESET_Msk (1UL )
-# 1524 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 1524 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 #define _VAL2FLD(field,value) (((uint32_t)(value) << field ## _Pos) & field ## _Msk)
 
 
@@ -3629,7 +3629,7 @@ typedef struct
 
 
 #define _FLD2VAL(field,value) (((uint32_t)(value) & field ## _Msk) >> field ## _Pos)
-# 1545 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 1545 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 #define SCS_BASE (0xE000E000UL)
 #define ITM_BASE (0xE0000000UL)
 #define DWT_BASE (0xE0001000UL)
@@ -3655,7 +3655,7 @@ typedef struct
 
 #define FPU_BASE (SCS_BASE + 0x0F30UL)
 #define FPU ((FPU_Type *) FPU_BASE )
-# 1603 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 1603 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 #define NVIC_SetPriorityGrouping __NVIC_SetPriorityGrouping
 #define NVIC_GetPriorityGrouping __NVIC_GetPriorityGrouping
 #define NVIC_EnableIRQ __NVIC_EnableIRQ
@@ -3668,7 +3668,7 @@ typedef struct
 #define NVIC_SetPriority __NVIC_SetPriority
 #define NVIC_GetPriority __NVIC_GetPriority
 #define NVIC_SystemReset __NVIC_SystemReset
-# 1623 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 1623 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 #define NVIC_SetVector __NVIC_SetVector
 #define NVIC_GetVector __NVIC_GetVector
 
@@ -3683,7 +3683,7 @@ typedef struct
 #define EXC_RETURN_HANDLER_FPU (0xFFFFFFE1UL)
 #define EXC_RETURN_THREAD_MSP_FPU (0xFFFFFFE9UL)
 #define EXC_RETURN_THREAD_PSP_FPU (0xFFFFFFEDUL)
-# 1648 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 1648 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 static inline void __NVIC_SetPriorityGrouping(uint32_t PriorityGroup)
 {
   uint32_t reg_value;
@@ -3707,7 +3707,7 @@ static inline uint32_t __NVIC_GetPriorityGrouping(void)
 {
   return ((uint32_t)((((SCB_Type *) ((0xE000E000UL) + 0x0D00UL) )->AIRCR & (7UL << 8U)) >> 8U));
 }
-# 1679 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 1679 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 static inline void __NVIC_EnableIRQ(IRQn_Type IRQn)
 {
   if ((int32_t)(IRQn) >= 0)
@@ -3717,7 +3717,7 @@ static inline void __NVIC_EnableIRQ(IRQn_Type IRQn)
     __asm volatile("":::"memory");
   }
 }
-# 1698 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 1698 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 static inline uint32_t __NVIC_GetEnableIRQ(IRQn_Type IRQn)
 {
   if ((int32_t)(IRQn) >= 0)
@@ -3729,7 +3729,7 @@ static inline uint32_t __NVIC_GetEnableIRQ(IRQn_Type IRQn)
     return(0U);
   }
 }
-# 1717 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 1717 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 static inline void __NVIC_DisableIRQ(IRQn_Type IRQn)
 {
   if ((int32_t)(IRQn) >= 0)
@@ -3739,7 +3739,7 @@ static inline void __NVIC_DisableIRQ(IRQn_Type IRQn)
     __ISB();
   }
 }
-# 1736 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 1736 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 static inline uint32_t __NVIC_GetPendingIRQ(IRQn_Type IRQn)
 {
   if ((int32_t)(IRQn) >= 0)
@@ -3751,7 +3751,7 @@ static inline uint32_t __NVIC_GetPendingIRQ(IRQn_Type IRQn)
     return(0U);
   }
 }
-# 1755 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 1755 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 static inline void __NVIC_SetPendingIRQ(IRQn_Type IRQn)
 {
   if ((int32_t)(IRQn) >= 0)
@@ -3759,7 +3759,7 @@ static inline void __NVIC_SetPendingIRQ(IRQn_Type IRQn)
     ((NVIC_Type *) ((0xE000E000UL) + 0x0100UL) )->ISPR[(((uint32_t)IRQn) >> 5UL)] = (uint32_t)(1UL << (((uint32_t)IRQn) & 0x1FUL));
   }
 }
-# 1770 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 1770 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 static inline void __NVIC_ClearPendingIRQ(IRQn_Type IRQn)
 {
   if ((int32_t)(IRQn) >= 0)
@@ -3767,7 +3767,7 @@ static inline void __NVIC_ClearPendingIRQ(IRQn_Type IRQn)
     ((NVIC_Type *) ((0xE000E000UL) + 0x0100UL) )->ICPR[(((uint32_t)IRQn) >> 5UL)] = (uint32_t)(1UL << (((uint32_t)IRQn) & 0x1FUL));
   }
 }
-# 1787 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 1787 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 static inline uint32_t __NVIC_GetActive(IRQn_Type IRQn)
 {
   if ((int32_t)(IRQn) >= 0)
@@ -3779,7 +3779,7 @@ static inline uint32_t __NVIC_GetActive(IRQn_Type IRQn)
     return(0U);
   }
 }
-# 1809 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 1809 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 static inline void __NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority)
 {
   if ((int32_t)(IRQn) >= 0)
@@ -3791,7 +3791,7 @@ static inline void __NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority)
     ((SCB_Type *) ((0xE000E000UL) + 0x0D00UL) )->SHP[(((uint32_t)IRQn) & 0xFUL)-4UL] = (uint8_t)((priority << (8U - 4U)) & (uint32_t)0xFFUL);
   }
 }
-# 1831 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 1831 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 static inline uint32_t __NVIC_GetPriority(IRQn_Type IRQn)
 {
 
@@ -3804,7 +3804,7 @@ static inline uint32_t __NVIC_GetPriority(IRQn_Type IRQn)
     return(((uint32_t)((SCB_Type *) ((0xE000E000UL) + 0x0D00UL) )->SHP[(((uint32_t)IRQn) & 0xFUL)-4UL] >> (8U - 4U)));
   }
 }
-# 1856 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 1856 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 static inline uint32_t NVIC_EncodePriority (uint32_t PriorityGroup, uint32_t PreemptPriority, uint32_t SubPriority)
 {
   uint32_t PriorityGroupTmp = (PriorityGroup & (uint32_t)0x07UL);
@@ -3819,7 +3819,7 @@ static inline uint32_t NVIC_EncodePriority (uint32_t PriorityGroup, uint32_t Pre
            ((SubPriority & (uint32_t)((1UL << (SubPriorityBits )) - 1UL)))
          );
 }
-# 1883 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 1883 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 static inline void NVIC_DecodePriority (uint32_t Priority, uint32_t PriorityGroup, uint32_t* const pPreemptPriority, uint32_t* const pSubPriority)
 {
   uint32_t PriorityGroupTmp = (PriorityGroup & (uint32_t)0x07UL);
@@ -3832,14 +3832,14 @@ static inline void NVIC_DecodePriority (uint32_t Priority, uint32_t PriorityGrou
   *pPreemptPriority = (Priority >> SubPriorityBits) & (uint32_t)((1UL << (PreemptPriorityBits)) - 1UL);
   *pSubPriority = (Priority ) & (uint32_t)((1UL << (SubPriorityBits )) - 1UL);
 }
-# 1906 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 1906 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 static inline void __NVIC_SetVector(IRQn_Type IRQn, uint32_t vector)
 {
   uint32_t vectors = (uint32_t )((SCB_Type *) ((0xE000E000UL) + 0x0D00UL) )->VTOR;
   (* (int *) (vectors + ((int32_t)IRQn + 16) * 4)) = vector;
 
 }
-# 1922 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 1922 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 static inline uint32_t __NVIC_GetVector(IRQn_Type IRQn)
 {
   uint32_t vectors = (uint32_t )((SCB_Type *) ((0xE000E000UL) + 0x0D00UL) )->VTOR;
@@ -3865,9 +3865,9 @@ __attribute__((__noreturn__)) static inline void __NVIC_SystemReset(void)
     __asm volatile ("nop");
   }
 }
-# 1955 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/mpu_armv7.h" 1
-# 32 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/mpu_armv7.h"
+# 1955 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/mpu_armv7.h" 1
+# 32 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/mpu_armv7.h"
 #define ARM_MPU_ARMV7_H 
 
 #define ARM_MPU_REGION_SIZE_32B ((uint8_t)0x04U)
@@ -3912,17 +3912,17 @@ __attribute__((__noreturn__)) static inline void __NVIC_SystemReset(void)
 
 
 #define ARM_MPU_RBAR(Region,BaseAddress) (((BaseAddress) & MPU_RBAR_ADDR_Msk) | ((Region) & MPU_RBAR_REGION_Msk) | (MPU_RBAR_VALID_Msk))
-# 88 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/mpu_armv7.h"
+# 88 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/mpu_armv7.h"
 #define ARM_MPU_ACCESS_(TypeExtField,IsShareable,IsCacheable,IsBufferable) ((((TypeExtField) << MPU_RASR_TEX_Pos) & MPU_RASR_TEX_Msk) | (((IsShareable) << MPU_RASR_S_Pos) & MPU_RASR_S_Msk) | (((IsCacheable) << MPU_RASR_C_Pos) & MPU_RASR_C_Msk) | (((IsBufferable) << MPU_RASR_B_Pos) & MPU_RASR_B_Msk))
-# 103 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/mpu_armv7.h"
+# 103 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/mpu_armv7.h"
 #define ARM_MPU_RASR_EX(DisableExec,AccessPermission,AccessAttributes,SubRegionDisable,Size) ((((DisableExec) << MPU_RASR_XN_Pos) & MPU_RASR_XN_Msk) | (((AccessPermission) << MPU_RASR_AP_Pos) & MPU_RASR_AP_Msk) | (((AccessAttributes) & (MPU_RASR_TEX_Msk | MPU_RASR_S_Msk | MPU_RASR_C_Msk | MPU_RASR_B_Msk))) | (((SubRegionDisable) << MPU_RASR_SRD_Pos) & MPU_RASR_SRD_Msk) | (((Size) << MPU_RASR_SIZE_Pos) & MPU_RASR_SIZE_Msk) | (((MPU_RASR_ENABLE_Msk))))
-# 123 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/mpu_armv7.h"
+# 123 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/mpu_armv7.h"
 #define ARM_MPU_RASR(DisableExec,AccessPermission,TypeExtField,IsShareable,IsCacheable,IsBufferable,SubRegionDisable,Size) ARM_MPU_RASR_EX(DisableExec, AccessPermission, ARM_MPU_ACCESS_(TypeExtField, IsShareable, IsCacheable, IsBufferable), SubRegionDisable, Size)
-# 133 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/mpu_armv7.h"
+# 133 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/mpu_armv7.h"
 #define ARM_MPU_ACCESS_ORDERED ARM_MPU_ACCESS_(0U, 1U, 0U, 0U)
-# 144 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/mpu_armv7.h"
+# 144 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/mpu_armv7.h"
 #define ARM_MPU_ACCESS_DEVICE(IsShareable) ((IsShareable) ? ARM_MPU_ACCESS_(0U, 1U, 0U, 1U) : ARM_MPU_ACCESS_(2U, 0U, 0U, 0U))
-# 157 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/mpu_armv7.h"
+# 157 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/mpu_armv7.h"
 #define ARM_MPU_ACCESS_NORMAL(OuterCp,InnerCp,IsShareable) ARM_MPU_ACCESS_((4U | (OuterCp)), IsShareable, ((InnerCp) & 2U), ((InnerCp) & 1U))
 
 
@@ -4037,8 +4037,8 @@ static inline void ARM_MPU_Load(ARM_MPU_Region_t const* table, uint32_t cnt)
   }
   ARM_MPU_OrderedMemcpy(&(((MPU_Type *) ((0xE000E000UL) + 0x0D90UL) )->RBAR), &(table->RBAR), cnt*rowWordSize);
 }
-# 1956 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h" 2
-# 1976 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 1956 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h" 2
+# 1976 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 static inline uint32_t SCB_GetFPUType(void)
 {
   uint32_t mvfr0;
@@ -4053,7 +4053,7 @@ static inline uint32_t SCB_GetFPUType(void)
     return 0U;
   }
 }
-# 2017 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 2017 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 static inline uint32_t SysTick_Config(uint32_t ticks)
 {
   if ((ticks - 1UL) > (0xFFFFFFUL ))
@@ -4069,10 +4069,10 @@ static inline uint32_t SysTick_Config(uint32_t ticks)
                    (1UL );
   return (0UL);
 }
-# 2047 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 2047 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 extern volatile int32_t ITM_RxBuffer;
 #define ITM_RXBUFFER_EMPTY ((int32_t)0x5AA55AA5U)
-# 2059 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 2059 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 static inline uint32_t ITM_SendChar (uint32_t ch)
 {
   if (((((ITM_Type *) (0xE0000000UL) )->TCR & (1UL )) != 0UL) &&
@@ -4086,7 +4086,7 @@ static inline uint32_t ITM_SendChar (uint32_t ch)
   }
   return (ch);
 }
-# 2080 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 2080 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 static inline int32_t ITM_ReceiveChar (void)
 {
   int32_t ch = -1;
@@ -4099,7 +4099,7 @@ static inline int32_t ITM_ReceiveChar (void)
 
   return (ch);
 }
-# 2100 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
+# 2100 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h"
 static inline int32_t ITM_CheckChar (void)
 {
 
@@ -4112,23 +4112,23 @@ static inline int32_t ITM_CheckChar (void)
     return (1);
   }
 }
-# 145 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h" 2
+# 145 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h" 2
 
 
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/system_stm32wlxx.h" 1
-# 31 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/system_stm32wlxx.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/system_stm32wlxx.h" 1
+# 31 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/system_stm32wlxx.h"
 #define __SYSTEM_STM32WLXX_H 
-# 57 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/system_stm32wlxx.h"
+# 57 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/system_stm32wlxx.h"
 extern uint32_t SystemCoreClock;
 
 extern const uint32_t AHBPrescTable[16];
 extern const uint32_t APBPrescTable[8];
 extern const uint32_t MSIRangeTable[16];
-# 87 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/system_stm32wlxx.h"
+# 87 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/system_stm32wlxx.h"
 extern void SystemInit(void);
 extern void SystemCoreClockUpdate(void);
-# 148 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h" 2
-# 165 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
+# 148 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h" 2
+# 165 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 typedef struct
 {
   volatile uint32_t ISR;
@@ -4715,7 +4715,7 @@ typedef struct
   volatile uint32_t CFR;
   volatile uint32_t SR;
 } WWDG_TypeDef;
-# 760 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
+# 760 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define FLASH_BASE 0x08000000UL
 #define SYSTEM_FLASH_BASE 0x1FFF0000UL
 #define SRAM1_BASE 0x20000000UL
@@ -4847,7 +4847,7 @@ typedef struct
 
 
 #define DBGMCU_BASE (0xE0042000UL)
-# 901 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
+# 901 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define TIM2 ((TIM_TypeDef *) TIM2_BASE)
 #define IWDG ((IWDG_TypeDef *) IWDG_BASE)
 #define WWDG ((WWDG_TypeDef *) WWDG_BASE)
@@ -4946,9 +4946,9 @@ typedef struct
 
 
 #define DBGMCU ((DBGMCU_TypeDef *) DBGMCU_BASE)
-# 1011 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
+# 1011 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define LSI_STARTUP_TIME 130U
-# 1031 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
+# 1031 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define ADC_ISR_ADRDY_Pos (0U)
 #define ADC_ISR_ADRDY_Msk (0x1UL << ADC_ISR_ADRDY_Pos)
 #define ADC_ISR_ADRDY ADC_ISR_ADRDY_Msk
@@ -5604,7 +5604,7 @@ typedef struct
 #define COMP_CSR_LOCK_Pos (31U)
 #define COMP_CSR_LOCK_Msk (0x1UL << COMP_CSR_LOCK_Pos)
 #define COMP_CSR_LOCK COMP_CSR_LOCK_Msk
-# 1697 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
+# 1697 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define DAC_CR_EN1_Pos (0U)
 #define DAC_CR_EN1_Msk (0x1UL << DAC_CR_EN1_Pos)
 #define DAC_CR_EN1 DAC_CR_EN1_Msk
@@ -6573,7 +6573,7 @@ typedef struct
 #define AES_SUSP7R_Pos (0U)
 #define AES_SUSP7R_Msk (0xFFFFFFFFUL << AES_SUSP7R_Pos)
 #define AES_SUSP7R AES_SUSP7R_Msk
-# 2673 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
+# 2673 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define DMA_ISR_GIF1_Pos (0U)
 #define DMA_ISR_GIF1_Msk (0x1UL << DMA_ISR_GIF1_Pos)
 #define DMA_ISR_GIF1 DMA_ISR_GIF1_Msk
@@ -7000,7 +7000,7 @@ typedef struct
 #define DMAMUX_RGCFR_COF3_Pos (3U)
 #define DMAMUX_RGCFR_COF3_Msk (0x1UL << DMAMUX_RGCFR_COF3_Pos)
 #define DMAMUX_RGCFR_COF3 DMAMUX_RGCFR_COF3_Msk
-# 3107 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
+# 3107 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define EXTI_RTSR1_RT0_Pos (0U)
 #define EXTI_RTSR1_RT0_Msk (0x1UL << EXTI_RTSR1_RT0_Pos)
 #define EXTI_RTSR1_RT0 EXTI_RTSR1_RT0_Msk
@@ -8847,7 +8847,7 @@ typedef struct
 #define HSEM_KEYR_KEY_Pos (16U)
 #define HSEM_KEYR_KEY_Msk (0xFFFFUL << HSEM_KEYR_KEY_Pos)
 #define HSEM_KEYR_KEY HSEM_KEYR_KEY_Msk
-# 4961 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
+# 4961 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define PKA_CR_EN_Pos (0U)
 #define PKA_CR_EN_Msk (0x1UL << PKA_CR_EN_Pos)
 #define PKA_CR_EN PKA_CR_EN_Msk
@@ -9090,7 +9090,7 @@ typedef struct
 
 
 #define PKA_ARITHMETIC_ALL_OPS_OUT_RESULT ((0xBD0U - PKA_RAM_OFFSET)>>2)
-# 5211 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
+# 5211 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define PWR_CR1_LPMS_Pos (0U)
 #define PWR_CR1_LPMS_Msk (0x7UL << PWR_CR1_LPMS_Pos)
 #define PWR_CR1_LPMS PWR_CR1_LPMS_Msk
@@ -9603,7 +9603,7 @@ typedef struct
 #define PWR_SUBGHZSPICR_NSS_Pos (15U)
 #define PWR_SUBGHZSPICR_NSS_Msk (0x1UL << PWR_SUBGHZSPICR_NSS_Pos)
 #define PWR_SUBGHZSPICR_NSS PWR_SUBGHZSPICR_NSS_Msk
-# 5731 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
+# 5731 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define RCC_CR_MSION_Pos (0U)
 #define RCC_CR_MSION_Msk (0x1UL << RCC_CR_MSION_Pos)
 #define RCC_CR_MSION RCC_CR_MSION_Msk
@@ -10432,7 +10432,7 @@ typedef struct
 #define RCC_EXTCFGR_SHDHPREF_Pos (16U)
 #define RCC_EXTCFGR_SHDHPREF_Msk (0x1UL << RCC_EXTCFGR_SHDHPREF_Pos)
 #define RCC_EXTCFGR_SHDHPREF RCC_EXTCFGR_SHDHPREF_Msk
-# 6568 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
+# 6568 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define RNG_VER_3_2 
 
 
@@ -12232,7 +12232,7 @@ typedef struct
 #define I2C_TXDR_TXDATA_Pos (0U)
 #define I2C_TXDR_TXDATA_Msk (0xFFUL << I2C_TXDR_TXDATA_Pos)
 #define I2C_TXDR_TXDATA I2C_TXDR_TXDATA_Msk
-# 8376 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
+# 8376 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define IWDG_KR_KEY_Pos (0U)
 #define IWDG_KR_KEY_Msk (0xFFFFUL << IWDG_KR_KEY_Pos)
 #define IWDG_KR_KEY IWDG_KR_KEY_Msk
@@ -12338,7 +12338,7 @@ typedef struct
 #define WWDG_SR_EWIF_Pos (0U)
 #define WWDG_SR_EWIF_Msk (0x1UL << WWDG_SR_EWIF_Pos)
 #define WWDG_SR_EWIF WWDG_SR_EWIF_Msk
-# 8489 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
+# 8489 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define DBGMCU_IDCODE_DEV_ID_Pos (0U)
 #define DBGMCU_IDCODE_DEV_ID_Msk (0xFFFUL << DBGMCU_IDCODE_DEV_ID_Pos)
 #define DBGMCU_IDCODE_DEV_ID DBGMCU_IDCODE_DEV_ID_Msk
@@ -12401,7 +12401,7 @@ typedef struct
 #define DBGMCU_APB2FZR_DBG_TIM17_STOP_Pos (18U)
 #define DBGMCU_APB2FZR_DBG_TIM17_STOP_Msk (0x1UL << DBGMCU_APB2FZR_DBG_TIM17_STOP_Pos)
 #define DBGMCU_APB2FZR_DBG_TIM17_STOP DBGMCU_APB2FZR_DBG_TIM17_STOP_Msk
-# 8559 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
+# 8559 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define TIM_CR1_CEN_Pos (0U)
 #define TIM_CR1_CEN_Msk (0x1UL << TIM_CR1_CEN_Pos)
 #define TIM_CR1_CEN TIM_CR1_CEN_Msk
@@ -13208,7 +13208,7 @@ typedef struct
 #define TIM1_AF2_BK2CMP2P_Pos (11U)
 #define TIM1_AF2_BK2CMP2P_Msk (0x1UL << TIM1_AF2_BK2CMP2P_Pos)
 #define TIM1_AF2_BK2CMP2P TIM1_AF2_BK2CMP2P_Msk
-# 9373 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
+# 9373 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define IS_ADC_ALL_INSTANCE(INSTANCE) ((INSTANCE) == ADC)
 
 #define IS_ADC_COMMON_INSTANCE(INSTANCE) ((INSTANCE) == ADC_COMMON)
@@ -13230,7 +13230,7 @@ typedef struct
 
 
 #define IS_DMA_ALL_INSTANCE(INSTANCE) (((INSTANCE) == DMA1_Channel1) || ((INSTANCE) == DMA1_Channel2) || ((INSTANCE) == DMA1_Channel3) || ((INSTANCE) == DMA1_Channel4) || ((INSTANCE) == DMA1_Channel5) || ((INSTANCE) == DMA1_Channel6) || ((INSTANCE) == DMA1_Channel7) || ((INSTANCE) == DMA2_Channel1) || ((INSTANCE) == DMA2_Channel2) || ((INSTANCE) == DMA2_Channel3) || ((INSTANCE) == DMA2_Channel4) || ((INSTANCE) == DMA2_Channel5) || ((INSTANCE) == DMA2_Channel6) || ((INSTANCE) == DMA2_Channel7))
-# 9409 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
+# 9409 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define IS_GPIO_ALL_INSTANCE(INSTANCE) (((INSTANCE) == GPIOA) || ((INSTANCE) == GPIOB) || ((INSTANCE) == GPIOC) || ((INSTANCE) == GPIOH))
 
 
@@ -13378,9 +13378,9 @@ typedef struct
 
 
 #define IS_TIM_CCX_INSTANCE(INSTANCE,CHANNEL) ((((INSTANCE) == TIM1) && (((CHANNEL) == TIM_CHANNEL_1) || ((CHANNEL) == TIM_CHANNEL_2) || ((CHANNEL) == TIM_CHANNEL_3) || ((CHANNEL) == TIM_CHANNEL_4) || ((CHANNEL) == TIM_CHANNEL_5) || ((CHANNEL) == TIM_CHANNEL_6))) || (((INSTANCE) == TIM2) && (((CHANNEL) == TIM_CHANNEL_1) || ((CHANNEL) == TIM_CHANNEL_2) || ((CHANNEL) == TIM_CHANNEL_3) || ((CHANNEL) == TIM_CHANNEL_4))) || (((INSTANCE) == TIM16) && (((CHANNEL) == TIM_CHANNEL_1))) || (((INSTANCE) == TIM17) && (((CHANNEL) == TIM_CHANNEL_1))))
-# 9577 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
+# 9577 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define IS_TIM_CCXN_INSTANCE(INSTANCE,CHANNEL) ((((INSTANCE) == TIM1) && (((CHANNEL) == TIM_CHANNEL_1) || ((CHANNEL) == TIM_CHANNEL_2) || ((CHANNEL) == TIM_CHANNEL_3))) || (((INSTANCE) == TIM17) && ((CHANNEL) == TIM_CHANNEL_1)) || (((INSTANCE) == TIM16) && ((CHANNEL) == TIM_CHANNEL_1)))
-# 9591 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
+# 9591 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define IS_TIM_CLOCK_DIVISION_INSTANCE(INSTANCE) (((INSTANCE) == TIM1) || ((INSTANCE) == TIM2) || ((INSTANCE) == TIM16) || ((INSTANCE) == TIM17))
 
 
@@ -13518,8 +13518,8 @@ typedef struct
 
 
 #define IS_LPUART_INSTANCE(INSTANCE) ((INSTANCE) == LPUART1)
-# 102 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h" 2
-# 117 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h"
+# 102 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h" 2
+# 117 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h"
 typedef enum
 {
   RESET = 0,
@@ -13538,7 +13538,7 @@ typedef enum
   ERROR = 0,
   SUCCESS = !ERROR
 } ErrorStatus;
-# 146 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h"
+# 146 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h"
 #define SET_BIT(REG,BIT) ((REG) |= (BIT))
 
 #define CLEAR_BIT(REG,BIT) ((REG) &= ~(BIT))
@@ -13552,17 +13552,17 @@ typedef enum
 #define READ_REG(REG) ((REG))
 
 #define MODIFY_REG(REG,CLEARMASK,SETMASK) WRITE_REG((REG), (((READ_REG(REG)) & (~(CLEARMASK))) | (SETMASK)))
-# 204 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h"
+# 204 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h"
 #define ATOMIC_SET_BIT(REG,BIT) do { uint32_t val; do { val = __LDREXW((__IO uint32_t *)&(REG)) | (BIT); } while ((__STREXW(val,(__IO uint32_t *)&(REG))) != 0U); } while(0)
-# 213 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h"
+# 213 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h"
 #define ATOMIC_CLEAR_BIT(REG,BIT) do { uint32_t val; do { val = __LDREXW((__IO uint32_t *)&(REG)) & ~(BIT); } while ((__STREXW(val,(__IO uint32_t *)&(REG))) != 0U); } while(0)
-# 222 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h"
+# 222 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h"
 #define ATOMIC_MODIFY_REG(REG,CLEARMSK,SETMASK) do { uint32_t val; do { val = (__LDREXW((__IO uint32_t *)&(REG)) & ~(CLEARMSK)) | (SETMASK); } while ((__STREXW(val,(__IO uint32_t *)&(REG))) != 0U); } while(0)
-# 231 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h"
+# 231 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h"
 #define ATOMIC_SETH_BIT(REG,BIT) do { uint16_t val; do { val = __LDREXH((__IO uint16_t *)&(REG)) | (BIT); } while ((__STREXH(val,(__IO uint16_t *)&(REG))) != 0U); } while(0)
-# 240 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h"
+# 240 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h"
 #define ATOMIC_CLEARH_BIT(REG,BIT) do { uint16_t val; do { val = __LDREXH((__IO uint16_t *)&(REG)) & ~(BIT); } while ((__STREXH(val,(__IO uint16_t *)&(REG))) != 0U); } while(0)
-# 249 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h"
+# 249 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h"
 #define ATOMIC_MODIFYH_REG(REG,CLEARMSK,SETMASK) do { uint16_t val; do { val = (__LDREXH((__IO uint16_t *)&(REG)) & ~(CLEARMSK)) | (SETMASK); } while ((__STREXH(val,(__IO uint16_t *)&(REG))) != 0U); } while(0)
 
 
@@ -13579,19 +13579,19 @@ typedef enum
 
 
 
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h" 1
-# 266 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h" 2
-# 31 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_def.h" 2
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h" 1
-# 23 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h" 1
+# 266 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h" 2
+# 31 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_def.h" 2
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h" 1
+# 23 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define STM32_HAL_LEGACY 
-# 36 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 36 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define AES_FLAG_RDERR CRYP_FLAG_RDERR
 #define AES_FLAG_WRERR CRYP_FLAG_WRERR
 #define AES_CLEARFLAG_CCF CRYP_CLEARFLAG_CCF
 #define AES_CLEARFLAG_RDERR CRYP_CLEARFLAG_RDERR
 #define AES_CLEARFLAG_WRERR CRYP_CLEARFLAG_WRERR
-# 56 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 56 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define ADC_RESOLUTION12b ADC_RESOLUTION_12B
 #define ADC_RESOLUTION10b ADC_RESOLUTION_10B
 #define ADC_RESOLUTION8b ADC_RESOLUTION_8B
@@ -13640,9 +13640,9 @@ typedef enum
 #define HAL_ADC_STATE_ERROR HAL_ADC_STATE_ERROR_INTERNAL
 #define HAL_ADC_STATE_BUSY HAL_ADC_STATE_BUSY_INTERNAL
 #define HAL_ADC_STATE_AWD HAL_ADC_STATE_AWD1
-# 116 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 116 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define __HAL_CEC_GET_IT __HAL_CEC_GET_FLAG
-# 125 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 125 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define COMP_WINDOWMODE_DISABLED COMP_WINDOWMODE_DISABLE
 #define COMP_WINDOWMODE_ENABLED COMP_WINDOWMODE_ENABLE
 #define COMP_EXTI_LINE_COMP1_EVENT COMP_EXTI_LINE_COMP1
@@ -13656,12 +13656,12 @@ typedef enum
 
 
 #define COMP_OUTPUT_COMP6TIM2OCREFCLR COMP_OUTPUT_COMP6_TIM2OCREFCLR
-# 216 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 216 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define __HAL_CORTEX_SYSTICKCLK_CONFIG HAL_SYSTICK_CLKSourceConfig
-# 237 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 237 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define CRC_OUTPUTDATA_INVERSION_DISABLED CRC_OUTPUTDATA_INVERSION_DISABLE
 #define CRC_OUTPUTDATA_INVERSION_ENABLED CRC_OUTPUTDATA_INVERSION_ENABLE
-# 248 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 248 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define DAC1_CHANNEL_1 DAC_CHANNEL_1
 #define DAC1_CHANNEL_2 DAC_CHANNEL_2
 #define DAC2_CHANNEL_1 DAC_CHANNEL_1
@@ -13671,7 +13671,7 @@ typedef enum
 #define DAC_WAVEGENERATION_NONE DAC_WAVE_NONE
 #define DAC_WAVEGENERATION_NOISE DAC_WAVE_NOISE
 #define DAC_WAVEGENERATION_TRIANGLE DAC_WAVE_TRIANGLE
-# 275 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 275 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define HAL_REMAPDMA_ADC_DMA_CH2 DMA_REMAP_ADC_DMA_CH2
 #define HAL_REMAPDMA_USART1_TX_DMA_CH4 DMA_REMAP_USART1_TX_DMA_CH4
 #define HAL_REMAPDMA_USART1_RX_DMA_CH5 DMA_REMAP_USART1_RX_DMA_CH5
@@ -13690,7 +13690,7 @@ typedef enum
 #define IS_HAL_REMAPDMA IS_DMA_REMAP
 #define __HAL_REMAPDMA_CHANNEL_ENABLE __HAL_DMA_REMAP_CHANNEL_ENABLE
 #define __HAL_REMAPDMA_CHANNEL_DISABLE __HAL_DMA_REMAP_CHANNEL_DISABLE
-# 413 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 413 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define TYPEPROGRAM_BYTE FLASH_TYPEPROGRAM_BYTE
 #define TYPEPROGRAM_HALFWORD FLASH_TYPEPROGRAM_HALFWORD
 #define TYPEPROGRAM_WORD FLASH_TYPEPROGRAM_WORD
@@ -13768,7 +13768,7 @@ typedef enum
 
 #define OB_BOOT_ENTRY_FORCED_NONE OB_BOOT_LOCK_DISABLE
 #define OB_BOOT_ENTRY_FORCED_FLASH OB_BOOT_LOCK_ENABLE
-# 536 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 536 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define HAL_SYSCFG_FASTMODEPLUS_I2C_PA9 I2C_FASTMODEPLUS_PA9
 #define HAL_SYSCFG_FASTMODEPLUS_I2C_PA10 I2C_FASTMODEPLUS_PA10
 #define HAL_SYSCFG_FASTMODEPLUS_I2C_PB6 I2C_FASTMODEPLUS_PB6
@@ -13778,7 +13778,7 @@ typedef enum
 #define HAL_SYSCFG_FASTMODEPLUS_I2C1 I2C_FASTMODEPLUS_I2C1
 #define HAL_SYSCFG_FASTMODEPLUS_I2C2 I2C_FASTMODEPLUS_I2C2
 #define HAL_SYSCFG_FASTMODEPLUS_I2C3 I2C_FASTMODEPLUS_I2C3
-# 580 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 580 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define FSMC_NORSRAM_TYPEDEF FSMC_NORSRAM_TypeDef
 #define FSMC_NORSRAM_EXTENDED_TYPEDEF FSMC_NORSRAM_EXTENDED_TypeDef
 
@@ -13790,11 +13790,11 @@ typedef enum
 
 #define GET_GPIO_SOURCE GPIO_GET_INDEX
 #define GET_GPIO_INDEX GPIO_GET_INDEX
-# 623 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 623 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define GPIO_AF0_LPTIM GPIO_AF0_LPTIM1
 #define GPIO_AF1_LPTIM GPIO_AF1_LPTIM1
 #define GPIO_AF2_LPTIM GPIO_AF2_LPTIM1
-# 647 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 647 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define GPIO_AF6_DFSDM GPIO_AF6_DFSDM1
 
 
@@ -13821,7 +13821,7 @@ typedef enum
 #define __HAL_HRTIM_GetClockPrescaler __HAL_HRTIM_GETCLOCKPRESCALER
 #define __HAL_HRTIM_SetCompare __HAL_HRTIM_SETCOMPARE
 #define __HAL_HRTIM_GetCompare __HAL_HRTIM_GETCOMPARE
-# 820 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 820 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define I2C_DUALADDRESS_DISABLED I2C_DUALADDRESS_DISABLE
 #define I2C_DUALADDRESS_ENABLED I2C_DUALADDRESS_ENABLE
 #define I2C_GENERALCALL_DISABLED I2C_GENERALCALL_DISABLE
@@ -13830,15 +13830,15 @@ typedef enum
 #define I2C_NOSTRETCH_ENABLED I2C_NOSTRETCH_ENABLE
 #define I2C_ANALOGFILTER_ENABLED I2C_ANALOGFILTER_ENABLE
 #define I2C_ANALOGFILTER_DISABLED I2C_ANALOGFILTER_DISABLE
-# 843 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 843 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define IRDA_ONE_BIT_SAMPLE_DISABLED IRDA_ONE_BIT_SAMPLE_DISABLE
 #define IRDA_ONE_BIT_SAMPLE_ENABLED IRDA_ONE_BIT_SAMPLE_ENABLE
-# 853 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 853 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define KR_KEY_RELOAD IWDG_KEY_RELOAD
 #define KR_KEY_ENABLE IWDG_KEY_ENABLE
 #define KR_KEY_EWA IWDG_KEY_WRITE_ACCESS_ENABLE
 #define KR_KEY_DWA IWDG_KEY_WRITE_ACCESS_DISABLE
-# 865 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 865 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define LPTIM_CLOCKSAMPLETIME_DIRECTTRANSISTION LPTIM_CLOCKSAMPLETIME_DIRECTTRANSITION
 #define LPTIM_CLOCKSAMPLETIME_2TRANSISTIONS LPTIM_CLOCKSAMPLETIME_2TRANSITIONS
 #define LPTIM_CLOCKSAMPLETIME_4TRANSISTIONS LPTIM_CLOCKSAMPLETIME_4TRANSITIONS
@@ -13858,7 +13858,7 @@ typedef enum
 #define LPTIM_TRIGSAMPLETIME_2TRANSITION LPTIM_TRIGSAMPLETIME_2TRANSITIONS
 #define LPTIM_TRIGSAMPLETIME_4TRANSITION LPTIM_TRIGSAMPLETIME_4TRANSITIONS
 #define LPTIM_TRIGSAMPLETIME_8TRANSITION LPTIM_TRIGSAMPLETIME_8TRANSITIONS
-# 896 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 896 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define HAL_NAND_Read_Page HAL_NAND_Read_Page_8b
 #define HAL_NAND_Write_Page HAL_NAND_Write_Page_8b
 #define HAL_NAND_Read_SpareArea HAL_NAND_Read_SpareArea_8b
@@ -13886,7 +13886,7 @@ typedef enum
 
 #define __NOR_WRITE NOR_WRITE
 #define __NOR_ADDR_SHIFT NOR_ADDR_SHIFT
-# 931 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 931 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define OPAMP_NONINVERTINGINPUT_VP0 OPAMP_NONINVERTINGINPUT_IO0
 #define OPAMP_NONINVERTINGINPUT_VP1 OPAMP_NONINVERTINGINPUT_IO1
 #define OPAMP_NONINVERTINGINPUT_VP2 OPAMP_NONINVERTINGINPUT_IO2
@@ -13911,9 +13911,9 @@ typedef enum
 #define OPAMP_PGACONNECT_NO OPAMP_PGA_CONNECT_INVERTINGINPUT_NO
 #define OPAMP_PGACONNECT_VM0 OPAMP_PGA_CONNECT_INVERTINGINPUT_IO0
 #define OPAMP_PGACONNECT_VM1 OPAMP_PGA_CONNECT_INVERTINGINPUT_IO1
-# 974 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 974 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define I2S_STANDARD_PHILLIPS I2S_STANDARD_PHILIPS
-# 996 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 996 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define CF_DATA ATA_DATA
 #define CF_SECTOR_COUNT ATA_SECTOR_COUNT
 #define CF_SECTOR_NUMBER ATA_SECTOR_NUMBER
@@ -13935,7 +13935,7 @@ typedef enum
 #define PCCARD_ONGOING HAL_PCCARD_STATUS_ONGOING
 #define PCCARD_ERROR HAL_PCCARD_STATUS_ERROR
 #define PCCARD_TIMEOUT HAL_PCCARD_STATUS_TIMEOUT
-# 1025 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 1025 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define FORMAT_BIN RTC_FORMAT_BIN
 #define FORMAT_BCD RTC_FORMAT_BCD
 
@@ -13962,7 +13962,7 @@ typedef enum
 #define RTC_TAMPERPIN_PC13 RTC_TAMPERPIN_DEFAULT
 #define RTC_TAMPERPIN_PA0 RTC_TAMPERPIN_POS1
 #define RTC_TAMPERPIN_PI8 RTC_TAMPERPIN_POS1
-# 1070 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 1070 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define SMARTCARD_NACK_ENABLED SMARTCARD_NACK_ENABLE
 #define SMARTCARD_NACK_DISABLED SMARTCARD_NACK_DISABLE
 
@@ -13976,7 +13976,7 @@ typedef enum
 
 #define SMARTCARD_LASTBIT_DISABLED SMARTCARD_LASTBIT_DISABLE
 #define SMARTCARD_LASTBIT_ENABLED SMARTCARD_LASTBIT_ENABLE
-# 1091 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 1091 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define SMBUS_DUALADDRESS_DISABLED SMBUS_DUALADDRESS_DISABLE
 #define SMBUS_DUALADDRESS_ENABLED SMBUS_DUALADDRESS_ENABLE
 #define SMBUS_GENERALCALL_DISABLED SMBUS_GENERALCALL_DISABLE
@@ -14003,7 +14003,7 @@ typedef enum
 
 #define SPI_NSS_PULSE_DISABLED SPI_NSS_PULSE_DISABLE
 #define SPI_NSS_PULSE_ENABLED SPI_NSS_PULSE_ENABLE
-# 1140 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 1140 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define CCER_CCxE_MASK TIM_CCER_CCxE_MASK
 #define CCER_CCxNE_MASK TIM_CCER_CCxNE_MASK
 
@@ -14063,7 +14063,7 @@ typedef enum
 #define TIM_DMABurstLength_16Transfers TIM_DMABURSTLENGTH_16TRANSFERS
 #define TIM_DMABurstLength_17Transfers TIM_DMABURSTLENGTH_17TRANSFERS
 #define TIM_DMABurstLength_18Transfers TIM_DMABURSTLENGTH_18TRANSFERS
-# 1234 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 1234 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define TSC_SYNC_POL_FALL TSC_SYNC_POLARITY_FALLING
 #define TSC_SYNC_POL_RISE_HIGH TSC_SYNC_POLARITY_RISING
 
@@ -14095,7 +14095,7 @@ typedef enum
 
 #define UART_WAKEUPMETHODE_IDLELINE UART_WAKEUPMETHOD_IDLELINE
 #define UART_WAKEUPMETHODE_ADDRESSMARK UART_WAKEUPMETHOD_ADDRESSMARK
-# 1275 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 1275 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define USART_CLOCK_DISABLED USART_CLOCK_DISABLE
 #define USART_CLOCK_ENABLED USART_CLOCK_ENABLE
 
@@ -14109,7 +14109,7 @@ typedef enum
 
 
 #define CFR_BASE WWDG_CFR_BASE
-# 1296 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 1296 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define CAN_FilterFIFO0 CAN_FILTER_FIFO0
 #define CAN_FilterFIFO1 CAN_FILTER_FIFO1
 #define CAN_IT_RQCP0 CAN_IT_TME
@@ -14120,7 +14120,7 @@ typedef enum
 #define CAN_TXSTATUS_FAILED ((uint8_t)0x00U)
 #define CAN_TXSTATUS_OK ((uint8_t)0x01U)
 #define CAN_TXSTATUS_PENDING ((uint8_t)0x02U)
-# 1315 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 1315 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define VLAN_TAG ETH_VLAN_TAG
 #define MIN_ETH_PAYLOAD ETH_MIN_ETH_PAYLOAD
 #define MAX_ETH_PAYLOAD ETH_MAX_ETH_PAYLOAD
@@ -14172,7 +14172,7 @@ typedef enum
 #define ETH_MAC_SMALL_FIFO_WRITE_ACTIVE 0x00000004U
 #define ETH_MAC_SMALL_FIFO_RW_ACTIVE 0x00000006U
 #define ETH_MAC_MII_RECEIVE_PROTOCOL_ACTIVE 0x00000001U
-# 1374 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 1374 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define HAL_DCMI_ERROR_OVF HAL_DCMI_ERROR_OVR
 #define DCMI_IT_OVF DCMI_IT_OVR
 #define DCMI_FLAG_OVFRI DCMI_FLAG_OVRRI
@@ -14181,11 +14181,11 @@ typedef enum
 #define HAL_DCMI_ConfigCROP HAL_DCMI_ConfigCrop
 #define HAL_DCMI_EnableCROP HAL_DCMI_EnableCrop
 #define HAL_DCMI_DisableCROP HAL_DCMI_DisableCrop
-# 1442 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 1442 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define HAL_CRYP_ComputationCpltCallback HAL_CRYPEx_ComputationCpltCallback
-# 1451 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 1451 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define HAL_HASHEx_IRQHandler HAL_HASH_IRQHandler
-# 1460 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 1460 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define HAL_HASH_STATETypeDef HAL_HASH_StateTypeDef
 #define HAL_HASHPhaseTypeDef HAL_HASH_PhaseTypeDef
 #define HAL_HMAC_MD5_Finish HAL_HASH_MD5_Finish
@@ -14205,7 +14205,7 @@ typedef enum
 
 #define HASH_HMACKeyType_ShortKey HASH_HMAC_KEYTYPE_SHORTKEY
 #define HASH_HMACKeyType_LongKey HASH_HMAC_KEYTYPE_LONGKEY
-# 1510 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 1510 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define HAL_EnableDBGSleepMode HAL_DBGMCU_EnableDBGSleepMode
 #define HAL_DisableDBGSleepMode HAL_DBGMCU_DisableDBGSleepMode
 #define HAL_EnableDBGStopMode HAL_DBGMCU_EnableDBGStopMode
@@ -14222,7 +14222,7 @@ typedef enum
 
 #define HAL_ADC_EnableBuffer_Cmd(cmd) (((cmd)==ENABLE) ? HAL_ADCEx_EnableVREFINT() : HAL_ADCEx_DisableVREFINT())
 #define HAL_ADC_EnableBufferSensor_Cmd(cmd) (((cmd )==ENABLE) ? HAL_ADCEx_EnableVREFINTTempSensor() : HAL_ADCEx_DisableVREFINTTempSensor())
-# 1541 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 1541 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define FLASH_HalfPageProgram HAL_FLASHEx_HalfPageProgram
 #define FLASH_EnableRunPowerDown HAL_FLASHEx_EnableRunPowerDown
 #define FLASH_DisableRunPowerDown HAL_FLASHEx_DisableRunPowerDown
@@ -14230,14 +14230,14 @@ typedef enum
 #define HAL_DATA_EEPROMEx_Lock HAL_FLASHEx_DATAEEPROM_Lock
 #define HAL_DATA_EEPROMEx_Erase HAL_FLASHEx_DATAEEPROM_Erase
 #define HAL_DATA_EEPROMEx_Program HAL_FLASHEx_DATAEEPROM_Program
-# 1556 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 1556 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define HAL_I2CEx_AnalogFilter_Config HAL_I2CEx_ConfigAnalogFilter
 #define HAL_I2CEx_DigitalFilter_Config HAL_I2CEx_ConfigDigitalFilter
 #define HAL_FMPI2CEx_AnalogFilter_Config HAL_FMPI2CEx_ConfigAnalogFilter
 #define HAL_FMPI2CEx_DigitalFilter_Config HAL_FMPI2CEx_ConfigDigitalFilter
 
 #define HAL_I2CFastModePlusConfig(SYSCFG_I2CFastModePlus,cmd) (((cmd )==ENABLE)? HAL_I2CEx_EnableFastModePlus(SYSCFG_I2CFastModePlus): HAL_I2CEx_DisableFastModePlus(SYSCFG_I2CFastModePlus))
-# 1601 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 1601 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define HAL_PWR_PVDConfig HAL_PWR_ConfigPVD
 #define HAL_PWR_DisableBkUpReg HAL_PWREx_DisableBkUpReg
 #define HAL_PWR_DisableFlashPowerDown HAL_PWREx_DisableFlashPowerDown
@@ -14280,7 +14280,7 @@ typedef enum
 #define BRE_BitNumber BRE_BIT_NUMBER
 
 #define PWR_MODE_EVT PWR_PVD_MODE_NORMAL
-# 1651 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 1651 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define HAL_SMBUS_Slave_Listen_IT HAL_SMBUS_EnableListen_IT
 #define HAL_SMBUS_SlaveAddrCallback HAL_SMBUS_AddrCallback
 #define HAL_SMBUS_SlaveListenCpltCallback HAL_SMBUS_ListenCpltCallback
@@ -14303,7 +14303,7 @@ typedef enum
 #define HAL_TIM_DMAError TIM_DMAError
 #define HAL_TIM_DMACaptureCplt TIM_DMACaptureCplt
 #define HAL_TIMEx_DMACommutationCplt TIMEx_DMACommutationCplt
-# 1688 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 1688 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define HAL_UART_WakeupCallback HAL_UARTEx_WakeupCallback
 
 
@@ -14316,7 +14316,7 @@ typedef enum
 #define HAL_LTDC_Relaod HAL_LTDC_Reload
 #define HAL_LTDC_StructInitFromVideoConfig HAL_LTDCEx_StructInitFromVideoConfig
 #define HAL_LTDC_StructInitFromAdaptedCommandConfig HAL_LTDCEx_StructInitFromAdaptedCommandConfig
-# 1718 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 1718 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define AES_IT_CC CRYP_IT_CC
 #define AES_IT_ERR CRYP_IT_ERR
 #define AES_FLAG_CCF CRYP_FLAG_CCF
@@ -14347,7 +14347,7 @@ typedef enum
 #define IS_SYSCFG_FASTMODEPLUS_CONFIG IS_I2C_FASTMODEPLUS
 #define UFB_MODE_BitNumber UFB_MODE_BIT_NUMBER
 #define CMP_PD_BitNumber CMP_PD_BIT_NUMBER
-# 1757 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 1757 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define __ADC_ENABLE __HAL_ADC_ENABLE
 #define __ADC_DISABLE __HAL_ADC_DISABLE
 #define __HAL_ADC_ENABLING_CONDITIONS ADC_ENABLING_CONDITIONS
@@ -14424,12 +14424,12 @@ typedef enum
 #define __HAL_ADC_CFGR1_OVERRUN ADC_CFGR1_OVERRUN
 #define __HAL_ADC_CFGR1_SCANDIR ADC_CFGR1_SCANDIR
 #define __HAL_ADC_CFGR1_DMACONTREQ ADC_CFGR1_DMACONTREQ
-# 1841 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 1841 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define __HAL_DHR12R1_ALIGNEMENT DAC_DHR12R1_ALIGNMENT
 #define __HAL_DHR12R2_ALIGNEMENT DAC_DHR12R2_ALIGNMENT
 #define __HAL_DHR12RD_ALIGNEMENT DAC_DHR12RD_ALIGNMENT
 #define IS_DAC_GENERATE_WAVE IS_DAC_WAVE
-# 1853 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 1853 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define __HAL_FREEZE_TIM1_DBGMCU __HAL_DBGMCU_FREEZE_TIM1
 #define __HAL_UNFREEZE_TIM1_DBGMCU __HAL_DBGMCU_UNFREEZE_TIM1
 #define __HAL_FREEZE_TIM2_DBGMCU __HAL_DBGMCU_FREEZE_TIM2
@@ -14494,7 +14494,7 @@ typedef enum
 #define __HAL_UNFREEZE_LPTIM1_DBGMCU __HAL_DBGMCU_UNFREEZE_LPTIM1
 #define __HAL_FREEZE_LPTIM2_DBGMCU __HAL_DBGMCU_FREEZE_LPTIM2
 #define __HAL_UNFREEZE_LPTIM2_DBGMCU __HAL_DBGMCU_UNFREEZE_LPTIM2
-# 2067 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 2067 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define __HAL_COMP_EXTI_RISING_IT_ENABLE(__EXTILINE__) (((__EXTILINE__) == COMP_EXTI_LINE_COMP1) ? __HAL_COMP_COMP1_EXTI_ENABLE_RISING_EDGE() : __HAL_COMP_COMP2_EXTI_ENABLE_RISING_EDGE())
 
 #define __HAL_COMP_EXTI_RISING_IT_DISABLE(__EXTILINE__) (((__EXTILINE__) == COMP_EXTI_LINE_COMP1) ? __HAL_COMP_COMP1_EXTI_DISABLE_RISING_EDGE() : __HAL_COMP_COMP2_EXTI_DISABLE_RISING_EDGE())
@@ -14514,16 +14514,16 @@ typedef enum
 
 
 #define __HAL_COMP_GET_EXTI_LINE COMP_GET_EXTI_LINE
-# 2113 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 2113 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define IS_DAC_WAVE(WAVE) (((WAVE) == DAC_WAVE_NONE) || ((WAVE) == DAC_WAVE_NOISE)|| ((WAVE) == DAC_WAVE_TRIANGLE))
-# 2125 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 2125 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define IS_WRPAREA IS_OB_WRPAREA
 #define IS_TYPEPROGRAM IS_FLASH_TYPEPROGRAM
 #define IS_TYPEPROGRAMFLASH IS_FLASH_TYPEPROGRAM
 #define IS_TYPEERASE IS_FLASH_TYPEERASE
 #define IS_NBSECTORS IS_FLASH_NBSECTORS
 #define IS_OB_WDG_SOURCE IS_OB_IWDG_SOURCE
-# 2140 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 2140 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define __HAL_I2C_RESET_CR2 I2C_RESET_CR2
 #define __HAL_I2C_GENERATE_START I2C_GENERATE_START
 
@@ -14543,10 +14543,10 @@ typedef enum
 #define __HAL_I2C_MEM_ADD_MSB I2C_MEM_ADD_MSB
 #define __HAL_I2C_MEM_ADD_LSB I2C_MEM_ADD_LSB
 #define __HAL_I2C_FREQRANGE I2C_FREQRANGE
-# 2167 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 2167 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define IS_I2S_INSTANCE IS_I2S_ALL_INSTANCE
 #define IS_I2S_INSTANCE_EXT IS_I2S_ALL_INSTANCE_EXT
-# 2182 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 2182 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define __IRDA_DISABLE __HAL_IRDA_DISABLE
 #define __IRDA_ENABLE __HAL_IRDA_ENABLE
 
@@ -14556,14 +14556,14 @@ typedef enum
 #define __IRDA_MASK_COMPUTATION IRDA_MASK_COMPUTATION
 
 #define IS_IRDA_ONEBIT_SAMPLE IS_IRDA_ONE_BIT_SAMPLE
-# 2201 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 2201 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define __HAL_IWDG_ENABLE_WRITE_ACCESS IWDG_ENABLE_WRITE_ACCESS
 #define __HAL_IWDG_DISABLE_WRITE_ACCESS IWDG_DISABLE_WRITE_ACCESS
-# 2212 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 2212 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define __HAL_LPTIM_ENABLE_INTERRUPT __HAL_LPTIM_ENABLE_IT
 #define __HAL_LPTIM_DISABLE_INTERRUPT __HAL_LPTIM_DISABLE_IT
 #define __HAL_LPTIM_GET_ITSTATUS __HAL_LPTIM_GET_IT_SOURCE
-# 2224 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 2224 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define __OPAMP_CSR_OPAXPD OPAMP_CSR_OPAXPD
 #define __OPAMP_CSR_S3SELX OPAMP_CSR_S3SELX
 #define __OPAMP_CSR_S4SELX OPAMP_CSR_S4SELX
@@ -14577,7 +14577,7 @@ typedef enum
 #define __OPAMP_CSR_OPAXCALOUT OPAMP_CSR_OPAXCALOUT
 #define __OPAMP_OFFSET_TRIM_BITSPOSITION OPAMP_OFFSET_TRIM_BITSPOSITION
 #define __OPAMP_OFFSET_TRIM_SET OPAMP_OFFSET_TRIM_SET
-# 2246 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 2246 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define __HAL_PVD_EVENT_DISABLE __HAL_PWR_PVD_EXTI_DISABLE_EVENT
 #define __HAL_PVD_EVENT_ENABLE __HAL_PWR_PVD_EXTI_ENABLE_EVENT
 #define __HAL_PVD_EXTI_FALLINGTRIGGER_DISABLE __HAL_PWR_PVD_EXTI_DISABLE_FALLING_EDGE
@@ -14613,13 +14613,13 @@ typedef enum
 #define __HAL_PWR_VDDIO2_EXTI_SET_FALLING_EGDE_TRIGGER __HAL_PWR_VDDIO2_EXTI_ENABLE_FALLING_EDGE
 #define __HAL_PWR_VDDUSB_DISABLE HAL_PWREx_DisableVddUSB
 #define __HAL_PWR_VDDUSB_ENABLE HAL_PWREx_EnableVddUSB
-# 2289 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 2289 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define __HAL_PVD_EXTI_CLEAR_FLAG __HAL_PWR_PVD_EXTI_CLEAR_FLAG
 #define __HAL_PVD_EXTI_DISABLE_IT __HAL_PWR_PVD_EXTI_DISABLE_IT
 #define __HAL_PVD_EXTI_ENABLE_IT __HAL_PWR_PVD_EXTI_ENABLE_IT
 #define __HAL_PVD_EXTI_GENERATE_SWIT __HAL_PWR_PVD_EXTI_GENERATE_SWIT
 #define __HAL_PVD_EXTI_GET_FLAG __HAL_PWR_PVD_EXTI_GET_FLAG
-# 2304 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 2304 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define RCC_StopWakeUpClock_MSI RCC_STOP_WAKEUPCLOCK_MSI
 #define RCC_StopWakeUpClock_HSI RCC_STOP_WAKEUPCLOCK_HSI
 
@@ -14885,7 +14885,7 @@ typedef enum
 #define __QSPI_CLK_SLEEP_ENABLE __HAL_RCC_QSPI_CLK_SLEEP_ENABLE
 #define __QSPI_FORCE_RESET __HAL_RCC_QSPI_FORCE_RESET
 #define __QSPI_RELEASE_RESET __HAL_RCC_QSPI_RELEASE_RESET
-# 2584 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 2584 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define __RNG_CLK_DISABLE __HAL_RCC_RNG_CLK_DISABLE
 #define __RNG_CLK_ENABLE __HAL_RCC_RNG_CLK_ENABLE
 #define __RNG_CLK_SLEEP_DISABLE __HAL_RCC_RNG_CLK_SLEEP_DISABLE
@@ -15102,7 +15102,7 @@ typedef enum
 #define __USB_OTG_FS_CLK_DISABLE __HAL_RCC_USB_OTG_FS_CLK_DISABLE
 #define __USB_OTG_FS_CLK_ENABLE __HAL_RCC_USB_OTG_FS_CLK_ENABLE
 #define __USB_RELEASE_RESET __HAL_RCC_USB_RELEASE_RESET
-# 2815 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 2815 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define __WWDG_CLK_DISABLE __HAL_RCC_WWDG_CLK_DISABLE
 #define __WWDG_CLK_ENABLE __HAL_RCC_WWDG_CLK_ENABLE
 #define __WWDG_CLK_SLEEP_DISABLE __HAL_RCC_WWDG_CLK_SLEEP_DISABLE
@@ -15441,7 +15441,7 @@ typedef enum
 #define __USB_IS_CLK_DISABLED __HAL_RCC_USB_IS_CLK_DISABLED
 #define __WWDG_IS_CLK_ENABLED __HAL_RCC_WWDG_IS_CLK_ENABLED
 #define __WWDG_IS_CLK_DISABLED __HAL_RCC_WWDG_IS_CLK_DISABLED
-# 3224 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 3224 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define __HAL_RCC_I2SCLK __HAL_RCC_I2S_CONFIG
 #define __HAL_RCC_I2SCLK_CONFIG __HAL_RCC_I2S_CONFIG
 
@@ -15607,12 +15607,12 @@ typedef enum
 #define RCC_DFSDM1CLKSOURCE_APB2 RCC_DFSDM1CLKSOURCE_PCLK2
 #define RCC_DFSDM2CLKSOURCE_APB2 RCC_DFSDM2CLKSOURCE_PCLK2
 #define RCC_FMPI2C1CLKSOURCE_APB RCC_FMPI2C1CLKSOURCE_PCLK1
-# 3410 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 3410 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define HAL_RNG_ReadyCallback(__HANDLE__) HAL_RNG_ReadyDataCallback((__HANDLE__), uint32_t random32bit)
-# 3423 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 3423 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define __HAL_RTC_DISABLE_IT __HAL_RTC_EXTI_DISABLE_IT
 #define __HAL_RTC_ENABLE_IT __HAL_RTC_EXTI_ENABLE_IT
-# 3437 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 3437 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define __HAL_RTC_EXTI_CLEAR_FLAG(__EXTI_LINE__) (((__EXTI_LINE__) == RTC_EXTI_LINE_ALARM_EVENT) ? __HAL_RTC_ALARM_EXTI_CLEAR_FLAG() : (((__EXTI_LINE__) == RTC_EXTI_LINE_WAKEUPTIMER_EVENT) ? __HAL_RTC_WAKEUPTIMER_EXTI_CLEAR_FLAG() : __HAL_RTC_TAMPER_TIMESTAMP_EXTI_CLEAR_FLAG()))
 
 
@@ -15647,14 +15647,14 @@ typedef enum
 
 #define __RTC_WRITEPROTECTION_ENABLE __HAL_RTC_WRITEPROTECTION_ENABLE
 #define __RTC_WRITEPROTECTION_DISABLE __HAL_RTC_WRITEPROTECTION_DISABLE
-# 3480 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 3480 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define SD_OCR_CID_CSD_OVERWRIETE SD_OCR_CID_CSD_OVERWRITE
 #define SD_CMD_SD_APP_STAUS SD_CMD_SD_APP_STATUS
 
 #define eMMC_HIGH_VOLTAGE_RANGE EMMC_HIGH_VOLTAGE_RANGE
 #define eMMC_DUAL_VOLTAGE_RANGE EMMC_DUAL_VOLTAGE_RANGE
 #define eMMC_LOW_VOLTAGE_RANGE EMMC_LOW_VOLTAGE_RANGE
-# 3565 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 3565 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define __SMARTCARD_ENABLE_IT __HAL_SMARTCARD_ENABLE_IT
 #define __SMARTCARD_DISABLE_IT __HAL_SMARTCARD_DISABLE_IT
 #define __SMARTCARD_ENABLE __HAL_SMARTCARD_ENABLE
@@ -15666,7 +15666,7 @@ typedef enum
 #define __SMARTCARD_GETCLOCKSOURCE SMARTCARD_GETCLOCKSOURCE
 
 #define IS_SMARTCARD_ONEBIT_SAMPLING IS_SMARTCARD_ONE_BIT_SAMPLE
-# 3584 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 3584 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define __HAL_SMBUS_RESET_CR1 SMBUS_RESET_CR1
 #define __HAL_SMBUS_RESET_CR2 SMBUS_RESET_CR2
 #define __HAL_SMBUS_GENERATE_START SMBUS_GENERATE_START
@@ -15675,11 +15675,11 @@ typedef enum
 #define __HAL_SMBUS_GET_STOP_MODE SMBUS_GET_STOP_MODE
 #define __HAL_SMBUS_GET_PEC_MODE SMBUS_GET_PEC_MODE
 #define __HAL_SMBUS_GET_ALERT_ENABLED SMBUS_GET_ALERT_ENABLED
-# 3600 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 3600 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define __HAL_SPI_1LINE_TX SPI_1LINE_TX
 #define __HAL_SPI_1LINE_RX SPI_1LINE_RX
 #define __HAL_SPI_RESET_CRC SPI_RESET_CRC
-# 3612 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 3612 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define __HAL_UART_GETCLOCKSOURCE UART_GETCLOCKSOURCE
 #define __HAL_UART_MASK_COMPUTATION UART_MASK_COMPUTATION
 #define __UART_GETCLOCKSOURCE UART_GETCLOCKSOURCE
@@ -15689,7 +15689,7 @@ typedef enum
 
 #define IS_UART_ONEBIT_SAMPLE IS_UART_ONE_BIT_SAMPLE
 #define IS_UART_ONEBIT_SAMPLING IS_UART_ONE_BIT_SAMPLE
-# 3631 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 3631 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define __USART_ENABLE_IT __HAL_USART_ENABLE_IT
 #define __USART_DISABLE_IT __HAL_USART_DISABLE_IT
 #define __USART_ENABLE __HAL_USART_ENABLE
@@ -15697,7 +15697,7 @@ typedef enum
 
 #define __HAL_USART_GETCLOCKSOURCE USART_GETCLOCKSOURCE
 #define __USART_GETCLOCKSOURCE USART_GETCLOCKSOURCE
-# 3653 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 3653 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define USB_EXTI_LINE_WAKEUP USB_WAKEUP_EXTI_LINE
 
 #define USB_FS_EXTI_TRIGGER_RISING_EDGE USB_OTG_FS_WAKEUP_EXTI_RISING_EDGE
@@ -15770,7 +15770,7 @@ typedef enum
 #define __HAL_TIM_GetCompare __HAL_TIM_GET_COMPARE
 
 #define TIM_BREAKINPUTSOURCE_DFSDM TIM_BREAKINPUTSOURCE_DFSDM1
-# 3733 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
+# 3733 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"
 #define __HAL_ETH_EXTI_ENABLE_IT __HAL_ETH_WAKEUP_EXTI_ENABLE_IT
 #define __HAL_ETH_EXTI_DISABLE_IT __HAL_ETH_WAKEUP_EXTI_DISABLE_IT
 #define __HAL_ETH_EXTI_GET_FLAG __HAL_ETH_WAKEUP_EXTI_GET_FLAG
@@ -15812,14 +15812,14 @@ typedef enum
 #define IS_SAI_BLOCK_MONO_STREO_MODE IS_SAI_BLOCK_MONO_STEREO_MODE
 #define SAI_SYNCHRONOUS_EXT SAI_SYNCHRONOUS_EXT_SAI1
 #define SAI_SYNCEXT_IN_ENABLE SAI_SYNCEXT_OUTBLOCKA_ENABLE
-# 32 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_def.h" 2
-# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 1 3 4
-# 39 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 32 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_def.h" 2
+# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 1 3 4
+# 39 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #define _STDDEF_H 
 #define _STDDEF_H_ 
 
 #define _ANSI_STDDEF_H 
-# 131 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 131 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #define _PTRDIFF_T 
 #define _T_PTRDIFF_ 
 #define _T_PTRDIFF 
@@ -15833,11 +15833,11 @@ typedef enum
 
 
 
-# 143 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 143 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 typedef int ptrdiff_t;
-# 155 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 155 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef __need_ptrdiff_t
-# 181 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 181 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #define __size_t__ 
 #define __SIZE_T__ 
 #define _SIZE_T 
@@ -15867,9 +15867,9 @@ typedef int ptrdiff_t;
 
 
 typedef unsigned int size_t;
-# 231 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 231 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef __need_size_t
-# 260 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 260 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #define __wchar_t__ 
 #define __WCHAR_T__ 
 #define _WCHAR_T 
@@ -15885,13 +15885,13 @@ typedef unsigned int size_t;
 #define __INT_WCHAR_T_H 
 #define _GCC_WCHAR_T 
 #define _WCHAR_T_DECLARED 
-# 287 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 287 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef _BSD_WCHAR_T_
-# 321 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 321 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 typedef unsigned int wchar_t;
-# 340 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 340 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef __need_wchar_t
-# 390 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 390 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef NULL
 
 
@@ -15909,7 +15909,7 @@ typedef unsigned int wchar_t;
 
 
 #define offsetof(TYPE,MEMBER) __builtin_offsetof (TYPE, MEMBER)
-# 33 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_def.h" 2
+# 33 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_def.h" 2
 
 
 
@@ -15917,7 +15917,7 @@ typedef unsigned int wchar_t;
 
 
 
-# 39 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_def.h"
+# 39 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_def.h"
 typedef enum
 {
   HAL_OK = 0x00,
@@ -15945,7 +15945,7 @@ typedef enum
 #define HAL_IS_BIT_CLR(REG,BIT) (((REG) & (BIT)) == 0U)
 
 #define __HAL_LINKDMA(__HANDLE__,__PPP_DMA_FIELD__,__DMA_HANDLE__) do{ (__HANDLE__)->__PPP_DMA_FIELD__ = &(__DMA_HANDLE__); (__DMA_HANDLE__).Parent = (__HANDLE__); } while(0)
-# 86 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_def.h"
+# 86 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_def.h"
 #define __HAL_RESET_HANDLE_STATE(__HANDLE__) ((__HANDLE__)->State = 0)
 
 
@@ -15953,25 +15953,25 @@ typedef enum
 
 
 #define __HAL_LOCK(__HANDLE__) do{ if((__HANDLE__)->Lock == HAL_LOCKED) { return HAL_BUSY; } else { (__HANDLE__)->Lock = HAL_LOCKED; } }while (0)
-# 104 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_def.h"
+# 104 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_def.h"
 #define __HAL_UNLOCK(__HANDLE__) do{ (__HANDLE__)->Lock = HAL_UNLOCKED; }while (0)
-# 120 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_def.h"
+# 120 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_def.h"
 #define __weak __attribute__((weak))
 
 
 #define __packed __attribute__((__packed__))
-# 138 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_def.h"
+# 138 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_def.h"
 #define __ALIGN_END __attribute__ ((aligned (4)))
 
 
 #define __ALIGN_BEGIN 
-# 184 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_def.h"
+# 184 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_def.h"
 #define __RAM_FUNC __attribute__((section(".RamFunc")))
-# 195 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_def.h"
+# 195 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_def.h"
 #define __NOINLINE __attribute__ ( (noinline) )
-# 30 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h" 2
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 30 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h" 2
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 #define STM32WLxx_LL_DMA_H 
 
 
@@ -15980,15 +15980,15 @@ typedef enum
 
 
 
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 #define STM32WLxx_LL_DMAMUX_H 
-# 48 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 48 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 #define DMAMUX_CCR_SIZE 0x00000004UL
 
 
 #define DMAMUX_RGCR_SIZE 0x00000004UL
-# 66 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 66 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 #define LL_DMAMUX_CFR_CSOF0 DMAMUX_CFR_CSOF0
 #define LL_DMAMUX_CFR_CSOF1 DMAMUX_CFR_CSOF1
 #define LL_DMAMUX_CFR_CSOF2 DMAMUX_CFR_CSOF2
@@ -16007,7 +16007,7 @@ typedef enum
 #define LL_DMAMUX_RGCFR_RGCOF1 DMAMUX_RGCFR_COF1
 #define LL_DMAMUX_RGCFR_RGCOF2 DMAMUX_RGCFR_COF2
 #define LL_DMAMUX_RGCFR_RGCOF3 DMAMUX_RGCFR_COF3
-# 92 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 92 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 #define LL_DMAMUX_CSR_SOF0 DMAMUX_CSR_SOF0
 #define LL_DMAMUX_CSR_SOF1 DMAMUX_CSR_SOF1
 #define LL_DMAMUX_CSR_SOF2 DMAMUX_CSR_SOF2
@@ -16026,7 +16026,7 @@ typedef enum
 #define LL_DMAMUX_RGSR_RGOF1 DMAMUX_RGSR_OF1
 #define LL_DMAMUX_RGSR_RGOF2 DMAMUX_RGSR_OF2
 #define LL_DMAMUX_RGSR_RGOF3 DMAMUX_RGSR_OF3
-# 118 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 118 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 #define LL_DMAMUX_CCR_SOIE DMAMUX_CxCR_SOIE
 #define LL_DMAMUX_RGCR_RGOIE DMAMUX_RGxCR_OIE
 
@@ -16191,7 +16191,7 @@ typedef enum
 #define LL_DMAMUX_REQ_GEN_LPTIM1_OUT (DMAMUX_RGxCR_SIG_ID_4 | DMAMUX_RGxCR_SIG_ID_1)
 #define LL_DMAMUX_REQ_GEN_LPTIM2_OUT (DMAMUX_RGxCR_SIG_ID_4 | DMAMUX_RGxCR_SIG_ID_1 | DMAMUX_RGxCR_SIG_ID_0)
 #define LL_DMAMUX_REQ_GEN_LPTIM3_OUT (DMAMUX_RGxCR_SIG_ID_4 | DMAMUX_RGxCR_SIG_ID_2)
-# 305 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 305 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 #define LL_DMAMUX_WriteReg(__INSTANCE__,__REG__,__VALUE__) WRITE_REG(__INSTANCE__->__REG__, (__VALUE__))
 
 
@@ -16201,145 +16201,145 @@ typedef enum
 
 
 #define LL_DMAMUX_ReadReg(__INSTANCE__,__REG__) READ_REG(__INSTANCE__->__REG__)
-# 397 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 397 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline void LL_DMAMUX_SetRequestID(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel, uint32_t Request)
 {
   (void)(DMAMUXx);
   ((((((DMAMUX_Channel_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL))) + Channel)->CCR)) = (((((((((DMAMUX_Channel_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL))) + Channel)->CCR))) & (~((0x7FUL << (0U))))) | (Request))));
 }
-# 469 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 469 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline uint32_t LL_DMAMUX_GetRequestID(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel)
 {
   (void)(DMAMUXx);
   return (uint32_t)((((((DMAMUX_Channel_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL))) + Channel)->CCR) & ((0x7FUL << (0U)))));
 }
-# 499 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 499 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline void LL_DMAMUX_SetSyncRequestNb(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel, uint32_t RequestNb)
 {
   (void)(DMAMUXx);
   ((((((DMAMUX_Channel_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL))) + Channel)->CCR)) = (((((((((DMAMUX_Channel_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL))) + Channel)->CCR))) & (~((0x1FUL << (19U))))) | (((RequestNb - 1U) << (19U))))));
 }
-# 528 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 528 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline uint32_t LL_DMAMUX_GetSyncRequestNb(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel)
 {
   (void)(DMAMUXx);
   return (uint32_t)((((((((DMAMUX_Channel_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL))) + Channel)->CCR) & ((0x1FUL << (19U))))) >> (19U)) + 1U);
 }
-# 562 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 562 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline void LL_DMAMUX_SetSyncPolarity(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel, uint32_t Polarity)
 {
   (void)(DMAMUXx);
   ((((((DMAMUX_Channel_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL))) + Channel)->CCR)) = (((((((((DMAMUX_Channel_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL))) + Channel)->CCR))) & (~((0x3UL << (17U))))) | (Polarity))));
 }
-# 595 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 595 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline uint32_t LL_DMAMUX_GetSyncPolarity(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel)
 {
   (void)(DMAMUXx);
   return (uint32_t)((((((DMAMUX_Channel_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL))) + Channel)->CCR) & ((0x3UL << (17U)))));
 }
-# 624 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 624 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline void LL_DMAMUX_EnableEventGeneration(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel)
 {
   (void)(DMAMUXx);
   (((((DMAMUX_Channel_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL))) + Channel)->CCR) |= ((0x1UL << (9U))));
 }
-# 653 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 653 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline void LL_DMAMUX_DisableEventGeneration(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel)
 {
   (void)(DMAMUXx);
   (((((DMAMUX_Channel_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL))) + Channel)->CCR) &= ~((0x1UL << (9U))));
 }
-# 682 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 682 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline uint32_t LL_DMAMUX_IsEnabledEventGeneration(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel)
 {
   (void)(DMAMUXx);
   return (((((((DMAMUX_Channel_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL))) + Channel)->CCR) & ((0x1UL << (9U)))) == ((0x1UL << (9U)))) ? 1UL : 0UL);
 }
-# 711 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 711 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline void LL_DMAMUX_EnableSync(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel)
 {
   (void)(DMAMUXx);
   (((((DMAMUX_Channel_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL))) + Channel)->CCR) |= ((0x1UL << (16U))));
 }
-# 740 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 740 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline void LL_DMAMUX_DisableSync(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel)
 {
   (void)(DMAMUXx);
   (((((DMAMUX_Channel_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL))) + Channel)->CCR) &= ~((0x1UL << (16U))));
 }
-# 769 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 769 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline uint32_t LL_DMAMUX_IsEnabledSync(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel)
 {
   (void)(DMAMUXx);
   return (((((((DMAMUX_Channel_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL))) + Channel)->CCR) & ((0x1UL << (16U)))) == ((0x1UL << (16U)))) ? 1UL : 0UL);
 }
-# 820 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 820 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline void LL_DMAMUX_SetSyncID(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel, uint32_t SyncID)
 {
   (void)(DMAMUXx);
   ((((((DMAMUX_Channel_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL))) + Channel)->CCR)) = (((((((((DMAMUX_Channel_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL))) + Channel)->CCR))) & (~((0x1FUL << (24U))))) | (SyncID))));
 }
-# 870 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 870 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline uint32_t LL_DMAMUX_GetSyncID(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel)
 {
   (void)(DMAMUXx);
   return (uint32_t)((((((DMAMUX_Channel_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL))) + Channel)->CCR) & ((0x1FUL << (24U)))));
 }
-# 887 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 887 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline void LL_DMAMUX_EnableRequestGen(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t RequestGenChannel)
 {
   (void)(DMAMUXx);
   ((((DMAMUX_RequestGen_TypeDef *)((uint32_t)((uint32_t)((DMAMUX_RequestGen_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL) + 0x00000100UL)) + (0x00000004UL * (RequestGenChannel)))))->RGCR) |= ((0x1UL << (16U))));
 }
-# 904 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 904 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline void LL_DMAMUX_DisableRequestGen(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t RequestGenChannel)
 {
   (void)(DMAMUXx);
   ((((DMAMUX_RequestGen_TypeDef *)((uint32_t)((uint32_t)((DMAMUX_RequestGen_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL) + 0x00000100UL)) + (0x00000004UL * (RequestGenChannel)))))->RGCR) &= ~((0x1UL << (16U))));
 }
-# 921 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 921 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline uint32_t LL_DMAMUX_IsEnabledRequestGen(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t RequestGenChannel)
 {
   (void)(DMAMUXx);
   return ((((((DMAMUX_RequestGen_TypeDef *)((uint32_t)((uint32_t)((DMAMUX_RequestGen_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL) + 0x00000100UL)) + (0x00000004UL * (RequestGenChannel)))))->RGCR) & ((0x1UL << (16U)))) == ((0x1UL << (16U)))) ? 1UL : 0UL);
 }
-# 943 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 943 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline void LL_DMAMUX_SetRequestGenPolarity(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t RequestGenChannel, uint32_t Polarity)
 {
   (void)(DMAMUXx);
   (((((DMAMUX_RequestGen_TypeDef *)((uint32_t)((uint32_t)((DMAMUX_RequestGen_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL) + 0x00000100UL)) + (0x00000004UL * (RequestGenChannel)))))->RGCR)) = ((((((((DMAMUX_RequestGen_TypeDef *)((uint32_t)((uint32_t)((DMAMUX_RequestGen_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL) + 0x00000100UL)) + (0x00000004UL * (RequestGenChannel)))))->RGCR))) & (~((0x3UL << (17U))))) | (Polarity))));
 }
-# 964 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 964 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline uint32_t LL_DMAMUX_GetRequestGenPolarity(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t RequestGenChannel)
 {
   (void)(DMAMUXx);
   return (uint32_t)(((((DMAMUX_RequestGen_TypeDef *)((uint32_t)((uint32_t)((DMAMUX_RequestGen_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL) + 0x00000100UL)) + (0x00000004UL * (RequestGenChannel)))))->RGCR) & ((0x3UL << (17U)))));
 }
-# 983 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 983 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline void LL_DMAMUX_SetGenRequestNb(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t RequestGenChannel, uint32_t RequestNb)
 {
   (void)(DMAMUXx);
   (((((DMAMUX_RequestGen_TypeDef *)((uint32_t)((uint32_t)((DMAMUX_RequestGen_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL) + 0x00000100UL)) + (0x00000004UL * (RequestGenChannel)))))->RGCR)) = ((((((((DMAMUX_RequestGen_TypeDef *)((uint32_t)((uint32_t)((DMAMUX_RequestGen_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL) + 0x00000100UL)) + (0x00000004UL * (RequestGenChannel)))))->RGCR))) & (~((0x1FUL << (19U))))) | ((RequestNb - 1U) << (19U)))));
 }
-# 1000 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 1000 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline uint32_t LL_DMAMUX_GetGenRequestNb(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t RequestGenChannel)
 {
   (void)(DMAMUXx);
   return (uint32_t)((((((DMAMUX_RequestGen_TypeDef *)((uint32_t)((uint32_t)((DMAMUX_RequestGen_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL) + 0x00000100UL)) + (0x00000004UL * (RequestGenChannel)))))->RGCR) & ((0x1FUL << (19U)))) >> (19U)) + 1U);
 }
-# 1039 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 1039 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline void LL_DMAMUX_SetRequestSignalID(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t RequestGenChannel, uint32_t RequestSignalID)
 {
   (void)(DMAMUXx);
   (((((DMAMUX_RequestGen_TypeDef *)((uint32_t)((uint32_t)((DMAMUX_RequestGen_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL) + 0x00000100UL)) + (0x00000004UL * (RequestGenChannel)))))->RGCR)) = ((((((((DMAMUX_RequestGen_TypeDef *)((uint32_t)((uint32_t)((DMAMUX_RequestGen_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL) + 0x00000100UL)) + (0x00000004UL * (RequestGenChannel)))))->RGCR))) & (~((0x1FUL << (0U))))) | (RequestSignalID))));
 }
-# 1077 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 1077 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline uint32_t LL_DMAMUX_GetRequestSignalID(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t RequestGenChannel)
 {
   (void)(DMAMUXx);
   return (uint32_t)(((((DMAMUX_RequestGen_TypeDef *)((uint32_t)((uint32_t)((DMAMUX_RequestGen_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL) + 0x00000100UL)) + (0x00000004UL * (RequestGenChannel)))))->RGCR) & ((0x1FUL << (0U)))));
 }
-# 1097 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 1097 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline uint32_t LL_DMAMUX_IsActiveFlag_SO0(DMAMUX_Channel_TypeDef *DMAMUXx)
 {
   (void)(DMAMUXx);
@@ -16765,44 +16765,44 @@ static inline void LL_DMAMUX_ClearFlag_RGO3(DMAMUX_Channel_TypeDef *DMAMUXx)
   (void)(DMAMUXx);
   ((((DMAMUX_RequestGenStatus_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL) + 0x00000140UL))->RGCFR) |= ((0x1UL << (3U))));
 }
-# 1554 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 1554 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline void LL_DMAMUX_EnableIT_SO(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel)
 {
   (void)(DMAMUXx);
   (((((DMAMUX_Channel_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL))) + Channel)->CCR) |= ((0x1UL << (8U))));
 }
-# 1583 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 1583 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline void LL_DMAMUX_DisableIT_SO(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel)
 {
   (void)(DMAMUXx);
   (((((DMAMUX_Channel_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL))) + Channel)->CCR) &= ~((0x1UL << (8U))));
 }
-# 1612 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 1612 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline uint32_t LL_DMAMUX_IsEnabledIT_SO(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel)
 {
   (void)(DMAMUXx);
   return ((((((((DMAMUX_Channel_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL))) + Channel)->CCR) & ((0x1UL << (8U))))) == ((0x1UL << (8U)))) ? 1UL : 0UL);
 }
-# 1629 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 1629 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline void LL_DMAMUX_EnableIT_RGO(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t RequestGenChannel)
 {
   (void)(DMAMUXx);
   (((((DMAMUX_RequestGen_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL) + 0x00000100UL)) + RequestGenChannel)->RGCR) |= ((0x1UL << (8U))));
 }
-# 1646 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 1646 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline void LL_DMAMUX_DisableIT_RGO(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t RequestGenChannel)
 {
   (void)(DMAMUXx);
   (((((DMAMUX_RequestGen_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL) + 0x00000100UL)) + RequestGenChannel)->RGCR) &= ~((0x1UL << (8U))));
 }
-# 1663 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
+# 1663 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dmamux.h"
 static inline uint32_t LL_DMAMUX_IsEnabledIT_RGO(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t RequestGenChannel)
 {
   (void)(DMAMUXx);
   return (((((((DMAMUX_RequestGen_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL) + 0x00000100UL)) + RequestGenChannel)->RGCR) & ((0x1UL << (8U)))) == ((0x1UL << (8U)))) ? 1UL : 0UL);
 }
-# 31 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h" 2
-# 48 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 31 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h" 2
+# 48 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static const uint8_t CHANNEL_OFFSET_TAB[] =
 {
   (uint8_t)((((0x40000000UL + 0x00020000UL) + 0x00000000UL) + 0x00000008UL) - ((0x40000000UL + 0x00020000UL) + 0x00000000UL)),
@@ -16813,9 +16813,9 @@ static const uint8_t CHANNEL_OFFSET_TAB[] =
   (uint8_t)((((0x40000000UL + 0x00020000UL) + 0x00000000UL) + 0x0000006CUL) - ((0x40000000UL + 0x00020000UL) + 0x00000000UL)),
   (uint8_t)((((0x40000000UL + 0x00020000UL) + 0x00000000UL) + 0x00000080UL) - ((0x40000000UL + 0x00020000UL) + 0x00000000UL)),
 };
-# 75 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 75 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 #define __LL_DMA_INSTANCE_TO_DMAMUX_CHANNEL(__DMA_INSTANCE__) (((uint32_t)(__DMA_INSTANCE__) == ((uint32_t)DMA1)) ? 0 : LL_DMA_CHANNEL_7)
-# 165 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 165 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 #define LL_DMA_IFCR_CGIF1 DMA_IFCR_CGIF1
 #define LL_DMA_IFCR_CTCIF1 DMA_IFCR_CTCIF1
 #define LL_DMA_IFCR_CHTIF1 DMA_IFCR_CHTIF1
@@ -16844,7 +16844,7 @@ static const uint8_t CHANNEL_OFFSET_TAB[] =
 #define LL_DMA_IFCR_CTCIF7 DMA_IFCR_CTCIF7
 #define LL_DMA_IFCR_CHTIF7 DMA_IFCR_CHTIF7
 #define LL_DMA_IFCR_CTEIF7 DMA_IFCR_CTEIF7
-# 201 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 201 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 #define LL_DMA_ISR_GIF1 DMA_ISR_GIF1
 #define LL_DMA_ISR_TCIF1 DMA_ISR_TCIF1
 #define LL_DMA_ISR_HTIF1 DMA_ISR_HTIF1
@@ -16873,7 +16873,7 @@ static const uint8_t CHANNEL_OFFSET_TAB[] =
 #define LL_DMA_ISR_TCIF7 DMA_ISR_TCIF7
 #define LL_DMA_ISR_HTIF7 DMA_ISR_HTIF7
 #define LL_DMA_ISR_TEIF7 DMA_ISR_TEIF7
-# 237 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 237 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 #define LL_DMA_CCR_TCIE DMA_CCR_TCIE
 #define LL_DMA_CCR_HTIE DMA_CCR_HTIE
 #define LL_DMA_CCR_TEIE DMA_CCR_TEIE
@@ -16891,7 +16891,7 @@ static const uint8_t CHANNEL_OFFSET_TAB[] =
 #define LL_DMA_CHANNEL_5 0x00000004U
 #define LL_DMA_CHANNEL_6 0x00000005U
 #define LL_DMA_CHANNEL_7 0x00000006U
-# 264 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 264 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 #define LL_DMA_DIRECTION_PERIPH_TO_MEMORY 0x00000000U
 #define LL_DMA_DIRECTION_MEMORY_TO_PERIPH DMA_CCR_DIR
 #define LL_DMA_DIRECTION_MEMORY_TO_MEMORY DMA_CCR_MEM2MEM
@@ -16953,7 +16953,7 @@ static const uint8_t CHANNEL_OFFSET_TAB[] =
 #define LL_DMA_PRIORITY_MEDIUM DMA_CCR_PL_0
 #define LL_DMA_PRIORITY_HIGH DMA_CCR_PL_1
 #define LL_DMA_PRIORITY_VERYHIGH DMA_CCR_PL
-# 390 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 390 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 #define LL_DMA_WriteReg(__INSTANCE__,__REG__,__VALUE__) WRITE_REG(__INSTANCE__->__REG__, (__VALUE__))
 
 
@@ -16963,7 +16963,7 @@ static const uint8_t CHANNEL_OFFSET_TAB[] =
 
 
 #define LL_DMA_ReadReg(__INSTANCE__,__REG__) READ_REG(__INSTANCE__->__REG__)
-# 411 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 411 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 #define __LL_DMA_GET_INSTANCE(__CHANNEL_INSTANCE__) (((uint32_t)(__CHANNEL_INSTANCE__) > ((uint32_t)DMA1_Channel7)) ? DMA2 : DMA1)
 
 
@@ -16973,28 +16973,28 @@ static const uint8_t CHANNEL_OFFSET_TAB[] =
 
 
 #define __LL_DMA_GET_CHANNEL(__CHANNEL_INSTANCE__) (((uint32_t)(__CHANNEL_INSTANCE__) == ((uint32_t)DMA1_Channel1)) ? LL_DMA_CHANNEL_1 : ((uint32_t)(__CHANNEL_INSTANCE__) == ((uint32_t)DMA2_Channel1)) ? LL_DMA_CHANNEL_1 : ((uint32_t)(__CHANNEL_INSTANCE__) == ((uint32_t)DMA1_Channel2)) ? LL_DMA_CHANNEL_2 : ((uint32_t)(__CHANNEL_INSTANCE__) == ((uint32_t)DMA2_Channel2)) ? LL_DMA_CHANNEL_2 : ((uint32_t)(__CHANNEL_INSTANCE__) == ((uint32_t)DMA1_Channel3)) ? LL_DMA_CHANNEL_3 : ((uint32_t)(__CHANNEL_INSTANCE__) == ((uint32_t)DMA2_Channel3)) ? LL_DMA_CHANNEL_3 : ((uint32_t)(__CHANNEL_INSTANCE__) == ((uint32_t)DMA1_Channel4)) ? LL_DMA_CHANNEL_4 : ((uint32_t)(__CHANNEL_INSTANCE__) == ((uint32_t)DMA2_Channel4)) ? LL_DMA_CHANNEL_4 : ((uint32_t)(__CHANNEL_INSTANCE__) == ((uint32_t)DMA1_Channel5)) ? LL_DMA_CHANNEL_5 : ((uint32_t)(__CHANNEL_INSTANCE__) == ((uint32_t)DMA2_Channel5)) ? LL_DMA_CHANNEL_5 : ((uint32_t)(__CHANNEL_INSTANCE__) == ((uint32_t)DMA1_Channel6)) ? LL_DMA_CHANNEL_6 : ((uint32_t)(__CHANNEL_INSTANCE__) == ((uint32_t)DMA2_Channel6)) ? LL_DMA_CHANNEL_6 : LL_DMA_CHANNEL_7)
-# 440 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 440 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 #define __LL_DMA_GET_CHANNEL_INSTANCE(__DMA_INSTANCE__,__CHANNEL__) ((((uint32_t)(__DMA_INSTANCE__) == ((uint32_t)DMA1)) && ((uint32_t)(__CHANNEL__) == ((uint32_t)LL_DMA_CHANNEL_1))) ? DMA1_Channel1 : (((uint32_t)(__DMA_INSTANCE__) == ((uint32_t)DMA2)) && ((uint32_t)(__CHANNEL__) == ((uint32_t)LL_DMA_CHANNEL_1))) ? DMA2_Channel1 : (((uint32_t)(__DMA_INSTANCE__) == ((uint32_t)DMA1)) && ((uint32_t)(__CHANNEL__) == ((uint32_t)LL_DMA_CHANNEL_2))) ? DMA1_Channel2 : (((uint32_t)(__DMA_INSTANCE__) == ((uint32_t)DMA2)) && ((uint32_t)(__CHANNEL__) == ((uint32_t)LL_DMA_CHANNEL_2))) ? DMA2_Channel2 : (((uint32_t)(__DMA_INSTANCE__) == ((uint32_t)DMA1)) && ((uint32_t)(__CHANNEL__) == ((uint32_t)LL_DMA_CHANNEL_3))) ? DMA1_Channel3 : (((uint32_t)(__DMA_INSTANCE__) == ((uint32_t)DMA2)) && ((uint32_t)(__CHANNEL__) == ((uint32_t)LL_DMA_CHANNEL_3))) ? DMA2_Channel3 : (((uint32_t)(__DMA_INSTANCE__) == ((uint32_t)DMA1)) && ((uint32_t)(__CHANNEL__) == ((uint32_t)LL_DMA_CHANNEL_4))) ? DMA1_Channel4 : (((uint32_t)(__DMA_INSTANCE__) == ((uint32_t)DMA2)) && ((uint32_t)(__CHANNEL__) == ((uint32_t)LL_DMA_CHANNEL_4))) ? DMA2_Channel4 : (((uint32_t)(__DMA_INSTANCE__) == ((uint32_t)DMA1)) && ((uint32_t)(__CHANNEL__) == ((uint32_t)LL_DMA_CHANNEL_5))) ? DMA1_Channel5 : (((uint32_t)(__DMA_INSTANCE__) == ((uint32_t)DMA2)) && ((uint32_t)(__CHANNEL__) == ((uint32_t)LL_DMA_CHANNEL_5))) ? DMA2_Channel5 : (((uint32_t)(__DMA_INSTANCE__) == ((uint32_t)DMA1)) && ((uint32_t)(__CHANNEL__) == ((uint32_t)LL_DMA_CHANNEL_6))) ? DMA1_Channel6 : (((uint32_t)(__DMA_INSTANCE__) == ((uint32_t)DMA2)) && ((uint32_t)(__CHANNEL__) == ((uint32_t)LL_DMA_CHANNEL_6))) ? DMA2_Channel6 : (((uint32_t)(__DMA_INSTANCE__) == ((uint32_t)DMA1)) && ((uint32_t)(__CHANNEL__) == ((uint32_t)LL_DMA_CHANNEL_7))) ? DMA1_Channel7 : DMA2_Channel7)
-# 486 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 486 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline void LL_DMA_EnableChannel(DMA_TypeDef *DMAx, uint32_t Channel)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   ((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR) |= ((0x1UL << (0U))));
 }
-# 506 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 506 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline void LL_DMA_DisableChannel(DMA_TypeDef *DMAx, uint32_t Channel)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   ((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR) &= ~((0x1UL << (0U))));
 }
-# 526 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 526 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline uint32_t LL_DMA_IsEnabledChannel(DMA_TypeDef *DMAx, uint32_t Channel)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   return ((((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR) & ((0x1UL << (0U))))
                                 == ((0x1UL << (0U)))) ? 1UL : 0UL);
 }
-# 642 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 642 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline void LL_DMA_ConfigTransfer(DMA_TypeDef *DMAx, uint32_t Channel, uint32_t Configuration)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
@@ -17002,119 +17002,119 @@ static inline void LL_DMA_ConfigTransfer(DMA_TypeDef *DMAx, uint32_t Channel, ui
 
                            ;
 }
-# 669 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 669 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline void LL_DMA_SetDataTransferDirection(DMA_TypeDef *DMAx, uint32_t Channel, uint32_t Direction)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   (((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR)) = ((((((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR))) & (~((0x1UL << (4U)) | (0x1UL << (14U))))) | (Direction))))
                                                       ;
 }
-# 694 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 694 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline uint32_t LL_DMA_GetDataTransferDirection(DMA_TypeDef *DMAx, uint32_t Channel)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   return (((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR) & ((0x1UL << (4U)) | (0x1UL << (14U))))
                                                  );
 }
-# 720 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 720 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline void LL_DMA_SetMode(DMA_TypeDef *DMAx, uint32_t Channel, uint32_t Mode)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   (((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR)) = ((((((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR))) & (~((0x1UL << (5U))))) | (Mode))))
                   ;
 }
-# 743 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 743 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline uint32_t LL_DMA_GetMode(DMA_TypeDef *DMAx, uint32_t Channel)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   return (((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR) & ((0x1UL << (5U))))
                                 );
 }
-# 767 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 767 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline void LL_DMA_SetPeriphIncMode(DMA_TypeDef *DMAx, uint32_t Channel, uint32_t PeriphOrM2MSrcIncMode)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   (((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR)) = ((((((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR))) & (~((0x1UL << (6U))))) | (PeriphOrM2MSrcIncMode))))
                                    ;
 }
-# 790 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 790 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline uint32_t LL_DMA_GetPeriphIncMode(DMA_TypeDef *DMAx, uint32_t Channel)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   return (((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR) & ((0x1UL << (6U))))
                                 );
 }
-# 814 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 814 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline void LL_DMA_SetMemoryIncMode(DMA_TypeDef *DMAx, uint32_t Channel, uint32_t MemoryOrM2MDstIncMode)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   (((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR)) = ((((((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR))) & (~((0x1UL << (7U))))) | (MemoryOrM2MDstIncMode))))
                                    ;
 }
-# 837 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 837 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline uint32_t LL_DMA_GetMemoryIncMode(DMA_TypeDef *DMAx, uint32_t Channel)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   return (((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR) & ((0x1UL << (7U))))
                                 );
 }
-# 862 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 862 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline void LL_DMA_SetPeriphSize(DMA_TypeDef *DMAx, uint32_t Channel, uint32_t PeriphOrM2MSrcDataSize)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   (((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR)) = ((((((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR))) & (~((0x3UL << (8U))))) | (PeriphOrM2MSrcDataSize))))
                                     ;
 }
-# 886 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 886 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline uint32_t LL_DMA_GetPeriphSize(DMA_TypeDef *DMAx, uint32_t Channel)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   return (((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR) & ((0x3UL << (8U))))
                                  );
 }
-# 911 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 911 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline void LL_DMA_SetMemorySize(DMA_TypeDef *DMAx, uint32_t Channel, uint32_t MemoryOrM2MDstDataSize)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   (((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR)) = ((((((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR))) & (~((0x3UL << (10U))))) | (MemoryOrM2MDstDataSize))))
                                     ;
 }
-# 935 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 935 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline uint32_t LL_DMA_GetMemorySize(DMA_TypeDef *DMAx, uint32_t Channel)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   return (((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR) & ((0x3UL << (10U))))
                                  );
 }
-# 961 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 961 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline void LL_DMA_SetChannelPriorityLevel(DMA_TypeDef *DMAx, uint32_t Channel, uint32_t Priority)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   (((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR)) = ((((((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR))) & (~((0x3UL << (12U))))) | (Priority))))
                       ;
 }
-# 986 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 986 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline uint32_t LL_DMA_GetChannelPriorityLevel(DMA_TypeDef *DMAx, uint32_t Channel)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   return (((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR) & ((0x3UL << (12U))))
                               );
 }
-# 1262 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 1262 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline void LL_DMA_SetDataLength(DMA_TypeDef *DMAx, uint32_t Channel, uint32_t NbData)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   (((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CNDTR)) = ((((((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CNDTR))) & (~((0x3FFFFUL << (0U))))) | (NbData))))
                                    ;
 }
-# 1285 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 1285 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline uint32_t LL_DMA_GetDataLength(DMA_TypeDef *DMAx, uint32_t Channel)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   return (((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CNDTR) & ((0x3FFFFUL << (0U))))
                                  );
 }
-# 1315 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 1315 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline void LL_DMA_ConfigAddresses(DMA_TypeDef *DMAx, uint32_t Channel, uint32_t SrcAddress,
                                             uint32_t DstAddress, uint32_t Direction)
 {
@@ -17132,67 +17132,67 @@ static inline void LL_DMA_ConfigAddresses(DMA_TypeDef *DMAx, uint32_t Channel, u
     ((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CMAR) = (DstAddress));
   }
 }
-# 1350 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 1350 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline void LL_DMA_SetMemoryAddress(DMA_TypeDef *DMAx, uint32_t Channel, uint32_t MemoryAddress)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   ((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CMAR) = (MemoryAddress));
 }
-# 1373 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 1373 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline void LL_DMA_SetPeriphAddress(DMA_TypeDef *DMAx, uint32_t Channel, uint32_t PeriphAddress)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   ((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CPAR) = (PeriphAddress));
 }
-# 1394 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 1394 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline uint32_t LL_DMA_GetMemoryAddress(DMA_TypeDef *DMAx, uint32_t Channel)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   return (((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CMAR)));
 }
-# 1415 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 1415 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline uint32_t LL_DMA_GetPeriphAddress(DMA_TypeDef *DMAx, uint32_t Channel)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   return (((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CPAR)));
 }
-# 1438 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 1438 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline void LL_DMA_SetM2MSrcAddress(DMA_TypeDef *DMAx, uint32_t Channel, uint32_t MemoryAddress)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   ((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CPAR) = (MemoryAddress));
 }
-# 1461 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 1461 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline void LL_DMA_SetM2MDstAddress(DMA_TypeDef *DMAx, uint32_t Channel, uint32_t MemoryAddress)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   ((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CMAR) = (MemoryAddress));
 }
-# 1482 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 1482 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline uint32_t LL_DMA_GetM2MSrcAddress(DMA_TypeDef *DMAx, uint32_t Channel)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   return (((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CPAR)));
 }
-# 1503 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 1503 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline uint32_t LL_DMA_GetM2MDstAddress(DMA_TypeDef *DMAx, uint32_t Channel)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   return (((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CMAR)));
 }
-# 1569 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 1569 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline void LL_DMA_SetPeriphRequest(DMA_TypeDef *DMAx, uint32_t Channel, uint32_t Request)
 {
   uint32_t dmamux_ccr_offset = ((((uint32_t)DMAx ^ (uint32_t)((DMA_TypeDef *) ((0x40000000UL + 0x00020000UL) + 0x00000000UL))) >> 10U) * 7U);
   ((((((DMAMUX_Channel_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL))) + Channel + dmamux_ccr_offset)->CCR)) = (((((((((DMAMUX_Channel_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL))) + Channel + dmamux_ccr_offset)->CCR))) & (~((0x7FUL << (0U))))) | (Request))));
 }
-# 1634 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 1634 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline uint32_t LL_DMA_GetPeriphRequest(DMA_TypeDef *DMAx, uint32_t Channel)
 {
   uint32_t dmamux_ccr_offset = ((((uint32_t)DMAx ^ (uint32_t)((DMA_TypeDef *) ((0x40000000UL + 0x00020000UL) + 0x00000000UL))) >> 10U) * 7U);
   return ((((((DMAMUX_Channel_TypeDef *) (((0x40000000UL + 0x00020000UL) + 0x00000800UL))) + Channel + dmamux_ccr_offset)->CCR) & ((0x7FUL << (0U)))));
 }
-# 1654 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 1654 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline uint32_t LL_DMA_IsActiveFlag_GI1(DMA_TypeDef *DMAx)
 {
   return ((((DMAx->ISR) & ((0x1UL << (0U)))) == ((0x1UL << (0U)))) ? 1UL : 0UL);
@@ -17802,65 +17802,65 @@ static inline void LL_DMA_ClearFlag_TE7(DMA_TypeDef *DMAx)
 {
   ((DMAx->IFCR) = ((0x1UL << (27U))));
 }
-# 2285 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 2285 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline void LL_DMA_EnableIT_TC(DMA_TypeDef *DMAx, uint32_t Channel)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   ((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR) |= ((0x1UL << (1U))));
 }
-# 2305 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 2305 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline void LL_DMA_EnableIT_HT(DMA_TypeDef *DMAx, uint32_t Channel)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   ((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR) |= ((0x1UL << (2U))));
 }
-# 2325 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 2325 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline void LL_DMA_EnableIT_TE(DMA_TypeDef *DMAx, uint32_t Channel)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   ((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR) |= ((0x1UL << (3U))));
 }
-# 2345 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 2345 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline void LL_DMA_DisableIT_TC(DMA_TypeDef *DMAx, uint32_t Channel)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   ((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR) &= ~((0x1UL << (1U))));
 }
-# 2365 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 2365 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline void LL_DMA_DisableIT_HT(DMA_TypeDef *DMAx, uint32_t Channel)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   ((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR) &= ~((0x1UL << (2U))));
 }
-# 2385 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 2385 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline void LL_DMA_DisableIT_TE(DMA_TypeDef *DMAx, uint32_t Channel)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   ((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR) &= ~((0x1UL << (3U))));
 }
-# 2405 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 2405 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline uint32_t LL_DMA_IsEnabledIT_TC(DMA_TypeDef *DMAx, uint32_t Channel)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   return ((((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR) & ((0x1UL << (1U))))
                                   == ((0x1UL << (1U)))) ? 1UL : 0UL);
 }
-# 2426 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 2426 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline uint32_t LL_DMA_IsEnabledIT_HT(DMA_TypeDef *DMAx, uint32_t Channel)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   return ((((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR) & ((0x1UL << (2U))))
                                   == ((0x1UL << (2U)))) ? 1UL : 0UL);
 }
-# 2447 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
+# 2447 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline uint32_t LL_DMA_IsEnabledIT_TE(DMA_TypeDef *DMAx, uint32_t Channel)
 {
   uint32_t dma_base_addr = (uint32_t)DMAx;
   return ((((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR) & ((0x1UL << (3U))))
                                   == ((0x1UL << (3U)))) ? 1UL : 0UL);
 }
-# 31 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h" 2
-# 48 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
+# 31 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h" 2
+# 48 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
 typedef struct
 {
   uint32_t Request;
@@ -17965,7 +17965,7 @@ typedef struct __DMA_HandleTypeDef
 
   uint32_t DMAmuxRequestGenStatusMask;
 } DMA_HandleTypeDef;
-# 165 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
+# 165 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
 #define HAL_DMA_ERROR_NONE 0x00000000U
 #define HAL_DMA_ERROR_TE 0x00000001U
 #define HAL_DMA_ERROR_NO_XFER 0x00000004U
@@ -17975,7 +17975,7 @@ typedef struct __DMA_HandleTypeDef
 #define HAL_DMA_ERROR_NOT_SUPPORTED 0x00000100U
 #define HAL_DMA_ERROR_SYNC 0x00000200U
 #define HAL_DMA_ERROR_REQGEN 0x00000400U
-# 182 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
+# 182 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
 #define DMA_REQUEST_MEM2MEM LL_DMAMUX_REQ_MEM2MEM
 #define DMA_REQUEST_GENERATOR0 LL_DMAMUX_REQ_GENERATOR0
 #define DMA_REQUEST_GENERATOR1 LL_DMAMUX_REQ_GENERATOR1
@@ -18031,7 +18031,7 @@ typedef struct __DMA_HandleTypeDef
 #define DMA_PERIPH_TO_MEMORY LL_DMA_DIRECTION_PERIPH_TO_MEMORY
 #define DMA_MEMORY_TO_PERIPH LL_DMA_DIRECTION_MEMORY_TO_PERIPH
 #define DMA_MEMORY_TO_MEMORY LL_DMA_DIRECTION_MEMORY_TO_MEMORY
-# 245 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
+# 245 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
 #define DMA_PINC_ENABLE LL_DMA_PERIPH_INCREMENT
 #define DMA_PINC_DISABLE LL_DMA_PERIPH_NOINCREMENT
 
@@ -18093,7 +18093,7 @@ typedef struct __DMA_HandleTypeDef
 #define DMA_IT_TC DMA_CCR_TCIE
 #define DMA_IT_HT DMA_CCR_HTIE
 #define DMA_IT_TE DMA_CCR_TEIE
-# 314 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
+# 314 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
 #define DMA_FLAG_GI1 DMA_ISR_GIF1
 #define DMA_FLAG_TC1 DMA_ISR_TCIF1
 #define DMA_FLAG_HT1 DMA_ISR_HTIF1
@@ -18122,7 +18122,7 @@ typedef struct __DMA_HandleTypeDef
 #define DMA_FLAG_TC7 DMA_ISR_TCIF7
 #define DMA_FLAG_HT7 DMA_ISR_HTIF7
 #define DMA_FLAG_TE7 DMA_ISR_TEIF7
-# 389 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
+# 389 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
 #define __HAL_DMA_RESET_HANDLE_STATE(__HANDLE__) ((__HANDLE__)->State = HAL_DMA_STATE_RESET)
 
 
@@ -18145,21 +18145,21 @@ typedef struct __DMA_HandleTypeDef
 
 
 #define __HAL_DMA_GET_TC_FLAG_INDEX(__HANDLE__) (((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA1_Channel1))? DMA_FLAG_TC1 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA2_Channel1))? DMA_FLAG_TC1 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA1_Channel2))? DMA_FLAG_TC2 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA2_Channel2))? DMA_FLAG_TC2 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA1_Channel3))? DMA_FLAG_TC3 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA2_Channel3))? DMA_FLAG_TC3 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA1_Channel4))? DMA_FLAG_TC4 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA2_Channel4))? DMA_FLAG_TC4 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA1_Channel5))? DMA_FLAG_TC5 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA2_Channel5))? DMA_FLAG_TC5 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA1_Channel6))? DMA_FLAG_TC6 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA2_Channel6))? DMA_FLAG_TC6 : DMA_FLAG_TC7)
-# 430 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
+# 430 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
 #define __HAL_DMA_GET_HT_FLAG_INDEX(__HANDLE__) (((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA1_Channel1))? DMA_FLAG_HT1 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA2_Channel1))? DMA_FLAG_HT1 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA1_Channel2))? DMA_FLAG_HT2 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA2_Channel2))? DMA_FLAG_HT2 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA1_Channel3))? DMA_FLAG_HT3 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA2_Channel3))? DMA_FLAG_HT3 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA1_Channel4))? DMA_FLAG_HT4 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA2_Channel4))? DMA_FLAG_HT4 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA1_Channel5))? DMA_FLAG_HT5 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA2_Channel5))? DMA_FLAG_HT5 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA1_Channel6))? DMA_FLAG_HT6 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA2_Channel6))? DMA_FLAG_HT6 : DMA_FLAG_HT7)
-# 450 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
+# 450 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
 #define __HAL_DMA_GET_TE_FLAG_INDEX(__HANDLE__) (((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA1_Channel1))? DMA_FLAG_TE1 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA2_Channel1))? DMA_FLAG_TE1 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA1_Channel2))? DMA_FLAG_TE2 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA2_Channel2))? DMA_FLAG_TE2 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA1_Channel3))? DMA_FLAG_TE3 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA2_Channel3))? DMA_FLAG_TE3 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA1_Channel4))? DMA_FLAG_TE4 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA2_Channel4))? DMA_FLAG_TE4 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA1_Channel5))? DMA_FLAG_TE5 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA2_Channel5))? DMA_FLAG_TE5 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA1_Channel6))? DMA_FLAG_TE6 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA2_Channel6))? DMA_FLAG_TE6 : DMA_FLAG_TE7)
-# 470 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
+# 470 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
 #define __HAL_DMA_GET_GI_FLAG_INDEX(__HANDLE__) (((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA1_Channel1))? DMA_FLAG_GI1 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA2_Channel1))? DMA_FLAG_GI1 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA1_Channel2))? DMA_FLAG_GI2 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA2_Channel2))? DMA_FLAG_GI2 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA1_Channel3))? DMA_FLAG_GI3 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA2_Channel3))? DMA_FLAG_GI3 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA1_Channel4))? DMA_FLAG_GI4 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA2_Channel4))? DMA_FLAG_GI4 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA1_Channel5))? DMA_FLAG_GI5 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA2_Channel5))? DMA_FLAG_GI5 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA1_Channel6))? DMA_FLAG_GI6 : ((uint32_t)((__HANDLE__)->Instance) == ((uint32_t)DMA2_Channel6))? DMA_FLAG_GI6 : DMA_FLAG_GI7)
-# 497 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
+# 497 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
 #define __HAL_DMA_GET_FLAG(__HANDLE__,__FLAG__) (((uint32_t)((__HANDLE__)->Instance) > ((uint32_t)DMA1_Channel7))? (DMA2->ISR & (__FLAG__)) : (DMA1->ISR & (__FLAG__)))
-# 512 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
+# 512 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
 #define __HAL_DMA_CLEAR_FLAG(__HANDLE__,__FLAG__) (((uint32_t)((__HANDLE__)->Instance) > ((uint32_t)DMA1_Channel7))? (DMA2->IFCR = (__FLAG__)) : (DMA1->IFCR = (__FLAG__)))
-# 525 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
+# 525 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
 #define __HAL_DMA_ENABLE_IT(__HANDLE__,__INTERRUPT__) ((__HANDLE__)->Instance->CCR |= (__INTERRUPT__))
-# 537 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
+# 537 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
 #define __HAL_DMA_DISABLE_IT(__HANDLE__,__INTERRUPT__) ((__HANDLE__)->Instance->CCR &= ~(__INTERRUPT__))
-# 549 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
+# 549 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
 #define __HAL_DMA_GET_IT_SOURCE(__HANDLE__,__INTERRUPT__) (((__HANDLE__)->Instance->CCR & (__INTERRUPT__)))
 
 
@@ -18174,10 +18174,10 @@ typedef struct __DMA_HandleTypeDef
 
 
 
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma_ex.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma_ex.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma_ex.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma_ex.h"
 #define STM32WLxx_HAL_DMA_EX_H 
-# 48 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma_ex.h"
+# 48 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma_ex.h"
 typedef struct
 {
   uint32_t SyncSignalID;
@@ -18214,7 +18214,7 @@ typedef struct
 
 
 } HAL_DMA_MuxRequestGeneratorConfigTypeDef;
-# 97 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma_ex.h"
+# 97 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma_ex.h"
 #define HAL_DMAMUX1_SYNC_EXTI0 LL_DMAMUX_SYNC_EXTI_LINE0
 #define HAL_DMAMUX1_SYNC_EXTI1 LL_DMAMUX_SYNC_EXTI_LINE1
 #define HAL_DMAMUX1_SYNC_EXTI2 LL_DMAMUX_SYNC_EXTI_LINE2
@@ -18249,7 +18249,7 @@ typedef struct
 #define HAL_DMAMUX_SYNC_RISING LL_DMAMUX_SYNC_POL_RISING
 #define HAL_DMAMUX_SYNC_FALLING LL_DMAMUX_SYNC_POL_FALLING
 #define HAL_DMAMUX_SYNC_RISING_FALLING LL_DMAMUX_SYNC_POL_RISING_FALLING
-# 139 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma_ex.h"
+# 139 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma_ex.h"
 #define HAL_DMAMUX1_REQ_GEN_EXTI0 LL_DMAMUX_REQ_GEN_EXTI_LINE0
 #define HAL_DMAMUX1_REQ_GEN_EXTI1 LL_DMAMUX_REQ_GEN_EXTI_LINE1
 #define HAL_DMAMUX1_REQ_GEN_EXTI2 LL_DMAMUX_REQ_GEN_EXTI_LINE2
@@ -18284,7 +18284,7 @@ typedef struct
 #define HAL_DMAMUX_REQ_GEN_RISING LL_DMAMUX_REQ_GEN_POL_RISING
 #define HAL_DMAMUX_REQ_GEN_FALLING LL_DMAMUX_REQ_GEN_POL_FALLING
 #define HAL_DMAMUX_REQ_GEN_RISING_FALLING LL_DMAMUX_REQ_GEN_POL_RISING_FALLING
-# 195 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma_ex.h"
+# 195 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma_ex.h"
 HAL_StatusTypeDef HAL_DMAEx_ConfigMuxRequestGenerator(DMA_HandleTypeDef *hdma,
                                                       HAL_DMA_MuxRequestGeneratorConfigTypeDef *pRequestGeneratorConfig);
 HAL_StatusTypeDef HAL_DMAEx_EnableMuxRequestGenerator(DMA_HandleTypeDef *hdma);
@@ -18296,7 +18296,7 @@ HAL_StatusTypeDef HAL_DMAEx_ConfigMuxSync(DMA_HandleTypeDef *hdma, HAL_DMA_MuxSy
 
 
 void HAL_DMAEx_MUX_IRQHandler(DMA_HandleTypeDef *hdma);
-# 222 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma_ex.h"
+# 222 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma_ex.h"
 #define IS_DMAMUX_SYNC_SIGNAL_ID(SIGNAL_ID) (((SIGNAL_ID) == HAL_DMAMUX1_SYNC_EXTI0) || (((SIGNAL_ID) >= HAL_DMAMUX1_SYNC_EXTI1) && ((SIGNAL_ID) <= HAL_DMAMUX1_MAX_SYNC)))
 
 
@@ -18320,11 +18320,11 @@ void HAL_DMAEx_MUX_IRQHandler(DMA_HandleTypeDef *hdma);
 #define IS_DMAMUX_REQUEST_GEN_REQUEST_NUMBER(REQUEST_NUMBER) (((REQUEST_NUMBER) > 0U) && ((REQUEST_NUMBER) <= 32U))
 
 #define IS_DMAMUX_REQUEST_GEN_POLARITY(POLARITY) (((POLARITY) == HAL_DMAMUX_REQ_GEN_NO_EVENT)|| ((POLARITY) == HAL_DMAMUX_REQ_GEN_RISING) || ((POLARITY) == HAL_DMAMUX_REQ_GEN_FALLING) || ((POLARITY) == HAL_DMAMUX_REQ_GEN_RISING_FALLING))
-# 564 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h" 2
-# 575 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
+# 564 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h" 2
+# 575 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
 HAL_StatusTypeDef HAL_DMA_Init(DMA_HandleTypeDef *hdma);
 HAL_StatusTypeDef HAL_DMA_DeInit(DMA_HandleTypeDef *hdma);
-# 585 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
+# 585 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
 HAL_StatusTypeDef HAL_DMA_Start(DMA_HandleTypeDef *hdma, uint32_t SrcAddress, uint32_t DstAddress, uint32_t DataLength);
 HAL_StatusTypeDef HAL_DMA_Start_IT(DMA_HandleTypeDef *hdma, uint32_t SrcAddress, uint32_t DstAddress, uint32_t DataLength);
 HAL_StatusTypeDef HAL_DMA_Abort(DMA_HandleTypeDef *hdma);
@@ -18333,10 +18333,10 @@ HAL_StatusTypeDef HAL_DMA_PollForTransfer(DMA_HandleTypeDef *hdma, HAL_DMA_Level
 void HAL_DMA_IRQHandler(DMA_HandleTypeDef *hdma);
 HAL_StatusTypeDef HAL_DMA_RegisterCallback(DMA_HandleTypeDef *hdma, HAL_DMA_CallbackIDTypeDef CallbackID, void (* pCallback)(DMA_HandleTypeDef *_hdma));
 HAL_StatusTypeDef HAL_DMA_UnRegisterCallback(DMA_HandleTypeDef *hdma, HAL_DMA_CallbackIDTypeDef CallbackID);
-# 602 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
+# 602 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
 HAL_DMA_StateTypeDef HAL_DMA_GetState(DMA_HandleTypeDef *hdma);
 uint32_t HAL_DMA_GetError(DMA_HandleTypeDef *hdma);
-# 629 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
+# 629 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
 #define IS_DMA_DIRECTION(DIRECTION) (((DIRECTION) == DMA_PERIPH_TO_MEMORY ) || ((DIRECTION) == DMA_MEMORY_TO_PERIPH) || ((DIRECTION) == DMA_MEMORY_TO_MEMORY))
 
 
@@ -18363,18 +18363,18 @@ uint32_t HAL_DMA_GetError(DMA_HandleTypeDef *hdma);
 
 
 #define IS_DMA_PRIORITY(PRIORITY) (((PRIORITY) == DMA_PRIORITY_LOW ) || ((PRIORITY) == DMA_PRIORITY_MEDIUM) || ((PRIORITY) == DMA_PRIORITY_HIGH) || ((PRIORITY) == DMA_PRIORITY_VERY_HIGH))
-# 193 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
+# 193 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
 
 
 
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define STM32WLxx_HAL_ADC_H 
-# 32 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 32 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define STM32WLxx_LL_ADC_H 
-# 53 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 53 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define ADC_REG_RANK_ID_SQRX_MASK (ADC_CHANNEL_ID_NUMBER_MASK_POSBIT0)
 
 
@@ -18415,7 +18415,7 @@ uint32_t HAL_DMA_GetError(DMA_HandleTypeDef *hdma);
 
 #define ADC_REG_TRIG_EXTSEL_BITOFFSET_POS ( 6UL)
 #define ADC_REG_TRIG_EXTEN_BITOFFSET_POS (10UL)
-# 102 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 102 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define ADC_CHANNEL_ID_NUMBER_MASK (ADC_CFGR1_AWD1CH)
 #define ADC_CHANNEL_ID_BITFIELD_MASK (ADC_CHSELR_CHSEL)
 #define ADC_CHANNEL_ID_NUMBER_MASK_SEQ (ADC_CHSELR_SQ1 << ADC_CHANNEL_ID_NUMBER_BITOFFSET_POS)
@@ -18472,11 +18472,11 @@ uint32_t HAL_DMA_GetError(DMA_HandleTypeDef *hdma);
 #define ADC_CHANNEL_15_BITFIELD (ADC_CHSELR_CHSEL15)
 #define ADC_CHANNEL_16_BITFIELD (ADC_CHSELR_CHSEL16)
 #define ADC_CHANNEL_17_BITFIELD (ADC_CHSELR_CHSEL17)
-# 167 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 167 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define ADC_SAMPLING_TIME_CH_MASK (ADC_CHANNEL_ID_BITFIELD_MASK << ADC_SMPR_SMPSEL0_BITOFFSET_POS)
 #define ADC_SAMPLING_TIME_SMP_MASK (ADC_SMPR_SMP2 | ADC_SMPR_SMP1)
 #define ADC_SAMPLING_TIME_SMP_SHIFT_MASK (ADC_SMPR_SMP2_BITOFFSET_POS | ADC_SMPR_SMP1_BITOFFSET_POS)
-# 181 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 181 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define ADC_AWD_CR1_REGOFFSET (0x00000000UL)
 #define ADC_AWD_CR2_REGOFFSET (0x00100000UL)
 #define ADC_AWD_CR3_REGOFFSET (0x00200000UL)
@@ -18550,9 +18550,9 @@ uint32_t HAL_DMA_GetError(DMA_HandleTypeDef *hdma);
 #define TEMPSENSOR_CAL1_TEMP (( int32_t) 30)
 #define TEMPSENSOR_CAL2_TEMP (( int32_t) 130)
 #define TEMPSENSOR_CAL_VREFANALOG ( 3300UL)
-# 273 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 273 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define __ADC_PTR_REG_OFFSET(__REG__,__REG_OFFFSET__) ((__IO uint32_t *)((uint32_t) ((uint32_t)(&(__REG__)) + ((__REG_OFFFSET__) << 2UL))))
-# 427 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 427 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define LL_ADC_FLAG_ADRDY ADC_ISR_ADRDY
 #define LL_ADC_FLAG_CCRDY ADC_ISR_CCRDY
 #define LL_ADC_FLAG_EOC ADC_ISR_EOC
@@ -18563,7 +18563,7 @@ uint32_t HAL_DMA_GetError(DMA_HandleTypeDef *hdma);
 #define LL_ADC_FLAG_AWD2 ADC_ISR_AWD2
 #define LL_ADC_FLAG_AWD3 ADC_ISR_AWD3
 #define LL_ADC_FLAG_EOCAL ADC_ISR_EOCAL
-# 445 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 445 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define LL_ADC_IT_ADRDY ADC_IER_ADRDYIE
 #define LL_ADC_IT_CCRDY ADC_IER_CCRDYIE
 #define LL_ADC_IT_EOC ADC_IER_EOCIE
@@ -18574,7 +18574,7 @@ uint32_t HAL_DMA_GetError(DMA_HandleTypeDef *hdma);
 #define LL_ADC_IT_AWD2 ADC_IER_AWD2IE
 #define LL_ADC_IT_AWD3 ADC_IER_AWD3IE
 #define LL_ADC_IT_EOCAL ADC_IER_EOCALIE
-# 465 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 465 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define LL_ADC_DMA_REG_REGULAR_DATA (0x00000000UL)
 
 
@@ -18595,7 +18595,7 @@ uint32_t HAL_DMA_GetError(DMA_HandleTypeDef *hdma);
 #define LL_ADC_CLOCK_ASYNC_DIV64 (ADC_CCR_PRESC_3 | ADC_CCR_PRESC_0)
 #define LL_ADC_CLOCK_ASYNC_DIV128 (ADC_CCR_PRESC_3 | ADC_CCR_PRESC_1)
 #define LL_ADC_CLOCK_ASYNC_DIV256 (ADC_CCR_PRESC_3 | ADC_CCR_PRESC_1 | ADC_CCR_PRESC_0)
-# 497 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 497 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define LL_ADC_PATH_INTERNAL_NONE (0x00000000UL)
 #define LL_ADC_PATH_INTERNAL_VREFINT (ADC_CCR_VREFEN)
 #define LL_ADC_PATH_INTERNAL_TEMPSENSOR (ADC_CCR_TSEN)
@@ -18929,7 +18929,7 @@ uint32_t HAL_DMA_GetError(DMA_HandleTypeDef *hdma);
 
 
 #define LL_ADC_TEMPERATURE_CALC_ERROR ((int16_t)0x7FFF)
-# 864 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 864 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define LL_ADC_DELAY_INTERNAL_REGUL_STAB_US ( 20UL)
 
 
@@ -18944,9 +18944,9 @@ uint32_t HAL_DMA_GetError(DMA_HandleTypeDef *hdma);
 
 #define LL_ADC_DELAY_TEMPSENSOR_STAB_US (120UL)
 #define LL_ADC_DELAY_TEMPSENSOR_BUFFER_STAB_US ( 15UL)
-# 886 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 886 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define LL_ADC_DELAY_CALIB_ENABLE_ADC_CYCLES ( 2UL)
-# 913 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 913 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define LL_ADC_WriteReg(__INSTANCE__,__REG__,__VALUE__) WRITE_REG(__INSTANCE__->__REG__, (__VALUE__))
 
 
@@ -18956,41 +18956,41 @@ uint32_t HAL_DMA_GetError(DMA_HandleTypeDef *hdma);
 
 
 #define LL_ADC_ReadReg(__INSTANCE__,__REG__) READ_REG(__INSTANCE__->__REG__)
-# 996 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 996 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define __LL_ADC_CHANNEL_TO_DECIMAL_NB(__CHANNEL__) ((((__CHANNEL__) & ADC_CHANNEL_ID_BITFIELD_MASK) == 0UL) ? ( ((__CHANNEL__) & ADC_CHANNEL_ID_NUMBER_MASK) >> ADC_CHANNEL_ID_NUMBER_BITOFFSET_POS ) : ( (uint32_t)POSITION_VAL((__CHANNEL__)) ) )
-# 1046 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1046 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define __LL_ADC_DECIMAL_NB_TO_CHANNEL(__DECIMAL_NB__) (((__DECIMAL_NB__) << ADC_CHANNEL_ID_NUMBER_BITOFFSET_POS) | (ADC_CHSELR_CHSEL0 << (__DECIMAL_NB__)))
-# 1097 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1097 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define __LL_ADC_IS_CHANNEL_INTERNAL(__CHANNEL__) (((__CHANNEL__) & ADC_CHANNEL_ID_INTERNAL_CH_MASK) != 0UL)
-# 1160 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1160 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define __LL_ADC_CHANNEL_INTERNAL_TO_EXTERNAL(__CHANNEL__) ((__CHANNEL__) & ~ADC_CHANNEL_ID_INTERNAL_CH_MASK)
-# 1185 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1185 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define __LL_ADC_IS_CHANNEL_INTERNAL_AVAILABLE(__ADC_INSTANCE__,__CHANNEL__) (((__CHANNEL__) == LL_ADC_CHANNEL_VREFINT) || ((__CHANNEL__) == LL_ADC_CHANNEL_TEMPSENSOR) || ((__CHANNEL__) == LL_ADC_CHANNEL_VBAT))
-# 1257 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1257 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define __LL_ADC_ANALOGWD_CHANNEL_GROUP(__CHANNEL__,__GROUP__) (((__CHANNEL__) & ADC_CHANNEL_ID_MASK) | ADC_CFGR1_AWD1EN | ADC_CFGR1_AWD1SGL)
-# 1280 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1280 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define __LL_ADC_ANALOGWD_SET_THRESHOLD_RESOLUTION(__ADC_RESOLUTION__,__AWD_THRESHOLD__) ((__AWD_THRESHOLD__) << ((__ADC_RESOLUTION__) >> (ADC_CFGR1_RES_BITOFFSET_POS - 1U )))
-# 1302 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1302 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define __LL_ADC_ANALOGWD_GET_THRESHOLD_RESOLUTION(__ADC_RESOLUTION__,__AWD_THRESHOLD_12_BITS__) ((__AWD_THRESHOLD_12_BITS__) >> ((__ADC_RESOLUTION__) >> (ADC_CFGR1_RES_BITOFFSET_POS - 1U )))
-# 1317 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1317 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define __LL_ADC_ANALOGWD_THRESHOLDS_HIGH_LOW(__AWD_THRESHOLD_TYPE__,__AWD_THRESHOLDS__) (((__AWD_THRESHOLDS__) >> (((__AWD_THRESHOLD_TYPE__) & ADC_AWD_TRX_BIT_HIGH_MASK) >> ADC_AWD_TRX_BIT_HIGH_SHIFT4)) & LL_ADC_AWD_THRESHOLD_LOW)
-# 1330 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1330 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define __LL_ADC_COMMON_INSTANCE(__ADCx__) (ADC_COMMON)
-# 1350 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1350 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define __LL_ADC_IS_ENABLED_ALL_COMMON_INSTANCE(__ADCXY_COMMON__) LL_ADC_IsEnabled(ADC)
-# 1366 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1366 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define __LL_ADC_DIGITAL_SCALE(__ADC_RESOLUTION__) (0xFFFUL >> ((__ADC_RESOLUTION__) >> (ADC_CFGR1_RES_BITOFFSET_POS - 1UL)))
-# 1387 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1387 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define __LL_ADC_CONVERT_DATA_RESOLUTION(__DATA__,__ADC_RESOLUTION_CURRENT__,__ADC_RESOLUTION_TARGET__) (((__DATA__) << ((__ADC_RESOLUTION_CURRENT__) >> (ADC_CFGR1_RES_BITOFFSET_POS - 1UL))) >> ((__ADC_RESOLUTION_TARGET__) >> (ADC_CFGR1_RES_BITOFFSET_POS - 1UL)) )
-# 1411 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1411 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define __LL_ADC_CALC_DATA_TO_VOLTAGE(__VREFANALOG_VOLTAGE__,__ADC_DATA__,__ADC_RESOLUTION__) ((__ADC_DATA__) * (__VREFANALOG_VOLTAGE__) / __LL_ADC_DIGITAL_SCALE(__ADC_RESOLUTION__) )
-# 1443 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1443 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define __LL_ADC_CALC_VREFANALOG_VOLTAGE(__VREFINT_ADC_DATA__,__ADC_RESOLUTION__) (((uint32_t)(*VREFINT_CAL_ADDR) * VREFINT_CAL_VREF) / __LL_ADC_CONVERT_DATA_RESOLUTION((__VREFINT_ADC_DATA__), (__ADC_RESOLUTION__), LL_ADC_RESOLUTION_12B) )
-# 1497 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1497 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define __LL_ADC_CALC_TEMPERATURE(__VREFANALOG_VOLTAGE__,__TEMPSENSOR_ADC_DATA__,__ADC_RESOLUTION__) ((((int32_t)*TEMPSENSOR_CAL2_ADDR - (int32_t)*TEMPSENSOR_CAL1_ADDR) != 0) ? (((( ((int32_t)((__LL_ADC_CONVERT_DATA_RESOLUTION((__TEMPSENSOR_ADC_DATA__), (__ADC_RESOLUTION__), LL_ADC_RESOLUTION_12B) * (__VREFANALOG_VOLTAGE__)) / TEMPSENSOR_CAL_VREFANALOG) - (int32_t) *TEMPSENSOR_CAL1_ADDR) ) * (int32_t)(TEMPSENSOR_CAL2_TEMP - TEMPSENSOR_CAL1_TEMP) ) / (int32_t)((int32_t)*TEMPSENSOR_CAL2_ADDR - (int32_t)*TEMPSENSOR_CAL1_ADDR) ) + TEMPSENSOR_CAL1_TEMP ) : ((int32_t)LL_ADC_TEMPERATURE_CALC_ERROR) )
-# 1559 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1559 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 #define __LL_ADC_CALC_TEMPERATURE_TYP_PARAMS(__TEMPSENSOR_TYP_AVGSLOPE__,__TEMPSENSOR_TYP_CALX_V__,__TEMPSENSOR_CALX_TEMP__,__VREFANALOG_VOLTAGE__,__TEMPSENSOR_ADC_DATA__,__ADC_RESOLUTION__) (((((int32_t)((((__TEMPSENSOR_ADC_DATA__) * (__VREFANALOG_VOLTAGE__)) / __LL_ADC_DIGITAL_SCALE(__ADC_RESOLUTION__)) * 1000UL) - (int32_t)(((__TEMPSENSOR_TYP_CALX_V__)) * 1000UL) ) ) / (int32_t)(__TEMPSENSOR_TYP_AVGSLOPE__) ) + (int32_t)(__TEMPSENSOR_CALX_TEMP__) )
-# 1622 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1622 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_DMA_GetRegAddr(ADC_TypeDef *ADCx, uint32_t Register)
 {
 
@@ -18999,99 +18999,99 @@ static inline uint32_t LL_ADC_DMA_GetRegAddr(ADC_TypeDef *ADCx, uint32_t Registe
 
   return (uint32_t) &(ADCx->DR);
 }
-# 1670 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1670 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_SetCommonClock(ADC_Common_TypeDef *ADCxy_COMMON, uint32_t CommonClock)
 {
   (((ADCxy_COMMON->CCR)) = ((((((ADCxy_COMMON->CCR))) & (~((0xFUL << (18U))))) | (CommonClock))));
 }
-# 1699 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1699 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_GetCommonClock(ADC_Common_TypeDef *ADCxy_COMMON)
 {
   return (uint32_t)(((ADCxy_COMMON->CCR) & ((0xFUL << (18U)))));
 }
-# 1742 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1742 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_SetCommonPathInternalCh(ADC_Common_TypeDef *ADCxy_COMMON, uint32_t PathInternal)
 {
   (((ADCxy_COMMON->CCR)) = ((((((ADCxy_COMMON->CCR))) & (~((0x1UL << (22U)) | (0x1UL << (23U)) | (0x1UL << (24U))))) | (PathInternal))));
 }
-# 1784 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1784 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_SetCommonPathInternalChAdd(ADC_Common_TypeDef *ADCxy_COMMON, uint32_t PathInternal)
 {
   ((ADCxy_COMMON->CCR) |= (PathInternal));
 }
-# 1814 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1814 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_SetCommonPathInternalChRem(ADC_Common_TypeDef *ADCxy_COMMON, uint32_t PathInternal)
 {
   ((ADCxy_COMMON->CCR) &= ~(PathInternal));
 }
-# 1836 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1836 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_GetCommonPathInternalCh(ADC_Common_TypeDef *ADCxy_COMMON)
 {
   return (uint32_t)(((ADCxy_COMMON->CCR) & ((0x1UL << (22U)) | (0x1UL << (23U)) | (0x1UL << (24U)))));
 }
-# 1872 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1872 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_SetClock(ADC_TypeDef *ADCx, uint32_t ClockSource)
 {
   (((ADCx->CFGR2)) = ((((((ADCx->CFGR2))) & (~((0x3UL << (30U))))) | (ClockSource))));
 }
-# 1896 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1896 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_GetClock(ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->CFGR2) & ((0x3UL << (30U)))));
 }
-# 1916 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1916 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_SetCalibrationFactor(ADC_TypeDef *ADCx, uint32_t CalibrationFactor)
 {
   (((ADCx->CALFACT)) = ((((((ADCx->CALFACT))) & (~((0x7FUL << (0U))))) | (CalibrationFactor))))
 
                                ;
 }
-# 1932 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1932 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_GetCalibrationFactor(ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->CALFACT) & ((0x7FUL << (0U)))));
 }
-# 1954 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1954 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_SetResolution(ADC_TypeDef *ADCx, uint32_t Resolution)
 {
   (((ADCx->CFGR1)) = ((((((ADCx->CFGR1))) & (~((0x3UL << (3U))))) | (Resolution))));
 }
-# 1971 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1971 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_GetResolution(ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->CFGR1) & ((0x3UL << (3U)))));
 }
-# 1991 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 1991 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_SetDataAlignment(ADC_TypeDef *ADCx, uint32_t DataAlignment)
 {
   (((ADCx->CFGR1)) = ((((((ADCx->CFGR1))) & (~((0x1UL << (5U))))) | (DataAlignment))));
 }
-# 2006 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 2006 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_GetDataAlignment(ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->CFGR1) & ((0x1UL << (5U)))));
 }
-# 2064 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 2064 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_SetLowPowerMode(ADC_TypeDef *ADCx, uint32_t LowPowerMode)
 {
   (((ADCx->CFGR1)) = ((((((ADCx->CFGR1))) & (~(((0x1UL << (14U)) | (0x1UL << (15U)))))) | (LowPowerMode))));
 }
-# 2117 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 2117 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_GetLowPowerMode(ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->CFGR1) & (((0x1UL << (14U)) | (0x1UL << (15U))))));
 }
-# 2147 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 2147 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_SetTriggerFrequencyMode(ADC_TypeDef *ADCx, uint32_t TriggerFrequencyMode)
 {
   (((ADCx->CFGR2)) = ((((((ADCx->CFGR2))) & (~((0x1UL << (29U))))) | (TriggerFrequencyMode))));
 }
-# 2160 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 2160 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_GetTriggerFrequencyMode(ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->CFGR2) & ((0x1UL << (29U)))));
 }
-# 2209 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 2209 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_SetSamplingTimeCommonChannels(ADC_TypeDef *ADCx, uint32_t SamplingTimeY,
                                                           uint32_t SamplingTime)
 {
@@ -19099,18 +19099,18 @@ static inline void LL_ADC_SetSamplingTimeCommonChannels(ADC_TypeDef *ADCx, uint3
 
                                                                                 ;
 }
-# 2242 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 2242 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_GetSamplingTimeCommonChannels(ADC_TypeDef *ADCx, uint32_t SamplingTimeY)
 {
   return (uint32_t)((((ADCx->SMPR) & ((0x7UL << (0U)) << (SamplingTimeY & (( 4UL) | ( 0UL))))))
                     >> (SamplingTimeY & (( 4UL) | ( 0UL))));
 }
-# 2289 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 2289 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_REG_SetTriggerSource(ADC_TypeDef *ADCx, uint32_t TriggerSource)
 {
   (((ADCx->CFGR1)) = ((((((ADCx->CFGR1))) & (~((0x3UL << (10U)) | (0x7UL << (6U))))) | (TriggerSource))));
 }
-# 2318 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 2318 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_REG_GetTriggerSource(ADC_TypeDef *ADCx)
 {
   volatile uint32_t trigger_source = ((ADCx->CFGR1) & ((0x7UL << (6U)) | (0x3UL << (10U))));
@@ -19126,37 +19126,37 @@ static inline uint32_t LL_ADC_REG_GetTriggerSource(ADC_TypeDef *ADCx)
           | ((((((0x00000000UL) & (0x3UL << (10U))) << (4U * 0UL)) | ((((0x1UL << (10U)))) << (4U * 1UL)) | ((((0x1UL << (10U)))) << (4U * 2UL)) | ((((0x1UL << (10U)))) << (4U * 3UL)) ) >> shift_exten) & (0x3UL << (10U)))
          );
 }
-# 2345 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 2345 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_REG_IsTriggerSourceSWStart(ADC_TypeDef *ADCx)
 {
   return ((((ADCx->CFGR1) & ((0x3UL << (10U)))) == ((0x00000000UL) & (0x3UL << (10U)))) ? 1UL : 0UL);
 }
-# 2365 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 2365 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_REG_SetTriggerEdge(ADC_TypeDef *ADCx, uint32_t ExternalTriggerEdge)
 {
   (((ADCx->CFGR1)) = ((((((ADCx->CFGR1))) & (~((0x3UL << (10U))))) | (ExternalTriggerEdge))));
 }
-# 2380 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 2380 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_REG_GetTriggerEdge(ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->CFGR1) & ((0x3UL << (10U)))));
 }
-# 2418 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 2418 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_REG_SetSequencerConfigurable(ADC_TypeDef *ADCx, uint32_t Configurability)
 {
   (((ADCx->CFGR1)) = ((((((ADCx->CFGR1))) & (~((0x1UL << (21U))))) | (Configurability))));
 }
-# 2444 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 2444 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_REG_GetSequencerConfigurable(ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->CFGR1) & ((0x1UL << (21U)))));
 }
-# 2516 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 2516 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_REG_SetSequencerLength(ADC_TypeDef *ADCx, uint32_t SequencerNbRanks)
 {
   ((ADCx->CHSELR) |= (SequencerNbRanks));
 }
-# 2575 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 2575 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_REG_GetSequencerLength(ADC_TypeDef *ADCx)
 {
   volatile uint32_t channels_ranks = ((ADCx->CHSELR) & ((0xFFFFFFFFUL << (0U))));
@@ -19175,27 +19175,27 @@ static inline uint32_t LL_ADC_REG_GetSequencerLength(ADC_TypeDef *ADCx)
 
   return sequencer_length;
 }
-# 2620 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 2620 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_REG_SetSequencerScanDirection(ADC_TypeDef *ADCx, uint32_t ScanDirection)
 {
   (((ADCx->CFGR1)) = ((((((ADCx->CFGR1))) & (~((0x1UL << (2U))))) | (ScanDirection))));
 }
-# 2638 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 2638 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_REG_GetSequencerScanDirection(ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->CFGR1) & ((0x1UL << (2U)))));
 }
-# 2660 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 2660 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_REG_SetSequencerDiscont(ADC_TypeDef *ADCx, uint32_t SeqDiscont)
 {
   (((ADCx->CFGR1)) = ((((((ADCx->CFGR1))) & (~((0x1UL << (16U))))) | (SeqDiscont))));
 }
-# 2675 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 2675 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_REG_GetSequencerDiscont(ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->CFGR1) & ((0x1UL << (16U)))));
 }
-# 2755 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 2755 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_REG_SetSequencerRanks(ADC_TypeDef *ADCx, uint32_t Rank, uint32_t Channel)
 {
 
@@ -19206,7 +19206,7 @@ static inline void LL_ADC_REG_SetSequencerRanks(ADC_TypeDef *ADCx, uint32_t Rank
 
                                                                                                                                        ;
 }
-# 2835 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 2835 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_REG_GetSequencerRanks(ADC_TypeDef *ADCx, uint32_t Rank)
 {
   return (uint32_t)((((ADCx->CHSELR) & ((0xFUL << (0U)) << (Rank & ((0x0000001FUL)))))
@@ -19215,28 +19215,28 @@ static inline uint32_t LL_ADC_REG_GetSequencerRanks(ADC_TypeDef *ADCx, uint32_t 
                     ) << ((26UL))
                    );
 }
-# 2929 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 2929 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_REG_SetSequencerChannels(ADC_TypeDef *ADCx, uint32_t Channel)
 {
 
 
   ((ADCx->CHSELR) = ((Channel & ((0x3FFFFUL << (0U))))));
 }
-# 3021 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 3021 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_REG_SetSequencerChAdd(ADC_TypeDef *ADCx, uint32_t Channel)
 {
 
 
   ((ADCx->CHSELR) |= ((Channel & ((0x3FFFFUL << (0U))))));
 }
-# 3113 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 3113 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_REG_SetSequencerChRem(ADC_TypeDef *ADCx, uint32_t Channel)
 {
 
 
   ((ADCx->CHSELR) &= ~((Channel & ((0x3FFFFUL << (0U))))));
 }
-# 3194 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 3194 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_REG_GetSequencerChannels(ADC_TypeDef *ADCx)
 {
   uint32_t channels_bitfield = (uint32_t)((ADCx->CHSELR) & ((0x3FFFFUL << (0U))));
@@ -19261,37 +19261,37 @@ static inline uint32_t LL_ADC_REG_GetSequencerChannels(ADC_TypeDef *ADCx)
           | (((channels_bitfield & (0x1UL << (17U))) >> (17UL)) * (((0x10UL << (26U)) | (0x01UL << (26U))) | ((0x1UL << (17U)))))
          );
 }
-# 3238 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 3238 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_REG_SetContinuousMode(ADC_TypeDef *ADCx, uint32_t Continuous)
 {
   (((ADCx->CFGR1)) = ((((((ADCx->CFGR1))) & (~((0x1UL << (13U))))) | (Continuous))));
 }
-# 3255 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 3255 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_REG_GetContinuousMode(ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->CFGR1) & ((0x1UL << (13U)))));
 }
-# 3293 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 3293 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_REG_SetDMATransfer(ADC_TypeDef *ADCx, uint32_t DMATransfer)
 {
   (((ADCx->CFGR1)) = ((((((ADCx->CFGR1))) & (~((0x1UL << (0U)) | (0x1UL << (1U))))) | (DMATransfer))));
 }
-# 3326 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 3326 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_REG_GetDMATransfer(ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->CFGR1) & ((0x1UL << (0U)) | (0x1UL << (1U)))));
 }
-# 3351 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 3351 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_REG_SetOverrun(ADC_TypeDef *ADCx, uint32_t Overrun)
 {
   (((ADCx->CFGR1)) = ((((((ADCx->CFGR1))) & (~((0x1UL << (12U))))) | (Overrun))));
 }
-# 3365 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 3365 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_REG_GetOverrun(ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->CFGR1) & ((0x1UL << (12U)))));
 }
-# 3453 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 3453 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_SetChannelSamplingTime(ADC_TypeDef *ADCx, uint32_t Channel, uint32_t SamplingTimeY)
 {
 
@@ -19301,7 +19301,7 @@ static inline void LL_ADC_SetChannelSamplingTime(ADC_TypeDef *ADCx, uint32_t Cha
 
              ;
 }
-# 3522 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 3522 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_GetChannelSamplingTime(ADC_TypeDef *ADCx, uint32_t Channel)
 {
   volatile uint32_t smpr = ((ADCx->SMPR));
@@ -19316,7 +19316,7 @@ static inline uint32_t LL_ADC_GetChannelSamplingTime(ADC_TypeDef *ADCx, uint32_t
   return ((~(smp_channel_posbit0) * (( 0UL)))
           | (smp_channel_posbit0 * (( 4UL) | (((0x3FFFFUL << (0U))) << ( 8UL)))));
 }
-# 3615 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 3615 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_SetAnalogWDMonitChannels(ADC_TypeDef *ADCx, uint32_t AWDy, uint32_t AWDChannelGroup)
 {
 
@@ -19338,7 +19338,7 @@ static inline void LL_ADC_SetAnalogWDMonitChannels(ADC_TypeDef *ADCx, uint32_t A
 
                                     ;
 }
-# 3714 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 3714 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_GetAnalogWDMonitChannels(ADC_TypeDef *ADCx, uint32_t AWDy)
 {
   volatile uint32_t *preg = ((volatile uint32_t *)((uint32_t) ((uint32_t)(&(ADCx->CFGR1)) + ((((AWDy & ((0x00000000UL) | (0x00100000UL) | (0x00200000UL))) >> (20UL)) + ((AWDy & ((0x00001UL << (0U)))) * (0x00000024UL))) << 2UL))))
@@ -19394,7 +19394,7 @@ static inline uint32_t LL_ADC_GetAnalogWDMonitChannels(ADC_TypeDef *ADCx, uint32
 
   return analog_wd_monit_channels;
 }
-# 3831 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 3831 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_ConfigAnalogWDThresholds(ADC_TypeDef *ADCx, uint32_t AWDy, uint32_t AWDThresholdHighValue,
                                                      uint32_t AWDThresholdLowValue)
 {
@@ -19409,7 +19409,7 @@ static inline void LL_ADC_ConfigAnalogWDThresholds(ADC_TypeDef *ADCx, uint32_t A
 
                                                                                          ;
 }
-# 3909 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 3909 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_SetAnalogWDThresholds(ADC_TypeDef *ADCx, uint32_t AWDy, uint32_t AWDThresholdsHighLow,
                                                   uint32_t AWDThresholdValue)
 {
@@ -19426,7 +19426,7 @@ static inline void LL_ADC_SetAnalogWDThresholds(ADC_TypeDef *ADCx, uint32_t AWDy
 
                                                                                                                       ;
 }
-# 3954 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 3954 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_GetAnalogWDThresholds(ADC_TypeDef *ADCx, uint32_t AWDy, uint32_t AWDThresholdsHighLow)
 {
 
@@ -19443,42 +19443,42 @@ static inline uint32_t LL_ADC_GetAnalogWDThresholds(ADC_TypeDef *ADCx, uint32_t 
                     >> (((AWDThresholdsHighLow & (0x00010000UL)) >> ((16UL) - 4UL))
                         & ~(AWDThresholdsHighLow & (0xFFFUL << (0U)))));
 }
-# 3991 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 3991 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_SetOverSamplingScope(ADC_TypeDef *ADCx, uint32_t OvsScope)
 {
   (((ADCx->CFGR2)) = ((((((ADCx->CFGR2))) & (~((0x1UL << (0U))))) | (OvsScope))));
 }
-# 4004 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 4004 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_GetOverSamplingScope(ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->CFGR2) & ((0x1UL << (0U)))));
 }
-# 4028 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 4028 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_SetOverSamplingDiscont(ADC_TypeDef *ADCx, uint32_t OverSamplingDiscont)
 {
   (((ADCx->CFGR2)) = ((((((ADCx->CFGR2))) & (~((0x1UL << (9U))))) | (OverSamplingDiscont))));
 }
-# 4047 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 4047 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_GetOverSamplingDiscont(ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->CFGR2) & ((0x1UL << (9U)))));
 }
-# 4084 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 4084 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_ConfigOverSamplingRatioShift(ADC_TypeDef *ADCx, uint32_t Ratio, uint32_t Shift)
 {
   (((ADCx->CFGR2)) = ((((((ADCx->CFGR2))) & (~(((0xFUL << (5U)) | (0x7UL << (2U)))))) | ((Shift | Ratio)))));
 }
-# 4103 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 4103 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_GetOverSamplingRatio(ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->CFGR2) & ((0x7UL << (2U)))));
 }
-# 4123 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 4123 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_GetOverSamplingShift(ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->CFGR2) & ((0xFUL << (5U)))));
 }
-# 4158 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 4158 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_EnableInternalRegulator(ADC_TypeDef *ADCx)
 {
 
@@ -19488,7 +19488,7 @@ static inline void LL_ADC_EnableInternalRegulator(ADC_TypeDef *ADCx)
 
                              ;
 }
-# 4177 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 4177 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_DisableInternalRegulator(ADC_TypeDef *ADCx)
 {
   ((ADCx->CR) &= ~(((0x1UL << (28U)) | ((0x1UL << (31U)) | (0x1UL << (4U)) | (0x1UL << (2U)) | (0x1UL << (1U)) | (0x1UL << (0U))))));
@@ -19504,7 +19504,7 @@ static inline uint32_t LL_ADC_IsInternalRegulatorEnabled(ADC_TypeDef *ADCx)
 {
   return ((((ADCx->CR) & ((0x1UL << (28U)))) == ((0x1UL << (28U)))) ? 1UL : 0UL);
 }
-# 4209 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 4209 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_Enable(ADC_TypeDef *ADCx)
 {
 
@@ -19514,7 +19514,7 @@ static inline void LL_ADC_Enable(ADC_TypeDef *ADCx)
 
                          ;
 }
-# 4229 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 4229 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_Disable(ADC_TypeDef *ADCx)
 {
 
@@ -19524,7 +19524,7 @@ static inline void LL_ADC_Disable(ADC_TypeDef *ADCx)
 
                           ;
 }
-# 4248 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 4248 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_IsEnabled(ADC_TypeDef *ADCx)
 {
   return ((((ADCx->CR) & ((0x1UL << (0U)))) == ((0x1UL << (0U)))) ? 1UL : 0UL);
@@ -19540,7 +19540,7 @@ static inline uint32_t LL_ADC_IsDisableOngoing(ADC_TypeDef *ADCx)
 {
   return ((((ADCx->CR) & ((0x1UL << (1U)))) == ((0x1UL << (1U)))) ? 1UL : 0UL);
 }
-# 4289 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 4289 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_StartCalibration(ADC_TypeDef *ADCx)
 {
 
@@ -19561,7 +19561,7 @@ static inline uint32_t LL_ADC_IsCalibrationOnGoing(ADC_TypeDef *ADCx)
 {
   return ((((ADCx->CR) & ((0x1UL << (31U)))) == ((0x1UL << (31U)))) ? 1UL : 0UL);
 }
-# 4336 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 4336 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_REG_StartConversion(ADC_TypeDef *ADCx)
 {
 
@@ -19571,7 +19571,7 @@ static inline void LL_ADC_REG_StartConversion(ADC_TypeDef *ADCx)
 
                             ;
 }
-# 4356 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 4356 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_REG_StopConversion(ADC_TypeDef *ADCx)
 {
 
@@ -19603,37 +19603,37 @@ static inline uint32_t LL_ADC_REG_IsStopConversionOngoing(ADC_TypeDef *ADCx)
 {
   return ((((ADCx->CR) & ((0x1UL << (4U)))) == ((0x1UL << (4U)))) ? 1UL : 0UL);
 }
-# 4397 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 4397 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_REG_ReadConversionData32(ADC_TypeDef *ADCx)
 {
   return (uint32_t)(((ADCx->DR) & ((0xFFFFUL << (0U)))));
 }
-# 4412 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 4412 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint16_t LL_ADC_REG_ReadConversionData12(ADC_TypeDef *ADCx)
 {
   return (uint16_t)(((ADCx->DR) & ((0xFFFFUL << (0U)))));
 }
-# 4427 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 4427 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint16_t LL_ADC_REG_ReadConversionData10(ADC_TypeDef *ADCx)
 {
   return (uint16_t)(((ADCx->DR) & ((0xFFFFUL << (0U)))));
 }
-# 4442 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 4442 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint8_t LL_ADC_REG_ReadConversionData8(ADC_TypeDef *ADCx)
 {
   return (uint8_t)(((ADCx->DR) & ((0xFFFFUL << (0U)))));
 }
-# 4457 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 4457 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint8_t LL_ADC_REG_ReadConversionData6(ADC_TypeDef *ADCx)
 {
   return (uint8_t)(((ADCx->DR) & ((0xFFFFUL << (0U)))));
 }
-# 4479 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 4479 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_IsActiveFlag_ADRDY(ADC_TypeDef *ADCx)
 {
   return ((((ADCx->ISR) & ((0x1UL << (0U)))) == ((0x1UL << (0U)))) ? 1UL : 0UL);
 }
-# 4506 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 4506 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_IsActiveFlag_CCRDY(ADC_TypeDef *ADCx)
 {
   return ((((ADCx->ISR) & ((0x1UL << (13U)))) == ((0x1UL << (13U)))) ? 1UL : 0UL);
@@ -19726,7 +19726,7 @@ static inline uint32_t LL_ADC_IsActiveFlag_EOCAL(ADC_TypeDef *ADCx)
 {
   return ((((ADCx->ISR) & ((0x1UL << (11U)))) == ((0x1UL << (11U)))) ? 1UL : 0UL);
 }
-# 4608 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 4608 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_ClearFlag_ADRDY(ADC_TypeDef *ADCx)
 {
   ((ADCx->ISR) = ((0x1UL << (0U))));
@@ -19830,7 +19830,7 @@ static inline void LL_ADC_ClearFlag_EOCAL(ADC_TypeDef *ADCx)
 {
   ((ADCx->ISR) = ((0x1UL << (11U))));
 }
-# 4726 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 4726 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline void LL_ADC_EnableIT_ADRDY(ADC_TypeDef *ADCx)
 {
   ((ADCx->IER) |= ((0x1UL << (0U))));
@@ -20044,7 +20044,7 @@ static inline void LL_ADC_DisableIT_EOCAL(ADC_TypeDef *ADCx)
 {
   ((ADCx->IER) &= ~((0x1UL << (11U))));
 }
-# 4947 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 4947 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_IsEnabledIT_ADRDY(ADC_TypeDef *ADCx)
 {
   return ((((ADCx->IER) & ((0x1UL << (0U)))) == ((0x1UL << (0U)))) ? 1UL : 0UL);
@@ -20060,48 +20060,48 @@ static inline uint32_t LL_ADC_IsEnabledIT_CCRDY(ADC_TypeDef *ADCx)
 {
   return ((((ADCx->IER) & ((0x1UL << (13U)))) == ((0x1UL << (13U)))) ? 1UL : 0UL);
 }
-# 4970 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 4970 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_IsEnabledIT_EOC(ADC_TypeDef *ADCx)
 {
   return ((((ADCx->IER) & ((0x1UL << (2U)))) == ((0x1UL << (2U)))) ? 1UL : 0UL);
 }
-# 4982 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 4982 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_IsEnabledIT_EOS(ADC_TypeDef *ADCx)
 {
   return ((((ADCx->IER) & ((0x1UL << (3U)))) == ((0x1UL << (3U)))) ? 1UL : 0UL);
 }
-# 4994 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 4994 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_IsEnabledIT_OVR(ADC_TypeDef *ADCx)
 {
   return ((((ADCx->IER) & ((0x1UL << (4U)))) == ((0x1UL << (4U)))) ? 1UL : 0UL);
 }
-# 5006 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 5006 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_IsEnabledIT_EOSMP(ADC_TypeDef *ADCx)
 {
   return ((((ADCx->IER) & ((0x1UL << (1U)))) == ((0x1UL << (1U)))) ? 1UL : 0UL);
 }
-# 5018 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 5018 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_IsEnabledIT_AWD1(ADC_TypeDef *ADCx)
 {
   return ((((ADCx->IER) & ((0x1UL << (7U)))) == ((0x1UL << (7U)))) ? 1UL : 0UL);
 }
-# 5030 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 5030 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_IsEnabledIT_AWD2(ADC_TypeDef *ADCx)
 {
   return ((((ADCx->IER) & ((0x1UL << (8U)))) == ((0x1UL << (8U)))) ? 1UL : 0UL);
 }
-# 5042 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 5042 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_IsEnabledIT_AWD3(ADC_TypeDef *ADCx)
 {
   return ((((ADCx->IER) & ((0x1UL << (9U)))) == ((0x1UL << (9U)))) ? 1UL : 0UL);
 }
-# 5054 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
+# 5054 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_adc.h"
 static inline uint32_t LL_ADC_IsEnabledIT_EOCAL(ADC_TypeDef *ADCx)
 {
   return ((((ADCx->IER) & ((0x1UL << (11U)))) == ((0x1UL << (11U)))) ? 1UL : 0UL);
 }
-# 33 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h" 2
-# 50 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 33 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h" 2
+# 50 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 typedef struct
 {
   uint32_t Ratio;
@@ -20114,11 +20114,11 @@ typedef struct
 
 
 } ADC_OversamplingTypeDef;
-# 78 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 78 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 typedef struct
 {
   uint32_t ClockPrescaler;
-# 89 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 89 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
   uint32_t Resolution;
 
 
@@ -20127,12 +20127,12 @@ typedef struct
 
 
   uint32_t ScanConvMode;
-# 119 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 119 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
   uint32_t EOCSelection;
 
 
   FunctionalState LowPowerAutoWait;
-# 133 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 133 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
   FunctionalState LowPowerAutoPowerOff;
 
 
@@ -20142,7 +20142,7 @@ typedef struct
 
 
   uint32_t NbrOfConversion;
-# 153 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 153 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
   FunctionalState DiscontinuousConvMode;
 
 
@@ -20165,11 +20165,11 @@ typedef struct
 
 
   uint32_t Overrun;
-# 184 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 184 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
   uint32_t SamplingTimeCommon1;
-# 193 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 193 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
   uint32_t SamplingTimeCommon2;
-# 202 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 202 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
   FunctionalState OversamplingMode;
 
 
@@ -20178,9 +20178,9 @@ typedef struct
 
 
   uint32_t TriggerFrequencyMode;
-# 220 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 220 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 } ADC_InitTypeDef;
-# 231 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 231 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 typedef struct
 {
   uint32_t Channel;
@@ -20188,11 +20188,11 @@ typedef struct
 
 
   uint32_t Rank;
-# 248 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 248 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
   uint32_t SamplingTime;
-# 259 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 259 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 } ADC_ChannelConfTypeDef;
-# 268 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 268 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 typedef struct
 {
   uint32_t WatchdogNumber;
@@ -20214,11 +20214,11 @@ typedef struct
 
 
   uint32_t HighThreshold;
-# 298 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 298 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
   uint32_t LowThreshold;
-# 307 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 307 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 } ADC_AnalogWDGConfTypeDef;
-# 322 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 322 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define HAL_ADC_STATE_RESET (0x00000000UL)
 #define HAL_ADC_STATE_READY (0x00000001UL)
 #define HAL_ADC_STATE_BUSY_INTERNAL (0x00000002UL)
@@ -20249,7 +20249,7 @@ typedef struct
 
 
 #define HAL_ADC_STATE_MULTIMODE_SLAVE (0x00100000UL)
-# 364 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 364 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 typedef struct
 
 {
@@ -20261,15 +20261,15 @@ typedef struct
   volatile uint32_t ErrorCode;
 
   uint32_t ADCGroupRegularSequencerRanks;
-# 386 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 386 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 } ADC_HandleTypeDef;
-# 426 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 426 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define HAL_ADC_ERROR_NONE (0x00U)
 #define HAL_ADC_ERROR_INTERNAL (0x01U)
 
 #define HAL_ADC_ERROR_OVR (0x02U)
 #define HAL_ADC_ERROR_DMA (0x04U)
-# 441 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 441 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define ADC_CLOCK_SYNC_PCLK_DIV1 (LL_ADC_CLOCK_SYNC_PCLK_DIV1)
 #define ADC_CLOCK_SYNC_PCLK_DIV2 (LL_ADC_CLOCK_SYNC_PCLK_DIV2)
 #define ADC_CLOCK_SYNC_PCLK_DIV4 (LL_ADC_CLOCK_SYNC_PCLK_DIV4)
@@ -20306,7 +20306,7 @@ typedef struct
 
 #define ADC_DATAALIGN_RIGHT (LL_ADC_DATA_ALIGN_RIGHT)
 #define ADC_DATAALIGN_LEFT (LL_ADC_DATA_ALIGN_LEFT)
-# 497 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 497 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define ADC_SCAN_DISABLE (0x00000000UL)
 #define ADC_SCAN_ENABLE (ADC_CFGR1_CHSELRMOD)
 
@@ -20315,7 +20315,7 @@ typedef struct
 
 #define ADC_SCAN_DIRECTION_FORWARD (ADC_SCAN_SEQ_FIXED)
 #define ADC_SCAN_DIRECTION_BACKWARD (ADC_SCAN_SEQ_FIXED_BACKWARD)
-# 513 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 513 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define ADC_SOFTWARE_START (LL_ADC_REG_TRIG_SOFTWARE)
 #define ADC_EXTERNALTRIG_T1_TRGO2 (LL_ADC_REG_TRIG_EXT_TIM1_TRGO2)
 #define ADC_EXTERNALTRIG_T1_CC4 (LL_ADC_REG_TRIG_EXT_TIM1_CH4)
@@ -20537,7 +20537,7 @@ typedef struct
 #define ADC_FLAG_AWD1 ADC_ISR_AWD1
 #define ADC_FLAG_AWD2 ADC_ISR_AWD2
 #define ADC_FLAG_AWD3 ADC_ISR_AWD3
-# 756 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 756 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define ADC_IS_SOFTWARE_START_REGULAR(__HANDLE__) (((__HANDLE__)->Instance->CFGR1 & ADC_CFGR1_EXTEN) == 0UL)
 
 
@@ -20555,7 +20555,7 @@ typedef struct
 
 
 #define ADC_CLEAR_ERRORCODE(__HANDLE__) ((__HANDLE__)->ErrorCode = HAL_ADC_ERROR_NONE)
-# 781 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 781 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define ADC_STATE_CLR_SET MODIFY_REG
 
 
@@ -20588,18 +20588,18 @@ typedef struct
 
 
 #define ADC_CFGR1_CONTINUOUS(_CONTINUOUS_MODE_) ((_CONTINUOUS_MODE_) << 13U)
-# 823 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 823 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define ADC_CFGR1_OVERRUN(_OVERRUN_MODE_) ( ( (_OVERRUN_MODE_) != (ADC_OVR_DATA_PRESERVED) )? (ADC_CFGR1_OVRMOD) : (0x00000000UL) )
-# 838 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 838 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define ADC_SCAN_SEQ_MODE(_SCAN_MODE_) ( (((_SCAN_MODE_) & ADC_SCAN_SEQ_FIXED_INT) != 0UL )? ((_SCAN_MODE_) & (~ADC_SCAN_SEQ_FIXED_INT)) : (ADC_CFGR1_CHSELRMOD) )
-# 851 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 851 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define ADC_CFGR1_DMACONTREQ(_DMACONTREQ_MODE_) ((_DMACONTREQ_MODE_) << 1U)
-# 866 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 866 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define ADC_AWD1THRESHOLD_SHIFT_RESOLUTION(__HANDLE__,_Threshold_) ((_Threshold_) << ((((__HANDLE__)->Instance->CFGR1 & ADC_CFGR1_RES) >> 3U)*2U))
 
 
 #define IS_ADC_CLOCKPRESCALER(ADC_CLOCK) (((ADC_CLOCK) == ADC_CLOCK_SYNC_PCLK_DIV1) || ((ADC_CLOCK) == ADC_CLOCK_SYNC_PCLK_DIV2) || ((ADC_CLOCK) == ADC_CLOCK_SYNC_PCLK_DIV4) || ((ADC_CLOCK) == ADC_CLOCK_ASYNC_DIV1 ) || ((ADC_CLOCK) == ADC_CLOCK_ASYNC_DIV2 ) || ((ADC_CLOCK) == ADC_CLOCK_ASYNC_DIV4 ) || ((ADC_CLOCK) == ADC_CLOCK_ASYNC_DIV6 ) || ((ADC_CLOCK) == ADC_CLOCK_ASYNC_DIV8 ) || ((ADC_CLOCK) == ADC_CLOCK_ASYNC_DIV10 ) || ((ADC_CLOCK) == ADC_CLOCK_ASYNC_DIV12 ) || ((ADC_CLOCK) == ADC_CLOCK_ASYNC_DIV16 ) || ((ADC_CLOCK) == ADC_CLOCK_ASYNC_DIV32 ) || ((ADC_CLOCK) == ADC_CLOCK_ASYNC_DIV64 ) || ((ADC_CLOCK) == ADC_CLOCK_ASYNC_DIV128 ) || ((ADC_CLOCK) == ADC_CLOCK_ASYNC_DIV256))
-# 885 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 885 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define IS_ADC_RESOLUTION(RESOLUTION) (((RESOLUTION) == ADC_RESOLUTION_12B) || ((RESOLUTION) == ADC_RESOLUTION_10B) || ((RESOLUTION) == ADC_RESOLUTION_8B) || ((RESOLUTION) == ADC_RESOLUTION_6B) )
 
 
@@ -20636,14 +20636,14 @@ typedef struct
 
 
 #define IS_ADC_REGULAR_RANK(RANK) (((RANK) == ADC_REGULAR_RANK_1 ) || ((RANK) == ADC_REGULAR_RANK_2 ) || ((RANK) == ADC_REGULAR_RANK_3 ) || ((RANK) == ADC_REGULAR_RANK_4 ) || ((RANK) == ADC_REGULAR_RANK_5 ) || ((RANK) == ADC_REGULAR_RANK_6 ) || ((RANK) == ADC_REGULAR_RANK_7 ) || ((RANK) == ADC_REGULAR_RANK_8 ) )
-# 929 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 929 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define IS_ADC_CHANNEL(CHANNEL) (((CHANNEL) == ADC_CHANNEL_0) || ((CHANNEL) == ADC_CHANNEL_1) || ((CHANNEL) == ADC_CHANNEL_2) || ((CHANNEL) == ADC_CHANNEL_3) || ((CHANNEL) == ADC_CHANNEL_4) || ((CHANNEL) == ADC_CHANNEL_5) || ((CHANNEL) == ADC_CHANNEL_6) || ((CHANNEL) == ADC_CHANNEL_7) || ((CHANNEL) == ADC_CHANNEL_8) || ((CHANNEL) == ADC_CHANNEL_9) || ((CHANNEL) == ADC_CHANNEL_10) || ((CHANNEL) == ADC_CHANNEL_11) || ((CHANNEL) == ADC_CHANNEL_12) || ((CHANNEL) == ADC_CHANNEL_13) || ((CHANNEL) == ADC_CHANNEL_14) || ((CHANNEL) == ADC_CHANNEL_15) || ((CHANNEL) == ADC_CHANNEL_16) || ((CHANNEL) == ADC_CHANNEL_17) || ((CHANNEL) == ADC_CHANNEL_TEMPSENSOR) || ((CHANNEL) == ADC_CHANNEL_VREFINT) || ((CHANNEL) == ADC_CHANNEL_VBAT) || ((CHANNEL) == ADC_CHANNEL_DACCH1) )
-# 952 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 952 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define IS_ADC_SAMPLING_TIME_COMMON(SAMPLING_TIME_COMMON) (((SAMPLING_TIME_COMMON) == ADC_SAMPLINGTIME_COMMON_1) || ((SAMPLING_TIME_COMMON) == ADC_SAMPLINGTIME_COMMON_2) )
 
 
 #define IS_ADC_SAMPLE_TIME(TIME) (((TIME) == ADC_SAMPLETIME_1CYCLE_5) || ((TIME) == ADC_SAMPLETIME_3CYCLES_5) || ((TIME) == ADC_SAMPLETIME_7CYCLES_5) || ((TIME) == ADC_SAMPLETIME_12CYCLES_5) || ((TIME) == ADC_SAMPLETIME_19CYCLES_5) || ((TIME) == ADC_SAMPLETIME_39CYCLES_5) || ((TIME) == ADC_SAMPLETIME_79CYCLES_5) || ((TIME) == ADC_SAMPLETIME_160CYCLES_5) )
-# 964 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 964 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define IS_ADC_ANALOG_WATCHDOG_NUMBER(WATCHDOG) (((WATCHDOG) == ADC_ANALOGWATCHDOG_1) || ((WATCHDOG) == ADC_ANALOGWATCHDOG_2) || ((WATCHDOG) == ADC_ANALOGWATCHDOG_3) )
 
 
@@ -20656,7 +20656,7 @@ typedef struct
 
 
 #define IS_ADC_EVENT_TYPE(EVENT) (((EVENT) == ADC_EOSMP_EVENT) || ((EVENT) == ADC_AWD1_EVENT) || ((EVENT) == ADC_AWD2_EVENT) || ((EVENT) == ADC_AWD3_EVENT) || ((EVENT) == ADC_OVR_EVENT) )
-# 987 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 987 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define IS_ADC_RANGE(__RESOLUTION__,__ADC_VALUE__) ((__ADC_VALUE__) <= __LL_ADC_DIGITAL_SCALE(__RESOLUTION__))
 
 
@@ -20664,55 +20664,55 @@ typedef struct
 
 
 #define IS_ADC_REGULAR_NB_CONV(LENGTH) (((LENGTH) >= 1UL) && ((LENGTH) <= 8UL))
-# 1006 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 1006 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define ADC_FLAG_POSTCONV_ALL (ADC_FLAG_AWD | ADC_FLAG_OVR | ADC_FLAG_EOS | ADC_FLAG_EOC)
 
 #define ADC_SCAN_SEQ_FIXED_INT 0x80000000U
-# 1038 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 1038 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define __HAL_ADC_RESET_HANDLE_STATE(__HANDLE__) ((__HANDLE__)->State = HAL_ADC_STATE_RESET)
-# 1058 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 1058 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define __HAL_ADC_ENABLE_IT(__HANDLE__,__INTERRUPT__) (((__HANDLE__)->Instance->IER) |= (__INTERRUPT__))
-# 1077 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 1077 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define __HAL_ADC_DISABLE_IT(__HANDLE__,__INTERRUPT__) (((__HANDLE__)->Instance->IER) &= ~(__INTERRUPT__))
-# 1095 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 1095 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define __HAL_ADC_GET_IT_SOURCE(__HANDLE__,__INTERRUPT__) (((__HANDLE__)->Instance->IER & (__INTERRUPT__)) == (__INTERRUPT__))
-# 1114 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 1114 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define __HAL_ADC_GET_FLAG(__HANDLE__,__FLAG__) ((((__HANDLE__)->Instance->ISR) & (__FLAG__)) == (__FLAG__))
-# 1134 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 1134 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define __HAL_ADC_CLEAR_FLAG(__HANDLE__,__FLAG__) (((__HANDLE__)->Instance->ISR) = (__FLAG__))
-# 1182 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 1182 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define __HAL_ADC_CHANNEL_TO_DECIMAL_NB(__CHANNEL__) __LL_ADC_CHANNEL_TO_DECIMAL_NB((__CHANNEL__))
-# 1222 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 1222 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define __HAL_ADC_DECIMAL_NB_TO_CHANNEL(__DECIMAL_NB__) __LL_ADC_DECIMAL_NB_TO_CHANNEL((__DECIMAL_NB__))
-# 1271 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 1271 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define __HAL_ADC_IS_CHANNEL_INTERNAL(__CHANNEL__) __LL_ADC_IS_CHANNEL_INTERNAL((__CHANNEL__))
-# 1333 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 1333 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define __HAL_ADC_CHANNEL_INTERNAL_TO_EXTERNAL(__CHANNEL__) __LL_ADC_CHANNEL_INTERNAL_TO_EXTERNAL((__CHANNEL__))
-# 1357 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 1357 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define __HAL_ADC_IS_CHANNEL_INTERNAL_AVAILABLE(__ADC_INSTANCE__,__CHANNEL__) __LL_ADC_IS_CHANNEL_INTERNAL_AVAILABLE((__ADC_INSTANCE__), (__CHANNEL__))
-# 1370 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 1370 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define __HAL_ADC_COMMON_INSTANCE(__ADCx__) __LL_ADC_COMMON_INSTANCE((__ADCx__))
-# 1390 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 1390 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define __HAL_ADC_IS_ENABLED_ALL_COMMON_INSTANCE(__ADCXY_COMMON__) __LL_ADC_IS_ENABLED_ALL_COMMON_INSTANCE((__ADCXY_COMMON__))
-# 1406 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 1406 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define __HAL_ADC_DIGITAL_SCALE(__ADC_RESOLUTION__) __LL_ADC_DIGITAL_SCALE((__ADC_RESOLUTION__))
-# 1427 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 1427 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define __HAL_ADC_CONVERT_DATA_RESOLUTION(__DATA__,__ADC_RESOLUTION_CURRENT__,__ADC_RESOLUTION_TARGET__) __LL_ADC_CONVERT_DATA_RESOLUTION((__DATA__), (__ADC_RESOLUTION_CURRENT__), (__ADC_RESOLUTION_TARGET__))
-# 1450 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 1450 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define __HAL_ADC_CALC_DATA_TO_VOLTAGE(__VREFANALOG_VOLTAGE__,__ADC_DATA__,__ADC_RESOLUTION__) __LL_ADC_CALC_DATA_TO_VOLTAGE((__VREFANALOG_VOLTAGE__), (__ADC_DATA__), (__ADC_RESOLUTION__))
-# 1482 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 1482 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define __HAL_ADC_CALC_VREFANALOG_VOLTAGE(__VREFINT_ADC_DATA__,__ADC_RESOLUTION__) __LL_ADC_CALC_VREFANALOG_VOLTAGE((__VREFINT_ADC_DATA__), (__ADC_RESOLUTION__))
-# 1532 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 1532 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define __HAL_ADC_CALC_TEMPERATURE(__VREFANALOG_VOLTAGE__,__TEMPSENSOR_ADC_DATA__,__ADC_RESOLUTION__) __LL_ADC_CALC_TEMPERATURE((__VREFANALOG_VOLTAGE__), (__TEMPSENSOR_ADC_DATA__), (__ADC_RESOLUTION__))
-# 1583 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 1583 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 #define __HAL_ADC_CALC_TEMPERATURE_TYP_PARAMS(__TEMPSENSOR_TYP_AVGSLOPE__,__TEMPSENSOR_TYP_CALX_V__,__TEMPSENSOR_CALX_TEMP__,__VREFANALOG_VOLTAGE__,__TEMPSENSOR_ADC_DATA__,__ADC_RESOLUTION__) __LL_ADC_CALC_TEMPERATURE_TYP_PARAMS((__TEMPSENSOR_TYP_AVGSLOPE__), (__TEMPSENSOR_TYP_CALX_V__), (__TEMPSENSOR_CALX_TEMP__), (__VREFANALOG_VOLTAGE__), (__TEMPSENSOR_ADC_DATA__), (__ADC_RESOLUTION__))
-# 1605 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc_ex.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc_ex.h"
+# 1605 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc_ex.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc_ex.h"
 #define STM32WLxx_HAL_ADC_EX_H 
-# 57 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc_ex.h"
+# 57 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc_ex.h"
 #define ADC_REGULAR_GROUP (LL_ADC_GROUP_REGULAR)
-# 82 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc_ex.h"
+# 82 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc_ex.h"
 #define ADC_IS_INDEPENDENT(__HANDLE__) (SET)
 
 
@@ -20729,11 +20729,11 @@ typedef struct
 
 
 #define IS_ADC_OVERSAMPLING_RATIO(__RATIO__) (((__RATIO__) == ADC_OVERSAMPLING_RATIO_2 ) || ((__RATIO__) == ADC_OVERSAMPLING_RATIO_4 ) || ((__RATIO__) == ADC_OVERSAMPLING_RATIO_8 ) || ((__RATIO__) == ADC_OVERSAMPLING_RATIO_16 ) || ((__RATIO__) == ADC_OVERSAMPLING_RATIO_32 ) || ((__RATIO__) == ADC_OVERSAMPLING_RATIO_64 ) || ((__RATIO__) == ADC_OVERSAMPLING_RATIO_128 ) || ((__RATIO__) == ADC_OVERSAMPLING_RATIO_256 ))
-# 111 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc_ex.h"
+# 111 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc_ex.h"
 #define IS_ADC_RIGHT_BIT_SHIFT(__SHIFT__) (((__SHIFT__) == ADC_RIGHTBITSHIFT_NONE) || ((__SHIFT__) == ADC_RIGHTBITSHIFT_1 ) || ((__SHIFT__) == ADC_RIGHTBITSHIFT_2 ) || ((__SHIFT__) == ADC_RIGHTBITSHIFT_3 ) || ((__SHIFT__) == ADC_RIGHTBITSHIFT_4 ) || ((__SHIFT__) == ADC_RIGHTBITSHIFT_5 ) || ((__SHIFT__) == ADC_RIGHTBITSHIFT_6 ) || ((__SHIFT__) == ADC_RIGHTBITSHIFT_7 ) || ((__SHIFT__) == ADC_RIGHTBITSHIFT_8 ))
-# 126 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc_ex.h"
+# 126 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc_ex.h"
 #define IS_ADC_TRIGGERED_OVERSAMPLING_MODE(__MODE__) (((__MODE__) == ADC_TRIGGEREDMODE_SINGLE_TRIGGER) || ((__MODE__) == ADC_TRIGGEREDMODE_MULTI_TRIGGER) )
-# 146 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc_ex.h"
+# 146 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc_ex.h"
 HAL_StatusTypeDef HAL_ADCEx_Calibration_Start(ADC_HandleTypeDef *hadc);
 uint32_t HAL_ADCEx_Calibration_GetValue(ADC_HandleTypeDef *hadc);
 HAL_StatusTypeDef HAL_ADCEx_Calibration_SetValue(ADC_HandleTypeDef *hadc, uint32_t CalibrationFactor);
@@ -20743,15 +20743,15 @@ void HAL_ADCEx_LevelOutOfWindow2Callback(ADC_HandleTypeDef *hadc);
 void HAL_ADCEx_LevelOutOfWindow3Callback(ADC_HandleTypeDef *hadc);
 void HAL_ADCEx_EndOfSamplingCallback(ADC_HandleTypeDef *hadc);
 void HAL_ADCEx_ChannelConfigReadyCallback(ADC_HandleTypeDef *hadc);
-# 164 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc_ex.h"
+# 164 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc_ex.h"
 HAL_StatusTypeDef HAL_ADCEx_DisableVoltageRegulator(ADC_HandleTypeDef *hadc);
-# 1606 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h" 2
-# 1617 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 1606 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h" 2
+# 1617 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 HAL_StatusTypeDef HAL_ADC_Init(ADC_HandleTypeDef *hadc);
 HAL_StatusTypeDef HAL_ADC_DeInit(ADC_HandleTypeDef *hadc);
 void HAL_ADC_MspInit(ADC_HandleTypeDef *hadc);
 void HAL_ADC_MspDeInit(ADC_HandleTypeDef *hadc);
-# 1639 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 1639 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 HAL_StatusTypeDef HAL_ADC_Start(ADC_HandleTypeDef *hadc);
 HAL_StatusTypeDef HAL_ADC_Stop(ADC_HandleTypeDef *hadc);
 HAL_StatusTypeDef HAL_ADC_PollForConversion(ADC_HandleTypeDef *hadc, uint32_t Timeout);
@@ -20774,17 +20774,17 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc);
 void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef *hadc);
 void HAL_ADC_LevelOutOfWindowCallback(ADC_HandleTypeDef *hadc);
 void HAL_ADC_ErrorCallback(ADC_HandleTypeDef *hadc);
-# 1670 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 1670 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 HAL_StatusTypeDef HAL_ADC_ConfigChannel(ADC_HandleTypeDef *hadc, ADC_ChannelConfTypeDef *pConfig);
 HAL_StatusTypeDef HAL_ADC_AnalogWDGConfig(ADC_HandleTypeDef *hadc, ADC_AnalogWDGConfTypeDef *pAnalogWDGConfig);
-# 1681 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 1681 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 uint32_t HAL_ADC_GetState(ADC_HandleTypeDef *hadc);
 uint32_t HAL_ADC_GetError(ADC_HandleTypeDef *hadc);
-# 1693 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
+# 1693 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_adc.h"
 HAL_StatusTypeDef ADC_ConversionStop(ADC_HandleTypeDef *hadc);
 HAL_StatusTypeDef ADC_Enable(ADC_HandleTypeDef *hadc);
 HAL_StatusTypeDef ADC_Disable(ADC_HandleTypeDef *hadc);
-# 197 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
+# 197 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
 
 
 
@@ -20792,10 +20792,10 @@ HAL_StatusTypeDef ADC_Disable(ADC_HandleTypeDef *hadc);
 
 
 
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cortex.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cortex.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cortex.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cortex.h"
 #define __STM32WLxx_HAL_CORTEX_H 
-# 50 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cortex.h"
+# 50 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cortex.h"
 typedef struct
 {
   uint8_t Enable;
@@ -20821,7 +20821,7 @@ typedef struct
   uint8_t IsBufferable;
 
 } MPU_Region_InitTypeDef;
-# 94 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cortex.h"
+# 94 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cortex.h"
 #define NVIC_PRIORITYGROUP_0 (0x00000007U)
 
 #define NVIC_PRIORITYGROUP_1 (0x00000006U)
@@ -20831,10 +20831,10 @@ typedef struct
 #define NVIC_PRIORITYGROUP_3 (0x00000004U)
 
 #define NVIC_PRIORITYGROUP_4 (0x00000003U)
-# 112 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cortex.h"
+# 112 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cortex.h"
 #define SYSTICK_CLKSOURCE_HCLK_DIV8 0x00000000U
 #define SYSTICK_CLKSOURCE_HCLK 0x00000004U
-# 123 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cortex.h"
+# 123 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cortex.h"
 #define MPU_HFNMI_PRIVDEF_NONE 0x00000000U
 #define MPU_HARDFAULT_NMI (MPU_CTRL_HFNMIENA_Msk)
 #define MPU_PRIVILEGED_DEFAULT (MPU_CTRL_PRIVDEFENA_Msk)
@@ -20895,7 +20895,7 @@ typedef struct
 #define MPU_TEX_LEVEL1 ((uint8_t)0x01)
 #define MPU_TEX_LEVEL2 ((uint8_t)0x02)
 #define MPU_TEX_LEVEL4 ((uint8_t)0x04)
-# 192 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cortex.h"
+# 192 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cortex.h"
 #define MPU_REGION_SIZE_32B ((uint8_t)0x04)
 #define MPU_REGION_SIZE_64B ((uint8_t)0x05)
 #define MPU_REGION_SIZE_128B ((uint8_t)0x06)
@@ -20953,7 +20953,7 @@ typedef struct
 #define MPU_REGION_NUMBER5 ((uint8_t)0x05)
 #define MPU_REGION_NUMBER6 ((uint8_t)0x06)
 #define MPU_REGION_NUMBER7 ((uint8_t)0x07)
-# 279 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cortex.h"
+# 279 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cortex.h"
 void HAL_NVIC_SetPriorityGrouping(uint32_t PriorityGroup);
 
 void HAL_NVIC_SetPriority(IRQn_Type IRQn, uint32_t PreemptPriority, uint32_t SubPriority);
@@ -20961,7 +20961,7 @@ void HAL_NVIC_EnableIRQ(IRQn_Type IRQn);
 void HAL_NVIC_DisableIRQ(IRQn_Type IRQn);
 void HAL_NVIC_SystemReset(void);
 uint32_t HAL_SYSTICK_Config(uint32_t TicksNumb);
-# 298 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cortex.h"
+# 298 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cortex.h"
 void HAL_NVIC_GetPriority(IRQn_Type IRQn, uint32_t PriorityGroup, uint32_t *pPreemptPriority, uint32_t *pSubPriority);
 uint32_t HAL_NVIC_GetPriorityGrouping(void);
 uint32_t HAL_NVIC_GetActive(IRQn_Type IRQn);
@@ -20977,7 +20977,7 @@ void HAL_SYSTICK_Callback(void);
 void HAL_MPU_Enable(uint32_t MPU_Control);
 void HAL_MPU_Disable(void);
 void HAL_MPU_ConfigRegion(MPU_Region_InitTypeDef *MPU_Init);
-# 332 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cortex.h"
+# 332 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cortex.h"
 #define IS_NVIC_PRIORITY_GROUP(GROUP) (((GROUP) == NVIC_PRIORITYGROUP_0) || ((GROUP) == NVIC_PRIORITYGROUP_1) || ((GROUP) == NVIC_PRIORITYGROUP_2) || ((GROUP) == NVIC_PRIORITYGROUP_3) || ((GROUP) == NVIC_PRIORITYGROUP_4))
 
 
@@ -21023,16 +21023,16 @@ void HAL_MPU_ConfigRegion(MPU_Region_InitTypeDef *MPU_Init);
 
 
 #define IS_MPU_REGION_NUMBER(NUMBER) (((NUMBER) == MPU_REGION_NUMBER0) || ((NUMBER) == MPU_REGION_NUMBER1) || ((NUMBER) == MPU_REGION_NUMBER2) || ((NUMBER) == MPU_REGION_NUMBER3) || ((NUMBER) == MPU_REGION_NUMBER4) || ((NUMBER) == MPU_REGION_NUMBER5) || ((NUMBER) == MPU_REGION_NUMBER6) || ((NUMBER) == MPU_REGION_NUMBER7))
-# 412 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cortex.h"
+# 412 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cortex.h"
 #define IS_MPU_REGION_SIZE(SIZE) (((SIZE) == MPU_REGION_SIZE_32B) || ((SIZE) == MPU_REGION_SIZE_64B) || ((SIZE) == MPU_REGION_SIZE_128B) || ((SIZE) == MPU_REGION_SIZE_256B) || ((SIZE) == MPU_REGION_SIZE_512B) || ((SIZE) == MPU_REGION_SIZE_1KB) || ((SIZE) == MPU_REGION_SIZE_2KB) || ((SIZE) == MPU_REGION_SIZE_4KB) || ((SIZE) == MPU_REGION_SIZE_8KB) || ((SIZE) == MPU_REGION_SIZE_16KB) || ((SIZE) == MPU_REGION_SIZE_32KB) || ((SIZE) == MPU_REGION_SIZE_64KB) || ((SIZE) == MPU_REGION_SIZE_128KB) || ((SIZE) == MPU_REGION_SIZE_256KB) || ((SIZE) == MPU_REGION_SIZE_512KB) || ((SIZE) == MPU_REGION_SIZE_1MB) || ((SIZE) == MPU_REGION_SIZE_2MB) || ((SIZE) == MPU_REGION_SIZE_4MB) || ((SIZE) == MPU_REGION_SIZE_8MB) || ((SIZE) == MPU_REGION_SIZE_16MB) || ((SIZE) == MPU_REGION_SIZE_32MB) || ((SIZE) == MPU_REGION_SIZE_64MB) || ((SIZE) == MPU_REGION_SIZE_128MB) || ((SIZE) == MPU_REGION_SIZE_256MB) || ((SIZE) == MPU_REGION_SIZE_512MB) || ((SIZE) == MPU_REGION_SIZE_1GB) || ((SIZE) == MPU_REGION_SIZE_2GB) || ((SIZE) == MPU_REGION_SIZE_4GB))
-# 441 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cortex.h"
+# 441 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cortex.h"
 #define IS_MPU_SUB_REGION_DISABLE(SUBREGION) ((SUBREGION) < (uint16_t)0x00FFU)
-# 205 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
-# 220 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_exti.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_exti.h"
+# 205 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
+# 220 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_exti.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_exti.h"
 #define STM32WLxx_HAL_EXTI_H 
-# 45 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_exti.h"
+# 45 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_exti.h"
 typedef enum
 {
   HAL_EXTI_COMMON_CB_ID = 0x00U,
@@ -21063,7 +21063,7 @@ typedef struct
 
 
 } EXTI_ConfigTypeDef;
-# 88 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_exti.h"
+# 88 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_exti.h"
 #define EXTI_LINE_0 (EXTI_GPIO | EXTI_EVENT | EXTI_REG1 | 0x00u)
 #define EXTI_LINE_1 (EXTI_GPIO | EXTI_EVENT | EXTI_REG1 | 0x01u)
 #define EXTI_LINE_2 (EXTI_GPIO | EXTI_EVENT | EXTI_REG1 | 0x02u)
@@ -21143,12 +21143,12 @@ typedef struct
 #define EXTI_TRIGGER_RISING 0x00000001u
 #define EXTI_TRIGGER_FALLING 0x00000002u
 #define EXTI_TRIGGER_RISING_FALLING (EXTI_TRIGGER_RISING | EXTI_TRIGGER_FALLING)
-# 175 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_exti.h"
+# 175 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_exti.h"
 #define EXTI_GPIOA 0x00000000u
 #define EXTI_GPIOB 0x00000001u
 #define EXTI_GPIOC 0x00000002u
 #define EXTI_GPIOH 0x00000007u
-# 203 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_exti.h"
+# 203 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_exti.h"
 #define EXTI_PROPERTY_SHIFT 24u
 #define EXTI_DIRECT (0x01uL << EXTI_PROPERTY_SHIFT)
 #define EXTI_CONFIG (0x02uL << EXTI_PROPERTY_SHIFT)
@@ -21186,7 +21186,7 @@ typedef struct
 
 
 #define EXTI_LINE_NB 47uL
-# 249 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_exti.h"
+# 249 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_exti.h"
 #define IS_EXTI_LINE(__EXTI_LINE__) ((((__EXTI_LINE__) & ~(EXTI_PROPERTY_MASK | EXTI_EVENT_PRESENCE_MASK | EXTI_REG_MASK | EXTI_PIN_MASK)) == 0x00u) && ((((__EXTI_LINE__) & EXTI_PROPERTY_MASK) == EXTI_DIRECT) || (((__EXTI_LINE__) & EXTI_PROPERTY_MASK) == EXTI_CONFIG) || (((__EXTI_LINE__) & EXTI_PROPERTY_MASK) == EXTI_GPIO)) && (((__EXTI_LINE__) & (EXTI_REG_MASK | EXTI_PIN_MASK)) < (((EXTI_LINE_NB / 32u) << EXTI_REG_SHIFT) | (EXTI_LINE_NB % 32u))))
 
 
@@ -21211,25 +21211,25 @@ typedef struct
 
 
 #define IS_EXTI_GPIO_PIN(__PIN__) ((__PIN__) < 16u)
-# 289 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_exti.h"
+# 289 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_exti.h"
 HAL_StatusTypeDef HAL_EXTI_SetConfigLine(EXTI_HandleTypeDef *hexti, EXTI_ConfigTypeDef *pExtiConfig);
 HAL_StatusTypeDef HAL_EXTI_GetConfigLine(EXTI_HandleTypeDef *hexti, EXTI_ConfigTypeDef *pExtiConfig);
 HAL_StatusTypeDef HAL_EXTI_ClearConfigLine(EXTI_HandleTypeDef *hexti);
 HAL_StatusTypeDef HAL_EXTI_RegisterCallback(EXTI_HandleTypeDef *hexti, EXTI_CallbackIDTypeDef CallbackID, void (*pPendingCbfn)(void));
 HAL_StatusTypeDef HAL_EXTI_GetHandle(EXTI_HandleTypeDef *hexti, uint32_t ExtiLine);
-# 303 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_exti.h"
+# 303 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_exti.h"
 void HAL_EXTI_IRQHandler(EXTI_HandleTypeDef *hexti);
 uint32_t HAL_EXTI_GetPending(EXTI_HandleTypeDef *hexti, uint32_t Edge);
 void HAL_EXTI_ClearPending(EXTI_HandleTypeDef *hexti, uint32_t Edge);
 void HAL_EXTI_GenerateSWI(EXTI_HandleTypeDef *hexti);
-# 221 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
+# 221 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
 
 
 
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define STM32WLxx_HAL_FLASH_H 
-# 47 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 47 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 typedef struct
 {
   uint32_t TypeErase;
@@ -21257,9 +21257,9 @@ typedef struct
   uint32_t RDPLevel;
 
   uint32_t UserType;
-# 87 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 87 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
   uint32_t UserConfig;
-# 98 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 98 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
   uint32_t PCROPConfig;
 
 
@@ -21270,7 +21270,7 @@ typedef struct
   uint32_t PCROP1BStartAddr;
 
   uint32_t PCROP1BEndAddr;
-# 134 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 134 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 } FLASH_OBProgramInitTypeDef;
 
 
@@ -21285,18 +21285,18 @@ typedef struct
   uint32_t Page;
   uint32_t NbPagesToErase;
 } FLASH_ProcessTypeDef;
-# 161 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 161 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define FLASH_KEY1 0x45670123U
 #define FLASH_KEY2 0xCDEF89ABU
 
 
 #define FLASH_OPTKEY1 0x08192A3BU
 #define FLASH_OPTKEY2 0x4C5D6E7FU
-# 175 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 175 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define FLASH_LATENCY_0 0x00000000U
 #define FLASH_LATENCY_1 FLASH_ACR_LATENCY_0
 #define FLASH_LATENCY_2 FLASH_ACR_LATENCY_1
-# 202 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 202 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define FLASH_FLAG_EOP FLASH_SR_EOP
 #define FLASH_FLAG_OPERR FLASH_SR_OPERR
 #define FLASH_FLAG_PROGERR FLASH_SR_PROGERR
@@ -21370,14 +21370,14 @@ typedef struct
 
 #define FLASH_TYPEPROGRAM_DOUBLEWORD FLASH_CR_PG
 #define FLASH_TYPEPROGRAM_FAST FLASH_CR_FSTPG
-# 283 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 283 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define OPTIONBYTE_WRP 0x00000001U
 #define OPTIONBYTE_RDP 0x00000002U
 #define OPTIONBYTE_USER 0x00000004U
 #define OPTIONBYTE_PCROP 0x00000008U
-# 299 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 299 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define OPTIONBYTE_ALL (OPTIONBYTE_WRP | OPTIONBYTE_RDP | OPTIONBYTE_USER | OPTIONBYTE_PCROP)
-# 310 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 310 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define OB_WRPAREA_BANK1_AREAA 0x00000000U
 #define OB_WRPAREA_BANK1_AREAB 0x00000001U
 
@@ -21390,7 +21390,7 @@ typedef struct
 #define OB_RDP_LEVEL_0 0x000000AAU
 #define OB_RDP_LEVEL_1 0x000000BBU
 #define OB_RDP_LEVEL_2 0x000000CCU
-# 330 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 330 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define OB_USER_BOR_LEV FLASH_OPTR_BOR_LEV
 #define OB_USER_nRST_STOP FLASH_OPTR_nRST_STOP
 #define OB_USER_nRST_STDBY FLASH_OPTR_nRST_STDBY
@@ -21405,9 +21405,9 @@ typedef struct
 #define OB_USER_nSWBOOT0 FLASH_OPTR_nSWBOOT0
 #define OB_USER_nBOOT0 FLASH_OPTR_nBOOT0
 #define OB_USER_BOOT_LOCK FLASH_OPTR_BOOT_LOCK
-# 355 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 355 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define OB_USER_ALL (OB_USER_BOR_LEV | OB_USER_nRST_STOP | OB_USER_nRST_STDBY | OB_USER_nRST_SHDW | OB_USER_IWDG_SW | OB_USER_IWDG_STOP | OB_USER_IWDG_STDBY | OB_USER_WWDG_SW | OB_USER_nBOOT1 | OB_USER_SRAM2_PE | OB_USER_SRAM_RST | OB_USER_nSWBOOT0 | OB_USER_nBOOT0 | OB_USER_BOOT_LOCK)
-# 369 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 369 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define OB_BOR_LEVEL_0 0x00000000U
 #define OB_BOR_LEVEL_1 FLASH_OPTR_BOR_LEV_0
 #define OB_BOR_LEVEL_2 FLASH_OPTR_BOR_LEV_1
@@ -21530,7 +21530,7 @@ typedef struct
 
 #define OB_BOOT_LOCK_DISABLE 0x00000000U
 #define OB_BOOT_LOCK_ENABLE FLASH_OPTR_BOOT_LOCK
-# 509 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 509 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define OB_PCROP_ZONE_A 0x00000001U
 #define OB_PCROP_ZONE_B 0x00000002U
 
@@ -21543,39 +21543,39 @@ typedef struct
 #define OB_PCROP_RDP_NOT_ERASE 0x00000000U
 
 #define OB_PCROP_RDP_ERASE FLASH_PCROP1AER_PCROP_RDP
-# 596 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 596 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define __HAL_FLASH_SET_LATENCY(__LATENCY__) MODIFY_REG(FLASH->ACR, FLASH_ACR_LATENCY, (__LATENCY__))
-# 606 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 606 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define __HAL_FLASH_GET_LATENCY() READ_BIT(FLASH->ACR, FLASH_ACR_LATENCY)
-# 615 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 615 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define __HAL_FLASH_PREFETCH_BUFFER_ENABLE() SET_BIT(FLASH->ACR, FLASH_ACR_PRFTEN)
-# 625 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 625 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define __HAL_FLASH_PREFETCH_BUFFER_DISABLE() CLEAR_BIT(FLASH->ACR, FLASH_ACR_PRFTEN)
-# 635 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 635 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define __HAL_FLASH_INSTRUCTION_CACHE_ENABLE() SET_BIT(FLASH->ACR, FLASH_ACR_ICEN)
-# 645 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 645 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define __HAL_FLASH_INSTRUCTION_CACHE_DISABLE() CLEAR_BIT(FLASH->ACR, FLASH_ACR_ICEN)
-# 654 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 654 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define __HAL_FLASH_DATA_CACHE_ENABLE() SET_BIT(FLASH->ACR, FLASH_ACR_DCEN)
-# 663 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 663 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define __HAL_FLASH_DATA_CACHE_DISABLE() CLEAR_BIT(FLASH->ACR, FLASH_ACR_DCEN)
-# 676 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 676 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define __HAL_FLASH_INSTRUCTION_CACHE_RESET() do { SET_BIT(FLASH->ACR, FLASH_ACR_ICRST); CLEAR_BIT(FLASH->ACR, FLASH_ACR_ICRST); } while (0)
-# 688 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 688 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define __HAL_FLASH_DATA_CACHE_RESET() do { SET_BIT(FLASH->ACR, FLASH_ACR_DCRST); CLEAR_BIT(FLASH->ACR, FLASH_ACR_DCRST); } while (0)
-# 717 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 717 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define __HAL_FLASH_ENABLE_IT(__INTERRUPT__) do { if(((__INTERRUPT__) & FLASH_IT_ECCC) != 0U) { SET_BIT(FLASH->ECCR, FLASH_ECCR_ECCCIE); } if(((__INTERRUPT__) & (~FLASH_IT_ECCC)) != 0U) { SET_BIT(FLASH->CR, ((__INTERRUPT__) & (~FLASH_IT_ECCC))); } } while(0)
-# 737 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 737 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define __HAL_FLASH_DISABLE_IT(__INTERRUPT__) do { if(((__INTERRUPT__) & FLASH_IT_ECCC) != 0U) { CLEAR_BIT(FLASH->ECCR, FLASH_ECCR_ECCCIE); } if(((__INTERRUPT__) & (~FLASH_IT_ECCC)) != 0U) { CLEAR_BIT(FLASH->CR, ((__INTERRUPT__) & (~FLASH_IT_ECCC))); } } while(0)
-# 772 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 772 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define __HAL_FLASH_GET_FLAG(__FLAG__) ((((__FLAG__) & (FLASH_FLAG_ECCR_ERRORS)) != 0U) ? (READ_BIT(FLASH->ECCR, (__FLAG__)) == (__FLAG__)) : (READ_BIT(FLASH->SR, (__FLAG__)) == (__FLAG__)))
-# 804 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 804 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define __HAL_FLASH_CLEAR_FLAG(__FLAG__) do { if(((__FLAG__) & (FLASH_FLAG_ECCR_ERRORS)) != 0U) { SET_BIT(FLASH->ECCR, ((__FLAG__) & (FLASH_FLAG_ECCR_ERRORS))); } if(((__FLAG__) & ~(FLASH_FLAG_ECCR_ERRORS)) != 0U) { WRITE_REG(FLASH->SR, ((__FLAG__) & ~(FLASH_FLAG_ECCR_ERRORS))); } } while(0)
-# 813 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash_ex.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash_ex.h"
+# 813 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash_ex.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash_ex.h"
 #define STM32WLxx_HAL_FLASH_EX_H 
-# 47 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash_ex.h"
+# 47 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash_ex.h"
 #define FLASH_PROG_NOT_EMPTY 0x00000000U
 #define FLASH_PROG_EMPTY FLASH_ACR_EMPTY
 
@@ -21587,7 +21587,7 @@ typedef struct
 
 #define FLASH_PRIV_GRANTED 0x00000000U
 #define FLASH_PRIV_DENIED FLASH_ACR2_PRIVMODE
-# 75 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash_ex.h"
+# 75 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash_ex.h"
 HAL_StatusTypeDef HAL_FLASHEx_Erase(FLASH_EraseInitTypeDef *pEraseInit, uint32_t *PageError);
 HAL_StatusTypeDef HAL_FLASHEx_Erase_IT(FLASH_EraseInitTypeDef *pEraseInit);
 uint32_t HAL_FLASHEx_FlashEmptyCheck(void);
@@ -21597,19 +21597,19 @@ void HAL_FLASHEx_OBGetConfig(FLASH_OBProgramInitTypeDef *pOBInit);
 void HAL_FLASHEx_SuspendOperation(void);
 void HAL_FLASHEx_AllowOperation(void);
 uint32_t HAL_FLASHEx_IsOperationSuspended(void);
-# 103 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash_ex.h"
+# 103 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash_ex.h"
 #define IS_FLASH_EMPTY_CHECK(__VALUE__) (((__VALUE__) == FLASH_PROG_EMPTY) || ((__VALUE__) == FLASH_PROG_NOT_EMPTY))
 
 #define IS_FLASH_CFGPRIVMODE(__VALUE__) (((__VALUE__) == FLASH_PRIV_GRANTED) || ((__VALUE__) == FLASH_PRIV_DENIED))
-# 114 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash_ex.h"
+# 114 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash_ex.h"
 void FLASH_PageErase(uint32_t Page);
-# 814 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h" 2
+# 814 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h" 2
 
 
 
 
 extern FLASH_ProcessTypeDef pFlash;
-# 832 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 832 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 HAL_StatusTypeDef HAL_FLASH_Program(uint32_t TypeProgram, uint32_t Address, uint64_t Data);
 HAL_StatusTypeDef HAL_FLASH_Program_IT(uint32_t TypeProgram, uint32_t Address, uint64_t Data);
 
@@ -21617,18 +21617,18 @@ void HAL_FLASH_IRQHandler(void);
 
 void HAL_FLASH_EndOfOperationCallback(uint32_t ReturnValue);
 void HAL_FLASH_OperationErrorCallback(uint32_t ReturnValue);
-# 847 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 847 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 HAL_StatusTypeDef HAL_FLASH_Unlock(void);
 HAL_StatusTypeDef HAL_FLASH_Lock(void);
 
 HAL_StatusTypeDef HAL_FLASH_OB_Unlock(void);
 HAL_StatusTypeDef HAL_FLASH_OB_Lock(void);
 HAL_StatusTypeDef HAL_FLASH_OB_Launch(void);
-# 861 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 861 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 uint32_t HAL_FLASH_GetError(void);
-# 874 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 874 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 HAL_StatusTypeDef FLASH_WaitForLastOperation(uint32_t Timeout);
-# 883 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 883 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define FLASH_END_ADDR (FLASH_BASE + FLASH_SIZE - 1U)
 
 #define FLASH_BANK_SIZE FLASH_SIZE
@@ -21646,7 +21646,7 @@ HAL_StatusTypeDef FLASH_WaitForLastOperation(uint32_t Timeout);
 
 #define SRAM_SECURE_PAGE_GRANULARITY_OFFSET 10U
 #define SRAM_SECURE_PAGE_GRANULARITY (1UL << FLASH_PCROP_GRANULARITY_OFFSET)
-# 912 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 912 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define IS_FLASH_MAIN_MEM_ADDRESS(__VALUE__) (((__VALUE__) >= FLASH_BASE) && ((__VALUE__) <= (FLASH_BASE + FLASH_SIZE - 1UL)))
 
 #define IS_FLASH_FAST_PROGRAM_ADDRESS(__VALUE__) (((__VALUE__) >= FLASH_BASE) && ((__VALUE__) <= (FLASH_BASE + FLASH_SIZE - 256UL)) && (((__VALUE__) % 256UL) == 0UL))
@@ -21665,7 +21665,7 @@ HAL_StatusTypeDef FLASH_WaitForLastOperation(uint32_t Timeout);
 
 
 #define IS_FLASH_TYPEPROGRAM(__VALUE__) (((__VALUE__) == FLASH_TYPEPROGRAM_DOUBLEWORD) || ((__VALUE__) == FLASH_TYPEPROGRAM_FAST))
-# 953 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 953 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define IS_OPTIONBYTE(__VALUE__) ((__VALUE__) <= (OPTIONBYTE_WRP | OPTIONBYTE_RDP | OPTIONBYTE_USER | OPTIONBYTE_PCROP))
 
 
@@ -21691,16 +21691,16 @@ HAL_StatusTypeDef FLASH_WaitForLastOperation(uint32_t Timeout);
 
 
 #define IS_OB_PCROP_CONFIG(__VALUE__) (((__VALUE__) & ~(OB_PCROP_ZONE_A | OB_PCROP_ZONE_B | OB_PCROP_RDP_ERASE)) == 0U)
-# 990 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+# 990 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define IS_FLASH_LATENCY(__VALUE__) (((__VALUE__) == FLASH_LATENCY_0) || ((__VALUE__) == FLASH_LATENCY_1) || ((__VALUE__) == FLASH_LATENCY_2))
-# 225 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
+# 225 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
 
 
 
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio.h"
 #define STM32WLxx_HAL_GPIO_H 
-# 48 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio.h"
+# 48 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio.h"
 typedef struct
 {
   uint32_t Pin;
@@ -21727,7 +21727,7 @@ typedef enum
   GPIO_PIN_RESET = 0U,
   GPIO_PIN_SET
 } GPIO_PinState;
-# 85 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio.h"
+# 85 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio.h"
 #define GPIO_PIN_0 ((uint16_t)0x0001)
 #define GPIO_PIN_1 ((uint16_t)0x0002)
 #define GPIO_PIN_2 ((uint16_t)0x0004)
@@ -21747,7 +21747,7 @@ typedef enum
 #define GPIO_PIN_All ((uint16_t)0xFFFF)
 
 #define GPIO_PIN_MASK (0x0000FFFFu)
-# 117 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio.h"
+# 117 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio.h"
 #define GPIO_MODE_INPUT MODE_INPUT
 #define GPIO_MODE_OUTPUT_PP (MODE_OUTPUT | OUTPUT_PP)
 #define GPIO_MODE_OUTPUT_OD (MODE_OUTPUT | OUTPUT_OD)
@@ -21760,16 +21760,16 @@ typedef enum
 #define GPIO_MODE_EVT_RISING (MODE_INPUT | EXTI_EVT | TRIGGER_RISING)
 #define GPIO_MODE_EVT_FALLING (MODE_INPUT | EXTI_EVT | TRIGGER_FALLING)
 #define GPIO_MODE_EVT_RISING_FALLING (MODE_INPUT | EXTI_EVT | TRIGGER_RISING | TRIGGER_FALLING)
-# 137 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio.h"
+# 137 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio.h"
 #define GPIO_SPEED_FREQ_LOW 0x00000000u
 #define GPIO_SPEED_FREQ_MEDIUM 0x00000001u
 #define GPIO_SPEED_FREQ_HIGH 0x00000002u
 #define GPIO_SPEED_FREQ_VERY_HIGH 0x00000003u
-# 149 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio.h"
+# 149 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio.h"
 #define GPIO_NOPULL 0x00000000u
 #define GPIO_PULLUP 0x00000001u
 #define GPIO_PULLDOWN 0x00000002u
-# 171 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio.h"
+# 171 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio.h"
 #define __HAL_GPIO_EXTI_GET_FLAG(__EXTI_LINE__) (EXTI->PR1 & (__EXTI_LINE__))
 
 
@@ -21803,7 +21803,7 @@ typedef enum
 
 
 #define __HAL_GPIO_EXTI_GENERATE_SWIT(__EXTI_LINE__) (EXTI->SWIER1 |= (__EXTI_LINE__))
-# 213 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio.h"
+# 213 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio.h"
 #define GPIO_MODE_Pos 0u
 #define GPIO_MODE (0x3uL << GPIO_MODE_Pos)
 #define MODE_INPUT (0x0uL << GPIO_MODE_Pos)
@@ -21822,14 +21822,14 @@ typedef enum
 #define TRIGGER_MODE (0x7uL << TRIGGER_MODE_Pos)
 #define TRIGGER_RISING (0x1uL << TRIGGER_MODE_Pos)
 #define TRIGGER_FALLING (0x2uL << TRIGGER_MODE_Pos)
-# 239 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio.h"
+# 239 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio.h"
 #define IS_GPIO_PIN_ACTION(ACTION) (((ACTION) == GPIO_PIN_RESET) || ((ACTION) == GPIO_PIN_SET))
 
 #define IS_GPIO_PIN(__PIN__) ((((uint32_t)(__PIN__) & GPIO_PIN_MASK) != 0x00U) && (((uint32_t)(__PIN__) & ~GPIO_PIN_MASK) == 0x00U))
 
 
 #define IS_GPIO_MODE(__MODE__) (((__MODE__) == GPIO_MODE_INPUT) || ((__MODE__) == GPIO_MODE_OUTPUT_PP) || ((__MODE__) == GPIO_MODE_OUTPUT_OD) || ((__MODE__) == GPIO_MODE_AF_PP) || ((__MODE__) == GPIO_MODE_AF_OD) || ((__MODE__) == GPIO_MODE_IT_RISING) || ((__MODE__) == GPIO_MODE_IT_FALLING) || ((__MODE__) == GPIO_MODE_IT_RISING_FALLING) || ((__MODE__) == GPIO_MODE_EVT_RISING) || ((__MODE__) == GPIO_MODE_EVT_FALLING) || ((__MODE__) == GPIO_MODE_EVT_RISING_FALLING) || ((__MODE__) == GPIO_MODE_ANALOG))
-# 257 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio.h"
+# 257 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio.h"
 #define IS_GPIO_SPEED(__SPEED__) (((__SPEED__) == GPIO_SPEED_FREQ_LOW) || ((__SPEED__) == GPIO_SPEED_FREQ_MEDIUM) || ((__SPEED__) == GPIO_SPEED_FREQ_HIGH) || ((__SPEED__) == GPIO_SPEED_FREQ_VERY_HIGH))
 
 
@@ -21843,10 +21843,10 @@ typedef enum
 
 
 
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio_ex.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio_ex.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio_ex.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio_ex.h"
 #define STM32WLxx_HAL_GPIO_EX_H 
-# 53 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio_ex.h"
+# 53 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio_ex.h"
 #define GPIO_AF0_MCO ((uint8_t)0x00)
 #define GPIO_AF0_LSCO ((uint8_t)0x00)
 #define GPIO_AF0_JTAG ((uint8_t)0x00)
@@ -21932,25 +21932,25 @@ typedef enum
 #define GPIO_AF15_EVENTOUT ((uint8_t)0x0F)
 
 #define IS_GPIO_AF(AF) ((AF) <= (uint8_t)0x0F)
-# 157 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio_ex.h"
+# 157 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio_ex.h"
 #define GPIO_GET_INDEX(__GPIOx__) (((__GPIOx__) == (GPIOA))? 0uL : ((__GPIOx__) == (GPIOB))? 1uL : ((__GPIOx__) == (GPIOC))? 2uL : 7uL)
-# 271 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio.h" 2
-# 284 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio.h"
+# 271 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio.h" 2
+# 284 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio.h"
 void HAL_GPIO_Init(GPIO_TypeDef *GPIOx, GPIO_InitTypeDef *GPIO_Init);
 void HAL_GPIO_DeInit(GPIO_TypeDef *GPIOx, uint32_t GPIO_Pin);
-# 297 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio.h"
+# 297 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_gpio.h"
 GPIO_PinState HAL_GPIO_ReadPin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin);
 void HAL_GPIO_WritePin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, GPIO_PinState PinState);
 void HAL_GPIO_TogglePin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin);
 HAL_StatusTypeDef HAL_GPIO_LockPin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin);
 void HAL_GPIO_EXTI_IRQHandler(uint16_t GPIO_Pin);
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
-# 229 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
-# 240 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
+# 229 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
+# 240 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
 #define STM32WLxx_HAL_I2C_H 
-# 48 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
+# 48 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
 typedef struct
 {
   uint32_t Timing;
@@ -21980,7 +21980,7 @@ typedef struct
 
 
 } I2C_InitTypeDef;
-# 109 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
+# 109 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
 typedef enum
 {
   HAL_I2C_STATE_RESET = 0x00U,
@@ -21998,7 +21998,7 @@ typedef enum
   HAL_I2C_STATE_ERROR = 0xE0U
 
 } HAL_I2C_StateTypeDef;
-# 149 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
+# 149 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
 typedef enum
 {
   HAL_I2C_MODE_NONE = 0x00U,
@@ -22007,7 +22007,7 @@ typedef enum
   HAL_I2C_MODE_MEM = 0x40U
 
 } HAL_I2C_ModeTypeDef;
-# 166 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
+# 166 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
 #define HAL_I2C_ERROR_NONE (0x00000000U)
 #define HAL_I2C_ERROR_BERR (0x00000001U)
 #define HAL_I2C_ERROR_ARLO (0x00000002U)
@@ -22021,7 +22021,7 @@ typedef enum
 
 
 #define HAL_I2C_ERROR_INVALID_PARAM (0x00000200U)
-# 187 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
+# 187 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
 typedef struct __I2C_HandleTypeDef
 {
   I2C_TypeDef *Instance;
@@ -22055,9 +22055,9 @@ typedef struct __I2C_HandleTypeDef
   volatile uint32_t ErrorCode;
 
   volatile uint32_t AddrEventCount;
-# 250 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
+# 250 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
 } I2C_HandleTypeDef;
-# 299 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
+# 299 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
 #define I2C_FIRST_FRAME ((uint32_t)I2C_SOFTEND_MODE)
 #define I2C_FIRST_AND_NEXT_FRAME ((uint32_t)(I2C_RELOAD_MODE | I2C_SOFTEND_MODE))
 #define I2C_NEXT_FRAME ((uint32_t)(I2C_RELOAD_MODE | I2C_SOFTEND_MODE))
@@ -22160,7 +22160,7 @@ typedef struct __I2C_HandleTypeDef
 #define I2C_GENERATE_STOP (uint32_t)(0x80000000U | I2C_CR2_STOP)
 #define I2C_GENERATE_START_READ (uint32_t)(0x80000000U | I2C_CR2_START | I2C_CR2_RD_WRN)
 #define I2C_GENERATE_START_WRITE (uint32_t)(0x80000000U | I2C_CR2_START)
-# 411 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
+# 411 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
 #define I2C_IT_ERRI I2C_CR1_ERRIE
 #define I2C_IT_TCI I2C_CR1_TCIE
 #define I2C_IT_STOPI I2C_CR1_STOPIE
@@ -22191,18 +22191,18 @@ typedef struct __I2C_HandleTypeDef
 #define I2C_FLAG_ALERT I2C_ISR_ALERT
 #define I2C_FLAG_BUSY I2C_ISR_BUSY
 #define I2C_FLAG_DIR I2C_ISR_DIR
-# 466 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
+# 466 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
 #define __HAL_I2C_RESET_HANDLE_STATE(__HANDLE__) ((__HANDLE__)->State = HAL_I2C_STATE_RESET)
-# 483 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
+# 483 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
 #define __HAL_I2C_ENABLE_IT(__HANDLE__,__INTERRUPT__) ((__HANDLE__)->Instance->CR1 |= (__INTERRUPT__))
-# 499 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
+# 499 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
 #define __HAL_I2C_DISABLE_IT(__HANDLE__,__INTERRUPT__) ((__HANDLE__)->Instance->CR1 &= (~(__INTERRUPT__)))
-# 515 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
+# 515 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
 #define __HAL_I2C_GET_IT_SOURCE(__HANDLE__,__INTERRUPT__) ((((__HANDLE__)->Instance->CR1 & (__INTERRUPT__)) == (__INTERRUPT__)) ? SET : RESET)
-# 541 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
+# 541 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
 #define I2C_FLAG_MASK (0x0001FFFFU)
 #define __HAL_I2C_GET_FLAG(__HANDLE__,__FLAG__) (((((__HANDLE__)->Instance->ISR) & (__FLAG__)) == (__FLAG__)) ? SET : RESET)
-# 562 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
+# 562 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
 #define __HAL_I2C_CLEAR_FLAG(__HANDLE__,__FLAG__) (((__FLAG__) == I2C_FLAG_TXE) ? ((__HANDLE__)->Instance->ISR |= (__FLAG__)) : ((__HANDLE__)->Instance->ICR = (__FLAG__)))
 
 
@@ -22229,10 +22229,10 @@ typedef struct __I2C_HandleTypeDef
 
 
 
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c_ex.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c_ex.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c_ex.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c_ex.h"
 #define STM32WLxx_HAL_I2C_EX_H 
-# 48 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c_ex.h"
+# 48 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c_ex.h"
 #define I2C_ANALOGFILTER_ENABLE 0x00000000U
 #define I2C_ANALOGFILTER_DISABLE I2C_CR1_ANFOFF
 
@@ -22249,7 +22249,7 @@ typedef struct __I2C_HandleTypeDef
 #define I2C_FASTMODEPLUS_I2C1 SYSCFG_CFGR1_I2C1_FMP
 #define I2C_FASTMODEPLUS_I2C2 SYSCFG_CFGR1_I2C2_FMP
 #define I2C_FASTMODEPLUS_I2C3 SYSCFG_CFGR1_I2C3_FMP
-# 90 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c_ex.h"
+# 90 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c_ex.h"
 HAL_StatusTypeDef HAL_I2CEx_ConfigAnalogFilter(I2C_HandleTypeDef *hi2c, uint32_t AnalogFilter);
 HAL_StatusTypeDef HAL_I2CEx_ConfigDigitalFilter(I2C_HandleTypeDef *hi2c, uint32_t DigitalFilter);
 
@@ -22270,20 +22270,20 @@ HAL_StatusTypeDef HAL_I2CEx_DisableWakeUp(I2C_HandleTypeDef *hi2c);
 
 void HAL_I2CEx_EnableFastModePlus(uint32_t ConfigFastModePlus);
 void HAL_I2CEx_DisableFastModePlus(uint32_t ConfigFastModePlus);
-# 131 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c_ex.h"
+# 131 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c_ex.h"
 #define IS_I2C_ANALOG_FILTER(FILTER) (((FILTER) == I2C_ANALOGFILTER_ENABLE) || ((FILTER) == I2C_ANALOGFILTER_DISABLE))
 
 
 #define IS_I2C_DIGITAL_FILTER(FILTER) ((FILTER) <= 0x0000000FU)
 
 #define IS_I2C_FASTMODEPLUS(__CONFIG__) ((((__CONFIG__) & (I2C_FASTMODEPLUS_PB6)) == I2C_FASTMODEPLUS_PB6) || (((__CONFIG__) & (I2C_FASTMODEPLUS_PB7)) == I2C_FASTMODEPLUS_PB7) || (((__CONFIG__) & (I2C_FASTMODEPLUS_PB8)) == I2C_FASTMODEPLUS_PB8) || (((__CONFIG__) & (I2C_FASTMODEPLUS_PB9)) == I2C_FASTMODEPLUS_PB9) || (((__CONFIG__) & (I2C_FASTMODEPLUS_I2C1)) == I2C_FASTMODEPLUS_I2C1) || (((__CONFIG__) & (I2C_FASTMODEPLUS_I2C2)) == I2C_FASTMODEPLUS_I2C2) || (((__CONFIG__) & (I2C_FASTMODEPLUS_I2C3)) == I2C_FASTMODEPLUS_I2C3))
-# 589 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h" 2
-# 599 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
+# 589 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h" 2
+# 599 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
 HAL_StatusTypeDef HAL_I2C_Init(I2C_HandleTypeDef *hi2c);
 HAL_StatusTypeDef HAL_I2C_DeInit(I2C_HandleTypeDef *hi2c);
 void HAL_I2C_MspInit(I2C_HandleTypeDef *hi2c);
 void HAL_I2C_MspDeInit(I2C_HandleTypeDef *hi2c);
-# 622 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
+# 622 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
 HAL_StatusTypeDef HAL_I2C_Master_Transmit(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData,
                                           uint16_t Size, uint32_t Timeout);
 HAL_StatusTypeDef HAL_I2C_Master_Receive(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData,
@@ -22343,7 +22343,7 @@ HAL_StatusTypeDef HAL_I2C_Slave_Seq_Transmit_DMA(I2C_HandleTypeDef *hi2c, uint8_
                                                  uint32_t XferOptions);
 HAL_StatusTypeDef HAL_I2C_Slave_Seq_Receive_DMA(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size,
                                                 uint32_t XferOptions);
-# 689 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
+# 689 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
 void HAL_I2C_EV_IRQHandler(I2C_HandleTypeDef *hi2c);
 void HAL_I2C_ER_IRQHandler(I2C_HandleTypeDef *hi2c);
 void HAL_I2C_MasterTxCpltCallback(I2C_HandleTypeDef *hi2c);
@@ -22356,11 +22356,11 @@ void HAL_I2C_MemTxCpltCallback(I2C_HandleTypeDef *hi2c);
 void HAL_I2C_MemRxCpltCallback(I2C_HandleTypeDef *hi2c);
 void HAL_I2C_ErrorCallback(I2C_HandleTypeDef *hi2c);
 void HAL_I2C_AbortCpltCallback(I2C_HandleTypeDef *hi2c);
-# 709 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
+# 709 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
 HAL_I2C_StateTypeDef HAL_I2C_GetState(I2C_HandleTypeDef *hi2c);
 HAL_I2C_ModeTypeDef HAL_I2C_GetMode(I2C_HandleTypeDef *hi2c);
 uint32_t HAL_I2C_GetError(I2C_HandleTypeDef *hi2c);
-# 735 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
+# 735 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
 #define IS_I2C_ADDRESSING_MODE(MODE) (((MODE) == I2C_ADDRESSINGMODE_7BIT) || ((MODE) == I2C_ADDRESSINGMODE_10BIT))
 
 
@@ -22368,7 +22368,7 @@ uint32_t HAL_I2C_GetError(I2C_HandleTypeDef *hi2c);
 
 
 #define IS_I2C_OWN_ADDRESS2_MASK(MASK) (((MASK) == I2C_OA2_NOMASK) || ((MASK) == I2C_OA2_MASK01) || ((MASK) == I2C_OA2_MASK02) || ((MASK) == I2C_OA2_MASK03) || ((MASK) == I2C_OA2_MASK04) || ((MASK) == I2C_OA2_MASK05) || ((MASK) == I2C_OA2_MASK06) || ((MASK) == I2C_OA2_MASK07))
-# 750 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
+# 750 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_i2c.h"
 #define IS_I2C_GENERAL_CALL(CALL) (((CALL) == I2C_GENERALCALL_DISABLE) || ((CALL) == I2C_GENERALCALL_ENABLE))
 
 
@@ -22429,12 +22429,12 @@ uint32_t HAL_I2C_GetError(I2C_HandleTypeDef *hi2c);
 #define I2C_CHECK_FLAG(__ISR__,__FLAG__) ((((__ISR__) & ((__FLAG__) & I2C_FLAG_MASK)) == ((__FLAG__) & I2C_FLAG_MASK)) ? SET : RESET)
 
 #define I2C_CHECK_IT_SOURCE(__CR1__,__IT__) ((((__CR1__) & (__IT__)) == (__IT__)) ? SET : RESET)
-# 241 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
-# 256 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_iwdg.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_iwdg.h"
+# 241 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
+# 256 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_iwdg.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_iwdg.h"
 #define STM32WLxx_HAL_IWDG_H 
-# 47 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_iwdg.h"
+# 47 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_iwdg.h"
 typedef struct
 {
   uint32_t Prescaler;
@@ -22457,7 +22457,7 @@ typedef struct
 
   IWDG_InitTypeDef Init;
 } IWDG_HandleTypeDef;
-# 83 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_iwdg.h"
+# 83 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_iwdg.h"
 #define IWDG_PRESCALER_4 0x00000000u
 #define IWDG_PRESCALER_8 IWDG_PR_PR_0
 #define IWDG_PRESCALER_16 IWDG_PR_PR_1
@@ -22473,7 +22473,7 @@ typedef struct
 
 
 #define IWDG_WINDOW_DISABLE IWDG_WINR_WIN
-# 116 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_iwdg.h"
+# 116 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_iwdg.h"
 #define __HAL_IWDG_START(__HANDLE__) WRITE_REG((__HANDLE__)->Instance->KR, IWDG_KEY_ENABLE)
 
 
@@ -22483,16 +22483,16 @@ typedef struct
 
 
 #define __HAL_IWDG_RELOAD_COUNTER(__HANDLE__) WRITE_REG((__HANDLE__)->Instance->KR, IWDG_KEY_RELOAD)
-# 139 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_iwdg.h"
+# 139 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_iwdg.h"
 HAL_StatusTypeDef HAL_IWDG_Init(IWDG_HandleTypeDef *hiwdg);
-# 148 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_iwdg.h"
+# 148 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_iwdg.h"
 HAL_StatusTypeDef HAL_IWDG_Refresh(IWDG_HandleTypeDef *hiwdg);
-# 165 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_iwdg.h"
+# 165 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_iwdg.h"
 #define IWDG_KEY_RELOAD 0x0000AAAAu
 #define IWDG_KEY_ENABLE 0x0000CCCCu
 #define IWDG_KEY_WRITE_ACCESS_ENABLE 0x00005555u
 #define IWDG_KEY_WRITE_ACCESS_DISABLE 0x00000000u
-# 184 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_iwdg.h"
+# 184 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_iwdg.h"
 #define IWDG_ENABLE_WRITE_ACCESS(__HANDLE__) WRITE_REG((__HANDLE__)->Instance->KR, IWDG_KEY_WRITE_ACCESS_ENABLE)
 
 
@@ -22508,7 +22508,7 @@ HAL_StatusTypeDef HAL_IWDG_Refresh(IWDG_HandleTypeDef *hiwdg);
 
 
 #define IS_IWDG_PRESCALER(__PRESCALER__) (((__PRESCALER__) == IWDG_PRESCALER_4) || ((__PRESCALER__) == IWDG_PRESCALER_8) || ((__PRESCALER__) == IWDG_PRESCALER_16) || ((__PRESCALER__) == IWDG_PRESCALER_32) || ((__PRESCALER__) == IWDG_PRESCALER_64) || ((__PRESCALER__) == IWDG_PRESCALER_128)|| ((__PRESCALER__) == IWDG_PRESCALER_256))
-# 211 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_iwdg.h"
+# 211 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_iwdg.h"
 #define IS_IWDG_RELOAD(__RELOAD__) ((__RELOAD__) <= IWDG_RLR_RL)
 
 
@@ -22517,18 +22517,18 @@ HAL_StatusTypeDef HAL_IWDG_Refresh(IWDG_HandleTypeDef *hiwdg);
 
 
 #define IS_IWDG_WINDOW(__WINDOW__) ((__WINDOW__) <= IWDG_WINR_WIN)
-# 257 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
-# 268 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
+# 257 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
+# 268 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
 #define STM32WLxx_HAL_PWR_H 
-# 32 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 32 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 #define __STM32WLxx_LL_PWR_H 
-# 48 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 48 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 #define PWR_FLASH_POWER_MODE_UNLOCK_CODE (0x0000C1B0UL)
-# 65 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 65 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 #define LL_PWR_SCR_CWUF PWR_SCR_CWUF
 #define LL_PWR_SCR_CWUF3 PWR_SCR_CWUF3
 #define LL_PWR_SCR_CWUF2 PWR_SCR_CWUF2
@@ -22538,7 +22538,7 @@ HAL_StatusTypeDef HAL_IWDG_Refresh(IWDG_HandleTypeDef *hiwdg);
 #define LL_PWR_SCR_CC2HF PWR_SCR_CC2HF
 #define LL_PWR_EXTSCR_C2CSSF PWR_EXTSCR_C2CSSF
 #define LL_PWR_EXTSCR_C1CSSF PWR_EXTSCR_C1CSSF
-# 82 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 82 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 #define LL_PWR_SR1_WUFI PWR_SR1_WUFI
 #define LL_PWR_SR1_WUF3 PWR_SR1_WUF3
 #define LL_PWR_SR1_WUF2 PWR_SR1_WUF2
@@ -22567,7 +22567,7 @@ HAL_StatusTypeDef HAL_IWDG_Refresh(IWDG_HandleTypeDef *hiwdg);
 #define LL_PWR_EXTSCR_C1STOP2F PWR_EXTSCR_C1STOP2F
 #define LL_PWR_EXTSCR_C1STOPF PWR_EXTSCR_C1STOPF
 #define LL_PWR_EXTSCR_C1DS PWR_EXTSCR_C1DS
-# 125 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 125 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 #define LL_PWR_REGU_VOLTAGE_SCALE1 (PWR_CR1_VOS_0)
 #define LL_PWR_REGU_VOLTAGE_SCALE2 (PWR_CR1_VOS_1)
 
@@ -22662,7 +22662,7 @@ HAL_StatusTypeDef HAL_IWDG_Refresh(IWDG_HandleTypeDef *hiwdg);
 #define LL_PWR_GPIO_B ((uint32_t)(&(PWR->PUCRB)))
 #define LL_PWR_GPIO_C ((uint32_t)(&(PWR->PUCRC)))
 #define LL_PWR_GPIO_H ((uint32_t)(&(PWR->PUCRH)))
-# 228 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 228 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 #define LL_PWR_GPIO_BIT_0 (PWR_PUCRB_PB0)
 #define LL_PWR_GPIO_BIT_1 (PWR_PUCRB_PB1)
 #define LL_PWR_GPIO_BIT_2 (PWR_PUCRB_PB2)
@@ -22724,7 +22724,7 @@ HAL_StatusTypeDef HAL_IWDG_Refresh(IWDG_HandleTypeDef *hiwdg);
 
 #define LL_PWR_SUBGHZSPI_NSS_SRC_SW (0x00000000UL)
 #define LL_PWR_SUBGHZSPI_NSS_SRC_LPTIM3 (PWR_CR1_SUBGHZSPINSSSEL)
-# 312 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 312 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 #define LL_PWR_WriteReg(__REG__,__VALUE__) WRITE_REG(PWR->__REG__, (__VALUE__))
 
 
@@ -22733,7 +22733,7 @@ HAL_StatusTypeDef HAL_IWDG_Refresh(IWDG_HandleTypeDef *hiwdg);
 
 
 #define LL_PWR_ReadReg(__REG__) READ_REG(PWR->__REG__)
-# 343 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 343 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline void LL_PWR_EnterLowPowerRunMode(void)
 {
   ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR1) |= ((0x1UL << (14U))));
@@ -22758,12 +22758,12 @@ static inline uint32_t LL_PWR_IsEnabledLowPowerRunMode(void)
 {
   return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR1) & ((0x1UL << (14U)))) == ((0x1UL << (14U)))) ? 1UL : 0UL);
 }
-# 380 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 380 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline void LL_PWR_SetRegulVoltageScaling(uint32_t VoltageScaling)
 {
   (((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR1)) = ((((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR1))) & (~((0x3UL << (9U))))) | (VoltageScaling))));
 }
-# 392 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 392 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline uint32_t LL_PWR_GetRegulVoltageScaling(void)
 {
   return (uint32_t)(((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR1) & ((0x3UL << (9U)))));
@@ -22798,17 +22798,17 @@ static inline uint32_t LL_PWR_IsEnabledBkUpAccess(void)
 {
   return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR1) & ((0x1UL << (8U)))) == ((0x1UL << (8U)))) ? 1UL : 0UL);
 }
-# 438 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 438 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline void LL_PWR_SetPowerMode(uint32_t LowPowerMode)
 {
   (((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR1)) = ((((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR1))) & (~((0x7UL << (0U))))) | (LowPowerMode))));
 }
-# 453 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 453 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline uint32_t LL_PWR_GetPowerMode(void)
 {
   return (uint32_t)(((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR1) & ((0x7UL << (0U)))));
 }
-# 466 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 466 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline void LL_PWR_SetFlashPowerModeLPRun(uint32_t FlashLowPowerMode)
 {
 
@@ -22817,42 +22817,42 @@ static inline void LL_PWR_SetFlashPowerModeLPRun(uint32_t FlashLowPowerMode)
 
   (((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR1)) = ((((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR1))) & (~((0x1UL << (4U))))) | (FlashLowPowerMode))));
 }
-# 482 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 482 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline uint32_t LL_PWR_GetFlashPowerModeLPRun(void)
 {
   return (uint32_t)(((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR1) & ((0x1UL << (4U)))));
 }
-# 495 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 495 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline void LL_PWR_SetFlashPowerModeSleep(uint32_t FlashLowPowerMode)
 {
   (((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR1)) = ((((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR1))) & (~((0x1UL << (5U))))) | (FlashLowPowerMode))));
 }
-# 507 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 507 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline uint32_t LL_PWR_GetFlashPowerModeSleep(void)
 {
   return (uint32_t)(((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR1) & ((0x1UL << (5U)))));
 }
-# 519 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 519 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline void LL_PWR_EnablePVM(uint32_t PeriphVoltage)
 {
   ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR2) |= (PeriphVoltage));
 }
-# 531 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 531 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline void LL_PWR_DisablePVM(uint32_t PeriphVoltage)
 {
   ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR2) &= ~(PeriphVoltage));
 }
-# 543 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 543 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline uint32_t LL_PWR_IsEnabledPVM(uint32_t PeriphVoltage)
 {
   return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR2) & (PeriphVoltage)) == (PeriphVoltage)) ? 1UL : 0UL);
 }
-# 562 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 562 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline void LL_PWR_SetPVDLevel(uint32_t PVDLevel)
 {
   (((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR2)) = ((((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR2))) & (~((0x7UL << (1U))))) | (PVDLevel))));
 }
-# 580 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 580 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline uint32_t LL_PWR_GetPVDLevel(void)
 {
   return (uint32_t)(((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR2) & ((0x7UL << (1U)))));
@@ -22887,12 +22887,12 @@ static inline uint32_t LL_PWR_IsEnabledPVD(void)
 {
   return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR2) & ((0x1UL << (0U)))) == ((0x1UL << (0U)))) ? 1UL : 0UL);
 }
-# 624 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 624 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline void LL_PWR_SetRadioEOL(uint32_t RadioEOL)
 {
   (((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR5)) = ((((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR5))) & (~((0x1UL << (14U))))) | (RadioEOL))));
 }
-# 636 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 636 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline uint32_t LL_PWR_GetRadioEOL(void)
 {
   return (uint32_t)(((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR5) & ((0x1UL << (14U)))));
@@ -22987,7 +22987,7 @@ static inline uint32_t LL_PWR_IsEnabledSRAM2Retention(void)
 {
   return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR3) & ((0x1UL << (9U)))) == ((0x1UL << (9U)))) ? 1UL : 0UL);
 }
-# 738 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 738 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline void LL_PWR_EnableWPVD(void)
 {
   ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR3) |= ((0x1UL << (8U))));
@@ -23012,7 +23012,7 @@ static inline uint32_t LL_PWR_IsEnabledWPVD(void)
 {
   return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR3) & ((0x1UL << (8U)))) == ((0x1UL << (8U)))) ? 1UL : 0UL);
 }
-# 772 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 772 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline void LL_PWR_EnableBORPVD_ULP(void)
 {
   ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR3) |= ((0x1UL << (7U))));
@@ -23039,27 +23039,27 @@ static inline uint32_t LL_PWR_IsEnabledBORPVD_ULP(void)
 {
   return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR3) & ((0x1UL << (7U)))) == ((0x1UL << (7U)))) ? 1UL : 0UL);
 }
-# 810 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 810 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline void LL_PWR_EnableWakeUpPin(uint32_t WakeUpPin)
 {
   ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR3) |= (WakeUpPin));
 }
-# 826 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 826 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline void LL_PWR_DisableWakeUpPin(uint32_t WakeUpPin)
 {
   ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR3) &= ~(WakeUpPin));
 }
-# 842 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 842 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline uint32_t LL_PWR_IsEnabledWakeUpPin(uint32_t WakeUpPin)
 {
   return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR3) & (WakeUpPin)) == (WakeUpPin)) ? 1UL : 0UL);
 }
-# 855 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 855 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline void LL_PWR_SetBattChargResistor(uint32_t Resistor)
 {
   (((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR4)) = ((((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR4))) & (~((0x1UL << (9U))))) | (Resistor))));
 }
-# 867 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 867 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline uint32_t LL_PWR_GetBattChargResistor(void)
 {
   return (uint32_t)(((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR4) & ((0x1UL << (9U)))));
@@ -23094,74 +23094,74 @@ static inline uint32_t LL_PWR_IsEnabledBatteryCharging(void)
 {
   return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR4) & ((0x1UL << (8U)))) == ((0x1UL << (8U)))) ? 1UL : 0UL);
 }
-# 913 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 913 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline void LL_PWR_SetWakeUpPinPolarityLow(uint32_t WakeUpPin)
 {
   ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR4) |= (WakeUpPin));
 }
-# 929 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 929 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline void LL_PWR_SetWakeUpPinPolarityHigh(uint32_t WakeUpPin)
 {
   ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR4) &= ~(WakeUpPin));
 }
-# 945 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 945 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline uint32_t LL_PWR_IsWakeUpPinPolarityLow(uint32_t WakeUpPin)
 {
   return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR4) & (WakeUpPin)) == (WakeUpPin)) ? 1UL : 0UL);
 }
-# 982 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 982 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline void LL_PWR_EnableGPIOPullUp(uint32_t GPIO, uint32_t GPIONumber)
 {
   ((*((volatile uint32_t *)GPIO)) |= (GPIONumber));
 }
-# 1019 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 1019 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline void LL_PWR_DisableGPIOPullUp(uint32_t GPIO, uint32_t GPIONumber)
 {
   ((*((volatile uint32_t *)GPIO)) &= ~(GPIONumber));
 }
-# 1054 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 1054 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline uint32_t LL_PWR_IsEnabledGPIOPullUp(uint32_t GPIO, uint32_t GPIONumber)
 {
   return ((((*((volatile uint32_t *)(GPIO))) & (GPIONumber)) == (GPIONumber)) ? 1UL : 0UL);
 }
-# 1091 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 1091 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline void LL_PWR_EnableGPIOPullDown(uint32_t GPIO, uint32_t GPIONumber)
 {
   ((*((volatile uint32_t *)(GPIO + 4U))) |= (GPIONumber));
 }
-# 1128 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 1128 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline void LL_PWR_DisableGPIOPullDown(uint32_t GPIO, uint32_t GPIONumber)
 {
   ((*((volatile uint32_t *)(GPIO + 4U))) &= ~(GPIONumber));
 }
-# 1163 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 1163 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline uint32_t LL_PWR_IsEnabledGPIOPullDown(uint32_t GPIO, uint32_t GPIONumber)
 {
   return ((((*((volatile uint32_t *)(GPIO + 4U))) & (GPIONumber)) == (GPIONumber)) ? 1UL : 0UL);
 }
-# 1185 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 1185 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline void LL_PWR_SMPS_SetMode(uint32_t OperatingMode)
 {
   (((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR5)) = ((((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR5))) & (~((0x1UL << (15U))))) | (OperatingMode))));
 }
-# 1197 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 1197 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline uint32_t LL_PWR_SMPS_GetMode(void)
 {
   return (uint32_t)(((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR5) & ((0x1UL << (15U)))));
 }
-# 1214 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 1214 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline uint32_t LL_PWR_SMPS_GetEffectiveMode(void)
 {
 
 
   return (uint32_t)(((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->SR2) & ((0x1UL << (3U)))) << ((15U) - (3U)));
 }
-# 1229 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 1229 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline void LL_PWR_SMPS_Enable(void)
 {
   ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR5) |= ((0x1UL << (15U))));
 }
-# 1242 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 1242 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline void LL_PWR_SMPS_Disable(void)
 {
   ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR5) &= ~((0x1UL << (15U))));
@@ -23176,42 +23176,42 @@ static inline uint32_t LL_PWR_SMPS_IsEnabled(void)
 {
   return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR5) & ((0x1UL << (15U)))) == ((0x1UL << (15U)))) ? 1UL : 0UL);
 }
-# 1273 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 1273 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline void LL_PWR_SetRadioBusyPolarity(uint32_t RadioBusyPolarity)
 {
   (((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR4)) = ((((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR4))) & (~((0x1UL << (11U))))) | (RadioBusyPolarity))));
 }
-# 1285 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 1285 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline uint32_t LL_PWR_GetRadioBusyPolarity(void)
 {
   return (uint32_t)(((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR4) & ((0x1UL << (11U)))));
 }
-# 1301 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 1301 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline void LL_PWR_SetRadioBusyTrigger(uint32_t RadioBusyTrigger)
 {
   (((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR3)) = ((((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR3))) & (~((0x1UL << (11U))))) | (RadioBusyTrigger))));
 }
-# 1314 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 1314 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline uint32_t LL_PWR_GetRadioBusyTrigger(void)
 {
   return (uint32_t)(((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR3) & ((0x1UL << (11U)))));
 }
-# 1328 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 1328 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline void LL_PWR_SetRadioIRQTrigger(uint32_t RadioIRQTrigger)
 {
   (((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR3)) = ((((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR3))) & (~((0x1UL << (13U))))) | (RadioIRQTrigger))));
 }
-# 1341 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 1341 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline uint32_t LL_PWR_GetRadioIRQTrigger(void)
 {
   return (uint32_t)(((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR3) & ((0x1UL << (13U)))));
 }
-# 1354 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 1354 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline void LL_PWR_SetSUBGHZSPI_NSSSource(uint32_t RadioSPI_NSSSource)
 {
   (((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR1)) = ((((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR1))) & (~((0x1UL << (3U))))) | (RadioSPI_NSSSource))));
 }
-# 1366 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 1366 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline uint32_t LL_PWR_GetSUBGHZSPI_NSSSource(void)
 {
   return (uint32_t)(((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR1) & ((0x1UL << (3U)))));
@@ -23246,7 +23246,7 @@ static inline uint32_t LL_PWR_IsSUBGHZSPI_NSS_Selected(void)
 {
   return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->SUBGHZSPICR) & ((0x1UL << (15U)))) != ((0x1UL << (15U)))) ? 1UL : 0UL);
 }
-# 1795 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 1795 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline uint32_t LL_PWR_IsActiveFlag_InternWU(void)
 {
   return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->SR1) & ((0x1UL << (15U)))) == ((0x1UL << (15U)))) ? 1UL : 0UL);
@@ -23351,7 +23351,7 @@ static inline uint32_t LL_PWR_IsActiveFlag_RFEOL(void)
 {
   return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->SR2) & ((0x1UL << (5U)))) == ((0x1UL << (5U)))) ? 1UL : 0UL);
 }
-# 1907 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 1907 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline uint32_t LL_PWR_IsActiveFlag_VOS(void)
 {
   return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->SR2) & ((0x1UL << (10U)))) == ((0x1UL << (10U)))) ? 1UL : 0UL);
@@ -23397,12 +23397,12 @@ static inline uint32_t LL_PWR_IsActiveFlag_REGLPF(void)
 {
   return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->SR2) & ((0x1UL << (9U)))) == ((0x1UL << (9U)))) ? 1UL : 0UL);
 }
-# 1963 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 1963 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline uint32_t LL_PWR_IsActiveFlag_REGLPS(void)
 {
   return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->SR2) & ((0x1UL << (8U)))) == ((0x1UL << (8U)))) ? 1UL : 0UL);
 }
-# 1975 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 1975 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline uint32_t LL_PWR_IsActiveFlag_REGMRS(void)
 {
   return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->SR2) & ((0x1UL << (6U)))) == ((0x1UL << (6U)))) ? 1UL : 0UL);
@@ -23417,12 +23417,12 @@ static inline uint32_t LL_PWR_IsActiveFlag_FLASHRDY(void)
 {
   return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->SR2) & ((0x1UL << (7U)))) == ((0x1UL << (7U)))) ? 1UL : 0UL);
 }
-# 2003 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 2003 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline uint32_t LL_PWR_IsActiveFlag_SMPSRDY(void)
 {
   return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->SR2) & ((0x1UL << (3U)))) == ((0x1UL << (3U)))) ? 1UL : 0UL);
 }
-# 2026 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 2026 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline uint32_t LL_PWR_IsActiveFlag_RFBUSY(void)
 {
   return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->SR1) & ((0x1UL << (11U)))) == ((0x1UL << (11U)))) ? 1UL : 0UL);
@@ -23437,17 +23437,17 @@ static inline void LL_PWR_ClearFlag_RFBUSY(void)
 {
   ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->SCR) = ((0x1UL << (11U))));
 }
-# 2049 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 2049 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline uint32_t LL_PWR_IsActiveFlag_RFBUSYS(void)
 {
   return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->SR2) & ((0x1UL << (1U)))) == ((0x1UL << (1U)))) ? 1UL : 0UL);
 }
-# 2062 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 2062 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline uint32_t LL_PWR_IsActiveFlag_RFBUSYMS(void)
 {
   return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->SR2) & ((0x1UL << (2U)))) == ((0x1UL << (2U)))) ? 1UL : 0UL);
 }
-# 2105 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 2105 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline uint32_t LL_PWR_IsActiveFlag_C1STOP(void)
 {
   return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->EXTSCR) & ((0x1UL << (10U)))) == ((0x1UL << (10U)))) ? 1UL : 0UL);
@@ -23482,13 +23482,13 @@ static inline uint32_t LL_PWR_IsActiveFlag_C1DS(void)
 {
   return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->EXTSCR) & ((0x1UL << (14U)))) == ((0x1UL << (14U)))) ? 1UL : 0UL);
 }
-# 2197 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
+# 2197 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline void LL_PWR_ClearFlag_C1STOP_C1STB(void)
 {
   ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->EXTSCR) = ((0x1UL << (0U))));
 }
-# 33 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h" 2
-# 51 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
+# 33 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h" 2
+# 51 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
 typedef struct
 {
   uint32_t PVDLevel;
@@ -23497,7 +23497,7 @@ typedef struct
   uint32_t Mode;
 
 } PWR_PVDTypeDef;
-# 73 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
+# 73 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
 #define PWR_PVDLEVEL_0 (0x00000000UL)
 #define PWR_PVDLEVEL_1 ( PWR_CR2_PLS_0)
 #define PWR_PVDLEVEL_2 ( PWR_CR2_PLS_1 )
@@ -23506,19 +23506,19 @@ typedef struct
 #define PWR_PVDLEVEL_5 (PWR_CR2_PLS_2 | PWR_CR2_PLS_0)
 #define PWR_PVDLEVEL_6 (PWR_CR2_PLS_2 | PWR_CR2_PLS_1 )
 #define PWR_PVDLEVEL_7 (PWR_CR2_PLS_2 | PWR_CR2_PLS_1 | PWR_CR2_PLS_0)
-# 90 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
+# 90 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
 #define PWR_PVD_MODE_NORMAL (0x00000000UL)
 
 #define PWR_PVD_MODE_IT_RISING (PVD_MODE_IT | PVD_RISING_EDGE)
 #define PWR_PVD_MODE_IT_FALLING (PVD_MODE_IT | PVD_FALLING_EDGE)
 #define PWR_PVD_MODE_IT_RISING_FALLING (PVD_MODE_IT | PVD_RISING_FALLING_EDGE)
-# 109 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
+# 109 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
 #define PWR_LOWPOWERMODE_STOP0 (0x00000000UL)
 #define PWR_LOWPOWERMODE_STOP1 (PWR_CR1_LPMS_0)
 #define PWR_LOWPOWERMODE_STOP2 (PWR_CR1_LPMS_1)
 #define PWR_LOWPOWERMODE_STANDBY (PWR_CR1_LPMS_0 | PWR_CR1_LPMS_1)
 #define PWR_LOWPOWERMODE_SHUTDOWN (PWR_CR1_LPMS_2 | PWR_CR1_LPMS_1 | PWR_CR1_LPMS_0)
-# 122 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
+# 122 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
 #define PWR_MAINREGULATOR_ON (0x00000000UL)
 #define PWR_LOWPOWERREGULATOR_ON (PWR_CR1_LPR)
 
@@ -23539,22 +23539,22 @@ typedef struct
 
 #define PWR_STOPENTRY_WFI ((uint8_t)0x01)
 #define PWR_STOPENTRY_WFE ((uint8_t)0x02)
-# 158 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
+# 158 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
 #define PWR_EXTI_LINE_PVD (LL_EXTI_LINE_16)
-# 168 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
+# 168 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
 #define PVD_MODE_IT (0x00010000UL)
 #define PVD_RISING_EDGE (0x00000001UL)
 #define PVD_FALLING_EDGE (0x00000002UL)
 #define PVD_RISING_FALLING_EDGE (0x00000003UL)
-# 303 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
+# 303 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
 #define __HAL_PWR_GET_FLAG(__FLAG__) ((((__FLAG__) & PWR_FLAG_REG_MASK) == PWR_FLAG_REG_SR1) ? ( PWR->SR1 & (1UL << ((__FLAG__) & 31UL)) ) : ( (((__FLAG__) & PWR_FLAG_REG_MASK) == PWR_FLAG_REG_SR2) ? ( PWR->SR2 & (1UL << ((__FLAG__) & 31UL)) ) : ( PWR->EXTSCR & (1UL << ((__FLAG__) & 31UL)) ) ) )
-# 376 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
+# 376 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
 #define __HAL_PWR_CLEAR_FLAG(__FLAG__) ((((__FLAG__) & PWR_FLAG_REG_MASK) == PWR_FLAG_REG_EXTSCR) ? ( PWR->EXTSCR = (1UL << (((__FLAG__) & PWR_FLAG_EXTSCR_CLR_MASK) >> PWR_FLAG_EXTSCR_CLR_POS)) ) : ( (((__FLAG__)) == PWR_FLAG_WU) ? (PWR->SCR = PWR_SCR_CWUF) : (PWR->SCR = (1UL << ((__FLAG__) & 31UL))) ) )
-# 395 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
+# 395 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
 #define __HAL_PWR_PVD_EXTI_ENABLE_IT() LL_EXTI_EnableIT_0_31(PWR_EXTI_LINE_PVD)
-# 405 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
+# 405 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
 #define __HAL_PWR_PVD_EXTI_DISABLE_IT() LL_EXTI_DisableIT_0_31(PWR_EXTI_LINE_PVD)
-# 417 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
+# 417 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
 #define __HAL_PWR_PVD_EXTI_ENABLE_RISING_EDGE() LL_EXTI_EnableFallingTrig_0_31(PWR_EXTI_LINE_PVD)
 
 
@@ -23586,9 +23586,9 @@ typedef struct
 
 
 #define __HAL_PWR_PVD_EXTI_ENABLE_RISING_FALLING_EDGE() do { __HAL_PWR_PVD_EXTI_ENABLE_RISING_EDGE(); __HAL_PWR_PVD_EXTI_ENABLE_FALLING_EDGE(); } while(0)
-# 457 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
+# 457 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
 #define __HAL_PWR_PVD_EXTI_DISABLE_RISING_FALLING_EDGE() do { __HAL_PWR_PVD_EXTI_DISABLE_RISING_EDGE(); __HAL_PWR_PVD_EXTI_DISABLE_FALLING_EDGE(); } while(0)
-# 467 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
+# 467 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
 #define __HAL_PWR_PVD_EXTI_GENERATE_SWIT() LL_EXTI_GenerateSWI_0_31(PWR_EXTI_LINE_PVD)
 
 
@@ -23602,7 +23602,7 @@ typedef struct
 
 
 #define __HAL_PWR_PVD_EXTI_CLEAR_FLAG() LL_EXTI_ClearFlag_0_31(PWR_EXTI_LINE_PVD)
-# 490 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
+# 490 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
 #define IS_PWR_PVD_LEVEL(__LEVEL__) (((__LEVEL__) == PWR_PVDLEVEL_0) || ((__LEVEL__) == PWR_PVDLEVEL_1)|| ((__LEVEL__) == PWR_PVDLEVEL_2) || ((__LEVEL__) == PWR_PVDLEVEL_3)|| ((__LEVEL__) == PWR_PVDLEVEL_4) || ((__LEVEL__) == PWR_PVDLEVEL_5)|| ((__LEVEL__) == PWR_PVDLEVEL_6) || ((__LEVEL__) == PWR_PVDLEVEL_7))
 
 
@@ -23626,10 +23626,10 @@ typedef struct
 
 
 
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
 #define STM32WLxx_HAL_PWR_EX_H 
-# 50 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
+# 50 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
 typedef struct
 {
   uint32_t PVMType;
@@ -23639,7 +23639,7 @@ typedef struct
   uint32_t Mode;
 
 } PWR_PVMTypeDef;
-# 68 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
+# 68 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
 #define PWR_WUP_POLARITY_SHIFT 0x05
 
 
@@ -23655,12 +23655,12 @@ typedef struct
 
 
 #define PWR_FLAG_EXTSCR_CLR_MASK ((PWR_EXTSCR_C1CSSF_Pos) << PWR_FLAG_EXTSCR_CLR_POS)
-# 93 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
+# 93 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
 #define PVM_MODE_IT (0x00010000UL)
 #define PVM_RISING_EDGE (0x00000001UL)
 #define PVM_FALLING_EDGE (0x00000002UL)
 #define PVM_RISING_FALLING_EDGE (0x00000003UL)
-# 115 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
+# 115 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
 #define PWR_WAKEUP_PIN1_HIGH PWR_CR3_EWUP1
 #define PWR_WAKEUP_PIN2_HIGH PWR_CR3_EWUP2
 #define PWR_WAKEUP_PIN3_HIGH PWR_CR3_EWUP3
@@ -23681,7 +23681,7 @@ typedef struct
 
 
 #define PWR_PVM_3 PWR_CR2_PVME3
-# 144 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
+# 144 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
 #define PWR_PVM_MODE_NORMAL (0x00000000UL)
 
 #define PWR_PVM_MODE_IT_RISING (PVM_MODE_IT | PVM_RISING_EDGE)
@@ -23802,7 +23802,7 @@ typedef struct
 
 #define PWR_RADIO_IRQ_TRIGGER_NONE (0x00000000UL)
 #define PWR_RADIO_IRQ_TRIGGER_WU_IT (PWR_CR3_EWRFIRQ)
-# 278 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
+# 278 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
 #define PWR_FLAG_WUF1 (PWR_FLAG_REG_SR1 | PWR_SR1_WUF1_Pos)
 #define PWR_FLAG_WUF2 (PWR_FLAG_REG_SR1 | PWR_SR1_WUF2_Pos)
 #define PWR_FLAG_WUF3 (PWR_FLAG_REG_SR1 | PWR_SR1_WUF3_Pos)
@@ -23841,19 +23841,19 @@ typedef struct
 
 
 #define PWR_FLAG_C1DEEPSLEEP (PWR_EXTSCR_C1DS_Pos | PWR_FLAG_REG_EXTSCR)
-# 326 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
+# 326 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
 #define PWR_CORE_CPU1 (0x00000000UL)
-# 337 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
+# 337 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
 #define PWR_EXTI_LINE_PVM3 (LL_EXTI_LINE_34)
-# 358 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
+# 358 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
 #define __HAL_PWR_PVM3_EXTI_ENABLE_IT() LL_EXTI_EnableIT_32_63(PWR_EXTI_LINE_PVM3)
-# 368 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
+# 368 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
 #define __HAL_PWR_PVM3_EXTI_DISABLE_IT() LL_EXTI_DisableIT_32_63(PWR_EXTI_LINE_PVM3)
-# 378 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
+# 378 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
 #define __HAL_PWR_PVM3_EXTI_ENABLE_EVENT() LL_EXTI_EnableEvent_32_63(PWR_EXTI_LINE_PVM3)
-# 388 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
+# 388 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
 #define __HAL_PWR_PVM3_EXTI_DISABLE_EVENT() LL_EXTI_DisableEvent_32_63(PWR_EXTI_LINE_PVM3)
-# 397 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
+# 397 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
 #define __HAL_PWR_PVM3_EXTI_ENABLE_RISING_EDGE() LL_EXTI_EnableFallingTrig_32_63(PWR_EXTI_LINE_PVM3)
 
 
@@ -23871,7 +23871,7 @@ typedef struct
 
 
 #define __HAL_PWR_PVM3_EXTI_ENABLE_FALLING_EDGE() LL_EXTI_EnableRisingTrig_32_63(PWR_EXTI_LINE_PVM3)
-# 422 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
+# 422 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
 #define __HAL_PWR_PVM3_EXTI_DISABLE_FALLING_EDGE() LL_EXTI_DisableRisingTrig_32_63(PWR_EXTI_LINE_PVM3)
 
 
@@ -23879,9 +23879,9 @@ typedef struct
 
 
 #define __HAL_PWR_PVM3_EXTI_ENABLE_RISING_FALLING_EDGE() do { __HAL_PWR_PVM3_EXTI_ENABLE_RISING_EDGE(); __HAL_PWR_PVM3_EXTI_ENABLE_FALLING_EDGE(); } while(0)
-# 438 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
+# 438 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
 #define __HAL_PWR_PVM3_EXTI_DISABLE_RISING_FALLING_EDGE() do { __HAL_PWR_PVM3_EXTI_DISABLE_RISING_EDGE(); __HAL_PWR_PVM3_EXTI_DISABLE_FALLING_EDGE(); } while(0)
-# 448 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
+# 448 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
 #define __HAL_PWR_PVM3_EXTI_GENERATE_SWIT() LL_EXTI_GenerateSWI_32_63(PWR_EXTI_LINE_PVM3)
 
 
@@ -23895,9 +23895,9 @@ typedef struct
 
 
 #define __HAL_PWR_PVM3_EXTI_CLEAR_FLAG() LL_EXTI_ClearFlag_32_63(PWR_EXTI_LINE_PVM3)
-# 479 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
+# 479 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
 #define __HAL_PWR_VOLTAGESCALING_CONFIG(__REGULATOR__) do { __IO uint32_t tmpreg; MODIFY_REG(PWR->CR1, PWR_CR1_VOS, (__REGULATOR__)); tmpreg = READ_BIT(PWR->CR1, PWR_CR1_VOS); UNUSED(tmpreg); } while(0)
-# 496 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
+# 496 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
 #define IS_PWR_WAKEUP_PIN(PIN) (((PIN) == PWR_WAKEUP_PIN1_HIGH) || ((PIN) == PWR_WAKEUP_PIN2_HIGH) || ((PIN) == PWR_WAKEUP_PIN3_HIGH) || ((PIN) == PWR_WAKEUP_PIN1_LOW) || ((PIN) == PWR_WAKEUP_PIN2_LOW) || ((PIN) == PWR_WAKEUP_PIN3_LOW))
 
 
@@ -23947,7 +23947,7 @@ typedef struct
 
 
 #define IS_PWR_CORE(__CPU__) (((__CPU__) == PWR_CORE_CPU1))
-# 566 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
+# 566 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
 uint32_t HAL_PWREx_GetVoltageRange(void);
 HAL_StatusTypeDef HAL_PWREx_ControlVoltageScaling(uint32_t VoltageScaling);
 
@@ -24012,13 +24012,13 @@ void HAL_PWREx_EnterSHUTDOWNMode(void);
 void HAL_PWREx_PVD_PVM_IRQHandler(void);
 
 void HAL_PWREx_PVM3Callback(void);
-# 514 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h" 2
-# 525 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
+# 514 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h" 2
+# 525 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
 void HAL_PWR_DeInit(void);
 
 void HAL_PWR_EnableBkUpAccess(void);
 void HAL_PWR_DisableBkUpAccess(void);
-# 537 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
+# 537 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
 HAL_StatusTypeDef HAL_PWR_ConfigPVD(PWR_PVDTypeDef *sConfigPVD);
 void HAL_PWR_EnablePVD(void);
 void HAL_PWR_DisablePVD(void);
@@ -24039,12 +24039,12 @@ void HAL_PWR_EnableSEVOnPend(void);
 void HAL_PWR_DisableSEVOnPend(void);
 
 void HAL_PWR_PVDCallback(void);
-# 269 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
+# 269 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
 
 
 
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define STM32WLxx_HAL_RCC_H 
 
 
@@ -24053,14 +24053,14 @@ void HAL_PWR_PVDCallback(void);
 
 
 
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 #define __STM32WLxx_LL_RCC_H 
-# 47 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 47 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 #define HSE_CONTROL_UNLOCK_KEY 0xCAFECAFEU
-# 126 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 126 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 #define EXTERNAL_CLOCK_VALUE 48000U
-# 137 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 137 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 #define LL_RCC_CICR_LSIRDYC RCC_CICR_LSIRDYC
 #define LL_RCC_CICR_LSERDYC RCC_CICR_LSERDYC
 #define LL_RCC_CICR_MSIRDYC RCC_CICR_MSIRDYC
@@ -24069,7 +24069,7 @@ void HAL_PWR_PVDCallback(void);
 #define LL_RCC_CICR_PLLRDYC RCC_CICR_PLLRDYC
 #define LL_RCC_CICR_LSECSSC RCC_CICR_LSECSSC
 #define LL_RCC_CICR_CSSC RCC_CICR_CSSC
-# 153 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 153 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 #define LL_RCC_CIFR_LSIRDYF RCC_CIFR_LSIRDYF
 #define LL_RCC_CIFR_LSERDYF RCC_CIFR_LSERDYF
 #define LL_RCC_CIFR_MSIRDYF RCC_CIFR_MSIRDYF
@@ -24086,7 +24086,7 @@ void HAL_PWR_PVDCallback(void);
 #define LL_RCC_CSR_WWDGRSTF RCC_CSR_WWDGRSTF
 #define LL_RCC_CSR_BORRSTF RCC_CSR_BORRSTF
 #define LL_RCC_CSR_RFILASTF RCC_CSR_RFILARSTF
-# 178 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 178 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 #define LL_RCC_CIER_LSIRDYIE RCC_CIER_LSIRDYIE
 #define LL_RCC_CIER_LSERDYIE RCC_CIER_LSERDYIE
 #define LL_RCC_CIER_MSIRDYIE RCC_CIER_MSIRDYIE
@@ -24135,7 +24135,7 @@ void HAL_PWR_PVDCallback(void);
 #define LL_RCC_MSISRANGE_5 RCC_CSR_MSISRANGE_2
 #define LL_RCC_MSISRANGE_6 RCC_CSR_MSISRANGE_4
 #define LL_RCC_MSISRANGE_7 RCC_CSR_MSISRANGE_8
-# 234 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 234 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 #define LL_RCC_LSCO_CLKSOURCE_LSI 0x00000000U
 #define LL_RCC_LSCO_CLKSOURCE_LSE RCC_BDCR_LSCOSEL
 
@@ -24243,7 +24243,7 @@ void HAL_PWR_PVDCallback(void);
 #define LL_RCC_MCO1_DIV_4 RCC_CFGR_MCOPRE_1
 #define LL_RCC_MCO1_DIV_8 (RCC_CFGR_MCOPRE_1 | RCC_CFGR_MCOPRE_0)
 #define LL_RCC_MCO1_DIV_16 RCC_CFGR_MCOPRE_2
-# 359 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 359 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 #define LL_RCC_USART1_CLKSOURCE_PCLK2 (RCC_CCIPR_USART1SEL << 16U)
 #define LL_RCC_USART1_CLKSOURCE_SYSCLK ((RCC_CCIPR_USART1SEL << 16U) | RCC_CCIPR_USART1SEL_0)
 #define LL_RCC_USART1_CLKSOURCE_HSI ((RCC_CCIPR_USART1SEL << 16U) | RCC_CCIPR_USART1SEL_1)
@@ -24308,7 +24308,7 @@ void HAL_PWR_PVDCallback(void);
 #define LL_RCC_LPTIM3_CLKSOURCE_LSI (uint32_t)(RCC_CCIPR_LPTIM3SEL | (RCC_CCIPR_LPTIM3SEL_0 >> 16))
 #define LL_RCC_LPTIM3_CLKSOURCE_HSI (uint32_t)(RCC_CCIPR_LPTIM3SEL | (RCC_CCIPR_LPTIM3SEL_1 >> 16))
 #define LL_RCC_LPTIM3_CLKSOURCE_LSE (uint32_t)(RCC_CCIPR_LPTIM3SEL | (RCC_CCIPR_LPTIM3SEL >> 16))
-# 431 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 431 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 #define LL_RCC_ADC_CLKSOURCE_NONE 0x00000000U
 #define LL_RCC_ADC_CLKSOURCE_HSI RCC_CCIPR_ADCSEL_0
 #define LL_RCC_ADC_CLKSOURCE_PLL RCC_CCIPR_ADCSEL_1
@@ -24333,7 +24333,7 @@ void HAL_PWR_PVDCallback(void);
 
 #define LL_RCC_USART1_CLKSOURCE RCC_CCIPR_USART1SEL
 #define LL_RCC_USART2_CLKSOURCE RCC_CCIPR_USART2SEL
-# 463 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 463 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 #define LL_RCC_I2S2_CLKSOURCE RCC_CCIPR_I2S2SEL
 
 
@@ -24363,7 +24363,7 @@ void HAL_PWR_PVDCallback(void);
 #define LL_RCC_LPTIM1_CLKSOURCE RCC_CCIPR_LPTIM1SEL
 #define LL_RCC_LPTIM2_CLKSOURCE RCC_CCIPR_LPTIM2SEL
 #define LL_RCC_LPTIM3_CLKSOURCE RCC_CCIPR_LPTIM3SEL
-# 500 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 500 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 #define LL_RCC_RNG_CLKSOURCE RCC_CCIPR_RNGSEL
 
 
@@ -24384,7 +24384,7 @@ void HAL_PWR_PVDCallback(void);
 #define LL_RCC_RTC_CLKSOURCE_LSE RCC_BDCR_RTCSEL_0
 #define LL_RCC_RTC_CLKSOURCE_LSI RCC_BDCR_RTCSEL_1
 #define LL_RCC_RTC_CLKSOURCE_HSE_DIV32 RCC_BDCR_RTCSEL
-# 528 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 528 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 #define LL_RCC_PLLSOURCE_NONE 0x00000000U
 #define LL_RCC_PLLSOURCE_MSI RCC_PLLCFGR_PLLSRC_0
 #define LL_RCC_PLLSOURCE_HSI RCC_PLLCFGR_PLLSRC_1
@@ -24488,7 +24488,7 @@ void HAL_PWR_PVDCallback(void);
 
 #define LL_RCC_LSI_PREDIV_1 0x00000000U
 #define LL_RCC_LSI_PREDIV_128 RCC_CSR_LSIPRE
-# 654 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 654 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 #define LL_RCC_WriteReg(__REG__,__VALUE__) WRITE_REG(RCC->__REG__, (__VALUE__))
 
 
@@ -24497,25 +24497,25 @@ void HAL_PWR_PVDCallback(void);
 
 
 #define LL_RCC_ReadReg(__REG__) READ_REG(RCC->__REG__)
-# 695 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 695 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 #define __LL_RCC_CALC_PLLCLK_FREQ(__INPUTFREQ__,__PLLM__,__PLLN__,__PLLR__) ((__INPUTFREQ__) * (__PLLN__) / ((((__PLLM__)>> RCC_PLLCFGR_PLLM_Pos) + 1U)) / (((__PLLR__) >> RCC_PLLCFGR_PLLR_Pos) + 1U))
-# 748 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 748 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 #define __LL_RCC_CALC_PLLCLK_ADC_FREQ(__INPUTFREQ__,__PLLM__,__PLLN__,__PLLP__) ((__INPUTFREQ__) * (__PLLN__) / ((((__PLLM__)>> RCC_PLLCFGR_PLLM_Pos) + 1U)) / (((__PLLP__) >> RCC_PLLCFGR_PLLP_Pos) + 1U))
-# 777 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 777 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 #define __LL_RCC_CALC_PLLCLK_RNG_FREQ(__INPUTFREQ__,__PLLM__,__PLLN__,__PLLQ__) ((__INPUTFREQ__) * (__PLLN__) / ((((__PLLM__)>> RCC_PLLCFGR_PLLM_Pos) + 1U)) / (((__PLLQ__) >> RCC_PLLCFGR_PLLQ_Pos) + 1U))
-# 806 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 806 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 #define __LL_RCC_CALC_PLLCLK_I2S2_FREQ __LL_RCC_CALC_PLLCLK_RNG_FREQ
-# 828 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 828 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 #define __LL_RCC_CALC_HCLK1_FREQ(__SYSCLKFREQ__,__CPU1PRESCALER__) ((__SYSCLKFREQ__) / AHBPrescTable[((__CPU1PRESCALER__) & RCC_CFGR_HPRE) >> RCC_CFGR_HPRE_Pos])
-# 876 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 876 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 #define __LL_RCC_CALC_HCLK3_FREQ(__SYSCLKFREQ__,__AHB3PRESCALER__) ((__SYSCLKFREQ__) / AHBPrescTable[(((__AHB3PRESCALER__) >> 4U) & RCC_EXTCFGR_SHDHPRE) >> RCC_EXTCFGR_SHDHPRE_Pos])
-# 891 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 891 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 #define __LL_RCC_CALC_PCLK1_FREQ(__HCLKFREQ__,__APB1PRESCALER__) ((__HCLKFREQ__) >> APBPrescTable[(__APB1PRESCALER__) >> RCC_CFGR_PPRE1_Pos])
-# 905 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 905 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 #define __LL_RCC_CALC_PCLK2_FREQ(__HCLKFREQ__,__APB2PRESCALER__) ((__HCLKFREQ__) >> APBPrescTable[(__APB2PRESCALER__) >> RCC_CFGR_PPRE2_Pos])
-# 940 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 940 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 #define __LL_RCC_CALC_MSI_FREQ(__MSISEL__,__MSIRANGE__) (((__MSISEL__) == LL_RCC_MSIRANGESEL_STANDBY) ? (MSIRangeTable[((__MSIRANGE__) & RCC_CSR_MSISRANGE_Msk) >> RCC_CSR_MSISRANGE_Pos ]) : (MSIRangeTable[((__MSIRANGE__) & RCC_CR_MSIRANGE_Msk) >> RCC_CR_MSIRANGE_Pos]))
-# 969 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 969 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_HSE_EnableTcxo(void)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CR) |= ((0x1UL << (21U))));
@@ -24611,7 +24611,7 @@ static inline uint32_t LL_RCC_HSE_IsReady(void)
 {
   return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CR) & ((0x1UL << (17U)))) == ((0x1UL << (17U)))) ? 1UL : 0UL);
 }
-# 1079 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1079 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_HSI_EnableInStopMode(void)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CR) |= ((0x1UL << (9U))));
@@ -24697,7 +24697,7 @@ static inline uint32_t LL_RCC_HSI_GetCalibration(void)
 {
   return (uint32_t)(((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->ICSCR) & ((0xFFUL << (16U)))) >> (16U));
 }
-# 1174 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1174 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_HSI_SetCalibTrimming(uint32_t Value)
 {
   (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->ICSCR)) = ((((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->ICSCR))) & (~((0x7FUL << (24U))))) | (Value << (24U)))));
@@ -24712,7 +24712,7 @@ static inline uint32_t LL_RCC_HSI_GetCalibTrimming(void)
 {
   return (uint32_t)(((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->ICSCR) & ((0x7FUL << (24U)))) >> (24U));
 }
-# 1202 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1202 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_LSE_Enable(void)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->BDCR) |= ((0x1UL << (0U))));
@@ -24757,12 +24757,12 @@ static inline void LL_RCC_LSE_DisableBypass(void)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->BDCR) &= ~((0x1UL << (2U))));
 }
-# 1258 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1258 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_LSE_SetDriveCapability(uint32_t LSEDrive)
 {
   (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->BDCR)) = ((((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->BDCR))) & (~((0x3UL << (3U))))) | (LSEDrive))));
 }
-# 1272 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1272 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline uint32_t LL_RCC_LSE_GetDriveCapability(void)
 {
   return (uint32_t)(((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->BDCR) & ((0x3UL << (3U)))));
@@ -24777,7 +24777,7 @@ static inline void LL_RCC_LSE_EnableCSS(void)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->BDCR) |= ((0x1UL << (5U))));
 }
-# 1294 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1294 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_LSE_DisableCSS(void)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->BDCR) &= ~((0x1UL << (5U))));
@@ -24833,12 +24833,12 @@ static inline uint32_t LL_RCC_LSE_IsCSSDetected(void)
 {
   return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->BDCR) & ((0x1UL << (6U)))) == ((0x1UL << (6U)))) ? 1UL : 0UL);
 }
-# 1367 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1367 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_LSI_SetPrediv(uint32_t LSI_PREDIV)
 {
   (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CSR)) = ((((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CSR))) & (~((0x1UL << (4U))))) | (LSI_PREDIV))));
 }
-# 1379 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1379 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline uint32_t LL_RCC_LSI_GetPrediv(void)
 {
   return (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CSR) & ((0x1UL << (4U)))));
@@ -24874,7 +24874,7 @@ static inline uint32_t LL_RCC_LSI_IsReady(void)
 {
   return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CSR) & ((0x1UL << (1U)))) == ((0x1UL << (1U)))) ? 1UL : 0UL);
 }
-# 1428 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1428 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_MSI_Enable(void)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CR) |= ((0x1UL << (0U))));
@@ -24899,17 +24899,17 @@ static inline uint32_t LL_RCC_MSI_IsReady(void)
 {
   return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CR) & ((0x1UL << (1U)))) == ((0x1UL << (1U)))) ? 1UL : 0UL);
 }
-# 1462 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1462 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_MSI_EnablePLLMode(void)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CR) |= ((0x1UL << (2U))));
 }
-# 1474 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1474 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_MSI_DisablePLLMode(void)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CR) &= ~((0x1UL << (2U))));
 }
-# 1487 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1487 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_MSI_EnableRangeSelection(void)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CR) |= ((0x1UL << (3U))));
@@ -24924,32 +24924,32 @@ static inline uint32_t LL_RCC_MSI_IsEnabledRangeSelect(void)
 {
   return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CR) & ((0x1UL << (3U)))) == ((0x1UL << (3U)))) ? 1UL : 0UL);
 }
-# 1520 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1520 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_MSI_SetRange(uint32_t Range)
 {
   (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CR)) = ((((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CR))) & (~((0xFUL << (4U))))) | (Range))));
 }
-# 1542 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1542 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline uint32_t LL_RCC_MSI_GetRange(void)
 {
   return (uint32_t)(((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CR) & ((0xFUL << (4U)))));
 }
-# 1557 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1557 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_MSI_SetRangeAfterStandby(uint32_t Range)
 {
   (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CSR)) = ((((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CSR))) & (~((0xFUL << (8U))))) | (Range))));
 }
-# 1571 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1571 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline uint32_t LL_RCC_MSI_GetRangeAfterStandby(void)
 {
   return (uint32_t)(((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CSR) & ((0xFUL << (8U)))));
 }
-# 1583 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1583 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline uint32_t LL_RCC_MSI_GetCalibration(void)
 {
   return (uint32_t)(((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->ICSCR) & ((0xFFUL << (0U)))) >> (0U));
 }
-# 1595 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1595 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_MSI_SetCalibTrimming(uint32_t Value)
 {
   (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->ICSCR)) = ((((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->ICSCR))) & (~((0xFFUL << (8U))))) | (Value << (8U)))));
@@ -24964,7 +24964,7 @@ static inline uint32_t LL_RCC_MSI_GetCalibTrimming(void)
 {
   return (uint32_t)(((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->ICSCR) & ((0xFFUL << (8U)))) >> (8U));
 }
-# 1623 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1623 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_LSCO_Enable(void)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->BDCR) |= ((0x1UL << (24U))));
@@ -24979,17 +24979,17 @@ static inline void LL_RCC_LSCO_Disable(void)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->BDCR) &= ~((0x1UL << (24U))));
 }
-# 1646 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1646 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_LSCO_SetSource(uint32_t Source)
 {
   (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->BDCR)) = ((((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->BDCR))) & (~((0x1UL << (25U))))) | (Source))));
 }
-# 1658 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1658 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline uint32_t LL_RCC_LSCO_GetSource(void)
 {
   return (uint32_t)(((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->BDCR) & ((0x1UL << (25U)))));
 }
-# 1676 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1676 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_RF_EnableReset(void)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CSR) |= ((0x1UL << (15U))));
@@ -25024,147 +25024,147 @@ static inline uint32_t LL_RCC_IsRFUnderReset(void)
 {
   return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CSR) & ((0x1UL << (14U)))) == ((0x1UL << (14U)))) ? 1UL : 0UL);
 }
-# 1731 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1731 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_SetSysClkSource(uint32_t Source)
 {
   (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CFGR)) = ((((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CFGR))) & (~((0x3UL << (0U))))) | (Source))));
 }
-# 1745 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1745 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline uint32_t LL_RCC_GetSysClkSource(void)
 {
   return (uint32_t)(((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CFGR) & ((0x3UL << (2U)))));
 }
-# 1771 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1771 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_SetAHBPrescaler(uint32_t Prescaler)
 {
   (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CFGR)) = ((((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CFGR))) & (~((0xFUL << (4U))))) | (Prescaler))));
 }
-# 1823 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1823 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_SetAHB3Prescaler(uint32_t Prescaler)
 {
   (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->EXTCFGR)) = ((((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->EXTCFGR))) & (~((0xFUL << (0U))))) | (Prescaler >> 4))));
 }
-# 1839 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1839 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_SetAPB1Prescaler(uint32_t Prescaler)
 {
   (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CFGR)) = ((((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CFGR))) & (~((0x7UL << (8U))))) | (Prescaler))));
 }
-# 1855 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1855 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_SetAPB2Prescaler(uint32_t Prescaler)
 {
   (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CFGR)) = ((((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CFGR))) & (~((0x7UL << (11U))))) | (Prescaler))));
 }
-# 1879 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1879 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline uint32_t LL_RCC_GetAHBPrescaler(void)
 {
   return (uint32_t)(((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CFGR) & ((0xFUL << (4U)))));
 }
-# 1929 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1929 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline uint32_t LL_RCC_GetAHB3Prescaler(void)
 {
   return (uint32_t)(((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->EXTCFGR) & ((0xFUL << (0U)))) << 4);
 }
-# 1944 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1944 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline uint32_t LL_RCC_GetAPB1Prescaler(void)
 {
   return (uint32_t)(((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CFGR) & ((0x7UL << (8U)))));
 }
-# 1959 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1959 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline uint32_t LL_RCC_GetAPB2Prescaler(void)
 {
   return (uint32_t)(((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CFGR) & ((0x7UL << (11U)))));
 }
-# 1972 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1972 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_SetClkAfterWakeFromStop(uint32_t Clock)
 {
   (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CFGR)) = ((((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CFGR))) & (~((0x1UL << (15U))))) | (Clock))));
 }
-# 1984 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 1984 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline uint32_t LL_RCC_GetClkAfterWakeFromStop(void)
 {
   return (uint32_t)(((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CFGR) & ((0x1UL << (15U)))));
 }
-# 2021 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2021 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_ConfigMCO(uint32_t MCOxSource, uint32_t MCOxPrescaler)
 {
   (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CFGR)) = ((((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CFGR))) & (~((0xFUL << (24U)) | (0x7UL << (28U))))) | (MCOxSource | MCOxPrescaler))));
 }
-# 2048 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2048 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_SetUSARTClockSource(uint32_t USARTxSource)
 {
   (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CCIPR)) = ((((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CCIPR))) & (~((USARTxSource >> 16)))) | ((USARTxSource & 0x0000FFFFU)))));
 }
-# 2062 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2062 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_SetI2SClockSource(uint32_t I2SxSource)
 {
   (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CCIPR)) = ((((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CCIPR))) & (~((0x3UL << (8U))))) | (I2SxSource))));
 }
-# 2077 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2077 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_SetLPUARTClockSource(uint32_t LPUARTxSource)
 {
   (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CCIPR)) = ((((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CCIPR))) & (~((0x3UL << (10U))))) | (LPUARTxSource))));
 }
-# 2097 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2097 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_SetI2CClockSource(uint32_t I2CxSource)
 {
   (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CCIPR)) = ((((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CCIPR))) & (~(((I2CxSource >> 4) & 0x000FF000U)))) | (((I2CxSource << 4) & 0x000FF000U)))));
 }
-# 2120 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2120 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_SetLPTIMClockSource(uint32_t LPTIMxSource)
 {
   (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CCIPR)) = ((((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CCIPR))) & (~((LPTIMxSource & 0xFFFF0000U)))) | ((LPTIMxSource << 16)))));
 }
-# 2135 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2135 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_SetRNGClockSource(uint32_t RNGxSource)
 {
   (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CCIPR)) = ((((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CCIPR))) & (~((0x3UL << (30U))))) | (RNGxSource))));
 }
-# 2150 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2150 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_SetADCClockSource(uint32_t ADCxSource)
 {
   (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CCIPR)) = ((((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CCIPR))) & (~((0x3UL << (28U))))) | (ADCxSource))));
 }
-# 2170 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2170 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline uint32_t LL_RCC_GetUSARTClockSource(uint32_t USARTx)
 {
   return (uint32_t)(((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CCIPR) & (USARTx)) | (USARTx << 16));
 }
-# 2185 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2185 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline uint32_t LL_RCC_GetI2SClockSource(uint32_t I2Sx)
 {
   return (uint32_t)(((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CCIPR) & (I2Sx)));
 }
-# 2201 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2201 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline uint32_t LL_RCC_GetLPUARTClockSource(uint32_t LPUARTx)
 {
   return (uint32_t)(((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CCIPR) & (LPUARTx)));
 }
-# 2223 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2223 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline uint32_t LL_RCC_GetI2CClockSource(uint32_t I2Cx)
 {
   return (uint32_t)((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CCIPR) & (I2Cx)) >> 4) | (I2Cx << 4));
 }
-# 2250 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2250 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline uint32_t LL_RCC_GetLPTIMClockSource(uint32_t LPTIMx)
 {
   return (uint32_t)((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CCIPR) & (LPTIMx)) >> 16) | LPTIMx);
 }
-# 2266 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2266 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline uint32_t LL_RCC_GetRNGClockSource(uint32_t RNGx)
 {
   return (uint32_t)(((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CCIPR) & (RNGx)));
 }
-# 2282 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2282 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline uint32_t LL_RCC_GetADCClockSource(uint32_t ADCx)
 {
   return (uint32_t)(((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CCIPR) & (ADCx)));
 }
-# 2308 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2308 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_SetRTCClockSource(uint32_t Source)
 {
   (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->BDCR)) = ((((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->BDCR))) & (~((0x3UL << (8U))))) | (Source))));
 }
-# 2322 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2322 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline uint32_t LL_RCC_GetRTCClockSource(void)
 {
   return (uint32_t)(((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->BDCR) & ((0x3UL << (8U)))));
@@ -25219,7 +25219,7 @@ static inline void LL_RCC_ReleaseBackupDomainReset(void)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->BDCR) &= ~((0x1UL << (16U))));
 }
-# 2391 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2391 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_PLL_Enable(void)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CR) |= ((0x1UL << (24U))));
@@ -25245,25 +25245,25 @@ static inline uint32_t LL_RCC_PLL_IsReady(void)
 {
   return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CR) & ((0x1UL << (25U)))) == ((0x1UL << (25U)))) ? 1UL : 0UL);
 }
-# 2450 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2450 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_PLL_ConfigDomain_SYS(uint32_t Source, uint32_t PLLM, uint32_t PLLN, uint32_t PLLR)
 {
   (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->PLLCFGR)) = ((((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->PLLCFGR))) & (~((0x3UL << (0U)) | (0x7UL << (4U)) | (0x7FUL << (8U)) | (0x7UL << (29U))))) | (Source | PLLM | (PLLN << (8U)) | PLLR))))
                                                                    ;
 }
-# 2513 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2513 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_PLL_ConfigDomain_ADC(uint32_t Source, uint32_t PLLM, uint32_t PLLN, uint32_t PLLP)
 {
   (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->PLLCFGR)) = ((((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->PLLCFGR))) & (~((0x3UL << (0U)) | (0x7UL << (4U)) | (0x7FUL << (8U)) | (0x1FUL << (17U))))) | (Source | PLLM | (PLLN << (8U)) | PLLP))))
                                                                    ;
 }
-# 2552 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2552 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_PLL_ConfigDomain_RNG(uint32_t Source, uint32_t PLLM, uint32_t PLLN, uint32_t PLLQ)
 {
   (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->PLLCFGR)) = ((((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->PLLCFGR))) & (~((0x3UL << (0U)) | (0x7UL << (4U)) | (0x7FUL << (8U)) | (0x7UL << (25U))))) | (Source | PLLM | (PLLN << (8U)) | PLLQ))))
                                                                    ;
 }
-# 2591 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2591 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_PLL_ConfigDomain_I2S(uint32_t Source, uint32_t PLLM, uint32_t PLLN, uint32_t PLLQ)
 {
   (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->PLLCFGR)) = ((((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->PLLCFGR))) & (~((0x3UL << (0U)) | (0x7UL << (4U)) | (0x7FUL << (8U)) | (0x7UL << (25U))))) | (Source | PLLM | (PLLN << (8U)) | PLLQ))))
@@ -25279,22 +25279,22 @@ static inline uint32_t LL_RCC_PLL_GetN(void)
 {
   return (uint32_t)(((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->PLLCFGR) & ((0x7FUL << (8U)))) >> (8U));
 }
-# 2643 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2643 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline uint32_t LL_RCC_PLL_GetP(void)
 {
   return (uint32_t)(((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->PLLCFGR) & ((0x1FUL << (17U)))));
 }
-# 2661 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2661 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline uint32_t LL_RCC_PLL_GetQ(void)
 {
   return (uint32_t)(((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->PLLCFGR) & ((0x7UL << (25U)))));
 }
-# 2679 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2679 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline uint32_t LL_RCC_PLL_GetR(void)
 {
   return (uint32_t)(((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->PLLCFGR) & ((0x7UL << (29U)))));
 }
-# 2697 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2697 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline uint32_t LL_RCC_PLL_GetDivider(void)
 {
   return (uint32_t)(((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->PLLCFGR) & ((0x7UL << (4U)))));
@@ -25309,7 +25309,7 @@ static inline void LL_RCC_PLL_EnableDomain_ADC(void)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->PLLCFGR) |= ((0x1UL << (16U))));
 }
-# 2719 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2719 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_PLL_DisableDomain_ADC(void)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->PLLCFGR) &= ~((0x1UL << (16U))));
@@ -25325,7 +25325,7 @@ static inline void LL_RCC_PLL_EnableDomain_RNG(void)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->PLLCFGR) |= ((0x1UL << (24U))));
 }
-# 2742 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2742 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_PLL_DisableDomain_RNG(void)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->PLLCFGR) &= ~((0x1UL << (24U))));
@@ -25340,7 +25340,7 @@ static inline void LL_RCC_PLL_EnableDomain_I2S(void)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->PLLCFGR) |= ((0x1UL << (24U))));
 }
-# 2764 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2764 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_PLL_DisableDomain_I2S(void)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->PLLCFGR) &= ~((0x1UL << (24U))));
@@ -25355,22 +25355,22 @@ static inline void LL_RCC_PLL_EnableDomain_SYS(void)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->PLLCFGR) |= ((0x1UL << (28U))));
 }
-# 2787 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2787 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_PLL_DisableDomain_SYS(void)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->PLLCFGR) &= ~((0x1UL << (28U))));
 }
-# 2801 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2801 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_PLL_SetMainSource(uint32_t PLLSource)
 {
   (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->PLLCFGR)) = ((((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->PLLCFGR))) & (~((0x3UL << (0U))))) | (PLLSource))));
 }
-# 2815 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2815 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline uint32_t LL_RCC_PLL_GetMainSource(void)
 {
   return (uint32_t)(((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->PLLCFGR) & ((0x3UL << (0U)))));
 }
-# 2835 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 2835 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_ClearFlag_LSIRDY(void)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CICR) |= ((0x1UL << (0U))));
@@ -25537,7 +25537,7 @@ static inline uint32_t LL_RCC_IsActiveFlag_HPRE(void)
 {
   return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CFGR) & ((0x1UL << (16U)))) == ((0x1UL << (16U)))) ? 1UL : 0UL);
 }
-# 3019 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 3019 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline uint32_t LL_RCC_IsActiveFlag_SHDHPRE(void)
 {
   return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->EXTCFGR) & ((0x1UL << (16U)))) == ((0x1UL << (16U)))) ? 1UL : 0UL);
@@ -25653,7 +25653,7 @@ static inline void LL_RCC_ClearResetFlags(void)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CSR) |= ((0x1UL << (23U))));
 }
-# 3148 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
+# 3148 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_EnableIT_LSIRDY(void)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CIER) |= ((0x1UL << (0U))));
@@ -25859,11 +25859,11 @@ static inline uint32_t LL_RCC_IsEnabledIT_LSECSS(void)
 {
   return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CIER) & ((0x1UL << (9U)))) == ((0x1UL << (9U)))) ? 1UL : 0UL);
 }
-# 31 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h" 2
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h" 1
-# 38 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 31 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h" 2
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h" 1
+# 38 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 #define __STM32WLxx_LL_BUS_H 
-# 74 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 74 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 #define LL_AHB1_GRP1_PERIPH_ALL (0xFFFFFFFFU)
 #define LL_AHB1_GRP1_PERIPH_DMA1 RCC_AHB1ENR_DMA1EN
 #define LL_AHB1_GRP1_PERIPH_DMA2 RCC_AHB1ENR_DMA2EN
@@ -25917,7 +25917,7 @@ static inline uint32_t LL_RCC_IsEnabledIT_LSECSS(void)
 #define LL_APB1_GRP1_PERIPH_I2C3 RCC_APB1ENR1_I2C3EN
 #define LL_APB1_GRP1_PERIPH_DAC RCC_APB1ENR1_DACEN
 #define LL_APB1_GRP1_PERIPH_LPTIM1 RCC_APB1ENR1_LPTIM1EN
-# 135 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 135 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 #define LL_APB1_GRP2_PERIPH_ALL (0xFFFFFFFFU)
 #define LL_APB1_GRP2_PERIPH_LPUART1 RCC_APB1ENR2_LPUART1EN
 #define LL_APB1_GRP2_PERIPH_LPTIM2 RCC_APB1ENR2_LPTIM2EN
@@ -25945,7 +25945,7 @@ static inline uint32_t LL_RCC_IsEnabledIT_LSECSS(void)
 
 #define LL_APB3_GRP1_PERIPH_ALL (0xFFFFFFFFU)
 #define LL_APB3_GRP1_PERIPH_SUBGHZSPI RCC_APB3ENR_SUBGHZSPIEN
-# 287 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 287 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_AHB1_GRP1_EnableClock(uint32_t Periphs)
 {
   volatile uint32_t tmpreg;
@@ -25954,27 +25954,27 @@ static inline void LL_AHB1_GRP1_EnableClock(uint32_t Periphs)
   tmpreg = ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->AHB1ENR) & (Periphs));
   (void)tmpreg;
 }
-# 309 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 309 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline uint32_t LL_AHB1_GRP1_IsEnabledClock(uint32_t Periphs)
 {
   return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->AHB1ENR) & (Periphs)) == (Periphs)) ? 1UL : 0UL);
 }
-# 327 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 327 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_AHB1_GRP1_DisableClock(uint32_t Periphs)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->AHB1ENR) &= ~(Periphs));
 }
-# 346 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 346 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_AHB1_GRP1_ForceReset(uint32_t Periphs)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->AHB1RSTR) |= (Periphs));
 }
-# 365 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 365 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_AHB1_GRP1_ReleaseReset(uint32_t Periphs)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->AHB1RSTR) &= ~(Periphs));
 }
-# 383 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 383 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_AHB1_GRP1_EnableClockSleep(uint32_t Periphs)
 {
   volatile uint32_t tmpreg;
@@ -25983,17 +25983,17 @@ static inline void LL_AHB1_GRP1_EnableClockSleep(uint32_t Periphs)
   tmpreg = ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->AHB1SMENR) & (Periphs));
   (void)tmpreg;
 }
-# 405 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 405 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline uint32_t LL_AHB1_GRP1_IsEnabledClockSleep(uint32_t Periphs)
 {
   return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->AHB1SMENR) & (Periphs)) == (Periphs)) ? 1UL : 0UL);
 }
-# 423 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 423 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_AHB1_GRP1_DisableClockSleep(uint32_t Periphs)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->AHB1SMENR) &= ~(Periphs));
 }
-# 449 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 449 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_AHB2_GRP1_EnableClock(uint32_t Periphs)
 {
   volatile uint32_t tmpreg;
@@ -26002,27 +26002,27 @@ static inline void LL_AHB2_GRP1_EnableClock(uint32_t Periphs)
   tmpreg = ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->AHB2ENR) & (Periphs));
   (void)tmpreg;
 }
-# 471 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 471 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline uint32_t LL_AHB2_GRP1_IsEnabledClock(uint32_t Periphs)
 {
   return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->AHB2ENR) & (Periphs)) == (Periphs)) ? 1UL : 0UL);
 }
-# 489 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 489 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_AHB2_GRP1_DisableClock(uint32_t Periphs)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->AHB2ENR) &= ~(Periphs));
 }
-# 508 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 508 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_AHB2_GRP1_ForceReset(uint32_t Periphs)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->AHB2RSTR) |= (Periphs));
 }
-# 527 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 527 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_AHB2_GRP1_ReleaseReset(uint32_t Periphs)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->AHB2RSTR) &= ~(Periphs));
 }
-# 545 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 545 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_AHB2_GRP1_EnableClockSleep(uint32_t Periphs)
 {
   volatile uint32_t tmpreg;
@@ -26031,17 +26031,17 @@ static inline void LL_AHB2_GRP1_EnableClockSleep(uint32_t Periphs)
   tmpreg = ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->AHB2SMENR) & (Periphs));
   (void)tmpreg;
 }
-# 567 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 567 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline uint32_t LL_AHB2_GRP1_IsEnabledClockSleep(uint32_t Periphs)
 {
   return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->AHB2SMENR) & (Periphs)) == (Periphs)) ? 1UL : 0UL);
 }
-# 585 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 585 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_AHB2_GRP1_DisableClockSleep(uint32_t Periphs)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->AHB2SMENR) &= ~(Periphs));
 }
-# 634 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 634 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_AHB3_GRP1_EnableClock(uint32_t Periphs)
 {
   volatile uint32_t tmpreg;
@@ -26050,27 +26050,27 @@ static inline void LL_AHB3_GRP1_EnableClock(uint32_t Periphs)
   tmpreg = ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->AHB3ENR) & (Periphs));
   (void)tmpreg;
 }
-# 679 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 679 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline uint32_t LL_AHB3_GRP1_IsEnabledClock(uint32_t Periphs)
 {
   return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->AHB3ENR) & (Periphs)) == (Periphs)) ? 1UL : 0UL);
 }
-# 720 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 720 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_AHB3_GRP1_DisableClock(uint32_t Periphs)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->AHB3ENR) &= ~(Periphs));
 }
-# 763 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 763 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_AHB3_GRP1_ForceReset(uint32_t Periphs)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->AHB3RSTR) |= (Periphs));
 }
-# 806 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 806 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_AHB3_GRP1_ReleaseReset(uint32_t Periphs)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->AHB3RSTR) &= ~(Periphs));
 }
-# 828 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 828 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_AHB3_GRP1_EnableClockSleep(uint32_t Periphs)
 {
   volatile uint32_t tmpreg;
@@ -26079,17 +26079,17 @@ static inline void LL_AHB3_GRP1_EnableClockSleep(uint32_t Periphs)
   tmpreg = ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->AHB3SMENR) & (Periphs));
   (void)tmpreg;
 }
-# 854 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 854 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline uint32_t LL_AHB3_GRP1_IsEnabledClockSleep(uint32_t Periphs)
 {
   return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->AHB3SMENR) & (Periphs)) == (Periphs)) ? 1UL : 0UL);
 }
-# 876 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 876 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_AHB3_GRP1_DisableClockSleep(uint32_t Periphs)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->AHB3SMENR) &= ~(Periphs));
 }
-# 914 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 914 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_APB1_GRP1_EnableClock(uint32_t Periphs)
 {
   volatile uint32_t tmpreg;
@@ -26098,7 +26098,7 @@ static inline void LL_APB1_GRP1_EnableClock(uint32_t Periphs)
   tmpreg = ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB1ENR1) & (Periphs));
   (void)tmpreg;
 }
-# 935 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 935 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_APB1_GRP2_EnableClock(uint32_t Periphs)
 {
   volatile uint32_t tmpreg;
@@ -26107,47 +26107,47 @@ static inline void LL_APB1_GRP2_EnableClock(uint32_t Periphs)
   tmpreg = ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB1ENR2) & (Periphs));
   (void)tmpreg;
 }
-# 971 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 971 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline uint32_t LL_APB1_GRP1_IsEnabledClock(uint32_t Periphs)
 {
   return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB1ENR1) & (Periphs)) == (Periphs)) ? 1UL : 0UL);
 }
-# 987 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 987 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline uint32_t LL_APB1_GRP2_IsEnabledClock(uint32_t Periphs)
 {
   return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB1ENR2) & (Periphs)) == (Periphs)) ? 1UL : 0UL);
 }
-# 1018 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 1018 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_APB1_GRP1_DisableClock(uint32_t Periphs)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB1ENR1) &= ~(Periphs));
 }
-# 1034 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 1034 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_APB1_GRP2_DisableClock(uint32_t Periphs)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB1ENR2) &= ~(Periphs));
 }
-# 1062 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 1062 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_APB1_GRP1_ForceReset(uint32_t Periphs)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB1RSTR1) |= (Periphs));
 }
-# 1079 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 1079 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_APB1_GRP2_ForceReset(uint32_t Periphs)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB1RSTR2) |= (Periphs));
 }
-# 1107 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 1107 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_APB1_GRP1_ReleaseReset(uint32_t Periphs)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB1RSTR1) &= ~(Periphs));
 }
-# 1124 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 1124 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_APB1_GRP2_ReleaseReset(uint32_t Periphs)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB1RSTR2) &= ~(Periphs));
 }
-# 1155 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 1155 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_APB1_GRP1_EnableClockSleep(uint32_t Periphs)
 {
   volatile uint32_t tmpreg;
@@ -26156,7 +26156,7 @@ static inline void LL_APB1_GRP1_EnableClockSleep(uint32_t Periphs)
   tmpreg = ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB1SMENR1) & (Periphs));
   (void)tmpreg;
 }
-# 1175 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 1175 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_APB1_GRP2_EnableClockSleep(uint32_t Periphs)
 {
   volatile uint32_t tmpreg;
@@ -26165,27 +26165,27 @@ static inline void LL_APB1_GRP2_EnableClockSleep(uint32_t Periphs)
   tmpreg = ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB1SMENR2) & (Periphs));
   (void)tmpreg;
 }
-# 1210 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 1210 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline uint32_t LL_APB1_GRP1_IsEnabledClockSleep(uint32_t Periphs)
 {
   return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB1SMENR1) & (Periphs)) == (Periphs)) ? 1UL : 0UL);
 }
-# 1226 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 1226 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline uint32_t LL_APB1_GRP2_IsEnabledClockSleep(uint32_t Periphs)
 {
   return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB1SMENR2) & (Periphs)) == (Periphs)) ? 1UL : 0UL);
 }
-# 1257 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 1257 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_APB1_GRP1_DisableClockSleep(uint32_t Periphs)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB1SMENR1) &= ~(Periphs));
 }
-# 1273 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 1273 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_APB1_GRP2_DisableClockSleep(uint32_t Periphs)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB1SMENR2) &= ~(Periphs));
 }
-# 1303 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 1303 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_APB2_GRP1_EnableClock(uint32_t Periphs)
 {
   volatile uint32_t tmpreg;
@@ -26194,27 +26194,27 @@ static inline void LL_APB2_GRP1_EnableClock(uint32_t Periphs)
   tmpreg = ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB2ENR) & (Periphs));
   (void)tmpreg;
 }
-# 1329 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 1329 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline uint32_t LL_APB2_GRP1_IsEnabledClock(uint32_t Periphs)
 {
   return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB2ENR) & (Periphs)) == (Periphs)) ? 1UL : 0UL);
 }
-# 1351 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 1351 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_APB2_GRP1_DisableClock(uint32_t Periphs)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB2ENR) &= ~(Periphs));
 }
-# 1374 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 1374 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_APB2_GRP1_ForceReset(uint32_t Periphs)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB2RSTR) |= (Periphs));
 }
-# 1397 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 1397 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_APB2_GRP1_ReleaseReset(uint32_t Periphs)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB2RSTR) &= ~(Periphs));
 }
-# 1419 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 1419 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_APB2_GRP1_EnableClockSleep(uint32_t Periphs)
 {
   volatile uint32_t tmpreg;
@@ -26223,17 +26223,17 @@ static inline void LL_APB2_GRP1_EnableClockSleep(uint32_t Periphs)
   tmpreg = ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB2SMENR) & (Periphs));
   (void)tmpreg;
 }
-# 1446 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 1446 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline uint32_t LL_APB2_GRP1_IsEnabledClockSleep(uint32_t Periphs)
 {
   return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB2SMENR) & (Periphs)) == (Periphs)) ? 1UL : 0UL);
 }
-# 1468 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 1468 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_APB2_GRP1_DisableClockSleep(uint32_t Periphs)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB2SMENR) &= ~(Periphs));
 }
-# 1488 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 1488 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_APB3_GRP1_EnableClock(uint32_t Periphs)
 {
   volatile uint32_t tmpreg;
@@ -26242,27 +26242,27 @@ static inline void LL_APB3_GRP1_EnableClock(uint32_t Periphs)
   tmpreg = ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB3ENR) & (Periphs));
   (void)tmpreg;
 }
-# 1504 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 1504 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline uint32_t LL_APB3_GRP1_IsEnabledClock(uint32_t Periphs)
 {
   return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB3ENR) & (Periphs)) == (Periphs)) ? 1UL : 0UL);
 }
-# 1516 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 1516 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_APB3_GRP1_DisableClock(uint32_t Periphs)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB3ENR) &= ~(Periphs));
 }
-# 1529 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 1529 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_APB3_GRP1_ForceReset(uint32_t Periphs)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB3RSTR) |= (Periphs));
 }
-# 1541 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 1541 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_APB3_GRP1_ReleaseReset(uint32_t Periphs)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB3RSTR) &= ~(Periphs));
 }
-# 1553 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 1553 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_APB3_GRP1_EnableClockSleep(uint32_t Periphs)
 {
   volatile uint32_t tmpreg;
@@ -26271,18 +26271,18 @@ static inline void LL_APB3_GRP1_EnableClockSleep(uint32_t Periphs)
   tmpreg = ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB3SMENR) & (Periphs));
   (void)tmpreg;
 }
-# 1569 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 1569 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline uint32_t LL_APB3_GRP1_IsEnabledClockSleep(uint32_t Periphs)
 {
   return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB3SMENR) & (Periphs)) == (Periphs)) ? 1UL : 0UL);
 }
-# 1581 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
+# 1581 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_APB3_GRP1_DisableClockSleep(uint32_t Periphs)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB3SMENR) &= ~(Periphs));
 }
-# 32 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h" 2
-# 47 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 32 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h" 2
+# 47 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define CR_REG_INDEX 1U
 #define BDCR_REG_INDEX 2U
 #define CSR_REG_INDEX 3U
@@ -26314,7 +26314,7 @@ static inline void LL_APB3_GRP1_DisableClockSleep(uint32_t Periphs)
 #define RCC_RESET_FLAG_WWDG RCC_CSR_WWDGRSTF
 #define RCC_RESET_FLAG_LPWR RCC_CSR_LPWRRSTF
 #define RCC_RESET_FLAG_ALL (RCC_RESET_FLAG_OBL | RCC_RESET_FLAG_PIN | RCC_RESET_FLAG_PWR | RCC_RESET_FLAG_SW | RCC_RESET_FLAG_IWDG | RCC_RESET_FLAG_WWDG | RCC_RESET_FLAG_LPWR)
-# 93 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 93 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define IS_RCC_OSCILLATORTYPE(__OSCILLATOR__) (((__OSCILLATOR__) == RCC_OSCILLATORTYPE_NONE) || (((__OSCILLATOR__) & ~RCC_OSCILLATORTYPE_ALL) == 0x00U))
 
 
@@ -26349,7 +26349,7 @@ static inline void LL_APB3_GRP1_DisableClockSleep(uint32_t Periphs)
 
 
 #define IS_RCC_PLLM_VALUE(__VALUE__) (((__VALUE__) == RCC_PLLM_DIV1) || ((__VALUE__) == RCC_PLLM_DIV2) || ((__VALUE__) == RCC_PLLM_DIV3) || ((__VALUE__) == RCC_PLLM_DIV4) || ((__VALUE__) == RCC_PLLM_DIV5) || ((__VALUE__) == RCC_PLLM_DIV6) || ((__VALUE__) == RCC_PLLM_DIV7) || ((__VALUE__) == RCC_PLLM_DIV8))
-# 135 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 135 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define IS_RCC_PLLN_VALUE(__VALUE__) ((6U <= (__VALUE__)) && ((__VALUE__) <= 127U))
 
 #define IS_RCC_PLLP_VALUE(__VALUE__) ((RCC_PLLP_DIV2 <= (__VALUE__)) && ((__VALUE__) <= RCC_PLLP_DIV32))
@@ -26359,7 +26359,7 @@ static inline void LL_APB3_GRP1_DisableClockSleep(uint32_t Periphs)
 #define IS_RCC_PLLR_VALUE(__VALUE__) ((RCC_PLLR_DIV2 <= (__VALUE__)) && ((__VALUE__) <= RCC_PLLR_DIV8))
 
 #define IS_RCC_MSI_CLOCK_RANGE(__RANGE__) (((__RANGE__) == RCC_MSIRANGE_0) || ((__RANGE__) == RCC_MSIRANGE_1) || ((__RANGE__) == RCC_MSIRANGE_2) || ((__RANGE__) == RCC_MSIRANGE_3) || ((__RANGE__) == RCC_MSIRANGE_4) || ((__RANGE__) == RCC_MSIRANGE_5) || ((__RANGE__) == RCC_MSIRANGE_6) || ((__RANGE__) == RCC_MSIRANGE_7) || ((__RANGE__) == RCC_MSIRANGE_8) || ((__RANGE__) == RCC_MSIRANGE_9) || ((__RANGE__) == RCC_MSIRANGE_10) || ((__RANGE__) == RCC_MSIRANGE_11))
-# 164 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 164 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define IS_RCC_CLOCKTYPE(__CLK__) ((1U <= (__CLK__)) && ((__CLK__) <= (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2 | RCC_CLOCKTYPE_HCLK3)))
 
 
@@ -26392,14 +26392,14 @@ static inline void LL_APB3_GRP1_DisableClockSleep(uint32_t Periphs)
 #define IS_RCC_MCO(__MCOX__) (((__MCOX__) == RCC_MCO1))
 
 #define IS_RCC_MCO1SOURCE(__SOURCE__) (((__SOURCE__) == RCC_MCO1SOURCE_NOCLOCK) || ((__SOURCE__) == RCC_MCO1SOURCE_SYSCLK) || ((__SOURCE__) == RCC_MCO1SOURCE_MSI) || ((__SOURCE__) == RCC_MCO1SOURCE_HSI) || ((__SOURCE__) == RCC_MCO1SOURCE_HSE) || ((__SOURCE__) == RCC_MCO1SOURCE_PLLCLK) || ((__SOURCE__) == RCC_MCO1SOURCE_LSI) || ((__SOURCE__) == RCC_MCO1SOURCE_LSE) || ((__SOURCE__) == RCC_MCO1SOURCE_PLLPCLK) || ((__SOURCE__) == RCC_MCO1SOURCE_PLLQCLK))
-# 206 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 206 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define IS_RCC_MCODIV(__DIV__) (((__DIV__) == RCC_MCODIV_1) || ((__DIV__) == RCC_MCODIV_2) || ((__DIV__) == RCC_MCODIV_4) || ((__DIV__) == RCC_MCODIV_8) || ((__DIV__) == RCC_MCODIV_16))
 
 
 
 
 #define IS_RCC_STOP_WAKEUPCLOCK(__SOURCE__) (((__SOURCE__) == RCC_STOP_WAKEUPCLOCK_MSI) || ((__SOURCE__) == RCC_STOP_WAKEUPCLOCK_HSI))
-# 226 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 226 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 typedef struct
 {
   uint32_t PLLState;
@@ -26497,7 +26497,7 @@ typedef struct
 
 
 } RCC_ClkInitTypeDef;
-# 336 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 336 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define RCC_OSCILLATORTYPE_NONE 0x00000000U
 #define RCC_OSCILLATORTYPE_HSE 0x00000001U
 #define RCC_OSCILLATORTYPE_HSI 0x00000002U
@@ -26535,7 +26535,7 @@ typedef struct
 #define RCC_LSE_ON ((uint32_t)(RCC_BDCR_LSESYSEN | RCC_BDCR_LSEON))
 #define RCC_LSE_BYPASS_RTC_ONLY ((uint32_t)(RCC_BDCR_LSEBYP | RCC_BDCR_LSEON))
 #define RCC_LSE_BYPASS ((uint32_t)(RCC_BDCR_LSEBYP | RCC_BDCR_LSESYSEN | RCC_BDCR_LSEON))
-# 381 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 381 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define RCC_HSI_OFF 0x00000000U
 #define RCC_HSI_ON RCC_CR_HSION
 
@@ -26569,7 +26569,7 @@ typedef struct
 #define RCC_MSI_ON RCC_CR_MSION
 
 #define RCC_MSICALIBRATION_DEFAULT 0U
-# 422 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 422 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define RCC_PLL_NONE 0x00000000U
 #define RCC_PLL_OFF 0x00000001U
 #define RCC_PLL_ON 0x00000002U
@@ -26814,7 +26814,7 @@ typedef struct
 #define RCC_MCODIV_4 LL_RCC_MCO1_DIV_4
 #define RCC_MCODIV_8 LL_RCC_MCO1_DIV_8
 #define RCC_MCODIV_16 LL_RCC_MCO1_DIV_16
-# 674 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 674 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define RCC_IT_LSIRDY LL_RCC_CIFR_LSIRDYF
 #define RCC_IT_LSERDY LL_RCC_CIFR_LSERDYF
 #define RCC_IT_MSIRDY LL_RCC_CIFR_MSIRDYF
@@ -26823,7 +26823,7 @@ typedef struct
 #define RCC_IT_PLLRDY LL_RCC_CIFR_PLLRDYF
 #define RCC_IT_HSECSS LL_RCC_CIFR_CSSF
 #define RCC_IT_LSECSS LL_RCC_CIFR_LSECSSF
-# 697 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 697 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define RCC_FLAG_MSIRDY ((CR_REG_INDEX << REG_INDEX_POS) | RCC_CR_MSIRDY_Pos)
 #define RCC_FLAG_HSIRDY ((CR_REG_INDEX << REG_INDEX_POS) | RCC_CR_HSIRDY_Pos)
 #define RCC_FLAG_HSIKERDY ((CR_REG_INDEX << REG_INDEX_POS) | RCC_CR_HSIKERDY_Pos)
@@ -26866,7 +26866,7 @@ typedef struct
 
 #define RCC_STOP_WAKEUPCLOCK_MSI LL_RCC_STOP_WAKEUPCLOCK_MSI
 #define RCC_STOP_WAKEUPCLOCK_HSI LL_RCC_STOP_WAKEUPCLOCK_HSI
-# 771 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 771 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_DMA1_CLK_ENABLE() LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_DMA1)
 #define __HAL_RCC_DMA2_CLK_ENABLE() LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_DMA2)
 #define __HAL_RCC_DMAMUX1_CLK_ENABLE() LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_DMAMUX1)
@@ -26876,7 +26876,7 @@ typedef struct
 #define __HAL_RCC_DMA2_CLK_DISABLE() LL_AHB1_GRP1_DisableClock(LL_AHB1_GRP1_PERIPH_DMA2)
 #define __HAL_RCC_DMAMUX1_CLK_DISABLE() LL_AHB1_GRP1_DisableClock(LL_AHB1_GRP1_PERIPH_DMAMUX1)
 #define __HAL_RCC_CRC_CLK_DISABLE() LL_AHB1_GRP1_DisableClock(LL_AHB1_GRP1_PERIPH_CRC)
-# 803 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 803 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_GPIOA_CLK_ENABLE() LL_AHB2_GRP1_EnableClock(LL_AHB2_GRP1_PERIPH_GPIOA)
 #define __HAL_RCC_GPIOB_CLK_ENABLE() LL_AHB2_GRP1_EnableClock(LL_AHB2_GRP1_PERIPH_GPIOB)
 #define __HAL_RCC_GPIOC_CLK_ENABLE() LL_AHB2_GRP1_EnableClock(LL_AHB2_GRP1_PERIPH_GPIOC)
@@ -26886,7 +26886,7 @@ typedef struct
 #define __HAL_RCC_GPIOB_CLK_DISABLE() LL_AHB2_GRP1_DisableClock(LL_AHB2_GRP1_PERIPH_GPIOB)
 #define __HAL_RCC_GPIOC_CLK_DISABLE() LL_AHB2_GRP1_DisableClock(LL_AHB2_GRP1_PERIPH_GPIOC)
 #define __HAL_RCC_GPIOH_CLK_DISABLE() LL_AHB2_GRP1_DisableClock(LL_AHB2_GRP1_PERIPH_GPIOH)
-# 839 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 839 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_PKA_CLK_ENABLE() LL_AHB3_GRP1_EnableClock(LL_AHB3_GRP1_PERIPH_PKA)
 #define __HAL_RCC_AES_CLK_ENABLE() LL_AHB3_GRP1_EnableClock(LL_AHB3_GRP1_PERIPH_AES)
 #define __HAL_RCC_RNG_CLK_ENABLE() LL_AHB3_GRP1_EnableClock(LL_AHB3_GRP1_PERIPH_RNG)
@@ -26900,7 +26900,7 @@ typedef struct
 #define __HAL_RCC_HSEM_CLK_DISABLE() LL_AHB3_GRP1_DisableClock(LL_AHB3_GRP1_PERIPH_HSEM)
 #define __HAL_RCC_IPCC_CLK_DISABLE() LL_AHB3_GRP1_DisableClock(LL_AHB3_GRP1_PERIPH_IPCC)
 #define __HAL_RCC_FLASH_CLK_DISABLE() LL_AHB3_GRP1_DisableClock(LL_AHB3_GRP1_PERIPH_FLASH)
-# 893 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 893 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_TIM2_CLK_ENABLE() LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM2)
 #define __HAL_RCC_RTCAPB_CLK_ENABLE() LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_RTCAPB)
 #define __HAL_RCC_SPI2_CLK_ENABLE() LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_SPI2)
@@ -26933,7 +26933,7 @@ typedef struct
 #define __HAL_RCC_WWDG_CLK_ENABLE() LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_WWDG)
 
 #define __HAL_RCC_WWDG_CLK_DISABLE() LL_APB1_GRP1_DisableClock(LL_APB1_GRP1_PERIPH_WWDG)
-# 952 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 952 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_ADC_CLK_ENABLE() LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_ADC)
 #define __HAL_RCC_TIM1_CLK_ENABLE() LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_TIM1)
 #define __HAL_RCC_SPI1_CLK_ENABLE() LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_SPI1)
@@ -26947,7 +26947,7 @@ typedef struct
 #define __HAL_RCC_USART1_CLK_DISABLE() LL_APB2_GRP1_DisableClock(LL_APB2_GRP1_PERIPH_USART1)
 #define __HAL_RCC_TIM16_CLK_DISABLE() LL_APB2_GRP1_DisableClock(LL_APB2_GRP1_PERIPH_TIM16)
 #define __HAL_RCC_TIM17_CLK_DISABLE() LL_APB2_GRP1_DisableClock(LL_APB2_GRP1_PERIPH_TIM17)
-# 983 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 983 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_SUBGHZSPI_CLK_ENABLE() LL_APB3_GRP1_EnableClock(LL_APB3_GRP1_PERIPH_SUBGHZSPI)
 
 #define __HAL_RCC_SUBGHZSPI_CLK_DISABLE() LL_APB3_GRP1_DisableClock(LL_APB3_GRP1_PERIPH_SUBGHZSPI)
@@ -26957,24 +26957,24 @@ typedef struct
 
 #define __HAL_RCC_SUBGHZ_CLK_ENABLE() __HAL_RCC_SUBGHZSPI_CLK_ENABLE()
 #define __HAL_RCC_SUBGHZ_CLK_DISABLE() __HAL_RCC_SUBGHZSPI_CLK_DISABLE()
-# 1009 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1009 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_DMA1_IS_CLK_ENABLED() LL_AHB1_GRP1_IsEnabledClock(LL_AHB1_GRP1_PERIPH_DMA1)
 #define __HAL_RCC_DMA2_IS_CLK_ENABLED() LL_AHB1_GRP1_IsEnabledClock(LL_AHB1_GRP1_PERIPH_DMA2)
 #define __HAL_RCC_DMAMUX1_IS_CLK_ENABLED() LL_AHB1_GRP1_IsEnabledClock(LL_AHB1_GRP1_PERIPH_DMAMUX1)
 #define __HAL_RCC_CRC_IS_CLK_ENABLED() LL_AHB1_GRP1_IsEnabledClock(LL_AHB1_GRP1_PERIPH_CRC)
-# 1031 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1031 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_GPIOA_IS_CLK_ENABLED() LL_AHB2_GRP1_IsEnabledClock(LL_AHB2_GRP1_PERIPH_GPIOA)
 #define __HAL_RCC_GPIOB_IS_CLK_ENABLED() LL_AHB2_GRP1_IsEnabledClock(LL_AHB2_GRP1_PERIPH_GPIOB)
 #define __HAL_RCC_GPIOC_IS_CLK_ENABLED() LL_AHB2_GRP1_IsEnabledClock(LL_AHB2_GRP1_PERIPH_GPIOC)
 #define __HAL_RCC_GPIOH_IS_CLK_ENABLED() LL_AHB2_GRP1_IsEnabledClock(LL_AHB2_GRP1_PERIPH_GPIOH)
-# 1055 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1055 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_PKA_IS_CLK_ENABLED() LL_AHB3_GRP1_IsEnabledClock(LL_AHB3_GRP1_PERIPH_PKA)
 #define __HAL_RCC_AES_IS_CLK_ENABLED() LL_AHB3_GRP1_IsEnabledClock(LL_AHB3_GRP1_PERIPH_AES)
 #define __HAL_RCC_RNG_IS_CLK_ENABLED() LL_AHB3_GRP1_IsEnabledClock(LL_AHB3_GRP1_PERIPH_RNG)
 #define __HAL_RCC_HSEM_IS_CLK_ENABLED() LL_AHB3_GRP1_IsEnabledClock(LL_AHB3_GRP1_PERIPH_HSEM)
 #define __HAL_RCC_IPCC_IS_CLK_ENABLED() LL_AHB3_GRP1_IsEnabledClock(LL_AHB3_GRP1_PERIPH_IPCC)
 #define __HAL_RCC_FLASH_IS_CLK_ENABLED() LL_AHB3_GRP1_IsEnabledClock(LL_AHB3_GRP1_PERIPH_FLASH)
-# 1088 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1088 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_TIM2_IS_CLK_ENABLED() LL_APB1_GRP1_IsEnabledClock(LL_APB1_GRP1_PERIPH_TIM2)
 #define __HAL_RCC_RTCAPB_IS_CLK_ENABLED() LL_APB1_GRP1_IsEnabledClock(LL_APB1_GRP1_PERIPH_RTCAPB)
 #define __HAL_RCC_SPI2_IS_CLK_ENABLED() LL_APB1_GRP1_IsEnabledClock(LL_APB1_GRP1_PERIPH_SPI2)
@@ -26991,20 +26991,20 @@ typedef struct
 
 
 #define __HAL_RCC_WWDG_IS_CLK_ENABLED() LL_APB1_GRP1_IsEnabledClock(LL_APB1_GRP1_PERIPH_WWDG)
-# 1123 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1123 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_ADC_IS_CLK_ENABLED() LL_APB2_GRP1_IsEnabledClock(LL_APB2_GRP1_PERIPH_ADC)
 #define __HAL_RCC_TIM1_IS_CLK_ENABLED() LL_APB2_GRP1_IsEnabledClock(LL_APB2_GRP1_PERIPH_TIM1)
 #define __HAL_RCC_SPI1_IS_CLK_ENABLED() LL_APB2_GRP1_IsEnabledClock(LL_APB2_GRP1_PERIPH_SPI1)
 #define __HAL_RCC_USART1_IS_CLK_ENABLED() LL_APB2_GRP1_IsEnabledClock(LL_APB2_GRP1_PERIPH_USART1)
 #define __HAL_RCC_TIM16_IS_CLK_ENABLED() LL_APB2_GRP1_IsEnabledClock(LL_APB2_GRP1_PERIPH_TIM16)
 #define __HAL_RCC_TIM17_IS_CLK_ENABLED() LL_APB2_GRP1_IsEnabledClock(LL_APB2_GRP1_PERIPH_TIM17)
-# 1144 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1144 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_SUBGHZSPI_IS_CLK_ENABLED() LL_APB3_GRP1_IsEnabledClock(LL_APB3_GRP1_PERIPH_SUBGHZSPI)
 
 
 
 #define __HAL_RCC_SUBGHZ_IS_CLK_ENABLED() __HAL_RCC_SUBGHZSPI_IS_CLK_ENABLED()
-# 1157 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1157 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_AHB1_FORCE_RESET() LL_AHB1_GRP1_ForceReset(LL_AHB1_GRP1_PERIPH_ALL)
 #define __HAL_RCC_DMA1_FORCE_RESET() LL_AHB1_GRP1_ForceReset(LL_AHB1_GRP1_PERIPH_DMA1)
 #define __HAL_RCC_DMA2_FORCE_RESET() LL_AHB1_GRP1_ForceReset(LL_AHB1_GRP1_PERIPH_DMA2)
@@ -27016,7 +27016,7 @@ typedef struct
 #define __HAL_RCC_DMA2_RELEASE_RESET() LL_AHB1_GRP1_ReleaseReset(LL_AHB1_GRP1_PERIPH_DMA2)
 #define __HAL_RCC_DMAMUX1_RELEASE_RESET() LL_AHB1_GRP1_ReleaseReset(LL_AHB1_GRP1_PERIPH_DMAMUX1)
 #define __HAL_RCC_CRC_RELEASE_RESET() LL_AHB1_GRP1_ReleaseReset(LL_AHB1_GRP1_PERIPH_CRC)
-# 1176 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1176 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_AHB2_FORCE_RESET() LL_AHB2_GRP1_ForceReset(LL_AHB2_GRP1_PERIPH_ALL)
 #define __HAL_RCC_GPIOA_FORCE_RESET() LL_AHB2_GRP1_ForceReset(LL_AHB2_GRP1_PERIPH_GPIOA)
 #define __HAL_RCC_GPIOB_FORCE_RESET() LL_AHB2_GRP1_ForceReset(LL_AHB2_GRP1_PERIPH_GPIOB)
@@ -27028,7 +27028,7 @@ typedef struct
 #define __HAL_RCC_GPIOB_RELEASE_RESET() LL_AHB2_GRP1_ReleaseReset(LL_AHB2_GRP1_PERIPH_GPIOB)
 #define __HAL_RCC_GPIOC_RELEASE_RESET() LL_AHB2_GRP1_ReleaseReset(LL_AHB2_GRP1_PERIPH_GPIOC)
 #define __HAL_RCC_GPIOH_RELEASE_RESET() LL_AHB2_GRP1_ReleaseReset(LL_AHB2_GRP1_PERIPH_GPIOH)
-# 1200 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1200 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_AHB3_FORCE_RESET() LL_AHB3_GRP1_ForceReset(LL_AHB3_GRP1_PERIPH_ALL)
 #define __HAL_RCC_PKA_FORCE_RESET() LL_AHB3_GRP1_ForceReset(LL_AHB3_GRP1_PERIPH_PKA)
 #define __HAL_RCC_AES_FORCE_RESET() LL_AHB3_GRP1_ForceReset(LL_AHB3_GRP1_PERIPH_AES)
@@ -27042,7 +27042,7 @@ typedef struct
 #define __HAL_RCC_RNG_RELEASE_RESET() LL_AHB3_GRP1_ReleaseReset(LL_AHB3_GRP1_PERIPH_RNG)
 #define __HAL_RCC_HSEM_RELEASE_RESET() LL_AHB3_GRP1_ReleaseReset(LL_AHB3_GRP1_PERIPH_HSEM)
 #define __HAL_RCC_FLASH_RELEASE_RESET() LL_AHB3_GRP1_ReleaseReset(LL_AHB3_GRP1_PERIPH_FLASH)
-# 1221 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1221 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_APB1L_FORCE_RESET() LL_APB1_GRP1_ForceReset(LL_APB1_GRP1_PERIPH_ALL)
 #define __HAL_RCC_TIM2_FORCE_RESET() LL_APB1_GRP1_ForceReset(LL_APB1_GRP1_PERIPH_TIM2)
 #define __HAL_RCC_SPI2_FORCE_RESET() LL_APB1_GRP1_ForceReset(LL_APB1_GRP1_PERIPH_SPI2)
@@ -27079,7 +27079,7 @@ typedef struct
 #define __HAL_RCC_LPTIM3_RELEASE_RESET() LL_APB1_GRP2_ReleaseReset(LL_APB1_GRP2_PERIPH_LPTIM3)
 
 #define __HAL_RCC_APB1_RELEASE_RESET() do { __HAL_RCC_APB1L_RELEASE_RESET(); __HAL_RCC_APB1H_RELEASE_RESET(); } while(0U)
-# 1268 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1268 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_APB2_FORCE_RESET() LL_APB2_GRP1_ForceReset(LL_APB2_GRP1_PERIPH_ALL)
 #define __HAL_RCC_ADC_FORCE_RESET() LL_APB2_GRP1_ForceReset(LL_APB2_GRP1_PERIPH_ADC)
 #define __HAL_RCC_TIM1_FORCE_RESET() LL_APB2_GRP1_ForceReset(LL_APB2_GRP1_PERIPH_TIM1)
@@ -27095,7 +27095,7 @@ typedef struct
 #define __HAL_RCC_USART1_RELEASE_RESET() LL_APB2_GRP1_ReleaseReset(LL_APB2_GRP1_PERIPH_USART1)
 #define __HAL_RCC_TIM16_RELEASE_RESET() LL_APB2_GRP1_ReleaseReset(LL_APB2_GRP1_PERIPH_TIM16)
 #define __HAL_RCC_TIM17_RELEASE_RESET() LL_APB2_GRP1_ReleaseReset(LL_APB2_GRP1_PERIPH_TIM17)
-# 1291 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1291 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_APB3_FORCE_RESET() LL_APB3_GRP1_ForceReset(LL_APB3_GRP1_PERIPH_ALL)
 #define __HAL_RCC_SUBGHZSPI_FORCE_RESET() LL_APB3_GRP1_ForceReset(LL_APB3_GRP1_PERIPH_SUBGHZSPI)
 
@@ -27105,11 +27105,11 @@ typedef struct
 
 #define __HAL_RCC_SUBGHZ_FORCE_RESET() __HAL_RCC_SUBGHZSPI_FORCE_RESET()
 #define __HAL_RCC_SUBGHZ_RELEASE_RESET() __HAL_RCC_SUBGHZSPI_RELEASE_RESET()
-# 1308 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1308 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_SUBGHZ_RADIO_FORCE_RESET() SET_BIT(RCC->CSR, RCC_CSR_RFRST)
 
 #define __HAL_RCC_SUBGHZ_RADIO_RELEASE_RESET() CLEAR_BIT(RCC->CSR, RCC_CSR_RFRST)
-# 1334 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1334 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_DMA1_CLK_SLEEP_ENABLE() LL_AHB1_GRP1_EnableClockSleep(LL_AHB1_GRP1_PERIPH_DMA1)
 #define __HAL_RCC_DMA2_CLK_SLEEP_ENABLE() LL_AHB1_GRP1_EnableClockSleep(LL_AHB1_GRP1_PERIPH_DMA2)
 #define __HAL_RCC_DMAMUX1_CLK_SLEEP_ENABLE() LL_AHB1_GRP1_EnableClockSleep(LL_AHB1_GRP1_PERIPH_DMAMUX1)
@@ -27119,7 +27119,7 @@ typedef struct
 #define __HAL_RCC_DMA2_CLK_SLEEP_DISABLE() LL_AHB1_GRP1_DisableClockSleep(LL_AHB1_GRP1_PERIPH_DMA2)
 #define __HAL_RCC_DMAMUX1_CLK_SLEEP_DISABLE() LL_AHB1_GRP1_DisableClockSleep(LL_AHB1_GRP1_PERIPH_DMAMUX1)
 #define __HAL_RCC_CRC_CLK_SLEEP_DISABLE() LL_AHB1_GRP1_DisableClockSleep(LL_AHB1_GRP1_PERIPH_CRC)
-# 1367 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1367 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_GPIOA_CLK_SLEEP_ENABLE() LL_AHB2_GRP1_EnableClockSleep(LL_AHB2_GRP1_PERIPH_GPIOA)
 #define __HAL_RCC_GPIOB_CLK_SLEEP_ENABLE() LL_AHB2_GRP1_EnableClockSleep(LL_AHB2_GRP1_PERIPH_GPIOB)
 #define __HAL_RCC_GPIOC_CLK_SLEEP_ENABLE() LL_AHB2_GRP1_EnableClockSleep(LL_AHB2_GRP1_PERIPH_GPIOC)
@@ -27129,7 +27129,7 @@ typedef struct
 #define __HAL_RCC_GPIOB_CLK_SLEEP_DISABLE() LL_AHB2_GRP1_DisableClockSleep(LL_AHB2_GRP1_PERIPH_GPIOB)
 #define __HAL_RCC_GPIOC_CLK_SLEEP_DISABLE() LL_AHB2_GRP1_DisableClockSleep(LL_AHB2_GRP1_PERIPH_GPIOC)
 #define __HAL_RCC_GPIOH_CLK_SLEEP_DISABLE() LL_AHB2_GRP1_DisableClockSleep(LL_AHB2_GRP1_PERIPH_GPIOH)
-# 1404 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1404 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_PKA_CLK_SLEEP_ENABLE() LL_AHB3_GRP1_EnableClockSleep(LL_AHB3_GRP1_PERIPH_PKA)
 #define __HAL_RCC_AES_CLK_SLEEP_ENABLE() LL_AHB3_GRP1_EnableClockSleep(LL_AHB3_GRP1_PERIPH_AES)
 #define __HAL_RCC_RNG_CLK_SLEEP_ENABLE() LL_AHB3_GRP1_EnableClockSleep(LL_AHB3_GRP1_PERIPH_RNG)
@@ -27143,7 +27143,7 @@ typedef struct
 #define __HAL_RCC_SRAM1_CLK_SLEEP_DISABLE() LL_AHB3_GRP1_DisableClockSleep(LL_AHB3_GRP1_PERIPH_SRAM1)
 #define __HAL_RCC_SRAM2_CLK_SLEEP_DISABLE() LL_AHB3_GRP1_DisableClockSleep(LL_AHB3_GRP1_PERIPH_SRAM2)
 #define __HAL_RCC_FLASH_CLK_SLEEP_DISABLE() LL_AHB3_GRP1_DisableClockSleep(LL_AHB3_GRP1_PERIPH_FLASH)
-# 1459 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1459 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_TIM2_CLK_SLEEP_ENABLE() LL_APB1_GRP1_EnableClockSleep(LL_APB1_GRP1_PERIPH_TIM2)
 #define __HAL_RCC_RTCAPB_CLK_SLEEP_ENABLE() LL_APB1_GRP1_EnableClockSleep(LL_APB1_GRP1_PERIPH_RTCAPB)
 #define __HAL_RCC_SPI2_CLK_SLEEP_ENABLE() LL_APB1_GRP1_EnableClockSleep(LL_APB1_GRP1_PERIPH_SPI2)
@@ -27176,7 +27176,7 @@ typedef struct
 #define __HAL_RCC_WWDG_CLK_SLEEP_ENABLE() LL_APB1_GRP1_EnableClockSleep(LL_APB1_GRP1_PERIPH_WWDG)
 
 #define __HAL_RCC_WWDG_CLK_SLEEP_DISABLE() LL_APB1_GRP1_DisableClockSleep(LL_APB1_GRP1_PERIPH_WWDG)
-# 1518 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1518 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_ADC_CLK_SLEEP_ENABLE() LL_APB2_GRP1_EnableClockSleep(LL_APB2_GRP1_PERIPH_ADC)
 #define __HAL_RCC_TIM1_CLK_SLEEP_ENABLE() LL_APB2_GRP1_EnableClockSleep(LL_APB2_GRP1_PERIPH_TIM1)
 #define __HAL_RCC_SPI1_CLK_SLEEP_ENABLE() LL_APB2_GRP1_EnableClockSleep(LL_APB2_GRP1_PERIPH_SPI1)
@@ -27190,7 +27190,7 @@ typedef struct
 #define __HAL_RCC_USART1_CLK_SLEEP_DISABLE() LL_APB2_GRP1_DisableClockSleep(LL_APB2_GRP1_PERIPH_USART1)
 #define __HAL_RCC_TIM16_CLK_SLEEP_DISABLE() LL_APB2_GRP1_DisableClockSleep(LL_APB2_GRP1_PERIPH_TIM16)
 #define __HAL_RCC_TIM17_CLK_SLEEP_DISABLE() LL_APB2_GRP1_DisableClockSleep(LL_APB2_GRP1_PERIPH_TIM17)
-# 1549 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1549 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_SUBGHZSPI_CLK_SLEEP_ENABLE() LL_APB3_GRP1_EnableClockSleep(LL_APB3_GRP1_PERIPH_SUBGHZSPI)
 
 #define __HAL_RCC_SUBGHZSPI_CLK_SLEEP_DISABLE() LL_APB3_GRP1_DisableClockSleep(LL_APB3_GRP1_PERIPH_SUBGHZSPI)
@@ -27199,24 +27199,24 @@ typedef struct
 
 #define __HAL_RCC_SUBGHZ_CLK_SLEEP_ENABLE() __HAL_RCC_SUBGHZSPI_CLK_SLEEP_ENABLE()
 #define __HAL_RCC_SUBGHZ_CLK_SLEEP_DISABLE() __HAL_RCC_SUBGHZSPI_CLK_SLEEP_DISABLE()
-# 1575 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1575 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_DMA1_IS_CLK_SLEEP_ENABLED() LL_AHB1_GRP1_IsEnabledClockSleep(LL_AHB1_GRP1_PERIPH_DMA1)
 #define __HAL_RCC_DMA2_IS_CLK_SLEEP_ENABLED() LL_AHB1_GRP1_IsEnabledClockSleep(LL_AHB1_GRP1_PERIPH_DMA2)
 #define __HAL_RCC_DMAMUX1_IS_CLK_SLEEP_ENABLED() LL_AHB1_GRP1_IsEnabledClockSleep(LL_AHB1_GRP1_PERIPH_DMAMUX1)
 #define __HAL_RCC_CRC_IS_CLK_SLEEP_ENABLED() LL_AHB1_GRP1_IsEnabledClockSleep(LL_AHB1_GRP1_PERIPH_CRC)
-# 1598 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1598 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_GPIOA_IS_CLK_SLEEP_ENABLED() LL_AHB2_GRP1_IsEnabledClockSleep(LL_AHB2_GRP1_PERIPH_GPIOA)
 #define __HAL_RCC_GPIOB_IS_CLK_SLEEP_ENABLED() LL_AHB2_GRP1_IsEnabledClockSleep(LL_AHB2_GRP1_PERIPH_GPIOB)
 #define __HAL_RCC_GPIOC_IS_CLK_SLEEP_ENABLED() LL_AHB2_GRP1_IsEnabledClockSleep(LL_AHB2_GRP1_PERIPH_GPIOC)
 #define __HAL_RCC_GPIOH_IS_CLK_SLEEP_ENABLED() LL_AHB2_GRP1_IsEnabledClockSleep(LL_AHB2_GRP1_PERIPH_GPIOH)
-# 1623 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1623 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_PKA_IS_CLK_SLEEP_ENABLED() LL_AHB3_GRP1_IsEnabledClockSleep(LL_AHB3_GRP1_PERIPH_PKA)
 #define __HAL_RCC_AES_IS_CLK_SLEEP_ENABLED() LL_AHB3_GRP1_IsEnabledClockSleep(LL_AHB3_GRP1_PERIPH_AES)
 #define __HAL_RCC_RNG_IS_CLK_SLEEP_ENABLED() LL_AHB3_GRP1_IsEnabledClockSleep(LL_AHB3_GRP1_PERIPH_RNG)
 #define __HAL_RCC_SRAM1_IS_CLK_SLEEP_ENABLED() LL_AHB3_GRP1_IsEnabledClockSleep(LL_AHB3_GRP1_PERIPH_SRAM1)
 #define __HAL_RCC_SRAM2_IS_CLK_SLEEP_ENABLED() LL_AHB3_GRP1_IsEnabledClockSleep(LL_AHB3_GRP1_PERIPH_SRAM2)
 #define __HAL_RCC_FLASH_IS_CLK_SLEEP_ENABLED() LL_AHB3_GRP1_IsEnabledClockSleep(LL_AHB3_GRP1_PERIPH_FLASH)
-# 1657 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1657 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_TIM2_IS_CLK_SLEEP_ENABLED() LL_APB1_GRP1_IsEnabledClockSleep(LL_APB1_GRP1_PERIPH_TIM2)
 #define __HAL_RCC_RTCAPB_IS_CLK_SLEEP_ENABLED() LL_APB1_GRP1_IsEnabledClockSleep(LL_APB1_GRP1_PERIPH_RTCAPB)
 #define __HAL_RCC_USART2_IS_CLK_SLEEP_ENABLED() LL_APB1_GRP1_IsEnabledClockSleep(LL_APB1_GRP1_PERIPH_USART2)
@@ -27233,95 +27233,95 @@ typedef struct
 
 
 #define __HAL_RCC_WWDG_IS_CLK_SLEEP_ENABLED() LL_APB1_GRP1_IsEnabledClockSleep(LL_APB1_GRP1_PERIPH_WWDG)
-# 1693 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1693 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_ADC_IS_CLK_SLEEP_ENABLED() LL_APB2_GRP1_IsEnabledClockSleep(LL_APB2_GRP1_PERIPH_ADC)
 #define __HAL_RCC_TIM1_IS_CLK_SLEEP_ENABLED() LL_APB2_GRP1_IsEnabledClockSleep(LL_APB2_GRP1_PERIPH_TIM1)
 #define __HAL_RCC_SPI1_IS_CLK_SLEEP_ENABLED() LL_APB2_GRP1_IsEnabledClockSleep(LL_APB2_GRP1_PERIPH_SPI1)
 #define __HAL_RCC_USART1_IS_CLK_SLEEP_ENABLED() LL_APB2_GRP1_IsEnabledClockSleep(LL_APB2_GRP1_PERIPH_USART1)
 #define __HAL_RCC_TIM16_IS_CLK_SLEEP_ENABLED() LL_APB2_GRP1_IsEnabledClockSleep(LL_APB2_GRP1_PERIPH_TIM16)
 #define __HAL_RCC_TIM17_IS_CLK_SLEEP_ENABLED() LL_APB2_GRP1_IsEnabledClockSleep(LL_APB2_GRP1_PERIPH_TIM17)
-# 1716 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1716 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_SUBGHZSPI_IS_CLK_SLEEP_ENABLED() LL_APB3_GRP1_IsEnabledClockSleep(LL_APB3_GRP1_PERIPH_SUBGHZSPI)
 
 
 
 
 #define __HAL_RCC_SUBGHZ_IS_CLK_SLEEP_ENABLED() __HAL_RCC_SUBGHZSPI_IS_CLK_SLEEP_ENABLED()
-# 1736 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1736 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_BACKUPRESET_FORCE() LL_RCC_ForceBackupDomainReset()
 #define __HAL_RCC_BACKUPRESET_RELEASE() LL_RCC_ReleaseBackupDomainReset()
-# 1754 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1754 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_RTC_ENABLE() LL_RCC_EnableRTC()
 #define __HAL_RCC_RTC_DISABLE() LL_RCC_DisableRTC()
-# 1770 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1770 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_HSI_ENABLE() LL_RCC_HSI_Enable()
-# 1779 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1779 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_HSI_DISABLE() LL_RCC_HSI_Disable()
-# 1789 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1789 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_HSI_CALIBRATIONVALUE_ADJUST(__HSICALIBRATIONVALUE__) LL_RCC_HSI_SetCalibTrimming(__HSICALIBRATIONVALUE__)
-# 1799 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1799 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_HSIAUTOMATIC_START_ENABLE() LL_RCC_HSI_EnableAutoFromStop()
 #define __HAL_RCC_HSIAUTOMATIC_START_DISABLE() LL_RCC_HSI_DisableAutoFromStop()
-# 1810 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1810 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_HSISTOP_ENABLE() LL_RCC_HSI_EnableInStopMode()
 #define __HAL_RCC_HSISTOP_DISABLE() LL_RCC_HSI_DisableInStopMode()
-# 1830 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1830 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_MSI_ENABLE() LL_RCC_MSI_Enable()
 #define __HAL_RCC_MSI_DISABLE() LL_RCC_MSI_Disable()
-# 1843 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1843 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_MSI_CALIBRATIONVALUE_ADJUST(__MSICALIBRATIONVALUE__) LL_RCC_MSI_SetCalibTrimming(__MSICALIBRATIONVALUE__)
-# 1872 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1872 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_MSI_RANGE_CONFIG(__MSIRANGEVALUE__) do { SET_BIT(RCC->CR, RCC_CR_MSIRGSEL); MODIFY_REG(RCC->CR, RCC_CR_MSIRANGE, (__MSIRANGEVALUE__)); } while(0)
-# 1888 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1888 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_MSI_STANDBY_RANGE_CONFIG(__MSIRANGEVALUE__) MODIFY_REG(RCC->CSR, RCC_CSR_MSISRANGE, (__MSIRANGEVALUE__) << 4U)
-# 1907 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1907 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_GET_MSI_RANGE() ((READ_BIT(RCC->CR, RCC_CR_MSIRGSEL) != 0U) ? (uint32_t)(READ_BIT(RCC->CR, RCC_CR_MSIRANGE)) : (uint32_t)(READ_BIT(RCC->CSR, RCC_CSR_MSISRANGE) >> 4))
-# 1920 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1920 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_LSI_ENABLE() LL_RCC_LSI_Enable()
 #define __HAL_RCC_LSI_DISABLE() LL_RCC_LSI_Disable()
-# 1946 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1946 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_HSE_CONFIG(__STATE__) do { if((__STATE__) == RCC_HSE_ON) { LL_RCC_HSE_Enable(); } else if((__STATE__) == RCC_HSE_BYPASS_PWR) { LL_RCC_HSE_EnableTcxo(); LL_RCC_HSE_Enable(); } else { LL_RCC_HSE_Disable(); LL_RCC_HSE_DisableTcxo(); } } while(0U)
-# 1969 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1969 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_HSE_DIV2_ENABLE() LL_RCC_HSE_EnableDiv2()
 #define __HAL_RCC_HSE_DIV2_DISABLE() LL_RCC_HSE_DisableDiv2()
-# 1992 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1992 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_LSE_CONFIG(__STATE__) do { if((__STATE__) == RCC_LSE_ON) { LL_RCC_LSE_Enable(); } else if((__STATE__) == RCC_LSE_BYPASS) { LL_RCC_LSE_EnableBypass(); LL_RCC_LSE_Enable(); } else { LL_RCC_LSE_Disable(); LL_RCC_LSE_DisableBypass(); } } while(0U)
-# 2033 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 2033 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_RTC_CONFIG(__RTC_CLKSOURCE__) LL_RCC_SetRTCClockSource(__RTC_CLKSOURCE__)
-# 2042 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 2042 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_GET_RTC_SOURCE() LL_RCC_GetRTCClockSource()
-# 2052 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 2052 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_PLL_ENABLE() LL_RCC_PLL_Enable()
 #define __HAL_RCC_PLL_DISABLE() LL_RCC_PLL_Disable()
-# 2066 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 2066 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_PLL_PLLSOURCE_CONFIG(__PLLSOURCE__) MODIFY_REG(RCC->PLLCFGR, RCC_PLLCFGR_PLLSRC, (__PLLSOURCE__))
-# 2103 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 2103 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_PLL_CONFIG(__PLLSOURCE__,__PLLM__,__PLLN__,__PLLP__,__PLLQ__,__PLLR__) MODIFY_REG(RCC->PLLCFGR, (RCC_PLLCFGR_PLLSRC | RCC_PLLCFGR_PLLM | RCC_PLLCFGR_PLLN | RCC_PLLCFGR_PLLP | RCC_PLLCFGR_PLLQ | RCC_PLLCFGR_PLLR), ((uint32_t) (__PLLSOURCE__) | (uint32_t) (__PLLM__) | (uint32_t) ((__PLLN__) << RCC_PLLCFGR_PLLN_Pos) | (uint32_t) (__PLLP__) | (uint32_t) (__PLLQ__) | (uint32_t) (__PLLR__)))
-# 2122 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 2122 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_GET_PLL_OSCSOURCE() LL_RCC_PLL_GetMainSource()
-# 2137 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 2137 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_PLLCLKOUT_ENABLE(__PLLCLOCKOUT__) SET_BIT(RCC->PLLCFGR, (__PLLCLOCKOUT__))
 
 #define __HAL_RCC_PLLCLKOUT_DISABLE(__PLLCLOCKOUT__) CLEAR_BIT(RCC->PLLCFGR, (__PLLCLOCKOUT__))
-# 2151 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 2151 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_GET_PLLCLKOUT_CONFIG(__PLLCLOCKOUT__) READ_BIT(RCC->PLLCFGR, (__PLLCLOCKOUT__))
-# 2163 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 2163 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_SYSCLK_CONFIG(__SYSCLKSOURCE__) LL_RCC_SetSysClkSource(__SYSCLKSOURCE__)
-# 2173 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 2173 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_GET_SYSCLK_SOURCE() LL_RCC_GetSysClkSource()
-# 2189 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 2189 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_LSEDRIVE_CONFIG(__LSEDRIVE__) LL_RCC_LSE_SetDriveCapability(__LSEDRIVE__)
-# 2199 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 2199 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_WAKEUPSTOP_CLK_CONFIG(__STOPWUCLK__) LL_RCC_SetClkAfterWakeFromStop(__STOPWUCLK__)
-# 2223 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 2223 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_MCO1_CONFIG(__MCOCLKSOURCE__,__MCODIV__) LL_RCC_ConfigMCO((__MCOCLKSOURCE__), (__MCODIV__))
-# 2242 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 2242 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_ENABLE_IT(__INTERRUPT__) SET_BIT(RCC->CIER, (__INTERRUPT__))
-# 2256 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 2256 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_DISABLE_IT(__INTERRUPT__) CLEAR_BIT(RCC->CIER, (__INTERRUPT__))
-# 2271 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 2271 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_CLEAR_IT(__INTERRUPT__) (RCC->CICR = (__INTERRUPT__))
-# 2286 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 2286 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_GET_IT(__INTERRUPT__) ((RCC->CIFR & (__INTERRUPT__)) == (__INTERRUPT__))
 
 
@@ -27330,11 +27330,11 @@ typedef struct
 
 
 #define __HAL_RCC_CLEAR_RESET_FLAGS() LL_RCC_ClearResetFlags()
-# 2317 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 2317 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_GET_FLAG(__FLAG__) (((((((__FLAG__) >> REG_INDEX_POS) == CR_REG_INDEX) ? RCC->CR : ((((__FLAG__) >> REG_INDEX_POS) == BDCR_REG_INDEX) ? RCC->BDCR : ((((__FLAG__) >> REG_INDEX_POS) == CSR_REG_INDEX) ? RCC->CSR : RCC->CIFR))) & (1U << ((__FLAG__) & RCC_FLAG_MASK))) != RESET) ? 1UL : 0UL)
-# 2332 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
+# 2332 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 #define STM32WLxx_HAL_RCC_EX_H 
 
 
@@ -27343,10 +27343,10 @@ typedef struct
 
 
 
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 #define __STM32WLxx_LL_EXTI_H 
-# 90 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 90 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 #define LL_EXTI_LINE_0 EXTI_IMR1_IM0
 #define LL_EXTI_LINE_1 EXTI_IMR1_IM1
 #define LL_EXTI_LINE_2 EXTI_IMR1_IM2
@@ -27404,7 +27404,7 @@ typedef struct
 
 
 #define LL_EXTI_LINE_ALL_32_63 (EXTI_IMR2_IM34 | EXTI_IMR2_IM38 | EXTI_IMR2_IM42 | EXTI_IMR2_IM43 | EXTI_IMR2_IM44 | EXTI_IMR2_IM45 | EXTI_IMR2_IM46)
-# 200 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 200 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 #define LL_EXTI_WriteReg(__REG__,__VALUE__) WRITE_REG(EXTI->__REG__, (__VALUE__))
 
 
@@ -27413,172 +27413,172 @@ typedef struct
 
 
 #define LL_EXTI_ReadReg(__REG__) READ_REG(EXTI->__REG__)
-# 266 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 266 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline void LL_EXTI_EnableIT_0_31(uint32_t ExtiLine)
 {
   ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->IMR1) |= (ExtiLine));
 }
-# 337 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 337 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline void LL_EXTI_EnableIT_32_63(uint32_t ExtiLine)
 {
   ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->IMR2) |= (ExtiLine));
 }
-# 408 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 408 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline void LL_EXTI_DisableIT_0_31(uint32_t ExtiLine)
 {
   ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->IMR1) &= ~(ExtiLine));
 }
-# 479 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 479 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline void LL_EXTI_DisableIT_32_63(uint32_t ExtiLine)
 {
   ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->IMR2) &= ~(ExtiLine));
 }
-# 550 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 550 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline uint32_t LL_EXTI_IsEnabledIT_0_31(uint32_t ExtiLine)
 {
   return ((((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->IMR1) & (ExtiLine)) == (ExtiLine)) ? 1UL : 0UL);
 }
-# 621 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 621 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline uint32_t LL_EXTI_IsEnabledIT_32_63(uint32_t ExtiLine)
 {
   return ((((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->IMR2) & (ExtiLine)) == (ExtiLine)) ? 1UL : 0UL);
 }
-# 688 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 688 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline void LL_EXTI_EnableEvent_0_31(uint32_t ExtiLine)
 {
   ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->EMR1) |= (ExtiLine));
 }
-# 736 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 736 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline void LL_EXTI_EnableEvent_32_63(uint32_t ExtiLine)
 {
   ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->EMR2) |= (ExtiLine));
 }
-# 784 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 784 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline void LL_EXTI_DisableEvent_0_31(uint32_t ExtiLine)
 {
   ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->EMR1) &= ~(ExtiLine));
 }
-# 832 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 832 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline void LL_EXTI_DisableEvent_32_63(uint32_t ExtiLine)
 {
   ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->EMR2) &= ~(ExtiLine));
 }
-# 880 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 880 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline uint32_t LL_EXTI_IsEnabledEvent_0_31(uint32_t ExtiLine)
 {
   return ((((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->EMR1) & (ExtiLine)) == (ExtiLine)) ? 1UL : 0UL);
 }
-# 928 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 928 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline uint32_t LL_EXTI_IsEnabledEvent_32_63(uint32_t ExtiLine)
 {
   return ((((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->EMR2) & (ExtiLine)) == (ExtiLine)) ? 1UL : 0UL);
 }
-# 990 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 990 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline void LL_EXTI_EnableRisingTrig_0_31(uint32_t ExtiLine)
 {
   ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->RTSR1) |= (ExtiLine));
 
 }
-# 1012 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 1012 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline void LL_EXTI_EnableRisingTrig_32_63(uint32_t ExtiLine)
 {
   ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->RTSR2) |= (ExtiLine));
 }
-# 1050 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 1050 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline void LL_EXTI_DisableRisingTrig_0_31(uint32_t ExtiLine)
 {
   ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->RTSR1) &= ~(ExtiLine));
 
 }
-# 1073 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 1073 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline void LL_EXTI_DisableRisingTrig_32_63(uint32_t ExtiLine)
 {
   ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->RTSR2) &= ~(ExtiLine));
 }
-# 1104 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 1104 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline uint32_t LL_EXTI_IsEnabledRisingTrig_0_31(uint32_t ExtiLine)
 {
   return ((((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->RTSR1) & (ExtiLine)) == (ExtiLine)) ? 1UL : 0UL);
 }
-# 1119 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 1119 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline uint32_t LL_EXTI_IsEnabledRisingTrig_32_63(uint32_t ExtiLine)
 {
   return ((((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->RTSR2) & (ExtiLine)) == (ExtiLine)) ? 1UL : 0UL);
 }
-# 1165 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 1165 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline void LL_EXTI_EnableFallingTrig_0_31(uint32_t ExtiLine)
 {
   ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->FTSR1) |= (ExtiLine));
 }
-# 1187 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 1187 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline void LL_EXTI_EnableFallingTrig_32_63(uint32_t ExtiLine)
 {
   ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->FTSR2) |= (ExtiLine));
 }
-# 1224 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 1224 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline void LL_EXTI_DisableFallingTrig_0_31(uint32_t ExtiLine)
 {
   ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->FTSR1) &= ~(ExtiLine));
 }
-# 1245 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 1245 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline void LL_EXTI_DisableFallingTrig_32_63(uint32_t ExtiLine)
 {
   ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->FTSR2) &= ~(ExtiLine));
 }
-# 1276 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 1276 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline uint32_t LL_EXTI_IsEnabledFallingTrig_0_31(uint32_t ExtiLine)
 {
   return ((((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->FTSR1) & (ExtiLine)) == (ExtiLine)) ? 1UL : 0UL);
 }
-# 1291 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 1291 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline uint32_t LL_EXTI_IsEnabledFallingTrig_32_63(uint32_t ExtiLine)
 {
   return ((((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->FTSR2) & (ExtiLine)) == (ExtiLine)) ? 1UL : 0UL);
 }
-# 1335 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 1335 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline void LL_EXTI_GenerateSWI_0_31(uint32_t ExtiLine)
 {
   ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->SWIER1) |= (ExtiLine));
 }
-# 1355 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 1355 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline void LL_EXTI_GenerateSWI_32_63(uint32_t ExtiLine)
 {
   ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->SWIER2) |= (ExtiLine));
 }
-# 1396 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 1396 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline uint32_t LL_EXTI_IsActiveFlag_0_31(uint32_t ExtiLine)
 {
   return ((((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->PR1) & (ExtiLine)) == (ExtiLine)) ? 1UL : 0UL);
 }
-# 1413 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 1413 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline uint32_t LL_EXTI_IsActiveFlag_32_63(uint32_t ExtiLine)
 {
   return ((((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->PR2) & (ExtiLine)) == (ExtiLine)) ? 1UL : 0UL);
 }
-# 1447 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 1447 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline uint32_t LL_EXTI_ReadFlag_0_31(uint32_t ExtiLine)
 {
   return (uint32_t)(((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->PR1) & (ExtiLine)));
 }
-# 1464 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 1464 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline uint32_t LL_EXTI_ReadFlag_32_63(uint32_t ExtiLine)
 {
   return (uint32_t)(((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->PR2) & (ExtiLine)));
 }
-# 1497 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 1497 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline void LL_EXTI_ClearFlag_0_31(uint32_t ExtiLine)
 {
   ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->PR1) = (ExtiLine));
 }
-# 1514 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
+# 1514 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline void LL_EXTI_ClearFlag_32_63(uint32_t ExtiLine)
 {
   ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->PR2) = (ExtiLine));
 }
-# 31 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h" 2
-# 45 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
+# 31 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h" 2
+# 45 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 #define RCC_PERIPHCLOCK_ALL (RCC_PERIPHCLK_USART1 | RCC_PERIPHCLK_USART2 | RCC_PERIPHCLK_I2S2 | RCC_PERIPHCLK_LPUART1 | RCC_PERIPHCLK_I2C1 | RCC_PERIPHCLK_I2C2 | RCC_PERIPHCLK_I2C3 | RCC_PERIPHCLK_LPTIM1 | RCC_PERIPHCLK_LPTIM2 | RCC_PERIPHCLK_LPTIM3 | RCC_PERIPHCLK_ADC | RCC_PERIPHCLK_RNG | RCC_PERIPHCLK_RTC )
-# 59 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
+# 59 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 #define IS_RCC_LSCOSOURCE(__SOURCE__) (((__SOURCE__) == RCC_LSCOSOURCE_LSI) || ((__SOURCE__) == RCC_LSCOSOURCE_LSE))
 
 
@@ -27638,7 +27638,7 @@ static inline void LL_EXTI_ClearFlag_32_63(uint32_t ExtiLine)
 
 
 #define IS_RCC_ADCCLKSOURCE(__SOURCE__) (((__SOURCE__) == RCC_ADCCLKSOURCE_NONE) || ((__SOURCE__) == RCC_ADCCLKSOURCE_HSI) || ((__SOURCE__) == RCC_ADCCLKSOURCE_PLL) || ((__SOURCE__) == RCC_ADCCLKSOURCE_SYSCLK))
-# 135 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
+# 135 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 typedef struct
 {
   uint32_t PeriphClockSelection;
@@ -27684,7 +27684,7 @@ typedef struct
 
 
 } RCC_PeriphCLKInitTypeDef;
-# 193 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
+# 193 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 #define RCC_LSCOSOURCE_LSI LL_RCC_LSCO_CLKSOURCE_LSI
 #define RCC_LSCOSOURCE_LSE LL_RCC_LSCO_CLKSOURCE_LSE
 
@@ -27851,15 +27851,15 @@ typedef struct
 
 
 #define RCC_EXTI_LINE_HSECSS EXTI_IMR2_IM43
-# 384 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
+# 384 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 #define __HAL_RCC_USART1_CONFIG(__USART1_CLKSOURCE__) LL_RCC_SetUSARTClockSource(__USART1_CLKSOURCE__)
-# 393 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
+# 393 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 #define __HAL_RCC_GET_USART1_SOURCE() LL_RCC_GetUSARTClockSource(LL_RCC_USART1_CLKSOURCE)
-# 404 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
+# 404 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 #define __HAL_RCC_USART2_CONFIG(__USART2_CLKSOURCE__) LL_RCC_SetUSARTClockSource(__USART2_CLKSOURCE__)
-# 413 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
+# 413 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 #define __HAL_RCC_GET_USART2_SOURCE() LL_RCC_GetUSARTClockSource(LL_RCC_USART2_CLKSOURCE)
-# 423 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
+# 423 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 #define __HAL_RCC_I2S2_CONFIG(__I2S2_CLKSOURCE__) LL_RCC_SetI2SClockSource(__I2S2_CLKSOURCE__)
 
 
@@ -27869,11 +27869,11 @@ typedef struct
 
 
 #define __HAL_RCC_GET_I2S2_SOURCE() LL_RCC_GetI2SClockSource(LL_RCC_I2S2_CLKSOURCE)
-# 442 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
+# 442 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 #define __HAL_RCC_LPUART1_CONFIG(__LPUART1_CLKSOURCE__) LL_RCC_SetLPUARTClockSource(__LPUART1_CLKSOURCE__)
-# 451 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
+# 451 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 #define __HAL_RCC_GET_LPUART1_SOURCE() LL_RCC_GetLPUARTClockSource(LL_RCC_LPUART1_CLKSOURCE)
-# 461 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
+# 461 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 #define __HAL_RCC_I2C1_CONFIG(__I2C1_CLKSOURCE__) LL_RCC_SetI2CClockSource(__I2C1_CLKSOURCE__)
 
 
@@ -27883,7 +27883,7 @@ typedef struct
 
 
 #define __HAL_RCC_GET_I2C1_SOURCE() LL_RCC_GetI2CClockSource(LL_RCC_I2C1_CLKSOURCE)
-# 479 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
+# 479 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 #define __HAL_RCC_I2C2_CONFIG(__I2C2_CLKSOURCE__) LL_RCC_SetI2CClockSource(__I2C2_CLKSOURCE__)
 
 
@@ -27893,7 +27893,7 @@ typedef struct
 
 
 #define __HAL_RCC_GET_I2C2_SOURCE() LL_RCC_GetI2CClockSource(LL_RCC_I2C2_CLKSOURCE)
-# 497 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
+# 497 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 #define __HAL_RCC_I2C3_CONFIG(__I2C3_CLKSOURCE__) LL_RCC_SetI2CClockSource(__I2C3_CLKSOURCE__)
 
 
@@ -27903,27 +27903,27 @@ typedef struct
 
 
 #define __HAL_RCC_GET_I2C3_SOURCE() LL_RCC_GetI2CClockSource(LL_RCC_I2C3_CLKSOURCE)
-# 516 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
+# 516 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 #define __HAL_RCC_LPTIM1_CONFIG(__LPTIM1_CLKSOURCE__) LL_RCC_SetLPTIMClockSource(__LPTIM1_CLKSOURCE__)
-# 525 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
+# 525 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 #define __HAL_RCC_GET_LPTIM1_SOURCE() LL_RCC_GetLPTIMClockSource(LL_RCC_LPTIM1_CLKSOURCE)
-# 536 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
+# 536 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 #define __HAL_RCC_LPTIM2_CONFIG(__LPTIM2_CLKSOURCE__) LL_RCC_SetLPTIMClockSource(__LPTIM2_CLKSOURCE__)
-# 545 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
+# 545 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 #define __HAL_RCC_GET_LPTIM2_SOURCE() LL_RCC_GetLPTIMClockSource(LL_RCC_LPTIM2_CLKSOURCE)
-# 556 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
+# 556 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 #define __HAL_RCC_LPTIM3_CONFIG(__LPTIM3_CLKSOURCE__) LL_RCC_SetLPTIMClockSource(__LPTIM3_CLKSOURCE__)
-# 565 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
+# 565 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 #define __HAL_RCC_GET_LPTIM3_SOURCE() LL_RCC_GetLPTIMClockSource(LL_RCC_LPTIM3_CLKSOURCE)
-# 576 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
+# 576 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 #define __HAL_RCC_RNG_CONFIG(__RNG_CLKSOURCE__) LL_RCC_SetRNGClockSource(__RNG_CLKSOURCE__)
-# 585 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
+# 585 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 #define __HAL_RCC_GET_RNG_SOURCE() LL_RCC_GetRNGClockSource(LL_RCC_RNG_CLKSOURCE)
-# 596 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
+# 596 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 #define __HAL_RCC_ADC_CONFIG(__ADC_CLKSOURCE__) LL_RCC_SetADCClockSource(__ADC_CLKSOURCE__)
-# 605 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
+# 605 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 #define __HAL_RCC_GET_ADC_SOURCE() LL_RCC_GetADCClockSource(LL_RCC_ADC_CLKSOURCE)
-# 630 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
+# 630 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 #define __HAL_RCC_LSECSS_EXTI_ENABLE_IT() LL_EXTI_EnableIT_0_31(RCC_EXTI_LINE_LSECSS)
 #define __HAL_RCC_LSECSS_EXTI_DISABLE_IT() LL_EXTI_DisableIT_0_31(RCC_EXTI_LINE_LSECSS)
 #define __HAL_RCC_LSECSS_EXTI_ENABLE_EVENT() LL_EXTI_EnableEvent_0_31(RCC_EXTI_LINE_LSECSS)
@@ -27931,11 +27931,11 @@ typedef struct
 
 #define __HAL_RCC_HSECSS_EXTI_ENABLE_IT() LL_EXTI_EnableIT_32_63(RCC_EXTI_LINE_HSECSS)
 #define __HAL_RCC_HSECSS_EXTI_DISABLE_IT() LL_EXTI_DisableIT_32_63(RCC_EXTI_LINE_HSECSS)
-# 654 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
+# 654 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 HAL_StatusTypeDef HAL_RCCEx_PeriphCLKConfig(RCC_PeriphCLKInitTypeDef *PeriphClkInit);
 void HAL_RCCEx_GetPeriphCLKConfig(RCC_PeriphCLKInitTypeDef *PeriphClkInit);
 uint32_t HAL_RCCEx_GetPeriphCLKFreq(uint32_t PeriphClk);
-# 666 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
+# 666 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 void HAL_RCCEx_WakeUpStopCLKConfig(uint32_t WakeUpClk);
 
 void HAL_RCCEx_EnableLSECSS(void);
@@ -27949,12 +27949,12 @@ void HAL_RCCEx_DisableLSCO(void);
 
 void HAL_RCCEx_EnableMSIPLLMode(void);
 void HAL_RCCEx_DisableMSIPLLMode(void);
-# 2333 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h" 2
-# 2345 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 2333 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h" 2
+# 2345 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 HAL_StatusTypeDef HAL_RCC_DeInit(void);
 HAL_StatusTypeDef HAL_RCC_OscConfig(RCC_OscInitTypeDef *RCC_OscInitStruct);
 HAL_StatusTypeDef HAL_RCC_ClockConfig(RCC_ClkInitTypeDef *RCC_ClkInitStruct, uint32_t FLatency);
-# 2358 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 2358 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 void HAL_RCC_MCOConfig(uint32_t RCC_MCOx, uint32_t RCC_MCOSource, uint32_t RCC_MCODiv);
 void HAL_RCC_EnableCSS(void);
 uint32_t HAL_RCC_GetSysClockFreq(void);
@@ -27976,7 +27976,7 @@ void HAL_RCC_NMI_IRQHandler(void);
 void HAL_RCC_CSSCallback(void);
 
 uint32_t HAL_RCC_GetResetSource(void);
-# 273 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
+# 273 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
 
 
 
@@ -27984,10 +27984,10 @@ uint32_t HAL_RCC_GetResetSource(void);
 
 
 
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 #define STM32WLxx_HAL_RTC_H 
-# 47 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 47 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 typedef enum
 {
   HAL_RTC_STATE_RESET = 0x00U,
@@ -28149,9 +28149,9 @@ typedef struct
   volatile HAL_RTCStateTypeDef State;
 
   RTC_IsEnabledTypeDef IsEnabled;
-# 227 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 227 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 } RTC_HandleTypeDef;
-# 269 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 269 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 #define RTC_HOURFORMAT_24 0x00000000u
 #define RTC_HOURFORMAT_12 RTC_CR_FMT
 
@@ -28166,7 +28166,7 @@ typedef struct
 #define RTC_OUTPUT_ALARMB RTC_CR_OSEL_1
 #define RTC_OUTPUT_WAKEUP RTC_CR_OSEL
 #define RTC_OUTPUT_TAMPER RTC_CR_TAMPOE
-# 291 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 291 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 #define RTC_OUTPUT_POLARITY_HIGH 0x00000000u
 #define RTC_OUTPUT_POLARITY_LOW RTC_CR_POL
 
@@ -28224,12 +28224,12 @@ typedef struct
 
 #define RTC_STOREOPERATION_RESET 0x00000000u
 #define RTC_STOREOPERATION_SET RTC_CR_BKP
-# 356 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 356 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 #define RTC_FORMAT_BIN 0x00000000u
 
 
 #define RTC_FORMAT_BCD 0x00000001u
-# 370 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 370 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 #define RTC_MONTH_JANUARY ((uint8_t)0x01U)
 #define RTC_MONTH_FEBRUARY ((uint8_t)0x02U)
 #define RTC_MONTH_MARCH ((uint8_t)0x03U)
@@ -28242,7 +28242,7 @@ typedef struct
 #define RTC_MONTH_OCTOBER ((uint8_t)0x10U)
 #define RTC_MONTH_NOVEMBER ((uint8_t)0x11U)
 #define RTC_MONTH_DECEMBER ((uint8_t)0x12U)
-# 390 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 390 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 #define RTC_WEEKDAY_MONDAY ((uint8_t)0x01U)
 #define RTC_WEEKDAY_TUESDAY ((uint8_t)0x02U)
 #define RTC_WEEKDAY_WEDNESDAY ((uint8_t)0x03U)
@@ -28250,20 +28250,20 @@ typedef struct
 #define RTC_WEEKDAY_FRIDAY ((uint8_t)0x05U)
 #define RTC_WEEKDAY_SATURDAY ((uint8_t)0x06U)
 #define RTC_WEEKDAY_SUNDAY ((uint8_t)0x07U)
-# 405 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 405 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 #define RTC_ALARMDATEWEEKDAYSEL_DATE 0x00000000u
 #define RTC_ALARMDATEWEEKDAYSEL_WEEKDAY RTC_ALRMAR_WDSEL
-# 415 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 415 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 #define RTC_ALARMMASK_NONE 0x00000000u
 #define RTC_ALARMMASK_DATEWEEKDAY RTC_ALRMAR_MSK4
 #define RTC_ALARMMASK_HOURS RTC_ALRMAR_MSK3
 #define RTC_ALARMMASK_MINUTES RTC_ALRMAR_MSK2
 #define RTC_ALARMMASK_SECONDS RTC_ALRMAR_MSK1
 #define RTC_ALARMMASK_ALL (RTC_ALARMMASK_DATEWEEKDAY | RTC_ALARMMASK_HOURS | RTC_ALARMMASK_MINUTES | RTC_ALARMMASK_SECONDS)
-# 430 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 430 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 #define RTC_ALARM_A RTC_CR_ALRAE
 #define RTC_ALARM_B RTC_CR_ALRBE
-# 441 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 441 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 #define RTC_ALARMSUBSECONDMASK_ALL 0x00000000u
 
 
@@ -28296,7 +28296,7 @@ typedef struct
 #define RTC_ALARMSUBSECONDMASK_SS14 (RTC_ALRMASSR_MASKSS_1 | RTC_ALRMASSR_MASKSS_2 | RTC_ALRMASSR_MASKSS_3)
 
 #define RTC_ALARMSUBSECONDMASK_NONE RTC_ALRMASSR_MASKSS
-# 481 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 481 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 #define RTC_IT_TS RTC_CR_TSIE
 #define RTC_IT_WUT RTC_CR_WUTIE
 #define RTC_IT_SSRU RTC_CR_SSRUIE
@@ -28310,7 +28310,7 @@ typedef struct
 
 
 #define RTC_FLAG_MASK 0x001Fu
-# 506 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 506 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 #define RTC_FLAG_RECALPF (0x00000100U | RTC_ICSR_RECALPF_Pos)
 #define RTC_FLAG_INITF (0x00000100U | RTC_ICSR_INITF_Pos)
 #define RTC_FLAG_RSF (0x00000100U | RTC_ICSR_RSF_Pos)
@@ -28338,7 +28338,7 @@ typedef struct
 #define RTC_CLEAR_WUTF RTC_SCR_CWUTF
 #define RTC_CLEAR_ALRBF RTC_SCR_CALRBF
 #define RTC_CLEAR_ALRAF RTC_SCR_CALRAF
-# 557 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 557 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 #define __HAL_RTC_RESET_HANDLE_STATE(__HANDLE__) ((__HANDLE__)->State = HAL_RTC_STATE_RESET)
 
 
@@ -28348,13 +28348,13 @@ typedef struct
 
 
 #define __HAL_RTC_WRITEPROTECTION_DISABLE(__HANDLE__) do{ RTC->WPR = 0xCAU; RTC->WPR = 0x53U; } while(0U)
-# 576 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 576 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 #define __HAL_RTC_WRITEPROTECTION_ENABLE(__HANDLE__) do{ RTC->WPR = 0xFFU; } while(0U)
-# 592 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 592 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 #define __HAL_RTC_DAYLIGHT_SAVING_TIME_ADD1H(__HANDLE__,__BKP__) do { __HAL_RTC_WRITEPROTECTION_DISABLE(__HANDLE__); SET_BIT(RTC->CR, RTC_CR_ADD1H); MODIFY_REG(RTC->CR, RTC_CR_BKP , (__BKP__)); __HAL_RTC_WRITEPROTECTION_ENABLE(__HANDLE__); } while(0);
-# 611 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 611 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 #define __HAL_RTC_DAYLIGHT_SAVING_TIME_SUB1H(__HANDLE__,__BKP__) do { __HAL_RTC_WRITEPROTECTION_DISABLE(__HANDLE__); SET_BIT(RTC->CR, RTC_CR_SUB1H); MODIFY_REG(RTC->CR, RTC_CR_BKP , (__BKP__)); __HAL_RTC_WRITEPROTECTION_ENABLE(__HANDLE__); } while(0);
-# 624 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 624 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 #define __HAL_RTC_ALARMA_ENABLE(__HANDLE__) (RTC->CR |= (RTC_CR_ALRAE))
 
 
@@ -28377,28 +28377,28 @@ typedef struct
 
 
 #define __HAL_RTC_ALARMB_DISABLE(__HANDLE__) (RTC->CR &= ~(RTC_CR_ALRBE))
-# 656 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 656 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 #define __HAL_RTC_ALARM_ENABLE_IT(__HANDLE__,__INTERRUPT__) (RTC->CR |= (__INTERRUPT__))
-# 667 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 667 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 #define __HAL_RTC_ALARM_DISABLE_IT(__HANDLE__,__INTERRUPT__) (RTC->CR &= ~(__INTERRUPT__))
-# 678 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 678 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 #define __HAL_RTC_ALARM_GET_IT(__HANDLE__,__INTERRUPT__) ((((RTC->MISR)& ((__INTERRUPT__)>> 12U)) != 0U) ? 1UL : 0UL)
-# 689 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 689 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 #define __HAL_RTC_ALARM_GET_IT_SOURCE(__HANDLE__,__INTERRUPT__) ((((RTC->CR) & (__INTERRUPT__)) != 0U) ? 1UL : 0UL)
-# 700 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 700 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 #define __HAL_RTC_ALARM_GET_FLAG(__HANDLE__,__FLAG__) (__HAL_RTC_GET_FLAG((__HANDLE__), (__FLAG__)))
-# 711 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 711 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 #define __HAL_RTC_ALARM_CLEAR_FLAG(__HANDLE__,__FLAG__) (((__FLAG__) == RTC_FLAG_ALRAF) ? ((RTC->SCR = (RTC_CLEAR_ALRAF))) : (RTC->SCR = (RTC_CLEAR_ALRBF)))
-# 720 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 720 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 #define __HAL_RTC_ALARM_EXTI_ENABLE_IT() (EXTI->IMR1 |= RTC_EXTI_LINE_ALARM_EVENT)
 #define __HAL_RTC_ALARM_EXTI_DISABLE_IT() (EXTI->IMR1 &= ~(RTC_EXTI_LINE_ALARM_EVENT))
 #define __HAL_RTC_ALARM_EXTI_ENABLE_EVENT() (EXTI->EMR1 |= RTC_EXTI_LINE_ALARM_EVENT)
 #define __HAL_RTC_ALARM_EXTI_DISABLE_EVENT() (EXTI->EMR1 &= ~(RTC_EXTI_LINE_ALARM_EVENT))
-# 732 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 732 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define STM32WLxx_HAL_RTC_EX_H 
-# 47 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 47 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 typedef struct
 {
   uint32_t Tamper;
@@ -28446,7 +28446,7 @@ typedef struct
   uint32_t NoErase;
 
 } RTC_InternalTamperTypeDef;
-# 110 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 110 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define RTC_TIMESTAMPEDGE_RISING 0x00000000u
 #define RTC_TIMESTAMPEDGE_FALLING RTC_CR_TSEDGE
 
@@ -28482,20 +28482,20 @@ typedef struct
 #define RTC_SMOOTHCALIB_PERIOD_16SEC RTC_CALR_CALW16
 
 #define RTC_SMOOTHCALIB_PERIOD_8SEC RTC_CALR_CALW8
-# 153 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 153 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define RTC_SMOOTHCALIB_PLUSPULSES_SET RTC_CALR_CALP
 
 
 #define RTC_SMOOTHCALIB_PLUSPULSES_RESET 0x00000000u
-# 165 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 165 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define RTC_LPCAL_SET RTC_CALR_LPCAL
 
 
 #define RTC_LPCAL_RESET 0x00000000u
-# 179 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 179 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define RTC_CALIBOUTPUT_512HZ 0x00000000u
 #define RTC_CALIBOUTPUT_1HZ RTC_CR_COSEL
-# 190 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 190 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define RTC_SHIFTADD1S_RESET 0x00000000u
 #define RTC_SHIFTADD1S_SET RTC_SHIFTR_ADD1S
 
@@ -28563,7 +28563,7 @@ typedef struct
 #define RTC_TAMPERFILTER_4SAMPLE TAMP_FLTCR_TAMPFLT_1
 
 #define RTC_TAMPERFILTER_8SAMPLE TAMP_FLTCR_TAMPFLT
-# 265 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 265 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV32768 0x00000000U
 
 #define RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV16384 TAMP_FLTCR_TAMPFREQ_0
@@ -28579,7 +28579,7 @@ typedef struct
 #define RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV512 (TAMP_FLTCR_TAMPFREQ_1 | TAMP_FLTCR_TAMPFREQ_2)
 
 #define RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV256 (TAMP_FLTCR_TAMPFREQ_0 | TAMP_FLTCR_TAMPFREQ_1 | TAMP_FLTCR_TAMPFREQ_2)
-# 289 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 289 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define RTC_TAMPERPRECHARGEDURATION_1RTCCLK 0x00000000U
 
 #define RTC_TAMPERPRECHARGEDURATION_2RTCCLK TAMP_FLTCR_TAMPPRCH_0
@@ -28587,7 +28587,7 @@ typedef struct
 #define RTC_TAMPERPRECHARGEDURATION_4RTCCLK TAMP_FLTCR_TAMPPRCH_1
 
 #define RTC_TAMPERPRECHARGEDURATION_8RTCCLK (TAMP_FLTCR_TAMPPRCH_0 | TAMP_FLTCR_TAMPPRCH_1)
-# 304 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 304 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define RTC_TAMPER_PULLUP_ENABLE 0x00000000u
 #define RTC_TAMPER_PULLUP_DISABLE TAMP_FLTCR_TAMPPUDIS
 
@@ -28634,9 +28634,9 @@ typedef struct
 #define RTC_FLAG_INT_TAMP_6 TAMP_SR_ITAMP6F
 #define RTC_FLAG_INT_TAMP_8 TAMP_SR_ITAMP8F
 #define RTC_FLAG_INT_TAMP_ALL (RTC_FLAG_INT_TAMP3 | RTC_FLAG_INT_TAMP5 | RTC_FLAG_INT_TAMP6 | RTC_FLAG_INT_TAMP8)
-# 358 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 358 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define RTC_MONOTONIC_COUNTER_1 0u
-# 367 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 367 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define RTC_BKP_NUMBER RTC_BACKUP_NB
 #define RTC_BKP_DR0 0x00u
 #define RTC_BKP_DR1 0x01u
@@ -28658,7 +28658,7 @@ typedef struct
 #define RTC_BKP_DR17 0x11u
 #define RTC_BKP_DR18 0x12u
 #define RTC_BKP_DR19 0x13u
-# 396 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 396 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define RTC_BINARY_NONE 0x00000000u
 #define RTC_BINARY_ONLY RTC_ICSR_BIN_0
 #define RTC_BINARY_MIX RTC_ICSR_BIN_1
@@ -28758,11 +28758,11 @@ typedef struct
 
 #define RTC_ALARMSUBSECONDBIN_AUTOCLR_NO 0UL
 #define RTC_ALARMSUBSECONDBIN_AUTOCLR_YES RTC_ALRMASSR_SSCLR
-# 522 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 522 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_CLEAR_FLAG(__HANDLE__,__FLAG__) (RTC->SCR = (__FLAG__))
-# 542 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 542 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_GET_FLAG(__HANDLE__,__FLAG__) (((((__FLAG__)) >> 8U) == 1U) ? (RTC->ICSR & (1U << (((uint16_t)(__FLAG__)) & RTC_FLAG_MASK))) : (RTC->SR & (1U << (((uint16_t)(__FLAG__)) & RTC_FLAG_MASK))))
-# 554 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 554 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_WAKEUPTIMER_ENABLE(__HANDLE__) (RTC->CR |= (RTC_CR_WUTE))
 
 
@@ -28771,24 +28771,24 @@ typedef struct
 
 
 #define __HAL_RTC_WAKEUPTIMER_DISABLE(__HANDLE__) (RTC->CR &= ~(RTC_CR_WUTE))
-# 571 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 571 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_WAKEUPTIMER_ENABLE_IT(__HANDLE__,__INTERRUPT__) (RTC->CR |= (__INTERRUPT__))
-# 581 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 581 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_WAKEUPTIMER_DISABLE_IT(__HANDLE__,__INTERRUPT__) (RTC->CR &= ~(__INTERRUPT__))
-# 592 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 592 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_WAKEUPTIMER_GET_IT(__HANDLE__,__INTERRUPT__) ((((RTC->MISR) & ((__INTERRUPT__)>> 12U)) != 0UL) ? 1UL : 0UL)
-# 601 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 601 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_WAKEUPTIMER_GET_IT_SOURCE(__HANDLE__,__INTERRUPT__) ((((RTC->CR) & (__INTERRUPT__)) != 0UL) ? 1UL : 0UL)
-# 612 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 612 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_WAKEUPTIMER_GET_FLAG(__HANDLE__,__FLAG__) (__HAL_RTC_GET_FLAG((__HANDLE__), (__FLAG__)))
-# 622 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 622 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_WAKEUPTIMER_CLEAR_FLAG(__HANDLE__,__FLAG__) (__HAL_RTC_CLEAR_FLAG((__HANDLE__), RTC_CLEAR_WUTF))
-# 632 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 632 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_WAKEUPTIMER_EXTI_ENABLE_IT() (EXTI->IMR1 |= RTC_EXTI_LINE_WAKEUPTIMER_EVENT)
 #define __HAL_RTC_WAKEUPTIMER_EXTI_DISABLE_IT() (EXTI->IMR1 &= ~(RTC_EXTI_LINE_WAKEUPTIMER_EVENT))
 #define __HAL_RTC_WAKEUPTIMER_EXTI_ENABLE_EVENT() (EXTI->EMR1 |= RTC_EXTI_LINE_WAKEUPTIMER_EVENT)
 #define __HAL_RTC_WAKEUPTIMER_EXTI_DISABLE_EVENT() (EXTI->EMR1 &= ~(RTC_EXTI_LINE_WAKEUPTIMER_EVENT))
-# 655 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 655 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_TIMESTAMP_ENABLE(__HANDLE__) (RTC->CR |= (RTC_CR_TSE))
 
 
@@ -28797,19 +28797,19 @@ typedef struct
 
 
 #define __HAL_RTC_TIMESTAMP_DISABLE(__HANDLE__) (RTC->CR &= ~(RTC_CR_TSE))
-# 672 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 672 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_TIMESTAMP_ENABLE_IT(__HANDLE__,__INTERRUPT__) (RTC->CR |= (__INTERRUPT__))
-# 682 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 682 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_TIMESTAMP_DISABLE_IT(__HANDLE__,__INTERRUPT__) (RTC->CR &= ~(__INTERRUPT__))
-# 692 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 692 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_TIMESTAMP_GET_IT(__HANDLE__,__INTERRUPT__) ((((RTC->MISR) & ((__INTERRUPT__)>> 12U)) != 0U) ? 1UL : 0UL)
-# 701 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 701 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_TIMESTAMP_GET_IT_SOURCE(__HANDLE__,__INTERRUPT__) ((((RTC->CR) & (__INTERRUPT__)) != 0U) ? 1UL : 0UL)
-# 712 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 712 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_TIMESTAMP_GET_FLAG(__HANDLE__,__FLAG__) (__HAL_RTC_GET_FLAG((__HANDLE__),(__FLAG__)))
-# 723 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 723 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_TIMESTAMP_CLEAR_FLAG(__HANDLE__,__FLAG__) (__HAL_RTC_CLEAR_FLAG((__HANDLE__), (__FLAG__)))
-# 733 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 733 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_TIMESTAMP_EXTI_ENABLE_IT() (EXTI->IMR1 |= RTC_EXTI_LINE_TIMESTAMP_EVENT)
 #define __HAL_RTC_TIMESTAMP_EXTI_DISABLE_IT() (EXTI->IMR1 &= ~(RTC_EXTI_LINE_TIMESTAMP_EVENT))
 #define __HAL_RTC_TIMESTAMP_EXTI_ENABLE_EVENT() (EXTI->EMR1 |= RTC_EXTI_LINE_TIMESTAMP_EVENT)
@@ -28829,9 +28829,9 @@ typedef struct
 
 
 #define __HAL_RTC_INTERNAL_TIMESTAMP_DISABLE(__HANDLE__) (RTC->CR &= ~(RTC_CR_ITSE))
-# 761 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 761 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_INTERNAL_TIMESTAMP_GET_FLAG(__HANDLE__,__FLAG__) (__HAL_RTC_GET_FLAG((__HANDLE__),(__FLAG__)))
-# 771 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 771 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_INTERNAL_TIMESTAMP_CLEAR_FLAG(__HANDLE__,__FLAG__) (__HAL_RTC_CLEAR_FLAG((__HANDLE__), RTC_CLEAR_ITSF))
 
 
@@ -28861,7 +28861,7 @@ typedef struct
 
 
 #define __HAL_RTC_TAMPOE_DISABLE(__HANDLE__) (RTC->CR &= ~(RTC_CR_TAMPOE))
-# 817 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 817 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_CALIBRATION_OUTPUT_ENABLE(__HANDLE__) (RTC->CR |= (RTC_CR_COE))
 
 
@@ -28885,47 +28885,47 @@ typedef struct
 
 
 #define __HAL_RTC_CLOCKREF_DETECTION_DISABLE(__HANDLE__) (RTC->CR &= ~(RTC_CR_REFCKON))
-# 850 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 850 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_SHIFT_GET_FLAG(__HANDLE__,__FLAG__) (__HAL_RTC_GET_FLAG((__HANDLE__), (__FLAG__)))
-# 876 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 876 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_TAMPER_ENABLE(__HANDLE__,__TAMPER__) (TAMP->CR1 |= (__TAMPER__))
-# 893 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 893 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_TAMPER_DISABLE(__HANDLE__,__TAMPER__) (TAMP->CR1 &= ~(__TAMPER__))
-# 913 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 913 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_TAMPER_ENABLE_IT(__HANDLE__,__INTERRUPT__) (TAMP->IER |= (__INTERRUPT__))
-# 931 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 931 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_TAMPER_DISABLE_IT(__HANDLE__,__INTERRUPT__) (TAMP->IER &= ~(__INTERRUPT__))
-# 951 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 951 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_TAMPER_GET_IT(__HANDLE__,__INTERRUPT__) ((((TAMP->MISR) & (__INTERRUPT__)) != 0U) ? 1UL : 0UL)
-# 970 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 970 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_TAMPER_GET_IT_SOURCE(__HANDLE__,__INTERRUPT__) ((((TAMP->IER) & (__INTERRUPT__)) != 0U) ? 1UL : 0UL)
-# 987 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 987 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_TAMPER_GET_FLAG(__HANDLE__,__FLAG__) ((((TAMP->SR) & (__FLAG__)) != 0U) ? 1UL : 0UL)
-# 1005 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 1005 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_TAMPER_CLEAR_FLAG(__HANDLE__,__FLAG__) (((TAMP->SCR) = (__FLAG__)))
-# 1015 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 1015 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_TAMPER_EXTI_ENABLE_IT() (EXTI->IMR1 |= RTC_EXTI_LINE_TAMPER_EVENT)
 #define __HAL_RTC_TAMPER_EXTI_DISABLE_IT() (EXTI->IMR1 &= ~(RTC_EXTI_LINE_TAMPER_EVENT))
 #define __HAL_RTC_TAMPER_EXTI_ENABLE_EVENT() (EXTI->EMR1 |= RTC_EXTI_LINE_TAMPER_EVENT)
 #define __HAL_RTC_TAMPER_EXTI_DISABLE_EVENT() (EXTI->EMR1 &= ~(RTC_EXTI_LINE_TAMPER_EVENT))
-# 1038 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 1038 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_SSRU_ENABLE_IT(__HANDLE__,__INTERRUPT__) (RTC->CR |= (__INTERRUPT__))
-# 1048 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 1048 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_SSRU_DISABLE_IT(__HANDLE__,__INTERRUPT__) (RTC->CR &= ~(__INTERRUPT__))
-# 1059 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 1059 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_SSRU_GET_IT(__HANDLE__,__INTERRUPT__) (((RTC->MISR) & ((__INTERRUPT__) >> 1) != 0U) ? 1U : 0U)
-# 1068 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 1068 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_SSRU_GET_IT_SOURCE(__HANDLE__,__INTERRUPT__) ((((RTC->CR) & (__INTERRUPT__)) != 0U) ? 1U : 0U)
-# 1078 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 1078 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_SSRU_GET_FLAG(__HANDLE__,__FLAG__) (__HAL_RTC_GET_FLAG((__HANDLE__), (__FLAG__)))
-# 1088 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 1088 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_SSRU_CLEAR_FLAG(__HANDLE__,__FLAG__) (__HAL_RTC_CLEAR_FLAG((__HANDLE__), RTC_CLEAR_SSRUF))
-# 1098 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 1098 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define __HAL_RTC_SSRU_EXTI_ENABLE_IT() (EXTI->IMR1 |= RTC_EXTI_LINE_SSRU_EVENT)
 #define __HAL_RTC_SSRU_EXTI_DISABLE_IT() (EXTI->IMR1 &= ~(RTC_EXTI_LINE_SSRU_EVENT))
 #define __HAL_RTC_SSRU_EXTI_ENABLE_EVENT() (EXTI->EMR1 |= RTC_EXTI_LINE_SSRU_EVENT)
 #define __HAL_RTC_SSRU_EXTI_DISABLE_EVENT() (EXTI->EMR1 &= ~(RTC_EXTI_LINE_SSRU_EVENT))
-# 1122 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 1122 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 HAL_StatusTypeDef HAL_RTCEx_SetTimeStamp(RTC_HandleTypeDef *hrtc, uint32_t TimeStampEdge, uint32_t RTC_TimeStampPin);
 HAL_StatusTypeDef HAL_RTCEx_SetTimeStamp_IT(RTC_HandleTypeDef *hrtc, uint32_t TimeStampEdge, uint32_t RTC_TimeStampPin);
 HAL_StatusTypeDef HAL_RTCEx_DeactivateTimeStamp(RTC_HandleTypeDef *hrtc);
@@ -28935,7 +28935,7 @@ HAL_StatusTypeDef HAL_RTCEx_GetTimeStamp(RTC_HandleTypeDef *hrtc, RTC_TimeTypeDe
 void HAL_RTCEx_TimeStampIRQHandler(RTC_HandleTypeDef *hrtc);
 HAL_StatusTypeDef HAL_RTCEx_PollForTimeStampEvent(RTC_HandleTypeDef *hrtc, uint32_t Timeout);
 void HAL_RTCEx_TimeStampEventCallback(RTC_HandleTypeDef *hrtc);
-# 1141 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 1141 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 HAL_StatusTypeDef HAL_RTCEx_SetWakeUpTimer(RTC_HandleTypeDef *hrtc, uint32_t WakeUpCounter, uint32_t WakeUpClock);
 HAL_StatusTypeDef HAL_RTCEx_SetWakeUpTimer_IT(RTC_HandleTypeDef *hrtc, uint32_t WakeUpCounter, uint32_t WakeUpClock, uint32_t WakeUpAutoClr);
 HAL_StatusTypeDef HAL_RTCEx_DeactivateWakeUpTimer(RTC_HandleTypeDef *hrtc);
@@ -28943,7 +28943,7 @@ uint32_t HAL_RTCEx_GetWakeUpTimer(RTC_HandleTypeDef *hrtc);
 void HAL_RTCEx_WakeUpTimerIRQHandler(RTC_HandleTypeDef *hrtc);
 void HAL_RTCEx_WakeUpTimerEventCallback(RTC_HandleTypeDef *hrtc);
 HAL_StatusTypeDef HAL_RTCEx_PollForWakeUpTimerEvent(RTC_HandleTypeDef *hrtc, uint32_t Timeout);
-# 1157 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 1157 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 HAL_StatusTypeDef HAL_RTCEx_SetSmoothCalib(RTC_HandleTypeDef *hrtc, uint32_t SmoothCalibPeriod, uint32_t SmoothCalibPlusPulses, uint32_t SmoothCalibMinusPulsesValue);
 HAL_StatusTypeDef HAL_RTCEx_SetLowPowerCalib(RTC_HandleTypeDef *hrtc, uint32_t LowPowerCalib);
 HAL_StatusTypeDef HAL_RTCEx_SetSynchroShift(RTC_HandleTypeDef *hrtc, uint32_t ShiftAdd1S, uint32_t ShiftSubFS);
@@ -28959,7 +28959,7 @@ HAL_StatusTypeDef HAL_RTCEx_SetSSRU_IT(RTC_HandleTypeDef *hrtc);
 HAL_StatusTypeDef HAL_RTCEx_DeactivateSSRU(RTC_HandleTypeDef *hrtc);
 void HAL_RTCEx_SSRUIRQHandler(RTC_HandleTypeDef *hrtc);
 void HAL_RTCEx_SSRUEventCallback(RTC_HandleTypeDef *hrtc);
-# 1181 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 1181 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 void HAL_RTCEx_AlarmBEventCallback(RTC_HandleTypeDef *hrtc);
 HAL_StatusTypeDef HAL_RTCEx_PollForAlarmBEvent(RTC_HandleTypeDef *hrtc, uint32_t Timeout);
 
@@ -28994,12 +28994,12 @@ void HAL_RTCEx_InternalTamper8EventCallback(RTC_HandleTypeDef *hrtc);
 
 void HAL_RTCEx_BKUPWrite(RTC_HandleTypeDef *hrtc, uint32_t BackupRegister, uint32_t Data);
 uint32_t HAL_RTCEx_BKUPRead(RTC_HandleTypeDef *hrtc, uint32_t BackupRegister);
-# 1230 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 1230 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define RTC_EXTI_LINE_SSRU_EVENT EXTI_IMR1_IM18
 #define RTC_EXTI_LINE_TIMESTAMP_EVENT EXTI_IMR1_IM19
 #define RTC_EXTI_LINE_WAKEUPTIMER_EVENT EXTI_IMR1_IM20
 #define RTC_EXTI_LINE_TAMPER_EVENT EXTI_IMR1_IM19
-# 1246 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 1246 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define IS_TIMESTAMP_EDGE(EDGE) (((EDGE) == RTC_TIMESTAMPEDGE_RISING) || ((EDGE) == RTC_TIMESTAMPEDGE_FALLING))
 
 
@@ -29059,7 +29059,7 @@ uint32_t HAL_RTCEx_BKUPRead(RTC_HandleTypeDef *hrtc, uint32_t BackupRegister);
 
 
 #define IS_RTC_TAMPER_SAMPLING_FREQ(__FREQ__) (((__FREQ__) == RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV32768)|| ((__FREQ__) == RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV16384)|| ((__FREQ__) == RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV8192) || ((__FREQ__) == RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV4096) || ((__FREQ__) == RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV2048) || ((__FREQ__) == RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV1024) || ((__FREQ__) == RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV512) || ((__FREQ__) == RTC_TAMPERSAMPLINGFREQ_RTCCLK_DIV256))
-# 1313 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 1313 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define IS_RTC_TAMPER_PRECHARGE_DURATION(__DURATION__) (((__DURATION__) == RTC_TAMPERPRECHARGEDURATION_1RTCCLK) || ((__DURATION__) == RTC_TAMPERPRECHARGEDURATION_2RTCCLK) || ((__DURATION__) == RTC_TAMPERPRECHARGEDURATION_4RTCCLK) || ((__DURATION__) == RTC_TAMPERPRECHARGEDURATION_8RTCCLK))
 
 
@@ -29086,19 +29086,19 @@ uint32_t HAL_RTCEx_BKUPRead(RTC_HandleTypeDef *hrtc, uint32_t BackupRegister);
 
 
 #define IS_RTC_BINARY_MIX_BCDU(BDCU) (((BDCU) == RTC_BINARY_MIX_BCDU_0) || ((BDCU) == RTC_BINARY_MIX_BCDU_1) || ((BDCU) == RTC_BINARY_MIX_BCDU_2) || ((BDCU) == RTC_BINARY_MIX_BCDU_3) || ((BDCU) == RTC_BINARY_MIX_BCDU_4) || ((BDCU) == RTC_BINARY_MIX_BCDU_5) || ((BDCU) == RTC_BINARY_MIX_BCDU_6) || ((BDCU) == RTC_BINARY_MIX_BCDU_7))
-# 1347 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
+# 1347 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc_ex.h"
 #define IS_RTC_ALARM_SUB_SECOND_BINARY_MASK(MASK) (((MASK) == 0u) || (((MASK) >= RTC_ALARMSUBSECONDBINMASK_SS31_1) && ((MASK) <= RTC_ALARMSUBSECONDBINMASK_NONE)))
 
 
 #define IS_RTC_ALARMSUBSECONDBIN_AUTOCLR(SEL) (((SEL) == RTC_ALARMSUBSECONDBIN_AUTOCLR_NO) || ((SEL) == RTC_ALARMSUBSECONDBIN_AUTOCLR_YES))
-# 733 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h" 2
-# 743 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 733 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h" 2
+# 743 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 HAL_StatusTypeDef HAL_RTC_Init(RTC_HandleTypeDef *hrtc);
 HAL_StatusTypeDef HAL_RTC_DeInit(RTC_HandleTypeDef *hrtc);
 
 void HAL_RTC_MspInit(RTC_HandleTypeDef *hrtc);
 void HAL_RTC_MspDeInit(RTC_HandleTypeDef *hrtc);
-# 763 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 763 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 HAL_StatusTypeDef HAL_RTC_SetTime(RTC_HandleTypeDef *hrtc, RTC_TimeTypeDef *sTime, uint32_t Format);
 HAL_StatusTypeDef HAL_RTC_GetTime(RTC_HandleTypeDef *hrtc, RTC_TimeTypeDef *sTime, uint32_t Format);
 HAL_StatusTypeDef HAL_RTC_SetDate(RTC_HandleTypeDef *hrtc, RTC_DateTypeDef *sDate, uint32_t Format);
@@ -29108,7 +29108,7 @@ void HAL_RTC_DST_Sub1Hour(RTC_HandleTypeDef *hrtc);
 void HAL_RTC_DST_SetStoreOperation(RTC_HandleTypeDef *hrtc);
 void HAL_RTC_DST_ClearStoreOperation(RTC_HandleTypeDef *hrtc);
 uint32_t HAL_RTC_DST_ReadStoreOperation(RTC_HandleTypeDef *hrtc);
-# 780 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 780 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 HAL_StatusTypeDef HAL_RTC_SetAlarm(RTC_HandleTypeDef *hrtc, RTC_AlarmTypeDef *sAlarm, uint32_t Format);
 HAL_StatusTypeDef HAL_RTC_SetAlarm_IT(RTC_HandleTypeDef *hrtc, RTC_AlarmTypeDef *sAlarm, uint32_t Format);
 HAL_StatusTypeDef HAL_RTC_DeactivateAlarm(RTC_HandleTypeDef *hrtc, uint32_t Alarm);
@@ -29116,11 +29116,11 @@ HAL_StatusTypeDef HAL_RTC_GetAlarm(RTC_HandleTypeDef *hrtc, RTC_AlarmTypeDef *sA
 void HAL_RTC_AlarmIRQHandler(RTC_HandleTypeDef *hrtc);
 HAL_StatusTypeDef HAL_RTC_PollForAlarmAEvent(RTC_HandleTypeDef *hrtc, uint32_t Timeout);
 void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc);
-# 795 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 795 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 HAL_StatusTypeDef HAL_RTC_WaitForSynchro(RTC_HandleTypeDef *hrtc);
-# 804 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 804 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 HAL_RTCStateTypeDef HAL_RTC_GetState(RTC_HandleTypeDef *hrtc);
-# 820 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 820 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 #define RTC_TR_RESERVED_MASK (RTC_TR_PM | RTC_TR_HT | RTC_TR_HU | RTC_TR_MNT | RTC_TR_MNU| RTC_TR_ST | RTC_TR_SU)
 
 
@@ -29133,7 +29133,7 @@ HAL_RTCStateTypeDef HAL_RTC_GetState(RTC_HandleTypeDef *hrtc);
 #define RTC_TIMEOUT_VALUE 1000u
 
 #define RTC_EXTI_LINE_ALARM_EVENT EXTI_IMR1_IM17
-# 845 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 845 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 #define IS_RTC_OUTPUT(OUTPUT) (((OUTPUT) == RTC_OUTPUT_DISABLE) || ((OUTPUT) == RTC_OUTPUT_ALARMA) || ((OUTPUT) == RTC_OUTPUT_ALARMB) || ((OUTPUT) == RTC_OUTPUT_WAKEUP) || ((OUTPUT) == RTC_OUTPUT_TAMPER))
 
 
@@ -29216,17 +29216,17 @@ HAL_RTCStateTypeDef HAL_RTC_GetState(RTC_HandleTypeDef *hrtc);
 #define IS_RTC_MINUTES(MINUTES) ((MINUTES) <= 59u)
 
 #define IS_RTC_SECONDS(SECONDS) ((SECONDS) <= 59u)
-# 940 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
+# 940 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rtc.h"
 HAL_StatusTypeDef RTC_EnterInitMode(RTC_HandleTypeDef *hrtc);
 HAL_StatusTypeDef RTC_ExitInitMode(RTC_HandleTypeDef *hrtc);
 uint8_t RTC_ByteToBcd2(uint8_t Value);
 uint8_t RTC_Bcd2ToByte(uint8_t Value);
-# 281 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
-# 292 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
+# 281 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
+# 292 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
 #define STM32WLxx_HAL_SPI_H 
-# 47 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
+# 47 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
 typedef struct
 {
   uint32_t Mode;
@@ -29329,9 +29329,9 @@ typedef struct __SPI_HandleTypeDef
   volatile HAL_SPI_StateTypeDef State;
 
   volatile uint32_t ErrorCode;
-# 163 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
+# 163 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
 } SPI_HandleTypeDef;
-# 202 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
+# 202 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
 #define HAL_SPI_ERROR_NONE (0x00000000U)
 #define HAL_SPI_ERROR_MODF (0x00000001U)
 #define HAL_SPI_ERROR_CRC (0x00000002U)
@@ -29340,7 +29340,7 @@ typedef struct __SPI_HandleTypeDef
 #define HAL_SPI_ERROR_DMA (0x00000010U)
 #define HAL_SPI_ERROR_FLAG (0x00000020U)
 #define HAL_SPI_ERROR_ABORT (0x00000040U)
-# 220 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
+# 220 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
 #define SPI_MODE_SLAVE (0x00000000U)
 #define SPI_MODE_MASTER (SPI_CR1_MSTR | SPI_CR1_SSI)
 
@@ -29452,11 +29452,11 @@ typedef struct __SPI_HandleTypeDef
 
 #define SPI_CRCCALCULATION_DISABLE (0x00000000U)
 #define SPI_CRCCALCULATION_ENABLE SPI_CR1_CRCEN
-# 342 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
+# 342 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
 #define SPI_CRC_LENGTH_DATASIZE (0x00000000U)
 #define SPI_CRC_LENGTH_8BIT (0x00000001U)
 #define SPI_CRC_LENGTH_16BIT (0x00000002U)
-# 357 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
+# 357 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
 #define SPI_RXFIFO_THRESHOLD SPI_CR2_FRXTH
 #define SPI_RXFIFO_THRESHOLD_QF SPI_CR2_FRXTH
 #define SPI_RXFIFO_THRESHOLD_HF (0x00000000U)
@@ -29487,25 +29487,25 @@ typedef struct __SPI_HandleTypeDef
 #define SPI_FLAG_FTLVL SPI_SR_FTLVL
 #define SPI_FLAG_FRLVL SPI_SR_FRLVL
 #define SPI_FLAG_MASK (SPI_SR_RXNE | SPI_SR_TXE | SPI_SR_BSY | SPI_SR_CRCERR | SPI_SR_MODF | SPI_SR_OVR | SPI_SR_FRE | SPI_SR_FTLVL | SPI_SR_FRLVL)
-# 395 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
+# 395 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
 #define SPI_FTLVL_EMPTY (0x00000000U)
 #define SPI_FTLVL_QUARTER_FULL (0x00000800U)
 #define SPI_FTLVL_HALF_FULL (0x00001000U)
 #define SPI_FTLVL_FULL (0x00001800U)
-# 407 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
+# 407 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
 #define SPI_FRLVL_EMPTY (0x00000000U)
 #define SPI_FRLVL_QUARTER_FULL (0x00000200U)
 #define SPI_FRLVL_HALF_FULL (0x00000400U)
 #define SPI_FRLVL_FULL (0x00000600U)
-# 436 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
+# 436 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
 #define __HAL_SPI_RESET_HANDLE_STATE(__HANDLE__) ((__HANDLE__)->State = HAL_SPI_STATE_RESET)
-# 449 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
+# 449 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
 #define __HAL_SPI_ENABLE_IT(__HANDLE__,__INTERRUPT__) SET_BIT((__HANDLE__)->Instance->CR2, (__INTERRUPT__))
-# 461 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
+# 461 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
 #define __HAL_SPI_DISABLE_IT(__HANDLE__,__INTERRUPT__) CLEAR_BIT((__HANDLE__)->Instance->CR2, (__INTERRUPT__))
-# 473 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
+# 473 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
 #define __HAL_SPI_GET_IT_SOURCE(__HANDLE__,__INTERRUPT__) ((((__HANDLE__)->Instance->CR2 & (__INTERRUPT__)) == (__INTERRUPT__)) ? SET : RESET)
-# 492 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
+# 492 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
 #define __HAL_SPI_GET_FLAG(__HANDLE__,__FLAG__) ((((__HANDLE__)->Instance->SR) & (__FLAG__)) == (__FLAG__))
 
 
@@ -29521,11 +29521,11 @@ typedef struct __SPI_HandleTypeDef
 
 
 #define __HAL_SPI_CLEAR_MODFFLAG(__HANDLE__) do{ __IO uint32_t tmpreg_modf = 0x00U; tmpreg_modf = (__HANDLE__)->Instance->SR; CLEAR_BIT((__HANDLE__)->Instance->CR1, SPI_CR1_SPE); UNUSED(tmpreg_modf); } while(0U)
-# 519 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
+# 519 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
 #define __HAL_SPI_CLEAR_OVRFLAG(__HANDLE__) do{ __IO uint32_t tmpreg_ovr = 0x00U; tmpreg_ovr = (__HANDLE__)->Instance->DR; tmpreg_ovr = (__HANDLE__)->Instance->SR; UNUSED(tmpreg_ovr); } while(0U)
-# 532 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
+# 532 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
 #define __HAL_SPI_CLEAR_FREFLAG(__HANDLE__) do{ __IO uint32_t tmpreg_fre = 0x00U; tmpreg_fre = (__HANDLE__)->Instance->SR; UNUSED(tmpreg_fre); }while(0U)
-# 544 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
+# 544 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
 #define __HAL_SPI_ENABLE(__HANDLE__) SET_BIT((__HANDLE__)->Instance->CR1, SPI_CR1_SPE)
 
 
@@ -29534,7 +29534,7 @@ typedef struct __SPI_HandleTypeDef
 
 
 #define __HAL_SPI_DISABLE(__HANDLE__) CLEAR_BIT((__HANDLE__)->Instance->CR1, SPI_CR1_SPE)
-# 567 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
+# 567 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
 #define SPI_1LINE_TX(__HANDLE__) SET_BIT((__HANDLE__)->Instance->CR1, SPI_CR1_BIDIOE)
 
 
@@ -29550,9 +29550,9 @@ typedef struct __SPI_HandleTypeDef
 
 
 #define SPI_RESET_CRC(__HANDLE__) do{CLEAR_BIT((__HANDLE__)->Instance->CR1, SPI_CR1_CRCEN); SET_BIT((__HANDLE__)->Instance->CR1, SPI_CR1_CRCEN);}while(0U)
-# 599 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
+# 599 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
 #define SPI_CHECK_FLAG(__SR__,__FLAG__) ((((__SR__) & ((__FLAG__) & SPI_FLAG_MASK)) == ((__FLAG__) & SPI_FLAG_MASK)) ? SET : RESET)
-# 611 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
+# 611 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
 #define SPI_CHECK_IT_SOURCE(__CR2__,__INTERRUPT__) ((((__CR2__) & (__INTERRUPT__)) == (__INTERRUPT__)) ? SET : RESET)
 
 
@@ -29592,7 +29592,7 @@ typedef struct __SPI_HandleTypeDef
 
 
 #define IS_SPI_DATASIZE(__DATASIZE__) (((__DATASIZE__) == SPI_DATASIZE_16BIT) || ((__DATASIZE__) == SPI_DATASIZE_15BIT) || ((__DATASIZE__) == SPI_DATASIZE_14BIT) || ((__DATASIZE__) == SPI_DATASIZE_13BIT) || ((__DATASIZE__) == SPI_DATASIZE_12BIT) || ((__DATASIZE__) == SPI_DATASIZE_11BIT) || ((__DATASIZE__) == SPI_DATASIZE_10BIT) || ((__DATASIZE__) == SPI_DATASIZE_9BIT) || ((__DATASIZE__) == SPI_DATASIZE_8BIT) || ((__DATASIZE__) == SPI_DATASIZE_7BIT) || ((__DATASIZE__) == SPI_DATASIZE_6BIT) || ((__DATASIZE__) == SPI_DATASIZE_5BIT) || ((__DATASIZE__) == SPI_DATASIZE_4BIT))
-# 668 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
+# 668 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
 #define IS_SPI_CPOL(__CPOL__) (((__CPOL__) == SPI_POLARITY_LOW) || ((__CPOL__) == SPI_POLARITY_HIGH))
 
 
@@ -29610,7 +29610,7 @@ typedef struct __SPI_HandleTypeDef
 
 
 #define IS_SPI_NSS(__NSS__) (((__NSS__) == SPI_NSS_SOFT) || ((__NSS__) == SPI_NSS_HARD_INPUT) || ((__NSS__) == SPI_NSS_HARD_OUTPUT))
-# 693 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
+# 693 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
 #define IS_SPI_NSSP(__NSSP__) (((__NSSP__) == SPI_NSS_PULSE_ENABLE) || ((__NSSP__) == SPI_NSS_PULSE_DISABLE))
 
 
@@ -29620,7 +29620,7 @@ typedef struct __SPI_HandleTypeDef
 
 
 #define IS_SPI_BAUDRATE_PRESCALER(__PRESCALER__) (((__PRESCALER__) == SPI_BAUDRATEPRESCALER_2) || ((__PRESCALER__) == SPI_BAUDRATEPRESCALER_4) || ((__PRESCALER__) == SPI_BAUDRATEPRESCALER_8) || ((__PRESCALER__) == SPI_BAUDRATEPRESCALER_16) || ((__PRESCALER__) == SPI_BAUDRATEPRESCALER_32) || ((__PRESCALER__) == SPI_BAUDRATEPRESCALER_64) || ((__PRESCALER__) == SPI_BAUDRATEPRESCALER_128) || ((__PRESCALER__) == SPI_BAUDRATEPRESCALER_256))
-# 715 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
+# 715 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
 #define IS_SPI_FIRST_BIT(__BIT__) (((__BIT__) == SPI_FIRSTBIT_MSB) || ((__BIT__) == SPI_FIRSTBIT_LSB))
 
 
@@ -29646,7 +29646,7 @@ typedef struct __SPI_HandleTypeDef
 
 
 #define IS_SPI_CRC_LENGTH(__LENGTH__) (((__LENGTH__) == SPI_CRC_LENGTH_DATASIZE) || ((__LENGTH__) == SPI_CRC_LENGTH_8BIT) || ((__LENGTH__) == SPI_CRC_LENGTH_16BIT))
-# 748 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
+# 748 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
 #define IS_SPI_CRC_POLYNOMIAL(__POLYNOMIAL__) (((__POLYNOMIAL__) >= 0x1U) && ((__POLYNOMIAL__) <= 0xFFFFU) && (((__POLYNOMIAL__)&0x1U) != 0U))
 
 
@@ -29662,18 +29662,18 @@ typedef struct __SPI_HandleTypeDef
 
 
 
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi_ex.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi_ex.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi_ex.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi_ex.h"
 #define STM32WLxx_HAL_SPI_EX_H 
-# 52 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi_ex.h"
+# 52 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi_ex.h"
 HAL_StatusTypeDef HAL_SPIEx_FlushRxFifo(SPI_HandleTypeDef *hspi);
-# 764 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h" 2
-# 774 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
+# 764 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h" 2
+# 774 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
 HAL_StatusTypeDef HAL_SPI_Init(SPI_HandleTypeDef *hspi);
 HAL_StatusTypeDef HAL_SPI_DeInit(SPI_HandleTypeDef *hspi);
 void HAL_SPI_MspInit(SPI_HandleTypeDef *hspi);
 void HAL_SPI_MspDeInit(SPI_HandleTypeDef *hspi);
-# 792 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
+# 792 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
 HAL_StatusTypeDef HAL_SPI_Transmit(SPI_HandleTypeDef *hspi, uint8_t *pData, uint16_t Size, uint32_t Timeout);
 HAL_StatusTypeDef HAL_SPI_Receive(SPI_HandleTypeDef *hspi, uint8_t *pData, uint16_t Size, uint32_t Timeout);
 HAL_StatusTypeDef HAL_SPI_TransmitReceive(SPI_HandleTypeDef *hspi, uint8_t *pTxData, uint8_t *pRxData, uint16_t Size,
@@ -29702,21 +29702,21 @@ void HAL_SPI_RxHalfCpltCallback(SPI_HandleTypeDef *hspi);
 void HAL_SPI_TxRxHalfCpltCallback(SPI_HandleTypeDef *hspi);
 void HAL_SPI_ErrorCallback(SPI_HandleTypeDef *hspi);
 void HAL_SPI_AbortCpltCallback(SPI_HandleTypeDef *hspi);
-# 828 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
+# 828 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_spi.h"
 HAL_SPI_StateTypeDef HAL_SPI_GetState(SPI_HandleTypeDef *hspi);
 uint32_t HAL_SPI_GetError(SPI_HandleTypeDef *hspi);
-# 293 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
+# 293 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
 
 
 
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h"
 #define STM32WLxx_HAL_SUBGHZ_H 
-# 32 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h"
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 32 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 #define STM32WLxx_LL_SPI_H 
-# 123 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 123 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 #define LL_SPI_SR_RXNE SPI_SR_RXNE
 #define LL_SPI_SR_TXE SPI_SR_TXE
 #define LL_SPI_SR_BSY SPI_SR_BSY
@@ -29724,7 +29724,7 @@ uint32_t HAL_SPI_GetError(SPI_HandleTypeDef *hspi);
 #define LL_SPI_SR_MODF SPI_SR_MODF
 #define LL_SPI_SR_OVR SPI_SR_OVR
 #define LL_SPI_SR_FRE SPI_SR_FRE
-# 138 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 138 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 #define LL_SPI_CR2_RXNEIE SPI_CR2_RXNEIE
 #define LL_SPI_CR2_TXEIE SPI_CR2_TXEIE
 #define LL_SPI_CR2_ERRIE SPI_CR2_ERRIE
@@ -29829,7 +29829,7 @@ uint32_t HAL_SPI_GetError(SPI_HandleTypeDef *hspi);
 #define LL_SPI_DATAWIDTH_14BIT (SPI_CR2_DS_3 | SPI_CR2_DS_2 | SPI_CR2_DS_0)
 #define LL_SPI_DATAWIDTH_15BIT (SPI_CR2_DS_3 | SPI_CR2_DS_2 | SPI_CR2_DS_1)
 #define LL_SPI_DATAWIDTH_16BIT (SPI_CR2_DS_3 | SPI_CR2_DS_2 | SPI_CR2_DS_1 | SPI_CR2_DS_0)
-# 260 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 260 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 #define LL_SPI_CRC_8BIT 0x00000000U
 #define LL_SPI_CRC_16BIT (SPI_CR1_CRCL)
 
@@ -29872,7 +29872,7 @@ uint32_t HAL_SPI_GetError(SPI_HandleTypeDef *hspi);
 
 #define LL_SPI_DMA_PARITY_EVEN 0x00000000U
 #define LL_SPI_DMA_PARITY_ODD 0x00000001U
-# 327 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 327 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 #define LL_SPI_WriteReg(__INSTANCE__,__REG__,__VALUE__) WRITE_REG(__INSTANCE__->__REG__, (__VALUE__))
 
 
@@ -29882,12 +29882,12 @@ uint32_t HAL_SPI_GetError(SPI_HandleTypeDef *hspi);
 
 
 #define LL_SPI_ReadReg(__INSTANCE__,__REG__) READ_REG(__INSTANCE__->__REG__)
-# 359 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 359 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_SPI_Enable(SPI_TypeDef *SPIx)
 {
   ((SPIx->CR1) |= ((0x1UL << (6U))));
 }
-# 371 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 371 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_SPI_Disable(SPI_TypeDef *SPIx)
 {
   ((SPIx->CR1) &= ~((0x1UL << (6U))));
@@ -29903,127 +29903,127 @@ static inline uint32_t LL_SPI_IsEnabled(SPI_TypeDef *SPIx)
 {
   return ((((SPIx->CR1) & ((0x1UL << (6U)))) == ((0x1UL << (6U)))) ? 1UL : 0UL);
 }
-# 398 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 398 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_SPI_SetMode(SPI_TypeDef *SPIx, uint32_t Mode)
 {
   (((SPIx->CR1)) = ((((((SPIx->CR1))) & (~((0x1UL << (2U)) | (0x1UL << (8U))))) | (Mode))));
 }
-# 412 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 412 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline uint32_t LL_SPI_GetMode(SPI_TypeDef *SPIx)
 {
   return (uint32_t)(((SPIx->CR1) & ((0x1UL << (2U)) | (0x1UL << (8U)))));
 }
-# 427 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 427 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_SPI_SetStandard(SPI_TypeDef *SPIx, uint32_t Standard)
 {
   (((SPIx->CR2)) = ((((((SPIx->CR2))) & (~((0x1UL << (4U))))) | (Standard))));
 }
-# 440 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 440 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline uint32_t LL_SPI_GetStandard(SPI_TypeDef *SPIx)
 {
   return (uint32_t)(((SPIx->CR2) & ((0x1UL << (4U)))));
 }
-# 456 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 456 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_SPI_SetClockPhase(SPI_TypeDef *SPIx, uint32_t ClockPhase)
 {
   (((SPIx->CR1)) = ((((((SPIx->CR1))) & (~((0x1UL << (0U))))) | (ClockPhase))));
 }
-# 469 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 469 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline uint32_t LL_SPI_GetClockPhase(SPI_TypeDef *SPIx)
 {
   return (uint32_t)(((SPIx->CR1) & ((0x1UL << (0U)))));
 }
-# 485 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 485 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_SPI_SetClockPolarity(SPI_TypeDef *SPIx, uint32_t ClockPolarity)
 {
   (((SPIx->CR1)) = ((((((SPIx->CR1))) & (~((0x1UL << (1U))))) | (ClockPolarity))));
 }
-# 498 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 498 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline uint32_t LL_SPI_GetClockPolarity(SPI_TypeDef *SPIx)
 {
   return (uint32_t)(((SPIx->CR1) & ((0x1UL << (1U)))));
 }
-# 519 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 519 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_SPI_SetBaudRatePrescaler(SPI_TypeDef *SPIx, uint32_t BaudRate)
 {
   (((SPIx->CR1)) = ((((((SPIx->CR1))) & (~((0x7UL << (3U))))) | (BaudRate))));
 }
-# 538 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 538 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline uint32_t LL_SPI_GetBaudRatePrescaler(SPI_TypeDef *SPIx)
 {
   return (uint32_t)(((SPIx->CR1) & ((0x7UL << (3U)))));
 }
-# 553 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 553 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_SPI_SetTransferBitOrder(SPI_TypeDef *SPIx, uint32_t BitOrder)
 {
   (((SPIx->CR1)) = ((((((SPIx->CR1))) & (~((0x1UL << (7U))))) | (BitOrder))));
 }
-# 566 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 566 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline uint32_t LL_SPI_GetTransferBitOrder(SPI_TypeDef *SPIx)
 {
   return (uint32_t)(((SPIx->CR1) & ((0x1UL << (7U)))));
 }
-# 586 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 586 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_SPI_SetTransferDirection(SPI_TypeDef *SPIx, uint32_t TransferDirection)
 {
   (((SPIx->CR1)) = ((((((SPIx->CR1))) & (~((0x1UL << (10U)) | (0x1UL << (15U)) | (0x1UL << (14U))))) | (TransferDirection))));
 }
-# 603 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 603 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline uint32_t LL_SPI_GetTransferDirection(SPI_TypeDef *SPIx)
 {
   return (uint32_t)(((SPIx->CR1) & ((0x1UL << (10U)) | (0x1UL << (15U)) | (0x1UL << (14U)))));
 }
-# 628 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 628 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_SPI_SetDataWidth(SPI_TypeDef *SPIx, uint32_t DataWidth)
 {
   (((SPIx->CR2)) = ((((((SPIx->CR2))) & (~((0xFUL << (8U))))) | (DataWidth))));
 }
-# 652 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 652 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline uint32_t LL_SPI_GetDataWidth(SPI_TypeDef *SPIx)
 {
   return (uint32_t)(((SPIx->CR2) & ((0xFUL << (8U)))));
 }
-# 666 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 666 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_SPI_SetRxFIFOThreshold(SPI_TypeDef *SPIx, uint32_t Threshold)
 {
   (((SPIx->CR2)) = ((((((SPIx->CR2))) & (~((0x1UL << (12U))))) | (Threshold))));
 }
-# 679 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 679 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline uint32_t LL_SPI_GetRxFIFOThreshold(SPI_TypeDef *SPIx)
 {
   return (uint32_t)(((SPIx->CR2) & ((0x1UL << (12U)))));
 }
-# 699 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 699 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_SPI_EnableCRC(SPI_TypeDef *SPIx)
 {
   ((SPIx->CR1) |= ((0x1UL << (13U))));
 }
-# 711 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 711 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_SPI_DisableCRC(SPI_TypeDef *SPIx)
 {
   ((SPIx->CR1) &= ~((0x1UL << (13U))));
 }
-# 723 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 723 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline uint32_t LL_SPI_IsEnabledCRC(SPI_TypeDef *SPIx)
 {
   return ((((SPIx->CR1) & ((0x1UL << (13U)))) == ((0x1UL << (13U)))) ? 1UL : 0UL);
 }
-# 738 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 738 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_SPI_SetCRCWidth(SPI_TypeDef *SPIx, uint32_t CRCLength)
 {
   (((SPIx->CR1)) = ((((((SPIx->CR1))) & (~((0x1UL << (11U))))) | (CRCLength))));
 }
-# 751 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 751 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline uint32_t LL_SPI_GetCRCWidth(SPI_TypeDef *SPIx)
 {
   return (uint32_t)(((SPIx->CR1) & ((0x1UL << (11U)))));
 }
-# 763 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 763 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_SPI_SetCRCNext(SPI_TypeDef *SPIx)
 {
   ((SPIx->CR1) |= ((0x1UL << (12U))));
 }
-# 775 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 775 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_SPI_SetCRCPolynomial(SPI_TypeDef *SPIx, uint32_t CRCPoly)
 {
   ((SPIx->CRCPR) = ((uint16_t)CRCPoly));
@@ -30061,35 +30061,35 @@ static inline uint32_t LL_SPI_GetTxCRC(SPI_TypeDef *SPIx)
 {
   return (uint32_t)(((SPIx->TXCRCR)));
 }
-# 833 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 833 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_SPI_SetNSSMode(SPI_TypeDef *SPIx, uint32_t NSS)
 {
   (((SPIx->CR1)) = ((((((SPIx->CR1))) & (~((0x1UL << (9U))))) | (NSS))));
   (((SPIx->CR2)) = ((((((SPIx->CR2))) & (~((0x1UL << (2U))))) | (((uint32_t)(NSS >> 16U))))));
 }
-# 849 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 849 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline uint32_t LL_SPI_GetNSSMode(SPI_TypeDef *SPIx)
 {
   uint32_t Ssm = (((SPIx->CR1) & ((0x1UL << (9U)))));
   uint32_t Ssoe = (((SPIx->CR2) & ((0x1UL << (2U)))) << 16U);
   return (Ssm | Ssoe);
 }
-# 863 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 863 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_SPI_EnableNSSPulseMgt(SPI_TypeDef *SPIx)
 {
   ((SPIx->CR2) |= ((0x1UL << (3U))));
 }
-# 875 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 875 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_SPI_DisableNSSPulseMgt(SPI_TypeDef *SPIx)
 {
   ((SPIx->CR2) &= ~((0x1UL << (3U))));
 }
-# 887 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 887 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline uint32_t LL_SPI_IsEnabledNSSPulse(SPI_TypeDef *SPIx)
 {
   return ((((SPIx->CR2) & ((0x1UL << (3U)))) == ((0x1UL << (3U)))) ? 1UL : 0UL);
 }
-# 906 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 906 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline uint32_t LL_SPI_IsActiveFlag_RXNE(SPI_TypeDef *SPIx)
 {
   return ((((SPIx->SR) & ((0x1UL << (0U)))) == ((0x1UL << (0U)))) ? 1UL : 0UL);
@@ -30138,7 +30138,7 @@ static inline uint32_t LL_SPI_IsActiveFlag_OVR(SPI_TypeDef *SPIx)
 {
   return ((((SPIx->SR) & ((0x1UL << (6U)))) == ((0x1UL << (6U)))) ? 1UL : 0UL);
 }
-# 968 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 968 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline uint32_t LL_SPI_IsActiveFlag_BSY(SPI_TypeDef *SPIx)
 {
   return ((((SPIx->SR) & ((0x1UL << (7U)))) == ((0x1UL << (7U)))) ? 1UL : 0UL);
@@ -30154,12 +30154,12 @@ static inline uint32_t LL_SPI_IsActiveFlag_FRE(SPI_TypeDef *SPIx)
 {
   return ((((SPIx->SR) & ((0x1UL << (8U)))) == ((0x1UL << (8U)))) ? 1UL : 0UL);
 }
-# 994 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 994 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline uint32_t LL_SPI_GetRxFIFOLevel(SPI_TypeDef *SPIx)
 {
   return (uint32_t)(((SPIx->SR) & ((0x3UL << (9U)))));
 }
-# 1009 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1009 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline uint32_t LL_SPI_GetTxFIFOLevel(SPI_TypeDef *SPIx)
 {
   return (uint32_t)(((SPIx->SR) & ((0x3UL << (11U)))));
@@ -30175,7 +30175,7 @@ static inline void LL_SPI_ClearFlag_CRCERR(SPI_TypeDef *SPIx)
 {
   ((SPIx->SR) &= ~((0x1UL << (4U))));
 }
-# 1033 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1033 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_SPI_ClearFlag_MODF(SPI_TypeDef *SPIx)
 {
   volatile uint32_t tmpreg_sr;
@@ -30183,7 +30183,7 @@ static inline void LL_SPI_ClearFlag_MODF(SPI_TypeDef *SPIx)
   (void) tmpreg_sr;
   ((SPIx->CR1) &= ~((0x1UL << (6U))));
 }
-# 1049 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1049 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_SPI_ClearFlag_OVR(SPI_TypeDef *SPIx)
 {
   volatile uint32_t tmpreg;
@@ -30192,14 +30192,14 @@ static inline void LL_SPI_ClearFlag_OVR(SPI_TypeDef *SPIx)
   tmpreg = SPIx->SR;
   (void) tmpreg;
 }
-# 1065 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1065 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_SPI_ClearFlag_FRE(SPI_TypeDef *SPIx)
 {
   volatile uint32_t tmpreg;
   tmpreg = SPIx->SR;
   (void) tmpreg;
 }
-# 1087 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1087 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_SPI_EnableIT_ERR(SPI_TypeDef *SPIx)
 {
   ((SPIx->CR2) |= ((0x1UL << (5U))));
@@ -30226,7 +30226,7 @@ static inline void LL_SPI_EnableIT_TXE(SPI_TypeDef *SPIx)
 {
   ((SPIx->CR2) |= ((0x1UL << (7U))));
 }
-# 1121 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1121 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_SPI_DisableIT_ERR(SPI_TypeDef *SPIx)
 {
   ((SPIx->CR2) &= ~((0x1UL << (5U))));
@@ -30286,7 +30286,7 @@ static inline uint32_t LL_SPI_IsEnabledIT_TXE(SPI_TypeDef *SPIx)
 {
   return ((((SPIx->CR2) & ((0x1UL << (7U)))) == ((0x1UL << (7U)))) ? 1UL : 0UL);
 }
-# 1195 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1195 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_SPI_EnableDMAReq_RX(SPI_TypeDef *SPIx)
 {
   ((SPIx->CR2) |= ((0x1UL << (0U))));
@@ -30346,22 +30346,22 @@ static inline uint32_t LL_SPI_IsEnabledDMAReq_TX(SPI_TypeDef *SPIx)
 {
   return ((((SPIx->CR2) & ((0x1UL << (1U)))) == ((0x1UL << (1U)))) ? 1UL : 0UL);
 }
-# 1264 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1264 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_SPI_SetDMAParity_RX(SPI_TypeDef *SPIx, uint32_t Parity)
 {
   (((SPIx->CR2)) = ((((((SPIx->CR2))) & (~((0x1UL << (13U))))) | ((Parity << (13U))))));
 }
-# 1277 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1277 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline uint32_t LL_SPI_GetDMAParity_RX(SPI_TypeDef *SPIx)
 {
   return (uint32_t)(((SPIx->CR2) & ((0x1UL << (13U)))) >> (13U));
 }
-# 1291 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1291 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_SPI_SetDMAParity_TX(SPI_TypeDef *SPIx, uint32_t Parity)
 {
   (((SPIx->CR2)) = ((((((SPIx->CR2))) & (~((0x1UL << (14U))))) | ((Parity << (14U))))));
 }
-# 1304 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1304 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline uint32_t LL_SPI_GetDMAParity_TX(SPI_TypeDef *SPIx)
 {
   return (uint32_t)(((SPIx->CR2) & ((0x1UL << (14U)))) >> (14U));
@@ -30377,7 +30377,7 @@ static inline uint32_t LL_SPI_DMA_GetRegAddr(SPI_TypeDef *SPIx)
 {
   return (uint32_t) &(SPIx->DR);
 }
-# 1334 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1334 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline uint8_t LL_SPI_ReceiveData8(SPI_TypeDef *SPIx)
 {
   return (*((volatile uint8_t *)&SPIx->DR));
@@ -30393,7 +30393,7 @@ static inline uint16_t LL_SPI_ReceiveData16(SPI_TypeDef *SPIx)
 {
   return (uint16_t)(((SPIx->DR)));
 }
-# 1357 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1357 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_SPI_TransmitData8(SPI_TypeDef *SPIx, uint8_t TxData)
 {
 
@@ -30403,7 +30403,7 @@ static inline void LL_SPI_TransmitData8(SPI_TypeDef *SPIx, uint8_t TxData)
 
 
 }
-# 1374 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1374 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_SPI_TransmitData16(SPI_TypeDef *SPIx, uint16_t TxData)
 {
 
@@ -30413,14 +30413,14 @@ static inline void LL_SPI_TransmitData16(SPI_TypeDef *SPIx, uint16_t TxData)
 
 
 }
-# 1479 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1479 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 #define LL_I2S_SR_RXNE LL_SPI_SR_RXNE
 #define LL_I2S_SR_TXE LL_SPI_SR_TXE
 #define LL_I2S_SR_BSY LL_SPI_SR_BSY
 #define LL_I2S_SR_UDR SPI_SR_UDR
 #define LL_I2S_SR_OVR LL_SPI_SR_OVR
 #define LL_I2S_SR_FRE LL_SPI_SR_FRE
-# 1493 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1493 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 #define LL_I2S_CR2_RXNEIE LL_SPI_CR2_RXNEIE
 #define LL_I2S_CR2_TXEIE LL_SPI_CR2_TXEIE
 #define LL_I2S_CR2_ERRIE LL_SPI_CR2_ERRIE
@@ -30476,7 +30476,7 @@ static inline void LL_SPI_TransmitData16(SPI_TypeDef *SPIx, uint16_t TxData)
 
 #define LL_I2S_PRESCALER_PARITY_EVEN 0x00000000U
 #define LL_I2S_PRESCALER_PARITY_ODD (SPI_I2SPR_ODD >> 8U)
-# 1602 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1602 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 #define LL_I2S_WriteReg(__INSTANCE__,__REG__,__VALUE__) WRITE_REG(__INSTANCE__->__REG__, (__VALUE__))
 
 
@@ -30486,7 +30486,7 @@ static inline void LL_SPI_TransmitData16(SPI_TypeDef *SPIx, uint16_t TxData)
 
 
 #define LL_I2S_ReadReg(__INSTANCE__,__REG__) READ_REG(__INSTANCE__->__REG__)
-# 1637 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1637 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_I2S_Enable(SPI_TypeDef *SPIx)
 {
   ((SPIx->I2SCFGR) |= ((0x1UL << (11U)) | (0x1UL << (10U))));
@@ -30513,47 +30513,47 @@ static inline uint32_t LL_I2S_IsEnabled(SPI_TypeDef *SPIx)
 {
   return ((((SPIx->I2SCFGR) & ((0x1UL << (10U)))) == ((0x1UL << (10U)))) ? 1UL : 0UL);
 }
-# 1676 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1676 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_I2S_SetDataFormat(SPI_TypeDef *SPIx, uint32_t DataFormat)
 {
   (((SPIx->I2SCFGR)) = ((((((SPIx->I2SCFGR))) & (~((0x3UL << (1U)) | (0x1UL << (0U))))) | (DataFormat))));
 }
-# 1692 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1692 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline uint32_t LL_I2S_GetDataFormat(SPI_TypeDef *SPIx)
 {
   return (uint32_t)(((SPIx->I2SCFGR) & ((0x3UL << (1U)) | (0x1UL << (0U)))));
 }
-# 1706 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1706 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_I2S_SetClockPolarity(SPI_TypeDef *SPIx, uint32_t ClockPolarity)
 {
   ((SPIx->I2SCFGR) |= (ClockPolarity));
 }
-# 1719 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1719 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline uint32_t LL_I2S_GetClockPolarity(SPI_TypeDef *SPIx)
 {
   return (uint32_t)(((SPIx->I2SCFGR) & ((0x1UL << (3U)))));
 }
-# 1737 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1737 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_I2S_SetStandard(SPI_TypeDef *SPIx, uint32_t Standard)
 {
   (((SPIx->I2SCFGR)) = ((((((SPIx->I2SCFGR))) & (~((0x3UL << (4U)) | (0x1UL << (7U))))) | (Standard))));
 }
-# 1754 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1754 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline uint32_t LL_I2S_GetStandard(SPI_TypeDef *SPIx)
 {
   return (uint32_t)(((SPIx->I2SCFGR) & ((0x3UL << (4U)) | (0x1UL << (7U)))));
 }
-# 1770 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1770 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_I2S_SetTransferMode(SPI_TypeDef *SPIx, uint32_t Mode)
 {
   (((SPIx->I2SCFGR)) = ((((((SPIx->I2SCFGR))) & (~((0x3UL << (8U))))) | (Mode))));
 }
-# 1785 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1785 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline uint32_t LL_I2S_GetTransferMode(SPI_TypeDef *SPIx)
 {
   return (uint32_t)(((SPIx->I2SCFGR) & ((0x3UL << (8U)))));
 }
-# 1797 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1797 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_I2S_SetPrescalerLinear(SPI_TypeDef *SPIx, uint8_t PrescalerLinear)
 {
   (((SPIx->I2SPR)) = ((((((SPIx->I2SPR))) & (~((0xFFUL << (0U))))) | (PrescalerLinear))));
@@ -30569,12 +30569,12 @@ static inline uint32_t LL_I2S_GetPrescalerLinear(SPI_TypeDef *SPIx)
 {
   return (uint32_t)(((SPIx->I2SPR) & ((0xFFUL << (0U)))));
 }
-# 1822 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1822 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_I2S_SetPrescalerParity(SPI_TypeDef *SPIx, uint32_t PrescalerParity)
 {
   (((SPIx->I2SPR)) = ((((((SPIx->I2SPR))) & (~((0x1UL << (8U))))) | (PrescalerParity << 8U))));
 }
-# 1835 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1835 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline uint32_t LL_I2S_GetPrescalerParity(SPI_TypeDef *SPIx)
 {
   return (uint32_t)(((SPIx->I2SPR) & ((0x1UL << (8U)))) >> 8U);
@@ -30612,7 +30612,7 @@ static inline uint32_t LL_I2S_IsEnabledMasterClock(SPI_TypeDef *SPIx)
 {
   return ((((SPIx->I2SPR) & ((0x1UL << (9U)))) == ((0x1UL << (9U)))) ? 1UL : 0UL);
 }
-# 1880 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1880 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_I2S_EnableAsyncStart(SPI_TypeDef *SPIx)
 {
   ((SPIx->I2SCFGR) |= ((0x1UL << (12U))));
@@ -30639,7 +30639,7 @@ static inline uint32_t LL_I2S_IsEnabledAsyncStart(SPI_TypeDef *SPIx)
 {
   return ((((SPIx->I2SCFGR) & ((0x1UL << (12U)))) == ((0x1UL << (12U)))) ? 1UL : 0UL);
 }
-# 1922 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1922 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline uint32_t LL_I2S_IsActiveFlag_RXNE(SPI_TypeDef *SPIx)
 {
   return LL_SPI_IsActiveFlag_RXNE(SPIx);
@@ -30699,7 +30699,7 @@ static inline uint32_t LL_I2S_IsActiveFlag_FRE(SPI_TypeDef *SPIx)
 {
   return LL_SPI_IsActiveFlag_FRE(SPIx);
 }
-# 1991 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 1991 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline uint32_t LL_I2S_IsActiveFlag_CHSIDE(SPI_TypeDef *SPIx)
 {
   return ((((SPIx->SR) & ((0x1UL << (2U)))) == ((0x1UL << (2U)))) ? 1UL : 0UL);
@@ -30739,7 +30739,7 @@ static inline void LL_I2S_ClearFlag_FRE(SPI_TypeDef *SPIx)
 {
   LL_SPI_ClearFlag_FRE(SPIx);
 }
-# 2046 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 2046 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_I2S_EnableIT_ERR(SPI_TypeDef *SPIx)
 {
   LL_SPI_EnableIT_ERR(SPIx);
@@ -30766,7 +30766,7 @@ static inline void LL_I2S_EnableIT_TXE(SPI_TypeDef *SPIx)
 {
   LL_SPI_EnableIT_TXE(SPIx);
 }
-# 2080 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 2080 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_I2S_DisableIT_ERR(SPI_TypeDef *SPIx)
 {
   LL_SPI_DisableIT_ERR(SPIx);
@@ -30826,7 +30826,7 @@ static inline uint32_t LL_I2S_IsEnabledIT_TXE(SPI_TypeDef *SPIx)
 {
   return LL_SPI_IsEnabledIT_TXE(SPIx);
 }
-# 2154 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 2154 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_I2S_EnableDMAReq_RX(SPI_TypeDef *SPIx)
 {
   LL_SPI_EnableDMAReq_RX(SPIx);
@@ -30886,18 +30886,18 @@ static inline uint32_t LL_I2S_IsEnabledDMAReq_TX(SPI_TypeDef *SPIx)
 {
   return LL_SPI_IsEnabledDMAReq_TX(SPIx);
 }
-# 2228 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 2228 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline uint16_t LL_I2S_ReceiveData16(SPI_TypeDef *SPIx)
 {
   return LL_SPI_ReceiveData16(SPIx);
 }
-# 2240 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
+# 2240 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_spi.h"
 static inline void LL_I2S_TransmitData16(SPI_TypeDef *SPIx, uint16_t TxData)
 {
   LL_SPI_TransmitData16(SPIx, TxData);
 }
-# 33 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h" 2
-# 50 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h"
+# 33 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h" 2
+# 50 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h"
 typedef struct
 {
   uint32_t BaudratePrescaler;
@@ -30942,9 +30942,9 @@ typedef struct
   volatile HAL_SUBGHZ_StateTypeDef State;
 
   volatile uint32_t ErrorCode;
-# 108 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h"
+# 108 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h"
 } SUBGHZ_HandleTypeDef;
-# 139 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h"
+# 139 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h"
 typedef enum
 {
   RADIO_SET_SLEEP = 0x84U,
@@ -30993,11 +30993,11 @@ typedef enum
   RADIO_GET_IRQSTATUS = 0x12U,
   RADIO_GET_ERROR = 0x17U
 } SUBGHZ_RadioGetCmd_t;
-# 200 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h"
+# 200 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h"
 #define HAL_SUBGHZ_ERROR_NONE (0x00000000U)
 #define HAL_SUBGHZ_ERROR_TIMEOUT (0x00000001U)
 #define HAL_SUBGHZ_ERROR_RF_BUSY (0x00000002U)
-# 213 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h"
+# 213 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h"
 #define SUBGHZSPI_BAUDRATEPRESCALER_2 (0x00000000U)
 #define SUBGHZSPI_BAUDRATEPRESCALER_4 (SPI_CR1_BR_0)
 #define SUBGHZSPI_BAUDRATEPRESCALER_8 (SPI_CR1_BR_1)
@@ -31006,7 +31006,7 @@ typedef enum
 #define SUBGHZSPI_BAUDRATEPRESCALER_64 (SPI_CR1_BR_2 | SPI_CR1_BR_0)
 #define SUBGHZSPI_BAUDRATEPRESCALER_128 (SPI_CR1_BR_2 | SPI_CR1_BR_1)
 #define SUBGHZSPI_BAUDRATEPRESCALER_256 (SPI_CR1_BR_2 | SPI_CR1_BR_1 | SPI_CR1_BR_0)
-# 237 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h"
+# 237 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h"
 #define SUBGHZ_IT_TX_CPLT 0x0001U
 #define SUBGHZ_IT_RX_CPLT 0x0002U
 #define SUBGHZ_IT_PREAMBLE_DETECTED 0x0004U
@@ -31025,9 +31025,9 @@ typedef enum
 #define SUBGHZ_RADIO_READ_REGISTER 0x1DU
 #define SUBGHZ_RADIO_WRITE_BUFFER 0x0EU
 #define SUBGHZ_RADIO_READ_BUFFER 0x1EU
-# 276 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h"
+# 276 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h"
 #define __HAL_SUBGHZ_RESET_HANDLE_STATE(__HANDLE__) ((__HANDLE__)->State = HAL_SUBGHZ_STATE_RESET)
-# 303 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h"
+# 303 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h"
 #define SUBGHZ_CHECK_IT_SOURCE(__SUBGHZ_IRQ__,__INTERRUPT__) ((((__SUBGHZ_IRQ__) & (__INTERRUPT__)) == (__INTERRUPT__)) ? SET : RESET)
 
 
@@ -31037,12 +31037,12 @@ typedef enum
 
 
 #define IS_SUBGHZSPI_BAUDRATE_PRESCALER(__PRESCALER__) (((__PRESCALER__) == SUBGHZSPI_BAUDRATEPRESCALER_2) || ((__PRESCALER__) == SUBGHZSPI_BAUDRATEPRESCALER_4) || ((__PRESCALER__) == SUBGHZSPI_BAUDRATEPRESCALER_8) || ((__PRESCALER__) == SUBGHZSPI_BAUDRATEPRESCALER_16) || ((__PRESCALER__) == SUBGHZSPI_BAUDRATEPRESCALER_32) || ((__PRESCALER__) == SUBGHZSPI_BAUDRATEPRESCALER_64) || ((__PRESCALER__) == SUBGHZSPI_BAUDRATEPRESCALER_128) || ((__PRESCALER__) == SUBGHZSPI_BAUDRATEPRESCALER_256))
-# 332 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h"
+# 332 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h"
 HAL_StatusTypeDef HAL_SUBGHZ_Init(SUBGHZ_HandleTypeDef *hsubghz);
 HAL_StatusTypeDef HAL_SUBGHZ_DeInit(SUBGHZ_HandleTypeDef *hsubghz);
 void HAL_SUBGHZ_MspInit(SUBGHZ_HandleTypeDef *hsubghz);
 void HAL_SUBGHZ_MspDeInit(SUBGHZ_HandleTypeDef *hsubghz);
-# 356 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h"
+# 356 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h"
 HAL_StatusTypeDef HAL_SUBGHZ_ExecSetCmd(SUBGHZ_HandleTypeDef *hsubghz, SUBGHZ_RadioSetCmd_t Command, uint8_t *pBuffer,
                                         uint16_t Size);
 HAL_StatusTypeDef HAL_SUBGHZ_ExecGetCmd(SUBGHZ_HandleTypeDef *hsubghz, SUBGHZ_RadioGetCmd_t Command, uint8_t *pBuffer,
@@ -31069,17 +31069,17 @@ void HAL_SUBGHZ_HeaderErrorCallback(SUBGHZ_HandleTypeDef *hsubghz);
 void HAL_SUBGHZ_CRCErrorCallback(SUBGHZ_HandleTypeDef *hsubghz);
 void HAL_SUBGHZ_CADStatusCallback(SUBGHZ_HandleTypeDef *hsubghz, HAL_SUBGHZ_CadStatusTypeDef cadstatus);
 void HAL_SUBGHZ_RxTxTimeoutCallback(SUBGHZ_HandleTypeDef *hsubghz);
-# 390 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h"
+# 390 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_subghz.h"
 HAL_SUBGHZ_StateTypeDef HAL_SUBGHZ_GetState(SUBGHZ_HandleTypeDef *hsubghz);
 uint32_t HAL_SUBGHZ_GetError(SUBGHZ_HandleTypeDef *hsubghz);
-# 297 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
+# 297 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
 
 
 
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define STM32WLxx_HAL_TIM_H 
-# 47 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 47 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 typedef struct
 {
   uint32_t Prescaler;
@@ -31096,7 +31096,7 @@ typedef struct
 
 
   uint32_t RepetitionCounter;
-# 71 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 71 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
   uint32_t AutoReloadPreload;
 
 } TIM_Base_InitTypeDef;
@@ -31390,9 +31390,9 @@ typedef struct
   volatile HAL_TIM_ChannelStateTypeDef ChannelState[6];
   volatile HAL_TIM_ChannelStateTypeDef ChannelNState[4];
   volatile HAL_TIM_DMABurstStateTypeDef DMABurstState;
-# 395 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 395 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 } TIM_HandleTypeDef;
-# 454 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 454 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define TIM_CLEARINPUTSOURCE_NONE 0x00000000U
 #define TIM_CLEARINPUTSOURCE_ETR 0x00000001U
 #define TIM_CLEARINPUTSOURCE_COMP1 TIM1_AF1_ETRSEL_0
@@ -31525,7 +31525,7 @@ typedef struct
 
 #define TIM_AUTORELOAD_PRELOAD_DISABLE 0x00000000U
 #define TIM_AUTORELOAD_PRELOAD_ENABLE TIM_CR1_ARPE
-# 594 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 594 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define TIM_OCFAST_DISABLE 0x00000000U
 #define TIM_OCFAST_ENABLE TIM_CCMR1_OC1FE
 
@@ -31860,7 +31860,7 @@ typedef struct
 
 #define TIM_AUTOMATICOUTPUT_DISABLE 0x00000000U
 #define TIM_AUTOMATICOUTPUT_ENABLE TIM_BDTR_AOE
-# 936 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 936 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define TIM_GROUPCH5_NONE 0x00000000U
 #define TIM_GROUPCH5_OC1REFC TIM_CCR5_GC5C1
 #define TIM_GROUPCH5_OC2REFC TIM_CCR5_GC5C2
@@ -32055,9 +32055,9 @@ typedef struct
 #define TIM_BREAK_SYSTEM_PVD SYSCFG_CFGR2_PVDL
 #define TIM_BREAK_SYSTEM_SRAM2_PARITY_ERROR SYSCFG_CFGR2_SPL
 #define TIM_BREAK_SYSTEM_LOCKUP SYSCFG_CFGR2_CLL
-# 1178 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1178 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define __HAL_TIM_RESET_HANDLE_STATE(__HANDLE__) do { (__HANDLE__)->State = HAL_TIM_STATE_RESET; (__HANDLE__)->ChannelState[0] = HAL_TIM_CHANNEL_STATE_RESET; (__HANDLE__)->ChannelState[1] = HAL_TIM_CHANNEL_STATE_RESET; (__HANDLE__)->ChannelState[2] = HAL_TIM_CHANNEL_STATE_RESET; (__HANDLE__)->ChannelState[3] = HAL_TIM_CHANNEL_STATE_RESET; (__HANDLE__)->ChannelState[4] = HAL_TIM_CHANNEL_STATE_RESET; (__HANDLE__)->ChannelState[5] = HAL_TIM_CHANNEL_STATE_RESET; (__HANDLE__)->ChannelNState[0] = HAL_TIM_CHANNEL_STATE_RESET; (__HANDLE__)->ChannelNState[1] = HAL_TIM_CHANNEL_STATE_RESET; (__HANDLE__)->ChannelNState[2] = HAL_TIM_CHANNEL_STATE_RESET; (__HANDLE__)->ChannelNState[3] = HAL_TIM_CHANNEL_STATE_RESET; (__HANDLE__)->DMABurstState = HAL_DMA_BURST_STATE_RESET; } while(0)
-# 1199 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1199 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define __HAL_TIM_ENABLE(__HANDLE__) ((__HANDLE__)->Instance->CR1|=(TIM_CR1_CEN))
 
 
@@ -32073,27 +32073,27 @@ typedef struct
 
 
 #define __HAL_TIM_DISABLE(__HANDLE__) do { if (((__HANDLE__)->Instance->CCER & TIM_CCER_CCxE_MASK) == 0UL) { if(((__HANDLE__)->Instance->CCER & TIM_CCER_CCxNE_MASK) == 0UL) { (__HANDLE__)->Instance->CR1 &= ~(TIM_CR1_CEN); } } } while(0)
-# 1230 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1230 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define __HAL_TIM_MOE_DISABLE(__HANDLE__) do { if (((__HANDLE__)->Instance->CCER & TIM_CCER_CCxE_MASK) == 0UL) { if(((__HANDLE__)->Instance->CCER & TIM_CCER_CCxNE_MASK) == 0UL) { (__HANDLE__)->Instance->BDTR &= ~(TIM_BDTR_MOE); } } } while(0)
-# 1247 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1247 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define __HAL_TIM_MOE_DISABLE_UNCONDITIONALLY(__HANDLE__) (__HANDLE__)->Instance->BDTR &= ~(TIM_BDTR_MOE)
-# 1263 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1263 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define __HAL_TIM_ENABLE_IT(__HANDLE__,__INTERRUPT__) ((__HANDLE__)->Instance->DIER |= (__INTERRUPT__))
-# 1279 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1279 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define __HAL_TIM_DISABLE_IT(__HANDLE__,__INTERRUPT__) ((__HANDLE__)->Instance->DIER &= ~(__INTERRUPT__))
-# 1294 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1294 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define __HAL_TIM_ENABLE_DMA(__HANDLE__,__DMA__) ((__HANDLE__)->Instance->DIER |= (__DMA__))
-# 1309 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1309 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define __HAL_TIM_DISABLE_DMA(__HANDLE__,__DMA__) ((__HANDLE__)->Instance->DIER &= ~(__DMA__))
-# 1333 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1333 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define __HAL_TIM_GET_FLAG(__HANDLE__,__FLAG__) (((__HANDLE__)->Instance->SR &(__FLAG__)) == (__FLAG__))
-# 1357 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1357 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define __HAL_TIM_CLEAR_FLAG(__HANDLE__,__FLAG__) ((__HANDLE__)->Instance->SR = ~(__FLAG__))
-# 1374 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1374 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define __HAL_TIM_GET_IT_SOURCE(__HANDLE__,__INTERRUPT__) ((((__HANDLE__)->Instance->DIER & (__INTERRUPT__)) == (__INTERRUPT__)) ? SET : RESET)
-# 1391 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1391 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define __HAL_TIM_CLEAR_IT(__HANDLE__,__INTERRUPT__) ((__HANDLE__)->Instance->SR = ~(__INTERRUPT__))
-# 1400 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1400 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define __HAL_TIM_UIFREMAP_ENABLE(__HANDLE__) (((__HANDLE__)->Instance->CR1 |= TIM_CR1_UIFREMAP))
 
 
@@ -32111,7 +32111,7 @@ typedef struct
 
 
 #define __HAL_TIM_GET_UIFCPY(__COUNTER__) (((__COUNTER__) & (TIM_CNT_UIFCPY)) == (TIM_CNT_UIFCPY))
-# 1425 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1425 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define __HAL_TIM_IS_TIM_COUNTING_DOWN(__HANDLE__) (((__HANDLE__)->Instance->CR1 &(TIM_CR1_DIR)) == (TIM_CR1_DIR))
 
 
@@ -32121,7 +32121,7 @@ typedef struct
 
 
 #define __HAL_TIM_SET_PRESCALER(__HANDLE__,__PRESC__) ((__HANDLE__)->Instance->PSC = (__PRESC__))
-# 1443 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1443 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define __HAL_TIM_SET_COUNTER(__HANDLE__,__COUNTER__) ((__HANDLE__)->Instance->CNT = (__COUNTER__))
 
 
@@ -32138,45 +32138,45 @@ typedef struct
 
 
 #define __HAL_TIM_SET_AUTORELOAD(__HANDLE__,__AUTORELOAD__) do{ (__HANDLE__)->Instance->ARR = (__AUTORELOAD__); (__HANDLE__)->Init.Period = (__AUTORELOAD__); } while(0)
-# 1469 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1469 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define __HAL_TIM_GET_AUTORELOAD(__HANDLE__) ((__HANDLE__)->Instance->ARR)
-# 1481 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1481 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define __HAL_TIM_SET_CLOCKDIVISION(__HANDLE__,__CKD__) do{ (__HANDLE__)->Instance->CR1 &= (~TIM_CR1_CKD); (__HANDLE__)->Instance->CR1 |= (__CKD__); (__HANDLE__)->Init.ClockDivision = (__CKD__); } while(0)
-# 1496 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1496 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define __HAL_TIM_GET_CLOCKDIVISION(__HANDLE__) ((__HANDLE__)->Instance->CR1 & TIM_CR1_CKD)
-# 1515 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1515 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define __HAL_TIM_SET_ICPRESCALER(__HANDLE__,__CHANNEL__,__ICPSC__) do{ TIM_RESET_ICPRESCALERVALUE((__HANDLE__), (__CHANNEL__)); TIM_SET_ICPRESCALERVALUE((__HANDLE__), (__CHANNEL__), (__ICPSC__)); } while(0)
-# 1536 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1536 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define __HAL_TIM_GET_ICPRESCALER(__HANDLE__,__CHANNEL__) (((__CHANNEL__) == TIM_CHANNEL_1) ? ((__HANDLE__)->Instance->CCMR1 & TIM_CCMR1_IC1PSC) : ((__CHANNEL__) == TIM_CHANNEL_2) ? (((__HANDLE__)->Instance->CCMR1 & TIM_CCMR1_IC2PSC) >> 8U) : ((__CHANNEL__) == TIM_CHANNEL_3) ? ((__HANDLE__)->Instance->CCMR2 & TIM_CCMR2_IC3PSC) : (((__HANDLE__)->Instance->CCMR2 & TIM_CCMR2_IC4PSC)) >> 8U)
-# 1556 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1556 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define __HAL_TIM_SET_COMPARE(__HANDLE__,__CHANNEL__,__COMPARE__) (((__CHANNEL__) == TIM_CHANNEL_1) ? ((__HANDLE__)->Instance->CCR1 = (__COMPARE__)) : ((__CHANNEL__) == TIM_CHANNEL_2) ? ((__HANDLE__)->Instance->CCR2 = (__COMPARE__)) : ((__CHANNEL__) == TIM_CHANNEL_3) ? ((__HANDLE__)->Instance->CCR3 = (__COMPARE__)) : ((__CHANNEL__) == TIM_CHANNEL_4) ? ((__HANDLE__)->Instance->CCR4 = (__COMPARE__)) : ((__CHANNEL__) == TIM_CHANNEL_5) ? ((__HANDLE__)->Instance->CCR5 = (__COMPARE__)) : ((__HANDLE__)->Instance->CCR6 = (__COMPARE__)))
-# 1577 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1577 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define __HAL_TIM_GET_COMPARE(__HANDLE__,__CHANNEL__) (((__CHANNEL__) == TIM_CHANNEL_1) ? ((__HANDLE__)->Instance->CCR1) : ((__CHANNEL__) == TIM_CHANNEL_2) ? ((__HANDLE__)->Instance->CCR2) : ((__CHANNEL__) == TIM_CHANNEL_3) ? ((__HANDLE__)->Instance->CCR3) : ((__CHANNEL__) == TIM_CHANNEL_4) ? ((__HANDLE__)->Instance->CCR4) : ((__CHANNEL__) == TIM_CHANNEL_5) ? ((__HANDLE__)->Instance->CCR5) : ((__HANDLE__)->Instance->CCR6))
-# 1598 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1598 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define __HAL_TIM_ENABLE_OCxPRELOAD(__HANDLE__,__CHANNEL__) (((__CHANNEL__) == TIM_CHANNEL_1) ? ((__HANDLE__)->Instance->CCMR1 |= TIM_CCMR1_OC1PE) : ((__CHANNEL__) == TIM_CHANNEL_2) ? ((__HANDLE__)->Instance->CCMR1 |= TIM_CCMR1_OC2PE) : ((__CHANNEL__) == TIM_CHANNEL_3) ? ((__HANDLE__)->Instance->CCMR2 |= TIM_CCMR2_OC3PE) : ((__CHANNEL__) == TIM_CHANNEL_4) ? ((__HANDLE__)->Instance->CCMR2 |= TIM_CCMR2_OC4PE) : ((__CHANNEL__) == TIM_CHANNEL_5) ? ((__HANDLE__)->Instance->CCMR3 |= TIM_CCMR3_OC5PE) : ((__HANDLE__)->Instance->CCMR3 |= TIM_CCMR3_OC6PE))
-# 1619 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1619 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define __HAL_TIM_DISABLE_OCxPRELOAD(__HANDLE__,__CHANNEL__) (((__CHANNEL__) == TIM_CHANNEL_1) ? ((__HANDLE__)->Instance->CCMR1 &= ~TIM_CCMR1_OC1PE) : ((__CHANNEL__) == TIM_CHANNEL_2) ? ((__HANDLE__)->Instance->CCMR1 &= ~TIM_CCMR1_OC2PE) : ((__CHANNEL__) == TIM_CHANNEL_3) ? ((__HANDLE__)->Instance->CCMR2 &= ~TIM_CCMR2_OC3PE) : ((__CHANNEL__) == TIM_CHANNEL_4) ? ((__HANDLE__)->Instance->CCMR2 &= ~TIM_CCMR2_OC4PE) : ((__CHANNEL__) == TIM_CHANNEL_5) ? ((__HANDLE__)->Instance->CCMR3 &= ~TIM_CCMR3_OC5PE) : ((__HANDLE__)->Instance->CCMR3 &= ~TIM_CCMR3_OC6PE))
-# 1644 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1644 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define __HAL_TIM_ENABLE_OCxFAST(__HANDLE__,__CHANNEL__) (((__CHANNEL__) == TIM_CHANNEL_1) ? ((__HANDLE__)->Instance->CCMR1 |= TIM_CCMR1_OC1FE) : ((__CHANNEL__) == TIM_CHANNEL_2) ? ((__HANDLE__)->Instance->CCMR1 |= TIM_CCMR1_OC2FE) : ((__CHANNEL__) == TIM_CHANNEL_3) ? ((__HANDLE__)->Instance->CCMR2 |= TIM_CCMR2_OC3FE) : ((__CHANNEL__) == TIM_CHANNEL_4) ? ((__HANDLE__)->Instance->CCMR2 |= TIM_CCMR2_OC4FE) : ((__CHANNEL__) == TIM_CHANNEL_5) ? ((__HANDLE__)->Instance->CCMR3 |= TIM_CCMR3_OC5FE) : ((__HANDLE__)->Instance->CCMR3 |= TIM_CCMR3_OC6FE))
-# 1669 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1669 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define __HAL_TIM_DISABLE_OCxFAST(__HANDLE__,__CHANNEL__) (((__CHANNEL__) == TIM_CHANNEL_1) ? ((__HANDLE__)->Instance->CCMR1 &= ~TIM_CCMR1_OC1FE) : ((__CHANNEL__) == TIM_CHANNEL_2) ? ((__HANDLE__)->Instance->CCMR1 &= ~TIM_CCMR1_OC2FE) : ((__CHANNEL__) == TIM_CHANNEL_3) ? ((__HANDLE__)->Instance->CCMR2 &= ~TIM_CCMR2_OC3FE) : ((__CHANNEL__) == TIM_CHANNEL_4) ? ((__HANDLE__)->Instance->CCMR2 &= ~TIM_CCMR2_OC4FE) : ((__CHANNEL__) == TIM_CHANNEL_5) ? ((__HANDLE__)->Instance->CCMR3 &= ~TIM_CCMR3_OC5FE) : ((__HANDLE__)->Instance->CCMR3 &= ~TIM_CCMR3_OC6FE))
-# 1685 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1685 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define __HAL_TIM_URS_ENABLE(__HANDLE__) ((__HANDLE__)->Instance->CR1|= TIM_CR1_URS)
-# 1698 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1698 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define __HAL_TIM_URS_DISABLE(__HANDLE__) ((__HANDLE__)->Instance->CR1&=~TIM_CR1_URS)
-# 1715 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1715 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define __HAL_TIM_SET_CAPTUREPOLARITY(__HANDLE__,__CHANNEL__,__POLARITY__) do{ TIM_RESET_CAPTUREPOLARITY((__HANDLE__), (__CHANNEL__)); TIM_SET_CAPTUREPOLARITY((__HANDLE__), (__CHANNEL__), (__POLARITY__)); }while(0)
-# 1732 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1732 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define TIM_CCER_CCxE_MASK ((uint32_t)(TIM_CCER_CC1E | TIM_CCER_CC2E | TIM_CCER_CC3E | TIM_CCER_CC4E))
 #define TIM_CCER_CCxNE_MASK ((uint32_t)(TIM_CCER_CC1NE | TIM_CCER_CC2NE | TIM_CCER_CC3NE))
-# 1743 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1743 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define IS_TIM_CLEARINPUT_SOURCE(__MODE__) (((__MODE__) == TIM_CLEARINPUTSOURCE_ETR) || ((__MODE__) == TIM_CLEARINPUTSOURCE_COMP1) || ((__MODE__) == TIM_CLEARINPUTSOURCE_COMP2) || ((__MODE__) == TIM_CLEARINPUTSOURCE_NONE))
 
 
 
 
 #define IS_TIM_DMA_BASE(__BASE__) (((__BASE__) == TIM_DMABASE_CR1) || ((__BASE__) == TIM_DMABASE_CR2) || ((__BASE__) == TIM_DMABASE_SMCR) || ((__BASE__) == TIM_DMABASE_DIER) || ((__BASE__) == TIM_DMABASE_SR) || ((__BASE__) == TIM_DMABASE_EGR) || ((__BASE__) == TIM_DMABASE_CCMR1) || ((__BASE__) == TIM_DMABASE_CCMR2) || ((__BASE__) == TIM_DMABASE_CCER) || ((__BASE__) == TIM_DMABASE_CNT) || ((__BASE__) == TIM_DMABASE_PSC) || ((__BASE__) == TIM_DMABASE_ARR) || ((__BASE__) == TIM_DMABASE_RCR) || ((__BASE__) == TIM_DMABASE_CCR1) || ((__BASE__) == TIM_DMABASE_CCR2) || ((__BASE__) == TIM_DMABASE_CCR3) || ((__BASE__) == TIM_DMABASE_CCR4) || ((__BASE__) == TIM_DMABASE_BDTR) || ((__BASE__) == TIM_DMABASE_OR1) || ((__BASE__) == TIM_DMABASE_CCMR3) || ((__BASE__) == TIM_DMABASE_CCR5) || ((__BASE__) == TIM_DMABASE_CCR6) || ((__BASE__) == TIM_DMABASE_AF1) || ((__BASE__) == TIM_DMABASE_AF2))
-# 1773 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1773 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define IS_TIM_EVENT_SOURCE(__SOURCE__) ((((__SOURCE__) & 0xFFFFFE00U) == 0x00000000U) && ((__SOURCE__) != 0x00000000U))
 
 #define IS_TIM_COUNTER_MODE(__MODE__) (((__MODE__) == TIM_COUNTERMODE_UP) || ((__MODE__) == TIM_COUNTERMODE_DOWN) || ((__MODE__) == TIM_COUNTERMODE_CENTERALIGNED1) || ((__MODE__) == TIM_COUNTERMODE_CENTERALIGNED2) || ((__MODE__) == TIM_COUNTERMODE_CENTERALIGNED3))
@@ -32251,7 +32251,7 @@ typedef struct
 
 
 #define IS_TIM_CLOCKSOURCE(__CLOCK__) (((__CLOCK__) == TIM_CLOCKSOURCE_INTERNAL) || ((__CLOCK__) == TIM_CLOCKSOURCE_ETRMODE2) || ((__CLOCK__) == TIM_CLOCKSOURCE_ITR0) || ((__CLOCK__) == TIM_CLOCKSOURCE_ITR1) || ((__CLOCK__) == TIM_CLOCKSOURCE_ITR2) || ((__CLOCK__) == TIM_CLOCKSOURCE_ITR3) || ((__CLOCK__) == TIM_CLOCKSOURCE_TI1ED) || ((__CLOCK__) == TIM_CLOCKSOURCE_TI1) || ((__CLOCK__) == TIM_CLOCKSOURCE_TI2) || ((__CLOCK__) == TIM_CLOCKSOURCE_ETRMODE1))
-# 1857 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1857 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define IS_TIM_CLOCKPOLARITY(__POLARITY__) (((__POLARITY__) == TIM_CLOCKPOLARITY_INVERTED) || ((__POLARITY__) == TIM_CLOCKPOLARITY_NONINVERTED) || ((__POLARITY__) == TIM_CLOCKPOLARITY_RISING) || ((__POLARITY__) == TIM_CLOCKPOLARITY_FALLING) || ((__POLARITY__) == TIM_CLOCKPOLARITY_BOTHEDGE))
 
 
@@ -32315,9 +32315,9 @@ typedef struct
 #define IS_TIM_GROUPCH5(__OCREF__) ((((__OCREF__) & 0x1FFFFFFFU) == 0x00000000U))
 
 #define IS_TIM_TRGO_SOURCE(__SOURCE__) (((__SOURCE__) == TIM_TRGO_RESET) || ((__SOURCE__) == TIM_TRGO_ENABLE) || ((__SOURCE__) == TIM_TRGO_UPDATE) || ((__SOURCE__) == TIM_TRGO_OC1) || ((__SOURCE__) == TIM_TRGO_OC1REF) || ((__SOURCE__) == TIM_TRGO_OC2REF) || ((__SOURCE__) == TIM_TRGO_OC3REF) || ((__SOURCE__) == TIM_TRGO_OC4REF))
-# 1928 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1928 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define IS_TIM_TRGO2_SOURCE(__SOURCE__) (((__SOURCE__) == TIM_TRGO2_RESET) || ((__SOURCE__) == TIM_TRGO2_ENABLE) || ((__SOURCE__) == TIM_TRGO2_UPDATE) || ((__SOURCE__) == TIM_TRGO2_OC1) || ((__SOURCE__) == TIM_TRGO2_OC1REF) || ((__SOURCE__) == TIM_TRGO2_OC2REF) || ((__SOURCE__) == TIM_TRGO2_OC3REF) || ((__SOURCE__) == TIM_TRGO2_OC3REF) || ((__SOURCE__) == TIM_TRGO2_OC4REF) || ((__SOURCE__) == TIM_TRGO2_OC5REF) || ((__SOURCE__) == TIM_TRGO2_OC6REF) || ((__SOURCE__) == TIM_TRGO2_OC4REF_RISINGFALLING) || ((__SOURCE__) == TIM_TRGO2_OC6REF_RISINGFALLING) || ((__SOURCE__) == TIM_TRGO2_OC4REF_RISING_OC6REF_RISING) || ((__SOURCE__) == TIM_TRGO2_OC4REF_RISING_OC6REF_FALLING) || ((__SOURCE__) == TIM_TRGO2_OC5REF_RISING_OC6REF_RISING) || ((__SOURCE__) == TIM_TRGO2_OC5REF_RISING_OC6REF_FALLING))
-# 1946 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1946 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define IS_TIM_MSM_STATE(__STATE__) (((__STATE__) == TIM_MASTERSLAVEMODE_ENABLE) || ((__STATE__) == TIM_MASTERSLAVEMODE_DISABLE))
 
 
@@ -32336,9 +32336,9 @@ typedef struct
 
 
 #define IS_TIM_OC_MODE(__MODE__) (((__MODE__) == TIM_OCMODE_TIMING) || ((__MODE__) == TIM_OCMODE_ACTIVE) || ((__MODE__) == TIM_OCMODE_INACTIVE) || ((__MODE__) == TIM_OCMODE_TOGGLE) || ((__MODE__) == TIM_OCMODE_FORCED_ACTIVE) || ((__MODE__) == TIM_OCMODE_FORCED_INACTIVE) || ((__MODE__) == TIM_OCMODE_RETRIGERRABLE_OPM1) || ((__MODE__) == TIM_OCMODE_RETRIGERRABLE_OPM2))
-# 1972 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1972 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define IS_TIM_TRIGGER_SELECTION(__SELECTION__) (((__SELECTION__) == TIM_TS_ITR0) || ((__SELECTION__) == TIM_TS_ITR1) || ((__SELECTION__) == TIM_TS_ITR2) || ((__SELECTION__) == TIM_TS_ITR3) || ((__SELECTION__) == TIM_TS_TI1F_ED) || ((__SELECTION__) == TIM_TS_TI1FP1) || ((__SELECTION__) == TIM_TS_TI2FP2) || ((__SELECTION__) == TIM_TS_ETRF))
-# 1981 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1981 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define IS_TIM_INTERNAL_TRIGGEREVENT_SELECTION(__SELECTION__) (((__SELECTION__) == TIM_TS_ITR0) || ((__SELECTION__) == TIM_TS_ITR1) || ((__SELECTION__) == TIM_TS_ITR2) || ((__SELECTION__) == TIM_TS_ITR3) || ((__SELECTION__) == TIM_TS_NONE))
 
 
@@ -32362,7 +32362,7 @@ typedef struct
 
 
 #define IS_TIM_DMA_LENGTH(__LENGTH__) (((__LENGTH__) == TIM_DMABURSTLENGTH_1TRANSFER) || ((__LENGTH__) == TIM_DMABURSTLENGTH_2TRANSFERS) || ((__LENGTH__) == TIM_DMABURSTLENGTH_3TRANSFERS) || ((__LENGTH__) == TIM_DMABURSTLENGTH_4TRANSFERS) || ((__LENGTH__) == TIM_DMABURSTLENGTH_5TRANSFERS) || ((__LENGTH__) == TIM_DMABURSTLENGTH_6TRANSFERS) || ((__LENGTH__) == TIM_DMABURSTLENGTH_7TRANSFERS) || ((__LENGTH__) == TIM_DMABURSTLENGTH_8TRANSFERS) || ((__LENGTH__) == TIM_DMABURSTLENGTH_9TRANSFERS) || ((__LENGTH__) == TIM_DMABURSTLENGTH_10TRANSFERS) || ((__LENGTH__) == TIM_DMABURSTLENGTH_11TRANSFERS) || ((__LENGTH__) == TIM_DMABURSTLENGTH_12TRANSFERS) || ((__LENGTH__) == TIM_DMABURSTLENGTH_13TRANSFERS) || ((__LENGTH__) == TIM_DMABURSTLENGTH_14TRANSFERS) || ((__LENGTH__) == TIM_DMABURSTLENGTH_15TRANSFERS) || ((__LENGTH__) == TIM_DMABURSTLENGTH_16TRANSFERS) || ((__LENGTH__) == TIM_DMABURSTLENGTH_17TRANSFERS) || ((__LENGTH__) == TIM_DMABURSTLENGTH_18TRANSFERS))
-# 2022 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 2022 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define IS_TIM_DMA_DATA_LENGTH(LENGTH) (((LENGTH) >= 0x1U) && ((LENGTH) < 0x10000U))
 
 #define IS_TIM_IC_FILTER(__ICFILTER__) ((__ICFILTER__) <= 0xFU)
@@ -32418,7 +32418,7 @@ typedef struct
 
 
 #define TIM_CHANNEL_STATE_SET_ALL(__HANDLE__,__CHANNEL_STATE__) do { (__HANDLE__)->ChannelState[0] = (__CHANNEL_STATE__); (__HANDLE__)->ChannelState[1] = (__CHANNEL_STATE__); (__HANDLE__)->ChannelState[2] = (__CHANNEL_STATE__); (__HANDLE__)->ChannelState[3] = (__CHANNEL_STATE__); (__HANDLE__)->ChannelState[4] = (__CHANNEL_STATE__); (__HANDLE__)->ChannelState[5] = (__CHANNEL_STATE__); } while(0)
-# 2085 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 2085 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 #define TIM_CHANNEL_N_STATE_GET(__HANDLE__,__CHANNEL__) (((__CHANNEL__) == TIM_CHANNEL_1) ? (__HANDLE__)->ChannelNState[0] : ((__CHANNEL__) == TIM_CHANNEL_2) ? (__HANDLE__)->ChannelNState[1] : ((__CHANNEL__) == TIM_CHANNEL_3) ? (__HANDLE__)->ChannelNState[2] : (__HANDLE__)->ChannelNState[3])
 
 
@@ -32432,11 +32432,11 @@ typedef struct
 
 
 #define TIM_CHANNEL_N_STATE_SET_ALL(__HANDLE__,__CHANNEL_STATE__) do { (__HANDLE__)->ChannelNState[0] = (__CHANNEL_STATE__); (__HANDLE__)->ChannelNState[1] = (__CHANNEL_STATE__); (__HANDLE__)->ChannelNState[2] = (__CHANNEL_STATE__); (__HANDLE__)->ChannelNState[3] = (__CHANNEL_STATE__); } while(0)
-# 2110 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim_ex.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim_ex.h"
+# 2110 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim_ex.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim_ex.h"
 #define STM32WLxx_HAL_TIM_EX_H 
-# 48 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim_ex.h"
+# 48 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim_ex.h"
 typedef struct
 {
   uint32_t IC1Polarity;
@@ -32465,7 +32465,7 @@ typedef struct
 
 }
 TIMEx_BreakInputConfigTypeDef;
-# 90 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim_ex.h"
+# 90 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim_ex.h"
 #define TIM_TIM1_ETR_GPIO 0x00000000U
 #define TIM_TIM1_ETR_ADC_AWD1 TIM1_OR1_ETR_ADC_RMP_0
 #define TIM_TIM1_ETR_ADC_AWD2 TIM1_OR1_ETR_ADC_RMP_1
@@ -32532,7 +32532,7 @@ TIMEx_BreakInputConfigTypeDef;
 
 #define TIM_BREAKINPUTSOURCE_POLARITY_LOW 0x00000001U
 #define TIM_BREAKINPUTSOURCE_POLARITY_HIGH 0x00000000U
-# 179 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim_ex.h"
+# 179 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim_ex.h"
 #define IS_TIM_REMAP(__INSTANCE__,__REMAP__) ((((__INSTANCE__) == TIM1) && ((((__REMAP__) & 0xFFFC3FECU) == 0x00000000U))) || (((__INSTANCE__) == TIM2) && ((((__REMAP__) & 0xFFFC3FF1U) == 0x00000000U))) || (((__INSTANCE__) == TIM16) && ((((__REMAP__) & 0xFFFFFFFCU) == 0x00000000U))) || (((__INSTANCE__) == TIM17) && ((((__REMAP__) & 0xFFFFFFFCU) == 0x00000000U))))
 
 
@@ -32553,7 +32553,7 @@ TIMEx_BreakInputConfigTypeDef;
 
 
 #define IS_TIM_BREAKINPUTSOURCE_POLARITY(__POLARITY__) (((__POLARITY__) == TIM_BREAKINPUTSOURCE_POLARITY_LOW) || ((__POLARITY__) == TIM_BREAKINPUTSOURCE_POLARITY_HIGH))
-# 217 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim_ex.h"
+# 217 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim_ex.h"
 HAL_StatusTypeDef HAL_TIMEx_HallSensor_Init(TIM_HandleTypeDef *htim, TIM_HallSensor_InitTypeDef *sConfig);
 HAL_StatusTypeDef HAL_TIMEx_HallSensor_DeInit(TIM_HandleTypeDef *htim);
 
@@ -32569,7 +32569,7 @@ HAL_StatusTypeDef HAL_TIMEx_HallSensor_Stop_IT(TIM_HandleTypeDef *htim);
 
 HAL_StatusTypeDef HAL_TIMEx_HallSensor_Start_DMA(TIM_HandleTypeDef *htim, uint32_t *pData, uint16_t Length);
 HAL_StatusTypeDef HAL_TIMEx_HallSensor_Stop_DMA(TIM_HandleTypeDef *htim);
-# 242 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim_ex.h"
+# 242 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim_ex.h"
 HAL_StatusTypeDef HAL_TIMEx_OCN_Start(TIM_HandleTypeDef *htim, uint32_t Channel);
 HAL_StatusTypeDef HAL_TIMEx_OCN_Stop(TIM_HandleTypeDef *htim, uint32_t Channel);
 
@@ -32580,7 +32580,7 @@ HAL_StatusTypeDef HAL_TIMEx_OCN_Stop_IT(TIM_HandleTypeDef *htim, uint32_t Channe
 
 HAL_StatusTypeDef HAL_TIMEx_OCN_Start_DMA(TIM_HandleTypeDef *htim, uint32_t Channel, uint32_t *pData, uint16_t Length);
 HAL_StatusTypeDef HAL_TIMEx_OCN_Stop_DMA(TIM_HandleTypeDef *htim, uint32_t Channel);
-# 262 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim_ex.h"
+# 262 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim_ex.h"
 HAL_StatusTypeDef HAL_TIMEx_PWMN_Start(TIM_HandleTypeDef *htim, uint32_t Channel);
 HAL_StatusTypeDef HAL_TIMEx_PWMN_Stop(TIM_HandleTypeDef *htim, uint32_t Channel);
 
@@ -32590,14 +32590,14 @@ HAL_StatusTypeDef HAL_TIMEx_PWMN_Stop_IT(TIM_HandleTypeDef *htim, uint32_t Chann
 
 HAL_StatusTypeDef HAL_TIMEx_PWMN_Start_DMA(TIM_HandleTypeDef *htim, uint32_t Channel, uint32_t *pData, uint16_t Length);
 HAL_StatusTypeDef HAL_TIMEx_PWMN_Stop_DMA(TIM_HandleTypeDef *htim, uint32_t Channel);
-# 281 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim_ex.h"
+# 281 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim_ex.h"
 HAL_StatusTypeDef HAL_TIMEx_OnePulseN_Start(TIM_HandleTypeDef *htim, uint32_t OutputChannel);
 HAL_StatusTypeDef HAL_TIMEx_OnePulseN_Stop(TIM_HandleTypeDef *htim, uint32_t OutputChannel);
 
 
 HAL_StatusTypeDef HAL_TIMEx_OnePulseN_Start_IT(TIM_HandleTypeDef *htim, uint32_t OutputChannel);
 HAL_StatusTypeDef HAL_TIMEx_OnePulseN_Stop_IT(TIM_HandleTypeDef *htim, uint32_t OutputChannel);
-# 296 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim_ex.h"
+# 296 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim_ex.h"
 HAL_StatusTypeDef HAL_TIMEx_ConfigCommutEvent(TIM_HandleTypeDef *htim, uint32_t InputTrigger,
                                               uint32_t CommutationSource);
 HAL_StatusTypeDef HAL_TIMEx_ConfigCommutEvent_IT(TIM_HandleTypeDef *htim, uint32_t InputTrigger,
@@ -32615,19 +32615,19 @@ HAL_StatusTypeDef HAL_TIMEx_RemapConfig(TIM_HandleTypeDef *htim, uint32_t Remap)
 
 HAL_StatusTypeDef HAL_TIMEx_DisarmBreakInput(TIM_HandleTypeDef *htim, uint32_t BreakInput);
 HAL_StatusTypeDef HAL_TIMEx_ReArmBreakInput(TIM_HandleTypeDef *htim, uint32_t BreakInput);
-# 322 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim_ex.h"
+# 322 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim_ex.h"
 void HAL_TIMEx_CommutCallback(TIM_HandleTypeDef *htim);
 void HAL_TIMEx_CommutHalfCpltCallback(TIM_HandleTypeDef *htim);
 void HAL_TIMEx_BreakCallback(TIM_HandleTypeDef *htim);
 void HAL_TIMEx_Break2Callback(TIM_HandleTypeDef *htim);
-# 335 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim_ex.h"
+# 335 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim_ex.h"
 HAL_TIM_StateTypeDef HAL_TIMEx_HallSensor_GetState(TIM_HandleTypeDef *htim);
 HAL_TIM_ChannelStateTypeDef HAL_TIMEx_GetChannelNState(TIM_HandleTypeDef *htim, uint32_t ChannelN);
-# 350 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim_ex.h"
+# 350 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim_ex.h"
 void TIMEx_DMACommutationCplt(DMA_HandleTypeDef *hdma);
 void TIMEx_DMACommutationHalfCplt(DMA_HandleTypeDef *hdma);
-# 2111 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h" 2
-# 2122 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 2111 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h" 2
+# 2122 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 HAL_StatusTypeDef HAL_TIM_Base_Init(TIM_HandleTypeDef *htim);
 HAL_StatusTypeDef HAL_TIM_Base_DeInit(TIM_HandleTypeDef *htim);
 void HAL_TIM_Base_MspInit(TIM_HandleTypeDef *htim);
@@ -32641,7 +32641,7 @@ HAL_StatusTypeDef HAL_TIM_Base_Stop_IT(TIM_HandleTypeDef *htim);
 
 HAL_StatusTypeDef HAL_TIM_Base_Start_DMA(TIM_HandleTypeDef *htim, uint32_t *pData, uint16_t Length);
 HAL_StatusTypeDef HAL_TIM_Base_Stop_DMA(TIM_HandleTypeDef *htim);
-# 2144 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 2144 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 HAL_StatusTypeDef HAL_TIM_OC_Init(TIM_HandleTypeDef *htim);
 HAL_StatusTypeDef HAL_TIM_OC_DeInit(TIM_HandleTypeDef *htim);
 void HAL_TIM_OC_MspInit(TIM_HandleTypeDef *htim);
@@ -32655,7 +32655,7 @@ HAL_StatusTypeDef HAL_TIM_OC_Stop_IT(TIM_HandleTypeDef *htim, uint32_t Channel);
 
 HAL_StatusTypeDef HAL_TIM_OC_Start_DMA(TIM_HandleTypeDef *htim, uint32_t Channel, uint32_t *pData, uint16_t Length);
 HAL_StatusTypeDef HAL_TIM_OC_Stop_DMA(TIM_HandleTypeDef *htim, uint32_t Channel);
-# 2166 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 2166 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 HAL_StatusTypeDef HAL_TIM_PWM_Init(TIM_HandleTypeDef *htim);
 HAL_StatusTypeDef HAL_TIM_PWM_DeInit(TIM_HandleTypeDef *htim);
 void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef *htim);
@@ -32669,7 +32669,7 @@ HAL_StatusTypeDef HAL_TIM_PWM_Stop_IT(TIM_HandleTypeDef *htim, uint32_t Channel)
 
 HAL_StatusTypeDef HAL_TIM_PWM_Start_DMA(TIM_HandleTypeDef *htim, uint32_t Channel, uint32_t *pData, uint16_t Length);
 HAL_StatusTypeDef HAL_TIM_PWM_Stop_DMA(TIM_HandleTypeDef *htim, uint32_t Channel);
-# 2188 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 2188 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 HAL_StatusTypeDef HAL_TIM_IC_Init(TIM_HandleTypeDef *htim);
 HAL_StatusTypeDef HAL_TIM_IC_DeInit(TIM_HandleTypeDef *htim);
 void HAL_TIM_IC_MspInit(TIM_HandleTypeDef *htim);
@@ -32683,7 +32683,7 @@ HAL_StatusTypeDef HAL_TIM_IC_Stop_IT(TIM_HandleTypeDef *htim, uint32_t Channel);
 
 HAL_StatusTypeDef HAL_TIM_IC_Start_DMA(TIM_HandleTypeDef *htim, uint32_t Channel, uint32_t *pData, uint16_t Length);
 HAL_StatusTypeDef HAL_TIM_IC_Stop_DMA(TIM_HandleTypeDef *htim, uint32_t Channel);
-# 2210 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 2210 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 HAL_StatusTypeDef HAL_TIM_OnePulse_Init(TIM_HandleTypeDef *htim, uint32_t OnePulseMode);
 HAL_StatusTypeDef HAL_TIM_OnePulse_DeInit(TIM_HandleTypeDef *htim);
 void HAL_TIM_OnePulse_MspInit(TIM_HandleTypeDef *htim);
@@ -32694,7 +32694,7 @@ HAL_StatusTypeDef HAL_TIM_OnePulse_Stop(TIM_HandleTypeDef *htim, uint32_t Output
 
 HAL_StatusTypeDef HAL_TIM_OnePulse_Start_IT(TIM_HandleTypeDef *htim, uint32_t OutputChannel);
 HAL_StatusTypeDef HAL_TIM_OnePulse_Stop_IT(TIM_HandleTypeDef *htim, uint32_t OutputChannel);
-# 2229 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 2229 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 HAL_StatusTypeDef HAL_TIM_Encoder_Init(TIM_HandleTypeDef *htim, TIM_Encoder_InitTypeDef *sConfig);
 HAL_StatusTypeDef HAL_TIM_Encoder_DeInit(TIM_HandleTypeDef *htim);
 void HAL_TIM_Encoder_MspInit(TIM_HandleTypeDef *htim);
@@ -32709,9 +32709,9 @@ HAL_StatusTypeDef HAL_TIM_Encoder_Stop_IT(TIM_HandleTypeDef *htim, uint32_t Chan
 HAL_StatusTypeDef HAL_TIM_Encoder_Start_DMA(TIM_HandleTypeDef *htim, uint32_t Channel, uint32_t *pData1,
                                             uint32_t *pData2, uint16_t Length);
 HAL_StatusTypeDef HAL_TIM_Encoder_Stop_DMA(TIM_HandleTypeDef *htim, uint32_t Channel);
-# 2252 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 2252 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 void HAL_TIM_IRQHandler(TIM_HandleTypeDef *htim);
-# 2262 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 2262 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 HAL_StatusTypeDef HAL_TIM_OC_ConfigChannel(TIM_HandleTypeDef *htim, TIM_OC_InitTypeDef *sConfig, uint32_t Channel);
 HAL_StatusTypeDef HAL_TIM_PWM_ConfigChannel(TIM_HandleTypeDef *htim, TIM_OC_InitTypeDef *sConfig, uint32_t Channel);
 HAL_StatusTypeDef HAL_TIM_IC_ConfigChannel(TIM_HandleTypeDef *htim, TIM_IC_InitTypeDef *sConfig, uint32_t Channel);
@@ -32737,7 +32737,7 @@ HAL_StatusTypeDef HAL_TIM_DMABurst_MultiReadStart(TIM_HandleTypeDef *htim, uint3
 HAL_StatusTypeDef HAL_TIM_DMABurst_ReadStop(TIM_HandleTypeDef *htim, uint32_t BurstRequestSrc);
 HAL_StatusTypeDef HAL_TIM_GenerateEvent(TIM_HandleTypeDef *htim, uint32_t EventSource);
 uint32_t HAL_TIM_ReadCapturedValue(TIM_HandleTypeDef *htim, uint32_t Channel);
-# 2296 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 2296 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim);
 void HAL_TIM_PeriodElapsedHalfCpltCallback(TIM_HandleTypeDef *htim);
 void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *htim);
@@ -32748,7 +32748,7 @@ void HAL_TIM_PWM_PulseFinishedHalfCpltCallback(TIM_HandleTypeDef *htim);
 void HAL_TIM_TriggerCallback(TIM_HandleTypeDef *htim);
 void HAL_TIM_TriggerHalfCpltCallback(TIM_HandleTypeDef *htim);
 void HAL_TIM_ErrorCallback(TIM_HandleTypeDef *htim);
-# 2323 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 2323 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 HAL_TIM_StateTypeDef HAL_TIM_Base_GetState(TIM_HandleTypeDef *htim);
 HAL_TIM_StateTypeDef HAL_TIM_OC_GetState(TIM_HandleTypeDef *htim);
 HAL_TIM_StateTypeDef HAL_TIM_PWM_GetState(TIM_HandleTypeDef *htim);
@@ -32760,7 +32760,7 @@ HAL_TIM_StateTypeDef HAL_TIM_Encoder_GetState(TIM_HandleTypeDef *htim);
 HAL_TIM_ActiveChannel HAL_TIM_GetActiveChannel(TIM_HandleTypeDef *htim);
 HAL_TIM_ChannelStateTypeDef HAL_TIM_GetChannelState(TIM_HandleTypeDef *htim, uint32_t Channel);
 HAL_TIM_DMABurstStateTypeDef HAL_TIM_DMABurstState(TIM_HandleTypeDef *htim);
-# 2347 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
+# 2347 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_tim.h"
 void TIM_Base_SetConfig(TIM_TypeDef *TIMx, TIM_Base_InitTypeDef *Structure);
 void TIM_TI1_SetConfig(TIM_TypeDef *TIMx, uint32_t TIM_ICPolarity, uint32_t TIM_ICSelection, uint32_t TIM_ICFilter);
 void TIM_OC2_SetConfig(TIM_TypeDef *TIMx, TIM_OC_InitTypeDef *OC_Config);
@@ -32772,18 +32772,18 @@ void TIM_DMAError(DMA_HandleTypeDef *hdma);
 void TIM_DMACaptureCplt(DMA_HandleTypeDef *hdma);
 void TIM_DMACaptureHalfCplt(DMA_HandleTypeDef *hdma);
 void TIM_CCxChannelCmd(TIM_TypeDef *TIMx, uint32_t Channel, uint32_t ChannelState);
-# 301 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
+# 301 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
 
 
 
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define STM32WLxx_HAL_UART_H 
-# 47 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 47 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 typedef struct
 {
   uint32_t BaudRate;
-# 67 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 67 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
   uint32_t WordLength;
 
 
@@ -32856,7 +32856,7 @@ typedef struct
   uint32_t MSBFirst;
 
 } UART_AdvFeatureInitTypeDef;
-# 180 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 180 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 typedef uint32_t HAL_UART_StateTypeDef;
 
 
@@ -32871,7 +32871,7 @@ typedef enum
   UART_CLOCKSOURCE_LSE = 0x08U,
   UART_CLOCKSOURCE_UNDEFINED = 0x10U
 } UART_ClockSourceTypeDef;
-# 204 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 204 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 typedef uint32_t HAL_UART_RxTypeTypeDef;
 
 
@@ -32926,9 +32926,9 @@ typedef struct __UART_HandleTypeDef
 
 
   volatile uint32_t ErrorCode;
-# 277 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 277 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 } UART_HandleTypeDef;
-# 322 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 322 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define HAL_UART_STATE_RESET 0x00000000U
 
 #define HAL_UART_STATE_READY 0x00000020U
@@ -32945,7 +32945,7 @@ typedef struct __UART_HandleTypeDef
 #define HAL_UART_STATE_TIMEOUT 0x000000A0U
 
 #define HAL_UART_STATE_ERROR 0x000000E0U
-# 346 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 346 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define HAL_UART_ERROR_NONE ((uint32_t)0x00000000U)
 #define HAL_UART_ERROR_PE ((uint32_t)0x00000001U)
 #define HAL_UART_ERROR_NE ((uint32_t)0x00000002U)
@@ -32953,7 +32953,7 @@ typedef struct __UART_HandleTypeDef
 #define HAL_UART_ERROR_ORE ((uint32_t)0x00000008U)
 #define HAL_UART_ERROR_DMA ((uint32_t)0x00000010U)
 #define HAL_UART_ERROR_RTO ((uint32_t)0x00000020U)
-# 364 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 364 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define UART_STOPBITS_0_5 USART_CR2_STOP_0
 #define UART_STOPBITS_1 0x00000000U
 #define UART_STOPBITS_1_5 (USART_CR2_STOP_0 | USART_CR2_STOP_1)
@@ -33049,7 +33049,7 @@ typedef struct __UART_HandleTypeDef
 #define UART_ADVFEATURE_AUTOBAUDRATE_ON0X7FFRAME USART_CR2_ABRMODE_1
 
 #define UART_ADVFEATURE_AUTOBAUDRATE_ON0X55FRAME USART_CR2_ABRMODE
-# 467 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 467 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define UART_RECEIVER_TIMEOUT_DISABLE 0x00000000U
 #define UART_RECEIVER_TIMEOUT_ENABLE USART_CR2_RTOEN
 
@@ -33207,7 +33207,7 @@ typedef struct __UART_HandleTypeDef
 #define UART_ADVFEATURE_MSBFIRST_DISABLE 0x00000000U
 
 #define UART_ADVFEATURE_MSBFIRST_ENABLE USART_CR2_MSBFIRST
-# 632 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 632 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define UART_ADVFEATURE_STOPMODE_DISABLE 0x00000000U
 #define UART_ADVFEATURE_STOPMODE_ENABLE USART_CR1_UESM
 
@@ -33237,7 +33237,7 @@ typedef struct __UART_HandleTypeDef
 #define UART_WAKEUP_ON_ADDRESS 0x00000000U
 #define UART_WAKEUP_ON_STARTBIT USART_CR3_WUS_1
 #define UART_WAKEUP_ON_READDATA_NONEMPTY USART_CR3_WUS
-# 669 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 669 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define UART_DE_POLARITY_HIGH 0x00000000U
 #define UART_DE_POLARITY_LOW USART_CR3_DEP
 
@@ -33248,9 +33248,9 @@ typedef struct __UART_HandleTypeDef
 
 
 #define UART_CR1_DEAT_ADDRESS_LSB_POS 21U
-# 687 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 687 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define UART_CR1_DEDT_ADDRESS_LSB_POS 16U
-# 696 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 696 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define UART_IT_MASK 0x001FU
 
 
@@ -33260,7 +33260,7 @@ typedef struct __UART_HandleTypeDef
 
 
 #define HAL_UART_TIMEOUT_VALUE 0x1FFFFFFU
-# 714 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 714 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define UART_FLAG_TXFT USART_ISR_TXFT
 #define UART_FLAG_RXFT USART_ISR_RXFT
 #define UART_FLAG_RXFF USART_ISR_RXFF
@@ -33288,7 +33288,7 @@ typedef struct __UART_HandleTypeDef
 #define UART_FLAG_NE USART_ISR_NE
 #define UART_FLAG_FE USART_ISR_FE
 #define UART_FLAG_PE USART_ISR_PE
-# 763 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 763 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define UART_IT_PE 0x0028U
 #define UART_IT_TXE 0x0727U
 #define UART_IT_TXFNF 0x0727U
@@ -33341,11 +33341,11 @@ typedef struct __UART_HandleTypeDef
 #define HAL_UART_RECEPTION_TOIDLE (0x00000001U)
 #define HAL_UART_RECEPTION_TORTO (0x00000002U)
 #define HAL_UART_RECEPTION_TOCHARMATCH (0x00000003U)
-# 840 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 840 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define __HAL_UART_RESET_HANDLE_STATE(__HANDLE__) do{ (__HANDLE__)->gState = HAL_UART_STATE_RESET; (__HANDLE__)->RxState = HAL_UART_STATE_RESET; } while(0U)
-# 850 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 850 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define __HAL_UART_FLUSH_DRREGISTER(__HANDLE__) do{ SET_BIT((__HANDLE__)->Instance->RQR, UART_RXDATA_FLUSH_REQUEST); SET_BIT((__HANDLE__)->Instance->RQR, UART_TXDATA_FLUSH_REQUEST); } while(0U)
-# 874 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 874 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define __HAL_UART_CLEAR_FLAG(__HANDLE__,__FLAG__) ((__HANDLE__)->Instance->ICR = (__FLAG__))
 
 
@@ -33383,19 +33383,19 @@ typedef struct __UART_HandleTypeDef
 
 
 #define __HAL_UART_CLEAR_TXFECF(__HANDLE__) __HAL_UART_CLEAR_FLAG((__HANDLE__), UART_CLEAR_TXFECF)
-# 944 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 944 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define __HAL_UART_GET_FLAG(__HANDLE__,__FLAG__) (((__HANDLE__)->Instance->ISR & (__FLAG__)) == (__FLAG__))
-# 969 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 969 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define __HAL_UART_ENABLE_IT(__HANDLE__,__INTERRUPT__) ( ((((uint8_t)(__INTERRUPT__)) >> 5U) == 1U)? ((__HANDLE__)->Instance->CR1 |= (1U << ((__INTERRUPT__) & UART_IT_MASK))): ((((uint8_t)(__INTERRUPT__)) >> 5U) == 2U)? ((__HANDLE__)->Instance->CR2 |= (1U << ((__INTERRUPT__) & UART_IT_MASK))): ((__HANDLE__)->Instance->CR3 |= (1U << ((__INTERRUPT__) & UART_IT_MASK))))
-# 1002 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 1002 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define __HAL_UART_DISABLE_IT(__HANDLE__,__INTERRUPT__) ( ((((uint8_t)(__INTERRUPT__)) >> 5U) == 1U)? ((__HANDLE__)->Instance->CR1 &= ~ (1U << ((__INTERRUPT__) & UART_IT_MASK))): ((((uint8_t)(__INTERRUPT__)) >> 5U) == 2U)? ((__HANDLE__)->Instance->CR2 &= ~ (1U << ((__INTERRUPT__) & UART_IT_MASK))): ((__HANDLE__)->Instance->CR3 &= ~ (1U << ((__INTERRUPT__) & UART_IT_MASK))))
-# 1035 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 1035 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define __HAL_UART_GET_IT(__HANDLE__,__INTERRUPT__) ((((__HANDLE__)->Instance->ISR & (1U << ((__INTERRUPT__)>> 8U))) != RESET) ? SET : RESET)
-# 1061 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 1061 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define __HAL_UART_GET_IT_SOURCE(__HANDLE__,__INTERRUPT__) ((((((((uint8_t)(__INTERRUPT__)) >> 5U) == 1U) ? (__HANDLE__)->Instance->CR1 : (((((uint8_t)(__INTERRUPT__)) >> 5U) == 2U) ? (__HANDLE__)->Instance->CR2 : (__HANDLE__)->Instance->CR3)) & (1U << (((uint16_t)(__INTERRUPT__)) & UART_IT_MASK))) != RESET) ? SET : RESET)
-# 1088 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 1088 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define __HAL_UART_CLEAR_IT(__HANDLE__,__IT_CLEAR__) ((__HANDLE__)->Instance->ICR = (uint32_t)(__IT_CLEAR__))
-# 1101 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 1101 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define __HAL_UART_SEND_REQ(__HANDLE__,__REQ__) ((__HANDLE__)->Instance->RQR |= (uint16_t)(__REQ__))
 
 
@@ -33421,21 +33421,21 @@ typedef struct __UART_HandleTypeDef
 
 
 #define __HAL_UART_DISABLE(__HANDLE__) ((__HANDLE__)->Instance->CR1 &= ~USART_CR1_UE)
-# 1140 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 1140 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define __HAL_UART_HWCONTROL_CTS_ENABLE(__HANDLE__) do{ ATOMIC_SET_BIT((__HANDLE__)->Instance->CR3, USART_CR3_CTSE); (__HANDLE__)->Init.HwFlowCtl |= USART_CR3_CTSE; } while(0U)
-# 1159 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 1159 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define __HAL_UART_HWCONTROL_CTS_DISABLE(__HANDLE__) do{ ATOMIC_CLEAR_BIT((__HANDLE__)->Instance->CR3, USART_CR3_CTSE); (__HANDLE__)->Init.HwFlowCtl &= ~(USART_CR3_CTSE); } while(0U)
-# 1178 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 1178 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define __HAL_UART_HWCONTROL_RTS_ENABLE(__HANDLE__) do{ ATOMIC_SET_BIT((__HANDLE__)->Instance->CR3, USART_CR3_RTSE); (__HANDLE__)->Init.HwFlowCtl |= USART_CR3_RTSE; } while(0U)
-# 1197 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 1197 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define __HAL_UART_HWCONTROL_RTS_DISABLE(__HANDLE__) do{ ATOMIC_CLEAR_BIT((__HANDLE__)->Instance->CR3, USART_CR3_RTSE); (__HANDLE__)->Init.HwFlowCtl &= ~(USART_CR3_RTSE); } while(0U)
-# 1214 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 1214 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define UART_GET_DIV_FACTOR(__CLOCKPRESCALER__) (((__CLOCKPRESCALER__) == UART_PRESCALER_DIV1) ? 1U : ((__CLOCKPRESCALER__) == UART_PRESCALER_DIV2) ? 2U : ((__CLOCKPRESCALER__) == UART_PRESCALER_DIV4) ? 4U : ((__CLOCKPRESCALER__) == UART_PRESCALER_DIV6) ? 6U : ((__CLOCKPRESCALER__) == UART_PRESCALER_DIV8) ? 8U : ((__CLOCKPRESCALER__) == UART_PRESCALER_DIV10) ? 10U : ((__CLOCKPRESCALER__) == UART_PRESCALER_DIV12) ? 12U : ((__CLOCKPRESCALER__) == UART_PRESCALER_DIV16) ? 16U : ((__CLOCKPRESCALER__) == UART_PRESCALER_DIV32) ? 32U : ((__CLOCKPRESCALER__) == UART_PRESCALER_DIV64) ? 64U : ((__CLOCKPRESCALER__) == UART_PRESCALER_DIV128) ? 128U : ((__CLOCKPRESCALER__) == UART_PRESCALER_DIV256) ? 256U : 1U)
-# 1234 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 1234 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define UART_DIV_LPUART(__PCLK__,__BAUD__,__CLOCKPRESCALER__) ((uint32_t)((((((uint64_t)(__PCLK__))/(UARTPrescTable[(__CLOCKPRESCALER__)]))*256U)+ (uint32_t)((__BAUD__)/2U)) / (__BAUD__)) )
-# 1245 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 1245 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define UART_DIV_SAMPLING8(__PCLK__,__BAUD__,__CLOCKPRESCALER__) (((((__PCLK__)/UARTPrescTable[(__CLOCKPRESCALER__)])*2U) + ((__BAUD__)/2U)) / (__BAUD__))
-# 1254 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 1254 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define UART_DIV_SAMPLING16(__PCLK__,__BAUD__,__CLOCKPRESCALER__) ((((__PCLK__)/UARTPrescTable[(__CLOCKPRESCALER__)]) + ((__BAUD__)/2U)) / (__BAUD__))
 
 
@@ -33471,7 +33471,7 @@ typedef struct __UART_HandleTypeDef
 
 
 #define IS_UART_STOPBITS(__STOPBITS__) (((__STOPBITS__) == UART_STOPBITS_0_5) || ((__STOPBITS__) == UART_STOPBITS_1) || ((__STOPBITS__) == UART_STOPBITS_1_5) || ((__STOPBITS__) == UART_STOPBITS_2))
-# 1298 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 1298 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define IS_LPUART_STOPBITS(__STOPBITS__) (((__STOPBITS__) == UART_STOPBITS_1) || ((__STOPBITS__) == UART_STOPBITS_2))
 
 
@@ -33481,9 +33481,9 @@ typedef struct __UART_HandleTypeDef
 
 
 #define IS_UART_PARITY(__PARITY__) (((__PARITY__) == UART_PARITY_NONE) || ((__PARITY__) == UART_PARITY_EVEN) || ((__PARITY__) == UART_PARITY_ODD))
-# 1315 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 1315 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define IS_UART_HARDWARE_FLOW_CONTROL(__CONTROL__) (((__CONTROL__) == UART_HWCONTROL_NONE) || ((__CONTROL__) == UART_HWCONTROL_RTS) || ((__CONTROL__) == UART_HWCONTROL_CTS) || ((__CONTROL__) == UART_HWCONTROL_RTS_CTS))
-# 1326 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 1326 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define IS_UART_MODE(__MODE__) ((((__MODE__) & (~((uint32_t)(UART_MODE_TX_RX)))) == 0x00U) && ((__MODE__) != 0x00U))
 
 
@@ -33516,7 +33516,7 @@ typedef struct __UART_HandleTypeDef
 
 
 #define IS_UART_ADVFEATURE_AUTOBAUDRATEMODE(__MODE__) (((__MODE__) == UART_ADVFEATURE_AUTOBAUDRATE_ONSTARTBIT) || ((__MODE__) == UART_ADVFEATURE_AUTOBAUDRATE_ONFALLINGEDGE) || ((__MODE__) == UART_ADVFEATURE_AUTOBAUDRATE_ON0X7FFRAME) || ((__MODE__) == UART_ADVFEATURE_AUTOBAUDRATE_ON0X55FRAME))
-# 1367 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 1367 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define IS_UART_RECEIVER_TIMEOUT(__TIMEOUT__) (((__TIMEOUT__) == UART_RECEIVER_TIMEOUT_DISABLE) || ((__TIMEOUT__) == UART_RECEIVER_TIMEOUT_ENABLE))
 
 
@@ -33581,9 +33581,9 @@ typedef struct __UART_HandleTypeDef
 
 
 #define IS_UART_REQUEST_PARAMETER(__PARAM__) (((__PARAM__) == UART_AUTOBAUD_REQUEST) || ((__PARAM__) == UART_SENDBREAK_REQUEST) || ((__PARAM__) == UART_MUTE_MODE_REQUEST) || ((__PARAM__) == UART_RXDATA_FLUSH_REQUEST) || ((__PARAM__) == UART_TXDATA_FLUSH_REQUEST))
-# 1441 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 1441 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define IS_UART_ADVFEATURE_INIT(__INIT__) ((__INIT__) <= (UART_ADVFEATURE_NO_INIT | UART_ADVFEATURE_TXINVERT_INIT | UART_ADVFEATURE_RXINVERT_INIT | UART_ADVFEATURE_DATAINVERT_INIT | UART_ADVFEATURE_SWAP_INIT | UART_ADVFEATURE_RXOVERRUNDISABLE_INIT | UART_ADVFEATURE_DMADISABLEONERROR_INIT | UART_ADVFEATURE_AUTOBAUDRATE_INIT | UART_ADVFEATURE_MSBFIRST_INIT))
-# 1456 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 1456 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define IS_UART_ADVFEATURE_TXINV(__TXINV__) (((__TXINV__) == UART_ADVFEATURE_TXINV_DISABLE) || ((__TXINV__) == UART_ADVFEATURE_TXINV_ENABLE))
 
 
@@ -33625,7 +33625,7 @@ typedef struct __UART_HandleTypeDef
 
 
 #define IS_UART_ADVFEATURE_AUTOBAUDRATE(__AUTOBAUDRATE__) (((__AUTOBAUDRATE__) == UART_ADVFEATURE_AUTOBAUDRATE_DISABLE) || ((__AUTOBAUDRATE__) == UART_ADVFEATURE_AUTOBAUDRATE_ENABLE))
-# 1505 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 1505 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define IS_UART_ADVFEATURE_DMAONRXERROR(__DMA__) (((__DMA__) == UART_ADVFEATURE_DMA_ENABLEONRXERROR) || ((__DMA__) == UART_ADVFEATURE_DMA_DISABLEONRXERROR))
 
 
@@ -33659,7 +33659,7 @@ typedef struct __UART_HandleTypeDef
 
 
 #define IS_UART_WAKEUP_SELECTION(__WAKE__) (((__WAKE__) == UART_WAKEUP_ON_ADDRESS) || ((__WAKE__) == UART_WAKEUP_ON_STARTBIT) || ((__WAKE__) == UART_WAKEUP_ON_READDATA_NONEMPTY))
-# 1546 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 1546 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 #define IS_UART_DE_POLARITY(__POLARITY__) (((__POLARITY__) == UART_DE_POLARITY_HIGH) || ((__POLARITY__) == UART_DE_POLARITY_LOW))
 
 
@@ -33669,11 +33669,11 @@ typedef struct __UART_HandleTypeDef
 
 
 #define IS_UART_PRESCALER(__CLOCKPRESCALER__) (((__CLOCKPRESCALER__) == UART_PRESCALER_DIV1) || ((__CLOCKPRESCALER__) == UART_PRESCALER_DIV2) || ((__CLOCKPRESCALER__) == UART_PRESCALER_DIV4) || ((__CLOCKPRESCALER__) == UART_PRESCALER_DIV6) || ((__CLOCKPRESCALER__) == UART_PRESCALER_DIV8) || ((__CLOCKPRESCALER__) == UART_PRESCALER_DIV10) || ((__CLOCKPRESCALER__) == UART_PRESCALER_DIV12) || ((__CLOCKPRESCALER__) == UART_PRESCALER_DIV16) || ((__CLOCKPRESCALER__) == UART_PRESCALER_DIV32) || ((__CLOCKPRESCALER__) == UART_PRESCALER_DIV64) || ((__CLOCKPRESCALER__) == UART_PRESCALER_DIV128) || ((__CLOCKPRESCALER__) == UART_PRESCALER_DIV256))
-# 1572 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h" 1
-# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h"
+# 1572 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h"
 #define STM32WLxx_HAL_UART_EX_H 
-# 47 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h"
+# 47 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h"
 typedef struct
 {
   uint32_t WakeUpEvent;
@@ -33686,7 +33686,7 @@ typedef struct
 
   uint8_t Address;
 } UART_WakeUpTypeDef;
-# 72 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h"
+# 72 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h"
 #define UART_WORDLENGTH_7B USART_CR1_M1
 #define UART_WORDLENGTH_8B 0x00000000U
 #define UART_WORDLENGTH_9B USART_CR1_M0
@@ -33699,32 +33699,32 @@ typedef struct
 
 #define UART_ADDRESS_DETECT_4B 0x00000000U
 #define UART_ADDRESS_DETECT_7B USART_CR2_ADDM7
-# 92 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h"
+# 92 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h"
 #define UART_FIFOMODE_DISABLE 0x00000000U
 #define UART_FIFOMODE_ENABLE USART_CR1_FIFOEN
-# 102 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h"
+# 102 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h"
 #define UART_TXFIFO_THRESHOLD_1_8 0x00000000U
 #define UART_TXFIFO_THRESHOLD_1_4 USART_CR3_TXFTCFG_0
 #define UART_TXFIFO_THRESHOLD_1_2 USART_CR3_TXFTCFG_1
 #define UART_TXFIFO_THRESHOLD_3_4 (USART_CR3_TXFTCFG_0|USART_CR3_TXFTCFG_1)
 #define UART_TXFIFO_THRESHOLD_7_8 USART_CR3_TXFTCFG_2
 #define UART_TXFIFO_THRESHOLD_8_8 (USART_CR3_TXFTCFG_2|USART_CR3_TXFTCFG_0)
-# 116 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h"
+# 116 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h"
 #define UART_RXFIFO_THRESHOLD_1_8 0x00000000U
 #define UART_RXFIFO_THRESHOLD_1_4 USART_CR3_RXFTCFG_0
 #define UART_RXFIFO_THRESHOLD_1_2 USART_CR3_RXFTCFG_1
 #define UART_RXFIFO_THRESHOLD_3_4 (USART_CR3_RXFTCFG_0|USART_CR3_RXFTCFG_1)
 #define UART_RXFIFO_THRESHOLD_7_8 USART_CR3_RXFTCFG_2
 #define UART_RXFIFO_THRESHOLD_8_8 (USART_CR3_RXFTCFG_2|USART_CR3_RXFTCFG_0)
-# 141 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h"
+# 141 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h"
 HAL_StatusTypeDef HAL_RS485Ex_Init(UART_HandleTypeDef *huart, uint32_t Polarity, uint32_t AssertionTime,
                                    uint32_t DeassertionTime);
-# 152 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h"
+# 152 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h"
 void HAL_UARTEx_WakeupCallback(UART_HandleTypeDef *huart);
 
 void HAL_UARTEx_RxFifoFullCallback(UART_HandleTypeDef *huart);
 void HAL_UARTEx_TxFifoEmptyCallback(UART_HandleTypeDef *huart);
-# 166 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h"
+# 166 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h"
 HAL_StatusTypeDef HAL_UARTEx_StopModeWakeUpSourceConfig(UART_HandleTypeDef *huart, UART_WakeUpTypeDef WakeUpSelection);
 HAL_StatusTypeDef HAL_UARTEx_EnableStopMode(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef HAL_UARTEx_DisableStopMode(UART_HandleTypeDef *huart);
@@ -33739,13 +33739,13 @@ HAL_StatusTypeDef HAL_UARTEx_SetRxFifoThreshold(UART_HandleTypeDef *huart, uint3
 HAL_StatusTypeDef HAL_UARTEx_ReceiveToIdle(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint16_t *RxLen, uint32_t Timeout);
 HAL_StatusTypeDef HAL_UARTEx_ReceiveToIdle_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
 HAL_StatusTypeDef HAL_UARTEx_ReceiveToIdle_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
-# 200 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h"
+# 200 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h"
 #define UART_GETCLOCKSOURCE(__HANDLE__,__CLOCKSOURCE__) do { if((__HANDLE__)->Instance == USART1) { switch(__HAL_RCC_GET_USART1_SOURCE()) { case RCC_USART1CLKSOURCE_PCLK2: (__CLOCKSOURCE__) = UART_CLOCKSOURCE_PCLK2; break; case RCC_USART1CLKSOURCE_HSI: (__CLOCKSOURCE__) = UART_CLOCKSOURCE_HSI; break; case RCC_USART1CLKSOURCE_SYSCLK: (__CLOCKSOURCE__) = UART_CLOCKSOURCE_SYSCLK; break; case RCC_USART1CLKSOURCE_LSE: (__CLOCKSOURCE__) = UART_CLOCKSOURCE_LSE; break; default: (__CLOCKSOURCE__) = UART_CLOCKSOURCE_UNDEFINED; break; } } else if((__HANDLE__)->Instance == USART2) { switch(__HAL_RCC_GET_USART2_SOURCE()) { case RCC_USART2CLKSOURCE_PCLK1: (__CLOCKSOURCE__) = UART_CLOCKSOURCE_PCLK1; break; case RCC_USART2CLKSOURCE_HSI: (__CLOCKSOURCE__) = UART_CLOCKSOURCE_HSI; break; case RCC_USART2CLKSOURCE_SYSCLK: (__CLOCKSOURCE__) = UART_CLOCKSOURCE_SYSCLK; break; case RCC_USART2CLKSOURCE_LSE: (__CLOCKSOURCE__) = UART_CLOCKSOURCE_LSE; break; default: (__CLOCKSOURCE__) = UART_CLOCKSOURCE_UNDEFINED; break; } } else if((__HANDLE__)->Instance == LPUART1) { switch(__HAL_RCC_GET_LPUART1_SOURCE()) { case RCC_LPUART1CLKSOURCE_PCLK1: (__CLOCKSOURCE__) = UART_CLOCKSOURCE_PCLK1; break; case RCC_LPUART1CLKSOURCE_HSI: (__CLOCKSOURCE__) = UART_CLOCKSOURCE_HSI; break; case RCC_LPUART1CLKSOURCE_SYSCLK: (__CLOCKSOURCE__) = UART_CLOCKSOURCE_SYSCLK; break; case RCC_LPUART1CLKSOURCE_LSE: (__CLOCKSOURCE__) = UART_CLOCKSOURCE_LSE; break; default: (__CLOCKSOURCE__) = UART_CLOCKSOURCE_UNDEFINED; break; } } else { (__CLOCKSOURCE__) = UART_CLOCKSOURCE_UNDEFINED; } } while(0U)
-# 280 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h"
+# 280 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h"
 #define UART_MASK_COMPUTATION(__HANDLE__) do { if ((__HANDLE__)->Init.WordLength == UART_WORDLENGTH_9B) { if ((__HANDLE__)->Init.Parity == UART_PARITY_NONE) { (__HANDLE__)->Mask = 0x01FFU ; } else { (__HANDLE__)->Mask = 0x00FFU ; } } else if ((__HANDLE__)->Init.WordLength == UART_WORDLENGTH_8B) { if ((__HANDLE__)->Init.Parity == UART_PARITY_NONE) { (__HANDLE__)->Mask = 0x00FFU ; } else { (__HANDLE__)->Mask = 0x007FU ; } } else if ((__HANDLE__)->Init.WordLength == UART_WORDLENGTH_7B) { if ((__HANDLE__)->Init.Parity == UART_PARITY_NONE) { (__HANDLE__)->Mask = 0x007FU ; } else { (__HANDLE__)->Mask = 0x003FU ; } } else { (__HANDLE__)->Mask = 0x0000U; } } while(0U)
-# 326 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h"
+# 326 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h"
 #define IS_UART_WORD_LENGTH(__LENGTH__) (((__LENGTH__) == UART_WORDLENGTH_7B) || ((__LENGTH__) == UART_WORDLENGTH_8B) || ((__LENGTH__) == UART_WORDLENGTH_9B))
-# 335 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h"
+# 335 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h"
 #define IS_UART_ADDRESSLENGTH_DETECT(__ADDRESS__) (((__ADDRESS__) == UART_ADDRESS_DETECT_4B) || ((__ADDRESS__) == UART_ADDRESS_DETECT_7B))
 
 
@@ -33755,15 +33755,15 @@ HAL_StatusTypeDef HAL_UARTEx_ReceiveToIdle_DMA(UART_HandleTypeDef *huart, uint8_
 
 
 #define IS_UART_TXFIFO_THRESHOLD(__THRESHOLD__) (((__THRESHOLD__) == UART_TXFIFO_THRESHOLD_1_8) || ((__THRESHOLD__) == UART_TXFIFO_THRESHOLD_1_4) || ((__THRESHOLD__) == UART_TXFIFO_THRESHOLD_1_2) || ((__THRESHOLD__) == UART_TXFIFO_THRESHOLD_3_4) || ((__THRESHOLD__) == UART_TXFIFO_THRESHOLD_7_8) || ((__THRESHOLD__) == UART_TXFIFO_THRESHOLD_8_8))
-# 355 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h"
+# 355 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h"
 #define IS_UART_RXFIFO_THRESHOLD(__THRESHOLD__) (((__THRESHOLD__) == UART_RXFIFO_THRESHOLD_1_8) || ((__THRESHOLD__) == UART_RXFIFO_THRESHOLD_1_4) || ((__THRESHOLD__) == UART_RXFIFO_THRESHOLD_1_2) || ((__THRESHOLD__) == UART_RXFIFO_THRESHOLD_3_4) || ((__THRESHOLD__) == UART_RXFIFO_THRESHOLD_7_8) || ((__THRESHOLD__) == UART_RXFIFO_THRESHOLD_8_8))
-# 1573 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h" 2
+# 1573 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h" 2
 
 
 
 
 extern const uint16_t UARTPrescTable[12];
-# 1590 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 1590 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 HAL_StatusTypeDef HAL_UART_Init(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef HAL_HalfDuplex_Init(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef HAL_LIN_Init(UART_HandleTypeDef *huart, uint32_t BreakDetectLength);
@@ -33771,7 +33771,7 @@ HAL_StatusTypeDef HAL_MultiProcessor_Init(UART_HandleTypeDef *huart, uint8_t Add
 HAL_StatusTypeDef HAL_UART_DeInit(UART_HandleTypeDef *huart);
 void HAL_UART_MspInit(UART_HandleTypeDef *huart);
 void HAL_UART_MspDeInit(UART_HandleTypeDef *huart);
-# 1617 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 1617 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
 HAL_StatusTypeDef HAL_UART_Receive(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
 HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
@@ -33800,7 +33800,7 @@ void HAL_UART_AbortTransmitCpltCallback(UART_HandleTypeDef *huart);
 void HAL_UART_AbortReceiveCpltCallback(UART_HandleTypeDef *huart);
 
 void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size);
-# 1655 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 1655 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 void HAL_UART_ReceiverTimeout_Config(UART_HandleTypeDef *huart, uint32_t TimeoutValue);
 HAL_StatusTypeDef HAL_UART_EnableReceiverTimeout(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef HAL_UART_DisableReceiverTimeout(UART_HandleTypeDef *huart);
@@ -33811,10 +33811,10 @@ HAL_StatusTypeDef HAL_MultiProcessor_DisableMuteMode(UART_HandleTypeDef *huart);
 void HAL_MultiProcessor_EnterMuteMode(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef HAL_HalfDuplex_EnableTransmitter(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef HAL_HalfDuplex_EnableReceiver(UART_HandleTypeDef *huart);
-# 1675 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 1675 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 HAL_UART_StateTypeDef HAL_UART_GetState(UART_HandleTypeDef *huart);
 uint32_t HAL_UART_GetError(UART_HandleTypeDef *huart);
-# 1693 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
+# 1693 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h"
 HAL_StatusTypeDef UART_SetConfig(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef UART_CheckIdleState(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef UART_WaitOnFlagUntilTimeout(UART_HandleTypeDef *huart, uint32_t Flag, FlagStatus Status,
@@ -33822,14 +33822,14 @@ HAL_StatusTypeDef UART_WaitOnFlagUntilTimeout(UART_HandleTypeDef *huart, uint32_
 void UART_AdvFeatureConfig(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef UART_Start_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
 HAL_StatusTypeDef UART_Start_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
-# 305 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
-# 329 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
+# 305 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
+# 329 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
 #define assert_param(expr) ((void)0U)
-# 31 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h" 2
-# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h" 1
-# 35 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 31 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h" 2
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h" 1
+# 35 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 #define STM32WLxx_LL_SYSTEM_H 
-# 61 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 61 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 #define LL_SYSCFG_EXTI_REGISTER_PINPOS_SHFT 16U
 
 
@@ -33838,7 +33838,7 @@ HAL_StatusTypeDef UART_Start_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pDa
 #define VREFBUF_SC0_CAL_ADDR ((uint8_t*) (0x1FFF75F0UL))
 
 #define VREFBUF_SC1_CAL_ADDR ((uint8_t*) (0x1FFF7530UL))
-# 85 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 85 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 #define LL_SYSCFG_REMAP_FLASH 0x00000000U
 #define LL_SYSCFG_REMAP_SYSTEMFLASH SYSCFG_MEMRMP_MEM_MODE_0
 #define LL_SYSCFG_REMAP_SRAM (SYSCFG_MEMRMP_MEM_MODE_1 | SYSCFG_MEMRMP_MEM_MODE_0)
@@ -33866,7 +33866,7 @@ HAL_StatusTypeDef UART_Start_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pDa
 #define LL_SYSCFG_EXTI_PORTA 0U
 #define LL_SYSCFG_EXTI_PORTB 1U
 #define LL_SYSCFG_EXTI_PORTC 2U
-# 137 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 137 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 #define LL_SYSCFG_EXTI_LINE0 (uint32_t)((0x000FU << LL_SYSCFG_EXTI_REGISTER_PINPOS_SHFT) | 0U)
 #define LL_SYSCFG_EXTI_LINE1 (uint32_t)((0x00F0U << LL_SYSCFG_EXTI_REGISTER_PINPOS_SHFT) | 0U)
 #define LL_SYSCFG_EXTI_LINE2 (uint32_t)((0x0F00U << LL_SYSCFG_EXTI_REGISTER_PINPOS_SHFT) | 0U)
@@ -33883,7 +33883,7 @@ HAL_StatusTypeDef UART_Start_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pDa
 #define LL_SYSCFG_EXTI_LINE13 (uint32_t)((0x00F0U << LL_SYSCFG_EXTI_REGISTER_PINPOS_SHFT) | 3U)
 #define LL_SYSCFG_EXTI_LINE14 (uint32_t)((0x0F00U << LL_SYSCFG_EXTI_REGISTER_PINPOS_SHFT) | 3U)
 #define LL_SYSCFG_EXTI_LINE15 (uint32_t)((0xF000U << LL_SYSCFG_EXTI_REGISTER_PINPOS_SHFT) | 3U)
-# 161 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 161 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 #define LL_SYSCFG_TIMBREAK_ECC SYSCFG_CFGR2_ECCL
 
 #define LL_SYSCFG_TIMBREAK_PVD SYSCFG_CFGR2_PVDL
@@ -33892,7 +33892,7 @@ HAL_StatusTypeDef UART_Start_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pDa
 #define LL_SYSCFG_TIMBREAK_SRAM2_PARITY SYSCFG_CFGR2_SPL
 
 #define LL_SYSCFG_TIMBREAK_LOCKUP SYSCFG_CFGR2_CLL
-# 177 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 177 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 #define LL_SYSCFG_SRAM2WRP_PAGE0 SYSCFG_SWPR_PAGE0
 #define LL_SYSCFG_SRAM2WRP_PAGE1 SYSCFG_SWPR_PAGE1
 #define LL_SYSCFG_SRAM2WRP_PAGE2 SYSCFG_SWPR_PAGE2
@@ -33925,10 +33925,10 @@ HAL_StatusTypeDef UART_Start_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pDa
 #define LL_SYSCFG_SRAM2WRP_PAGE29 SYSCFG_SWPR_PAGE29
 #define LL_SYSCFG_SRAM2WRP_PAGE30 SYSCFG_SWPR_PAGE30
 #define LL_SYSCFG_SRAM2WRP_PAGE31 SYSCFG_SWPR_PAGE31
-# 298 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 298 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 #define LL_SYSCFG_ANALOG_TEST_BUS SYSCFG_RFDCR_RFTBSEL
 #define LL_SYSCFG_DIGITAL_TEST_BUS 0x00000000U
-# 310 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 310 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 #define LL_DBGMCU_APB1_GRP1_TIM2_STOP DBGMCU_APB1FZR1_DBG_TIM2_STOP
 #define LL_DBGMCU_APB1_GRP1_RTC_STOP DBGMCU_APB1FZR1_DBG_RTC_STOP
 #define LL_DBGMCU_APB1_GRP1_WWDG_STOP DBGMCU_APB1FZR1_DBG_WWDG_STOP
@@ -33937,51 +33937,51 @@ HAL_StatusTypeDef UART_Start_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pDa
 #define LL_DBGMCU_APB1_GRP1_I2C2_STOP DBGMCU_APB1FZR1_DBG_I2C2_STOP
 #define LL_DBGMCU_APB1_GRP1_I2C3_STOP DBGMCU_APB1FZR1_DBG_I2C3_STOP
 #define LL_DBGMCU_APB1_GRP1_LPTIM1_STOP DBGMCU_APB1FZR1_DBG_LPTIM1_STOP
-# 341 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 341 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 #define LL_DBGMCU_APB1_GRP2_LPTIM2_STOP DBGMCU_APB1FZR2_DBG_LPTIM2_STOP
 #define LL_DBGMCU_APB1_GRP2_LPTIM3_STOP DBGMCU_APB1FZR2_DBG_LPTIM3_STOP
-# 361 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 361 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 #define LL_DBGMCU_APB2_GRP1_TIM1_STOP DBGMCU_APB2FZR_DBG_TIM1_STOP
 #define LL_DBGMCU_APB2_GRP1_TIM16_STOP DBGMCU_APB2FZR_DBG_TIM16_STOP
 #define LL_DBGMCU_APB2_GRP1_TIM17_STOP DBGMCU_APB2FZR_DBG_TIM17_STOP
-# 386 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 386 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 #define LL_VREFBUF_VOLTAGE_SCALE0 0x00000000U
 #define LL_VREFBUF_VOLTAGE_SCALE1 VREFBUF_CSR_VRS
-# 396 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 396 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 #define LL_FLASH_LATENCY_0 0x00000000U
 #define LL_FLASH_LATENCY_1 FLASH_ACR_LATENCY_0
 #define LL_FLASH_LATENCY_2 FLASH_ACR_LATENCY_1
-# 427 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 427 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_SYSCFG_SetRemapMemory(uint32_t Memory)
 {
   (((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->MEMRMP)) = ((((((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->MEMRMP))) & (~((0x7UL << (0U))))) | (Memory))));
 }
-# 440 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 440 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline uint32_t LL_SYSCFG_GetRemapMemory(void)
 {
   return (uint32_t)(((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->MEMRMP) & ((0x7UL << (0U)))));
 }
-# 459 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 459 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_SYSCFG_EnableAnalogBooster(void)
 {
   ((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->CFGR1) |= ((0x1UL << (8U))));
 }
-# 478 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 478 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_SYSCFG_DisableAnalogBooster(void)
 {
   ((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->CFGR1) &= ~((0x1UL << (8U))));
 }
-# 497 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 497 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_SYSCFG_EnableFastModePlus(uint32_t ConfigFastModePlus)
 {
   ((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->CFGR1) |= (ConfigFastModePlus));
 }
-# 516 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 516 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_SYSCFG_DisableFastModePlus(uint32_t ConfigFastModePlus)
 {
   ((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->CFGR1) &= ~(ConfigFastModePlus));
 }
-# 551 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 551 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_SYSCFG_SetEXTISource(uint32_t Port, uint32_t Line)
 {
 
@@ -33990,7 +33990,7 @@ static inline void LL_SYSCFG_SetEXTISource(uint32_t Port, uint32_t Line)
   (((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->EXTICR[Line & 0x03U])) = ((((((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->EXTICR[Line & 0x03U]))) & (~((Line >> 16U)))) | ((Port << (((__CLZ(__RBIT((Line >> 16U))))) & 0x0000000FUL))))));
 
 }
-# 588 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 588 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline uint32_t LL_SYSCFG_GetEXTISource(uint32_t Line)
 {
 
@@ -34030,12 +34030,12 @@ static inline uint32_t LL_SYSCFG_IsPKASRAMEraseOngoing(void)
 {
   return ((((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->SCSR) & ((0x1UL << (8U)))) == ((0x1UL << (8U)))) ? 1UL : 0UL);
 }
-# 641 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 641 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_SYSCFG_SetTIMBreakInputs(uint32_t Break)
 {
   (((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->CFGR2)) = ((((((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->CFGR2))) & (~((0x1UL << (0U)) | (0x1UL << (1U)) | (0x1UL << (2U)) | (0x1UL << (3U))))) | (Break))));
 }
-# 658 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 658 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline uint32_t LL_SYSCFG_GetTIMBreakInputs(void)
 {
   return (uint32_t)(((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->CFGR2) & ((0x1UL << (0U)) | (0x1UL << (1U)) | (0x1UL << (2U)) | (0x1UL << (3U)))));
@@ -34060,7 +34060,7 @@ static inline void LL_SYSCFG_ClearFlag_SP(void)
 {
   ((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->CFGR2) |= ((0x1UL << (8U))));
 }
-# 723 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 723 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 #define LL_SYSCFG_EnableSRAM2PageWRP LL_SYSCFG_EnableSRAM2PageWRP_0_31
 static inline void LL_SYSCFG_EnableSRAM2PageWRP_0_31(uint32_t SRAM2WRP)
 {
@@ -34090,17 +34090,17 @@ static inline void LL_SYSCFG_UnlockSRAM2WRP(void)
   ((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->SKR) = (0xCAU));
   ((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->SKR) = (0x53U));
 }
-# 1125 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 1125 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_SYSCFG_SetRadioDebugTestBus(uint32_t RadioDebugTestBus)
 {
   (((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->RFDCR)) = ((((((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->RFDCR))) & (~((0x1UL << (0U))))) | (RadioDebugTestBus))));
 }
-# 1137 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 1137 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline uint32_t LL_SYSCFG_GetRadioDebugTestBus(void)
 {
   return (uint32_t)(((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->RFDCR) & ((0x1UL << (0U)))));
 }
-# 1160 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 1160 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline uint32_t LL_DBGMCU_GetDeviceID(void)
 {
   return (uint32_t)(((((DBGMCU_TypeDef *) (0xE0042000UL))->IDCODE) & ((0xFFFUL << (0U)))));
@@ -34136,7 +34136,7 @@ static inline void LL_DBGMCU_DisableDBGSleepMode(void)
 {
   ((((DBGMCU_TypeDef *) (0xE0042000UL))->CR) &= ~((0x1UL << (0U))));
 }
-# 1203 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 1203 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_DBGMCU_EnableDBGStopMode(void)
 {
   ((((DBGMCU_TypeDef *) (0xE0042000UL))->CR) |= ((0x1UL << (1U))));
@@ -34151,7 +34151,7 @@ static inline void LL_DBGMCU_DisableDBGStopMode(void)
 {
   ((((DBGMCU_TypeDef *) (0xE0042000UL))->CR) &= ~((0x1UL << (1U))));
 }
-# 1225 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 1225 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_DBGMCU_EnableDBGStandbyMode(void)
 {
   ((((DBGMCU_TypeDef *) (0xE0042000UL))->CR) |= ((0x1UL << (2U))));
@@ -34166,37 +34166,37 @@ static inline void LL_DBGMCU_DisableDBGStandbyMode(void)
 {
   ((((DBGMCU_TypeDef *) (0xE0042000UL))->CR) &= ~((0x1UL << (2U))));
 }
-# 1254 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 1254 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_DBGMCU_APB1_GRP1_FreezePeriph(uint32_t Periphs)
 {
   ((((DBGMCU_TypeDef *) (0xE0042000UL))->APB1FZR1) |= (Periphs));
 }
-# 1288 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 1288 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_DBGMCU_APB1_GRP2_FreezePeriph(uint32_t Periphs)
 {
   ((((DBGMCU_TypeDef *) (0xE0042000UL))->APB1FZR2) |= (Periphs));
 }
-# 1322 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 1322 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_DBGMCU_APB1_GRP1_UnFreezePeriph(uint32_t Periphs)
 {
   ((((DBGMCU_TypeDef *) (0xE0042000UL))->APB1FZR1) &= ~(Periphs));
 }
-# 1354 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 1354 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_DBGMCU_APB1_GRP2_UnFreezePeriph(uint32_t Periphs)
 {
   ((((DBGMCU_TypeDef *) (0xE0042000UL))->APB1FZR2) &= ~(Periphs));
 }
-# 1383 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 1383 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_DBGMCU_APB2_GRP1_FreezePeriph(uint32_t Periphs)
 {
   ((((DBGMCU_TypeDef *) (0xE0042000UL))->APB2FZR) |= (Periphs));
 }
-# 1413 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 1413 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_DBGMCU_APB2_GRP1_UnFreezePeriph(uint32_t Periphs)
 {
   ((((DBGMCU_TypeDef *) (0xE0042000UL))->APB2FZR) &= ~(Periphs));
 }
-# 1449 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 1449 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_VREFBUF_Enable(void)
 {
   ((((VREFBUF_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000030UL))->CSR) |= ((0x1UL << (0U))));
@@ -34231,12 +34231,12 @@ static inline void LL_VREFBUF_DisableHIZ(void)
 {
   ((((VREFBUF_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000030UL))->CSR) &= ~((0x1UL << (1U))));
 }
-# 1492 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 1492 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_VREFBUF_SetVoltageScaling(uint32_t Scale)
 {
   (((((VREFBUF_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000030UL))->CSR)) = ((((((((VREFBUF_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000030UL))->CSR))) & (~((0x1UL << (2U))))) | (Scale))));
 }
-# 1504 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 1504 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline uint32_t LL_VREFBUF_GetVoltageScaling(void)
 {
   return (uint32_t)(((((VREFBUF_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000030UL))->CSR) & ((0x1UL << (2U)))));
@@ -34279,17 +34279,17 @@ static inline uint32_t LL_VREFBUF_GetTrimming(void)
 {
   return (uint32_t)(((((VREFBUF_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000030UL))->CCR) & ((0x3FUL << (0U)))));
 }
-# 1558 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 1558 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_VREFBUF_SetTrimming(uint32_t Value)
 {
   ((((VREFBUF_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000030UL))->CCR) = (Value));
 }
-# 1581 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 1581 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_FLASH_SetLatency(uint32_t Latency)
 {
   (((((FLASH_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00004000UL))->ACR)) = ((((((((FLASH_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00004000UL))->ACR))) & (~((0x7UL << (0U))))) | (Latency))));
 }
-# 1594 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 1594 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline uint32_t LL_FLASH_GetLatency(void)
 {
   return (uint32_t)(((((FLASH_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00004000UL))->ACR) & ((0x7UL << (0U)))));
@@ -34368,7 +34368,7 @@ static inline void LL_FLASH_DisableInstCache(void)
   ((((FLASH_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00004000UL))->ACR) &= ~((0x1UL << (9U))));
 
 }
-# 1680 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 1680 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_FLASH_EnableDataCache(void)
 {
   ((((FLASH_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00004000UL))->ACR) |= ((0x1UL << (10U))));
@@ -34383,7 +34383,7 @@ static inline void LL_FLASH_DisableDataCache(void)
 {
   ((((FLASH_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00004000UL))->ACR) &= ~((0x1UL << (10U))));
 }
-# 1703 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 1703 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_FLASH_EnableInstCacheReset(void)
 {
 
@@ -34407,7 +34407,7 @@ static inline void LL_FLASH_DisableInstCacheReset(void)
   ((((FLASH_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00004000UL))->ACR) &= ~((0x1UL << (11U))));
 
 }
-# 1735 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 1735 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_FLASH_EnableDataCacheReset(void)
 {
   ((((FLASH_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00004000UL))->ACR) |= ((0x1UL << (12U))));
@@ -34422,7 +34422,7 @@ static inline void LL_FLASH_DisableDataCacheReset(void)
 {
   ((((FLASH_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00004000UL))->ACR) &= ~((0x1UL << (12U))));
 }
-# 1762 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 1762 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_FLASH_SuspendOperation(void)
 {
 
@@ -34431,7 +34431,7 @@ static inline void LL_FLASH_SuspendOperation(void)
   ((((FLASH_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00004000UL))->ACR) |= ((0x1UL << (15U))));
 
 }
-# 1782 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 1782 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_FLASH_AllowOperation(void)
 {
 
@@ -34500,7 +34500,7 @@ static inline uint32_t LL_FLASH_IsEmptyFlag(void)
 {
   return ((((((FLASH_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00004000UL))->ACR) & ((0x1UL << (16U)))) == (0x1UL << (16U))) ? 1UL : 0UL);
 }
-# 1879 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
+# 1879 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline uint32_t LL_FLASH_GetUDN(void)
 {
   return (((*((uint32_t *)((0x1FFF0000UL + 0x00007400UL) + 0x00000180UL)))));
@@ -34525,8 +34525,8 @@ static inline uint32_t LL_FLASH_GetSTCompanyID(void)
 {
   return (((((*((uint32_t *)((0x1FFF0000UL + 0x00007400UL) + 0x00000180UL) + 1U)))) >> 8U) & 0x00FFFFFFU);
 }
-# 32 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h" 2
-# 49 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
+# 32 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h" 2
+# 49 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
 typedef enum
 {
   HAL_TICK_FREQ_10HZ = 100U,
@@ -34534,7 +34534,7 @@ typedef enum
   HAL_TICK_FREQ_1KHZ = 1U,
   HAL_TICK_FREQ_DEFAULT = HAL_TICK_FREQ_1KHZ
 } HAL_TickFreqTypeDef;
-# 96 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
+# 96 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
 #define SYSCFG_BOOT_MAINFLASH LL_SYSCFG_REMAP_FLASH
 #define SYSCFG_BOOT_SYSTEMFLASH LL_SYSCFG_REMAP_SYSTEMFLASH
 #define SYSCFG_BOOT_SRAM LL_SYSCFG_REMAP_SRAM
@@ -34577,22 +34577,22 @@ typedef enum
 #define SYSCFG_SRAM2WRP_PAGE29 LL_SYSCFG_SRAM2WRP_PAGE29
 #define SYSCFG_SRAM2WRP_PAGE30 LL_SYSCFG_SRAM2WRP_PAGE30
 #define SYSCFG_SRAM2WRP_PAGE31 LL_SYSCFG_SRAM2WRP_PAGE31
-# 147 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
+# 147 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
 #define SYSCFG_VREFBUF_VOLTAGE_SCALE0 LL_VREFBUF_VOLTAGE_SCALE0
 #define SYSCFG_VREFBUF_VOLTAGE_SCALE1 LL_VREFBUF_VOLTAGE_SCALE1
-# 157 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
+# 157 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
 #define SYSCFG_VREFBUF_HIGH_IMPEDANCE_DISABLE 0x00000000U
 #define SYSCFG_VREFBUF_HIGH_IMPEDANCE_ENABLE VREFBUF_CSR_HIZ
-# 169 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
+# 169 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
 #define SYSCFG_FLAG_SRAM2_PE SYSCFG_CFGR2_SPF
 #define SYSCFG_FLAG_SRAM_BUSY SYSCFG_SCSR_SRAMBSY
 #define SYSCFG_FLAG_PKASRAM_BUSY SYSCFG_SCSR_PKASRAMBSY
-# 182 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
+# 182 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
 #define SYSCFG_FASTMODEPLUS_PB6 SYSCFG_CFGR1_I2C_PB6_FMP
 #define SYSCFG_FASTMODEPLUS_PB7 SYSCFG_CFGR1_I2C_PB7_FMP
 #define SYSCFG_FASTMODEPLUS_PB8 SYSCFG_CFGR1_I2C_PB8_FMP
 #define SYSCFG_FASTMODEPLUS_PB9 SYSCFG_CFGR1_I2C_PB9_FMP
-# 322 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
+# 322 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
 #define __HAL_DBGMCU_FREEZE_TIM2() LL_DBGMCU_APB1_GRP1_FreezePeriph(LL_DBGMCU_APB1_GRP1_TIM2_STOP)
 #define __HAL_DBGMCU_UNFREEZE_TIM2() LL_DBGMCU_APB1_GRP1_UnFreezePeriph(LL_DBGMCU_APB1_GRP1_TIM2_STOP)
 
@@ -34655,7 +34655,7 @@ typedef enum
 
 #define __HAL_DBGMCU_FREEZE_TIM17() LL_DBGMCU_APB2_GRP1_FreezePeriph(LL_DBGMCU_APB2_GRP1_TIM17_STOP)
 #define __HAL_DBGMCU_UNFREEZE_TIM17() LL_DBGMCU_APB2_GRP1_UnFreezePeriph(LL_DBGMCU_APB2_GRP1_TIM17_STOP)
-# 467 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
+# 467 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
 #define __HAL_SYSCFG_REMAPMEMORY_FLASH() LL_SYSCFG_SetRemapMemory(LL_SYSCFG_REMAP_FLASH)
 
 
@@ -34665,7 +34665,7 @@ typedef enum
 
 
 #define __HAL_SYSCFG_REMAPMEMORY_SRAM() LL_SYSCFG_SetRemapMemory(LL_SYSCFG_REMAP_SRAM)
-# 485 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
+# 485 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
 #define __HAL_SYSCFG_GET_BOOT_MODE() LL_SYSCFG_GetRemapMemory()
 
 
@@ -34711,7 +34711,7 @@ typedef enum
 
 
 #define __HAL_SYSCFG_BREAK_SRAM2PARITY_LOCK() LL_SYSCFG_SetTIMBreakInputs(LL_SYSCFG_TIMBREAK_SRAM2_PARITY)
-# 539 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
+# 539 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
 #define __HAL_SYSCFG_GET_FLAG(__FLAG__) ((((((__FLAG__) == SYSCFG_FLAG_SRAM2_PE)? SYSCFG->CFGR2 : SYSCFG->SCSR) & (__FLAG__))!= 0) ? 1 : 0)
 
 
@@ -34726,7 +34726,7 @@ typedef enum
 
 
 #define __HAL_SYSCFG_FASTMODEPLUS_DISABLE(__FASTMODEPLUS__) do {assert_param(IS_SYSCFG_FASTMODEPLUS((__FASTMODEPLUS__))); LL_SYSCFG_DisableFastModePlus(__FASTMODEPLUS__); }while(0)
-# 573 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
+# 573 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
 #define IS_SYSCFG_SRAM2WRP_PAGE(__PAGE__) (((__PAGE__) > 0U) && ((__PAGE__) <= 0xFFFFFFFFU))
 
 #define IS_SYSCFG_VREFBUF_VOLTAGE_SCALE(__SCALE__) (((__SCALE__) == SYSCFG_VREFBUF_VOLTAGE_SCALE0) || ((__SCALE__) == SYSCFG_VREFBUF_VOLTAGE_SCALE1))
@@ -34738,20 +34738,20 @@ typedef enum
 #define IS_SYSCFG_VREFBUF_TRIMMING(__VALUE__) (((__VALUE__) > 0U) && ((__VALUE__) <= VREFBUF_CCR_TRIM))
 
 #define IS_SYSCFG_FASTMODEPLUS(__PIN__) ((((__PIN__) & SYSCFG_FASTMODEPLUS_PB6) == SYSCFG_FASTMODEPLUS_PB6) || (((__PIN__) & SYSCFG_FASTMODEPLUS_PB7) == SYSCFG_FASTMODEPLUS_PB7) || (((__PIN__) & SYSCFG_FASTMODEPLUS_PB8) == SYSCFG_FASTMODEPLUS_PB8) || (((__PIN__) & SYSCFG_FASTMODEPLUS_PB9) == SYSCFG_FASTMODEPLUS_PB9))
-# 674 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
+# 674 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
 #define IS_TICKFREQ(FREQ) (((FREQ) == HAL_TICK_FREQ_10HZ) || ((FREQ) == HAL_TICK_FREQ_100HZ) || ((FREQ) == HAL_TICK_FREQ_1KHZ))
-# 693 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
+# 693 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
 HAL_StatusTypeDef HAL_Init(void);
 HAL_StatusTypeDef HAL_DeInit(void);
 void HAL_MspInit(void);
 void HAL_MspDeInit(void);
 
 HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority);
-# 708 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
+# 708 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
 extern volatile uint32_t uwTick;
 extern uint32_t uwTickPrio;
 extern HAL_TickFreqTypeDef uwTickFreq;
-# 720 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
+# 720 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
 void HAL_IncTick(void);
 void HAL_Delay(uint32_t Delay);
 uint32_t HAL_GetTick(void);
@@ -34766,14 +34766,14 @@ uint32_t HAL_GetDEVID(void);
 uint32_t HAL_GetUIDw0(void);
 uint32_t HAL_GetUIDw1(void);
 uint32_t HAL_GetUIDw2(void);
-# 744 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
+# 744 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
 void HAL_DBGMCU_EnableDBGSleepMode(void);
 void HAL_DBGMCU_DisableDBGSleepMode(void);
 void HAL_DBGMCU_EnableDBGStopMode(void);
 void HAL_DBGMCU_DisableDBGStopMode(void);
 void HAL_DBGMCU_EnableDBGStandbyMode(void);
 void HAL_DBGMCU_DisableDBGStandbyMode(void);
-# 759 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
+# 759 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
 void HAL_SYSCFG_SRAM2Erase(void);
 
 void HAL_SYSCFG_VREFBUF_VoltageScalingConfig(uint32_t VoltageScaling);
@@ -34784,10 +34784,10 @@ void HAL_SYSCFG_DisableVREFBUF(void);
 
 void HAL_SYSCFG_EnableIOAnalogSwitchBooster(void);
 void HAL_SYSCFG_DisableIOAnalogSwitchBooster(void);
-# 113 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c" 2
-# 130 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
+# 113 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c" 2
+# 130 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
 #define TAMP_ALL (TAMP_CR1_TAMP1E | TAMP_CR1_TAMP2E | TAMP_CR1_TAMP3E)
-# 178 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
+# 178 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
 HAL_StatusTypeDef HAL_RTCEx_SetTimeStamp(RTC_HandleTypeDef *hrtc, uint32_t TimeStampEdge, uint32_t RTC_TimeStampPin)
 {
 
@@ -34820,7 +34820,7 @@ HAL_StatusTypeDef HAL_RTCEx_SetTimeStamp(RTC_HandleTypeDef *hrtc, uint32_t TimeS
 
   return HAL_OK;
 }
-# 229 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
+# 229 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
 HAL_StatusTypeDef HAL_RTCEx_SetTimeStamp_IT(RTC_HandleTypeDef *hrtc, uint32_t TimeStampEdge, uint32_t RTC_TimeStampPin)
 {
 
@@ -34963,7 +34963,7 @@ HAL_StatusTypeDef HAL_RTCEx_DeactivateInternalTimeStamp(RTC_HandleTypeDef *hrtc)
 
   return HAL_OK;
 }
-# 386 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
+# 386 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
 HAL_StatusTypeDef HAL_RTCEx_GetTimeStamp(RTC_HandleTypeDef *hrtc, RTC_TimeTypeDef *sTimeStamp, RTC_DateTypeDef *sTimeStampDate, uint32_t Format)
 {
   uint32_t tmptime;
@@ -35090,7 +35090,7 @@ HAL_StatusTypeDef HAL_RTCEx_PollForTimeStampEvent(RTC_HandleTypeDef *hrtc, uint3
 
   return HAL_OK;
 }
-# 538 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
+# 538 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
 HAL_StatusTypeDef HAL_RTCEx_SetWakeUpTimer(RTC_HandleTypeDef *hrtc, uint32_t WakeUpCounter, uint32_t WakeUpClock)
 {
   uint32_t tickstart;
@@ -35152,7 +35152,7 @@ HAL_StatusTypeDef HAL_RTCEx_SetWakeUpTimer(RTC_HandleTypeDef *hrtc, uint32_t Wak
 
   return HAL_OK;
 }
-# 611 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
+# 611 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
 HAL_StatusTypeDef HAL_RTCEx_SetWakeUpTimer_IT(RTC_HandleTypeDef *hrtc, uint32_t WakeUpCounter, uint32_t WakeUpClock, uint32_t WakeUpAutoClr)
 {
   uint32_t tickstart;
@@ -35336,7 +35336,7 @@ __attribute__((weak)) void HAL_RTCEx_WakeUpTimerEventCallback(RTC_HandleTypeDef 
 
 
 }
-# 802 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
+# 802 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
 HAL_StatusTypeDef HAL_RTCEx_PollForWakeUpTimerEvent(RTC_HandleTypeDef *hrtc, uint32_t Timeout)
 {
   uint32_t tickstart = HAL_GetTick();
@@ -35361,7 +35361,7 @@ HAL_StatusTypeDef HAL_RTCEx_PollForWakeUpTimerEvent(RTC_HandleTypeDef *hrtc, uin
 
   return HAL_OK;
 }
-# 880 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
+# 880 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
 HAL_StatusTypeDef HAL_RTCEx_SetSmoothCalib(RTC_HandleTypeDef *hrtc, uint32_t SmoothCalibPeriod, uint32_t SmoothCalibPlusPulses, uint32_t SmoothCalibMinusPulsesValue)
 {
   uint32_t tickstart;
@@ -35417,7 +35417,7 @@ HAL_StatusTypeDef HAL_RTCEx_SetSmoothCalib(RTC_HandleTypeDef *hrtc, uint32_t Smo
 
   return HAL_OK;
 }
-# 945 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
+# 945 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
 HAL_StatusTypeDef HAL_RTCEx_SetLowPowerCalib(RTC_HandleTypeDef *hrtc, uint32_t LowPowerCalib)
 {
 
@@ -35445,7 +35445,7 @@ HAL_StatusTypeDef HAL_RTCEx_SetLowPowerCalib(RTC_HandleTypeDef *hrtc, uint32_t L
 
   return HAL_OK;
 }
-# 985 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
+# 985 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
 HAL_StatusTypeDef HAL_RTCEx_SetSynchroShift(RTC_HandleTypeDef *hrtc, uint32_t ShiftAdd1S, uint32_t ShiftSubFS)
 {
   uint32_t tickstart;
@@ -35529,7 +35529,7 @@ HAL_StatusTypeDef HAL_RTCEx_SetSynchroShift(RTC_HandleTypeDef *hrtc, uint32_t Sh
 
   return HAL_OK;
 }
-# 1078 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
+# 1078 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
 HAL_StatusTypeDef HAL_RTCEx_SetCalibrationOutPut(RTC_HandleTypeDef *hrtc, uint32_t CalibOutput)
 {
 
@@ -35674,7 +35674,7 @@ HAL_StatusTypeDef HAL_RTCEx_DeactivateRefClock(RTC_HandleTypeDef *hrtc)
 
   return status;
 }
-# 1230 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
+# 1230 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
 HAL_StatusTypeDef HAL_RTCEx_EnableBypassShadow(RTC_HandleTypeDef *hrtc)
 {
 
@@ -35699,7 +35699,7 @@ HAL_StatusTypeDef HAL_RTCEx_EnableBypassShadow(RTC_HandleTypeDef *hrtc)
 
   return HAL_OK;
 }
-# 1262 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
+# 1262 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
 HAL_StatusTypeDef HAL_RTCEx_DisableBypassShadow(RTC_HandleTypeDef *hrtc)
 {
 
@@ -35724,7 +35724,7 @@ HAL_StatusTypeDef HAL_RTCEx_DisableBypassShadow(RTC_HandleTypeDef *hrtc)
 
   return HAL_OK;
 }
-# 1295 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
+# 1295 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
 HAL_StatusTypeDef HAL_RTCEx_MonotonicCounterIncrement(RTC_HandleTypeDef *hrtc, uint32_t Instance)
 {
   (void)hrtc;
@@ -35735,7 +35735,7 @@ HAL_StatusTypeDef HAL_RTCEx_MonotonicCounterIncrement(RTC_HandleTypeDef *hrtc, u
 
   return HAL_OK;
 }
-# 1315 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
+# 1315 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
 HAL_StatusTypeDef HAL_RTCEx_MonotonicCounterGet(RTC_HandleTypeDef *hrtc, uint32_t Instance, uint32_t *Value)
 {
   (void)hrtc;
@@ -35851,7 +35851,7 @@ __attribute__((weak)) void HAL_RTCEx_SSRUEventCallback(RTC_HandleTypeDef *hrtc)
 
 
 }
-# 1455 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
+# 1455 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
 __attribute__((weak)) void HAL_RTCEx_AlarmBEventCallback(RTC_HandleTypeDef *hrtc)
 {
 
@@ -35892,7 +35892,7 @@ HAL_StatusTypeDef HAL_RTCEx_PollForAlarmBEvent(RTC_HandleTypeDef *hrtc, uint32_t
 
   return HAL_OK;
 }
-# 1534 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
+# 1534 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
 HAL_StatusTypeDef HAL_RTCEx_SetTamper(RTC_HandleTypeDef *hrtc, RTC_TamperTypeDef *sTamper)
 {
   uint32_t tmpreg;
@@ -35950,7 +35950,7 @@ HAL_StatusTypeDef HAL_RTCEx_SetTamper(RTC_HandleTypeDef *hrtc, RTC_TamperTypeDef
 
   return HAL_OK;
 }
-# 1599 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
+# 1599 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
 HAL_StatusTypeDef HAL_RTCEx_SetTamper_IT(RTC_HandleTypeDef *hrtc, RTC_TamperTypeDef *sTamper)
 {
   uint32_t tmpreg;
@@ -36014,7 +36014,7 @@ HAL_StatusTypeDef HAL_RTCEx_SetTamper_IT(RTC_HandleTypeDef *hrtc, RTC_TamperType
 
   return HAL_OK;
 }
-# 1673 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
+# 1673 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
 HAL_StatusTypeDef HAL_RTCEx_DeactivateTamper(RTC_HandleTypeDef *hrtc, uint32_t Tamper)
 {
   (void)hrtc;
@@ -36037,7 +36037,7 @@ HAL_StatusTypeDef HAL_RTCEx_DeactivateTamper(RTC_HandleTypeDef *hrtc, uint32_t T
 
   return HAL_OK;
 }
-# 1709 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
+# 1709 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
 HAL_StatusTypeDef HAL_RTCEx_PollForTamperEvent(RTC_HandleTypeDef *hrtc, uint32_t Tamper, uint32_t Timeout)
 {
   (void)hrtc;
@@ -36062,7 +36062,7 @@ HAL_StatusTypeDef HAL_RTCEx_PollForTamperEvent(RTC_HandleTypeDef *hrtc, uint32_t
 
   return HAL_OK;
 }
-# 1741 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
+# 1741 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
 HAL_StatusTypeDef HAL_RTCEx_SetInternalTamper(RTC_HandleTypeDef *hrtc, RTC_InternalTamperTypeDef *sIntTamper)
 {
 
@@ -36095,7 +36095,7 @@ HAL_StatusTypeDef HAL_RTCEx_SetInternalTamper(RTC_HandleTypeDef *hrtc, RTC_Inter
 
   return HAL_OK;
 }
-# 1781 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
+# 1781 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
 HAL_StatusTypeDef HAL_RTCEx_SetInternalTamper_IT(RTC_HandleTypeDef *hrtc, RTC_InternalTamperTypeDef *sIntTamper)
 {
 
@@ -36134,7 +36134,7 @@ HAL_StatusTypeDef HAL_RTCEx_SetInternalTamper_IT(RTC_HandleTypeDef *hrtc, RTC_In
 
   return HAL_OK;
 }
-# 1827 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
+# 1827 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
 HAL_StatusTypeDef HAL_RTCEx_DeactivateInternalTamper(RTC_HandleTypeDef *hrtc, uint32_t IntTamper)
 {
   (void)hrtc;
@@ -36154,7 +36154,7 @@ HAL_StatusTypeDef HAL_RTCEx_DeactivateInternalTamper(RTC_HandleTypeDef *hrtc, ui
 
   return HAL_OK;
 }
-# 1856 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
+# 1856 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
 HAL_StatusTypeDef HAL_RTCEx_PollForInternalTamperEvent(RTC_HandleTypeDef *hrtc, uint32_t IntTamper, uint32_t Timeout)
 {
   (void)hrtc;
@@ -36385,7 +36385,7 @@ __attribute__((weak)) void HAL_RTCEx_InternalTamper8EventCallback(RTC_HandleType
 
 
 }
-# 2119 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
+# 2119 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
 void HAL_RTCEx_BKUPWrite(RTC_HandleTypeDef *hrtc, uint32_t BackupRegister, uint32_t Data)
 {
   uint32_t tmp;
@@ -36400,7 +36400,7 @@ void HAL_RTCEx_BKUPWrite(RTC_HandleTypeDef *hrtc, uint32_t BackupRegister, uint3
 
   *(volatile uint32_t *)tmp = (uint32_t)Data;
 }
-# 2142 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
+# 2142 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"
 uint32_t HAL_RTCEx_BKUPRead(RTC_HandleTypeDef *hrtc, uint32_t BackupRegister)
 {
   uint32_t tmp;

@@ -274,6 +274,15 @@ int At_Band(SERIAL_PORT port, char *cmd, stParam *param)
         case SERVICE_LORA_AS923:
             atcmd_printf("8\r\n");
             break;
+        case SERVICE_LORA_AS923_2:
+            atcmd_printf("9\r\n");
+            break;
+        case SERVICE_LORA_AS923_3:
+            atcmd_printf("10\r\n");
+            break;
+        case SERVICE_LORA_AS923_4:
+            atcmd_printf("11\r\n");
+            break;
 #ifdef LEGACY
         case SERVICE_LORA_US915_HYBRID:
 #endif
@@ -330,6 +339,15 @@ int At_Band(SERIAL_PORT port, char *cmd, stParam *param)
         case 8:
             band = SERVICE_LORA_AS923;
             break;
+        case 9 :
+            band = SERVICE_LORA_AS923_2;
+            break;
+        case 10 :
+            band = SERVICE_LORA_AS923_3;
+            break;
+        case 11 :
+            band = SERVICE_LORA_AS923_4;
+            break;   
         default:
             return AT_PARAM_ERROR;
         }

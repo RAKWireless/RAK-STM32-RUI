@@ -36,6 +36,8 @@ typedef struct {
     bool isRxCancel;
     bool isRadioBusy;
     bool isContinue;
+    bool isContinue_no_exit;
+    bool isContinue_compatible_tx;
 }LORA_P2P_STATUS_ST;
 
 typedef struct rui_lora_p2p_revc

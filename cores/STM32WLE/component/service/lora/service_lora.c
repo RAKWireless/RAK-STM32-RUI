@@ -19,6 +19,7 @@
 #include "LmhPackage.h"
 #include "LmhpCompliance.h"
 #include "RegionCommon.h"
+#include "RegionAS923.h"
 
 typedef enum PackageNotifyTypes_e
 {
@@ -730,6 +731,28 @@ int32_t service_lora_init(SERVICE_LORA_BAND band)
         goto out;
     }
 
+     /*AS923 sub band selection*/
+    if( band == SERVICE_LORA_AS923)
+    {
+        RegionAS923SubBandSet(AS923_1);
+        band = SERVICE_LORA_AS923;
+    }
+    if( band == SERVICE_LORA_AS923_2)
+    {
+        RegionAS923SubBandSet(AS923_2);
+        band = SERVICE_LORA_AS923;
+    }
+    if( band == SERVICE_LORA_AS923_3)
+    {
+        RegionAS923SubBandSet(AS923_3);
+        band = SERVICE_LORA_AS923;
+    }
+    if( band == SERVICE_LORA_AS923_4)
+    {
+        RegionAS923SubBandSet(AS923_4);
+        band = SERVICE_LORA_AS923;
+    }
+
     LoRaMacPrimitives.MacMcpsConfirm = McpsConfirm;
     LoRaMacPrimitives.MacMcpsIndication = McpsIndication;
     LoRaMacPrimitives.MacMlmeConfirm = MlmeConfirm;
@@ -1272,6 +1295,7 @@ int32_t service_lora_set_band(SERVICE_LORA_BAND band)
     uint16_t mask = 0;
     int32_t ret;
     LoRaMacStatus_t Status;
+    SERVICE_LORA_BAND AS923_sub_band_bak = 0;
 
     if (band == service_lora_get_band())
     {
@@ -1298,6 +1322,33 @@ int32_t service_lora_set_band(SERVICE_LORA_BAND band)
     {
         return ret;
     }
+
+    /*AS923 sub band selection*/
+    if( band == SERVICE_LORA_AS923)
+    {
+        AS923_sub_band_bak = SERVICE_LORA_AS923;
+        RegionAS923SubBandSet(AS923_1);
+        band = SERVICE_LORA_AS923;
+    }
+    if( band == SERVICE_LORA_AS923_2)
+    {
+        AS923_sub_band_bak = SERVICE_LORA_AS923_2;
+        RegionAS923SubBandSet(AS923_2);
+        band = SERVICE_LORA_AS923;
+    }
+    if( band == SERVICE_LORA_AS923_3)
+    {
+        AS923_sub_band_bak = SERVICE_LORA_AS923_3;
+        RegionAS923SubBandSet(AS923_3);
+        band = SERVICE_LORA_AS923;
+    }
+    if( band == SERVICE_LORA_AS923_4)
+    {
+        AS923_sub_band_bak = SERVICE_LORA_AS923_4;
+        RegionAS923SubBandSet(AS923_4);
+        band = SERVICE_LORA_AS923;
+    }
+
     /**************************************************************************************
      *
      * Step 2. Start to init LoRaWAN stack with built-in config for the selected band.
@@ -1374,6 +1425,11 @@ int32_t service_lora_set_band(SERVICE_LORA_BAND band)
      * Step 4. Save the new band config.
      *
      **************************************************************************************/
+        /*AS923 sub band selection*/
+        if( AS923_sub_band_bak != NULL )
+        {
+            band = AS923_sub_band_bak;
+        }
 
         if ((ret = service_nvm_set_band_to_nvm(band)) != UDRV_RETURN_OK)
         {

@@ -17,7 +17,6 @@
 #ifndef	RUI_SDK
 #include "RAKBleHid.h"
 #endif
-
 class RAKBle {
   public:
     RAKBle(void);
@@ -32,7 +31,17 @@ class RAKBle {
     #ifndef	RUI_SDK
     class RAKBleHid hid;
     #endif
+    /**@addtogroup  BLE_func
+     * @{
+     */
+    /**@par Description
+     *      Provide users to disconnect the existing connection.
+     * @par Syntax
+     *      api.ble.stop()
+     * @return  void
+     */
+    void stop(void);
+    /**@}*/
 };
-
 #endif
 
