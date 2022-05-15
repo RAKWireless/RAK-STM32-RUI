@@ -205,12 +205,12 @@ class RAKBleCharacteristic
 /**@par	Description
  *
  */
-class RAKBleCustomer {
+class RAKBleCustom {
   public:
     /**@par	Description
      *		Initialize the basic work of BLE custom services
      * @par	Syntax
-     *		api.ble.customer.init()
+     *		api.ble.custom.init()
      * @return	void
      */
     void init();
@@ -218,14 +218,14 @@ class RAKBleCustomer {
     /**@par	Description
      *		After completing all services and characteristic settings, start custom services.
      * @par	Syntax
-     *		api.ble.customer.start()
+     *		api.ble.custom.start()
      * @return	void	
      */
     void start();
   private:
 };
 
-/**@example	BLE_Customer_Service/src/app.cpp
+/**@example	BLE_Custom_Service/src/app.cpp
  *
  */
 

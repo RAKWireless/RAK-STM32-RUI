@@ -395,6 +395,22 @@ void main(void)
     }
 #endif
 
+    //XXX: dirty workaround for 0x20000528
+    {
+        extern int _sidata, _sdata, _edata;
+        if (0x20000528 > (uint32_t)&_sdata && 0x20000528 < (uint32_t)&_edata)
+        {
+            uint8_t buff[4];
+            uint32_t offset = 0x20000528 - (uint32_t)&_sdata;
+            udrv_flash_read((uint32_t)&_sidata+offset, 4, buff);
+            for (int j = 0 ; j < 4 ; j++) {
+                if (*(uint8_t *)(0x20000528+j) != buff[j]) {
+                    *(uint8_t *)(0x20000528+j) = buff[j];
+                }
+            }
+        }
+    }
+
     while(1)
     {
         //system loop

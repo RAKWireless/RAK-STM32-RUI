@@ -26,7 +26,7 @@ class RAKBle {
     class RAKBleAdvertise advertise;
     class RAKBleMac mac;
     class RAKBleBeacon beacon;
-    class RAKBleCustomer customer;
+    class RAKBleCustom custom;
     class RAKBleScanner scanner;
     #ifndef	RUI_SDK
     class RAKBleHid hid;

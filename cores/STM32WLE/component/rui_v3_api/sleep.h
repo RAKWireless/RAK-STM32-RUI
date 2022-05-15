@@ -10,6 +10,8 @@
 
 #include "udrv_powersave.h"
 #include "udrv_gpio.h"
+#include "udrv_system.h"
+#include "udrv_rtc.h"
 
 /**@addtogroup	RUI_System_Data_Type
  * @{

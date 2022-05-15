@@ -66,7 +66,7 @@ int At_Restore(SERIAL_PORT port, char *cmd, stParam *param)
     {
         return AT_OK;
     }
-    else if (ret = -UDRV_BUSY)
+    else if (ret == -UDRV_BUSY)
     {
         return AT_BUSY_ERROR;
     }

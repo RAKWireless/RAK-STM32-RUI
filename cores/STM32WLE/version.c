@@ -1,11 +1,11 @@
-#define FW_REVISION "3.4.0-rui3_22q1_final_update.99"
+#define FW_REVISION "3.4.1-rui3_22q1_final_update.102"
 #define MODEL_ID "rak3172"
 #define CHIP_ID "stm32wle5xx"
-#define BUILD_DATE "20220509"
-#define BUILD_TIME "100557"
-#define REPO_INFO "938b8e59:fa6b6f5c:4ce3fe97:ffbe0e20:68eca096:17db53e6:a297f955:0b708b4d"
-#define CLI_REVISION "1.5.3"
-#define API_REVISION "3.1.1"
+#define BUILD_DATE "20220515"
+#define BUILD_TIME "032807"
+#define REPO_INFO "a10a3846:817c9133:847fc522:3973b45f:68eca096:f92ed12e:155cf060:0b708b4d"
+#define CLI_REVISION "1.5.4"
+#define API_REVISION "3.2.0"
 const char *sw_version = {FW_REVISION};
 const char *model_id = {MODEL_ID};
 const char *chip_id = {CHIP_ID};

@@ -202,15 +202,9 @@ void uplink_routine()
 
 void loop()
 {
-  static uint64_t last = 0;
-  static uint64_t elapsed;
+  uplink_routine();
 
-  if ((elapsed = millis() - last) > SMART_FARM_PERIOD) {
-    uplink_routine();
-
-    last = millis();
-  }
-  //Serial.printf("Try sleep %ums..", SMART_FARM_PERIOD);
+  Serial.printf("Try sleep %ums..\r\n", SMART_FARM_PERIOD);
   api.system.sleep.all(SMART_FARM_PERIOD);
-  //Serial.println("Wakeup..");
+  Serial.println("Wakeup..\r\n");
 }

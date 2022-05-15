@@ -338,6 +338,7 @@ int32_t service_lora_p2p_recv(uint32_t timeout)
         lora_p2p_status.isRadioBusy = false;
         lora_p2p_status.isContinue_no_exit = false;
         lora_p2p_status.isContinue_compatible_tx = false;
+        udrv_powersave_wake_unlock ();   
         Radio.Standby();
     }
     else if (timeout == 65535)
