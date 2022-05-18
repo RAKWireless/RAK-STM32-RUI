@@ -170,4 +170,4 @@ class StringSumHelper : public String
     StringSumHelper(double num) : String(num) {}
 };
 
-#endif //end AString.h
+#endif //end WString.h

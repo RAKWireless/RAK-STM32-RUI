@@ -19,18 +19,20 @@ extern "C" {
 #define UDRV_ADC_SAMPLE_CNT 16
 
 typedef enum{
-    UDRV_ADC_RESOLUTION_8BIT  = (0UL),  //< 8 bit resolution.
-    UDRV_ADC_RESOLUTION_10BIT = (1UL),  //< 10 bit resolution.
-    UDRV_ADC_RESOLUTION_12BIT = (2UL),  //< 12 bit resolution.
-    UDRV_ADC_RESOLUTION_14BIT = (3UL)   //< 14 bit resolution.
+    UDRV_ADC_RESOLUTION_6BIT  = (0UL),  //< 6 bit resolution.
+    UDRV_ADC_RESOLUTION_8BIT  = (1UL),  //< 8 bit resolution.
+    UDRV_ADC_RESOLUTION_10BIT = (2UL),  //< 10 bit resolution.
+    UDRV_ADC_RESOLUTION_12BIT = (3UL),  //< 12 bit resolution.
+    UDRV_ADC_RESOLUTION_14BIT = (4UL)   //< 14 bit resolution.
 }UDRV_ADC_RESOLUTION ;
 
 typedef enum{
     UDRV_ADC_MODE_DEFAULT = (0UL),  //default range
-    UDRV_ADC_MODE_3_0     = (1UL),  // 0 - 3 V
-    UDRV_ADC_MODE_2_4     = (2UL),  // 0 - 2.4 V
-    UDRV_ADC_MODE_1_8     = (3UL),  // 0 - 1.8 V
-    UDRV_ADC_MODE_1_2     = (4UL),  // 0 - 1.2 V
+    UDRV_ADC_MODE_3_3     = (1UL),  // 0 - 3.3 V
+    UDRV_ADC_MODE_3_0     = (2UL),  // 0 - 3 V
+    UDRV_ADC_MODE_2_4     = (3UL),  // 0 - 2.4 V
+    UDRV_ADC_MODE_1_8     = (4UL),  // 0 - 1.8 V
+    UDRV_ADC_MODE_1_2     = (5UL),  // 0 - 1.2 V
 } UDRV_ADC_MODE;
 
 /**

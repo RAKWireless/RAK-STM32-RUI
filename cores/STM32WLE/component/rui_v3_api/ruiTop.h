@@ -7,6 +7,7 @@
 #include "udrv_pwm.h"
 #include "pin_define.h"
 #include "variant.h"
+#include "binary.h"
 
 #include <math.h>
 
@@ -34,123 +35,7 @@ enum BitOrder {
 #define RAD_TO_DEG 57.295779513082320876798154814105
 #define EULER 2.718281828459045235360287471352
 
-//#define analogInPinToBit(P)        ( )
-#define portOutputRegister(port)   ( &(port->OUT) )
-#define portInputRegister(port)    ( (volatile uint32_t*) &(port->IN) )
-#define portModeRegister(port)     ( &(port->DIR) )
-#define digitalPinHasPWM(P)        ( g_ADigitalPinMap[P] > 1 )
 
-#define digitalPinToBitMask(P)     ( 1UL << ( g_ADigitalPinMap[P] < 32 ? g_ADigitalPinMap[P] : (g_ADigitalPinMap[P]-32) ) )
-
-#define digitalPinToPinName(P)     g_ADigitalPinMap[P]
-
-#ifdef NRF_P1
-#define digitalPinToPort(P)        ( (g_ADigitalPinMap[P] < 32) ? NRF_P0 : NRF_P1 )
-#else
-#define digitalPinToPort(P)        ( NRF_P0 )
-#endif
-
-// Interrupts
-#define digitalPinToInterrupt(P)   ( P )
-
-/**@addtogroup	Time
- * @{ */
-/**@par	Description
- *     	Pauses the program for the amount of time (in milliseconds) specified as parameter.
- * 	        (There are 1000 milliseconds in a second.)
- * @par	Syntax
- *	delay(ms);
- * @param	ms	the number of milliseconds to pause 	        
- * @par     Example
- * @verbatim
-   unsigned long myTime;
-
-   void setup() {
-     Serial.begin(115200);
-   }
-   void loop() {
-     Serial.print("Time: ");
-     myTime = millis();
-   
-     Serial.println(myTime); // prints time since program started
-     delay(1000);          // wait a second so as not to send massive amounts of data
-   }
-   @endverbatim
- */
-#define delay udrv_app_delay_ms
-
-/**@par	Description
- *     	Pauses the program for the amount of time (in microseconds) specified by 
- * 		the parameter. There are a thousand microseconds in a millisecond and a 
- * 		million microseconds in a second
- * @par	Syntax
- *	delayMicroSecond(us);
- * @param	us 	the number of microseconds to pause
- * @par     Example
- * @verbatim
-   unsigned long time;
-
-   void setup() {
-     Serial.begin(115200);
-   }
-   void loop() {
-     Serial.print("Time: ");
-     time = micros();
-   
-     Serial.println(time); //prints time since program started
-     delayMircosecond(1000);          // wait a second so as not to send massive amounts of data
-   }
-   @endverbatim
- */
-#define delayMicroseconds udrv_app_delay_us 
-
-/**@par	Description
- *      	Returns the number of milliseconds passed since the device began
- * 		running the current program
- * @par	Syntax
- *	micros();
- * @return	Number of milliseconds passed since the program started(Type: unsigned long)
- * @par     Example
- * @verbatim
-   unsigned long myTime;
-
-   void setup() {
-     Serial.begin(115200);
-   }
-   void loop() {
-     Serial.print("Time: ");
-     myTime = millis();
-   
-     Serial.println(myTime); // prints time since program started
-     delay(1000);          // wait a second so as not to send massive amounts of data
-   }
-   @endverbatim
- */
-unsigned long millis();
-
-/**@par	Description
- *     	Returns the number of microseconds since the device  began 
- * 		running the current program
- * @par	Syntax
- *	millis();
- * @return	the number of microseconds since the device began running the current program(Type: unsigned long)
- * @par     Example
- * @verbatim
-   unsigned long time;
-
-   void setup() {
-     Serial.begin(115200);
-   }
-   void loop() {
-     Serial.print("Time: ");
-     time = micros();
-   
-     Serial.println(time); //prints time since program started
-     delayMircosecond(1000);          // wait a second so as not to send massive amounts of data
-   }
-   @endverbatim
- */
-unsigned long micros();
 /** @} */
 
 #define HIGH 0x1
@@ -971,8 +856,9 @@ void yield(void);
 
 /** @} */
 
+#include "wiring.h"
 #include "ACharacter.h"
-#include "AString.h"
+#include "WString.h"
 #include "app.h"
 #include "RAKUnifiedApi.h"
 #include "HardwareSerial.h"

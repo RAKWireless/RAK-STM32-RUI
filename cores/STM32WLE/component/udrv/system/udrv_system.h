@@ -30,6 +30,7 @@ typedef enum
 #endif
 #ifdef SUPPORT_LORA
     UDRV_SYS_EVT_OP_LORAWAN,                           //LoRaWAN RX process
+    UDRV_SYS_EVT_OP_LORAWAN_JOIN_CB,                   //Consider join request in join callback
 #endif
     UDRV_SYS_EVT_OP_USER_APP,                          //user application
     UDRV_SYS_EVT_OP_USER_TIMER,                        //user timer

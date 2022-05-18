@@ -484,7 +484,7 @@
 #define rak3172 1
 #define CORE_CM4 1
 #define USE_HAL_DRIVER 1
-#define STM32WL55xx 1
+#define STM32WLE5xx 1
 #define REGION_AS923 1
 #define REGION_AU915 1
 #define REGION_CN470 1
@@ -9518,6 +9518,12 @@ uint8_t RegionAS923ApplyDrOffset( uint8_t downlinkDwellTime, int8_t dr, int8_t d
 
 
  void RegionAS923RxBeaconSetup( RxBeaconSetup_t* rxBeaconSetup, uint8_t* outDr );
+
+
+
+void RegionAS923SubBandSet(uint8_t band);
+
+uint8_t RegionAS923SubBandGet();
 # 36 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/Region.c" 2
 #define AS923_CASE case LORAMAC_REGION_AS923:
 #define AS923_IS_ACTIVE() AS923_CASE { return true; }

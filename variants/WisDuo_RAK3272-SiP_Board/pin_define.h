@@ -49,11 +49,11 @@
 #define SPIM1_MISO              RAK_PA6
 #define SPIM1_SCK               RAK_PA5
 
-#define ADC1                    RAK_PB3
-#define ADC2                    RAK_PB4
-#define ADC3                    RAK_PB2
-#define ADC4                    RAK_PA10
-#define ADC5                    RAK_PA15
+#define _ADC1                    RAK_PB3
+#define _ADC2                    RAK_PB4
+#define _ADC3                    RAK_PB2
+#define _ADC4                    RAK_PA10
+#define _ADC5                    RAK_PA15
 
 #define SWDIO                   RAK_PA13
 #define SWCLK                   RAK_PA14

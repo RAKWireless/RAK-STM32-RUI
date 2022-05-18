@@ -1,3 +1,4 @@
+#ifdef SUPPORT_LORA
 /**
  *
  * @page ATCMD AT Command Manual
@@ -24,9 +25,9 @@
  *
  * | Command            | Input parameter    | Return value                                                      | Return code        |
  * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
- * | AT+BAND?           | --                 | AT+BAND: get or set the active region (0 = EU433, 1 = CN70, 2 = RU864, 3 = IN865, 4 = EU868, 5 = US915, 6 = AU915, 7 = KR920, 8 = AS923)                             | OK                 |
- * | AT+BAND=?          | --                 | [0,1,2,3,4,5,6,7,8]                                               | OK                 |
- * | AT+BAND=\<Input\>  | [0,1,2,3,4,5,6,7,8]| --                                                                | OK / AT_PARAM_ERROR|
+ * | AT+BAND?           | --                 | AT+BAND: get or set the active region (0 = EU433, 1 = CN470, 2 = RU864, 3 = IN865, 4 = EU868, 5 = US915, 6 = AU915, 7 = KR920, 8 = AS923-1 , 9 = AS923-2 , 10 = AS923-3 , 11 = AS923-4)                             | OK                 |
+ * | AT+BAND=?          | --                 | [0,1,2,3,4,5,6,7,8,9,10,11]                                               | OK                 |
+ * | AT+BAND=\<Input\>  | [0,1,2,3,4,5,6,7,8,9,10,11]| --                                                                | OK / AT_PARAM_ERROR|
  * | Example<br>AT+BAND=| 1                  | --                                                                | OK                 |
  * | Example<br>AT+BAND=?|                   | 3                                                                 | OK                 |
  *
@@ -56,6 +57,7 @@
  *
  *
  */
+#endif 
  
 
 #ifndef _ATCMD_SUPPLE_DEF_H_

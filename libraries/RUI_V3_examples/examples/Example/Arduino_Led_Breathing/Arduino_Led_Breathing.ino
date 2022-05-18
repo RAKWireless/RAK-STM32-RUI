@@ -1,23 +1,22 @@
 
 #if defined(WISBLOCK_BASE_5005) || defined(WISBLOCK_BASE_5005_O)
-uint8_t ledPin1 = LED_GREEN; 
-uint8_t ledPin2 = LED_BLUE; 
+uint8_t ledPin1 = LED_GREEN;
+uint8_t ledPin2 = LED_BLUE;
 #else
 #warning please set the right pin refer to the documentation.
-uint8_t ledPin1 = 0xFF; 
-uint8_t ledPin2 = 0xFF; 
-#endif 
+uint8_t ledPin1 = 0xFF;
+uint8_t ledPin2 = 0xFF;
+#endif
 
-int val = 0; // variable for LED brightness value
-bool state = false; // variable for control led brightness status
-bool ledSwitch = false; // variable for switch led
-
+int val = 0;			// variable for LED brightness value
+bool state = false;		// variable for control led brightness status
+bool ledSwitch = false;		// variable for switch led
 
 void valChage()
 {
-  state = !state; // invert led control brightness status
+  state = !state;		// invert led control brightness status
   if (val == 0)
-    ledSwitch = !ledSwitch; // switch led when one of the led is darkest
+    ledSwitch = !ledSwitch;	// switch led when one of the led is darkest
 }
 
 void setup()
@@ -45,7 +44,7 @@ void loop()
     val--;
   // To switch the lighting led
   if (ledSwitch)
-    analogWrite(ledPin1, val); // Light the green led
+    analogWrite(ledPin1, val);	// Light the green led
   else
-    analogWrite(ledPin2, val); // Light the blue led
+    analogWrite(ledPin2, val);	// Light the blue led
 }

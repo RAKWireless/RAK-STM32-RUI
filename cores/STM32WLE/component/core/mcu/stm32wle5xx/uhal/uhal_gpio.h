@@ -10,6 +10,7 @@
 
 void uhal_gpio_init(uint32_t pin, gpio_dir_t dir, gpio_pull_t pull, gpio_logic_t logic);
 void uhal_gpio_set_dir(uint32_t pin, gpio_dir_t dir);
+gpio_dir_t uhal_gpio_get_dir(uint32_t pin);
 void uhal_gpio_set_pull(uint32_t pin, gpio_pull_t pull);
 void uhal_gpio_set_logic(uint32_t pin, gpio_logic_t logic);
 gpio_logic_t uhal_gpio_get_logic(uint32_t pin);

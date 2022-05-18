@@ -17,7 +17,7 @@ _Min_Stack_Size = 0x2000; /* required amount of stack */
 MEMORY
 {
   BL     (rx)    : ORIGIN = 0x08000000, LENGTH = 24K    /* Bootloader */
-  ROM    (rx)    : ORIGIN = 0x08006000, LENGTH = 232K   /* Application */
+  ROM    (rx)    : ORIGIN = 0x08006000, LENGTH = 196K   /* Application */
 /*Originally RAM1 and RAM2 are the same size: 32K, but it is not enough size for stack*/
   RAM1   (xrw)   : ORIGIN = 0x20000000, LENGTH = 56K    /* Non-backup SRAM1 */
   RAM2   (xrw)   : ORIGIN = 0x2000E000, LENGTH = 8K    /* Backup SRAM2 */

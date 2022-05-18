@@ -134,7 +134,7 @@ class TwoWire : public Stream
        }
        @endverbatim
      */
-    uint32_t endTransmission(uint8_t sendStop = false);
+    uint32_t endTransmission(uint8_t sendStop = true);
 
     /**@par	Description
      *      	Used by the master to request bytes from a slave device. The bytes may then be retrieved with the available() and read() functions
@@ -271,6 +271,14 @@ class TwoWire : public Stream
     virtual int peek(void);
     virtual void flush(void);
     void beginTransmission(int);
+    
+    
+    inline size_t write(unsigned long n) { return write((uint8_t)n); }
+    inline size_t write(long n)          { return write((uint8_t)n); }
+    inline size_t write(unsigned int n)  { return write((uint8_t)n); }
+    inline size_t write(int n)           { return write((uint8_t)n); }
+    using Print::write;
+
    
 };
 

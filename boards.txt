@@ -18,6 +18,7 @@
 
 menu.softdevice=Bootloader
 menu.debug=Debug
+menu.supportnfc=Support NFC
 
 # ----------------------------------
 # WisDuo RAK3172 Evaluation Board
@@ -32,8 +33,8 @@ WisDuoRAK3172EvaluationBoard.upload.tool=uploader_ymodem
 WisDuoRAK3172EvaluationBoard.upload.protocol=uploader_ymodem
 WisDuoRAK3172EvaluationBoard.upload.use_1200bps_touch=true
 WisDuoRAK3172EvaluationBoard.upload.wait_for_upload_port=true
-WisDuoRAK3172EvaluationBoard.upload.maximum_size=815104
-WisDuoRAK3172EvaluationBoard.upload.maximum_data_size=237568
+WisDuoRAK3172EvaluationBoard.upload.maximum_size=200704
+WisDuoRAK3172EvaluationBoard.upload.maximum_data_size=48640
 
 # Build
 WisDuoRAK3172EvaluationBoard.build.mcu=cortex-m4
@@ -43,7 +44,7 @@ WisDuoRAK3172EvaluationBoard.build.core=STM32WLE
 WisDuoRAK3172EvaluationBoard.build.variant=WisDuo_RAK3172_Evaluation_Board
 WisDuoRAK3172EvaluationBoard.build.usb_manufacturer="RAKwireless"
 WisDuoRAK3172EvaluationBoard.build.usb_product="WisDuo RAK3172 Evaluation Board"
-WisDuoRAK3172EvaluationBoard.build.extra_flags=-DSTM32WL55xx -DRAK3372+RAK5005-O_V1.0 -Drak3172 -DWISBLOCK_BASE_5005_O {build.flags.usb}
+WisDuoRAK3172EvaluationBoard.build.extra_flags=-DSTM32WLE5xx -DRAK3372+RAK5005-O_V1.0 -Drak3172 -DWISBLOCK_BASE_5005_O {build.flags.usb}
 WisDuoRAK3172EvaluationBoard.build.ldscript=flash_stm32wle5xx.ld
 WisDuoRAK3172EvaluationBoard.build.vid=0x1A86
 WisDuoRAK3172EvaluationBoard.build.pid=0x7523
@@ -72,8 +73,8 @@ WisDuoRAK3172SiPBoard.upload.tool=uploader_ymodem
 WisDuoRAK3172SiPBoard.upload.protocol=uploader_ymodem
 WisDuoRAK3172SiPBoard.upload.use_1200bps_touch=true
 WisDuoRAK3172SiPBoard.upload.wait_for_upload_port=true
-WisDuoRAK3172SiPBoard.upload.maximum_size=815104
-WisDuoRAK3172SiPBoard.upload.maximum_data_size=237568
+WisDuoRAK3172SiPBoard.upload.maximum_size=200704
+WisDuoRAK3172SiPBoard.upload.maximum_data_size=48640
 
 # Build
 WisDuoRAK3172SiPBoard.build.mcu=cortex-m4
@@ -83,7 +84,7 @@ WisDuoRAK3172SiPBoard.build.core=STM32WLE
 WisDuoRAK3172SiPBoard.build.variant=WisDuo_RAK3272-SiP_Board
 WisDuoRAK3172SiPBoard.build.usb_manufacturer="RAKwireless"
 WisDuoRAK3172SiPBoard.build.usb_product="WisDuo RAK3272-SiP Board"
-WisDuoRAK3172SiPBoard.build.extra_flags=-DSTM32WL55xx -DRAK3272_SIP_VA -Drak3172-sip {build.flags.usb}
+WisDuoRAK3172SiPBoard.build.extra_flags=-DSTM32WLE5xx -DRAK3272_SIP_VA -Drak3172-sip {build.flags.usb}
 WisDuoRAK3172SiPBoard.build.ldscript=flash_stm32wle5xx.ld
 WisDuoRAK3172SiPBoard.build.vid=0x1A86
 WisDuoRAK3172SiPBoard.build.pid=0x7523

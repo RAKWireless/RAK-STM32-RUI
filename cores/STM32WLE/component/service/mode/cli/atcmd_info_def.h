@@ -1,3 +1,4 @@
+#ifdef SUPPORT_LORA
 /**
  *
  * @page ATCMD AT Command Manual
@@ -37,6 +38,7 @@
  * | Example<br>AT+SNR=?| --                 | 32                                                                | OK                 |
  *
  */
+#endif
 
 #ifndef _ATCMD_INFO_DEF_H_
 #define _ATCMD_INFO_DEF_H_

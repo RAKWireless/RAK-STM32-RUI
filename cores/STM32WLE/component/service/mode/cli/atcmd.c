@@ -13,6 +13,7 @@
 #include "atcmd_serial_port_def.h"
 #include "atcmd_misc.h"
 #include "atcmd_misc_def.h"
+#include "udrv_errno.h"
 #ifndef RUI_BOOTLOADER
 #ifdef SUPPORT_LORA
 #include "atcmd_key_id.h"
@@ -160,11 +161,11 @@ at_cmd_info atcmd_info_tbl[] =
     {ATCMD_CLASS,    /*32*/         At_Class,              0, "get or set the device class (A = class A, B = class B, C = class C)", AT_CLASS_PERM},
     {ATCMD_DCS,      /*33*/         At_DCS,                0, "get the ETSI duty cycle setting (0 = disabled, 1 = enabled)", AT_DCS_PERM},
     {ATCMD_DR,       /*34*/         At_DataRate,           0, "get or set the data rate", AT_DR_PERM},
-    {ATCMD_JN1DL,    /*35*/         At_RxWin1JoinDelay,    0, "get or set the join accept delay between the end of TX and the join RX window 1 in second", AT_JN1DL_PERM},
-    {ATCMD_JN2DL,    /*36*/         At_RxWin2JoinDelay,    0, "get or set the join accept delay between the end of TX and the join RX window 2 in second", AT_JN2DL_PERM},
+    {ATCMD_JN1DL,    /*35*/         At_RxWin1JoinDelay,    0, "get or set the join accept delay between the end of TX and the join RX window 1 in seconds", AT_JN1DL_PERM},
+    {ATCMD_JN2DL,    /*36*/         At_RxWin2JoinDelay,    0, "get or set the join accept delay between the end of TX and the join RX window 2 in seconds", AT_JN2DL_PERM},
     {ATCMD_PNM,      /*37*/         At_PubNwkMode,         0, "get or set the public network mode (0 = off, 1 = on)", AT_PNM_PERM},
-    {ATCMD_RX1DL,    /*38*/         At_RxWin1Delay,        0, "get or set the delay between the end of TX and the RX window 1 in second (1-15)", AT_RX1DL_PERM},
-    {ATCMD_RX2DL,    /*39*/         At_RxWin2Delay,        0, "get or set the delay between the end of TX and the RX window 2 in second (2-16)", AT_RX2DL_PERM},
+    {ATCMD_RX1DL,    /*38*/         At_RxWin1Delay,        0, "get or set the delay between the end of TX and the RX window 1 in seconds (1-15)", AT_RX1DL_PERM},
+    {ATCMD_RX2DL,    /*39*/         At_RxWin2Delay,        0, "get or set the delay between the end of TX and the RX window 2 in seconds (2-16)", AT_RX2DL_PERM},
     {ATCMD_RX2DR,    /*40*/         At_RxWin2DataRate,     0, "get or set the RX2 window data rate", AT_RX2DR_PERM},
     {ATCMD_RX2FQ,    /*41*/         At_RxWin2Freq,         0, "get the RX2 window frequency (Hz)", AT_RX2FQ_PERM},
     {ATCMD_TXP,      /*42*/         At_TxPower,            0, "get or set the transmitting power", AT_TXP_PERM},
@@ -186,7 +187,7 @@ at_cmd_info atcmd_info_tbl[] =
     {ATCMD_CHE,      /*52*/         At_Che,                0, "get or set eight channels mode (only for US915 AU915 CN470)", AT_CHE_PERM},
     {ATCMD_CHS,      /*53*/         At_Chs,                0, "get or set single channels mode (only for US915 AU915 CN470)", AT_CHS_PERM},
 #endif
-    {ATCMD_BAND,     /*54*/         At_Band,               0, "get or set the active region (0 = EU433, 1 = CN70, 2 = RU864, 3 = IN865, 4 = EU868, 5 = US915, 6 = AU915, 7 = KR920, 8 = AS923)", AT_BAND_PERM},
+    {ATCMD_BAND,     /*54*/         At_Band,               0, "get or set the active region (0 = EU433, 1 = CN470, 2 = RU864, 3 = IN865, 4 = EU868, 5 = US915, 6 = AU915, 7 = KR920, 8 = AS923-1 , 9 = AS923-2 , 10 = AS923-3 , 11 = AS923-4)", AT_BAND_PERM},
 /* LoRaWAN P2P */
     {ATCMD_NWM,      /*55*/         At_NwkWorkMode,        0, "get or set the network working mode (0 = P2P_LORA, 1 = LoRaWAN, 2 = P2P_FSK)", AT_NWM_PERM},
     {ATCMD_PFREQ,    /*56*/         At_P2pFreq,            0, "configure P2P Frequency", AT_PFREQ_PERM},
@@ -622,4 +623,57 @@ void update_permisssion()
     }
 }
 
+
+/*
+    0.UDRV_RETURN_OK,
+    1.UDRV_NOT_INIT,
+    2.UDRV_ALREADY_INIT,
+    3.UDRV_WRONG_ARG,
+    4.UDRV_NACK,
+    5.UDRV_OCCUPIED,
+    6.UDRV_BUSY,
+    7.UDRV_INTERNAL_ERR,
+    8.UDRV_TEMP_LOCKED,
+    9.UDRV_BUFF_OVERFLOW,
+    10.UDRV_ADDR_NOT_ALIGNED,
+    11.UDRV_LEN_NOT_ALIGNED,
+    12.UDRV_NO_WAN_CONNECTION,
+    13.UDRV_FORBIDDEN,
+    14.UDRV_CONTINUE,
+    15.UDRV_NOT_FOUND,
+*/
+
+/*
+    0.AT_OK = 0,
+    1.AT_ERROR,
+    2.AT_PARAM_ERROR,
+    3.AT_BUSY_ERROR,
+    4.AT_TEST_PARAM_OVERFLOW,
+    5.AT_NO_CLASSB_ENABLE,
+    6.AT_NO_NETWORK_JOINED,
+    7.AT_RX_ERROR,
+    8.AT_MODE_NO_SUPPORT,
+*/
+
+uint8_t at_error_code_form_udrv(int8_t udrv_code)
+{
+    uint8_t at_status=0;
+    
+    switch (udrv_code) 
+    {
+        case UDRV_RETURN_OK : 
+        at_status=AT_OK ;
+        break;
+        case -UDRV_WRONG_ARG : 
+        at_status = AT_PARAM_ERROR ; 
+        break;
+        case -UDRV_BUSY : 
+        at_status = AT_BUSY_ERROR ; 
+        break;
+        default :             
+        at_status = AT_ERROR;
+        break;
+    }
+    return at_status;
+}
 #endif

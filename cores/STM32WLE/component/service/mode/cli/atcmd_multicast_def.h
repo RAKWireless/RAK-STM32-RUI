@@ -1,3 +1,4 @@
+#ifdef SUPPORT_LORA
 /**
  *
  * @page ATCMD AT Command Manual
@@ -37,6 +38,8 @@
  * | Example<br>AT+LSTMULC=| --              | MC1:C:01020304:0102030405060708:0102030405060708:868000000:0:0<br>MC2:C:01020304:0102030405060708:0102030405060708:868000000:0:0                                                                | OK                 |
  *
  */
+#endif
+
 #ifndef _ATCMD_MULTICAST_DEF_H_
 #define _ATCMD_MULTICAST_DEF_H_
 

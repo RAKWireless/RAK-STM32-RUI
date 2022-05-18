@@ -484,7 +484,7 @@
 #define rak3172 1
 #define CORE_CM4 1
 #define USE_HAL_DRIVER 1
-#define STM32WL55xx 1
+#define STM32WLE5xx 1
 #define REGION_AS923 1
 #define REGION_AU915 1
 #define REGION_CN470 1
@@ -655,17 +655,11 @@
 #define __STM32WLxx_CMSIS_VERSION_SUB2 (0x00U)
 #define __STM32WLxx_CMSIS_VERSION_RC (0x00U)
 #define __STM32WLxx_CMSIS_DEVICE_VERSION ((__STM32WLxx_CMSIS_VERSION_MAIN << 24) |(__STM32WLxx_CMSIS_VERSION_SUB1 << 16) |(__STM32WLxx_CMSIS_VERSION_SUB2 << 8 ) |(__STM32WLxx_CMSIS_VERSION_RC))
-# 99 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h"
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wl55xx.h" 1
-# 36 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wl55xx.h"
-#define __STM32WL55xx_H 
-
-
-
-
-
-#define DUAL_CORE 
-# 101 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wl55xx.h"
+# 101 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h" 1
+# 36 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
+#define __STM32WLE5xx_H 
+# 53 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 typedef enum
 {
 
@@ -700,7 +694,6 @@ typedef enum
   DMA1_Channel7_IRQn = 17,
   ADC_IRQn = 18,
   DAC_IRQn = 19,
-  C2SEV_PWR_C2H_IRQn = 20,
   COMP_IRQn = 21,
   EXTI9_5_IRQn = 22,
   TIM1_BRK_IRQn = 23,
@@ -725,8 +718,6 @@ typedef enum
   RTC_Alarm_IRQn = 42,
   LPTIM3_IRQn = 43,
   SUBGHZSPI_IRQn = 44,
-  IPCC_C1_RX_IRQn = 45,
-  IPCC_C1_TX_IRQn = 46,
   HSEM_IRQn = 47,
   I2C3_EV_IRQn = 48,
   I2C3_ER_IRQn = 49,
@@ -743,7 +734,7 @@ typedef enum
   DMA2_Channel7_IRQn = 60,
   DMAMUX1_OVR_IRQn = 61
 } IRQn_Type;
-# 203 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wl55xx.h"
+# 137 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define __CM4_REV 1U
 #define __MPU_PRESENT 1U
 #define __VTOR_PRESENT 1U
@@ -4121,8 +4112,7 @@ static inline int32_t ITM_CheckChar (void)
     return (1);
   }
 }
-# 211 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wl55xx.h" 2
-
+# 145 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h" 2
 
 
 # 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/system_stm32wlxx.h" 1
@@ -4137,8 +4127,8 @@ extern const uint32_t MSIRangeTable[16];
 # 87 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/system_stm32wlxx.h"
 extern void SystemInit(void);
 extern void SystemCoreClockUpdate(void);
-# 215 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wl55xx.h" 2
-# 232 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wl55xx.h"
+# 148 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h" 2
+# 165 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 typedef struct
 {
   volatile uint32_t ISR;
@@ -4254,21 +4244,17 @@ typedef struct
 
 
 
-
-
 typedef struct
 {
   volatile uint32_t IDCODE;
   volatile uint32_t CR;
   uint32_t RESERVED1[13];
   volatile uint32_t APB1FZR1;
-  volatile uint32_t C2APB1FZR1;
+  uint32_t RESERVED2;
   volatile uint32_t APB1FZR2;
-  volatile uint32_t C2APB1FZR2;
+  uint32_t RESERVED3;
   volatile uint32_t APB2FZR;
-  volatile uint32_t C2APB2FZR;
 } DBGMCU_TypeDef;
-
 
 
 
@@ -4334,12 +4320,6 @@ typedef struct
   volatile uint32_t RESERVED5[2];
   volatile uint32_t IMR2;
   volatile uint32_t EMR2;
-  volatile uint32_t RESERVED8[10];
-  volatile uint32_t C2IMR1;
-  volatile uint32_t C2EMR1;
-  volatile uint32_t RESERVED9[2];
-  volatile uint32_t C2IMR2;
-  volatile uint32_t C2EMR2;
 }EXTI_TypeDef;
 
 
@@ -4348,7 +4328,7 @@ typedef struct
 typedef struct
 {
   volatile uint32_t ACR;
-  volatile uint32_t ACR2;
+  uint32_t RESERVED0;
   volatile uint32_t KEYR;
   volatile uint32_t OPTKEYR;
   volatile uint32_t SR;
@@ -4362,14 +4342,6 @@ typedef struct
   volatile uint32_t WRP1BR;
   volatile uint32_t PCROP1BSR;
   volatile uint32_t PCROP1BER;
-  volatile uint32_t IPCCBR;
-  uint32_t RESERVED2[7];
-  volatile uint32_t C2ACR;
-  volatile uint32_t C2SR;
-  volatile uint32_t C2CR;
-  uint32_t RESERVED3[6];
-  volatile uint32_t SFR;
-  volatile uint32_t SRRVR;
 } FLASH_TypeDef;
 
 
@@ -4392,31 +4364,6 @@ typedef struct
 
 
 
-typedef struct{
-  volatile uint32_t CR;
-       uint32_t RESERVED1[3];
-  volatile uint32_t SECCFGR1;
-       uint32_t RESERVED2[3];
-  volatile uint32_t PRIVCFGR1;
-       uint32_t RESERVED3[67];
-  volatile uint32_t MPCWM1_UPWMR;
-  volatile uint32_t MPCWM1_UPWWMR;
-  volatile uint32_t MPCWM2_UPWMR;
-       uint32_t RESERVED4;
-  volatile uint32_t MPCWM3_UPWMR;
-} GTZC_TZSC_TypeDef;
-
-typedef struct{
-  volatile uint32_t IER1;
-  uint32_t RESERVED1[3];
-  volatile uint32_t MISR1;
-  uint32_t RESERVED2[3];
-  volatile uint32_t ICR1;
-} GTZC_TZIC_TypeDef;
-
-
-
-
 typedef struct
 {
   volatile uint32_t R[16];
@@ -4427,11 +4374,7 @@ typedef struct
   volatile uint32_t C1ICR;
   volatile uint32_t C1ISR;
   volatile uint32_t C1MISR;
-  volatile uint32_t C2IER;
-  volatile uint32_t C2ICR;
-  volatile uint32_t C2ISR;
-  volatile uint32_t C2MISR;
-   uint32_t Reserved[8];
+   uint32_t Reserved[12];
   volatile uint32_t CR;
   volatile uint32_t KEYR;
 } HSEM_TypeDef;
@@ -4461,29 +4404,6 @@ typedef struct
   volatile uint32_t RXDR;
   volatile uint32_t TXDR;
 } I2C_TypeDef;
-
-
-
-
-typedef struct
-{
-  volatile uint32_t C1CR;
-  volatile uint32_t C1MR ;
-  volatile uint32_t C1SCR;
-  volatile uint32_t C1TOC2SR;
-  volatile uint32_t C2CR;
-  volatile uint32_t C2MR ;
-  volatile uint32_t C2SCR;
-  volatile uint32_t C2TOC1SR;
-} IPCC_TypeDef;
-
-typedef struct
-{
-  volatile uint32_t CR;
-  volatile uint32_t MR;
-  volatile uint32_t SCR;
-  volatile uint32_t SR;
-} IPCC_CommonTypeDef;
 
 
 
@@ -4549,14 +4469,10 @@ typedef struct
        uint32_t RESERVED0[8];
   volatile uint32_t PUCRH;
   volatile uint32_t PDCRH;
-       uint32_t RESERVED1[8];
-  volatile uint32_t C2CR1;
-  volatile uint32_t C2CR3;
+       uint32_t RESERVED1[10];
   volatile uint32_t EXTSCR;
-  volatile uint32_t SECCFGR;
-  volatile uint32_t SUBGHZSPICR;
        uint32_t RESERVED2;
-  volatile uint32_t RSSCMDR;
+  volatile uint32_t SUBGHZSPICR;
 } PWR_TypeDef;
 
 
@@ -4604,23 +4520,6 @@ uint32_t RESERVED6;
   volatile uint32_t CSR;
 uint32_t RESERVED7[28];
   volatile uint32_t EXTCFGR;
-  volatile uint32_t RESERVED8[15];
-  volatile uint32_t C2AHB1ENR;
-  volatile uint32_t C2AHB2ENR;
-  volatile uint32_t C2AHB3ENR;
-uint32_t RESERVED9;
-  volatile uint32_t C2APB1ENR1;
-  volatile uint32_t C2APB1ENR2;
-  volatile uint32_t C2APB2ENR;
-  volatile uint32_t C2APB3ENR;
-  volatile uint32_t C2AHB1SMENR;
-  volatile uint32_t C2AHB2SMENR;
-  volatile uint32_t C2AHB3SMENR;
-uint32_t RESERVED10;
-  volatile uint32_t C2APB1SMENR1;
-  volatile uint32_t C2APB1SMENR2;
-  volatile uint32_t C2APB2SMENR;
-  volatile uint32_t C2APB3SMENR;
 } RCC_TypeDef;
 
 
@@ -4703,12 +4602,7 @@ typedef struct
   volatile uint32_t CFGR2;
   volatile uint32_t SWPR;
   volatile uint32_t SKR;
-       uint32_t RESERVED1[54];
-  volatile uint32_t IMR1;
-  volatile uint32_t IMR2;
-  volatile uint32_t C2IMR1;
-  volatile uint32_t C2IMR2;
-       uint32_t RESERVED2[62];
+       uint32_t RESERVED1[120];
   volatile uint32_t RFDCR;
 } SYSCFG_TypeDef;
 
@@ -4821,7 +4715,7 @@ typedef struct
   volatile uint32_t CFR;
   volatile uint32_t SR;
 } WWDG_TypeDef;
-# 923 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wl55xx.h"
+# 760 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define FLASH_BASE 0x08000000UL
 #define SYSTEM_FLASH_BASE 0x1FFF0000UL
 #define SRAM1_BASE 0x20000000UL
@@ -4833,7 +4727,6 @@ typedef struct
 #define SRAM2_SIZE 0x00008000UL
 
 
-#define RSSLIB_PFUNC_BASE (SYSTEM_FLASH_BASE + 0x00003A00UL)
 #define OTP_AREA_BASE (SYSTEM_FLASH_BASE + 0x00007000UL)
 #define ENGI_BYTES_BASE (SYSTEM_FLASH_BASE + 0x00007400UL)
 #define OPTION_BYTES_BASE (SYSTEM_FLASH_BASE + 0x00007800UL)
@@ -4942,24 +4835,19 @@ typedef struct
 
 #define PWR_BASE (AHB3PERIPH_BASE + 0x00000400UL)
 #define EXTI_BASE (AHB3PERIPH_BASE + 0x00000800UL)
-#define IPCC_BASE (AHB3PERIPH_BASE + 0x00000C00UL)
 #define RCC_BASE (AHB3PERIPH_BASE + 0x00000000UL)
 #define RNG_BASE (AHB3PERIPH_BASE + 0x00001000UL)
 #define HSEM_BASE (AHB3PERIPH_BASE + 0x00001400UL)
 #define AES_BASE (AHB3PERIPH_BASE + 0x00001800UL)
 #define PKA_BASE (AHB3PERIPH_BASE + 0x00002000UL)
 #define FLASH_REG_BASE (AHB3PERIPH_BASE + 0x00004000UL)
-#define GTZC_TZSC_BASE (AHB3PERIPH_BASE + 0x00004400UL)
-#define GTZC_TZIC_BASE (AHB3PERIPH_BASE + 0x00004800UL)
 
 
 #define SUBGHZSPI_BASE (APB3PERIPH_BASE + 0x00000000UL)
 
 
-
-
 #define DBGMCU_BASE (0xE0042000UL)
-# 1071 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wl55xx.h"
+# 901 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define TIM2 ((TIM_TypeDef *) TIM2_BASE)
 #define IWDG ((IWDG_TypeDef *) IWDG_BASE)
 #define WWDG ((WWDG_TypeDef *) WWDG_BASE)
@@ -5045,33 +4933,22 @@ typedef struct
 #define AES ((AES_TypeDef *) AES_BASE)
 
 #define EXTI ((EXTI_TypeDef *) EXTI_BASE)
-#define IPCC ((IPCC_TypeDef *) IPCC_BASE)
-#define IPCC_C1 ((IPCC_CommonTypeDef *) IPCC_BASE)
-#define IPCC_C2 ((IPCC_CommonTypeDef *) (IPCC_BASE + 0x10U))
 #define RCC ((RCC_TypeDef *) RCC_BASE)
 #define PWR ((PWR_TypeDef *) PWR_BASE)
 #define RNG ((RNG_TypeDef *) RNG_BASE)
 #define HSEM ((HSEM_TypeDef *) HSEM_BASE)
-
-
-
 #define HSEM_COMMON ((HSEM_Common_TypeDef *) (HSEM_BASE + 0x100U))
-
 #define PKA ((PKA_TypeDef *) PKA_BASE)
 #define FLASH ((FLASH_TypeDef *) FLASH_REG_BASE)
-#define GTZC_TZSC ((GTZC_TZSC_TypeDef *) GTZC_TZSC_BASE)
-#define GTZC_TZIC ((GTZC_TZIC_TypeDef *) GTZC_TZIC_BASE)
 
 
 #define SUBGHZSPI ((SPI_TypeDef *) SUBGHZSPI_BASE)
 
 
-
-
 #define DBGMCU ((DBGMCU_TypeDef *) DBGMCU_BASE)
-# 1193 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wl55xx.h"
+# 1011 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define LSI_STARTUP_TIME 130U
-# 1213 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wl55xx.h"
+# 1031 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define ADC_ISR_ADRDY_Pos (0U)
 #define ADC_ISR_ADRDY_Msk (0x1UL << ADC_ISR_ADRDY_Pos)
 #define ADC_ISR_ADRDY ADC_ISR_ADRDY_Msk
@@ -5727,7 +5604,7 @@ typedef struct
 #define COMP_CSR_LOCK_Pos (31U)
 #define COMP_CSR_LOCK_Msk (0x1UL << COMP_CSR_LOCK_Pos)
 #define COMP_CSR_LOCK COMP_CSR_LOCK_Msk
-# 1879 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wl55xx.h"
+# 1697 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define DAC_CR_EN1_Pos (0U)
 #define DAC_CR_EN1_Msk (0x1UL << DAC_CR_EN1_Pos)
 #define DAC_CR_EN1 DAC_CR_EN1_Msk
@@ -6696,7 +6573,7 @@ typedef struct
 #define AES_SUSP7R_Pos (0U)
 #define AES_SUSP7R_Msk (0xFFFFFFFFUL << AES_SUSP7R_Pos)
 #define AES_SUSP7R AES_SUSP7R_Msk
-# 2855 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wl55xx.h"
+# 2673 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define DMA_ISR_GIF1_Pos (0U)
 #define DMA_ISR_GIF1_Msk (0x1UL << DMA_ISR_GIF1_Pos)
 #define DMA_ISR_GIF1 DMA_ISR_GIF1_Msk
@@ -6916,18 +6793,6 @@ typedef struct
 #define DMA_CCR_MEM2MEM_Msk (0x1UL << DMA_CCR_MEM2MEM_Pos)
 #define DMA_CCR_MEM2MEM DMA_CCR_MEM2MEM_Msk
 
-#define DMA_CCR_SECM_Pos (17U)
-#define DMA_CCR_SECM_Msk (0x1UL << DMA_CCR_SECM_Pos)
-#define DMA_CCR_SECM DMA_CCR_SECM_Msk
-#define DMA_CCR_SSEC_Pos (18U)
-#define DMA_CCR_SSEC_Msk (0x1UL << DMA_CCR_SSEC_Pos)
-#define DMA_CCR_SSEC DMA_CCR_SSEC_Msk
-#define DMA_CCR_DSEC_Pos (19U)
-#define DMA_CCR_DSEC_Msk (0x1UL << DMA_CCR_DSEC_Pos)
-#define DMA_CCR_DSEC DMA_CCR_DSEC_Msk
-#define DMA_CCR_PRIV_Pos (20U)
-#define DMA_CCR_PRIV_Msk (0x1UL << DMA_CCR_PRIV_Pos)
-#define DMA_CCR_PRIV DMA_CCR_PRIV_Msk
 
 
 #define DMA_CNDTR_NDT_Pos (0U)
@@ -7135,7 +7000,7 @@ typedef struct
 #define DMAMUX_RGCFR_COF3_Pos (3U)
 #define DMAMUX_RGCFR_COF3_Msk (0x1UL << DMAMUX_RGCFR_COF3_Pos)
 #define DMAMUX_RGCFR_COF3 DMAMUX_RGCFR_COF3_Msk
-# 3301 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wl55xx.h"
+# 3107 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define EXTI_RTSR1_RT0_Pos (0U)
 #define EXTI_RTSR1_RT0_Msk (0x1UL << EXTI_RTSR1_RT0_Pos)
 #define EXTI_RTSR1_RT0 EXTI_RTSR1_RT0_Msk
@@ -7375,12 +7240,6 @@ typedef struct
 #define EXTI_RTSR2_RT34_Pos (2U)
 #define EXTI_RTSR2_RT34_Msk (0x1UL << EXTI_RTSR2_RT34_Pos)
 #define EXTI_RTSR2_RT34 EXTI_RTSR2_RT34_Msk
-#define EXTI_RTSR2_RT40_Pos (8U)
-#define EXTI_RTSR2_RT40_Msk (0x1UL << EXTI_RTSR2_RT40_Pos)
-#define EXTI_RTSR2_RT40 EXTI_RTSR2_RT40_Msk
-#define EXTI_RTSR2_RT41_Pos (9U)
-#define EXTI_RTSR2_RT41_Msk (0x1UL << EXTI_RTSR2_RT41_Pos)
-#define EXTI_RTSR2_RT41 EXTI_RTSR2_RT41_Msk
 #define EXTI_RTSR2_RT45_Pos (13U)
 #define EXTI_RTSR2_RT45_Msk (0x1UL << EXTI_RTSR2_RT45_Pos)
 #define EXTI_RTSR2_RT45 EXTI_RTSR2_RT45_Msk
@@ -7389,12 +7248,6 @@ typedef struct
 #define EXTI_FTSR2_FT34_Pos (2U)
 #define EXTI_FTSR2_FT34_Msk (0x1UL << EXTI_FTSR2_FT34_Pos)
 #define EXTI_FTSR2_FT34 EXTI_FTSR2_FT34_Msk
-#define EXTI_FTSR2_FT40_Pos (8U)
-#define EXTI_FTSR2_FT40_Msk (0x1UL << EXTI_FTSR2_FT40_Pos)
-#define EXTI_FTSR2_FT40 EXTI_FTSR2_FT40_Msk
-#define EXTI_FTSR2_FT41_Pos (9U)
-#define EXTI_FTSR2_FT41_Msk (0x1UL << EXTI_FTSR2_FT41_Pos)
-#define EXTI_FTSR2_FT41 EXTI_FTSR2_FT41_Msk
 #define EXTI_FTSR2_FT45_Pos (13U)
 #define EXTI_FTSR2_FT45_Msk (0x1UL << EXTI_FTSR2_FT45_Pos)
 #define EXTI_FTSR2_FT45 EXTI_FTSR2_FT45_Msk
@@ -7403,12 +7256,6 @@ typedef struct
 #define EXTI_SWIER2_SWI34_Pos (2U)
 #define EXTI_SWIER2_SWI34_Msk (0x1UL << EXTI_SWIER2_SWI34_Pos)
 #define EXTI_SWIER2_SWI34 EXTI_SWIER2_SWI34_Msk
-#define EXTI_SWIER2_SWI40_Pos (8U)
-#define EXTI_SWIER2_SWI40_Msk (0x1UL << EXTI_SWIER2_SWI40_Pos)
-#define EXTI_SWIER2_SWI40 EXTI_SWIER2_SWI40_Msk
-#define EXTI_SWIER2_SWI41_Pos (9U)
-#define EXTI_SWIER2_SWI41_Msk (0x1UL << EXTI_SWIER2_SWI41_Pos)
-#define EXTI_SWIER2_SWI41 EXTI_SWIER2_SWI41_Msk
 #define EXTI_SWIER2_SWI45_Pos (13U)
 #define EXTI_SWIER2_SWI45_Msk (0x1UL << EXTI_SWIER2_SWI45_Pos)
 #define EXTI_SWIER2_SWI45 EXTI_SWIER2_SWI45_Msk
@@ -7417,12 +7264,6 @@ typedef struct
 #define EXTI_PR2_PIF34_Pos (2U)
 #define EXTI_PR2_PIF34_Msk (0x1UL << EXTI_PR2_PIF34_Pos)
 #define EXTI_PR2_PIF34 EXTI_PR2_PIF34_Msk
-#define EXTI_PR2_PIF40_Pos (8U)
-#define EXTI_PR2_PIF40_Msk (0x1UL << EXTI_PR2_PIF40_Pos)
-#define EXTI_PR2_PIF40 EXTI_PR2_PIF40_Msk
-#define EXTI_PR2_PIF41_Pos (9U)
-#define EXTI_PR2_PIF41_Msk (0x1UL << EXTI_PR2_PIF41_Pos)
-#define EXTI_PR2_PIF41 EXTI_PR2_PIF41_Msk
 #define EXTI_PR2_PIF45_Pos (13U)
 #define EXTI_PR2_PIF45_Msk (0x1UL << EXTI_PR2_PIF45_Pos)
 #define EXTI_PR2_PIF45 EXTI_PR2_PIF45_Msk
@@ -7594,24 +7435,9 @@ typedef struct
 #define EXTI_IMR2_IM34_Pos (2U)
 #define EXTI_IMR2_IM34_Msk (0x1UL << EXTI_IMR2_IM34_Pos)
 #define EXTI_IMR2_IM34 EXTI_IMR2_IM34_Msk
-#define EXTI_IMR2_IM36_Pos (4U)
-#define EXTI_IMR2_IM36_Msk (0x1UL << EXTI_IMR2_IM36_Pos)
-#define EXTI_IMR2_IM36 EXTI_IMR2_IM36_Msk
-#define EXTI_IMR2_IM37_Pos (5U)
-#define EXTI_IMR2_IM37_Msk (0x1UL << EXTI_IMR2_IM37_Pos)
-#define EXTI_IMR2_IM37 EXTI_IMR2_IM37_Msk
 #define EXTI_IMR2_IM38_Pos (6U)
 #define EXTI_IMR2_IM38_Msk (0x1UL << EXTI_IMR2_IM38_Pos)
 #define EXTI_IMR2_IM38 EXTI_IMR2_IM38_Msk
-#define EXTI_IMR2_IM39_Pos (7U)
-#define EXTI_IMR2_IM39_Msk (0x1UL << EXTI_IMR2_IM39_Pos)
-#define EXTI_IMR2_IM39 EXTI_IMR2_IM39_Msk
-#define EXTI_IMR2_IM40_Pos (8U)
-#define EXTI_IMR2_IM40_Msk (0x1UL << EXTI_IMR2_IM40_Pos)
-#define EXTI_IMR2_IM40 EXTI_IMR2_IM40_Msk
-#define EXTI_IMR2_IM41_Pos (9U)
-#define EXTI_IMR2_IM41_Msk (0x1UL << EXTI_IMR2_IM41_Pos)
-#define EXTI_IMR2_IM41 EXTI_IMR2_IM41_Msk
 #define EXTI_IMR2_IM42_Pos (10U)
 #define EXTI_IMR2_IM42_Msk (0x1UL << EXTI_IMR2_IM42_Pos)
 #define EXTI_IMR2_IM42 EXTI_IMR2_IM42_Msk
@@ -7627,392 +7453,6 @@ typedef struct
 #define EXTI_IMR2_IM46_Pos (14U)
 #define EXTI_IMR2_IM46_Msk (0x1UL << EXTI_IMR2_IM46_Pos)
 #define EXTI_IMR2_IM46 EXTI_IMR2_IM46_Msk
-
-
-#define EXTI_EMR2_EM40_Pos (8U)
-#define EXTI_EMR2_EM40_Msk (0x1UL << EXTI_EMR2_EM40_Pos)
-#define EXTI_EMR2_EM40 EXTI_EMR2_EM40_Msk
-#define EXTI_EMR2_EM41_Pos (9U)
-#define EXTI_EMR2_EM41_Msk (0x1UL << EXTI_EMR2_EM41_Pos)
-#define EXTI_EMR2_EM41 EXTI_EMR2_EM41_Msk
-
-
-#define EXTI_C2IMR1_IM0_Pos (0U)
-#define EXTI_C2IMR1_IM0_Msk (0x1UL << EXTI_C2IMR1_IM0_Pos)
-#define EXTI_C2IMR1_IM0 EXTI_C2IMR1_IM0_Msk
-#define EXTI_C2IMR1_IM1_Pos (1U)
-#define EXTI_C2IMR1_IM1_Msk (0x1UL << EXTI_C2IMR1_IM1_Pos)
-#define EXTI_C2IMR1_IM1 EXTI_C2IMR1_IM1_Msk
-#define EXTI_C2IMR1_IM2_Pos (2U)
-#define EXTI_C2IMR1_IM2_Msk (0x1UL << EXTI_C2IMR1_IM2_Pos)
-#define EXTI_C2IMR1_IM2 EXTI_C2IMR1_IM2_Msk
-#define EXTI_C2IMR1_IM3_Pos (3U)
-#define EXTI_C2IMR1_IM3_Msk (0x1UL << EXTI_C2IMR1_IM3_Pos)
-#define EXTI_C2IMR1_IM3 EXTI_C2IMR1_IM3_Msk
-#define EXTI_C2IMR1_IM4_Pos (4U)
-#define EXTI_C2IMR1_IM4_Msk (0x1UL << EXTI_C2IMR1_IM4_Pos)
-#define EXTI_C2IMR1_IM4 EXTI_C2IMR1_IM4_Msk
-#define EXTI_C2IMR1_IM5_Pos (5U)
-#define EXTI_C2IMR1_IM5_Msk (0x1UL << EXTI_C2IMR1_IM5_Pos)
-#define EXTI_C2IMR1_IM5 EXTI_C2IMR1_IM5_Msk
-#define EXTI_C2IMR1_IM6_Pos (6U)
-#define EXTI_C2IMR1_IM6_Msk (0x1UL << EXTI_C2IMR1_IM6_Pos)
-#define EXTI_C2IMR1_IM6 EXTI_C2IMR1_IM6_Msk
-#define EXTI_C2IMR1_IM7_Pos (7U)
-#define EXTI_C2IMR1_IM7_Msk (0x1UL << EXTI_C2IMR1_IM7_Pos)
-#define EXTI_C2IMR1_IM7 EXTI_C2IMR1_IM7_Msk
-#define EXTI_C2IMR1_IM8_Pos (8U)
-#define EXTI_C2IMR1_IM8_Msk (0x1UL << EXTI_C2IMR1_IM8_Pos)
-#define EXTI_C2IMR1_IM8 EXTI_C2IMR1_IM8_Msk
-#define EXTI_C2IMR1_IM9_Pos (9U)
-#define EXTI_C2IMR1_IM9_Msk (0x1UL << EXTI_C2IMR1_IM9_Pos)
-#define EXTI_C2IMR1_IM9 EXTI_C2IMR1_IM9_Msk
-#define EXTI_C2IMR1_IM10_Pos (10U)
-#define EXTI_C2IMR1_IM10_Msk (0x1UL << EXTI_C2IMR1_IM10_Pos)
-#define EXTI_C2IMR1_IM10 EXTI_C2IMR1_IM10_Msk
-#define EXTI_C2IMR1_IM11_Pos (11U)
-#define EXTI_C2IMR1_IM11_Msk (0x1UL << EXTI_C2IMR1_IM11_Pos)
-#define EXTI_C2IMR1_IM11 EXTI_C2IMR1_IM11_Msk
-#define EXTI_C2IMR1_IM12_Pos (12U)
-#define EXTI_C2IMR1_IM12_Msk (0x1UL << EXTI_C2IMR1_IM12_Pos)
-#define EXTI_C2IMR1_IM12 EXTI_C2IMR1_IM12_Msk
-#define EXTI_C2IMR1_IM13_Pos (13U)
-#define EXTI_C2IMR1_IM13_Msk (0x1UL << EXTI_C2IMR1_IM13_Pos)
-#define EXTI_C2IMR1_IM13 EXTI_C2IMR1_IM13_Msk
-#define EXTI_C2IMR1_IM14_Pos (14U)
-#define EXTI_C2IMR1_IM14_Msk (0x1UL << EXTI_C2IMR1_IM14_Pos)
-#define EXTI_C2IMR1_IM14 EXTI_C2IMR1_IM14_Msk
-#define EXTI_C2IMR1_IM15_Pos (15U)
-#define EXTI_C2IMR1_IM15_Msk (0x1UL << EXTI_C2IMR1_IM15_Pos)
-#define EXTI_C2IMR1_IM15 EXTI_C2IMR1_IM15_Msk
-#define EXTI_C2IMR1_IM16_Pos (16U)
-#define EXTI_C2IMR1_IM16_Msk (0x1UL << EXTI_C2IMR1_IM16_Pos)
-#define EXTI_C2IMR1_IM16 EXTI_C2IMR1_IM16_Msk
-#define EXTI_C2IMR1_IM17_Pos (17U)
-#define EXTI_C2IMR1_IM17_Msk (0x1UL << EXTI_C2IMR1_IM17_Pos)
-#define EXTI_C2IMR1_IM17 EXTI_C2IMR1_IM17_Msk
-#define EXTI_C2IMR1_IM18_Pos (18U)
-#define EXTI_C2IMR1_IM18_Msk (0x1UL << EXTI_C2IMR1_IM18_Pos)
-#define EXTI_C2IMR1_IM18 EXTI_C2IMR1_IM18_Msk
-#define EXTI_C2IMR1_IM19_Pos (19U)
-#define EXTI_C2IMR1_IM19_Msk (0x1UL << EXTI_C2IMR1_IM19_Pos)
-#define EXTI_C2IMR1_IM19 EXTI_C2IMR1_IM19_Msk
-#define EXTI_C2IMR1_IM20_Pos (20U)
-#define EXTI_C2IMR1_IM20_Msk (0x1UL << EXTI_C2IMR1_IM20_Pos)
-#define EXTI_C2IMR1_IM20 EXTI_C2IMR1_IM20_Msk
-#define EXTI_C2IMR1_IM21_Pos (21U)
-#define EXTI_C2IMR1_IM21_Msk (0x1UL << EXTI_C2IMR1_IM21_Pos)
-#define EXTI_C2IMR1_IM21 EXTI_C2IMR1_IM21_Msk
-#define EXTI_C2IMR1_IM22_Pos (22U)
-#define EXTI_C2IMR1_IM22_Msk (0x1UL << EXTI_C2IMR1_IM22_Pos)
-#define EXTI_C2IMR1_IM22 EXTI_C2IMR1_IM22_Msk
-#define EXTI_C2IMR1_IM23_Pos (23U)
-#define EXTI_C2IMR1_IM23_Msk (0x1UL << EXTI_C2IMR1_IM23_Pos)
-#define EXTI_C2IMR1_IM23 EXTI_C2IMR1_IM23_Msk
-#define EXTI_C2IMR1_IM24_Pos (24U)
-#define EXTI_C2IMR1_IM24_Msk (0x1UL << EXTI_C2IMR1_IM24_Pos)
-#define EXTI_C2IMR1_IM24 EXTI_C2IMR1_IM24_Msk
-#define EXTI_C2IMR1_IM25_Pos (25U)
-#define EXTI_C2IMR1_IM25_Msk (0x1UL << EXTI_C2IMR1_IM25_Pos)
-#define EXTI_C2IMR1_IM25 EXTI_C2IMR1_IM25_Msk
-#define EXTI_C2IMR1_IM26_Pos (26U)
-#define EXTI_C2IMR1_IM26_Msk (0x1UL << EXTI_C2IMR1_IM26_Pos)
-#define EXTI_C2IMR1_IM26 EXTI_C2IMR1_IM26_Msk
-#define EXTI_C2IMR1_IM27_Pos (27U)
-#define EXTI_C2IMR1_IM27_Msk (0x1UL << EXTI_C2IMR1_IM27_Pos)
-#define EXTI_C2IMR1_IM27 EXTI_C2IMR1_IM27_Msk
-#define EXTI_C2IMR1_IM28_Pos (28U)
-#define EXTI_C2IMR1_IM28_Msk (0x1UL << EXTI_C2IMR1_IM28_Pos)
-#define EXTI_C2IMR1_IM28 EXTI_C2IMR1_IM28_Msk
-#define EXTI_C2IMR1_IM29_Pos (29U)
-#define EXTI_C2IMR1_IM29_Msk (0x1UL << EXTI_C2IMR1_IM29_Pos)
-#define EXTI_C2IMR1_IM29 EXTI_C2IMR1_IM29_Msk
-#define EXTI_C2IMR1_IM30_Pos (30U)
-#define EXTI_C2IMR1_IM30_Msk (0x1UL << EXTI_C2IMR1_IM30_Pos)
-#define EXTI_C2IMR1_IM30 EXTI_C2IMR1_IM30_Msk
-#define EXTI_C2IMR1_IM31_Pos (31U)
-#define EXTI_C2IMR1_IM31_Msk (0x1UL << EXTI_C2IMR1_IM31_Pos)
-#define EXTI_C2IMR1_IM31 EXTI_C2IMR1_IM31_Msk
-
-
-#define EXTI_C2EMR1_EM0_Pos (0U)
-#define EXTI_C2EMR1_EM0_Msk (0x1UL << EXTI_C2EMR1_EM0_Pos)
-#define EXTI_C2EMR1_EM0 EXTI_C2EMR1_EM0_Msk
-#define EXTI_C2EMR1_EM1_Pos (1U)
-#define EXTI_C2EMR1_EM1_Msk (0x1UL << EXTI_C2EMR1_EM1_Pos)
-#define EXTI_C2EMR1_EM1 EXTI_C2EMR1_EM1_Msk
-#define EXTI_C2EMR1_EM2_Pos (2U)
-#define EXTI_C2EMR1_EM2_Msk (0x1UL << EXTI_C2EMR1_EM2_Pos)
-#define EXTI_C2EMR1_EM2 EXTI_C2EMR1_EM2_Msk
-#define EXTI_C2EMR1_EM3_Pos (3U)
-#define EXTI_C2EMR1_EM3_Msk (0x1UL << EXTI_C2EMR1_EM3_Pos)
-#define EXTI_C2EMR1_EM3 EXTI_C2EMR1_EM3_Msk
-#define EXTI_C2EMR1_EM4_Pos (4U)
-#define EXTI_C2EMR1_EM4_Msk (0x1UL << EXTI_C2EMR1_EM4_Pos)
-#define EXTI_C2EMR1_EM4 EXTI_C2EMR1_EM4_Msk
-#define EXTI_C2EMR1_EM5_Pos (5U)
-#define EXTI_C2EMR1_EM5_Msk (0x1UL << EXTI_C2EMR1_EM5_Pos)
-#define EXTI_C2EMR1_EM5 EXTI_C2EMR1_EM5_Msk
-#define EXTI_C2EMR1_EM6_Pos (6U)
-#define EXTI_C2EMR1_EM6_Msk (0x1UL << EXTI_C2EMR1_EM6_Pos)
-#define EXTI_C2EMR1_EM6 EXTI_C2EMR1_EM6_Msk
-#define EXTI_C2EMR1_EM7_Pos (7U)
-#define EXTI_C2EMR1_EM7_Msk (0x1UL << EXTI_C2EMR1_EM7_Pos)
-#define EXTI_C2EMR1_EM7 EXTI_C2EMR1_EM7_Msk
-#define EXTI_C2EMR1_EM8_Pos (8U)
-#define EXTI_C2EMR1_EM8_Msk (0x1UL << EXTI_C2EMR1_EM8_Pos)
-#define EXTI_C2EMR1_EM8 EXTI_C2EMR1_EM8_Msk
-#define EXTI_C2EMR1_EM9_Pos (9U)
-#define EXTI_C2EMR1_EM9_Msk (0x1UL << EXTI_C2EMR1_EM9_Pos)
-#define EXTI_C2EMR1_EM9 EXTI_C2EMR1_EM9_Msk
-#define EXTI_C2EMR1_EM10_Pos (10U)
-#define EXTI_C2EMR1_EM10_Msk (0x1UL << EXTI_C2EMR1_EM10_Pos)
-#define EXTI_C2EMR1_EM10 EXTI_C2EMR1_EM10_Msk
-#define EXTI_C2EMR1_EM11_Pos (11U)
-#define EXTI_C2EMR1_EM11_Msk (0x1UL << EXTI_C2EMR1_EM11_Pos)
-#define EXTI_C2EMR1_EM11 EXTI_C2EMR1_EM11_Msk
-#define EXTI_C2EMR1_EM12_Pos (12U)
-#define EXTI_C2EMR1_EM12_Msk (0x1UL << EXTI_C2EMR1_EM12_Pos)
-#define EXTI_C2EMR1_EM12 EXTI_C2EMR1_EM12_Msk
-#define EXTI_C2EMR1_EM13_Pos (13U)
-#define EXTI_C2EMR1_EM13_Msk (0x1UL << EXTI_C2EMR1_EM13_Pos)
-#define EXTI_C2EMR1_EM13 EXTI_C2EMR1_EM13_Msk
-#define EXTI_C2EMR1_EM14_Pos (14U)
-#define EXTI_C2EMR1_EM14_Msk (0x1UL << EXTI_C2EMR1_EM14_Pos)
-#define EXTI_C2EMR1_EM14 EXTI_C2EMR1_EM14_Msk
-#define EXTI_C2EMR1_EM15_Pos (15U)
-#define EXTI_C2EMR1_EM15_Msk (0x1UL << EXTI_C2EMR1_EM15_Pos)
-#define EXTI_C2EMR1_EM15 EXTI_C2EMR1_EM15_Msk
-#define EXTI_C2EMR1_EM17_Pos (17U)
-#define EXTI_C2EMR1_EM17_Msk (0x1UL << EXTI_C2EMR1_EM17_Pos)
-#define EXTI_C2EMR1_EM17 EXTI_C2EMR1_EM17_Msk
-#define EXTI_C2EMR1_EM19_Pos (19U)
-#define EXTI_C2EMR1_EM19_Msk (0x1UL << EXTI_C2EMR1_EM19_Pos)
-#define EXTI_C2EMR1_EM19 EXTI_C2EMR1_EM19_Msk
-#define EXTI_C2EMR1_EM20_Pos (20U)
-#define EXTI_C2EMR1_EM20_Msk (0x1UL << EXTI_C2EMR1_EM20_Pos)
-#define EXTI_C2EMR1_EM20 EXTI_C2EMR1_EM20_Msk
-#define EXTI_C2EMR1_EM21_Pos (21U)
-#define EXTI_C2EMR1_EM21_Msk (0x1UL << EXTI_C2EMR1_EM21_Pos)
-#define EXTI_C2EMR1_EM21 EXTI_C2EMR1_EM21_Msk
-#define EXTI_C2EMR1_EM22_Pos (22U)
-#define EXTI_C2EMR1_EM22_Msk (0x1UL << EXTI_C2EMR1_EM22_Pos)
-#define EXTI_C2EMR1_EM22 EXTI_C2EMR1_EM22_Msk
-
-
-#define EXTI_C2IMR2_IM34_Pos (2U)
-#define EXTI_C2IMR2_IM34_Msk (0x1UL << EXTI_C2IMR2_IM34_Pos)
-#define EXTI_C2IMR2_IM34 EXTI_C2IMR2_IM34_Msk
-#define EXTI_C2IMR2_IM36_Pos (4U)
-#define EXTI_C2IMR2_IM36_Msk (0x1UL << EXTI_C2IMR2_IM36_Pos)
-#define EXTI_C2IMR2_IM36 EXTI_C2IMR2_IM36_Msk
-#define EXTI_C2IMR2_IM37_Pos (5U)
-#define EXTI_C2IMR2_IM37_Msk (0x1UL << EXTI_C2IMR2_IM37_Pos)
-#define EXTI_C2IMR2_IM37 EXTI_C2IMR2_IM37_Msk
-#define EXTI_C2IMR2_IM38_Pos (6U)
-#define EXTI_C2IMR2_IM38_Msk (0x1UL << EXTI_C2IMR2_IM38_Pos)
-#define EXTI_C2IMR2_IM38 EXTI_C2IMR2_IM38_Msk
-#define EXTI_C2IMR2_IM39_Pos (7U)
-#define EXTI_C2IMR2_IM39_Msk (0x1UL << EXTI_C2IMR2_IM39_Pos)
-#define EXTI_C2IMR2_IM39 EXTI_C2IMR2_IM39_Msk
-#define EXTI_C2IMR2_IM40_Pos (8U)
-#define EXTI_C2IMR2_IM40_Msk (0x1UL << EXTI_C2IMR2_IM40_Pos)
-#define EXTI_C2IMR2_IM40 EXTI_C2IMR2_IM40_Msk
-#define EXTI_C2IMR2_IM41_Pos (9U)
-#define EXTI_C2IMR2_IM41_Msk (0x1UL << EXTI_C2IMR2_IM41_Pos)
-#define EXTI_C2IMR2_IM41 EXTI_C2IMR2_IM41_Msk
-#define EXTI_C2IMR2_IM42_Pos (10U)
-#define EXTI_C2IMR2_IM42_Msk (0x1UL << EXTI_C2IMR2_IM42_Pos)
-#define EXTI_C2IMR2_IM42 EXTI_C2IMR2_IM42_Msk
-#define EXTI_C2IMR2_IM43_Pos (11U)
-#define EXTI_C2IMR2_IM43_Msk (0x1UL << EXTI_C2IMR2_IM43_Pos)
-#define EXTI_C2IMR2_IM43 EXTI_C2IMR2_IM43_Msk
-#define EXTI_C2IMR2_IM44_Pos (12U)
-#define EXTI_C2IMR2_IM44_Msk (0x1UL << EXTI_C2IMR2_IM44_Pos)
-#define EXTI_C2IMR2_IM44 EXTI_C2IMR2_IM44_Msk
-#define EXTI_C2IMR2_IM45_Pos (13U)
-#define EXTI_C2IMR2_IM45_Msk (0x1UL << EXTI_C2IMR2_IM45_Pos)
-#define EXTI_C2IMR2_IM45 EXTI_C2IMR2_IM45_Msk
-#define EXTI_C2IMR2_IM46_Pos (14U)
-#define EXTI_C2IMR2_IM46_Msk (0x1UL << EXTI_C2IMR2_IM46_Pos)
-#define EXTI_C2IMR2_IM46 EXTI_C2IMR2_IM46_Msk
-
-
-#define EXTI_C2EMR2_EM40_Pos (8U)
-#define EXTI_C2EMR2_EM40_Msk (0x1UL << EXTI_C2EMR2_EM40_Pos)
-#define EXTI_C2EMR2_EM40 EXTI_C2EMR2_EM40_Msk
-#define EXTI_C2EMR2_EM41_Pos (9U)
-#define EXTI_C2EMR2_EM41_Msk (0x1UL << EXTI_C2EMR2_EM41_Pos)
-#define EXTI_C2EMR2_EM41 EXTI_C2EMR2_EM41_Msk
-
-
-
-
-
-
-
-#define GTZC_CFGR1_TZIC_Pos (0U)
-#define GTZC_CFGR1_TZIC_Msk (0x01UL << GTZC_CFGR1_TZIC_Pos)
-#define GTZC_CFGR1_TZSC_Pos (1U)
-#define GTZC_CFGR1_TZSC_Msk (0x01UL << GTZC_CFGR1_TZSC_Pos)
-#define GTZC_CFGR1_AES_Pos (2U)
-#define GTZC_CFGR1_AES_Msk (0x01UL << GTZC_CFGR1_AES_Pos)
-#define GTZC_CFGR1_RNG_Pos (3U)
-#define GTZC_CFGR1_RNG_Msk (0x01UL << GTZC_CFGR1_RNG_Pos)
-#define GTZC_CFGR1_SUBGHZSPI_Pos (4U)
-#define GTZC_CFGR1_SUBGHZSPI_Msk (0x01UL << GTZC_CFGR1_SUBGHZSPI_Pos)
-#define GTZC_CFGR1_PWR_Pos (5U)
-#define GTZC_CFGR1_PWR_Msk (0x01UL << GTZC_CFGR1_PWR_Pos)
-#define GTZC_CFGR1_FLASHIF_Pos (6U)
-#define GTZC_CFGR1_FLASHIF_Msk (0x01UL << GTZC_CFGR1_FLASHIF_Pos)
-#define GTZC_CFGR1_DMA1_Pos (7U)
-#define GTZC_CFGR1_DMA1_Msk (0x01UL << GTZC_CFGR1_DMA1_Pos)
-#define GTZC_CFGR1_DMA2_Pos (8U)
-#define GTZC_CFGR1_DMA2_Msk (0x01UL << GTZC_CFGR1_DMA2_Pos)
-#define GTZC_CFGR1_DMAMUX_Pos (9U)
-#define GTZC_CFGR1_DMAMUX_Msk (0x01UL << GTZC_CFGR1_DMAMUX_Pos)
-#define GTZC_CFGR1_FLASH_Pos (10U)
-#define GTZC_CFGR1_FLASH_Msk (0x01UL << GTZC_CFGR1_FLASH_Pos)
-#define GTZC_CFGR1_SRAM1_Pos (11U)
-#define GTZC_CFGR1_SRAM1_Msk (0x01UL << GTZC_CFGR1_SRAM1_Pos)
-#define GTZC_CFGR1_SRAM2_Pos (12U)
-#define GTZC_CFGR1_SRAM2_Msk (0x01UL << GTZC_CFGR1_SRAM2_Pos)
-#define GTZC_CFGR1_PKA_Pos (13U)
-#define GTZC_CFGR1_PKA_Msk (0x01UL << GTZC_CFGR1_PKA_Pos)
-
-
-#define TZSC_CR_LCK_Pos (0U)
-#define TZSC_CR_LCK_Msk (0x01UL << TZSC_CR_LCK_Pos)
-
-
-#define TZSC_SECCFGR1_ALL_Pos (0U)
-#define TZSC_SECCFGR1_ALL_Msk (0x0000200CU)
-#define TZSC_SECCFGR1_AESSEC_Pos GTZC_CFGR1_AES_Pos
-#define TZSC_SECCFGR1_AESSEC_Msk GTZC_CFGR1_AES_Msk
-#define TZSC_SECCFGR1_RNGSEC_Pos GTZC_CFGR1_RNG_Pos
-#define TZSC_SECCFGR1_RNGSEC_Msk GTZC_CFGR1_RNG_Msk
-#define TZSC_SECCFGR1_PKASEC_Pos GTZC_CFGR1_PKA_Pos
-#define TZSC_SECCFGR1_PKASEC_Msk GTZC_CFGR1_PKA_Msk
-
-
-#define TZSC_PRIVCFGR1_ALL_Pos (0U)
-#define TZSC_PRIVCFGR1_ALL_Msk (0x0000201CU)
-#define TZSC_PRIVCFGR1_AESPRIV_Pos GTZC_CFGR1_AES_Pos
-#define TZSC_PRIVCFGR1_AESPRIV_Msk GTZC_CFGR1_AES_Msk
-#define TZSC_PRIVCFGR1_RNGPRIV_Pos GTZC_CFGR1_RNG_Pos
-#define TZSC_PRIVCFGR1_RNGPRIV_Msk GTZC_CFGR1_RNG_Msk
-#define TZSC_PRIVCFGR1_SUBGHZSPIPRIV_Pos GTZC_CFGR1_SUBGHZSPI_Pos
-#define TZSC_PRIVCFGR1_SUBGHZSPIPRIV_Msk GTZC_CFGR1_SUBGHZSPI_Msk
-#define TZSC_PRIVCFGR1_PKAPRIV_Pos GTZC_CFGR1_PKA_Pos
-#define TZSC_PRIVCFGR1_PKAPRIV_Msk GTZC_CFGR1_PKA_Msk
-
-
-#define TZSC_MPCWM1_UPWMR_LGTH_Pos (16U)
-#define TZSC_MPCWM1_UPWMR_LGTH_Msk (0x0FFFUL << TZSC_MPCWM1_UPWMR_LGTH_Pos)
-
-
-#define TZSC_MPCWM1_UPWWMR_LGTH_Pos (16U)
-#define TZSC_MPCWM1_UPWWMR_LGTH_Msk (0x0FFFUL << TZSC_MPCWM1_UPWWMR_LGTH_Pos)
-
-
-#define TZSC_MPCWM2_UPWMR_LGTH_Pos (16U)
-#define TZSC_MPCWM2_UPWMR_LGTH_Msk (0x0FFFUL << TZSC_MPCWM2_UPWMR_LGTH_Pos)
-
-
-#define TZSC_MPCWM3_UPWMR_LGTH_Pos (16U)
-#define TZSC_MPCWM3_UPWMR_LGTH_Msk (0x0FFFUL << TZSC_MPCWM3_UPWMR_LGTH_Pos)
-
-
-
-#define TZIC_IER1_ALL_Msk 0x00003FFFu
-#define TZIC_IER1_TZICIE_Pos GTZC_CFGR1_TZIC_Pos
-#define TZIC_IER1_TZICIE_Msk GTZC_CFGR1_TZIC_Msk
-#define TZIC_IER1_TZSCIE_Pos GTZC_CFGR1_TZSC_Pos
-#define TZIC_IER1_TZSCIE_Msk GTZC_CFGR1_TZSC_Msk
-#define TZIC_IER1_AESIE_Pos GTZC_CFGR1_AES_Pos
-#define TZIC_IER1_AESIE_Msk GTZC_CFGR1_AES_Msk
-#define TZIC_IER1_RNGIE_Pos GTZC_CFGR1_RNG_Pos
-#define TZIC_IER1_RNGIE_Msk GTZC_CFGR1_RNG_Msk
-#define TZIC_IER1_SUBGHZSPIIE_Pos GTZC_CFGR1_SUBGHZSPI_Pos
-#define TZIC_IER1_SUBGHZSPIIE_Msk GTZC_CFGR1_SUBGHZSPI_Msk
-#define TZIC_IER1_PWRIE_Pos GTZC_CFGR1_PWR_Pos
-#define TZIC_IER1_PWRIE_Msk GTZC_CFGR1_PWR_Msk
-#define TZIC_IER1_FLASHIFIE_Pos GTZC_CFGR1_FLASHIF_Pos
-#define TZIC_IER1_FLASHIFIE_Msk GTZC_CFGR1_FLASHIF_Msk
-#define TZIC_IER1_DMA1IE_Pos GTZC_CFGR1_DMA1_Pos
-#define TZIC_IER1_DMA1IE_Msk GTZC_CFGR1_DMA1_Msk
-#define TZIC_IER1_DMA2IE_Pos GTZC_CFGR1_DMA2_Pos
-#define TZIC_IER1_DMA2IE_Msk GTZC_CFGR1_DMA2_Msk
-#define TZIC_IER1_DMAMUXIE_Pos GTZC_CFGR1_DMAMUX_Pos
-#define TZIC_IER1_DMAMUXIE_Msk GTZC_CFGR1_DMAMUX_Msk
-#define TZIC_IER1_FLASHIE_Pos GTZC_CFGR1_FLASH_Pos
-#define TZIC_IER1_FLASHIE_Msk GTZC_CFGR1_FLASH_Msk
-#define TZIC_IER1_SRAM1IE_Pos GTZC_CFGR1_SRAM1_Pos
-#define TZIC_IER1_SRAM1IE_Msk GTZC_CFGR1_SRAM1_Msk
-#define TZIC_IER1_SRAM2IE_Pos GTZC_CFGR1_SRAM2_Pos
-#define TZIC_IER1_SRAM2IE_Msk GTZC_CFGR1_SRAM2_Msk
-#define TZIC_IER1_PKAIE_Pos GTZC_CFGR1_PKA_Pos
-#define TZIC_IER1_PKAIE_Msk GTZC_CFGR1_PKA_Msk
-
-
-#define TZIC_MISR1_TZICMF_Pos GTZC_CFGR1_TZIC_Pos
-#define TZIC_MISR1_TZICMF_Msk GTZC_CFGR1_TZIC_Msk
-#define TZIC_MISR1_TZSCMF_Pos GTZC_CFGR1_TZSC_Pos
-#define TZIC_MISR1_TZSCMF_Msk GTZC_CFGR1_TZSC_Msk
-#define TZIC_MISR1_AESMF_Pos GTZC_CFGR1_AES_Pos
-#define TZIC_MISR1_AESMF_Msk GTZC_CFGR1_AES_Msk
-#define TZIC_MISR1_RNGMF_Pos GTZC_CFGR1_RNG_Pos
-#define TZIC_MISR1_RNGMF_Msk GTZC_CFGR1_RNG_Msk
-#define TZIC_MISR1_SUBGHZSPIMF_Pos GTZC_CFGR1_SUBGHZSPI_Pos
-#define TZIC_MISR1_SUBGHZSPIMF_Msk GTZC_CFGR1_SUBGHZSPI_Msk
-#define TZIC_MISR1_PWRMF_Pos GTZC_CFGR1_PWR_Pos
-#define TZIC_MISR1_PWRMF_Msk GTZC_CFGR1_PWR_Msk
-#define TZIC_MISR1_FLASHIFMF_Pos GTZC_CFGR1_FLASHIF_Pos
-#define TZIC_MISR1_FLASHIFMF_Msk GTZC_CFGR1_FLASHIF_Msk
-#define TZIC_MISR1_DMA1MF_Pos GTZC_CFGR1_DMA1_Pos
-#define TZIC_MISR1_DMA1MF_Msk GTZC_CFGR1_DMA1_Msk
-#define TZIC_MISR1_DMA2MF_Pos GTZC_CFGR1_DMA2_Pos
-#define TZIC_MISR1_DMA2MF_Msk GTZC_CFGR1_DMA2_Msk
-#define TZIC_MISR1_DMAMUXMF_Pos GTZC_CFGR1_DMAMUX_Pos
-#define TZIC_MISR1_DMAMUXMF_Msk GTZC_CFGR1_DMAMUX_Msk
-#define TZIC_MISR1_FLASHMF_Pos GTZC_CFGR1_FLASH_Pos
-#define TZIC_MISR1_FLASHMF_Msk GTZC_CFGR1_FLASH_Msk
-#define TZIC_MISR1_SRAM1MF_Pos GTZC_CFGR1_SRAM1_Pos
-#define TZIC_MISR1_SRAM1MF_Msk GTZC_CFGR1_SRAM1_Msk
-#define TZIC_MISR1_SRAM2MF_Pos GTZC_CFGR1_SRAM2_Pos
-#define TZIC_MISR1_SRAM2MF_Msk GTZC_CFGR1_SRAM2_Msk
-#define TZIC_MISR1_PKAMF_Pos GTZC_CFGR1_PKA_Pos
-#define TZIC_MISR1_PKAMF_Msk GTZC_CFGR1_PKA_Msk
-
-
-#define TZIC_ICR1_TZICCF_Pos GTZC_CFGR1_TZIC_Pos
-#define TZIC_ICR1_TZICCF_Msk GTZC_CFGR1_TZIC_Msk
-#define TZIC_ICR1_TZSCCF_Pos GTZC_CFGR1_TZSC_Pos
-#define TZIC_ICR1_TZSCCF_Msk GTZC_CFGR1_TZSC_Msk
-#define TZIC_ICR1_AESCF_Pos GTZC_CFGR1_AES_Pos
-#define TZIC_ICR1_AESCF_Msk GTZC_CFGR1_AES_Msk
-#define TZIC_ICR1_RNGCF_Pos GTZC_CFGR1_RNG_Pos
-#define TZIC_ICR1_RNGCF_Msk GTZC_CFGR1_RNG_Msk
-#define TZIC_ICR1_SUBGHZSPICF_Pos GTZC_CFGR1_SUBGHZSPI_Pos
-#define TZIC_ICR1_SUBGHZSPICF_Msk GTZC_CFGR1_SUBGHZSPI_Msk
-#define TZIC_ICR1_PWRCF_Pos GTZC_CFGR1_PWR_Pos
-#define TZIC_ICR1_PWRCF_Msk GTZC_CFGR1_PWR_Msk
-#define TZIC_ICR1_FLASHIFCF_Pos GTZC_CFGR1_FLASHIF_Pos
-#define TZIC_ICR1_FLASHIFCF_Msk GTZC_CFGR1_FLASHIF_Msk
-#define TZIC_ICR1_DMA1CF_Pos GTZC_CFGR1_DMA1_Pos
-#define TZIC_ICR1_DMA1CF_Msk GTZC_CFGR1_DMA1_Msk
-#define TZIC_ICR1_DMA2CF_Pos GTZC_CFGR1_DMA2_Pos
-#define TZIC_ICR1_DMA2CF_Msk GTZC_CFGR1_DMA2_Msk
-#define TZIC_ICR1_DMAMUXCF_Pos GTZC_CFGR1_DMAMUX_Pos
-#define TZIC_ICR1_DMAMUXCF_Msk GTZC_CFGR1_DMAMUX_Msk
-#define TZIC_ICR1_FLASHCF_Pos GTZC_CFGR1_FLASH_Pos
-#define TZIC_ICR1_FLASHCF_Msk GTZC_CFGR1_FLASH_Msk
-#define TZIC_ICR1_SRAM1CF_Pos GTZC_CFGR1_SRAM1_Pos
-#define TZIC_ICR1_SRAM1CF_Msk GTZC_CFGR1_SRAM1_Msk
-#define TZIC_ICR1_SRAM2CF_Pos GTZC_CFGR1_SRAM2_Pos
-#define TZIC_ICR1_SRAM2CF_Msk GTZC_CFGR1_SRAM2_Msk
-#define TZIC_ICR1_PKACF_Pos GTZC_CFGR1_PKA_Pos
-#define TZIC_ICR1_PKACF_Msk GTZC_CFGR1_PKA_Msk
 
 
 
@@ -8046,17 +7486,6 @@ typedef struct
 #define FLASH_ACR_EMPTY_Pos (16U)
 #define FLASH_ACR_EMPTY_Msk (0x1UL << FLASH_ACR_EMPTY_Pos)
 #define FLASH_ACR_EMPTY FLASH_ACR_EMPTY_Msk
-
-
-#define FLASH_ACR2_PRIVMODE_Pos (0U)
-#define FLASH_ACR2_PRIVMODE_Msk (0x1UL << FLASH_ACR2_PRIVMODE_Pos)
-#define FLASH_ACR2_PRIVMODE FLASH_ACR2_PRIVMODE_Msk
-#define FLASH_ACR2_HDPADIS_Pos (1U)
-#define FLASH_ACR2_HDPADIS_Msk (0x1UL << FLASH_ACR2_HDPADIS_Pos)
-#define FLASH_ACR2_HDPADIS FLASH_ACR2_HDPADIS_Msk
-#define FLASH_ACR2_C2SWDBGEN_Pos (2U)
-#define FLASH_ACR2_C2SWDBGEN_Msk (0x1UL << FLASH_ACR2_C2SWDBGEN_Pos)
-#define FLASH_ACR2_C2SWDBGEN FLASH_ACR2_C2SWDBGEN_Msk
 
 
 #define FLASH_SR_EOP_Pos (0U)
@@ -8218,9 +7647,6 @@ typedef struct
 #define FLASH_OPTR_BOOT_LOCK_Pos (30U)
 #define FLASH_OPTR_BOOT_LOCK_Msk (0x1UL << FLASH_OPTR_BOOT_LOCK_Pos)
 #define FLASH_OPTR_BOOT_LOCK FLASH_OPTR_BOOT_LOCK_Msk
-#define FLASH_OPTR_C2BOOT_LOCK_Pos (31U)
-#define FLASH_OPTR_C2BOOT_LOCK_Msk (0x1UL << FLASH_OPTR_C2BOOT_LOCK_Pos)
-#define FLASH_OPTR_C2BOOT_LOCK FLASH_OPTR_C2BOOT_LOCK_Msk
 
 
 #define FLASH_PCROP1ASR_PCROP1A_STRT_Pos (0U)
@@ -8260,137 +7686,6 @@ typedef struct
 #define FLASH_PCROP1BER_PCROP1B_END_Pos (0U)
 #define FLASH_PCROP1BER_PCROP1B_END_Msk (0xFFUL << FLASH_PCROP1BER_PCROP1B_END_Pos)
 #define FLASH_PCROP1BER_PCROP1B_END FLASH_PCROP1BER_PCROP1B_END_Msk
-
-
-#define FLASH_IPCCBR_IPCCDBA_Pos (0U)
-#define FLASH_IPCCBR_IPCCDBA_Msk (0x3FFFUL << FLASH_IPCCBR_IPCCDBA_Pos)
-#define FLASH_IPCCBR_IPCCDBA FLASH_IPCCBR_IPCCDBA_Msk
-
-
-#define FLASH_C2ACR_PRFTEN_Pos (8U)
-#define FLASH_C2ACR_PRFTEN_Msk (0x1UL << FLASH_C2ACR_PRFTEN_Pos)
-#define FLASH_C2ACR_PRFTEN FLASH_C2ACR_PRFTEN_Msk
-#define FLASH_C2ACR_ICEN_Pos (9U)
-#define FLASH_C2ACR_ICEN_Msk (0x1UL << FLASH_C2ACR_ICEN_Pos)
-#define FLASH_C2ACR_ICEN FLASH_C2ACR_ICEN_Msk
-#define FLASH_C2ACR_ICRST_Pos (11U)
-#define FLASH_C2ACR_ICRST_Msk (0x1UL << FLASH_C2ACR_ICRST_Pos)
-#define FLASH_C2ACR_ICRST FLASH_C2ACR_ICRST_Msk
-#define FLASH_C2ACR_PES_Pos (15U)
-#define FLASH_C2ACR_PES_Msk (0x1UL << FLASH_C2ACR_PES_Pos)
-#define FLASH_C2ACR_PES FLASH_C2ACR_PES_Msk
-
-
-#define FLASH_C2SR_EOP_Pos (0U)
-#define FLASH_C2SR_EOP_Msk (0x1UL << FLASH_C2SR_EOP_Pos)
-#define FLASH_C2SR_EOP FLASH_C2SR_EOP_Msk
-#define FLASH_C2SR_OPERR_Pos (1U)
-#define FLASH_C2SR_OPERR_Msk (0x1UL << FLASH_C2SR_OPERR_Pos)
-#define FLASH_C2SR_OPERR FLASH_C2SR_OPERR_Msk
-#define FLASH_C2SR_PROGERR_Pos (3U)
-#define FLASH_C2SR_PROGERR_Msk (0x1UL << FLASH_C2SR_PROGERR_Pos)
-#define FLASH_C2SR_PROGERR FLASH_C2SR_PROGERR_Msk
-#define FLASH_C2SR_WRPERR_Pos (4U)
-#define FLASH_C2SR_WRPERR_Msk (0x1UL << FLASH_C2SR_WRPERR_Pos)
-#define FLASH_C2SR_WRPERR FLASH_C2SR_WRPERR_Msk
-#define FLASH_C2SR_PGAERR_Pos (5U)
-#define FLASH_C2SR_PGAERR_Msk (0x1UL << FLASH_C2SR_PGAERR_Pos)
-#define FLASH_C2SR_PGAERR FLASH_C2SR_PGAERR_Msk
-#define FLASH_C2SR_SIZERR_Pos (6U)
-#define FLASH_C2SR_SIZERR_Msk (0x1UL << FLASH_C2SR_SIZERR_Pos)
-#define FLASH_C2SR_SIZERR FLASH_C2SR_SIZERR_Msk
-#define FLASH_C2SR_PGSERR_Pos (7U)
-#define FLASH_C2SR_PGSERR_Msk (0x1UL << FLASH_C2SR_PGSERR_Pos)
-#define FLASH_C2SR_PGSERR FLASH_C2SR_PGSERR_Msk
-#define FLASH_C2SR_MISERR_Pos (8U)
-#define FLASH_C2SR_MISERR_Msk (0x1UL << FLASH_C2SR_MISERR_Pos)
-#define FLASH_C2SR_MISERR FLASH_C2SR_MISERR_Msk
-#define FLASH_C2SR_FASTERR_Pos (9U)
-#define FLASH_C2SR_FASTERR_Msk (0x1UL << FLASH_C2SR_FASTERR_Pos)
-#define FLASH_C2SR_FASTERR FLASH_C2SR_FASTERR_Msk
-#define FLASH_C2SR_RDERR_Pos (14U)
-#define FLASH_C2SR_RDERR_Msk (0x1UL << FLASH_C2SR_RDERR_Pos)
-#define FLASH_C2SR_RDERR FLASH_C2SR_RDERR_Msk
-#define FLASH_C2SR_BSY_Pos (16U)
-#define FLASH_C2SR_BSY_Msk (0x1UL << FLASH_C2SR_BSY_Pos)
-#define FLASH_C2SR_BSY FLASH_C2SR_BSY_Msk
-#define FLASH_C2SR_CFGBSY_Pos (18U)
-#define FLASH_C2SR_CFGBSY_Msk (0x1UL << FLASH_C2SR_CFGBSY_Pos)
-#define FLASH_C2SR_CFGBSY FLASH_C2SR_CFGBSY_Msk
-#define FLASH_C2SR_PESD_Pos (19U)
-#define FLASH_C2SR_PESD_Msk (0x1UL << FLASH_C2SR_PESD_Pos)
-#define FLASH_C2SR_PESD FLASH_C2SR_PESD_Msk
-
-
-#define FLASH_C2CR_PG_Pos (0U)
-#define FLASH_C2CR_PG_Msk (0x1UL << FLASH_C2CR_PG_Pos)
-#define FLASH_C2CR_PG FLASH_C2CR_PG_Msk
-#define FLASH_C2CR_PER_Pos (1U)
-#define FLASH_C2CR_PER_Msk (0x1UL << FLASH_C2CR_PER_Pos)
-#define FLASH_C2CR_PER FLASH_C2CR_PER_Msk
-#define FLASH_C2CR_MER_Pos (2U)
-#define FLASH_C2CR_MER_Msk (0x1UL << FLASH_C2CR_MER_Pos)
-#define FLASH_C2CR_MER FLASH_C2CR_MER_Msk
-#define FLASH_C2CR_PNB_Pos (3U)
-#define FLASH_C2CR_PNB_Msk (0xFFUL << FLASH_C2CR_PNB_Pos)
-#define FLASH_C2CR_PNB FLASH_C2CR_PNB_Msk
-#define FLASH_C2CR_STRT_Pos (16U)
-#define FLASH_C2CR_STRT_Msk (0x1UL << FLASH_C2CR_STRT_Pos)
-#define FLASH_C2CR_STRT FLASH_C2CR_STRT_Msk
-#define FLASH_C2CR_FSTPG_Pos (18U)
-#define FLASH_C2CR_FSTPG_Msk (0x1UL << FLASH_C2CR_FSTPG_Pos)
-#define FLASH_C2CR_FSTPG FLASH_C2CR_FSTPG_Msk
-#define FLASH_C2CR_EOPIE_Pos (24U)
-#define FLASH_C2CR_EOPIE_Msk (0x1UL << FLASH_C2CR_EOPIE_Pos)
-#define FLASH_C2CR_EOPIE FLASH_C2CR_EOPIE_Msk
-#define FLASH_C2CR_ERRIE_Pos (25U)
-#define FLASH_C2CR_ERRIE_Msk (0x1UL << FLASH_C2CR_ERRIE_Pos)
-#define FLASH_C2CR_ERRIE FLASH_C2CR_ERRIE_Msk
-#define FLASH_C2CR_RDERRIE_Pos (26U)
-#define FLASH_C2CR_RDERRIE_Msk (0x1UL << FLASH_C2CR_RDERRIE_Pos)
-#define FLASH_C2CR_RDERRIE FLASH_C2CR_RDERRIE_Msk
-
-
-#define FLASH_SFR_SFSA_Pos (0U)
-#define FLASH_SFR_SFSA_Msk (0x7FUL << FLASH_SFR_SFSA_Pos)
-#define FLASH_SFR_SFSA FLASH_SFR_SFSA_Msk
-#define FLASH_SFR_FSD_Pos (7U)
-#define FLASH_SFR_FSD_Msk (0x1UL << FLASH_SFR_FSD_Pos)
-#define FLASH_SFR_FSD FLASH_SFR_FSD_Msk
-#define FLASH_SFR_DDS_Pos (12U)
-#define FLASH_SFR_DDS_Msk (0x1UL << FLASH_SFR_DDS_Pos)
-#define FLASH_SFR_DDS FLASH_SFR_DDS_Msk
-#define FLASH_SFR_HDPSA_Pos (16U)
-#define FLASH_SFR_HDPSA_Msk (0x7FUL << FLASH_SFR_HDPSA_Pos)
-#define FLASH_SFR_HDPSA FLASH_SFR_HDPSA_Msk
-#define FLASH_SFR_HDPAD_Pos (23U)
-#define FLASH_SFR_HDPAD_Msk (0x1UL << FLASH_SFR_HDPAD_Pos)
-#define FLASH_SFR_HDPAD FLASH_SFR_HDPAD_Msk
-#define FLASH_SFR_SUBGHZSPISD_Pos (31U)
-#define FLASH_SFR_SUBGHZSPISD_Msk (0x1UL << FLASH_SFR_SUBGHZSPISD_Pos)
-#define FLASH_SFR_SUBGHZSPISD FLASH_SFR_SUBGHZSPISD_Msk
-
-
-#define FLASH_SRRVR_SBRV_Pos (0U)
-#define FLASH_SRRVR_SBRV_Msk (0xFFFFUL << FLASH_SRRVR_SBRV_Pos)
-#define FLASH_SRRVR_SBRV FLASH_SRRVR_SBRV_Msk
-
-#define FLASH_SRRVR_SBRSA_Pos (18U)
-#define FLASH_SRRVR_SBRSA_Msk (0x1FUL << FLASH_SRRVR_SBRSA_Pos)
-#define FLASH_SRRVR_SBRSA FLASH_SRRVR_SBRSA_Msk
-#define FLASH_SRRVR_BRSD_Pos (23U)
-#define FLASH_SRRVR_BRSD_Msk (0x1UL << FLASH_SRRVR_BRSD_Pos)
-#define FLASH_SRRVR_BRSD FLASH_SRRVR_BRSD_Msk
-
-#define FLASH_SRRVR_SNBRSA_Pos (25U)
-#define FLASH_SRRVR_SNBRSA_Msk (0x1FUL << FLASH_SRRVR_SNBRSA_Pos)
-#define FLASH_SRRVR_SNBRSA FLASH_SRRVR_SNBRSA_Msk
-#define FLASH_SRRVR_NBRSD_Pos (30U)
-#define FLASH_SRRVR_NBRSD_Msk (0x1UL << FLASH_SRRVR_NBRSD_Pos)
-#define FLASH_SRRVR_NBRSD FLASH_SRRVR_NBRSD_Msk
-#define FLASH_SRRVR_C2OPT_Pos (31U)
-#define FLASH_SRRVR_C2OPT_Msk (0x1UL << FLASH_SRRVR_C2OPT_Pos)
-#define FLASH_SRRVR_C2OPT FLASH_SRRVR_C2OPT_Msk
 
 
 
@@ -9543,11 +8838,7 @@ typedef struct
 #define HSEM_CR_COREID HSEM_CR_COREID_Msk
 #define HSEM_CR_COREID_CPU1 (0x4U << HSEM_CR_COREID_Pos)
 #define HSEM_CR_COREID_CPU2 (0x8U << HSEM_CR_COREID_Pos)
-
-
-
 #define HSEM_CR_COREID_CURRENT HSEM_CR_COREID_CPU1
-
 #define HSEM_CR_KEY_Pos (16U)
 #define HSEM_CR_KEY_Msk (0xFFFFUL << HSEM_CR_KEY_Pos)
 #define HSEM_CR_KEY HSEM_CR_KEY_Msk
@@ -9556,7 +8847,7 @@ typedef struct
 #define HSEM_KEYR_KEY_Pos (16U)
 #define HSEM_KEYR_KEY_Msk (0xFFFFUL << HSEM_KEYR_KEY_Pos)
 #define HSEM_KEYR_KEY HSEM_KEYR_KEY_Msk
-# 5729 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wl55xx.h"
+# 4961 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define PKA_CR_EN_Pos (0U)
 #define PKA_CR_EN_Msk (0x1UL << PKA_CR_EN_Pos)
 #define PKA_CR_EN PKA_CR_EN_Msk
@@ -9799,7 +9090,7 @@ typedef struct
 
 
 #define PKA_ARITHMETIC_ALL_OPS_OUT_RESULT ((0xBD0U - PKA_RAM_OFFSET)>>2)
-# 5979 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wl55xx.h"
+# 5211 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define PWR_CR1_LPMS_Pos (0U)
 #define PWR_CR1_LPMS_Msk (0x7UL << PWR_CR1_LPMS_Pos)
 #define PWR_CR1_LPMS PWR_CR1_LPMS_Msk
@@ -9886,10 +9177,6 @@ typedef struct
 #define PWR_CR3_EWRFIRQ_Msk (0x1UL << PWR_CR3_EWRFIRQ_Pos)
 #define PWR_CR3_EWRFIRQ PWR_CR3_EWRFIRQ_Msk
 
-#define PWR_CR3_EC2H_Pos (14U)
-#define PWR_CR3_EC2H_Msk (0x1UL << PWR_CR3_EC2H_Pos)
-#define PWR_CR3_EC2H PWR_CR3_EC2H_Msk
-
 #define PWR_CR3_EIWUL_Pos (15U)
 #define PWR_CR3_EIWUL_Msk (0x1UL << PWR_CR3_EIWUL_Pos)
 #define PWR_CR3_EIWUL PWR_CR3_EIWUL_Msk
@@ -9916,10 +9203,6 @@ typedef struct
 #define PWR_CR4_WRFBUSYP_Msk (0x1UL << PWR_CR4_WRFBUSYP_Pos)
 #define PWR_CR4_WRFBUSYP PWR_CR4_WRFBUSYP_Msk
 
-#define PWR_CR4_C2BOOT_Pos (15U)
-#define PWR_CR4_C2BOOT_Msk (0x1UL << PWR_CR4_C2BOOT_Pos)
-#define PWR_CR4_C2BOOT PWR_CR4_C2BOOT_Msk
-
 
 #define PWR_SR1_WUF_Pos (0U)
 #define PWR_SR1_WUF_Msk (0x1FUL << PWR_SR1_WUF_Pos)
@@ -9942,18 +9225,10 @@ typedef struct
 #define PWR_SR1_WRFBUSYF_Msk (0x1UL << PWR_SR1_WRFBUSYF_Pos)
 #define PWR_SR1_WRFBUSYF PWR_SR1_WRFBUSYF_Msk
 
-#define PWR_SR1_C2HF_Pos (14U)
-#define PWR_SR1_C2HF_Msk (0x1UL << PWR_SR1_C2HF_Pos)
-#define PWR_SR1_C2HF PWR_SR1_C2HF_Msk
-
 #define PWR_SR1_WUFI_Pos (15U)
 #define PWR_SR1_WUFI_Msk (0x1UL << PWR_SR1_WUFI_Pos)
 #define PWR_SR1_WUFI PWR_SR1_WUFI_Msk
 
-
-#define PWR_SR2_C2BOOTS_Pos (0U)
-#define PWR_SR2_C2BOOTS_Msk (0x1UL << PWR_SR2_C2BOOTS_Pos)
-#define PWR_SR2_C2BOOTS PWR_SR2_C2BOOTS_Msk
 
 #define PWR_SR2_RFBUSYS_Pos (1U)
 #define PWR_SR2_RFBUSYS_Msk (0x1UL << PWR_SR2_RFBUSYS_Pos)
@@ -10021,10 +9296,6 @@ typedef struct
 #define PWR_SCR_CWRFBUSYF_Pos (11U)
 #define PWR_SCR_CWRFBUSYF_Msk (0x1UL << PWR_SCR_CWRFBUSYF_Pos)
 #define PWR_SCR_CWRFBUSYF PWR_SCR_CWRFBUSYF_Msk
-
-#define PWR_SCR_CC2HF_Pos (14U)
-#define PWR_SCR_CC2HF_Msk (0x1UL << PWR_SCR_CC2HF_Pos)
-#define PWR_SCR_CC2HF PWR_SCR_CC2HF_Msk
 
 
 #define PWR_CR5_RFEOLEN_Pos (14U)
@@ -10310,61 +9581,9 @@ typedef struct
 #define PWR_PDCRH_PH3 PWR_PDCRH_PH3_Msk
 
 
-#define PWR_C2CR1_LPMS_Pos (0U)
-#define PWR_C2CR1_LPMS_Msk (0x7UL << PWR_C2CR1_LPMS_Pos)
-#define PWR_C2CR1_LPMS PWR_C2CR1_LPMS_Msk
-#define PWR_C2CR1_LPMS_0 (0x1UL << PWR_C2CR1_LPMS_Pos)
-#define PWR_C2CR1_LPMS_1 (0x2UL << PWR_C2CR1_LPMS_Pos)
-#define PWR_C2CR1_LPMS_2 (0x4UL << PWR_C2CR1_LPMS_Pos)
-
-#define PWR_C2CR1_FPDR_Pos (4U)
-#define PWR_C2CR1_FPDR_Msk (0x1UL << PWR_C2CR1_FPDR_Pos)
-#define PWR_C2CR1_FPDR PWR_C2CR1_FPDR_Msk
-
-#define PWR_C2CR1_FPDS_Pos (5U)
-#define PWR_C2CR1_FPDS_Msk (0x1UL << PWR_C2CR1_FPDS_Pos)
-#define PWR_C2CR1_FPDS PWR_C2CR1_FPDS_Msk
-
-
-#define PWR_C2CR3_EWUP_Pos (0U)
-#define PWR_C2CR3_EWUP_Msk (0x07UL << PWR_C2CR3_EWUP_Pos)
-#define PWR_C2CR3_EWUP PWR_C2CR3_EWUP_Msk
-#define PWR_C2CR3_EWUP1_Pos (0U)
-#define PWR_C2CR3_EWUP1_Msk (0x1UL << PWR_C2CR3_EWUP1_Pos)
-#define PWR_C2CR3_EWUP1 PWR_C2CR3_EWUP1_Msk
-#define PWR_C2CR3_EWUP2_Pos (1U)
-#define PWR_C2CR3_EWUP2_Msk (0x1UL << PWR_C2CR3_EWUP2_Pos)
-#define PWR_C2CR3_EWUP2 PWR_C2CR3_EWUP2_Msk
-#define PWR_C2CR3_EWUP3_Pos (2U)
-#define PWR_C2CR3_EWUP3_Msk (0x1UL << PWR_C2CR3_EWUP3_Pos)
-#define PWR_C2CR3_EWUP3 PWR_C2CR3_EWUP3_Msk
-
-#define PWR_C2CR3_EWPVD_Pos (8U)
-#define PWR_C2CR3_EWPVD_Msk (0x1UL << PWR_C2CR3_EWPVD_Pos)
-#define PWR_C2CR3_EWPVD PWR_C2CR3_EWPVD_Msk
-
-#define PWR_C2CR3_APC_Pos (10U)
-#define PWR_C2CR3_APC_Msk (0x1UL << PWR_C2CR3_APC_Pos)
-#define PWR_C2CR3_APC PWR_C2CR3_APC_Msk
-
-#define PWR_C2CR3_EWRFBUSY_Pos (11U)
-#define PWR_C2CR3_EWRFBUSY_Msk (0x1UL << PWR_C2CR3_EWRFBUSY_Pos)
-#define PWR_C2CR3_EWRFBUSY PWR_C2CR3_EWRFBUSY_Msk
-#define PWR_C2CR3_EWRFIRQ_Pos (13U)
-#define PWR_C2CR3_EWRFIRQ_Msk (0x1UL << PWR_C2CR3_EWRFIRQ_Pos)
-#define PWR_C2CR3_EWRFIRQ PWR_C2CR3_EWRFIRQ_Msk
-
-#define PWR_C2CR3_EIWUL_Pos (15U)
-#define PWR_C2CR3_EIWUL_Msk (0x1UL << PWR_C2CR3_EIWUL_Pos)
-#define PWR_C2CR3_EIWUL PWR_C2CR3_EIWUL_Msk
-
-
 #define PWR_EXTSCR_C1CSSF_Pos (0U)
 #define PWR_EXTSCR_C1CSSF_Msk (0x1UL << PWR_EXTSCR_C1CSSF_Pos)
 #define PWR_EXTSCR_C1CSSF PWR_EXTSCR_C1CSSF_Msk
-#define PWR_EXTSCR_C2CSSF_Pos (1U)
-#define PWR_EXTSCR_C2CSSF_Msk (0x1UL << PWR_EXTSCR_C2CSSF_Pos)
-#define PWR_EXTSCR_C2CSSF PWR_EXTSCR_C2CSSF_Msk
 
 #define PWR_EXTSCR_C1SBF_Pos (8U)
 #define PWR_EXTSCR_C1SBF_Msk (0x1UL << PWR_EXTSCR_C1SBF_Pos)
@@ -10376,46 +9595,15 @@ typedef struct
 #define PWR_EXTSCR_C1STOPF_Msk (0x1UL << PWR_EXTSCR_C1STOPF_Pos)
 #define PWR_EXTSCR_C1STOPF PWR_EXTSCR_C1STOPF_Msk
 
-#define PWR_EXTSCR_C2SBF_Pos (11U)
-#define PWR_EXTSCR_C2SBF_Msk (0x1UL << PWR_EXTSCR_C2SBF_Pos)
-#define PWR_EXTSCR_C2SBF PWR_EXTSCR_C2SBF_Msk
-#define PWR_EXTSCR_C2STOP2F_Pos (12U)
-#define PWR_EXTSCR_C2STOP2F_Msk (0x1UL << PWR_EXTSCR_C2STOP2F_Pos)
-#define PWR_EXTSCR_C2STOP2F PWR_EXTSCR_C2STOP2F_Msk
-#define PWR_EXTSCR_C2STOPF_Pos (13U)
-#define PWR_EXTSCR_C2STOPF_Msk (0x1UL << PWR_EXTSCR_C2STOPF_Pos)
-#define PWR_EXTSCR_C2STOPF PWR_EXTSCR_C2STOPF_Msk
-
 #define PWR_EXTSCR_C1DS_Pos (14U)
 #define PWR_EXTSCR_C1DS_Msk (0x1UL << PWR_EXTSCR_C1DS_Pos)
 #define PWR_EXTSCR_C1DS PWR_EXTSCR_C1DS_Msk
-#define PWR_EXTSCR_C2DS_Pos (15U)
-#define PWR_EXTSCR_C2DS_Msk (0x1UL << PWR_EXTSCR_C2DS_Pos)
-#define PWR_EXTSCR_C2DS PWR_EXTSCR_C2DS_Msk
-
-
-#define PWR_SECCFGR_C2EWILA_Pos (15U)
-#define PWR_SECCFGR_C2EWILA_Msk (0x1UL << PWR_SECCFGR_C2EWILA_Pos)
-#define PWR_SECCFGR_C2EWILA PWR_SECCFGR_C2EWILA_Msk
 
 
 #define PWR_SUBGHZSPICR_NSS_Pos (15U)
 #define PWR_SUBGHZSPICR_NSS_Msk (0x1UL << PWR_SUBGHZSPICR_NSS_Pos)
 #define PWR_SUBGHZSPICR_NSS PWR_SUBGHZSPICR_NSS_Msk
-
-
-#define PWR_RSSCMDR_RSSCMD_Pos (0U)
-#define PWR_RSSCMDR_RSSCMD_Msk (0xFFUL << PWR_RSSCMDR_RSSCMD_Pos)
-#define PWR_RSSCMDR_RSSCMD PWR_RSSCMDR_RSSCMD_Msk
-#define PWR_RSSCMDR_RSSCMD_0 (0x01UL << PWR_RSSCMDR_RSSCMD_Pos)
-#define PWR_RSSCMDR_RSSCMD_1 (0x02UL << PWR_RSSCMDR_RSSCMD_Pos)
-#define PWR_RSSCMDR_RSSCMD_2 (0x04UL << PWR_RSSCMDR_RSSCMD_Pos)
-#define PWR_RSSCMDR_RSSCMD_3 (0x08UL << PWR_RSSCMDR_RSSCMD_Pos)
-#define PWR_RSSCMDR_RSSCMD_4 (0x10UL << PWR_RSSCMDR_RSSCMD_Pos)
-#define PWR_RSSCMDR_RSSCMD_5 (0x20UL << PWR_RSSCMDR_RSSCMD_Pos)
-#define PWR_RSSCMDR_RSSCMD_6 (0x40UL << PWR_RSSCMDR_RSSCMD_Pos)
-#define PWR_RSSCMDR_RSSCMD_7 (0x80UL << PWR_RSSCMDR_RSSCMD_Pos)
-# 6602 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wl55xx.h"
+# 5731 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define RCC_CR_MSION_Pos (0U)
 #define RCC_CR_MSION_Msk (0x1UL << RCC_CR_MSION_Pos)
 #define RCC_CR_MSION RCC_CR_MSION_Msk
@@ -10758,9 +9946,6 @@ typedef struct
 #define RCC_AHB3RSTR_HSEMRST_Pos (19U)
 #define RCC_AHB3RSTR_HSEMRST_Msk (0x1UL << RCC_AHB3RSTR_HSEMRST_Pos)
 #define RCC_AHB3RSTR_HSEMRST RCC_AHB3RSTR_HSEMRST_Msk
-#define RCC_AHB3RSTR_IPCCRST_Pos (20U)
-#define RCC_AHB3RSTR_IPCCRST_Msk (0x1UL << RCC_AHB3RSTR_IPCCRST_Pos)
-#define RCC_AHB3RSTR_IPCCRST RCC_AHB3RSTR_IPCCRST_Msk
 #define RCC_AHB3RSTR_FLASHRST_Pos (25U)
 #define RCC_AHB3RSTR_FLASHRST_Msk (0x1UL << RCC_AHB3RSTR_FLASHRST_Pos)
 #define RCC_AHB3RSTR_FLASHRST RCC_AHB3RSTR_FLASHRST_Msk
@@ -10868,9 +10053,6 @@ typedef struct
 #define RCC_AHB3ENR_HSEMEN_Pos (19U)
 #define RCC_AHB3ENR_HSEMEN_Msk (0x1UL << RCC_AHB3ENR_HSEMEN_Pos)
 #define RCC_AHB3ENR_HSEMEN RCC_AHB3ENR_HSEMEN_Msk
-#define RCC_AHB3ENR_IPCCEN_Pos (20U)
-#define RCC_AHB3ENR_IPCCEN_Msk (0x1UL << RCC_AHB3ENR_IPCCEN_Pos)
-#define RCC_AHB3ENR_IPCCEN RCC_AHB3ENR_IPCCEN_Msk
 #define RCC_AHB3ENR_FLASHEN_Pos (25U)
 #define RCC_AHB3ENR_FLASHEN_Msk (0x1UL << RCC_AHB3ENR_FLASHEN_Pos)
 #define RCC_AHB3ENR_FLASHEN RCC_AHB3ENR_FLASHEN_Msk
@@ -11247,250 +10429,10 @@ typedef struct
 #define RCC_EXTCFGR_SHDHPRE_2 (0x4UL << RCC_EXTCFGR_SHDHPRE_Pos)
 #define RCC_EXTCFGR_SHDHPRE_3 (0x8UL << RCC_EXTCFGR_SHDHPRE_Pos)
 
-#define RCC_EXTCFGR_C2HPRE_Pos (4U)
-#define RCC_EXTCFGR_C2HPRE_Msk (0xFUL << RCC_EXTCFGR_C2HPRE_Pos)
-#define RCC_EXTCFGR_C2HPRE RCC_EXTCFGR_C2HPRE_Msk
-#define RCC_EXTCFGR_C2HPRE_0 (0x1UL << RCC_EXTCFGR_C2HPRE_Pos)
-#define RCC_EXTCFGR_C2HPRE_1 (0x2UL << RCC_EXTCFGR_C2HPRE_Pos)
-#define RCC_EXTCFGR_C2HPRE_2 (0x4UL << RCC_EXTCFGR_C2HPRE_Pos)
-#define RCC_EXTCFGR_C2HPRE_3 (0x8UL << RCC_EXTCFGR_C2HPRE_Pos)
-
 #define RCC_EXTCFGR_SHDHPREF_Pos (16U)
 #define RCC_EXTCFGR_SHDHPREF_Msk (0x1UL << RCC_EXTCFGR_SHDHPREF_Pos)
 #define RCC_EXTCFGR_SHDHPREF RCC_EXTCFGR_SHDHPREF_Msk
-#define RCC_EXTCFGR_C2HPREF_Pos (17U)
-#define RCC_EXTCFGR_C2HPREF_Msk (0x1UL << RCC_EXTCFGR_C2HPREF_Pos)
-#define RCC_EXTCFGR_C2HPREF RCC_EXTCFGR_C2HPREF_Msk
-
-
-#define RCC_C2AHB1ENR_DMA1EN_Pos (0U)
-#define RCC_C2AHB1ENR_DMA1EN_Msk (0x1UL << RCC_C2AHB1ENR_DMA1EN_Pos)
-#define RCC_C2AHB1ENR_DMA1EN RCC_C2AHB1ENR_DMA1EN_Msk
-#define RCC_C2AHB1ENR_DMA2EN_Pos (1U)
-#define RCC_C2AHB1ENR_DMA2EN_Msk (0x1UL << RCC_C2AHB1ENR_DMA2EN_Pos)
-#define RCC_C2AHB1ENR_DMA2EN RCC_C2AHB1ENR_DMA2EN_Msk
-#define RCC_C2AHB1ENR_DMAMUX1EN_Pos (2U)
-#define RCC_C2AHB1ENR_DMAMUX1EN_Msk (0x1UL << RCC_C2AHB1ENR_DMAMUX1EN_Pos)
-#define RCC_C2AHB1ENR_DMAMUX1EN RCC_C2AHB1ENR_DMAMUX1EN_Msk
-#define RCC_C2AHB1ENR_CRCEN_Pos (12U)
-#define RCC_C2AHB1ENR_CRCEN_Msk (0x1UL << RCC_C2AHB1ENR_CRCEN_Pos)
-#define RCC_C2AHB1ENR_CRCEN RCC_C2AHB1ENR_CRCEN_Msk
-
-
-#define RCC_C2AHB2ENR_GPIOAEN_Pos (0U)
-#define RCC_C2AHB2ENR_GPIOAEN_Msk (0x1UL << RCC_C2AHB2ENR_GPIOAEN_Pos)
-#define RCC_C2AHB2ENR_GPIOAEN RCC_C2AHB2ENR_GPIOAEN_Msk
-#define RCC_C2AHB2ENR_GPIOBEN_Pos (1U)
-#define RCC_C2AHB2ENR_GPIOBEN_Msk (0x1UL << RCC_C2AHB2ENR_GPIOBEN_Pos)
-#define RCC_C2AHB2ENR_GPIOBEN RCC_C2AHB2ENR_GPIOBEN_Msk
-#define RCC_C2AHB2ENR_GPIOCEN_Pos (2U)
-#define RCC_C2AHB2ENR_GPIOCEN_Msk (0x1UL << RCC_C2AHB2ENR_GPIOCEN_Pos)
-#define RCC_C2AHB2ENR_GPIOCEN RCC_C2AHB2ENR_GPIOCEN_Msk
-#define RCC_C2AHB2ENR_GPIOHEN_Pos (7U)
-#define RCC_C2AHB2ENR_GPIOHEN_Msk (0x1UL << RCC_C2AHB2ENR_GPIOHEN_Pos)
-#define RCC_C2AHB2ENR_GPIOHEN RCC_C2AHB2ENR_GPIOHEN_Msk
-
-
-#define RCC_C2AHB3ENR_PKAEN_Pos (16U)
-#define RCC_C2AHB3ENR_PKAEN_Msk (0x1UL << RCC_C2AHB3ENR_PKAEN_Pos)
-#define RCC_C2AHB3ENR_PKAEN RCC_C2AHB3ENR_PKAEN_Msk
-#define RCC_C2AHB3ENR_AESEN_Pos (17U)
-#define RCC_C2AHB3ENR_AESEN_Msk (0x1UL << RCC_C2AHB3ENR_AESEN_Pos)
-#define RCC_C2AHB3ENR_AESEN RCC_C2AHB3ENR_AESEN_Msk
-#define RCC_C2AHB3ENR_RNGEN_Pos (18U)
-#define RCC_C2AHB3ENR_RNGEN_Msk (0x1UL << RCC_C2AHB3ENR_RNGEN_Pos)
-#define RCC_C2AHB3ENR_RNGEN RCC_C2AHB3ENR_RNGEN_Msk
-#define RCC_C2AHB3ENR_HSEMEN_Pos (19U)
-#define RCC_C2AHB3ENR_HSEMEN_Msk (0x1UL << RCC_C2AHB3ENR_HSEMEN_Pos)
-#define RCC_C2AHB3ENR_HSEMEN RCC_C2AHB3ENR_HSEMEN_Msk
-#define RCC_C2AHB3ENR_IPCCEN_Pos (20U)
-#define RCC_C2AHB3ENR_IPCCEN_Msk (0x1UL << RCC_C2AHB3ENR_IPCCEN_Pos)
-#define RCC_C2AHB3ENR_IPCCEN RCC_C2AHB3ENR_IPCCEN_Msk
-#define RCC_C2AHB3ENR_FLASHEN_Pos (25U)
-#define RCC_C2AHB3ENR_FLASHEN_Msk (0x1UL << RCC_C2AHB3ENR_FLASHEN_Pos)
-#define RCC_C2AHB3ENR_FLASHEN RCC_C2AHB3ENR_FLASHEN_Msk
-
-
-#define RCC_C2APB1ENR1_TIM2EN_Pos (0U)
-#define RCC_C2APB1ENR1_TIM2EN_Msk (0x1UL << RCC_C2APB1ENR1_TIM2EN_Pos)
-#define RCC_C2APB1ENR1_TIM2EN RCC_C2APB1ENR1_TIM2EN_Msk
-#define RCC_C2APB1ENR1_RTCAPBEN_Pos (10U)
-#define RCC_C2APB1ENR1_RTCAPBEN_Msk (0x1UL << RCC_C2APB1ENR1_RTCAPBEN_Pos)
-#define RCC_C2APB1ENR1_RTCAPBEN RCC_C2APB1ENR1_RTCAPBEN_Msk
-#define RCC_C2APB1ENR1_SPI2EN_Pos (14U)
-#define RCC_C2APB1ENR1_SPI2EN_Msk (0x1UL << RCC_C2APB1ENR1_SPI2EN_Pos)
-#define RCC_C2APB1ENR1_SPI2EN RCC_C2APB1ENR1_SPI2EN_Msk
-#define RCC_C2APB1ENR1_USART2EN_Pos (17U)
-#define RCC_C2APB1ENR1_USART2EN_Msk (0x1UL << RCC_C2APB1ENR1_USART2EN_Pos)
-#define RCC_C2APB1ENR1_USART2EN RCC_C2APB1ENR1_USART2EN_Msk
-#define RCC_C2APB1ENR1_I2C1EN_Pos (21U)
-#define RCC_C2APB1ENR1_I2C1EN_Msk (0x1UL << RCC_C2APB1ENR1_I2C1EN_Pos)
-#define RCC_C2APB1ENR1_I2C1EN RCC_C2APB1ENR1_I2C1EN_Msk
-#define RCC_C2APB1ENR1_I2C2EN_Pos (22U)
-#define RCC_C2APB1ENR1_I2C2EN_Msk (0x1UL << RCC_C2APB1ENR1_I2C2EN_Pos)
-#define RCC_C2APB1ENR1_I2C2EN RCC_C2APB1ENR1_I2C2EN_Msk
-#define RCC_C2APB1ENR1_I2C3EN_Pos (23U)
-#define RCC_C2APB1ENR1_I2C3EN_Msk (0x1UL << RCC_C2APB1ENR1_I2C3EN_Pos)
-#define RCC_C2APB1ENR1_I2C3EN RCC_C2APB1ENR1_I2C3EN_Msk
-#define RCC_C2APB1ENR1_DACEN_Pos (29U)
-#define RCC_C2APB1ENR1_DACEN_Msk (0x1UL << RCC_C2APB1ENR1_DACEN_Pos)
-#define RCC_C2APB1ENR1_DACEN RCC_C2APB1ENR1_DACEN_Msk
-#define RCC_C2APB1ENR1_LPTIM1EN_Pos (31U)
-#define RCC_C2APB1ENR1_LPTIM1EN_Msk (0x1UL << RCC_C2APB1ENR1_LPTIM1EN_Pos)
-#define RCC_C2APB1ENR1_LPTIM1EN RCC_C2APB1ENR1_LPTIM1EN_Msk
-
-
-#define RCC_C2APB1ENR2_LPUART1EN_Pos (0U)
-#define RCC_C2APB1ENR2_LPUART1EN_Msk (0x1UL << RCC_C2APB1ENR2_LPUART1EN_Pos)
-#define RCC_C2APB1ENR2_LPUART1EN RCC_C2APB1ENR2_LPUART1EN_Msk
-#define RCC_C2APB1ENR2_LPTIM2EN_Pos (5U)
-#define RCC_C2APB1ENR2_LPTIM2EN_Msk (0x1UL << RCC_C2APB1ENR2_LPTIM2EN_Pos)
-#define RCC_C2APB1ENR2_LPTIM2EN RCC_C2APB1ENR2_LPTIM2EN_Msk
-#define RCC_C2APB1ENR2_LPTIM3EN_Pos (6U)
-#define RCC_C2APB1ENR2_LPTIM3EN_Msk (0x1UL << RCC_C2APB1ENR2_LPTIM3EN_Pos)
-#define RCC_C2APB1ENR2_LPTIM3EN RCC_C2APB1ENR2_LPTIM3EN_Msk
-
-
-#define RCC_C2APB2ENR_ADCEN_Pos (9U)
-#define RCC_C2APB2ENR_ADCEN_Msk (0x1UL << RCC_C2APB2ENR_ADCEN_Pos)
-#define RCC_C2APB2ENR_ADCEN RCC_C2APB2ENR_ADCEN_Msk
-#define RCC_C2APB2ENR_TIM1EN_Pos (11U)
-#define RCC_C2APB2ENR_TIM1EN_Msk (0x1UL << RCC_C2APB2ENR_TIM1EN_Pos)
-#define RCC_C2APB2ENR_TIM1EN RCC_C2APB2ENR_TIM1EN_Msk
-#define RCC_C2APB2ENR_SPI1EN_Pos (12U)
-#define RCC_C2APB2ENR_SPI1EN_Msk (0x1UL << RCC_C2APB2ENR_SPI1EN_Pos)
-#define RCC_C2APB2ENR_SPI1EN RCC_C2APB2ENR_SPI1EN_Msk
-#define RCC_C2APB2ENR_USART1EN_Pos (14U)
-#define RCC_C2APB2ENR_USART1EN_Msk (0x1UL << RCC_C2APB2ENR_USART1EN_Pos)
-#define RCC_C2APB2ENR_USART1EN RCC_C2APB2ENR_USART1EN_Msk
-#define RCC_C2APB2ENR_TIM16EN_Pos (17U)
-#define RCC_C2APB2ENR_TIM16EN_Msk (0x1UL << RCC_C2APB2ENR_TIM16EN_Pos)
-#define RCC_C2APB2ENR_TIM16EN RCC_C2APB2ENR_TIM16EN_Msk
-#define RCC_C2APB2ENR_TIM17EN_Pos (18U)
-#define RCC_C2APB2ENR_TIM17EN_Msk (0x1UL << RCC_C2APB2ENR_TIM17EN_Pos)
-#define RCC_C2APB2ENR_TIM17EN RCC_C2APB2ENR_TIM17EN_Msk
-#define RCC_C2APB2ENR_SAI1EN_Pos (21U)
-#define RCC_C2APB2ENR_SAI1EN_Msk (0x1UL << RCC_C2APB2ENR_SAI1EN_Pos)
-#define RCC_C2APB2ENR_SAI1EN RCC_C2APB2ENR_SAI1EN_Msk
-
-
-#define RCC_C2APB3ENR_SUBGHZSPIEN_Pos (0U)
-#define RCC_C2APB3ENR_SUBGHZSPIEN_Msk (0x1UL << RCC_C2APB3ENR_SUBGHZSPIEN_Pos)
-#define RCC_C2APB3ENR_SUBGHZSPIEN RCC_C2APB3ENR_SUBGHZSPIEN_Msk
-
-
-#define RCC_C2AHB1SMENR_DMA1SMEN_Pos (0U)
-#define RCC_C2AHB1SMENR_DMA1SMEN_Msk (0x1UL << RCC_C2AHB1SMENR_DMA1SMEN_Pos)
-#define RCC_C2AHB1SMENR_DMA1SMEN RCC_C2AHB1SMENR_DMA1SMEN_Msk
-#define RCC_C2AHB1SMENR_DMA2SMEN_Pos (1U)
-#define RCC_C2AHB1SMENR_DMA2SMEN_Msk (0x1UL << RCC_C2AHB1SMENR_DMA2SMEN_Pos)
-#define RCC_C2AHB1SMENR_DMA2SMEN RCC_C2AHB1SMENR_DMA2SMEN_Msk
-#define RCC_C2AHB1SMENR_DMAMUX1SMEN_Pos (2U)
-#define RCC_C2AHB1SMENR_DMAMUX1SMEN_Msk (0x1UL << RCC_C2AHB1SMENR_DMAMUX1SMEN_Pos)
-#define RCC_C2AHB1SMENR_DMAMUX1SMEN RCC_C2AHB1SMENR_DMAMUX1SMEN_Msk
-#define RCC_C2AHB1SMENR_CRCSMEN_Pos (12U)
-#define RCC_C2AHB1SMENR_CRCSMEN_Msk (0x1UL << RCC_C2AHB1SMENR_CRCSMEN_Pos)
-#define RCC_C2AHB1SMENR_CRCSMEN RCC_C2AHB1SMENR_CRCSMEN_Msk
-
-
-#define RCC_C2AHB2SMENR_GPIOASMEN_Pos (0U)
-#define RCC_C2AHB2SMENR_GPIOASMEN_Msk (0x1UL << RCC_C2AHB2SMENR_GPIOASMEN_Pos)
-#define RCC_C2AHB2SMENR_GPIOASMEN RCC_C2AHB2SMENR_GPIOASMEN_Msk
-#define RCC_C2AHB2SMENR_GPIOBSMEN_Pos (1U)
-#define RCC_C2AHB2SMENR_GPIOBSMEN_Msk (0x1UL << RCC_C2AHB2SMENR_GPIOBSMEN_Pos)
-#define RCC_C2AHB2SMENR_GPIOBSMEN RCC_C2AHB2SMENR_GPIOBSMEN_Msk
-#define RCC_C2AHB2SMENR_GPIOCSMEN_Pos (2U)
-#define RCC_C2AHB2SMENR_GPIOCSMEN_Msk (0x1UL << RCC_C2AHB2SMENR_GPIOCSMEN_Pos)
-#define RCC_C2AHB2SMENR_GPIOCSMEN RCC_C2AHB2SMENR_GPIOCSMEN_Msk
-#define RCC_C2AHB2SMENR_GPIOHSMEN_Pos (7U)
-#define RCC_C2AHB2SMENR_GPIOHSMEN_Msk (0x1UL << RCC_C2AHB2SMENR_GPIOHSMEN_Pos)
-#define RCC_C2AHB2SMENR_GPIOHSMEN RCC_C2AHB2SMENR_GPIOHSMEN_Msk
-
-
-#define RCC_C2AHB3SMENR_PKASMEN_Pos (16U)
-#define RCC_C2AHB3SMENR_PKASMEN_Msk (0x1UL << RCC_C2AHB3SMENR_PKASMEN_Pos)
-#define RCC_C2AHB3SMENR_PKASMEN RCC_C2AHB3SMENR_PKASMEN_Msk
-#define RCC_C2AHB3SMENR_AESSMEN_Pos (17U)
-#define RCC_C2AHB3SMENR_AESSMEN_Msk (0x1UL << RCC_C2AHB3SMENR_AESSMEN_Pos)
-#define RCC_C2AHB3SMENR_AESSMEN RCC_C2AHB3SMENR_AESSMEN_Msk
-#define RCC_C2AHB3SMENR_RNGSMEN_Pos (18U)
-#define RCC_C2AHB3SMENR_RNGSMEN_Msk (0x1UL << RCC_C2AHB3SMENR_RNGSMEN_Pos)
-#define RCC_C2AHB3SMENR_RNGSMEN RCC_C2AHB3SMENR_RNGSMEN_Msk
-#define RCC_C2AHB3SMENR_SRAM1SMEN_Pos (23U)
-#define RCC_C2AHB3SMENR_SRAM1SMEN_Msk (0x1UL << RCC_C2AHB3SMENR_SRAM1SMEN_Pos)
-#define RCC_C2AHB3SMENR_SRAM1SMEN RCC_C2AHB3SMENR_SRAM1SMEN_Msk
-#define RCC_C2AHB3SMENR_SRAM2SMEN_Pos (24U)
-#define RCC_C2AHB3SMENR_SRAM2SMEN_Msk (0x1UL << RCC_C2AHB3SMENR_SRAM2SMEN_Pos)
-#define RCC_C2AHB3SMENR_SRAM2SMEN RCC_C2AHB3SMENR_SRAM2SMEN_Msk
-#define RCC_C2AHB3SMENR_FLASHSMEN_Pos (25U)
-#define RCC_C2AHB3SMENR_FLASHSMEN_Msk (0x1UL << RCC_C2AHB3SMENR_FLASHSMEN_Pos)
-#define RCC_C2AHB3SMENR_FLASHSMEN RCC_C2AHB3SMENR_FLASHSMEN_Msk
-
-
-#define RCC_C2APB1SMENR1_TIM2SMEN_Pos (0U)
-#define RCC_C2APB1SMENR1_TIM2SMEN_Msk (0x1UL << RCC_C2APB1SMENR1_TIM2SMEN_Pos)
-#define RCC_C2APB1SMENR1_TIM2SMEN RCC_C2APB1SMENR1_TIM2SMEN_Msk
-#define RCC_C2APB1SMENR1_RTCAPBSMEN_Pos (10U)
-#define RCC_C2APB1SMENR1_RTCAPBSMEN_Msk (0x1UL << RCC_C2APB1SMENR1_RTCAPBSMEN_Pos)
-#define RCC_C2APB1SMENR1_RTCAPBSMEN RCC_C2APB1SMENR1_RTCAPBSMEN_Msk
-#define RCC_C2APB1SMENR1_SPI2SMEN_Pos (14U)
-#define RCC_C2APB1SMENR1_SPI2SMEN_Msk (0x1UL << RCC_C2APB1SMENR1_SPI2SMEN_Pos)
-#define RCC_C2APB1SMENR1_SPI2SMEN RCC_C2APB1SMENR1_SPI2SMEN_Msk
-#define RCC_C2APB1SMENR1_USART2SMEN_Pos (17U)
-#define RCC_C2APB1SMENR1_USART2SMEN_Msk (0x1UL << RCC_C2APB1SMENR1_USART2SMEN_Pos)
-#define RCC_C2APB1SMENR1_USART2SMEN RCC_C2APB1SMENR1_USART2SMEN_Msk
-#define RCC_C2APB1SMENR1_I2C1SMEN_Pos (21U)
-#define RCC_C2APB1SMENR1_I2C1SMEN_Msk (0x1UL << RCC_C2APB1SMENR1_I2C1SMEN_Pos)
-#define RCC_C2APB1SMENR1_I2C1SMEN RCC_C2APB1SMENR1_I2C1SMEN_Msk
-#define RCC_C2APB1SMENR1_I2C2SMEN_Pos (22U)
-#define RCC_C2APB1SMENR1_I2C2SMEN_Msk (0x1UL << RCC_C2APB1SMENR1_I2C2SMEN_Pos)
-#define RCC_C2APB1SMENR1_I2C2SMEN RCC_C2APB1SMENR1_I2C2SMEN_Msk
-#define RCC_C2APB1SMENR1_I2C3SMEN_Pos (23U)
-#define RCC_C2APB1SMENR1_I2C3SMEN_Msk (0x1UL << RCC_C2APB1SMENR1_I2C3SMEN_Pos)
-#define RCC_C2APB1SMENR1_I2C3SMEN RCC_C2APB1SMENR1_I2C3SMEN_Msk
-#define RCC_C2APB1SMENR1_DACSMEN_Pos (29U)
-#define RCC_C2APB1SMENR1_DACSMEN_Msk (0x1UL << RCC_C2APB1SMENR1_DACSMEN_Pos)
-#define RCC_C2APB1SMENR1_DACSMEN RCC_C2APB1SMENR1_DACSMEN_Msk
-#define RCC_C2APB1SMENR1_LPTIM1SMEN_Pos (31U)
-#define RCC_C2APB1SMENR1_LPTIM1SMEN_Msk (0x1UL << RCC_C2APB1SMENR1_LPTIM1SMEN_Pos)
-#define RCC_C2APB1SMENR1_LPTIM1SMEN RCC_C2APB1SMENR1_LPTIM1SMEN_Msk
-
-
-#define RCC_C2APB1SMENR2_LPUART1SMEN_Pos (0U)
-#define RCC_C2APB1SMENR2_LPUART1SMEN_Msk (0x1UL << RCC_C2APB1SMENR2_LPUART1SMEN_Pos)
-#define RCC_C2APB1SMENR2_LPUART1SMEN RCC_C2APB1SMENR2_LPUART1SMEN_Msk
-#define RCC_C2APB1SMENR2_LPTIM2SMEN_Pos (5U)
-#define RCC_C2APB1SMENR2_LPTIM2SMEN_Msk (0x1UL << RCC_C2APB1SMENR2_LPTIM2SMEN_Pos)
-#define RCC_C2APB1SMENR2_LPTIM2SMEN RCC_C2APB1SMENR2_LPTIM2SMEN_Msk
-#define RCC_C2APB1SMENR2_LPTIM3SMEN_Pos (6U)
-#define RCC_C2APB1SMENR2_LPTIM3SMEN_Msk (0x1UL << RCC_C2APB1SMENR2_LPTIM3SMEN_Pos)
-#define RCC_C2APB1SMENR2_LPTIM3SMEN RCC_C2APB1SMENR2_LPTIM3SMEN_Msk
-
-
-#define RCC_C2APB2SMENR_ADCSMEN_Pos (9U)
-#define RCC_C2APB2SMENR_ADCSMEN_Msk (0x1UL << RCC_C2APB2SMENR_ADCSMEN_Pos)
-#define RCC_C2APB2SMENR_ADCSMEN RCC_C2APB2SMENR_ADCSMEN_Msk
-#define RCC_C2APB2SMENR_TIM1SMEN_Pos (11U)
-#define RCC_C2APB2SMENR_TIM1SMEN_Msk (0x1UL << RCC_C2APB2SMENR_TIM1SMEN_Pos)
-#define RCC_C2APB2SMENR_TIM1SMEN RCC_C2APB2SMENR_TIM1SMEN_Msk
-#define RCC_C2APB2SMENR_SPI1SMEN_Pos (12U)
-#define RCC_C2APB2SMENR_SPI1SMEN_Msk (0x1UL << RCC_C2APB2SMENR_SPI1SMEN_Pos)
-#define RCC_C2APB2SMENR_SPI1SMEN RCC_C2APB2SMENR_SPI1SMEN_Msk
-#define RCC_C2APB2SMENR_USART1SMEN_Pos (14U)
-#define RCC_C2APB2SMENR_USART1SMEN_Msk (0x1UL << RCC_C2APB2SMENR_USART1SMEN_Pos)
-#define RCC_C2APB2SMENR_USART1SMEN RCC_C2APB2SMENR_USART1SMEN_Msk
-#define RCC_C2APB2SMENR_TIM16SMEN_Pos (17U)
-#define RCC_C2APB2SMENR_TIM16SMEN_Msk (0x1UL << RCC_C2APB2SMENR_TIM16SMEN_Pos)
-#define RCC_C2APB2SMENR_TIM16SMEN RCC_C2APB2SMENR_TIM16SMEN_Msk
-#define RCC_C2APB2SMENR_TIM17SMEN_Pos (18U)
-#define RCC_C2APB2SMENR_TIM17SMEN_Msk (0x1UL << RCC_C2APB2SMENR_TIM17SMEN_Pos)
-#define RCC_C2APB2SMENR_TIM17SMEN RCC_C2APB2SMENR_TIM17SMEN_Msk
-
-
-#define RCC_C2APB3SMENR_SUBGHZSPISMEN_Pos (0U)
-#define RCC_C2APB3SMENR_SUBGHZSPISMEN_Msk (0x1UL << RCC_C2APB3SMENR_SUBGHZSPISMEN_Pos)
-#define RCC_C2APB3SMENR_SUBGHZSPISMEN RCC_C2APB3SMENR_SUBGHZSPISMEN_Msk
-# 7685 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wl55xx.h"
+# 6568 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define RNG_VER_3_2 
 
 
@@ -13010,191 +11952,6 @@ typedef struct
 #define SYSCFG_SKR_KEY SYSCFG_SKR_KEY_Msk
 
 
-#define SYSCFG_IMR1_RTCSTAMPTAMPLSECSSIM_Pos (0U)
-#define SYSCFG_IMR1_RTCSTAMPTAMPLSECSSIM_Msk (0x1UL << SYSCFG_IMR1_RTCSTAMPTAMPLSECSSIM_Pos)
-#define SYSCFG_IMR1_RTCSTAMPTAMPLSECSSIM SYSCFG_IMR1_RTCSTAMPTAMPLSECSSIM_Msk
-#define SYSCFG_IMR1_RTCSSRUIM_Pos (2U)
-#define SYSCFG_IMR1_RTCSSRUIM_Msk (0x1UL << SYSCFG_IMR1_RTCSSRUIM_Pos)
-#define SYSCFG_IMR1_RTCSSRUIM SYSCFG_IMR1_RTCSSRUIM_Msk
-#define SYSCFG_IMR1_EXTI5IM_Pos (21U)
-#define SYSCFG_IMR1_EXTI5IM_Msk (0x1UL << SYSCFG_IMR1_EXTI5IM_Pos)
-#define SYSCFG_IMR1_EXTI5IM SYSCFG_IMR1_EXTI5IM_Msk
-#define SYSCFG_IMR1_EXTI6IM_Pos (22U)
-#define SYSCFG_IMR1_EXTI6IM_Msk (0x1UL << SYSCFG_IMR1_EXTI6IM_Pos)
-#define SYSCFG_IMR1_EXTI6IM SYSCFG_IMR1_EXTI6IM_Msk
-#define SYSCFG_IMR1_EXTI7IM_Pos (23U)
-#define SYSCFG_IMR1_EXTI7IM_Msk (0x1UL << SYSCFG_IMR1_EXTI7IM_Pos)
-#define SYSCFG_IMR1_EXTI7IM SYSCFG_IMR1_EXTI7IM_Msk
-#define SYSCFG_IMR1_EXTI8IM_Pos (24U)
-#define SYSCFG_IMR1_EXTI8IM_Msk (0x1UL << SYSCFG_IMR1_EXTI8IM_Pos)
-#define SYSCFG_IMR1_EXTI8IM SYSCFG_IMR1_EXTI8IM_Msk
-#define SYSCFG_IMR1_EXTI9IM_Pos (25U)
-#define SYSCFG_IMR1_EXTI9IM_Msk (0x1UL << SYSCFG_IMR1_EXTI9IM_Pos)
-#define SYSCFG_IMR1_EXTI9IM SYSCFG_IMR1_EXTI9IM_Msk
-#define SYSCFG_IMR1_EXTI10IM_Pos (26U)
-#define SYSCFG_IMR1_EXTI10IM_Msk (0x1UL << SYSCFG_IMR1_EXTI10IM_Pos)
-#define SYSCFG_IMR1_EXTI10IM SYSCFG_IMR1_EXTI10IM_Msk
-#define SYSCFG_IMR1_EXTI11IM_Pos (27U)
-#define SYSCFG_IMR1_EXTI11IM_Msk (0x1UL << SYSCFG_IMR1_EXTI11IM_Pos)
-#define SYSCFG_IMR1_EXTI11IM SYSCFG_IMR1_EXTI11IM_Msk
-#define SYSCFG_IMR1_EXTI12IM_Pos (28U)
-#define SYSCFG_IMR1_EXTI12IM_Msk (0x1UL << SYSCFG_IMR1_EXTI12IM_Pos)
-#define SYSCFG_IMR1_EXTI12IM SYSCFG_IMR1_EXTI12IM_Msk
-#define SYSCFG_IMR1_EXTI13IM_Pos (29U)
-#define SYSCFG_IMR1_EXTI13IM_Msk (0x1UL << SYSCFG_IMR1_EXTI13IM_Pos)
-#define SYSCFG_IMR1_EXTI13IM SYSCFG_IMR1_EXTI13IM_Msk
-#define SYSCFG_IMR1_EXTI14IM_Pos (30U)
-#define SYSCFG_IMR1_EXTI14IM_Msk (0x1UL << SYSCFG_IMR1_EXTI14IM_Pos)
-#define SYSCFG_IMR1_EXTI14IM SYSCFG_IMR1_EXTI14IM_Msk
-#define SYSCFG_IMR1_EXTI15IM_Pos (31U)
-#define SYSCFG_IMR1_EXTI15IM_Msk (0x1UL << SYSCFG_IMR1_EXTI15IM_Pos)
-#define SYSCFG_IMR1_EXTI15IM SYSCFG_IMR1_EXTI15IM_Msk
-
-
-#define SYSCFG_IMR2_PVM3IM_Pos (18U)
-#define SYSCFG_IMR2_PVM3IM_Msk (0x1UL << SYSCFG_IMR2_PVM3IM_Pos)
-#define SYSCFG_IMR2_PVM3IM SYSCFG_IMR2_PVM3IM_Msk
-#define SYSCFG_IMR2_PVDIM_Pos (20U)
-#define SYSCFG_IMR2_PVDIM_Msk (0x1UL << SYSCFG_IMR2_PVDIM_Pos)
-#define SYSCFG_IMR2_PVDIM SYSCFG_IMR2_PVDIM_Msk
-
-
-#define SYSCFG_C2IMR1_RTCSTAMPTAMPLSECSSIM_Pos (0U)
-#define SYSCFG_C2IMR1_RTCSTAMPTAMPLSECSSIM_Msk (0x1U << SYSCFG_C2IMR1_RTCSTAMPTAMPLSECSSIM_Pos)
-#define SYSCFG_C2IMR1_RTCSTAMPTAMPLSECSSIM SYSCFG_C2IMR1_RTCSTAMPTAMPLSECSSIM_Msk
-#define SYSCFG_C2IMR1_RTCALARMIM_Pos (1U)
-#define SYSCFG_C2IMR1_RTCALARMIM_Msk (0x1UL << SYSCFG_C2IMR1_RTCALARMIM_Pos)
-#define SYSCFG_C2IMR1_RTCALARMIM SYSCFG_C2IMR1_RTCALARMIM_Msk
-#define SYSCFG_C2IMR1_RTCSSRUIM_Pos (2U)
-#define SYSCFG_C2IMR1_RTCSSRUIM_Msk (0x1UL << SYSCFG_C2IMR1_RTCSSRUIM_Pos)
-#define SYSCFG_C2IMR1_RTCSSRUIM SYSCFG_C2IMR1_RTCSSRUIM_Msk
-#define SYSCFG_C2IMR1_RTCWKUPIM_Pos (3U)
-#define SYSCFG_C2IMR1_RTCWKUPIM_Msk (0x1UL << SYSCFG_C2IMR1_RTCWKUPIM_Pos)
-#define SYSCFG_C2IMR1_RTCWKUPIM SYSCFG_C2IMR1_RTCWKUPIM_Msk
-#define SYSCFG_C2IMR1_RCCIM_Pos (5U)
-#define SYSCFG_C2IMR1_RCCIM_Msk (0x1UL << SYSCFG_C2IMR1_RCCIM_Pos)
-#define SYSCFG_C2IMR1_RCCIM SYSCFG_C2IMR1_RCCIM_Msk
-#define SYSCFG_C2IMR1_FLASHIM_Pos (6U)
-#define SYSCFG_C2IMR1_FLASHIM_Msk (0x1UL << SYSCFG_C2IMR1_FLASHIM_Pos)
-#define SYSCFG_C2IMR1_FLASHIM SYSCFG_C2IMR1_FLASHIM_Msk
-#define SYSCFG_C2IMR1_PKAIM_Pos (8U)
-#define SYSCFG_C2IMR1_PKAIM_Msk (0x1UL << SYSCFG_C2IMR1_PKAIM_Pos)
-#define SYSCFG_C2IMR1_PKAIM SYSCFG_C2IMR1_PKAIM_Msk
-#define SYSCFG_C2IMR1_AESIM_Pos (10U)
-#define SYSCFG_C2IMR1_AESIM_Msk (0x1UL << SYSCFG_C2IMR1_AESIM_Pos)
-#define SYSCFG_C2IMR1_AESIM SYSCFG_C2IMR1_AESIM_Msk
-#define SYSCFG_C2IMR1_COMPIM_Pos (11U)
-#define SYSCFG_C2IMR1_COMPIM_Msk (0x1UL << SYSCFG_C2IMR1_COMPIM_Pos)
-#define SYSCFG_C2IMR1_COMPIM SYSCFG_C2IMR1_COMPIM_Msk
-#define SYSCFG_C2IMR1_ADCIM_Pos (12U)
-#define SYSCFG_C2IMR1_ADCIM_Msk (0x1UL << SYSCFG_C2IMR1_ADCIM_Pos)
-#define SYSCFG_C2IMR1_ADCIM SYSCFG_C2IMR1_ADCIM_Msk
-#define SYSCFG_C2IMR1_DACIM_Pos (13U)
-#define SYSCFG_C2IMR1_DACIM_Msk (0x1UL << SYSCFG_C2IMR1_DACIM_Pos)
-#define SYSCFG_C2IMR1_DACIM SYSCFG_C2IMR1_DACIM_Msk
-#define SYSCFG_C2IMR1_EXTI0IM_Pos (16U)
-#define SYSCFG_C2IMR1_EXTI0IM_Msk (0x1UL << SYSCFG_C2IMR1_EXTI0IM_Pos)
-#define SYSCFG_C2IMR1_EXTI0IM SYSCFG_C2IMR1_EXTI0IM_Msk
-#define SYSCFG_C2IMR1_EXTI1IM_Pos (17U)
-#define SYSCFG_C2IMR1_EXTI1IM_Msk (0x1UL << SYSCFG_C2IMR1_EXTI1IM_Pos)
-#define SYSCFG_C2IMR1_EXTI1IM SYSCFG_C2IMR1_EXTI1IM_Msk
-#define SYSCFG_C2IMR1_EXTI2IM_Pos (18U)
-#define SYSCFG_C2IMR1_EXTI2IM_Msk (0x1UL << SYSCFG_C2IMR1_EXTI2IM_Pos)
-#define SYSCFG_C2IMR1_EXTI2IM SYSCFG_C2IMR1_EXTI2IM_Msk
-#define SYSCFG_C2IMR1_EXTI3IM_Pos (19U)
-#define SYSCFG_C2IMR1_EXTI3IM_Msk (0x1UL << SYSCFG_C2IMR1_EXTI3IM_Pos)
-#define SYSCFG_C2IMR1_EXTI3IM SYSCFG_C2IMR1_EXTI3IM_Msk
-#define SYSCFG_C2IMR1_EXTI4IM_Pos (20U)
-#define SYSCFG_C2IMR1_EXTI4IM_Msk (0x1UL << SYSCFG_C2IMR1_EXTI4IM_Pos)
-#define SYSCFG_C2IMR1_EXTI4IM SYSCFG_C2IMR1_EXTI4IM_Msk
-#define SYSCFG_C2IMR1_EXTI5IM_Pos (21U)
-#define SYSCFG_C2IMR1_EXTI5IM_Msk (0x1UL << SYSCFG_C2IMR1_EXTI5IM_Pos)
-#define SYSCFG_C2IMR1_EXTI5IM SYSCFG_C2IMR1_EXTI5IM_Msk
-#define SYSCFG_C2IMR1_EXTI6IM_Pos (22U)
-#define SYSCFG_C2IMR1_EXTI6IM_Msk (0x1UL << SYSCFG_C2IMR1_EXTI6IM_Pos)
-#define SYSCFG_C2IMR1_EXTI6IM SYSCFG_C2IMR1_EXTI6IM_Msk
-#define SYSCFG_C2IMR1_EXTI7IM_Pos (23U)
-#define SYSCFG_C2IMR1_EXTI7IM_Msk (0x1UL << SYSCFG_C2IMR1_EXTI7IM_Pos)
-#define SYSCFG_C2IMR1_EXTI7IM SYSCFG_C2IMR1_EXTI7IM_Msk
-#define SYSCFG_C2IMR1_EXTI8IM_Pos (24U)
-#define SYSCFG_C2IMR1_EXTI8IM_Msk (0x1UL << SYSCFG_C2IMR1_EXTI8IM_Pos)
-#define SYSCFG_C2IMR1_EXTI8IM SYSCFG_C2IMR1_EXTI8IM_Msk
-#define SYSCFG_C2IMR1_EXTI9IM_Pos (25U)
-#define SYSCFG_C2IMR1_EXTI9IM_Msk (0x1UL << SYSCFG_C2IMR1_EXTI9IM_Pos)
-#define SYSCFG_C2IMR1_EXTI9IM SYSCFG_C2IMR1_EXTI9IM_Msk
-#define SYSCFG_C2IMR1_EXTI10IM_Pos (26U)
-#define SYSCFG_C2IMR1_EXTI10IM_Msk (0x1UL << SYSCFG_C2IMR1_EXTI10IM_Pos)
-#define SYSCFG_C2IMR1_EXTI10IM SYSCFG_C2IMR1_EXTI10IM_Msk
-#define SYSCFG_C2IMR1_EXTI11IM_Pos (27U)
-#define SYSCFG_C2IMR1_EXTI11IM_Msk (0x1UL << SYSCFG_C2IMR1_EXTI11IM_Pos)
-#define SYSCFG_C2IMR1_EXTI11IM SYSCFG_C2IMR1_EXTI11IM_Msk
-#define SYSCFG_C2IMR1_EXTI12IM_Pos (28U)
-#define SYSCFG_C2IMR1_EXTI12IM_Msk (0x1UL << SYSCFG_C2IMR1_EXTI12IM_Pos)
-#define SYSCFG_C2IMR1_EXTI12IM SYSCFG_C2IMR1_EXTI12IM_Msk
-#define SYSCFG_C2IMR1_EXTI13IM_Pos (29U)
-#define SYSCFG_C2IMR1_EXTI13IM_Msk (0x1UL << SYSCFG_C2IMR1_EXTI13IM_Pos)
-#define SYSCFG_C2IMR1_EXTI13IM SYSCFG_C2IMR1_EXTI13IM_Msk
-#define SYSCFG_C2IMR1_EXTI14IM_Pos (30U)
-#define SYSCFG_C2IMR1_EXTI14IM_Msk (0x1UL << SYSCFG_C2IMR1_EXTI14IM_Pos)
-#define SYSCFG_C2IMR1_EXTI14IM SYSCFG_C2IMR1_EXTI14IM_Msk
-#define SYSCFG_C2IMR1_EXTI15IM_Pos (31U)
-#define SYSCFG_C2IMR1_EXTI15IM_Msk (0x1UL << SYSCFG_C2IMR1_EXTI15IM_Pos)
-#define SYSCFG_C2IMR1_EXTI15IM SYSCFG_C2IMR1_EXTI15IM_Msk
-
-
-#define SYSCFG_C2IMR2_DMA1CH1IM_Pos (0U)
-#define SYSCFG_C2IMR2_DMA1CH1IM_Msk (0x1UL << SYSCFG_C2IMR2_DMA1CH1IM_Pos)
-#define SYSCFG_C2IMR2_DMA1CH1IM SYSCFG_C2IMR2_DMA1CH1IM_Msk
-#define SYSCFG_C2IMR2_DMA1CH2IM_Pos (1U)
-#define SYSCFG_C2IMR2_DMA1CH2IM_Msk (0x1UL << SYSCFG_C2IMR2_DMA1CH2IM_Pos)
-#define SYSCFG_C2IMR2_DMA1CH2IM SYSCFG_C2IMR2_DMA1CH2IM_Msk
-#define SYSCFG_C2IMR2_DMA1CH3IM_Pos (2U)
-#define SYSCFG_C2IMR2_DMA1CH3IM_Msk (0x1UL << SYSCFG_C2IMR2_DMA1CH3IM_Pos)
-#define SYSCFG_C2IMR2_DMA1CH3IM SYSCFG_C2IMR2_DMA1CH3IM_Msk
-#define SYSCFG_C2IMR2_DMA1CH4IM_Pos (3U)
-#define SYSCFG_C2IMR2_DMA1CH4IM_Msk (0x1UL << SYSCFG_C2IMR2_DMA1CH4IM_Pos)
-#define SYSCFG_C2IMR2_DMA1CH4IM SYSCFG_C2IMR2_DMA1CH4IM_Msk
-#define SYSCFG_C2IMR2_DMA1CH5IM_Pos (4U)
-#define SYSCFG_C2IMR2_DMA1CH5IM_Msk (0x1UL << SYSCFG_C2IMR2_DMA1CH5IM_Pos)
-#define SYSCFG_C2IMR2_DMA1CH5IM SYSCFG_C2IMR2_DMA1CH5IM_Msk
-#define SYSCFG_C2IMR2_DMA1CH6IM_Pos (5U)
-#define SYSCFG_C2IMR2_DMA1CH6IM_Msk (0x1UL << SYSCFG_C2IMR2_DMA1CH6IM_Pos)
-#define SYSCFG_C2IMR2_DMA1CH6IM SYSCFG_C2IMR2_DMA1CH6IM_Msk
-#define SYSCFG_C2IMR2_DMA1CH7IM_Pos (6U)
-#define SYSCFG_C2IMR2_DMA1CH7IM_Msk (0x1UL << SYSCFG_C2IMR2_DMA1CH7IM_Pos)
-#define SYSCFG_C2IMR2_DMA1CH7IM SYSCFG_C2IMR2_DMA1CH7IM_Msk
-#define SYSCFG_C2IMR2_DMA2CH1IM_Pos (8U)
-#define SYSCFG_C2IMR2_DMA2CH1IM_Msk (0x1UL << SYSCFG_C2IMR2_DMA2CH1IM_Pos)
-#define SYSCFG_C2IMR2_DMA2CH1IM SYSCFG_C2IMR2_DMA2CH1IM_Msk
-#define SYSCFG_C2IMR2_DMA2CH2IM_Pos (9U)
-#define SYSCFG_C2IMR2_DMA2CH2IM_Msk (0x1UL << SYSCFG_C2IMR2_DMA2CH2IM_Pos)
-#define SYSCFG_C2IMR2_DMA2CH2IM SYSCFG_C2IMR2_DMA2CH2IM_Msk
-#define SYSCFG_C2IMR2_DMA2CH3IM_Pos (10U)
-#define SYSCFG_C2IMR2_DMA2CH3IM_Msk (0x1UL << SYSCFG_C2IMR2_DMA2CH3IM_Pos)
-#define SYSCFG_C2IMR2_DMA2CH3IM SYSCFG_C2IMR2_DMA2CH3IM_Msk
-#define SYSCFG_C2IMR2_DMA2CH4IM_Pos (11U)
-#define SYSCFG_C2IMR2_DMA2CH4IM_Msk (0x1UL << SYSCFG_C2IMR2_DMA2CH4IM_Pos)
-#define SYSCFG_C2IMR2_DMA2CH4IM SYSCFG_C2IMR2_DMA2CH4IM_Msk
-#define SYSCFG_C2IMR2_DMA2CH5IM_Pos (12U)
-#define SYSCFG_C2IMR2_DMA2CH5IM_Msk (0x1UL << SYSCFG_C2IMR2_DMA2CH5IM_Pos)
-#define SYSCFG_C2IMR2_DMA2CH5IM SYSCFG_C2IMR2_DMA2CH5IM_Msk
-#define SYSCFG_C2IMR2_DMA2CH6IM_Pos (13U)
-#define SYSCFG_C2IMR2_DMA2CH6IM_Msk (0x1UL << SYSCFG_C2IMR2_DMA2CH6IM_Pos)
-#define SYSCFG_C2IMR2_DMA2CH6IM SYSCFG_C2IMR2_DMA2CH6IM_Msk
-#define SYSCFG_C2IMR2_DMA2CH7IM_Pos (14U)
-#define SYSCFG_C2IMR2_DMA2CH7IM_Msk (0x1UL << SYSCFG_C2IMR2_DMA2CH7IM_Pos)
-#define SYSCFG_C2IMR2_DMA2CH7IM SYSCFG_C2IMR2_DMA2CH7IM_Msk
-#define SYSCFG_C2IMR2_DMAMUX1IM_Pos (15U)
-#define SYSCFG_C2IMR2_DMAMUX1IM_Msk (0x1UL << SYSCFG_C2IMR2_DMAMUX1IM_Pos)
-#define SYSCFG_C2IMR2_DMAMUX1IM SYSCFG_C2IMR2_DMAMUX1IM_Msk
-#define SYSCFG_C2IMR2_PVM3IM_Pos (18U)
-#define SYSCFG_C2IMR2_PVM3IM_Msk (0x1UL << SYSCFG_C2IMR2_PVM3IM_Pos)
-#define SYSCFG_C2IMR2_PVM3IM SYSCFG_C2IMR2_PVM3IM_Msk
-#define SYSCFG_C2IMR2_PVDIM_Pos (20U)
-#define SYSCFG_C2IMR2_PVDIM_Msk (0x1UL << SYSCFG_C2IMR2_PVDIM_Pos)
-#define SYSCFG_C2IMR2_PVDIM SYSCFG_C2IMR2_PVDIM_Msk
-
-
 #define SYSCFG_RFDCR_RFTBSEL_Pos (0U)
 #define SYSCFG_RFDCR_RFTBSEL_Msk (0x1UL << SYSCFG_RFDCR_RFTBSEL_Pos)
 #define SYSCFG_RFDCR_RFTBSEL SYSCFG_RFDCR_RFTBSEL_Msk
@@ -13475,333 +12232,7 @@ typedef struct
 #define I2C_TXDR_TXDATA_Pos (0U)
 #define I2C_TXDR_TXDATA_Msk (0xFFUL << I2C_TXDR_TXDATA_Pos)
 #define I2C_TXDR_TXDATA I2C_TXDR_TXDATA_Msk
-
-
-
-
-
-
-
-#define IPCC_C1CR_RXOIE_Pos (0U)
-#define IPCC_C1CR_RXOIE_Msk (0x1UL << IPCC_C1CR_RXOIE_Pos)
-#define IPCC_C1CR_RXOIE IPCC_C1CR_RXOIE_Msk
-#define IPCC_C1CR_TXFIE_Pos (16U)
-#define IPCC_C1CR_TXFIE_Msk (0x1UL << IPCC_C1CR_TXFIE_Pos)
-#define IPCC_C1CR_TXFIE IPCC_C1CR_TXFIE_Msk
-
-
-#define IPCC_C1MR_CH1OM_Pos (0U)
-#define IPCC_C1MR_CH1OM_Msk (0x1UL << IPCC_C1MR_CH1OM_Pos)
-#define IPCC_C1MR_CH1OM IPCC_C1MR_CH1OM_Msk
-#define IPCC_C1MR_CH2OM_Pos (1U)
-#define IPCC_C1MR_CH2OM_Msk (0x1UL << IPCC_C1MR_CH2OM_Pos)
-#define IPCC_C1MR_CH2OM IPCC_C1MR_CH2OM_Msk
-#define IPCC_C1MR_CH3OM_Pos (2U)
-#define IPCC_C1MR_CH3OM_Msk (0x1UL << IPCC_C1MR_CH3OM_Pos)
-#define IPCC_C1MR_CH3OM IPCC_C1MR_CH3OM_Msk
-#define IPCC_C1MR_CH4OM_Pos (3U)
-#define IPCC_C1MR_CH4OM_Msk (0x1UL << IPCC_C1MR_CH4OM_Pos)
-#define IPCC_C1MR_CH4OM IPCC_C1MR_CH4OM_Msk
-#define IPCC_C1MR_CH5OM_Pos (4U)
-#define IPCC_C1MR_CH5OM_Msk (0x1UL << IPCC_C1MR_CH5OM_Pos)
-#define IPCC_C1MR_CH5OM IPCC_C1MR_CH5OM_Msk
-#define IPCC_C1MR_CH6OM_Pos (5U)
-#define IPCC_C1MR_CH6OM_Msk (0x1UL << IPCC_C1MR_CH6OM_Pos)
-#define IPCC_C1MR_CH6OM IPCC_C1MR_CH6OM_Msk
-
-#define IPCC_C1MR_CH1FM_Pos (16U)
-#define IPCC_C1MR_CH1FM_Msk (0x1UL << IPCC_C1MR_CH1FM_Pos)
-#define IPCC_C1MR_CH1FM IPCC_C1MR_CH1FM_Msk
-#define IPCC_C1MR_CH2FM_Pos (17U)
-#define IPCC_C1MR_CH2FM_Msk (0x1UL << IPCC_C1MR_CH2FM_Pos)
-#define IPCC_C1MR_CH2FM IPCC_C1MR_CH2FM_Msk
-#define IPCC_C1MR_CH3FM_Pos (18U)
-#define IPCC_C1MR_CH3FM_Msk (0x1UL << IPCC_C1MR_CH3FM_Pos)
-#define IPCC_C1MR_CH3FM IPCC_C1MR_CH3FM_Msk
-#define IPCC_C1MR_CH4FM_Pos (19U)
-#define IPCC_C1MR_CH4FM_Msk (0x1UL << IPCC_C1MR_CH4FM_Pos)
-#define IPCC_C1MR_CH4FM IPCC_C1MR_CH4FM_Msk
-#define IPCC_C1MR_CH5FM_Pos (20U)
-#define IPCC_C1MR_CH5FM_Msk (0x1UL << IPCC_C1MR_CH5FM_Pos)
-#define IPCC_C1MR_CH5FM IPCC_C1MR_CH5FM_Msk
-#define IPCC_C1MR_CH6FM_Pos (21U)
-#define IPCC_C1MR_CH6FM_Msk (0x1UL << IPCC_C1MR_CH6FM_Pos)
-#define IPCC_C1MR_CH6FM IPCC_C1MR_CH6FM_Msk
-
-
-#define IPCC_C1SCR_CH1C_Pos (0U)
-#define IPCC_C1SCR_CH1C_Msk (0x1UL << IPCC_C1SCR_CH1C_Pos)
-#define IPCC_C1SCR_CH1C IPCC_C1SCR_CH1C_Msk
-#define IPCC_C1SCR_CH2C_Pos (1U)
-#define IPCC_C1SCR_CH2C_Msk (0x1UL << IPCC_C1SCR_CH2C_Pos)
-#define IPCC_C1SCR_CH2C IPCC_C1SCR_CH2C_Msk
-#define IPCC_C1SCR_CH3C_Pos (2U)
-#define IPCC_C1SCR_CH3C_Msk (0x1UL << IPCC_C1SCR_CH3C_Pos)
-#define IPCC_C1SCR_CH3C IPCC_C1SCR_CH3C_Msk
-#define IPCC_C1SCR_CH4C_Pos (3U)
-#define IPCC_C1SCR_CH4C_Msk (0x1UL << IPCC_C1SCR_CH4C_Pos)
-#define IPCC_C1SCR_CH4C IPCC_C1SCR_CH4C_Msk
-#define IPCC_C1SCR_CH5C_Pos (4U)
-#define IPCC_C1SCR_CH5C_Msk (0x1UL << IPCC_C1SCR_CH5C_Pos)
-#define IPCC_C1SCR_CH5C IPCC_C1SCR_CH5C_Msk
-#define IPCC_C1SCR_CH6C_Pos (5U)
-#define IPCC_C1SCR_CH6C_Msk (0x1UL << IPCC_C1SCR_CH6C_Pos)
-#define IPCC_C1SCR_CH6C IPCC_C1SCR_CH6C_Msk
-
-#define IPCC_C1SCR_CH1S_Pos (16U)
-#define IPCC_C1SCR_CH1S_Msk (0x1UL << IPCC_C1SCR_CH1S_Pos)
-#define IPCC_C1SCR_CH1S IPCC_C1SCR_CH1S_Msk
-#define IPCC_C1SCR_CH2S_Pos (17U)
-#define IPCC_C1SCR_CH2S_Msk (0x1UL << IPCC_C1SCR_CH2S_Pos)
-#define IPCC_C1SCR_CH2S IPCC_C1SCR_CH2S_Msk
-#define IPCC_C1SCR_CH3S_Pos (18U)
-#define IPCC_C1SCR_CH3S_Msk (0x1UL << IPCC_C1SCR_CH3S_Pos)
-#define IPCC_C1SCR_CH3S IPCC_C1SCR_CH3S_Msk
-#define IPCC_C1SCR_CH4S_Pos (19U)
-#define IPCC_C1SCR_CH4S_Msk (0x1UL << IPCC_C1SCR_CH4S_Pos)
-#define IPCC_C1SCR_CH4S IPCC_C1SCR_CH4S_Msk
-#define IPCC_C1SCR_CH5S_Pos (20U)
-#define IPCC_C1SCR_CH5S_Msk (0x1UL << IPCC_C1SCR_CH5S_Pos)
-#define IPCC_C1SCR_CH5S IPCC_C1SCR_CH5S_Msk
-#define IPCC_C1SCR_CH6S_Pos (21U)
-#define IPCC_C1SCR_CH6S_Msk (0x1UL << IPCC_C1SCR_CH6S_Pos)
-#define IPCC_C1SCR_CH6S IPCC_C1SCR_CH6S_Msk
-
-
-#define IPCC_C1TOC2SR_CH1F_Pos (0U)
-#define IPCC_C1TOC2SR_CH1F_Msk (0x1UL << IPCC_C1TOC2SR_CH1F_Pos)
-#define IPCC_C1TOC2SR_CH1F IPCC_C1TOC2SR_CH1F_Msk
-#define IPCC_C1TOC2SR_CH2F_Pos (1U)
-#define IPCC_C1TOC2SR_CH2F_Msk (0x1UL << IPCC_C1TOC2SR_CH2F_Pos)
-#define IPCC_C1TOC2SR_CH2F IPCC_C1TOC2SR_CH2F_Msk
-#define IPCC_C1TOC2SR_CH3F_Pos (2U)
-#define IPCC_C1TOC2SR_CH3F_Msk (0x1UL << IPCC_C1TOC2SR_CH3F_Pos)
-#define IPCC_C1TOC2SR_CH3F IPCC_C1TOC2SR_CH3F_Msk
-#define IPCC_C1TOC2SR_CH4F_Pos (3U)
-#define IPCC_C1TOC2SR_CH4F_Msk (0x1UL << IPCC_C1TOC2SR_CH4F_Pos)
-#define IPCC_C1TOC2SR_CH4F IPCC_C1TOC2SR_CH4F_Msk
-#define IPCC_C1TOC2SR_CH5F_Pos (4U)
-#define IPCC_C1TOC2SR_CH5F_Msk (0x1UL << IPCC_C1TOC2SR_CH5F_Pos)
-#define IPCC_C1TOC2SR_CH5F IPCC_C1TOC2SR_CH5F_Msk
-#define IPCC_C1TOC2SR_CH6F_Pos (5U)
-#define IPCC_C1TOC2SR_CH6F_Msk (0x1UL << IPCC_C1TOC2SR_CH6F_Pos)
-#define IPCC_C1TOC2SR_CH6F IPCC_C1TOC2SR_CH6F_Msk
-
-
-#define IPCC_C2CR_RXOIE_Pos (0U)
-#define IPCC_C2CR_RXOIE_Msk (0x1UL << IPCC_C2CR_RXOIE_Pos)
-#define IPCC_C2CR_RXOIE IPCC_C2CR_RXOIE_Msk
-#define IPCC_C2CR_TXFIE_Pos (16U)
-#define IPCC_C2CR_TXFIE_Msk (0x1UL << IPCC_C2CR_TXFIE_Pos)
-#define IPCC_C2CR_TXFIE IPCC_C2CR_TXFIE_Msk
-
-
-#define IPCC_C2MR_CH1OM_Pos (0U)
-#define IPCC_C2MR_CH1OM_Msk (0x1UL << IPCC_C2MR_CH1OM_Pos)
-#define IPCC_C2MR_CH1OM IPCC_C2MR_CH1OM_Msk
-#define IPCC_C2MR_CH2OM_Pos (1U)
-#define IPCC_C2MR_CH2OM_Msk (0x1UL << IPCC_C2MR_CH2OM_Pos)
-#define IPCC_C2MR_CH2OM IPCC_C2MR_CH2OM_Msk
-#define IPCC_C2MR_CH3OM_Pos (2U)
-#define IPCC_C2MR_CH3OM_Msk (0x1UL << IPCC_C2MR_CH3OM_Pos)
-#define IPCC_C2MR_CH3OM IPCC_C2MR_CH3OM_Msk
-#define IPCC_C2MR_CH4OM_Pos (3U)
-#define IPCC_C2MR_CH4OM_Msk (0x1UL << IPCC_C2MR_CH4OM_Pos)
-#define IPCC_C2MR_CH4OM IPCC_C2MR_CH4OM_Msk
-#define IPCC_C2MR_CH5OM_Pos (4U)
-#define IPCC_C2MR_CH5OM_Msk (0x1UL << IPCC_C2MR_CH5OM_Pos)
-#define IPCC_C2MR_CH5OM IPCC_C2MR_CH5OM_Msk
-#define IPCC_C2MR_CH6OM_Pos (5U)
-#define IPCC_C2MR_CH6OM_Msk (0x1UL << IPCC_C2MR_CH6OM_Pos)
-#define IPCC_C2MR_CH6OM IPCC_C2MR_CH6OM_Msk
-
-#define IPCC_C2MR_CH1FM_Pos (16U)
-#define IPCC_C2MR_CH1FM_Msk (0x1UL << IPCC_C2MR_CH1FM_Pos)
-#define IPCC_C2MR_CH1FM IPCC_C2MR_CH1FM_Msk
-#define IPCC_C2MR_CH2FM_Pos (17U)
-#define IPCC_C2MR_CH2FM_Msk (0x1UL << IPCC_C2MR_CH2FM_Pos)
-#define IPCC_C2MR_CH2FM IPCC_C2MR_CH2FM_Msk
-#define IPCC_C2MR_CH3FM_Pos (18U)
-#define IPCC_C2MR_CH3FM_Msk (0x1UL << IPCC_C2MR_CH3FM_Pos)
-#define IPCC_C2MR_CH3FM IPCC_C2MR_CH3FM_Msk
-#define IPCC_C2MR_CH4FM_Pos (19U)
-#define IPCC_C2MR_CH4FM_Msk (0x1UL << IPCC_C2MR_CH4FM_Pos)
-#define IPCC_C2MR_CH4FM IPCC_C2MR_CH4FM_Msk
-#define IPCC_C2MR_CH5FM_Pos (20U)
-#define IPCC_C2MR_CH5FM_Msk (0x1UL << IPCC_C2MR_CH5FM_Pos)
-#define IPCC_C2MR_CH5FM IPCC_C2MR_CH5FM_Msk
-#define IPCC_C2MR_CH6FM_Pos (21U)
-#define IPCC_C2MR_CH6FM_Msk (0x1UL << IPCC_C2MR_CH6FM_Pos)
-#define IPCC_C2MR_CH6FM IPCC_C2MR_CH6FM_Msk
-
-
-#define IPCC_C2SCR_CH1C_Pos (0U)
-#define IPCC_C2SCR_CH1C_Msk (0x1UL << IPCC_C2SCR_CH1C_Pos)
-#define IPCC_C2SCR_CH1C IPCC_C2SCR_CH1C_Msk
-#define IPCC_C2SCR_CH2C_Pos (1U)
-#define IPCC_C2SCR_CH2C_Msk (0x1UL << IPCC_C2SCR_CH2C_Pos)
-#define IPCC_C2SCR_CH2C IPCC_C2SCR_CH2C_Msk
-#define IPCC_C2SCR_CH3C_Pos (2U)
-#define IPCC_C2SCR_CH3C_Msk (0x1UL << IPCC_C2SCR_CH3C_Pos)
-#define IPCC_C2SCR_CH3C IPCC_C2SCR_CH3C_Msk
-#define IPCC_C2SCR_CH4C_Pos (3U)
-#define IPCC_C2SCR_CH4C_Msk (0x1UL << IPCC_C2SCR_CH4C_Pos)
-#define IPCC_C2SCR_CH4C IPCC_C2SCR_CH4C_Msk
-#define IPCC_C2SCR_CH5C_Pos (4U)
-#define IPCC_C2SCR_CH5C_Msk (0x1UL << IPCC_C2SCR_CH5C_Pos)
-#define IPCC_C2SCR_CH5C IPCC_C2SCR_CH5C_Msk
-#define IPCC_C2SCR_CH6C_Pos (5U)
-#define IPCC_C2SCR_CH6C_Msk (0x1UL << IPCC_C2SCR_CH6C_Pos)
-#define IPCC_C2SCR_CH6C IPCC_C2SCR_CH6C_Msk
-
-#define IPCC_C2SCR_CH1S_Pos (16U)
-#define IPCC_C2SCR_CH1S_Msk (0x1UL << IPCC_C2SCR_CH1S_Pos)
-#define IPCC_C2SCR_CH1S IPCC_C2SCR_CH1S_Msk
-#define IPCC_C2SCR_CH2S_Pos (17U)
-#define IPCC_C2SCR_CH2S_Msk (0x1UL << IPCC_C2SCR_CH2S_Pos)
-#define IPCC_C2SCR_CH2S IPCC_C2SCR_CH2S_Msk
-#define IPCC_C2SCR_CH3S_Pos (18U)
-#define IPCC_C2SCR_CH3S_Msk (0x1UL << IPCC_C2SCR_CH3S_Pos)
-#define IPCC_C2SCR_CH3S IPCC_C2SCR_CH3S_Msk
-#define IPCC_C2SCR_CH4S_Pos (19U)
-#define IPCC_C2SCR_CH4S_Msk (0x1UL << IPCC_C2SCR_CH4S_Pos)
-#define IPCC_C2SCR_CH4S IPCC_C2SCR_CH4S_Msk
-#define IPCC_C2SCR_CH5S_Pos (20U)
-#define IPCC_C2SCR_CH5S_Msk (0x1UL << IPCC_C2SCR_CH5S_Pos)
-#define IPCC_C2SCR_CH5S IPCC_C2SCR_CH5S_Msk
-#define IPCC_C2SCR_CH6S_Pos (21U)
-#define IPCC_C2SCR_CH6S_Msk (0x1UL << IPCC_C2SCR_CH6S_Pos)
-#define IPCC_C2SCR_CH6S IPCC_C2SCR_CH6S_Msk
-
-
-#define IPCC_C2TOC1SR_CH1F_Pos (0U)
-#define IPCC_C2TOC1SR_CH1F_Msk (0x1UL << IPCC_C2TOC1SR_CH1F_Pos)
-#define IPCC_C2TOC1SR_CH1F IPCC_C2TOC1SR_CH1F_Msk
-#define IPCC_C2TOC1SR_CH2F_Pos (1U)
-#define IPCC_C2TOC1SR_CH2F_Msk (0x1UL << IPCC_C2TOC1SR_CH2F_Pos)
-#define IPCC_C2TOC1SR_CH2F IPCC_C2TOC1SR_CH2F_Msk
-#define IPCC_C2TOC1SR_CH3F_Pos (2U)
-#define IPCC_C2TOC1SR_CH3F_Msk (0x1UL << IPCC_C2TOC1SR_CH3F_Pos)
-#define IPCC_C2TOC1SR_CH3F IPCC_C2TOC1SR_CH3F_Msk
-#define IPCC_C2TOC1SR_CH4F_Pos (3U)
-#define IPCC_C2TOC1SR_CH4F_Msk (0x1UL << IPCC_C2TOC1SR_CH4F_Pos)
-#define IPCC_C2TOC1SR_CH4F IPCC_C2TOC1SR_CH4F_Msk
-#define IPCC_C2TOC1SR_CH5F_Pos (4U)
-#define IPCC_C2TOC1SR_CH5F_Msk (0x1UL << IPCC_C2TOC1SR_CH5F_Pos)
-#define IPCC_C2TOC1SR_CH5F IPCC_C2TOC1SR_CH5F_Msk
-#define IPCC_C2TOC1SR_CH6F_Pos (5U)
-#define IPCC_C2TOC1SR_CH6F_Msk (0x1UL << IPCC_C2TOC1SR_CH6F_Pos)
-#define IPCC_C2TOC1SR_CH6F IPCC_C2TOC1SR_CH6F_Msk
-
-
-#define IPCC_CR_RXOIE_Pos IPCC_C1CR_RXOIE_Pos
-#define IPCC_CR_RXOIE_Msk IPCC_C1CR_RXOIE_Msk
-#define IPCC_CR_RXOIE IPCC_C1CR_RXOIE
-#define IPCC_CR_TXFIE_Pos IPCC_C1CR_TXFIE_Pos
-#define IPCC_CR_TXFIE_Msk IPCC_C1CR_TXFIE_Msk
-#define IPCC_CR_TXFIE IPCC_C1CR_TXFIE
-
-
-#define IPCC_MR_CH1OM_Pos IPCC_C1MR_CH1OM_Pos
-#define IPCC_MR_CH1OM_Msk IPCC_C1MR_CH1OM_Msk
-#define IPCC_MR_CH1OM IPCC_C1MR_CH1OM
-#define IPCC_MR_CH2OM_Pos IPCC_C1MR_CH2OM_Pos
-#define IPCC_MR_CH2OM_Msk IPCC_C1MR_CH2OM_Msk
-#define IPCC_MR_CH2OM IPCC_C1MR_CH2OM
-#define IPCC_MR_CH3OM_Pos IPCC_C1MR_CH3OM_Pos
-#define IPCC_MR_CH3OM_Msk IPCC_C1MR_CH3OM_Msk
-#define IPCC_MR_CH3OM IPCC_C1MR_CH3OM
-#define IPCC_MR_CH4OM_Pos IPCC_C1MR_CH4OM_Pos
-#define IPCC_MR_CH4OM_Msk IPCC_C1MR_CH4OM_Msk
-#define IPCC_MR_CH4OM IPCC_C1MR_CH4OM
-#define IPCC_MR_CH5OM_Pos IPCC_C1MR_CH5OM_Pos
-#define IPCC_MR_CH5OM_Msk IPCC_C1MR_CH5OM_Msk
-#define IPCC_MR_CH5OM IPCC_C1MR_CH5OM
-#define IPCC_MR_CH6OM_Pos IPCC_C1MR_CH6OM_Pos
-#define IPCC_MR_CH6OM_Msk IPCC_C1MR_CH6OM_Msk
-#define IPCC_MR_CH6OM IPCC_C1MR_CH6OM
-
-#define IPCC_MR_CH1FM_Pos IPCC_C1MR_CH1FM_Pos
-#define IPCC_MR_CH1FM_Msk IPCC_C1MR_CH1FM_Msk
-#define IPCC_MR_CH1FM IPCC_C1MR_CH1FM
-#define IPCC_MR_CH2FM_Pos IPCC_C1MR_CH2FM_Pos
-#define IPCC_MR_CH2FM_Msk IPCC_C1MR_CH2FM_Msk
-#define IPCC_MR_CH2FM IPCC_C1MR_CH2FM
-#define IPCC_MR_CH3FM_Pos IPCC_C1MR_CH3FM_Pos
-#define IPCC_MR_CH3FM_Msk IPCC_C1MR_CH3FM_Msk
-#define IPCC_MR_CH3FM IPCC_C1MR_CH3FM
-#define IPCC_MR_CH4FM_Pos IPCC_C1MR_CH4FM_Pos
-#define IPCC_MR_CH4FM_Msk IPCC_C1MR_CH4FM_Msk
-#define IPCC_MR_CH4FM IPCC_C1MR_CH4FM
-#define IPCC_MR_CH5FM_Pos IPCC_C1MR_CH5FM_Pos
-#define IPCC_MR_CH5FM_Msk IPCC_C1MR_CH5FM_Msk
-#define IPCC_MR_CH5FM IPCC_C1MR_CH5FM
-#define IPCC_MR_CH6FM_Pos IPCC_C1MR_CH6FM_Pos
-#define IPCC_MR_CH6FM_Msk IPCC_C1MR_CH6FM_Msk
-#define IPCC_MR_CH6FM IPCC_C1MR_CH6FM
-
-
-#define IPCC_SCR_CH1C_Pos IPCC_C1SCR_CH1C_Pos
-#define IPCC_SCR_CH1C_Msk IPCC_C1SCR_CH1C_Msk
-#define IPCC_SCR_CH1C IPCC_C1SCR_CH1C
-#define IPCC_SCR_CH2C_Pos IPCC_C1SCR_CH2C_Pos
-#define IPCC_SCR_CH2C_Msk IPCC_C1SCR_CH2C_Msk
-#define IPCC_SCR_CH2C IPCC_C1SCR_CH2C
-#define IPCC_SCR_CH3C_Pos IPCC_C1SCR_CH3C_Pos
-#define IPCC_SCR_CH3C_Msk IPCC_C1SCR_CH3C_Msk
-#define IPCC_SCR_CH3C IPCC_C1SCR_CH3C
-#define IPCC_SCR_CH4C_Pos IPCC_C1SCR_CH4C_Pos
-#define IPCC_SCR_CH4C_Msk IPCC_C1SCR_CH4C_Msk
-#define IPCC_SCR_CH4C IPCC_C1SCR_CH4C
-#define IPCC_SCR_CH5C_Pos IPCC_C1SCR_CH5C_Pos
-#define IPCC_SCR_CH5C_Msk IPCC_C1SCR_CH5C_Msk
-#define IPCC_SCR_CH5C IPCC_C1SCR_CH5C
-#define IPCC_SCR_CH6C_Pos IPCC_C1SCR_CH6C_Pos
-#define IPCC_SCR_CH6C_Msk IPCC_C1SCR_CH6C_Msk
-#define IPCC_SCR_CH6C IPCC_C1SCR_CH6C
-
-#define IPCC_SCR_CH1S_Pos IPCC_C1SCR_CH1S_Pos
-#define IPCC_SCR_CH1S_Msk IPCC_C1SCR_CH1S_Msk
-#define IPCC_SCR_CH1S IPCC_C1SCR_CH1S
-#define IPCC_SCR_CH2S_Pos IPCC_C1SCR_CH2S_Pos
-#define IPCC_SCR_CH2S_Msk IPCC_C1SCR_CH2S_Msk
-#define IPCC_SCR_CH2S IPCC_C1SCR_CH2S
-#define IPCC_SCR_CH3S_Pos IPCC_C1SCR_CH3S_Pos
-#define IPCC_SCR_CH3S_Msk IPCC_C1SCR_CH3S_Msk
-#define IPCC_SCR_CH3S IPCC_C1SCR_CH3S
-#define IPCC_SCR_CH4S_Pos IPCC_C1SCR_CH4S_Pos
-#define IPCC_SCR_CH4S_Msk IPCC_C1SCR_CH4S_Msk
-#define IPCC_SCR_CH4S IPCC_C1SCR_CH4S
-#define IPCC_SCR_CH5S_Pos IPCC_C1SCR_CH5S_Pos
-#define IPCC_SCR_CH5S_Msk IPCC_C1SCR_CH5S_Msk
-#define IPCC_SCR_CH5S IPCC_C1SCR_CH5S
-#define IPCC_SCR_CH6S_Pos IPCC_C1SCR_CH6S_Pos
-#define IPCC_SCR_CH6S_Msk IPCC_C1SCR_CH6S_Msk
-#define IPCC_SCR_CH6S IPCC_C1SCR_CH6S
-
-
-#define IPCC_SR_CH1F_Pos IPCC_C1TOC2SR_CH1F_Pos
-#define IPCC_SR_CH1F_Msk IPCC_C1TOC2SR_CH1F_Msk
-#define IPCC_SR_CH1F IPCC_C1TOC2SR_CH1F
-#define IPCC_SR_CH2F_Pos IPCC_C1TOC2SR_CH2F_Pos
-#define IPCC_SR_CH2F_Msk IPCC_C1TOC2SR_CH2F_Msk
-#define IPCC_SR_CH2F IPCC_C1TOC2SR_CH2F
-#define IPCC_SR_CH3F_Pos IPCC_C1TOC2SR_CH3F_Pos
-#define IPCC_SR_CH3F_Msk IPCC_C1TOC2SR_CH3F_Msk
-#define IPCC_SR_CH3F IPCC_C1TOC2SR_CH3F
-#define IPCC_SR_CH4F_Pos IPCC_C1TOC2SR_CH4F_Pos
-#define IPCC_SR_CH4F_Msk IPCC_C1TOC2SR_CH4F_Msk
-#define IPCC_SR_CH4F IPCC_C1TOC2SR_CH4F
-#define IPCC_SR_CH5F_Pos IPCC_C1TOC2SR_CH5F_Pos
-#define IPCC_SR_CH5F_Msk IPCC_C1TOC2SR_CH5F_Msk
-#define IPCC_SR_CH5F IPCC_C1TOC2SR_CH5F
-#define IPCC_SR_CH6F_Pos IPCC_C1TOC2SR_CH6F_Pos
-#define IPCC_SR_CH6F_Msk IPCC_C1TOC2SR_CH6F_Msk
-#define IPCC_SR_CH6F IPCC_C1TOC2SR_CH6F
-
-
-#define IPCC_CHANNEL_NUMBER 6U
-# 10003 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wl55xx.h"
+# 8376 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define IWDG_KR_KEY_Pos (0U)
 #define IWDG_KR_KEY_Msk (0xFFFFUL << IWDG_KR_KEY_Pos)
 #define IWDG_KR_KEY IWDG_KR_KEY_Msk
@@ -13907,7 +12338,7 @@ typedef struct
 #define WWDG_SR_EWIF_Pos (0U)
 #define WWDG_SR_EWIF_Msk (0x1UL << WWDG_SR_EWIF_Pos)
 #define WWDG_SR_EWIF WWDG_SR_EWIF_Msk
-# 10118 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wl55xx.h"
+# 8489 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define DBGMCU_IDCODE_DEV_ID_Pos (0U)
 #define DBGMCU_IDCODE_DEV_ID_Msk (0xFFFUL << DBGMCU_IDCODE_DEV_ID_Pos)
 #define DBGMCU_IDCODE_DEV_ID DBGMCU_IDCODE_DEV_ID_Msk
@@ -13953,43 +12384,12 @@ typedef struct
 #define DBGMCU_APB1FZR1_DBG_LPTIM1_STOP DBGMCU_APB1FZR1_DBG_LPTIM1_STOP_Msk
 
 
-#define DBGMCU_C2APB1FZR1_DBG_TIM2_STOP_Pos (0U)
-#define DBGMCU_C2APB1FZR1_DBG_TIM2_STOP_Msk (0x1UL << DBGMCU_C2APB1FZR1_DBG_TIM2_STOP_Pos)
-#define DBGMCU_C2APB1FZR1_DBG_TIM2_STOP DBGMCU_C2APB1FZR1_DBG_TIM2_STOP_Msk
-#define DBGMCU_C2APB1FZR1_DBG_RTC_STOP_Pos (10U)
-#define DBGMCU_C2APB1FZR1_DBG_RTC_STOP_Msk (0x1UL << DBGMCU_C2APB1FZR1_DBG_RTC_STOP_Pos)
-#define DBGMCU_C2APB1FZR1_DBG_RTC_STOP DBGMCU_C2APB1FZR1_DBG_RTC_STOP_Msk
-#define DBGMCU_C2APB1FZR1_DBG_IWDG_STOP_Pos (12U)
-#define DBGMCU_C2APB1FZR1_DBG_IWDG_STOP_Msk (0x1UL << DBGMCU_C2APB1FZR1_DBG_IWDG_STOP_Pos)
-#define DBGMCU_C2APB1FZR1_DBG_IWDG_STOP DBGMCU_C2APB1FZR1_DBG_IWDG_STOP_Msk
-#define DBGMCU_C2APB1FZR1_DBG_I2C1_STOP_Pos (21U)
-#define DBGMCU_C2APB1FZR1_DBG_I2C1_STOP_Msk (0x1UL << DBGMCU_C2APB1FZR1_DBG_I2C1_STOP_Pos)
-#define DBGMCU_C2APB1FZR1_DBG_I2C1_STOP DBGMCU_C2APB1FZR1_DBG_I2C1_STOP_Msk
-#define DBGMCU_C2APB1FZR1_DBG_I2C2_STOP_Pos (22U)
-#define DBGMCU_C2APB1FZR1_DBG_I2C2_STOP_Msk (0x1UL << DBGMCU_C2APB1FZR1_DBG_I2C2_STOP_Pos)
-#define DBGMCU_C2APB1FZR1_DBG_I2C2_STOP DBGMCU_C2APB1FZR1_DBG_I2C2_STOP_Msk
-#define DBGMCU_C2APB1FZR1_DBG_I2C3_STOP_Pos (23U)
-#define DBGMCU_C2APB1FZR1_DBG_I2C3_STOP_Msk (0x1UL << DBGMCU_C2APB1FZR1_DBG_I2C3_STOP_Pos)
-#define DBGMCU_C2APB1FZR1_DBG_I2C3_STOP DBGMCU_C2APB1FZR1_DBG_I2C3_STOP_Msk
-#define DBGMCU_C2APB1FZR1_DBG_LPTIM1_STOP_Pos (31U)
-#define DBGMCU_C2APB1FZR1_DBG_LPTIM1_STOP_Msk (0x1UL << DBGMCU_C2APB1FZR1_DBG_LPTIM1_STOP_Pos)
-#define DBGMCU_C2APB1FZR1_DBG_LPTIM1_STOP DBGMCU_C2APB1FZR1_DBG_LPTIM1_STOP_Msk
-
-
 #define DBGMCU_APB1FZR2_DBG_LPTIM2_STOP_Pos (5U)
 #define DBGMCU_APB1FZR2_DBG_LPTIM2_STOP_Msk (0x1UL << DBGMCU_APB1FZR2_DBG_LPTIM2_STOP_Pos)
 #define DBGMCU_APB1FZR2_DBG_LPTIM2_STOP DBGMCU_APB1FZR2_DBG_LPTIM2_STOP_Msk
 #define DBGMCU_APB1FZR2_DBG_LPTIM3_STOP_Pos (6U)
 #define DBGMCU_APB1FZR2_DBG_LPTIM3_STOP_Msk (0x1UL << DBGMCU_APB1FZR2_DBG_LPTIM3_STOP_Pos)
 #define DBGMCU_APB1FZR2_DBG_LPTIM3_STOP DBGMCU_APB1FZR2_DBG_LPTIM3_STOP_Msk
-
-
-#define DBGMCU_C2APB1FZR2_DBG_LPTIM2_STOP_Pos (5U)
-#define DBGMCU_C2APB1FZR2_DBG_LPTIM2_STOP_Msk (0x1UL << DBGMCU_C2APB1FZR2_DBG_LPTIM2_STOP_Pos)
-#define DBGMCU_C2APB1FZR2_DBG_LPTIM2_STOP DBGMCU_C2APB1FZR2_DBG_LPTIM2_STOP_Msk
-#define DBGMCU_C2APB1FZR2_DBG_LPTIM3_STOP_Pos (6U)
-#define DBGMCU_C2APB1FZR2_DBG_LPTIM3_STOP_Msk (0x1UL << DBGMCU_C2APB1FZR2_DBG_LPTIM3_STOP_Pos)
-#define DBGMCU_C2APB1FZR2_DBG_LPTIM3_STOP DBGMCU_C2APB1FZR2_DBG_LPTIM3_STOP_Msk
 
 
 #define DBGMCU_APB2FZR_DBG_TIM1_STOP_Pos (11U)
@@ -14001,18 +12401,7 @@ typedef struct
 #define DBGMCU_APB2FZR_DBG_TIM17_STOP_Pos (18U)
 #define DBGMCU_APB2FZR_DBG_TIM17_STOP_Msk (0x1UL << DBGMCU_APB2FZR_DBG_TIM17_STOP_Pos)
 #define DBGMCU_APB2FZR_DBG_TIM17_STOP DBGMCU_APB2FZR_DBG_TIM17_STOP_Msk
-
-
-#define DBGMCU_C2APB2FZR_DBG_TIM1_STOP_Pos (11U)
-#define DBGMCU_C2APB2FZR_DBG_TIM1_STOP_Msk (0x1UL << DBGMCU_C2APB2FZR_DBG_TIM1_STOP_Pos)
-#define DBGMCU_C2APB2FZR_DBG_TIM1_STOP DBGMCU_C2APB2FZR_DBG_TIM1_STOP_Msk
-#define DBGMCU_C2APB2FZR_DBG_TIM16_STOP_Pos (17U)
-#define DBGMCU_C2APB2FZR_DBG_TIM16_STOP_Msk (0x1UL << DBGMCU_C2APB2FZR_DBG_TIM16_STOP_Pos)
-#define DBGMCU_C2APB2FZR_DBG_TIM16_STOP DBGMCU_C2APB2FZR_DBG_TIM16_STOP_Msk
-#define DBGMCU_C2APB2FZR_DBG_TIM17_STOP_Pos (18U)
-#define DBGMCU_C2APB2FZR_DBG_TIM17_STOP_Msk (0x1UL << DBGMCU_C2APB2FZR_DBG_TIM17_STOP_Pos)
-#define DBGMCU_C2APB2FZR_DBG_TIM17_STOP DBGMCU_C2APB2FZR_DBG_TIM17_STOP_Msk
-# 10231 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wl55xx.h"
+# 8559 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define TIM_CR1_CEN_Pos (0U)
 #define TIM_CR1_CEN_Msk (0x1UL << TIM_CR1_CEN_Pos)
 #define TIM_CR1_CEN TIM_CR1_CEN_Msk
@@ -14819,25 +13208,7 @@ typedef struct
 #define TIM1_AF2_BK2CMP2P_Pos (11U)
 #define TIM1_AF2_BK2CMP2P_Msk (0x1UL << TIM1_AF2_BK2CMP2P_Pos)
 #define TIM1_AF2_BK2CMP2P TIM1_AF2_BK2CMP2P_Msk
-# 11045 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wl55xx.h"
-#define RSSLIB_HDP_AREA_Pos (0U)
-#define RSSLIB_HDP_AREA_Msk (0x3UL << RSSLIB_HDP_AREA_Pos)
-#define RSSLIB_HDP_AREA1_Msk (0x1UL << RSSLIB_HDP_AREA_Pos)
-#define RSSLIB_HDP_AREA1 RSSLIB_HDP_AREA1_Msk
-# 11060 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wl55xx.h"
-typedef void (*RSSLIB_S_CloseExitHDP_t)(uint32_t hdp_area, uint32_t jump_addr);
-
-
-
-
-typedef struct
-{
-  RSSLIB_S_CloseExitHDP_t CloseExitHDP;
-}RSSLIB_pFunc_TypeDef;
-
-#define RSSLIB_PFUNC ((RSSLIB_pFunc_TypeDef *)RSSLIB_PFUNC_BASE)
-
-
+# 9373 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define IS_ADC_ALL_INSTANCE(INSTANCE) ((INSTANCE) == ADC)
 
 #define IS_ADC_COMMON_INSTANCE(INSTANCE) ((INSTANCE) == ADC_COMMON)
@@ -14859,7 +13230,7 @@ typedef struct
 
 
 #define IS_DMA_ALL_INSTANCE(INSTANCE) (((INSTANCE) == DMA1_Channel1) || ((INSTANCE) == DMA1_Channel2) || ((INSTANCE) == DMA1_Channel3) || ((INSTANCE) == DMA1_Channel4) || ((INSTANCE) == DMA1_Channel5) || ((INSTANCE) == DMA1_Channel6) || ((INSTANCE) == DMA1_Channel7) || ((INSTANCE) == DMA2_Channel1) || ((INSTANCE) == DMA2_Channel2) || ((INSTANCE) == DMA2_Channel3) || ((INSTANCE) == DMA2_Channel4) || ((INSTANCE) == DMA2_Channel5) || ((INSTANCE) == DMA2_Channel6) || ((INSTANCE) == DMA2_Channel7))
-# 11109 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wl55xx.h"
+# 9409 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define IS_GPIO_ALL_INSTANCE(INSTANCE) (((INSTANCE) == GPIOA) || ((INSTANCE) == GPIOB) || ((INSTANCE) == GPIOC) || ((INSTANCE) == GPIOH))
 
 
@@ -14884,9 +13255,6 @@ typedef struct
 
 
 #define IS_I2S_ALL_INSTANCE(INSTANCE) ((INSTANCE) == SPI2)
-
-
-#define IS_IPCC_ALL_INSTANCE(INSTANCE) ((INSTANCE) == IPCC)
 
 
 #define IS_HSEM_ALL_INSTANCE(INSTANCE) ((INSTANCE) == HSEM)
@@ -15010,9 +13378,9 @@ typedef struct
 
 
 #define IS_TIM_CCX_INSTANCE(INSTANCE,CHANNEL) ((((INSTANCE) == TIM1) && (((CHANNEL) == TIM_CHANNEL_1) || ((CHANNEL) == TIM_CHANNEL_2) || ((CHANNEL) == TIM_CHANNEL_3) || ((CHANNEL) == TIM_CHANNEL_4) || ((CHANNEL) == TIM_CHANNEL_5) || ((CHANNEL) == TIM_CHANNEL_6))) || (((INSTANCE) == TIM2) && (((CHANNEL) == TIM_CHANNEL_1) || ((CHANNEL) == TIM_CHANNEL_2) || ((CHANNEL) == TIM_CHANNEL_3) || ((CHANNEL) == TIM_CHANNEL_4))) || (((INSTANCE) == TIM16) && (((CHANNEL) == TIM_CHANNEL_1))) || (((INSTANCE) == TIM17) && (((CHANNEL) == TIM_CHANNEL_1))))
-# 11280 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wl55xx.h"
+# 9577 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define IS_TIM_CCXN_INSTANCE(INSTANCE,CHANNEL) ((((INSTANCE) == TIM1) && (((CHANNEL) == TIM_CHANNEL_1) || ((CHANNEL) == TIM_CHANNEL_2) || ((CHANNEL) == TIM_CHANNEL_3))) || (((INSTANCE) == TIM17) && ((CHANNEL) == TIM_CHANNEL_1)) || (((INSTANCE) == TIM16) && ((CHANNEL) == TIM_CHANNEL_1)))
-# 11294 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wl55xx.h"
+# 9591 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h"
 #define IS_TIM_CLOCK_DIVISION_INSTANCE(INSTANCE) (((INSTANCE) == TIM1) || ((INSTANCE) == TIM2) || ((INSTANCE) == TIM16) || ((INSTANCE) == TIM17))
 
 
@@ -15150,7 +13518,7 @@ typedef struct
 
 
 #define IS_LPUART_INSTANCE(INSTANCE) ((INSTANCE) == LPUART1)
-# 100 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h" 2
+# 102 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h" 2
 # 117 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h"
 typedef enum
 {
@@ -18585,12 +16953,6 @@ static const uint8_t CHANNEL_OFFSET_TAB[] =
 #define LL_DMA_PRIORITY_MEDIUM DMA_CCR_PL_0
 #define LL_DMA_PRIORITY_HIGH DMA_CCR_PL_1
 #define LL_DMA_PRIORITY_VERYHIGH DMA_CCR_PL
-# 333 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
-#define LL_DMA_CHANNEL_NSEC 0x00000000U
-#define LL_DMA_CHANNEL_SEC DMA_CCR_SECM
-# 364 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
-#define LL_DMA_CHANNEL_NPRIV 0x00000000U
-#define LL_DMA_CHANNEL_PRIV DMA_CCR_PRIV
 # 390 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 #define LL_DMA_WriteReg(__INSTANCE__,__REG__,__VALUE__) WRITE_REG(__INSTANCE__->__REG__, (__VALUE__))
 
@@ -18631,13 +16993,6 @@ static inline uint32_t LL_DMA_IsEnabledChannel(DMA_TypeDef *DMAx, uint32_t Chann
   uint32_t dma_base_addr = (uint32_t)DMAx;
   return ((((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR) & ((0x1UL << (0U))))
                                 == ((0x1UL << (0U)))) ? 1UL : 0UL);
-}
-# 604 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
-static inline uint32_t LL_DMA_GetConfigChannelSecure(DMA_TypeDef *DMAx, uint32_t Channel)
-{
-  uint32_t dma_base_addr = (uint32_t)DMAx;
-  return (((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR) & ((0x1UL << (17U))))
-                                );
 }
 # 642 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline void LL_DMA_ConfigTransfer(DMA_TypeDef *DMAx, uint32_t Channel, uint32_t Configuration)
@@ -18744,32 +17099,6 @@ static inline uint32_t LL_DMA_GetChannelPriorityLevel(DMA_TypeDef *DMAx, uint32_
   uint32_t dma_base_addr = (uint32_t)DMAx;
   return (((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR) & ((0x3UL << (12U))))
                               );
-}
-# 1050 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
-static inline uint32_t LL_DMA_IsEnabledChannelSecure(DMA_TypeDef *DMAx, uint32_t Channel)
-{
-  uint32_t dma_base_addr = (uint32_t)DMAx;
-  return ((((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR) & ((0x1UL << (17U))))
-                                  == ((0x1UL << (17U)))) ? 1UL : 0UL);
-}
-# 1197 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
-static inline void LL_DMA_EnableChannelPrivilege(DMA_TypeDef *DMAx, uint32_t Channel)
-{
-  uint32_t dma_base_addr = (uint32_t)DMAx;
-  ((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR) |= ((0x1UL << (20U))));
-}
-# 1217 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
-static inline void LL_DMA_DisableChannelPrivilege(DMA_TypeDef *DMAx, uint32_t Channel)
-{
-  uint32_t dma_base_addr = (uint32_t)DMAx;
-  ((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR) &= ~((0x1UL << (20U))));
-}
-# 1237 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
-static inline uint32_t LL_DMA_IsEnabledChannelPrivilege(DMA_TypeDef *DMAx, uint32_t Channel)
-{
-  uint32_t dma_base_addr = (uint32_t)DMAx;
-  return ((((((DMA_Channel_TypeDef *)(dma_base_addr + CHANNEL_OFFSET_TAB[Channel]))->CCR) & ((0x1UL << (20U))))
-                                  == ((0x1UL << (20U)))) ? 1UL : 0UL);
 }
 # 1262 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_dma.h"
 static inline void LL_DMA_SetDataLength(DMA_TypeDef *DMAx, uint32_t Channel, uint32_t NbData)
@@ -19793,18 +18122,6 @@ typedef struct __DMA_HandleTypeDef
 #define DMA_FLAG_TC7 DMA_ISR_TCIF7
 #define DMA_FLAG_HT7 DMA_ISR_HTIF7
 #define DMA_FLAG_TE7 DMA_ISR_TEIF7
-# 354 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
-#define DMA_CHANNEL_ATTR_PRIV_MASK (DMA_CCR_PRIV >> 16U)
-#define DMA_CHANNEL_ATTR_SEC_MASK (DMA_CCR_SECM >> 16U)
-
-
-
-
-
-#define DMA_CHANNEL_PRIV (DMA_CHANNEL_ATTR_PRIV_MASK | DMA_CCR_PRIV)
-#define DMA_CHANNEL_NPRIV (DMA_CHANNEL_ATTR_PRIV_MASK)
-#define DMA_CHANNEL_SEC (DMA_CHANNEL_ATTR_SEC_MASK | DMA_CCR_SECM)
-#define DMA_CHANNEL_NSEC (DMA_CHANNEL_ATTR_SEC_MASK)
 # 389 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
 #define __HAL_DMA_RESET_HANDLE_STATE(__HANDLE__) ((__HANDLE__)->State = HAL_DMA_STATE_RESET)
 
@@ -20019,9 +18336,6 @@ HAL_StatusTypeDef HAL_DMA_UnRegisterCallback(DMA_HandleTypeDef *hdma, HAL_DMA_Ca
 # 602 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
 HAL_DMA_StateTypeDef HAL_DMA_GetState(DMA_HandleTypeDef *hdma);
 uint32_t HAL_DMA_GetError(DMA_HandleTypeDef *hdma);
-# 613 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
-HAL_StatusTypeDef HAL_DMA_ConfigChannelAttributes(DMA_HandleTypeDef *hdma, uint32_t ChannelAttributes);
-HAL_StatusTypeDef HAL_DMA_GetConfigChannelAttributes(DMA_HandleTypeDef *hdma, uint32_t *ChannelAttributes);
 # 629 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
 #define IS_DMA_DIRECTION(DIRECTION) (((DIRECTION) == DMA_PERIPH_TO_MEMORY ) || ((DIRECTION) == DMA_MEMORY_TO_PERIPH) || ((DIRECTION) == DMA_MEMORY_TO_MEMORY))
 
@@ -20049,8 +18363,6 @@ HAL_StatusTypeDef HAL_DMA_GetConfigChannelAttributes(DMA_HandleTypeDef *hdma, ui
 
 
 #define IS_DMA_PRIORITY(PRIORITY) (((PRIORITY) == DMA_PRIORITY_LOW ) || ((PRIORITY) == DMA_PRIORITY_MEDIUM) || ((PRIORITY) == DMA_PRIORITY_HIGH) || ((PRIORITY) == DMA_PRIORITY_VERY_HIGH))
-# 663 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h"
-#define IS_DMA_ATTRIBUTES(ATTRIBUTE) ((((ATTRIBUTE) & (~(0x00100010U))) == 0U) && (((ATTRIBUTE) & 0x00000010U) != 0U))
 # 193 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
 
 
@@ -22789,21 +21101,21 @@ typedef struct
 #define EXTI_LINE_34 (EXTI_CONFIG | EXTI_REG2 | 0x02u)
 #define EXTI_LINE_35 (EXTI_RESERVED | EXTI_REG2 | 0x03u)
 
-#define EXTI_LINE_36 (EXTI_DIRECT | EXTI_REG2 | 0x04u)
-#define EXTI_LINE_37 (EXTI_DIRECT | EXTI_REG2 | 0x05u)
 
 
 
+#define EXTI_LINE_36 (EXTI_RESERVED | EXTI_REG2 | 0x04u)
+#define EXTI_LINE_37 (EXTI_RESERVED | EXTI_REG2 | 0x05u)
 
 #define EXTI_LINE_38 (EXTI_DIRECT | EXTI_REG2 | 0x06u)
 
-#define EXTI_LINE_39 (EXTI_DIRECT | EXTI_REG2 | 0x07u)
-#define EXTI_LINE_40 (EXTI_CONFIG | EXTI_EVENT | EXTI_REG2 | 0x08u)
-#define EXTI_LINE_41 (EXTI_CONFIG | EXTI_EVENT | EXTI_REG2 | 0x09u)
 
 
 
 
+#define EXTI_LINE_39 (EXTI_RESERVED | EXTI_REG2 | 0x07u)
+#define EXTI_LINE_40 (EXTI_RESERVED | EXTI_REG2 | 0x08u)
+#define EXTI_LINE_41 (EXTI_RESERVED | EXTI_REG2 | 0x09u)
 
 #define EXTI_LINE_42 (EXTI_DIRECT | EXTI_REG2 | 0x0Au)
 #define EXTI_LINE_43 (EXTI_DIRECT | EXTI_REG2 | 0x0Bu)
@@ -22945,8 +21257,7 @@ typedef struct
   uint32_t RDPLevel;
 
   uint32_t UserType;
-
-
+# 87 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
   uint32_t UserConfig;
 # 98 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
   uint32_t PCROPConfig;
@@ -22959,32 +21270,7 @@ typedef struct
   uint32_t PCROP1BStartAddr;
 
   uint32_t PCROP1BEndAddr;
-
-
-  uint32_t SecureFlashStartAddr;
-
-
-  uint32_t SecureSRAM2StartAddr;
-
-  uint32_t SecureSRAM1StartAddr;
-
-  uint32_t HideProtectionStartAddr;
-
-  uint32_t SecureMode;
-
-  uint32_t SUBGHZSPISecureAccess;
-
-  uint32_t C2DebugAccessMode;
-
-  uint32_t C2BootRegion;
-
-  uint32_t C2SecureBootVectAddr;
-
-
-  uint32_t IPCCdataBufAddr;
-
-
-
+# 134 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 } FLASH_OBProgramInitTypeDef;
 
 
@@ -23089,14 +21375,8 @@ typedef struct
 #define OPTIONBYTE_RDP 0x00000002U
 #define OPTIONBYTE_USER 0x00000004U
 #define OPTIONBYTE_PCROP 0x00000008U
-
-#define OPTIONBYTE_IPCC_BUF_ADDR 0x00000010U
-#define OPTIONBYTE_C2_BOOT_VECT 0x00000100U
-#define OPTIONBYTE_SECURE_MODE 0x00000200U
-#define OPTIONBYTE_C2_DEBUG_ACCESS 0x00000400U
-#define OPTIONBYTE_SUBGHZSPI_SECURE_ACCESS 0x00000800U
-
-#define OPTIONBYTE_ALL (OPTIONBYTE_WRP | OPTIONBYTE_RDP | OPTIONBYTE_USER | OPTIONBYTE_PCROP | OPTIONBYTE_IPCC_BUF_ADDR | OPTIONBYTE_C2_BOOT_VECT | OPTIONBYTE_SECURE_MODE | OPTIONBYTE_C2_DEBUG_ACCESS | OPTIONBYTE_SUBGHZSPI_SECURE_ACCESS)
+# 299 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+#define OPTIONBYTE_ALL (OPTIONBYTE_WRP | OPTIONBYTE_RDP | OPTIONBYTE_USER | OPTIONBYTE_PCROP)
 # 310 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define OB_WRPAREA_BANK1_AREAA 0x00000000U
 #define OB_WRPAREA_BANK1_AREAB 0x00000001U
@@ -23125,12 +21405,8 @@ typedef struct
 #define OB_USER_nSWBOOT0 FLASH_OPTR_nSWBOOT0
 #define OB_USER_nBOOT0 FLASH_OPTR_nBOOT0
 #define OB_USER_BOOT_LOCK FLASH_OPTR_BOOT_LOCK
-
-#define OB_USER_C2BOOT_LOCK FLASH_OPTR_C2BOOT_LOCK
-
-
-
-#define OB_USER_ALL (OB_USER_BOR_LEV | OB_USER_nRST_STOP | OB_USER_nRST_STDBY | OB_USER_nRST_SHDW | OB_USER_IWDG_SW | OB_USER_IWDG_STOP | OB_USER_IWDG_STDBY | OB_USER_WWDG_SW | OB_USER_nBOOT1 | OB_USER_SRAM2_PE | OB_USER_SRAM_RST | OB_USER_nSWBOOT0 | OB_USER_nBOOT0 | OB_USER_BOOT_LOCK | OB_USER_C2BOOT_LOCK)
+# 355 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+#define OB_USER_ALL (OB_USER_BOR_LEV | OB_USER_nRST_STOP | OB_USER_nRST_STDBY | OB_USER_nRST_SHDW | OB_USER_IWDG_SW | OB_USER_IWDG_STOP | OB_USER_IWDG_STDBY | OB_USER_WWDG_SW | OB_USER_nBOOT1 | OB_USER_SRAM2_PE | OB_USER_SRAM_RST | OB_USER_nSWBOOT0 | OB_USER_nBOOT0 | OB_USER_BOOT_LOCK)
 # 369 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define OB_BOR_LEVEL_0 0x00000000U
 #define OB_BOR_LEVEL_1 FLASH_OPTR_BOR_LEV_0
@@ -23254,9 +21530,6 @@ typedef struct
 
 #define OB_BOOT_LOCK_DISABLE 0x00000000U
 #define OB_BOOT_LOCK_ENABLE FLASH_OPTR_BOOT_LOCK
-# 499 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
-#define OB_C2BOOT_LOCK_DISABLE 0x00000000U
-#define OB_C2BOOT_LOCK_ENABLE FLASH_OPTR_C2BOOT_LOCK
 # 509 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define OB_PCROP_ZONE_A 0x00000001U
 #define OB_PCROP_ZONE_B 0x00000002U
@@ -23270,39 +21543,6 @@ typedef struct
 #define OB_PCROP_RDP_NOT_ERASE 0x00000000U
 
 #define OB_PCROP_RDP_ERASE FLASH_PCROP1AER_PCROP_RDP
-# 530 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
-#define OB_SECURE_SYSTEM_AND_FLASH_ENABLE 0x00000001U
-#define OB_SECURE_HIDE_PROTECTION_ENABLE 0x00000002U
-#define OB_SECURE_SRAM1_ENABLE 0x00000004U
-#define OB_SECURE_SRAM2_ENABLE 0x00000008U
-#define OB_SECURE_SYSTEM_AND_FLASH_DISABLE 0x00000010U
-#define OB_SECURE_HIDE_PROTECTION_DISABLE 0x00000020U
-#define OB_SECURE_SRAM1_DISABLE 0x00000040U
-#define OB_SECURE_SRAM2_DISABLE 0x00000080U
-#define OB_SECURE_SYSTEM_AND_ALL_AREAS_ENABLE (OB_SECURE_SYSTEM_AND_FLASH_ENABLE | OB_SECURE_HIDE_PROTECTION_ENABLE | OB_SECURE_SRAM1_ENABLE | OB_SECURE_SRAM2_ENABLE)
-
-#define OB_SECURE_SYSTEM_AND_ALL_AREAS_DISABLE (OB_SECURE_SYSTEM_AND_FLASH_DISABLE | OB_SECURE_HIDE_PROTECTION_DISABLE | OB_SECURE_SRAM1_DISABLE | OB_SECURE_SRAM2_DISABLE)
-# 549 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
-#define OB_SUBGHZSPI_SECURE_ACCESS_DISABLE FLASH_SFR_SUBGHZSPISD
-#define OB_SUBGHZSPI_SECURE_ACCESS_ENABLE 0x00000000U
-
-
-
-
-
-
-
-#define OB_C2_DEBUG_ACCESS_DISABLE FLASH_SFR_DDS
-#define OB_C2_DEBUG_ACCESS_ENABLE 0x00000000U
-
-
-
-
-
-
-
-#define OB_C2_BOOT_FROM_SRAM 0x00000000U
-#define OB_C2_BOOT_FROM_FLASH FLASH_SRRVR_C2OPT
 # 596 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define __HAL_FLASH_SET_LATENCY(__LATENCY__) MODIFY_REG(FLASH->ACR, FLASH_ACR_LATENCY, (__LATENCY__))
 # 606 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
@@ -23357,12 +21597,6 @@ void HAL_FLASHEx_OBGetConfig(FLASH_OBProgramInitTypeDef *pOBInit);
 void HAL_FLASHEx_SuspendOperation(void);
 void HAL_FLASHEx_AllowOperation(void);
 uint32_t HAL_FLASHEx_IsOperationSuspended(void);
-
-void HAL_FLASHEx_DisableC2Debug(void);
-void HAL_FLASHEx_EnableC2Debug(void);
-void HAL_FLASHEx_EnableSecHideProtection(void);
-void HAL_FLASHEx_ConfigPrivMode(uint32_t PrivMode);
-uint32_t HAL_FLASHEx_GetPrivMode(void);
 # 103 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash_ex.h"
 #define IS_FLASH_EMPTY_CHECK(__VALUE__) (((__VALUE__) == FLASH_PROG_EMPTY) || ((__VALUE__) == FLASH_PROG_NOT_EMPTY))
 
@@ -23431,18 +21665,10 @@ HAL_StatusTypeDef FLASH_WaitForLastOperation(uint32_t Timeout);
 
 
 #define IS_FLASH_TYPEPROGRAM(__VALUE__) (((__VALUE__) == FLASH_TYPEPROGRAM_DOUBLEWORD) || ((__VALUE__) == FLASH_TYPEPROGRAM_FAST))
+# 953 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
+#define IS_OPTIONBYTE(__VALUE__) ((__VALUE__) <= (OPTIONBYTE_WRP | OPTIONBYTE_RDP | OPTIONBYTE_USER | OPTIONBYTE_PCROP))
 
 
-
-#define IS_OB_SFSA_START_ADDR(__VALUE__) (((__VALUE__) >= FLASH_BASE) && ((__VALUE__) <= FLASH_END_ADDR) && (((__VALUE__) & ~0x7FFU) == (__VALUE__)))
-#define IS_OB_HDPSA_START_ADDR(__VALUE__) IS_OB_SFSA_START_ADDR(__VALUE__)
-#define IS_OB_SBRSA_START_ADDR(__VALUE__) (((__VALUE__) >= SRAM2_BASE) && ((__VALUE__) <= (SRAM2_BASE + SRAM2_SIZE)) && (((__VALUE__) & ~0x3FFU) == (__VALUE__)))
-#define IS_OB_SNBRSA_START_ADDR(__VALUE__) (((__VALUE__) >= SRAM1_BASE) && ((__VALUE__) <= (SRAM1_BASE + SRAM1_SIZE)) && (((__VALUE__) & ~0x3FFU) == (__VALUE__)))
-
-#define IS_OB_SECURE_MODE(__VALUE__) ( (((__VALUE__) & (OB_SECURE_SYSTEM_AND_ALL_AREAS_ENABLE | OB_SECURE_SYSTEM_AND_ALL_AREAS_DISABLE)) != 0U) && (((__VALUE__) & ~(OB_SECURE_SYSTEM_AND_ALL_AREAS_ENABLE | OB_SECURE_SYSTEM_AND_ALL_AREAS_DISABLE)) == 0U) && (((__VALUE__) & (OB_SECURE_SYSTEM_AND_FLASH_ENABLE | OB_SECURE_SYSTEM_AND_FLASH_DISABLE)) != (OB_SECURE_SYSTEM_AND_FLASH_ENABLE | OB_SECURE_SYSTEM_AND_FLASH_DISABLE)) && (((__VALUE__) & (OB_SECURE_HIDE_PROTECTION_ENABLE | OB_SECURE_HIDE_PROTECTION_DISABLE)) != (OB_SECURE_HIDE_PROTECTION_ENABLE | OB_SECURE_HIDE_PROTECTION_DISABLE)) && (((__VALUE__) & (OB_SECURE_SRAM1_ENABLE | OB_SECURE_SRAM1_DISABLE)) != (OB_SECURE_SRAM1_ENABLE | OB_SECURE_SRAM1_DISABLE)) && (((__VALUE__) & (OB_SECURE_SRAM2_ENABLE | OB_SECURE_SRAM2_DISABLE)) != (OB_SECURE_SRAM2_ENABLE | OB_SECURE_SRAM2_DISABLE)) )
-# 947 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
-#define IS_OPTIONBYTE(__VALUE__) ((__VALUE__) <= (OPTIONBYTE_WRP | OPTIONBYTE_RDP | OPTIONBYTE_USER | OPTIONBYTE_PCROP | OPTIONBYTE_IPCC_BUF_ADDR | OPTIONBYTE_C2_BOOT_VECT | OPTIONBYTE_SECURE_MODE | OPTIONBYTE_C2_DEBUG_ACCESS | OPTIONBYTE_SUBGHZSPI_SECURE_ACCESS))
-# 956 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define IS_OB_WRPAREA(__VALUE__) (((__VALUE__) == OB_WRPAREA_BANK1_AREAA) || ((__VALUE__) == OB_WRPAREA_BANK1_AREAB))
 
 #define IS_OB_RDP_LEVEL(__VALUE__) (((__VALUE__) == OB_RDP_LEVEL_0) || ((__VALUE__) == OB_RDP_LEVEL_1) || ((__VALUE__) == OB_RDP_LEVEL_2))
@@ -23465,18 +21691,7 @@ HAL_StatusTypeDef FLASH_WaitForLastOperation(uint32_t Timeout);
 
 
 #define IS_OB_PCROP_CONFIG(__VALUE__) (((__VALUE__) & ~(OB_PCROP_ZONE_A | OB_PCROP_ZONE_B | OB_PCROP_RDP_ERASE)) == 0U)
-
-
-#define IS_OB_IPCC_BUF_ADDR(__VALUE__) (IS_OB_SBRSA_START_ADDR(__VALUE__) || IS_OB_SNBRSA_START_ADDR(__VALUE__))
-
-#define IS_OB_BOOT_VECTOR_ADDR(__VALUE__) (IS_OB_SFSA_START_ADDR(__VALUE__) || IS_OB_SBRSA_START_ADDR(__VALUE__) || IS_OB_SNBRSA_START_ADDR(__VALUE__))
-#define IS_OB_BOOT_REGION(__VALUE__) (((__VALUE__) == OB_C2_BOOT_FROM_FLASH) || ((__VALUE__) == OB_C2_BOOT_FROM_SRAM))
-
-#define IS_OB_SUBGHZSPI_SECURE_ACCESS(__VALUE__) (((__VALUE__) == OB_SUBGHZSPI_SECURE_ACCESS_ENABLE) || ((__VALUE__) == OB_SUBGHZSPI_SECURE_ACCESS_DISABLE))
-
-#define IS_OB_C2_DEBUG_MODE(__VALUE__) (((__VALUE__) == OB_C2_DEBUG_ACCESS_ENABLE) || ((__VALUE__) == OB_C2_DEBUG_ACCESS_DISABLE))
-
-
+# 990 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_flash.h"
 #define IS_FLASH_LATENCY(__VALUE__) (((__VALUE__) == FLASH_LATENCY_0) || ((__VALUE__) == FLASH_LATENCY_1) || ((__VALUE__) == FLASH_LATENCY_2))
 # 225 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
 
@@ -24352,13 +22567,6 @@ HAL_StatusTypeDef HAL_IWDG_Refresh(IWDG_HandleTypeDef *hiwdg);
 #define LL_PWR_EXTSCR_C1STOP2F PWR_EXTSCR_C1STOP2F
 #define LL_PWR_EXTSCR_C1STOPF PWR_EXTSCR_C1STOPF
 #define LL_PWR_EXTSCR_C1DS PWR_EXTSCR_C1DS
-
-#define LL_PWR_EXTSCR_C2SBF PWR_EXTSCR_C2SBF
-#define LL_PWR_EXTSCR_C2STOP2F PWR_EXTSCR_C2STOP2F
-#define LL_PWR_EXTSCR_C2STOPF PWR_EXTSCR_C2STOPF
-#define LL_PWR_EXTSCR_C2DS PWR_EXTSCR_C2DS
-#define LL_PWR_SR2_C2BOOTS PWR_SR2_C2BOOTS
-#define LL_PWR_SR1_C2HF PWR_SR1_C2HF
 # 125 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 #define LL_PWR_REGU_VOLTAGE_SCALE1 (PWR_CR1_VOS_0)
 #define LL_PWR_REGU_VOLTAGE_SCALE2 (PWR_CR1_VOS_1)
@@ -25038,210 +23246,6 @@ static inline uint32_t LL_PWR_IsSUBGHZSPI_NSS_Selected(void)
 {
   return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->SUBGHZSPICR) & ((0x1UL << (15U)))) != ((0x1UL << (15U)))) ? 1UL : 0UL);
 }
-# 1421 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
-static inline void LL_C2_PWR_SetRadioBusyTrigger(uint32_t RadioBusyTrigger)
-{
-  (((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->C2CR3)) = ((((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->C2CR3))) & (~((0x1UL << (11U))))) | (RadioBusyTrigger))));
-}
-# 1434 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
-static inline uint32_t LL_C2_PWR_GetRadioBusyTrigger(void)
-{
-
-  return (uint32_t)(((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->C2CR3) & ((0x1UL << (11U)))));
-}
-# 1449 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
-static inline void LL_C2_PWR_SetRadioIRQTrigger(uint32_t RadioIRQTrigger)
-{
-  (((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->C2CR3)) = ((((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->C2CR3))) & (~((0x1UL << (13U))))) | (RadioIRQTrigger))));
-}
-# 1462 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
-static inline uint32_t LL_C2_PWR_GetRadioIRQTrigger(void)
-{
-  return (uint32_t)(((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->C2CR3) & ((0x1UL << (13U)))));
-}
-# 1483 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
-static inline void LL_PWR_EnableBootC2(void)
-{
-  ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR4) |= ((0x1UL << (15U))));
-}
-
-
-
-
-
-
-
-static inline void LL_PWR_DisableBootC2(void)
-{
-  ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR4) &= ~((0x1UL << (15U))));
-}
-# 1508 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
-static inline uint32_t LL_PWR_IsEnabledBootC2(void)
-{
-  return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR4) & ((0x1UL << (15U)))) == ((0x1UL << (15U)))) ? 1UL : 0UL);
-}
-# 1532 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
-static inline void LL_C2_PWR_SetPowerMode(uint32_t LowPowerMode)
-{
-  (((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->C2CR1)) = ((((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->C2CR1))) & (~((0x7UL << (0U))))) | (LowPowerMode))));
-}
-# 1547 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
-static inline uint32_t LL_C2_PWR_GetPowerMode(void)
-{
-  return (uint32_t)(((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->C2CR1) & ((0x7UL << (0U)))));
-}
-# 1560 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
-static inline void LL_C2_PWR_SetFlashPowerModeLPRun(uint32_t FlashLowPowerMode)
-{
-
-  ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->C2CR1) = ((0x0000C1B0UL)));
-
-
-  (((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->C2CR1)) = ((((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->C2CR1))) & (~((0x1UL << (4U))))) | (FlashLowPowerMode))));
-}
-# 1576 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
-static inline uint32_t LL_C2_PWR_GetFlashPowerModeLPRun(void)
-{
-  return (uint32_t)(((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->C2CR1) & ((0x1UL << (4U)))));
-}
-# 1589 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
-static inline void LL_C2_PWR_SetFlashPowerModeSleep(uint32_t FlashLowPowerMode)
-{
-  (((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->C2CR1)) = ((((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->C2CR1))) & (~((0x1UL << (5U))))) | (FlashLowPowerMode))));
-}
-# 1601 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
-static inline uint32_t LL_C2_PWR_GetFlashPowerModeSleep(void)
-{
-  return (uint32_t)(((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->C2CR1) & ((0x1UL << (5U)))));
-}
-
-
-
-
-
-
-
-static inline void LL_C2_PWR_EnableInternWU(void)
-{
-  ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->C2CR3) |= ((0x1UL << (15U))));
-}
-
-
-
-
-
-
-static inline void LL_C2_PWR_DisableInternWU(void)
-{
-  ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->C2CR3) &= ~((0x1UL << (15U))));
-}
-
-
-
-
-
-
-static inline uint32_t LL_C2_PWR_IsEnabledInternWU(void)
-{
-  return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->C2CR3) & ((0x1UL << (15U)))) == ((0x1UL << (15U)))) ? 1UL : 0UL);
-}
-# 1648 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
-static inline void LL_C2_PWR_EnableWakeUpPin(uint32_t WakeUpPin)
-{
-  ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->C2CR3) |= (WakeUpPin));
-}
-# 1664 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
-static inline void LL_C2_PWR_DisableWakeUpPin(uint32_t WakeUpPin)
-{
-  ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->C2CR3) &= ~(WakeUpPin));
-}
-# 1680 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
-static inline uint32_t LL_C2_PWR_IsEnabledWakeUpPin(uint32_t WakeUpPin)
-{
-  return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->C2CR3) & (WakeUpPin)) == (WakeUpPin)) ? 1UL : 0UL);
-}
-
-
-
-
-
-
-static inline void LL_C2_PWR_EnablePUPDCfg(void)
-{
-  ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->C2CR3) |= ((0x1UL << (10U))));
-}
-
-
-
-
-
-
-static inline void LL_C2_PWR_DisablePUPDCfg(void)
-{
-  ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->C2CR3) &= ~((0x1UL << (10U))));
-}
-
-
-
-
-
-
-static inline uint32_t LL_C2_PWR_IsEnabledPUPDCfg(void)
-{
-  return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->C2CR3) & ((0x1UL << (10U)))) == ((0x1UL << (10U)))) ? 1UL : 0UL);
-}
-# 1722 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
-static inline void LL_C2_PWR_EnableWPVD(void)
-{
-  ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->C2CR3) |= ((0x1UL << (8U))));
-}
-
-
-
-
-
-
-static inline void LL_C2_PWR_DisableWPVD(void)
-{
-  ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->C2CR3) &= ~((0x1UL << (8U))));
-}
-
-
-
-
-
-
-static inline uint32_t LL_C2_PWR_IsEnabledWPVD(void)
-{
-  return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->C2CR3) & ((0x1UL << (8U)))) == ((0x1UL << (8U)))) ? 1UL : 0UL);
-}
-
-
-
-
-
-
-
-static inline void LL_PWR_C2_EnableWakeUp_ILAC(void)
-{
-  ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->SECCFGR) |= ((0x1UL << (15U))));
-}
-
-
-
-
-
-
-
-static inline void LL_PWR_C2_DisableWakeUp_ILAC(void)
-{
-  ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->SECCFGR) &= ~((0x1UL << (15U))));
-}
-# 1776 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
-static inline uint32_t LL_PWR_C2_IsEnabledWakeUp_ILAC(void)
-{
-  return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->SECCFGR) & ((0x1UL << (15U)))) == ((0x1UL << (15U)))) ? 1UL : 0UL);
-}
 # 1795 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline uint32_t LL_PWR_IsActiveFlag_InternWU(void)
 {
@@ -25443,29 +23447,7 @@ static inline uint32_t LL_PWR_IsActiveFlag_RFBUSYMS(void)
 {
   return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->SR2) & ((0x1UL << (2U)))) == ((0x1UL << (2U)))) ? 1UL : 0UL);
 }
-# 2083 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
-static inline uint32_t LL_PWR_IsActiveFlag_C2H(void)
-{
-  return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->SR1) & ((0x1UL << (14U)))) == ((0x1UL << (14U)))) ? 1UL : 0UL);
-}
-
-
-
-
-
-
-
-static inline uint32_t LL_PWR_IsActiveFlag_C2BOOTS(void)
-{
-  return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->SR2) & ((0x1UL << (0U)))) == ((0x1UL << (0U)))) ? 1UL : 0UL);
-}
-
-
-
-
-
-
-
+# 2105 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline uint32_t LL_PWR_IsActiveFlag_C1STOP(void)
 {
   return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->EXTSCR) & ((0x1UL << (10U)))) == ((0x1UL << (10U)))) ? 1UL : 0UL);
@@ -25500,103 +23482,10 @@ static inline uint32_t LL_PWR_IsActiveFlag_C1DS(void)
 {
   return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->EXTSCR) & ((0x1UL << (14U)))) == ((0x1UL << (14U)))) ? 1UL : 0UL);
 }
-
-
-
-
-
-
-
-static inline uint32_t LL_PWR_IsActiveFlag_C2STOP(void)
-{
-  return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->EXTSCR) & ((0x1UL << (13U)))) == ((0x1UL << (13U)))) ? 1UL : 0UL);
-}
-
-
-
-
-
-
-static inline uint32_t LL_PWR_IsActiveFlag_C2STOP2(void)
-{
-  return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->EXTSCR) & ((0x1UL << (12U)))) == ((0x1UL << (12U)))) ? 1UL : 0UL);
-}
-
-
-
-
-
-
-static inline uint32_t LL_PWR_IsActiveFlag_C2SB(void)
-{
-  return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->EXTSCR) & ((0x1UL << (11U)))) == ((0x1UL << (11U)))) ? 1UL : 0UL);
-}
-
-
-
-
-
-
-static inline uint32_t LL_PWR_IsActiveFlag_C2DS(void)
-{
-  return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->EXTSCR) & ((0x1UL << (15U)))) == ((0x1UL << (15U)))) ? 1UL : 0UL);
-}
-
-
-
-
-
-
-static inline void LL_PWR_ClearFlag_C2H(void)
-{
-  ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->SCR) = ((0x1UL << (14U))));
-}
-
-
-
-
-
-
-
+# 2197 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
 static inline void LL_PWR_ClearFlag_C1STOP_C1STB(void)
 {
   ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->EXTSCR) = ((0x1UL << (0U))));
-}
-
-
-
-
-
-
-
-static inline void LL_PWR_ClearFlag_C2STOP_C2STB(void)
-{
-  ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->EXTSCR) = ((0x1UL << (1U))));
-}
-# 2228 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_pwr.h"
-static inline void LL_PWR_EnableIT_HoldCPU2(void)
-{
-  ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR3) |= ((0x1UL << (14U))));
-}
-
-
-
-
-
-
-static inline void LL_PWR_DisableIT_HoldCPU2(void)
-{
-  ((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR3) &= ~((0x1UL << (14U))));
-}
-
-
-
-
-
-
-static inline uint32_t LL_PWR_IsEnabledIT_HoldCPU2(void)
-{
-  return ((((((PWR_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000400UL))->CR3) & ((0x1UL << (14U)))) == ((0x1UL << (14U)))) ? 1UL : 0UL);
 }
 # 33 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h" 2
 # 51 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr.h"
@@ -25763,7 +23652,9 @@ typedef struct
 #define PWR_FLAG_REG_MASK (PWR_FLAG_REG_SR1 | PWR_FLAG_REG_SR2 | PWR_FLAG_REG_EXTSCR)
 #define PWR_FLAG_EXTSCR_CLR_POS (16UL)
 
-#define PWR_FLAG_EXTSCR_CLR_MASK ((PWR_EXTSCR_C1CSSF_Pos | PWR_EXTSCR_C2CSSF_Pos) << PWR_FLAG_EXTSCR_CLR_POS)
+
+
+#define PWR_FLAG_EXTSCR_CLR_MASK ((PWR_EXTSCR_C1CSSF_Pos) << PWR_FLAG_EXTSCR_CLR_POS)
 # 93 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
 #define PVM_MODE_IT (0x00010000UL)
 #define PVM_RISING_EDGE (0x00000001UL)
@@ -25939,23 +23830,19 @@ typedef struct
 #define PWR_FLAG_STOP2 (PWR_FLAG_REG_EXTSCR | PWR_EXTSCR_C1STOP2F_Pos | (PWR_EXTSCR_C1CSSF_Pos << PWR_FLAG_EXTSCR_CLR_POS))
 #define PWR_FLAG_STOP (PWR_FLAG_REG_EXTSCR | PWR_EXTSCR_C1STOPF_Pos | (PWR_EXTSCR_C1CSSF_Pos << PWR_FLAG_EXTSCR_CLR_POS))
 
-#define PWR_FLAG_C2SB (PWR_FLAG_REG_EXTSCR | PWR_EXTSCR_C2SBF_Pos | (PWR_EXTSCR_C2CSSF_Pos << PWR_FLAG_EXTSCR_CLR_POS))
-#define PWR_FLAG_C2STOP2 (PWR_FLAG_REG_EXTSCR | PWR_EXTSCR_C2STOP2F_Pos | (PWR_EXTSCR_C2CSSF_Pos << PWR_FLAG_EXTSCR_CLR_POS))
-#define PWR_FLAG_C2STOP (PWR_FLAG_REG_EXTSCR | PWR_EXTSCR_C2STOPF_Pos | (PWR_EXTSCR_C2CSSF_Pos << PWR_FLAG_EXTSCR_CLR_POS))
+
+
+
 
 
 #define PWR_FLAG_LPMODES (PWR_FLAG_SB)
 
-#define PWR_FLAG_C2LPMODES (PWR_FLAG_C2SB)
+
 
 
 #define PWR_FLAG_C1DEEPSLEEP (PWR_EXTSCR_C1DS_Pos | PWR_FLAG_REG_EXTSCR)
-
-#define PWR_FLAG_C2DEEPSLEEP (PWR_EXTSCR_C2DS_Pos | PWR_FLAG_REG_EXTSCR)
 # 326 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
 #define PWR_CORE_CPU1 (0x00000000UL)
-
-#define PWR_CORE_CPU2 (0x00000001UL)
 # 337 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
 #define PWR_EXTI_LINE_PVM3 (LL_EXTI_LINE_34)
 # 358 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
@@ -26057,13 +23944,9 @@ typedef struct
 
 
 
-#define IS_PWR_CORE(__CPU__) (((__CPU__) == PWR_CORE_CPU1) || ((__CPU__) == PWR_CORE_CPU2))
 
 
-
-
-
-#define IS_PWR_CORE_HOLD_RELEASE(__CPU__) ((__CPU__) == PWR_CORE_CPU2)
+#define IS_PWR_CORE(__CPU__) (((__CPU__) == PWR_CORE_CPU1))
 # 566 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_pwr_ex.h"
 uint32_t HAL_PWREx_GetVoltageRange(void);
 HAL_StatusTypeDef HAL_PWREx_ControlVoltageScaling(uint32_t VoltageScaling);
@@ -26624,8 +24507,6 @@ void HAL_PWR_PVDCallback(void);
 #define __LL_RCC_CALC_PLLCLK_I2S2_FREQ __LL_RCC_CALC_PLLCLK_RNG_FREQ
 # 828 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 #define __LL_RCC_CALC_HCLK1_FREQ(__SYSCLKFREQ__,__CPU1PRESCALER__) ((__SYSCLKFREQ__) / AHBPrescTable[((__CPU1PRESCALER__) & RCC_CFGR_HPRE) >> RCC_CFGR_HPRE_Pos])
-# 852 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
-#define __LL_RCC_CALC_HCLK2_FREQ(__SYSCLKFREQ__,__CPU2PRESCALER__) ((__SYSCLKFREQ__) / AHBPrescTable[((__CPU2PRESCALER__) & RCC_EXTCFGR_C2HPRE) >> RCC_EXTCFGR_C2HPRE_Pos])
 # 876 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 #define __LL_RCC_CALC_HCLK3_FREQ(__SYSCLKFREQ__,__AHB3PRESCALER__) ((__SYSCLKFREQ__) / AHBPrescTable[(((__AHB3PRESCALER__) >> 4U) & RCC_EXTCFGR_SHDHPRE) >> RCC_EXTCFGR_SHDHPRE_Pos])
 # 891 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
@@ -27158,11 +25039,6 @@ static inline void LL_RCC_SetAHBPrescaler(uint32_t Prescaler)
 {
   (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CFGR)) = ((((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CFGR))) & (~((0xFUL << (4U))))) | (Prescaler))));
 }
-# 1797 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
-static inline void LL_C2_RCC_SetAHBPrescaler(uint32_t Prescaler)
-{
-  (((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->EXTCFGR)) = ((((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->EXTCFGR))) & (~((0xFUL << (4U))))) | (Prescaler))));
-}
 # 1823 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline void LL_RCC_SetAHB3Prescaler(uint32_t Prescaler)
 {
@@ -27182,11 +25058,6 @@ static inline void LL_RCC_SetAPB2Prescaler(uint32_t Prescaler)
 static inline uint32_t LL_RCC_GetAHBPrescaler(void)
 {
   return (uint32_t)(((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CFGR) & ((0xFUL << (4U)))));
-}
-# 1904 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
-static inline uint32_t LL_C2_RCC_GetAHBPrescaler(void)
-{
-  return (uint32_t)(((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->EXTCFGR) & ((0xFUL << (4U)))));
 }
 # 1929 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline uint32_t LL_RCC_GetAHB3Prescaler(void)
@@ -27666,24 +25537,7 @@ static inline uint32_t LL_RCC_IsActiveFlag_HPRE(void)
 {
   return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->CFGR) & ((0x1UL << (16U)))) == ((0x1UL << (16U)))) ? 1UL : 0UL);
 }
-
-
-
-
-
-
-
-static inline uint32_t LL_RCC_IsActiveFlag_C2HPRE(void)
-{
-  return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->EXTCFGR) & ((0x1UL << (17U)))) == ((0x1UL << (17U)))) ? 1UL : 0UL);
-}
-
-
-
-
-
-
-
+# 3019 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h"
 static inline uint32_t LL_RCC_IsActiveFlag_SHDHPRE(void)
 {
   return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->EXTCFGR) & ((0x1UL << (16U)))) == ((0x1UL << (16U)))) ? 1UL : 0UL);
@@ -28040,7 +25894,7 @@ static inline uint32_t LL_RCC_IsEnabledIT_LSECSS(void)
 #define LL_AHB3_GRP1_PERIPH_RNG RCC_AHB3ENR_RNGEN
 #define LL_AHB3_GRP1_PERIPH_HSEM RCC_AHB3ENR_HSEMEN
 
-#define LL_AHB3_GRP1_PERIPH_IPCC RCC_AHB3ENR_IPCCEN
+
 
 #define LL_AHB3_GRP1_PERIPH_SRAM1 RCC_AHB3SMENR_SRAM1SMEN
 #define LL_AHB3_GRP1_PERIPH_SRAM2 RCC_AHB3SMENR_SRAM2SMEN
@@ -28091,48 +25945,6 @@ static inline uint32_t LL_RCC_IsEnabledIT_LSECSS(void)
 
 #define LL_APB3_GRP1_PERIPH_ALL (0xFFFFFFFFU)
 #define LL_APB3_GRP1_PERIPH_SUBGHZSPI RCC_APB3ENR_SUBGHZSPIEN
-# 170 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-#define LL_C2_AHB1_GRP1_PERIPH_DMA1 RCC_C2AHB1ENR_DMA1EN
-#define LL_C2_AHB1_GRP1_PERIPH_DMA2 RCC_C2AHB1ENR_DMA2EN
-#define LL_C2_AHB1_GRP1_PERIPH_DMAMUX1 RCC_C2AHB1ENR_DMAMUX1EN
-#define LL_C2_AHB1_GRP1_PERIPH_CRC RCC_C2AHB1ENR_CRCEN
-# 182 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-#define LL_C2_AHB2_GRP1_PERIPH_GPIOA RCC_C2AHB2ENR_GPIOAEN
-#define LL_C2_AHB2_GRP1_PERIPH_GPIOB RCC_C2AHB2ENR_GPIOBEN
-#define LL_C2_AHB2_GRP1_PERIPH_GPIOC RCC_C2AHB2ENR_GPIOCEN
-#define LL_C2_AHB2_GRP1_PERIPH_GPIOH RCC_C2AHB2ENR_GPIOHEN
-# 194 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-#define LL_C2_AHB3_GRP1_PERIPH_PKA RCC_C2AHB3ENR_PKAEN
-#define LL_C2_AHB3_GRP1_PERIPH_AES RCC_C2AHB3ENR_AESEN
-#define LL_C2_AHB3_GRP1_PERIPH_RNG RCC_C2AHB3ENR_RNGEN
-#define LL_C2_AHB3_GRP1_PERIPH_HSEM RCC_C2AHB3ENR_HSEMEN
-#define LL_C2_AHB3_GRP1_PERIPH_IPCC RCC_C2AHB3ENR_IPCCEN
-#define LL_C2_AHB3_GRP1_PERIPH_FLASH RCC_C2AHB3ENR_FLASHEN
-#define LL_C2_AHB3_GRP1_PERIPH_SRAM1 RCC_C2AHB3SMENR_SRAM1SMEN
-#define LL_C2_AHB3_GRP1_PERIPH_SRAM2 RCC_C2AHB3SMENR_SRAM2SMEN
-# 210 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-#define LL_C2_APB1_GRP1_PERIPH_TIM2 RCC_C2APB1ENR1_TIM2EN
-#define LL_C2_APB1_GRP1_PERIPH_RTCAPB RCC_C2APB1ENR1_RTCAPBEN
-#define LL_C2_APB1_GRP1_PERIPH_SPI2 RCC_C2APB1ENR1_SPI2EN
-#define LL_C2_APB1_GRP1_PERIPH_USART2 RCC_C2APB1ENR1_USART2EN
-#define LL_C2_APB1_GRP1_PERIPH_I2C1 RCC_C2APB1ENR1_I2C1EN
-#define LL_C2_APB1_GRP1_PERIPH_I2C2 RCC_C2APB1ENR1_I2C2EN
-#define LL_C2_APB1_GRP1_PERIPH_I2C3 RCC_C2APB1ENR1_I2C3EN
-#define LL_C2_APB1_GRP1_PERIPH_DAC RCC_C2APB1ENR1_DACEN
-#define LL_C2_APB1_GRP1_PERIPH_LPTIM1 RCC_C2APB1ENR1_LPTIM1EN
-# 227 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-#define LL_C2_APB1_GRP2_PERIPH_LPUART1 RCC_C2APB1ENR2_LPUART1EN
-#define LL_C2_APB1_GRP2_PERIPH_LPTIM2 RCC_C2APB1ENR2_LPTIM2EN
-#define LL_C2_APB1_GRP2_PERIPH_LPTIM3 RCC_C2APB1ENR2_LPTIM3EN
-# 238 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-#define LL_C2_APB2_GRP1_PERIPH_ADC RCC_C2APB2ENR_ADCEN
-#define LL_C2_APB2_GRP1_PERIPH_TIM1 RCC_C2APB2ENR_TIM1EN
-#define LL_C2_APB2_GRP1_PERIPH_SPI1 RCC_C2APB2ENR_SPI1EN
-#define LL_C2_APB2_GRP1_PERIPH_USART1 RCC_C2APB2ENR_USART1EN
-#define LL_C2_APB2_GRP1_PERIPH_TIM16 RCC_C2APB2ENR_TIM16EN
-#define LL_C2_APB2_GRP1_PERIPH_TIM17 RCC_C2APB2ENR_TIM17EN
-# 252 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-#define LL_C2_APB3_GRP1_PERIPH_SUBGHZSPI RCC_C2APB3ENR_SUBGHZSPIEN
 # 287 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
 static inline void LL_AHB1_GRP1_EnableClock(uint32_t Periphs)
 {
@@ -28469,272 +26281,6 @@ static inline void LL_APB3_GRP1_DisableClockSleep(uint32_t Periphs)
 {
   ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->APB3SMENR) &= ~(Periphs));
 }
-# 1608 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline void LL_C2_AHB1_GRP1_EnableClock(uint32_t Periphs)
-{
-  volatile uint32_t tmpreg;
-  ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2AHB1ENR) |= (Periphs));
-
-  tmpreg = ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2AHB1ENR) & (Periphs));
-  (void)tmpreg;
-}
-# 1630 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline uint32_t LL_C2_AHB1_GRP1_IsEnabledClock(uint32_t Periphs)
-{
-  return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2AHB1ENR) & (Periphs)) == (Periphs)) ? 1UL : 0UL);
-}
-# 1648 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline void LL_C2_AHB1_GRP1_DisableClock(uint32_t Periphs)
-{
-  ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2AHB1ENR) &= ~(Periphs));
-}
-# 1666 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline void LL_C2_AHB1_GRP1_EnableClockSleep(uint32_t Periphs)
-{
-  volatile uint32_t tmpreg;
-  ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2AHB1SMENR) |= (Periphs));
-
-  tmpreg = ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2AHB1SMENR) & (Periphs));
-  (void)tmpreg;
-}
-# 1688 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline uint32_t LL_C2_AHB1_GRP1_IsEnabledClockSleep(uint32_t Periphs)
-{
-  return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2AHB1SMENR) & (Periphs)) == (Periphs)) ? 1UL : 0UL);
-}
-# 1706 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline void LL_C2_AHB1_GRP1_DisableClockSleep(uint32_t Periphs)
-{
-  ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2AHB1SMENR) &= ~(Periphs));
-}
-# 1732 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline void LL_C2_AHB2_GRP1_EnableClock(uint32_t Periphs)
-{
-  volatile uint32_t tmpreg;
-  ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2AHB2ENR) |= (Periphs));
-
-  tmpreg = ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2AHB2ENR) & (Periphs));
-  (void)tmpreg;
-}
-# 1754 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline uint32_t LL_C2_AHB2_GRP1_IsEnabledClock(uint32_t Periphs)
-{
-  return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2AHB2ENR) & (Periphs)) == (Periphs)) ? 1UL : 0UL);
-}
-# 1772 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline void LL_C2_AHB2_GRP1_DisableClock(uint32_t Periphs)
-{
-  ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2AHB2ENR) &= ~(Periphs));
-}
-# 1790 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline void LL_C2_AHB2_GRP1_EnableClockSleep(uint32_t Periphs)
-{
-  volatile uint32_t tmpreg;
-  ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2AHB2SMENR) |= (Periphs));
-
-  tmpreg = ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2AHB2SMENR) & (Periphs));
-  (void)tmpreg;
-}
-# 1812 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline uint32_t LL_C2_AHB2_GRP1_IsEnabledClockSleep(uint32_t Periphs)
-{
-  return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2AHB2SMENR) & (Periphs)) == (Periphs)) ? 1UL : 0UL);
-}
-# 1831 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline void LL_C2_AHB2_GRP1_DisableClockSleep(uint32_t Periphs)
-{
-  ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2AHB2SMENR) &= ~(Periphs));
-}
-# 1861 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline void LL_C2_AHB3_GRP1_EnableClock(uint32_t Periphs)
-{
-  volatile uint32_t tmpreg;
-  ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2AHB3ENR) |= (Periphs));
-
-  tmpreg = ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2AHB3ENR) & (Periphs));
-  (void)tmpreg;
-}
-# 1887 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline uint32_t LL_C2_AHB3_GRP1_IsEnabledClock(uint32_t Periphs)
-{
-  return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2AHB3ENR) & (Periphs)) == (Periphs)) ? 1UL : 0UL);
-}
-# 1909 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline void LL_C2_AHB3_GRP1_DisableClock(uint32_t Periphs)
-{
-  ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2AHB3ENR) &= ~(Periphs));
-}
-# 1931 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline void LL_C2_AHB3_GRP1_EnableClockSleep(uint32_t Periphs)
-{
-  volatile uint32_t tmpreg;
-  ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2AHB3SMENR) |= (Periphs));
-
-  tmpreg = ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2AHB3SMENR) & (Periphs));
-  (void)tmpreg;
-}
-# 1957 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline uint32_t LL_C2_AHB3_GRP1_IsEnabledClockSleep(uint32_t Periphs)
-{
-  return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2AHB3SMENR) & (Periphs)) == (Periphs)) ? 1UL : 0UL);
-}
-# 1977 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline void LL_C2_AHB3_GRP1_DisableClockSleep(uint32_t Periphs)
-{
-  ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2AHB3SMENR) &= ~(Periphs));
-}
-# 2014 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline void LL_C2_APB1_GRP1_EnableClock(uint32_t Periphs)
-{
-  volatile uint32_t tmpreg;
-  ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB1ENR1) |= (Periphs));
-
-  tmpreg = ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB1ENR1) & (Periphs));
-  (void)tmpreg;
-}
-# 2032 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline void LL_C2_APB1_GRP2_EnableClock(uint32_t Periphs)
-{
-  volatile uint32_t tmpreg;
-  ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB1ENR2) |= (Periphs));
-
-  tmpreg = ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB1ENR2) & (Periphs));
-  (void)tmpreg;
-}
-# 2065 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline uint32_t LL_C2_APB1_GRP1_IsEnabledClock(uint32_t Periphs)
-{
-  return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB1ENR1) & (Periphs)) == (Periphs)) ? 1UL : 0UL);
-}
-# 2079 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline uint32_t LL_C2_APB1_GRP2_IsEnabledClock(uint32_t Periphs)
-{
-  return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB1ENR2) & (Periphs)) == (Periphs)) ? 1UL : 0UL);
-}
-# 2108 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline void LL_C2_APB1_GRP1_DisableClock(uint32_t Periphs)
-{
-  ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB1ENR1) &= ~(Periphs));
-}
-# 2122 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline void LL_C2_APB1_GRP2_DisableClock(uint32_t Periphs)
-{
-  ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB1ENR2) &= ~(Periphs));
-}
-# 2150 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline void LL_C2_APB1_GRP1_EnableClockSleep(uint32_t Periphs)
-{
-  volatile uint32_t tmpreg;
-  ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB1SMENR1) |= (Periphs));
-
-  tmpreg = ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB1SMENR1) & (Periphs));
-  (void)tmpreg;
-}
-# 2170 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline void LL_C2_APB1_GRP2_EnableClockSleep(uint32_t Periphs)
-{
-  volatile uint32_t tmpreg;
-  ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB1SMENR2) |= (Periphs));
-
-  tmpreg = ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB1SMENR2) & (Periphs));
-  (void)tmpreg;
-}
-# 2202 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline uint32_t LL_C2_APB1_GRP1_IsEnabledClockSleep(uint32_t Periphs)
-{
-  return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB1SMENR1) & (Periphs)) == (Periphs)) ? 1UL : 0UL);
-}
-# 2218 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline uint32_t LL_C2_APB1_GRP2_IsEnabledClockSleep(uint32_t Periphs)
-{
-  return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB1SMENR2) & (Periphs)) == (Periphs)) ? 1UL : 0UL);
-}
-# 2247 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline void LL_C2_APB1_GRP1_DisableClockSleep(uint32_t Periphs)
-{
-  ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB1SMENR1) &= ~(Periphs));
-}
-# 2261 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline void LL_C2_APB1_GRP2_DisableClockSleep(uint32_t Periphs)
-{
-  ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB1SMENR2) &= ~(Periphs));
-}
-# 2291 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline void LL_C2_APB2_GRP1_EnableClock(uint32_t Periphs)
-{
-  volatile uint32_t tmpreg;
-  ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB2ENR) |= (Periphs));
-
-  tmpreg = ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB2ENR) & (Periphs));
-  (void)tmpreg;
-}
-# 2317 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline uint32_t LL_C2_APB2_GRP1_IsEnabledClock(uint32_t Periphs)
-{
-  return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB2ENR) & (Periphs)) == (Periphs)) ? 1UL : 0UL);
-}
-# 2339 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline void LL_C2_APB2_GRP1_DisableClock(uint32_t Periphs)
-{
-  ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB2ENR) &= ~(Periphs));
-}
-# 2361 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline void LL_C2_APB2_GRP1_EnableClockSleep(uint32_t Periphs)
-{
-  volatile uint32_t tmpreg;
-  ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB2SMENR) |= (Periphs));
-
-  tmpreg = ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB2SMENR) & (Periphs));
-  (void)tmpreg;
-}
-# 2387 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline uint32_t LL_C2_APB2_GRP1_IsEnabledClockSleep(uint32_t Periphs)
-{
-  return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB2SMENR) & (Periphs)) == (Periphs)) ? 1UL : 0UL);
-}
-# 2409 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline void LL_C2_APB2_GRP1_DisableClockSleep(uint32_t Periphs)
-{
-  ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB2SMENR) &= ~(Periphs));
-}
-# 2429 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline void LL_C2_APB3_GRP1_EnableClock(uint32_t Periphs)
-{
-  volatile uint32_t tmpreg;
-  ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB3ENR) |= (Periphs));
-
-  tmpreg = ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB3ENR) & (Periphs));
-  (void)tmpreg;
-}
-# 2445 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline uint32_t LL_C2_APB3_GRP1_IsEnabledClock(uint32_t Periphs)
-{
-  return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB3ENR) & (Periphs)) == (Periphs)) ? 1UL : 0UL);
-}
-# 2457 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline void LL_C2_APB3_GRP1_DisableClock(uint32_t Periphs)
-{
-  ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB3ENR) &= ~(Periphs));
-}
-# 2469 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline void LL_C2_APB3_GRP1_EnableClockSleep(uint32_t Periphs)
-{
-  volatile uint32_t tmpreg;
-  ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB3SMENR) |= (Periphs));
-
-  tmpreg = ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB3SMENR) & (Periphs));
-  (void)tmpreg;
-}
-# 2485 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline uint32_t LL_C2_APB3_GRP1_IsEnabledClockSleep(uint32_t Periphs)
-{
-  return ((((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB3SMENR) & (Periphs)) == (Periphs)) ? 1UL : 0UL);
-}
-# 2497 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_bus.h"
-static inline void LL_C2_APB3_GRP1_DisableClockSleep(uint32_t Periphs)
-{
-  ((((RCC_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000000UL))->C2APB3SMENR) &= ~(Periphs));
-}
 # 32 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h" 2
 # 47 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define CR_REG_INDEX 1U
@@ -28813,9 +26359,14 @@ static inline void LL_C2_APB3_GRP1_DisableClockSleep(uint32_t Periphs)
 #define IS_RCC_PLLR_VALUE(__VALUE__) ((RCC_PLLR_DIV2 <= (__VALUE__)) && ((__VALUE__) <= RCC_PLLR_DIV8))
 
 #define IS_RCC_MSI_CLOCK_RANGE(__RANGE__) (((__RANGE__) == RCC_MSIRANGE_0) || ((__RANGE__) == RCC_MSIRANGE_1) || ((__RANGE__) == RCC_MSIRANGE_2) || ((__RANGE__) == RCC_MSIRANGE_3) || ((__RANGE__) == RCC_MSIRANGE_4) || ((__RANGE__) == RCC_MSIRANGE_5) || ((__RANGE__) == RCC_MSIRANGE_6) || ((__RANGE__) == RCC_MSIRANGE_7) || ((__RANGE__) == RCC_MSIRANGE_8) || ((__RANGE__) == RCC_MSIRANGE_9) || ((__RANGE__) == RCC_MSIRANGE_10) || ((__RANGE__) == RCC_MSIRANGE_11))
-# 157 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
-#define IS_RCC_CLOCKTYPE(__CLK__) ((1U <= (__CLK__)) && ((__CLK__) <= (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2 | RCC_CLOCKTYPE_HCLK2 | RCC_CLOCKTYPE_HCLK3)))
-# 171 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+# 164 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
+#define IS_RCC_CLOCKTYPE(__CLK__) ((1U <= (__CLK__)) && ((__CLK__) <= (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2 | RCC_CLOCKTYPE_HCLK3)))
+
+
+
+
+
+
 #define IS_RCC_SYSCLKSOURCE(__SOURCE__) (((__SOURCE__) == RCC_SYSCLKSOURCE_MSI) || ((__SOURCE__) == RCC_SYSCLKSOURCE_HSI) || ((__SOURCE__) == RCC_SYSCLKSOURCE_HSE) || ((__SOURCE__) == RCC_SYSCLKSOURCE_PLLCLK))
 
 
@@ -28938,7 +26489,7 @@ typedef struct
 
 
 
-  uint32_t AHBCLK2Divider;
+
 
 
 
@@ -29156,7 +26707,7 @@ typedef struct
 #define RCC_CLOCKTYPE_PCLK1 0x00000004U
 #define RCC_CLOCKTYPE_PCLK2 0x00000008U
 
-#define RCC_CLOCKTYPE_HCLK2 0x00000020U
+
 
 #define RCC_CLOCKTYPE_HCLK3 0x00000040U
 
@@ -29477,11 +27028,7 @@ typedef struct
 #define __HAL_RCC_GPIOB_RELEASE_RESET() LL_AHB2_GRP1_ReleaseReset(LL_AHB2_GRP1_PERIPH_GPIOB)
 #define __HAL_RCC_GPIOC_RELEASE_RESET() LL_AHB2_GRP1_ReleaseReset(LL_AHB2_GRP1_PERIPH_GPIOC)
 #define __HAL_RCC_GPIOH_RELEASE_RESET() LL_AHB2_GRP1_ReleaseReset(LL_AHB2_GRP1_PERIPH_GPIOH)
-# 1196 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
-#define __HAL_RCC_IPCC_FORCE_RESET() LL_AHB3_GRP1_ForceReset(LL_AHB3_GRP1_PERIPH_IPCC)
-#define __HAL_RCC_IPCC_RELEASE_RESET() LL_AHB3_GRP1_ReleaseReset(LL_AHB3_GRP1_PERIPH_IPCC)
-
-
+# 1200 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc.h"
 #define __HAL_RCC_AHB3_FORCE_RESET() LL_AHB3_GRP1_ForceReset(LL_AHB3_GRP1_PERIPH_ALL)
 #define __HAL_RCC_PKA_FORCE_RESET() LL_AHB3_GRP1_ForceReset(LL_AHB3_GRP1_PERIPH_PKA)
 #define __HAL_RCC_AES_FORCE_RESET() LL_AHB3_GRP1_ForceReset(LL_AHB3_GRP1_PERIPH_AES)
@@ -29836,14 +27383,14 @@ typedef struct
 
 #define LL_EXTI_LINE_34 EXTI_IMR2_IM34
 
-#define LL_EXTI_LINE_36 EXTI_IMR2_IM36
-#define LL_EXTI_LINE_37 EXTI_IMR2_IM37
+
+
 
 #define LL_EXTI_LINE_38 EXTI_IMR2_IM38
 
-#define LL_EXTI_LINE_39 EXTI_IMR2_IM39
-#define LL_EXTI_LINE_40 EXTI_IMR2_IM40
-#define LL_EXTI_LINE_41 EXTI_IMR2_IM41
+
+
+
 
 #define LL_EXTI_LINE_42 EXTI_IMR2_IM42
 #define LL_EXTI_LINE_43 EXTI_IMR2_IM43
@@ -29851,7 +27398,12 @@ typedef struct
 #define LL_EXTI_LINE_45 EXTI_IMR2_IM45
 #define LL_EXTI_LINE_46 EXTI_IMR2_IM46
 
-#define LL_EXTI_LINE_ALL_32_63 (EXTI_IMR2_IM34 | EXTI_IMR2_IM36 | EXTI_IMR2_IM37 | EXTI_IMR2_IM38 | EXTI_IMR2_IM39 | EXTI_IMR2_IM40 | EXTI_IMR2_IM41 | EXTI_IMR2_IM42 | EXTI_IMR2_IM43 | EXTI_IMR2_IM44 | EXTI_IMR2_IM45 | EXTI_IMR2_IM46)
+
+
+
+
+
+#define LL_EXTI_LINE_ALL_32_63 (EXTI_IMR2_IM34 | EXTI_IMR2_IM38 | EXTI_IMR2_IM42 | EXTI_IMR2_IM43 | EXTI_IMR2_IM44 | EXTI_IMR2_IM45 | EXTI_IMR2_IM46)
 # 200 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 #define LL_EXTI_WriteReg(__REG__,__VALUE__) WRITE_REG(EXTI->__REG__, (__VALUE__))
 
@@ -29866,120 +27418,60 @@ static inline void LL_EXTI_EnableIT_0_31(uint32_t ExtiLine)
 {
   ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->IMR1) |= (ExtiLine));
 }
-# 311 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
-static inline void LL_C2_EXTI_EnableIT_0_31(uint32_t ExtiLine)
-{
-  ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->C2IMR1) |= (ExtiLine));
-}
 # 337 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline void LL_EXTI_EnableIT_32_63(uint32_t ExtiLine)
 {
   ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->IMR2) |= (ExtiLine));
-}
-# 363 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
-static inline void LL_C2_EXTI_EnableIT_32_63(uint32_t ExtiLine)
-{
-  ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->C2IMR2) |= (ExtiLine));
 }
 # 408 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline void LL_EXTI_DisableIT_0_31(uint32_t ExtiLine)
 {
   ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->IMR1) &= ~(ExtiLine));
 }
-# 453 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
-static inline void LL_C2_EXTI_DisableIT_0_31(uint32_t ExtiLine)
-{
-  ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->C2IMR1) &= ~(ExtiLine));
-}
 # 479 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline void LL_EXTI_DisableIT_32_63(uint32_t ExtiLine)
 {
   ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->IMR2) &= ~(ExtiLine));
-}
-# 505 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
-static inline void LL_C2_EXTI_DisableIT_32_63(uint32_t ExtiLine)
-{
-  ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->C2IMR2) &= ~(ExtiLine));
 }
 # 550 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline uint32_t LL_EXTI_IsEnabledIT_0_31(uint32_t ExtiLine)
 {
   return ((((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->IMR1) & (ExtiLine)) == (ExtiLine)) ? 1UL : 0UL);
 }
-# 595 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
-static inline uint32_t LL_C2_EXTI_IsEnabledIT_0_31(uint32_t ExtiLine)
-{
-  return ((((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->C2IMR1) & (ExtiLine)) == (ExtiLine)) ? 1UL : 0UL);
-}
 # 621 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline uint32_t LL_EXTI_IsEnabledIT_32_63(uint32_t ExtiLine)
 {
   return ((((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->IMR2) & (ExtiLine)) == (ExtiLine)) ? 1UL : 0UL);
-}
-# 647 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
-static inline uint32_t LL_C2_EXTI_IsEnabledIT_32_63(uint32_t ExtiLine)
-{
-  return ((((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->C2IMR2) & (ExtiLine)) == (ExtiLine)) ? 1UL : 0UL);
 }
 # 688 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline void LL_EXTI_EnableEvent_0_31(uint32_t ExtiLine)
 {
   ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->EMR1) |= (ExtiLine));
 }
-# 721 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
-static inline void LL_C2_EXTI_EnableEvent_0_31(uint32_t ExtiLine)
-{
-  ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->C2EMR1) |= (ExtiLine));
-}
 # 736 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline void LL_EXTI_EnableEvent_32_63(uint32_t ExtiLine)
 {
   ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->EMR2) |= (ExtiLine));
-}
-# 751 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
-static inline void LL_C2_EXTI_EnableEvent_32_63(uint32_t ExtiLine)
-{
-  ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->C2EMR2) |= (ExtiLine));
 }
 # 784 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline void LL_EXTI_DisableEvent_0_31(uint32_t ExtiLine)
 {
   ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->EMR1) &= ~(ExtiLine));
 }
-# 817 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
-static inline void LL_C2_EXTI_DisableEvent_0_31(uint32_t ExtiLine)
-{
-  ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->C2EMR1) &= ~(ExtiLine));
-}
 # 832 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline void LL_EXTI_DisableEvent_32_63(uint32_t ExtiLine)
 {
   ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->EMR2) &= ~(ExtiLine));
-}
-# 847 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
-static inline void LL_C2_EXTI_DisableEvent_32_63(uint32_t ExtiLine)
-{
-  ((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->C2EMR2) &= ~(ExtiLine));
 }
 # 880 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline uint32_t LL_EXTI_IsEnabledEvent_0_31(uint32_t ExtiLine)
 {
   return ((((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->EMR1) & (ExtiLine)) == (ExtiLine)) ? 1UL : 0UL);
 }
-# 913 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
-static inline uint32_t LL_C2_EXTI_IsEnabledEvent_0_31(uint32_t ExtiLine)
-{
-  return ((((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->C2EMR1) & (ExtiLine)) == (ExtiLine)) ? 1UL : 0UL);
-}
 # 928 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline uint32_t LL_EXTI_IsEnabledEvent_32_63(uint32_t ExtiLine)
 {
   return ((((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->EMR2) & (ExtiLine)) == (ExtiLine)) ? 1UL : 0UL);
-}
-# 943 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
-static inline uint32_t LL_C2_EXTI_IsEnabledEvent_32_63(uint32_t ExtiLine)
-{
-  return ((((((EXTI_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00000800UL))->C2EMR2) & (ExtiLine)) == (ExtiLine)) ? 1UL : 0UL);
 }
 # 990 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_exti.h"
 static inline void LL_EXTI_EnableRisingTrig_0_31(uint32_t ExtiLine)
@@ -30431,7 +27923,7 @@ typedef struct
 #define __HAL_RCC_ADC_CONFIG(__ADC_CLKSOURCE__) LL_RCC_SetADCClockSource(__ADC_CLKSOURCE__)
 # 605 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 #define __HAL_RCC_GET_ADC_SOURCE() LL_RCC_GetADCClockSource(LL_RCC_ADC_CLKSOURCE)
-# 619 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
+# 630 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_rcc_ex.h"
 #define __HAL_RCC_LSECSS_EXTI_ENABLE_IT() LL_EXTI_EnableIT_0_31(RCC_EXTI_LINE_LSECSS)
 #define __HAL_RCC_LSECSS_EXTI_DISABLE_IT() LL_EXTI_DisableIT_0_31(RCC_EXTI_LINE_LSECSS)
 #define __HAL_RCC_LSECSS_EXTI_ENABLE_EVENT() LL_EXTI_EnableEvent_0_31(RCC_EXTI_LINE_LSECSS)
@@ -30469,7 +27961,7 @@ uint32_t HAL_RCC_GetSysClockFreq(void);
 
 uint32_t HAL_RCC_GetHCLKFreq(void);
 
-uint32_t HAL_RCC_GetHCLK2Freq(void);
+
 
 uint32_t HAL_RCC_GetHCLK3Freq(void);
 
@@ -36433,80 +33925,6 @@ HAL_StatusTypeDef UART_Start_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pDa
 #define LL_SYSCFG_SRAM2WRP_PAGE29 SYSCFG_SWPR_PAGE29
 #define LL_SYSCFG_SRAM2WRP_PAGE30 SYSCFG_SWPR_PAGE30
 #define LL_SYSCFG_SRAM2WRP_PAGE31 SYSCFG_SWPR_PAGE31
-# 217 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
-#define LL_SYSCFG_GRP1_RTCSTAMPTAMPLSECSS SYSCFG_IMR1_RTCSTAMPTAMPLSECSSIM
-#define LL_SYSCFG_GRP1_RTCSSRU SYSCFG_IMR1_RTCSSRUIM
-#define LL_SYSCFG_GRP1_EXTI5 SYSCFG_IMR1_EXTI5IM
-#define LL_SYSCFG_GRP1_EXTI6 SYSCFG_IMR1_EXTI6IM
-#define LL_SYSCFG_GRP1_EXTI7 SYSCFG_IMR1_EXTI7IM
-#define LL_SYSCFG_GRP1_EXTI8 SYSCFG_IMR1_EXTI8IM
-#define LL_SYSCFG_GRP1_EXTI9 SYSCFG_IMR1_EXTI9IM
-#define LL_SYSCFG_GRP1_EXTI10 SYSCFG_IMR1_EXTI10IM
-#define LL_SYSCFG_GRP1_EXTI11 SYSCFG_IMR1_EXTI11IM
-#define LL_SYSCFG_GRP1_EXTI12 SYSCFG_IMR1_EXTI12IM
-#define LL_SYSCFG_GRP1_EXTI13 SYSCFG_IMR1_EXTI13IM
-#define LL_SYSCFG_GRP1_EXTI14 SYSCFG_IMR1_EXTI14IM
-#define LL_SYSCFG_GRP1_EXTI15 SYSCFG_IMR1_EXTI15IM
-
-#define LL_SYSCFG_GRP2_PVM3 SYSCFG_IMR2_PVM3IM
-#define LL_SYSCFG_GRP2_PVD SYSCFG_IMR2_PVDIM
-
-
-
-
-
-
-
-#define LL_C2_SYSCFG_GRP1_RTCSTAMP_RTCTAMP_LSECSS SYSCFG_C2IMR1_RTCSTAMPTAMPLSECSSIM
-
-#define LL_C2_SYSCFG_GRP1_RTCALARM SYSCFG_C2IMR1_RTCALARMIM
-#define LL_C2_SYSCFG_GRP1_RTCSSRU SYSCFG_C2IMR1_RTCSSRUIM
-#define LL_C2_SYSCFG_GRP1_RTCWKUP SYSCFG_C2IMR1_RTCWKUPIM
-#define LL_C2_SYSCFG_GRP1_RCC SYSCFG_C2IMR1_RCCIM
-#define LL_C2_SYSCFG_GRP1_FLASH SYSCFG_C2IMR1_FLASHIM
-#define LL_C2_SYSCFG_GRP1_PKA SYSCFG_C2IMR1_PKAIM
-#define LL_C2_SYSCFG_GRP1_AES SYSCFG_C2IMR1_AESIM
-#define LL_C2_SYSCFG_GRP1_COMP SYSCFG_C2IMR1_COMPIM
-#define LL_C2_SYSCFG_GRP1_ADC SYSCFG_C2IMR1_ADCIM
-#define LL_C2_SYSCFG_GRP1_DAC SYSCFG_C2IMR1_DACIM
-
-#define LL_C2_SYSCFG_GRP1_EXTI0 SYSCFG_C2IMR1_EXTI0IM
-#define LL_C2_SYSCFG_GRP1_EXTI1 SYSCFG_C2IMR1_EXTI1IM
-#define LL_C2_SYSCFG_GRP1_EXTI2 SYSCFG_C2IMR1_EXTI2IM
-#define LL_C2_SYSCFG_GRP1_EXTI3 SYSCFG_C2IMR1_EXTI3IM
-#define LL_C2_SYSCFG_GRP1_EXTI4 SYSCFG_C2IMR1_EXTI4IM
-#define LL_C2_SYSCFG_GRP1_EXTI5 SYSCFG_C2IMR1_EXTI5IM
-#define LL_C2_SYSCFG_GRP1_EXTI6 SYSCFG_C2IMR1_EXTI6IM
-#define LL_C2_SYSCFG_GRP1_EXTI7 SYSCFG_C2IMR1_EXTI7IM
-#define LL_C2_SYSCFG_GRP1_EXTI8 SYSCFG_C2IMR1_EXTI8IM
-#define LL_C2_SYSCFG_GRP1_EXTI9 SYSCFG_C2IMR1_EXTI9IM
-#define LL_C2_SYSCFG_GRP1_EXTI10 SYSCFG_C2IMR1_EXTI10IM
-#define LL_C2_SYSCFG_GRP1_EXTI11 SYSCFG_C2IMR1_EXTI11IM
-#define LL_C2_SYSCFG_GRP1_EXTI12 SYSCFG_C2IMR1_EXTI12IM
-#define LL_C2_SYSCFG_GRP1_EXTI13 SYSCFG_C2IMR1_EXTI13IM
-#define LL_C2_SYSCFG_GRP1_EXTI14 SYSCFG_C2IMR1_EXTI14IM
-#define LL_C2_SYSCFG_GRP1_EXTI15 SYSCFG_C2IMR1_EXTI15IM
-
-#define LL_C2_SYSCFG_GRP2_DMA1CH1 SYSCFG_C2IMR2_DMA1CH1IM
-#define LL_C2_SYSCFG_GRP2_DMA1CH2 SYSCFG_C2IMR2_DMA1CH2IM
-#define LL_C2_SYSCFG_GRP2_DMA1CH3 SYSCFG_C2IMR2_DMA1CH3IM
-#define LL_C2_SYSCFG_GRP2_DMA1CH4 SYSCFG_C2IMR2_DMA1CH4IM
-#define LL_C2_SYSCFG_GRP2_DMA1CH5 SYSCFG_C2IMR2_DMA1CH5IM
-#define LL_C2_SYSCFG_GRP2_DMA1CH6 SYSCFG_C2IMR2_DMA1CH6IM
-#define LL_C2_SYSCFG_GRP2_DMA1CH7 SYSCFG_C2IMR2_DMA1CH7IM
-
-#define LL_C2_SYSCFG_GRP2_DMA2CH1 SYSCFG_C2IMR2_DMA2CH1IM
-#define LL_C2_SYSCFG_GRP2_DMA2CH2 SYSCFG_C2IMR2_DMA2CH2IM
-#define LL_C2_SYSCFG_GRP2_DMA2CH3 SYSCFG_C2IMR2_DMA2CH3IM
-#define LL_C2_SYSCFG_GRP2_DMA2CH4 SYSCFG_C2IMR2_DMA2CH4IM
-#define LL_C2_SYSCFG_GRP2_DMA2CH5 SYSCFG_C2IMR2_DMA2CH5IM
-#define LL_C2_SYSCFG_GRP2_DMA2CH6 SYSCFG_C2IMR2_DMA2CH6IM
-#define LL_C2_SYSCFG_GRP2_DMA2CH7 SYSCFG_C2IMR2_DMA2CH7IM
-
-#define LL_C2_SYSCFG_GRP2_DMAMUX1 SYSCFG_C2IMR2_DMAMUX1IM
-
-#define LL_C2_SYSCFG_GRP2_PVM3 SYSCFG_C2IMR2_PVM3IM
-#define LL_C2_SYSCFG_GRP2_PVD SYSCFG_C2IMR2_PVDIM
 # 298 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 #define LL_SYSCFG_ANALOG_TEST_BUS SYSCFG_RFDCR_RFTBSEL
 #define LL_SYSCFG_DIGITAL_TEST_BUS 0x00000000U
@@ -36519,28 +33937,13 @@ HAL_StatusTypeDef UART_Start_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pDa
 #define LL_DBGMCU_APB1_GRP1_I2C2_STOP DBGMCU_APB1FZR1_DBG_I2C2_STOP
 #define LL_DBGMCU_APB1_GRP1_I2C3_STOP DBGMCU_APB1FZR1_DBG_I2C3_STOP
 #define LL_DBGMCU_APB1_GRP1_LPTIM1_STOP DBGMCU_APB1FZR1_DBG_LPTIM1_STOP
-# 326 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
-#define LL_C2_DBGMCU_APB1_GRP1_TIM2_STOP DBGMCU_C2APB1FZR1_DBG_TIM2_STOP
-#define LL_C2_DBGMCU_APB1_GRP1_RTC_STOP DBGMCU_C2APB1FZR1_DBG_RTC_STOP
-#define LL_C2_DBGMCU_APB1_GRP1_IWDG_STOP DBGMCU_C2APB1FZR1_DBG_IWDG_STOP
-#define LL_C2_DBGMCU_APB1_GRP1_I2C1_STOP DBGMCU_C2APB1FZR1_DBG_I2C1_STOP
-#define LL_C2_DBGMCU_APB1_GRP1_I2C2_STOP DBGMCU_C2APB1FZR1_DBG_I2C2_STOP
-#define LL_C2_DBGMCU_APB1_GRP1_I2C3_STOP DBGMCU_C2APB1FZR1_DBG_I2C3_STOP
-#define LL_C2_DBGMCU_APB1_GRP1_LPTIM1_STOP DBGMCU_C2APB1FZR1_DBG_LPTIM1_STOP
 # 341 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 #define LL_DBGMCU_APB1_GRP2_LPTIM2_STOP DBGMCU_APB1FZR2_DBG_LPTIM2_STOP
 #define LL_DBGMCU_APB1_GRP2_LPTIM3_STOP DBGMCU_APB1FZR2_DBG_LPTIM3_STOP
-# 351 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
-#define LL_C2_DBGMCU_APB1_GRP2_LPTIM2_STOP DBGMCU_C2APB1FZR2_DBG_LPTIM2_STOP
-#define LL_C2_DBGMCU_APB1_GRP2_LPTIM3_STOP DBGMCU_C2APB1FZR2_DBG_LPTIM3_STOP
 # 361 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 #define LL_DBGMCU_APB2_GRP1_TIM1_STOP DBGMCU_APB2FZR_DBG_TIM1_STOP
 #define LL_DBGMCU_APB2_GRP1_TIM16_STOP DBGMCU_APB2FZR_DBG_TIM16_STOP
 #define LL_DBGMCU_APB2_GRP1_TIM17_STOP DBGMCU_APB2FZR_DBG_TIM17_STOP
-# 372 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
-#define LL_C2_DBGMCU_APB2_GRP1_TIM1_STOP DBGMCU_C2APB2FZR_DBG_TIM1_STOP
-#define LL_C2_DBGMCU_APB2_GRP1_TIM16_STOP DBGMCU_C2APB2FZR_DBG_TIM16_STOP
-#define LL_C2_DBGMCU_APB2_GRP1_TIM17_STOP DBGMCU_C2APB2FZR_DBG_TIM17_STOP
 # 386 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 #define LL_VREFBUF_VOLTAGE_SCALE0 0x00000000U
 #define LL_VREFBUF_VOLTAGE_SCALE1 VREFBUF_CSR_VRS
@@ -36687,66 +34090,6 @@ static inline void LL_SYSCFG_UnlockSRAM2WRP(void)
   ((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->SKR) = (0xCAU));
   ((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->SKR) = (0x53U));
 }
-# 775 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
-static inline void LL_SYSCFG_GRP1_EnableIT(uint32_t Interrupt)
-{
-  ((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->IMR1) &= ~(Interrupt));
-}
-# 789 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
-static inline void LL_SYSCFG_GRP2_EnableIT(uint32_t Interrupt)
-{
-  ((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->IMR2) &= ~(Interrupt));
-}
-# 815 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
-static inline void LL_SYSCFG_GRP1_DisableIT(uint32_t Interrupt)
-{
-  ((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->IMR1) |= (Interrupt));
-}
-# 829 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
-static inline void LL_SYSCFG_GRP2_DisableIT(uint32_t Interrupt)
-{
-  ((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->IMR2) |= (Interrupt));
-}
-# 855 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
-static inline uint32_t LL_SYSCFG_GRP1_IsEnabledIT(uint32_t Interrupt)
-{
-  return ((((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->IMR1) & (Interrupt)) != (Interrupt)) ? 1UL : 0UL);
-}
-# 869 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
-static inline uint32_t LL_SYSCFG_GRP2_IsEnabledIT(uint32_t Interrupt)
-{
-  return ((((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->IMR2) & (Interrupt)) != (Interrupt)) ? 1UL : 0UL);
-}
-# 918 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
-static inline void LL_C2_SYSCFG_GRP1_EnableIT(uint32_t Interrupt)
-{
-  ((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->C2IMR1) &= ~(Interrupt));
-}
-# 950 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
-static inline void LL_C2_SYSCFG_GRP2_EnableIT(uint32_t Interrupt)
-{
-  ((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->C2IMR2) &= ~(Interrupt));
-}
-# 998 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
-static inline void LL_C2_SYSCFG_GRP1_DisableIT(uint32_t Interrupt)
-{
-  ((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->C2IMR1) |= (Interrupt));
-}
-# 1030 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
-static inline void LL_C2_SYSCFG_GRP2_DisableIT(uint32_t Interrupt)
-{
-  ((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->C2IMR2) |= (Interrupt));
-}
-# 1079 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
-static inline uint32_t LL_C2_SYSCFG_GRP1_IsEnabledIT(uint32_t Interrupt)
-{
-  return ((((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->C2IMR1) & (Interrupt)) != (Interrupt)) ? 1UL : 0UL);
-}
-# 1111 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
-static inline uint32_t LL_C2_SYSCFG_GRP2_IsEnabledIT(uint32_t Interrupt)
-{
-  return ((((((SYSCFG_TypeDef *) ((0x40000000UL + 0x00010000UL) + 0x00000000UL))->C2IMR2) & (Interrupt)) != (Interrupt)) ? 1UL : 0UL);
-}
 # 1125 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_SYSCFG_SetRadioDebugTestBus(uint32_t RadioDebugTestBus)
 {
@@ -36828,60 +34171,30 @@ static inline void LL_DBGMCU_APB1_GRP1_FreezePeriph(uint32_t Periphs)
 {
   ((((DBGMCU_TypeDef *) (0xE0042000UL))->APB1FZR1) |= (Periphs));
 }
-# 1273 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
-static inline void LL_C2_DBGMCU_APB1_GRP1_FreezePeriph(uint32_t Periphs)
-{
-  ((((DBGMCU_TypeDef *) (0xE0042000UL))->C2APB1FZR1) |= (Periphs));
-}
 # 1288 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_DBGMCU_APB1_GRP2_FreezePeriph(uint32_t Periphs)
 {
   ((((DBGMCU_TypeDef *) (0xE0042000UL))->APB1FZR2) |= (Periphs));
-}
-# 1303 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
-static inline void LL_C2_DBGMCU_APB1_GRP2_FreezePeriph(uint32_t Periphs)
-{
-  ((((DBGMCU_TypeDef *) (0xE0042000UL))->C2APB1FZR2) |= (Periphs));
 }
 # 1322 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_DBGMCU_APB1_GRP1_UnFreezePeriph(uint32_t Periphs)
 {
   ((((DBGMCU_TypeDef *) (0xE0042000UL))->APB1FZR1) &= ~(Periphs));
 }
-# 1340 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
-static inline void LL_C2_DBGMCU_APB1_GRP1_UnFreezePeriph(uint32_t Periphs)
-{
-  ((((DBGMCU_TypeDef *) (0xE0042000UL))->C2APB1FZR1) &= ~(Periphs));
-}
 # 1354 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_DBGMCU_APB1_GRP2_UnFreezePeriph(uint32_t Periphs)
 {
   ((((DBGMCU_TypeDef *) (0xE0042000UL))->APB1FZR2) &= ~(Periphs));
-}
-# 1368 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
-static inline void LL_C2_DBGMCU_APB1_GRP2_UnFreezePeriph(uint32_t Periphs)
-{
-  ((((DBGMCU_TypeDef *) (0xE0042000UL))->C2APB1FZR2) &= ~(Periphs));
 }
 # 1383 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_DBGMCU_APB2_GRP1_FreezePeriph(uint32_t Periphs)
 {
   ((((DBGMCU_TypeDef *) (0xE0042000UL))->APB2FZR) |= (Periphs));
 }
-# 1398 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
-static inline void LL_C2_DBGMCU_APB2_GRP1_FreezePeriph(uint32_t Periphs)
-{
-  ((((DBGMCU_TypeDef *) (0xE0042000UL))->C2APB2FZR) |= (Periphs));
-}
 # 1413 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_DBGMCU_APB2_GRP1_UnFreezePeriph(uint32_t Periphs)
 {
   ((((DBGMCU_TypeDef *) (0xE0042000UL))->APB2FZR) &= ~(Periphs));
-}
-# 1428 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
-static inline void LL_C2_DBGMCU_APB2_GRP1_UnFreezePeriph(uint32_t Periphs)
-{
-  ((((DBGMCU_TypeDef *) (0xE0042000UL))->C2APB2FZR) &= ~(Periphs));
 }
 # 1449 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline void LL_VREFBUF_Enable(void)
@@ -37187,28 +34500,7 @@ static inline uint32_t LL_FLASH_IsEmptyFlag(void)
 {
   return ((((((FLASH_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00004000UL))->ACR) & ((0x1UL << (16U)))) == (0x1UL << (16U))) ? 1UL : 0UL);
 }
-
-
-
-
-
-
-
-static inline uint32_t LL_FLASH_GetIPCCBufferAddr(void)
-{
-  return (uint32_t)(((((FLASH_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00004000UL))->IPCCBR) & ((0x3FFFUL << (0U)))));
-}
-# 1869 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
-static inline uint32_t LL_FLASH_GetC2BootResetVect(void)
-{
-  return (uint32_t)(((((FLASH_TypeDef *) ((0x40000000UL + 0x18000000UL) + 0x00004000UL))->SRRVR) & ((0xFFFFUL << (0U)))));
-}
-
-
-
-
-
-
+# 1879 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h"
 static inline uint32_t LL_FLASH_GetUDN(void)
 {
   return (((*((uint32_t *)((0x1FFF0000UL + 0x00007400UL) + 0x00000180UL)))));
@@ -37242,14 +34534,6 @@ typedef enum
   HAL_TICK_FREQ_1KHZ = 1U,
   HAL_TICK_FREQ_DEFAULT = HAL_TICK_FREQ_1KHZ
 } HAL_TickFreqTypeDef;
-# 67 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
-typedef struct
-{
-  uint32_t InterruptMask1;
-
-  uint32_t InterruptMask2;
-
-} SYSCFG_InterruptTypeDef;
 # 96 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
 #define SYSCFG_BOOT_MAINFLASH LL_SYSCFG_REMAP_FLASH
 #define SYSCFG_BOOT_SYSTEMFLASH LL_SYSCFG_REMAP_SYSTEMFLASH
@@ -37308,27 +34592,6 @@ typedef struct
 #define SYSCFG_FASTMODEPLUS_PB7 SYSCFG_CFGR1_I2C_PB7_FMP
 #define SYSCFG_FASTMODEPLUS_PB8 SYSCFG_CFGR1_I2C_PB8_FMP
 #define SYSCFG_FASTMODEPLUS_PB9 SYSCFG_CFGR1_I2C_PB9_FMP
-# 196 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
-#define HAL_SYSCFG_GRP1_RESERVED 0x00U
-# 235 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
-#define HAL_SYSCFG_GRP1_RTCSTAMPTAMPLSECSS (LL_SYSCFG_GRP1_RTCSTAMPTAMPLSECSS | HAL_SYSCFG_GRP1_RESERVED)
-#define HAL_SYSCFG_GRP1_RTCSSRU (LL_SYSCFG_GRP1_RTCSSRU | HAL_SYSCFG_GRP1_RESERVED)
-#define HAL_SYSCFG_GRP1_EXTI5 (LL_SYSCFG_GRP1_EXTI5 | HAL_SYSCFG_GRP1_RESERVED)
-#define HAL_SYSCFG_GRP1_EXTI6 (LL_SYSCFG_GRP1_EXTI6 | HAL_SYSCFG_GRP1_RESERVED)
-#define HAL_SYSCFG_GRP1_EXTI7 (LL_SYSCFG_GRP1_EXTI7 | HAL_SYSCFG_GRP1_RESERVED)
-#define HAL_SYSCFG_GRP1_EXTI8 (LL_SYSCFG_GRP1_EXTI8 | HAL_SYSCFG_GRP1_RESERVED)
-#define HAL_SYSCFG_GRP1_EXTI9 (LL_SYSCFG_GRP1_EXTI9 | HAL_SYSCFG_GRP1_RESERVED)
-#define HAL_SYSCFG_GRP1_EXTI10 (LL_SYSCFG_GRP1_EXTI10 | HAL_SYSCFG_GRP1_RESERVED)
-#define HAL_SYSCFG_GRP1_EXTI11 (LL_SYSCFG_GRP1_EXTI11 | HAL_SYSCFG_GRP1_RESERVED)
-#define HAL_SYSCFG_GRP1_EXTI12 (LL_SYSCFG_GRP1_EXTI12 | HAL_SYSCFG_GRP1_RESERVED)
-#define HAL_SYSCFG_GRP1_EXTI13 (LL_SYSCFG_GRP1_EXTI13 | HAL_SYSCFG_GRP1_RESERVED)
-#define HAL_SYSCFG_GRP1_EXTI14 (LL_SYSCFG_GRP1_EXTI14 | HAL_SYSCFG_GRP1_RESERVED)
-#define HAL_SYSCFG_GRP1_EXTI15 (LL_SYSCFG_GRP1_EXTI15 | HAL_SYSCFG_GRP1_RESERVED)
-# 259 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
-#define HAL_SYSCFG_GRP2_RESERVED 0x80U
-# 289 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
-#define HAL_SYSCFG_GRP2_PVM3 (LL_SYSCFG_GRP2_PVM3 | HAL_SYSCFG_GRP2_RESERVED)
-#define HAL_SYSCFG_GRP2_PVD (LL_SYSCFG_GRP2_PVD | HAL_SYSCFG_GRP2_RESERVED)
 # 322 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
 #define __HAL_DBGMCU_FREEZE_TIM2() LL_DBGMCU_APB1_GRP1_FreezePeriph(LL_DBGMCU_APB1_GRP1_TIM2_STOP)
 #define __HAL_DBGMCU_UNFREEZE_TIM2() LL_DBGMCU_APB1_GRP1_UnFreezePeriph(LL_DBGMCU_APB1_GRP1_TIM2_STOP)
@@ -37392,64 +34655,6 @@ typedef struct
 
 #define __HAL_DBGMCU_FREEZE_TIM17() LL_DBGMCU_APB2_GRP1_FreezePeriph(LL_DBGMCU_APB2_GRP1_TIM17_STOP)
 #define __HAL_DBGMCU_UNFREEZE_TIM17() LL_DBGMCU_APB2_GRP1_UnFreezePeriph(LL_DBGMCU_APB2_GRP1_TIM17_STOP)
-# 394 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
-#define __HAL_C2_DBGMCU_FREEZE_TIM2() LL_C2_DBGMCU_APB1_GRP1_FreezePeriph(LL_C2_DBGMCU_APB1_GRP1_TIM2_STOP)
-#define __HAL_C2_DBGMCU_UNFREEZE_TIM2() LL_C2_DBGMCU_APB1_GRP1_UnFreezePeriph(LL_C2_DBGMCU_APB1_GRP1_TIM2_STOP)
-
-
-
-#define __HAL_C2_DBGMCU_FREEZE_RTC() LL_C2_DBGMCU_APB1_GRP1_FreezePeriph(LL_C2_DBGMCU_APB1_GRP1_RTC_STOP)
-#define __HAL_C2_DBGMCU_UNFREEZE_RTC() LL_C2_DBGMCU_APB1_GRP1_UnFreezePeriph(LL_C2_DBGMCU_APB1_GRP1_RTC_STOP)
-
-
-
-#define __HAL_C2_DBGMCU_FREEZE_IWDG() LL_C2_DBGMCU_APB1_GRP1_FreezePeriph(LL_C2_DBGMCU_APB1_GRP1_IWDG_STOP)
-#define __HAL_C2_DBGMCU_UNFREEZE_IWDG() LL_C2_DBGMCU_APB1_GRP1_UnFreezePeriph(LL_C2_DBGMCU_APB1_GRP1_IWDG_STOP)
-
-
-
-#define __HAL_C2_DBGMCU_FREEZE_I2C1_TIMEOUT() LL_C2_DBGMCU_APB1_GRP1_FreezePeriph(LL_C2_DBGMCU_APB1_GRP1_I2C1_STOP)
-#define __HAL_C2_DBGMCU_UNFREEZE_I2C1_TIMEOUT() LL_C2_DBGMCU_APB1_GRP1_UnFreezePeriph(LL_C2_DBGMCU_APB1_GRP1_I2C1_STOP)
-
-
-
-#define __HAL_C2_DBGMCU_FREEZE_I2C2_TIMEOUT() LL_C2_DBGMCU_APB1_GRP1_FreezePeriph(LL_C2_DBGMCU_APB1_GRP1_I2C2_STOP)
-#define __HAL_C2_DBGMCU_UNFREEZE_I2C2_TIMEOUT() LL_C2_DBGMCU_APB1_GRP1_UnFreezePeriph(LL_C2_DBGMCU_APB1_GRP1_I2C2_STOP)
-
-
-
-#define __HAL_C2_DBGMCU_FREEZE_I2C3_TIMEOUT() LL_C2_DBGMCU_APB1_GRP1_FreezePeriph(LL_C2_DBGMCU_APB1_GRP1_I2C3_STOP)
-#define __HAL_C2_DBGMCU_UNFREEZE_I2C3_TIMEOUT() LL_C2_DBGMCU_APB1_GRP1_UnFreezePeriph(LL_C2_DBGMCU_APB1_GRP1_I2C3_STOP)
-
-
-
-#define __HAL_C2_DBGMCU_FREEZE_LPTIM1() LL_C2_DBGMCU_APB1_GRP1_FreezePeriph(LL_C2_DBGMCU_APB1_GRP1_LPTIM1_STOP)
-#define __HAL_C2_DBGMCU_UNFREEZE_LPTIM1() LL_C2_DBGMCU_APB1_GRP1_UnFreezePeriph(LL_C2_DBGMCU_APB1_GRP1_LPTIM1_STOP)
-
-
-
-#define __HAL_C2_DBGMCU_FREEZE_LPTIM2() LL_C2_DBGMCU_APB1_GRP2_FreezePeriph(LL_C2_DBGMCU_APB1_GRP2_LPTIM2_STOP)
-#define __HAL_C2_DBGMCU_UNFREEZE_LPTIM2() LL_C2_DBGMCU_APB1_GRP2_UnFreezePeriph(LL_C2_DBGMCU_APB1_GRP2_LPTIM2_STOP)
-
-
-
-#define __HAL_C2_DBGMCU_FREEZE_LPTIM3() LL_C2_DBGMCU_APB1_GRP2_FreezePeriph(LL_C2_DBGMCU_APB1_GRP2_LPTIM3_STOP)
-#define __HAL_C2_DBGMCU_UNFREEZE_LPTIM3() LL_C2_DBGMCU_APB1_GRP2_UnFreezePeriph(LL_C2_DBGMCU_APB1_GRP2_LPTIM3_STOP)
-
-
-
-#define __HAL_C2_DBGMCU_FREEZE_TIM1() LL_C2_DBGMCU_APB2_GRP1_FreezePeriph(LL_C2_DBGMCU_APB2_GRP1_TIM1_STOP)
-#define __HAL_C2_DBGMCU_UNFREEZE_TIM1() LL_C2_DBGMCU_APB2_GRP1_UnFreezePeriph(LL_C2_DBGMCU_APB2_GRP1_TIM1_STOP)
-
-
-
-#define __HAL_C2_DBGMCU_FREEZE_TIM16() LL_C2_DBGMCU_APB2_GRP1_FreezePeriph(LL_C2_DBGMCU_APB2_GRP1_TIM16_STOP)
-#define __HAL_C2_DBGMCU_UNFREEZE_TIM16() LL_C2_DBGMCU_APB2_GRP1_UnFreezePeriph(LL_C2_DBGMCU_APB2_GRP1_TIM16_STOP)
-
-
-
-#define __HAL_C2_DBGMCU_FREEZE_TIM17() LL_C2_DBGMCU_APB2_GRP1_FreezePeriph(LL_C2_DBGMCU_APB2_GRP1_TIM17_STOP)
-#define __HAL_C2_DBGMCU_UNFREEZE_TIM17() LL_C2_DBGMCU_APB2_GRP1_UnFreezePeriph(LL_C2_DBGMCU_APB2_GRP1_TIM17_STOP)
 # 467 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
 #define __HAL_SYSCFG_REMAPMEMORY_FLASH() LL_SYSCFG_SetRemapMemory(LL_SYSCFG_REMAP_FLASH)
 
@@ -37533,10 +34738,6 @@ typedef struct
 #define IS_SYSCFG_VREFBUF_TRIMMING(__VALUE__) (((__VALUE__) > 0U) && ((__VALUE__) <= VREFBUF_CCR_TRIM))
 
 #define IS_SYSCFG_FASTMODEPLUS(__PIN__) ((((__PIN__) & SYSCFG_FASTMODEPLUS_PB6) == SYSCFG_FASTMODEPLUS_PB6) || (((__PIN__) & SYSCFG_FASTMODEPLUS_PB7) == SYSCFG_FASTMODEPLUS_PB7) || (((__PIN__) & SYSCFG_FASTMODEPLUS_PB8) == SYSCFG_FASTMODEPLUS_PB8) || (((__PIN__) & SYSCFG_FASTMODEPLUS_PB9) == SYSCFG_FASTMODEPLUS_PB9))
-# 641 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
-#define IS_SYSCFG_IM_GRP1(__VALUE__) ((((__VALUE__) & 0x80U) == HAL_SYSCFG_GRP1_RESERVED) && ((((__VALUE__) & HAL_SYSCFG_GRP1_RTCSTAMPTAMPLSECSS) == HAL_SYSCFG_GRP1_RTCSTAMPTAMPLSECSS) || (((__VALUE__) & HAL_SYSCFG_GRP1_RTCSSRU ) == HAL_SYSCFG_GRP1_RTCSSRU ) || (((__VALUE__) & HAL_SYSCFG_GRP1_EXTI5 ) == HAL_SYSCFG_GRP1_EXTI5 ) || (((__VALUE__) & HAL_SYSCFG_GRP1_EXTI6 ) == HAL_SYSCFG_GRP1_EXTI6 ) || (((__VALUE__) & HAL_SYSCFG_GRP1_EXTI7 ) == HAL_SYSCFG_GRP1_EXTI7 ) || (((__VALUE__) & HAL_SYSCFG_GRP1_EXTI8 ) == HAL_SYSCFG_GRP1_EXTI8 ) || (((__VALUE__) & HAL_SYSCFG_GRP1_EXTI9 ) == HAL_SYSCFG_GRP1_EXTI9 ) || (((__VALUE__) & HAL_SYSCFG_GRP1_EXTI10 ) == HAL_SYSCFG_GRP1_EXTI10 ) || (((__VALUE__) & HAL_SYSCFG_GRP1_EXTI11 ) == HAL_SYSCFG_GRP1_EXTI11 ) || (((__VALUE__) & HAL_SYSCFG_GRP1_EXTI12 ) == HAL_SYSCFG_GRP1_EXTI12 ) || (((__VALUE__) & HAL_SYSCFG_GRP1_EXTI13 ) == HAL_SYSCFG_GRP1_EXTI13 ) || (((__VALUE__) & HAL_SYSCFG_GRP1_EXTI14 ) == HAL_SYSCFG_GRP1_EXTI14 ) || (((__VALUE__) & HAL_SYSCFG_GRP1_EXTI15 ) == HAL_SYSCFG_GRP1_EXTI15 )))
-# 656 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
-#define IS_SYSCFG_IM_GRP2(__VALUE__) ((((__VALUE__) & 0x80U) == HAL_SYSCFG_GRP2_RESERVED) && ((((__VALUE__) & HAL_SYSCFG_GRP2_PVM3) == HAL_SYSCFG_GRP2_PVM3) || (((__VALUE__) & HAL_SYSCFG_GRP2_PVD ) == HAL_SYSCFG_GRP2_PVD )))
 # 674 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
 #define IS_TICKFREQ(FREQ) (((FREQ) == HAL_TICK_FREQ_10HZ) || ((FREQ) == HAL_TICK_FREQ_100HZ) || ((FREQ) == HAL_TICK_FREQ_1KHZ))
 # 693 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h"
@@ -37583,10 +34784,6 @@ void HAL_SYSCFG_DisableVREFBUF(void);
 
 void HAL_SYSCFG_EnableIOAnalogSwitchBooster(void);
 void HAL_SYSCFG_DisableIOAnalogSwitchBooster(void);
-
-
-void HAL_SYSCFG_EnableIT(SYSCFG_InterruptTypeDef *Interrupt);
-void HAL_SYSCFG_DisableIT(SYSCFG_InterruptTypeDef *Interrupt);
 # 37 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal.c" 2
 # 58 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal.c"
 #define __STM32WLxx_HAL_VERSION_MAIN (0x01U)
@@ -38033,40 +35230,4 @@ void HAL_SYSCFG_EnableIOAnalogSwitchBooster(void)
 void HAL_SYSCFG_DisableIOAnalogSwitchBooster(void)
 {
   LL_SYSCFG_DisableAnalogBooster();
-}
-# 771 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal.c"
-void HAL_SYSCFG_EnableIT(SYSCFG_InterruptTypeDef *Interrupt)
-{
-  uint32_t InterruptMask1 = (Interrupt->InterruptMask1 & ~0x00U);
-  uint32_t InterruptMask2 = (Interrupt->InterruptMask2 & ~0x80U);
-
-
-  ((void)0U);
-  ((void)0U);
-
-
-
-
-
-  LL_SYSCFG_GRP1_EnableIT(InterruptMask1);
-  LL_SYSCFG_GRP2_EnableIT(InterruptMask2);
-
-}
-# 797 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal.c"
-void HAL_SYSCFG_DisableIT(SYSCFG_InterruptTypeDef *Interrupt)
-{
-  uint32_t InterruptMask1 = (Interrupt->InterruptMask1 & ~0x00U);
-  uint32_t InterruptMask2 = (Interrupt->InterruptMask2 & ~0x80U);
-
-
-  ((void)0U);
-  ((void)0U);
-
-
-
-
-
-  LL_SYSCFG_GRP1_DisableIT(InterruptMask1);
-  LL_SYSCFG_GRP2_DisableIT(InterruptMask2);
-
 }

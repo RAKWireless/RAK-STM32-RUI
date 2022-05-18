@@ -9,11 +9,11 @@ void setup()
   Serial.println("------------------------------------------------------");
   delay(3000);
   Serial1.print("Current time out: ");
-  Serial1.println(Serial.getTimeout()); // get Serial timeout
+  Serial1.println(Serial.getTimeout());	// get Serial timeout
   Serial1.println("Set Timeout to 5000");
-  Serial1.setTimeout(5000); // set the Serial timeout to 5 seconds
+  Serial1.setTimeout(5000);	// set the Serial timeout to 5 seconds
   Serial1.print("Current time out: ");
-  Serial1.println(Serial.getTimeout()); // get Serial timeout after changed
+  Serial1.println(Serial.getTimeout());	// get Serial timeout after changed
 }
 
 void loop()
@@ -21,13 +21,12 @@ void loop()
   String returnString = " ";
   // reply only when receive data on Serial port
   Serial1.println("Please type any words in 5 seconds");
-  returnString = Serial1.readStringUntil('\r'); // Read the string until the end of enter
+  returnString = Serial1.readStringUntil('\r');	// Read the string until the end of enter
   if (returnString == " ")
-  Serial1.println("read nothing");
-  else
-  {
+    Serial1.println("read nothing");
+  else {
     Serial1.print("Typed: ");
-    Serial1.println(returnString); //Show the string you typed
+    Serial1.println(returnString);	//Show the string you typed
   }
   Serial1.println("");
   delay(1000);

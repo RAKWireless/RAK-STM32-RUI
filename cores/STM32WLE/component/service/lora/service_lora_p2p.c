@@ -29,7 +29,9 @@ static RadioEvents_t RadioEvents;
 LORA_P2P_STATUS_ST lora_p2p_status = {
     .isRxCancel = false,
     .isRadioBusy = false,
-    .isContinue = false
+    .isContinue = false,
+    .isContinue_no_exit = false,
+    .isContinue_compatible_tx = false
 };
 
 static uint8_t lora_p2p_buf[255];
@@ -56,7 +58,18 @@ static void OnTxDone(void)
         (*service_lora_p2p_send_callback)();
     }
 
-    udrv_powersave_wake_unlock ();   
+
+    udrv_powersave_wake_unlock();   
+
+    if(lora_p2p_status.isContinue_compatible_tx == true)
+    {
+        //65533 needs to continue receiving after sending.
+        lora_p2p_status.isRadioBusy = true;
+        Radio.Standby();
+        Radio.Rx(0);  
+        
+        return ;
+    }  
 }
 
 static void OnRxDone(uint8_t *payload, uint16_t size, int16_t rssi, int8_t snr)
@@ -99,6 +112,11 @@ static void OnRxDone(uint8_t *payload, uint16_t size, int16_t rssi, int8_t snr)
         (*service_lora_p2p_recv_callback)(recv_data_pkg);
     }
 
+    if(lora_p2p_status.isContinue_no_exit  || lora_p2p_status.isContinue_compatible_tx)
+    {
+        lora_p2p_status.isRadioBusy = true;
+        return ;
+    }
     Radio.Standby();
     udrv_powersave_wake_unlock();
 }
@@ -115,13 +133,13 @@ static void OnRxTimeout(void)
 
     lora_p2p_status.isRadioBusy = false;
 
-    if(lora_p2p_status.isContinue)
+    if(lora_p2p_status.isContinue || lora_p2p_status.isContinue_no_exit || lora_p2p_status.isContinue_compatible_tx) //RAK4631 will enter receive timeout
     {
+        lora_p2p_status.isRadioBusy = true;
         LORA_TEST_DEBUG();
         return;
     }
-
-    
+   
     if (SERVICE_LORA_P2P == service_lora_get_nwm())
         udrv_serial_log_printf("+EVT:RXP2P RECEIVE TIMEOUT\r\n");
     else
@@ -151,8 +169,16 @@ static void OnRxError(void)
     {
         (*service_lora_p2p_recv_callback)(recv_data_pkg);
     }
-    Radio.Standby();
-    udrv_powersave_wake_unlock();
+
+    if(lora_p2p_status.isContinue_no_exit || lora_p2p_status.isContinue_compatible_tx )
+    {
+        return;
+    }
+    else
+    {
+        Radio.Standby();
+        udrv_powersave_wake_unlock();
+    }
 }
 
 int32_t service_lora_p2p_config(void)
@@ -248,7 +274,7 @@ int32_t service_lora_p2p_init(void)
 
 int32_t service_lora_p2p_send(uint8_t *p_data, uint8_t len)
 {
-    if (lora_p2p_status.isRadioBusy == true)
+    if (lora_p2p_status.isRadioBusy == true && lora_p2p_status.isContinue_compatible_tx == false)
         return -UDRV_BUSY;
 
     service_lora_p2p_config();
@@ -283,7 +309,7 @@ int32_t service_lora_p2p_recv(uint32_t timeout)
     if (0 < timeout && timeout < 15)
         timeout = 15;
 
-    lora_p2p_status.isRadioBusy = true;
+   
     memset(&recv_data_pkg,0,sizeof(rui_lora_p2p_recv_t));
     /* timeout description
         0     - Stop receiving immediately
@@ -291,13 +317,27 @@ int32_t service_lora_p2p_recv(uint32_t timeout)
         65535 - Keep receiving until 1 packet of data is received
     */
 
-    udrv_powersave_wake_lock();
+    /* The three continuous modes cannot be switched to each other. 
+    must exit the current continuous receiving mode first
+    */
+    if(timeout != 0 && ( lora_p2p_status.isContinue || lora_p2p_status.isContinue_no_exit
+    || lora_p2p_status.isContinue_compatible_tx))
+    {
+        return -UDRV_BUSY;
+    }
+
+
+    /* enter the receiving mode and set radio busy */
+    lora_p2p_status.isRadioBusy = true;
 
     if (timeout == 0)
     {
         LORA_P2P_DEBUG("Radio Standby.\r\n");
         lora_p2p_status.isContinue = false;
         lora_p2p_status.isRadioBusy = false;
+        lora_p2p_status.isContinue_no_exit = false;
+        lora_p2p_status.isContinue_compatible_tx = false;
+        udrv_powersave_wake_unlock ();   
         Radio.Standby();
     }
     else if (timeout == 65535)
@@ -305,12 +345,28 @@ int32_t service_lora_p2p_recv(uint32_t timeout)
         lora_p2p_status.isContinue = true;
         LORA_P2P_DEBUG("Radio rx continue.\r\n");
         Radio.Standby();
-        Radio.Rx(0);     
+        Radio.Rx(0);  
+        udrv_powersave_wake_lock();   
+    }
+    else if (timeout == 65534)
+    {
+        lora_p2p_status.isContinue_no_exit = true;
+        Radio.Standby();
+        Radio.Rx(0); 
+        udrv_powersave_wake_lock();
+    }
+    else if (timeout == 65533)
+    {
+        lora_p2p_status.isContinue_compatible_tx = true;
+        Radio.Standby();
+        Radio.Rx(0); 
+        udrv_powersave_wake_lock();
     }
     else
     {
         LORA_P2P_DEBUG("Start recv data\r\n");
         Radio.Rx(timeout);
+        udrv_powersave_wake_lock();
     }
     return UDRV_RETURN_OK;
 }

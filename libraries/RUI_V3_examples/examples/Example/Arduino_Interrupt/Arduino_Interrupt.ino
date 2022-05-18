@@ -1,28 +1,28 @@
 
 // set pin number
 #if defined(WISBLOCK_BASE_5005) || defined(WISBLOCK_BASE_5005_O)
-uint8_t interruptPin1 = WB_IO1; // set interrupt pin1 to IO1(J12-IO1)
-uint8_t interruptPin2 = WB_IO2; // set interrupt pin2 to IO2(J12-IO2)
+uint8_t interruptPin1 = WB_IO1;	// set interrupt pin1 to IO1(J12-IO1)
+uint8_t interruptPin2 = WB_IO2;	// set interrupt pin2 to IO2(J12-IO2)
 uint8_t ledPin1 = GREEN_LED;
 uint8_t ledPin2 = BLUE_LED;
 #else
 #warning Please set the right pin refer to the documentation
 uint8_t interruptPin1 = 0xFF;
-uint8_t interruptPin2 = 0xFF; 
+uint8_t interruptPin2 = 0xFF;
 uint8_t ledPin1 = 0xFF;
 uint8_t ledPin2 = 0xFF;
 #endif
-volatile byte state1 = LOW; // set variable for green led state
-volatile byte state2 = LOW; // set variable for blue led state
+volatile byte state1 = LOW;	// set variable for green led state
+volatile byte state2 = LOW;	// set variable for blue led state
 
 void blink1()
 {
-  state1 = !state1; // Invert green led state
+  state1 = !state1;		// Invert green led state
 }
 
 void blink2()
 {
-  state2 = !state2; // Invert blue led state
+  state2 = !state2;		// Invert blue led state
 }
 
 void setup()

@@ -484,7 +484,7 @@
 #define rak3172 1
 #define CORE_CM4 1
 #define USE_HAL_DRIVER 1
-#define STM32WL55xx 1
+#define STM32WLE5xx 1
 #define REGION_AS923 1
 #define REGION_AU915 1
 #define REGION_CN470 1
@@ -11268,6 +11268,7 @@ typedef enum
 
 
     UDRV_SYS_EVT_OP_LORAWAN,
+    UDRV_SYS_EVT_OP_LORAWAN_JOIN_CB,
 
     UDRV_SYS_EVT_OP_USER_APP,
     UDRV_SYS_EVT_OP_USER_TIMER,

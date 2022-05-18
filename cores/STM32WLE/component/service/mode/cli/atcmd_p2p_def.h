@@ -1,3 +1,4 @@
+#ifdef SUPPORT_LORA
 /**
  *
  * @page ATCMD AT Command Manual
@@ -171,7 +172,7 @@
  *
  *
  */
-
+#endif
 
 #ifndef _ATCMD_P2P_DEF_H_
 #define _ATCMD_P2P_DEF_H_

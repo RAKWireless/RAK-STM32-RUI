@@ -1,3 +1,4 @@
+#ifdef SUPPORT_LORA
 /**
  *
  * @page ATCMD AT Command Manual
@@ -112,7 +113,7 @@
  * | Example<br>AT+RETY=| 2                  |                                                                   | OK                 |
  *
  */
-
+#endif
 
 #ifndef _ATCMD_JOIN_SEND_DEF_H_
 #define _ATCMD_JOIN_SEND_DEF_H_

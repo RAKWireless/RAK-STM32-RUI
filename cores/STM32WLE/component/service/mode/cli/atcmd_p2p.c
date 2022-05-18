@@ -302,6 +302,8 @@ int At_P2pSend(SERIAL_PORT port, char *cmd, stParam *param)
 
 int At_P2pRecv(SERIAL_PORT port, char *cmd, stParam *param)
 {
+    uint8_t status;
+
     if (SERVICE_LORAWAN == service_lora_get_nwm())
     {
         return AT_MODE_NO_SUPPORT;
@@ -317,12 +319,9 @@ int At_P2pRecv(SERIAL_PORT port, char *cmd, stParam *param)
         if (timeout > 65535)
             return AT_PARAM_ERROR;
 
-        if (UDRV_RETURN_OK != service_lora_p2p_recv(timeout))
-        {
-            return AT_ERROR;
-        }
-
-        return AT_OK;
+        status = service_lora_p2p_recv(timeout);
+     
+        return at_error_code_form_udrv(status);
     }
     else
     {

@@ -1,3 +1,4 @@
+#ifdef SUPPORT_LORA
 /**
  *
  * @page ATCMD AT Command Manual
@@ -96,6 +97,7 @@
  * | Example<br>AT+NWKSKEY=?|                  | 0102030405060708090A0B0C0D0E0F00                                | OK                 |
  *
 */
+#endif
 
 #ifndef _ATCMD_KEY_ID_DEF_H_
 #define _ATCMD_KEY_ID_DEF_H_

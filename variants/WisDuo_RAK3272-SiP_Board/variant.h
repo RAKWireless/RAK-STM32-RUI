@@ -11,11 +11,15 @@
  *        Headers
  *----------------------------------------------------------------------------*/
 #include <stdint.h>
-
+#include "PinNames.h"
+#include "pins_arduino.h"
 #ifdef __cplusplus
 extern "C"
 {
 #endif // __cplusplus
+
+extern const uint32_t g_ADigitalPinMap[]; 
+#define pgm_read_byte(addr) (*(const unsigned char *)(addr))
 
 /*----------------------------------------------------------------------------
  *        Pins

@@ -92,6 +92,7 @@ uint8_t at_check_hex_uint16(const char *p_str, uint16_t *value);
 uint8_t at_check_hex_uint32(const char *p_str, uint32_t *value);
 uint8_t at_check_digital_uint32_t(const char *p_str, uint32_t *value);
 void update_permission();
+uint8_t at_error_code_form_udrv(int8_t udrv_code);
 #ifdef __cplusplus
 }
 #endif

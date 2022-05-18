@@ -1,3 +1,4 @@
+#ifdef SUPPORT_LORA
 /**
  *
  * @page ATCMD AT Command Manual
@@ -116,7 +117,7 @@
  * <time> : 0 - 65535 ms<br>
  *
  */
- 
+#endif 
 
 #ifndef _ATCMD_CERT_DEF_H_
 #define _ATCMD_CERT_DEF_H_

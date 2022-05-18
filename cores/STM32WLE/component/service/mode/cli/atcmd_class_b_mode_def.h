@@ -1,3 +1,4 @@
+#ifdef SUPPORT_LORA
 /**
  *
  * @page ATCMD AT Command Manual
@@ -59,6 +60,7 @@
  *
  *
  */
+#endif
 
 #ifndef _ATCMD_CLASS_B_MODE_DEF_H_
 #define _ATCMD_CLASS_B_MODE_DEF_H_

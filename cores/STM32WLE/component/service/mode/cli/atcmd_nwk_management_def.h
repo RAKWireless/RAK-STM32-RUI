@@ -1,3 +1,4 @@
+#ifdef SUPPORT_LORA
 /**
  *
  * @page ATCMD AT Command Manual
@@ -59,7 +60,7 @@
  *
  * | Command            | Input parameter    | Return value                                                      | Return code        |
  * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
- * | AT+JN1DL?          | --                 | AT+JN1DL: get or set the join accept delay between the end of TX and the join Rx window 1 in second       | OK                 |
+ * | AT+JN1DL?          | --                 | AT+JN1DL: get or set the join accept delay between the end of TX and the join Rx window 1 in seconds       | OK                 |
  * | AT+JN1DL=?         | --                 | <integer>                                                         | OK / AT_BUSY_ERROR                 |
  * | AT+JN1DL=\<Input\>    | <integer>       | --                                                                | OK / AT_PARAM_ERROR / AT_BUSY_ERROR |
  * | Example<br>AT+JN1DL=? | --              | 5                                                                 | OK                 |
@@ -71,7 +72,7 @@
  *
  * | Command            | Input parameter    | Return value                                                      | Return code        |
  * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
- * | AT+JN2DL?          | --                 | AT+JN2DL: get the join accept delay between the end of TX and the join Rx window 2 in second       | OK                 |
+ * | AT+JN2DL?          | --                 | AT+JN2DL: get the join accept delay between the end of TX and the join Rx window 2 in seconds       | OK                 |
  * | AT+JN2DL=?         | --                 | <integer>                                                         | OK / AT_BUSY_ERROR                 |
  * | Example<br>AT+JN2DL=? | --              | 6                                                                 | OK                 |
  *
@@ -94,7 +95,7 @@
  *
  * | Command            | Input parameter    | Return value                                                      | Return code        |
  * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
- * | AT+RX1DL?          | --                 | AT+RX1DL: get or set the delay between the end of TX and the RX window 1 in second (1-15)       | OK                 |
+ * | AT+RX1DL?          | --                 | AT+RX1DL: get or set the delay between the end of TX and the RX window 1 in seconds (1-15)       | OK                 |
  * | AT+RX1DL=?         | --                 | <integer>                                                         | OK / AT_BUSY_ERROR                 |
  * | AT+RX1DL=\<Input\>    | <integer>       | --                                                                | OK / AT_PARAM_ERROR / AT_BUSY_ERROR |
  * | Example<br>AT+RX1DL=? | --              | 1                                                                 | OK                 |
@@ -106,7 +107,7 @@
  *
  * | Command            | Input parameter    | Return value                                                      | Return code        |
  * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
- * | AT+RX2DL?          | --                 | AT+RX2DL: get or set the delay between the end of TX and the RX window 2 in second (2-16)       | OK                 |
+ * | AT+RX2DL?          | --                 | AT+RX2DL: get or set the delay between the end of TX and the RX window 2 in seconds (2-16)       | OK                 |
  * | AT+RX2DL=?         | --                 | <integer>                                                         | OK / AT_BUSY_ERROR                 |
  * | Example<br>AT+RX2DL=? | --              | 2                                                                 | OK                 |
  *
@@ -160,6 +161,7 @@
  *
  *
  */
+#endif 
 
 #ifndef _ATCMD_NWK_MNG_DEF_H_
 #define _ATCMD_NWK_MNG_DEF_H_

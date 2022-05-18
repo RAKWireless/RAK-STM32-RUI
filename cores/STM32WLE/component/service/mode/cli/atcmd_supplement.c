@@ -238,7 +238,7 @@ int At_Band(SERIAL_PORT port, char *cmd, stParam *param)
     {
         return AT_MODE_NO_SUPPORT;
     }
-    int32_t ret;
+    int32_t ret = 0;
 
     if (param->argc == 1 && !strcmp(param->argv[0], "?"))
     {
@@ -274,6 +274,15 @@ int At_Band(SERIAL_PORT port, char *cmd, stParam *param)
         case SERVICE_LORA_AS923:
             atcmd_printf("8\r\n");
             break;
+        case SERVICE_LORA_AS923_2:
+            atcmd_printf("9\r\n");
+            break;
+        case SERVICE_LORA_AS923_3:
+            atcmd_printf("10\r\n");
+            break;
+        case SERVICE_LORA_AS923_4:
+            atcmd_printf("11\r\n");
+            break;
 #ifdef LEGACY
         case SERVICE_LORA_US915_HYBRID:
 #endif
@@ -291,7 +300,46 @@ int At_Band(SERIAL_PORT port, char *cmd, stParam *param)
         {
             if (!isdigit(*(param->argv[0] + i)))
             {
-                return AT_PARAM_ERROR;
+                /*Compatible with the old version of RAK3172 design AS923-2-3-4*/
+                if(!strcmp(param->argv[0],"8-1"))
+                {
+                    band = SERVICE_LORA_AS923;
+                }
+                else if(!strcmp(param->argv[0],"8-2"))
+                {
+                    band = SERVICE_LORA_AS923_2;
+                }
+                else if(!strcmp(param->argv[0],"8-3"))
+                {
+                    band = SERVICE_LORA_AS923_3; 
+                }
+                else if(!strcmp(param->argv[0],"8-4"))
+                {
+                    band = SERVICE_LORA_AS923_4;
+                }
+                else
+                {
+                    ret = AT_PARAM_ERROR;
+                }
+
+                if(ret == AT_PARAM_ERROR)
+                {
+                    return AT_PARAM_ERROR;
+                }
+
+                ret = service_lora_set_band(band);
+                if (ret == UDRV_RETURN_OK)
+                {
+                    return AT_OK;
+                }
+                else if (ret == -UDRV_BUSY)
+                {
+                    return AT_BUSY_ERROR;
+                }
+                else
+                {
+                    return AT_ERROR;
+                }    
             }
         }
 
@@ -330,6 +378,15 @@ int At_Band(SERIAL_PORT port, char *cmd, stParam *param)
         case 8:
             band = SERVICE_LORA_AS923;
             break;
+        case 9 :
+            band = SERVICE_LORA_AS923_2;
+            break;
+        case 10 :
+            band = SERVICE_LORA_AS923_3;
+            break;
+        case 11 :
+            band = SERVICE_LORA_AS923_4;
+            break;   
         default:
             return AT_PARAM_ERROR;
         }
@@ -342,6 +399,10 @@ int At_Band(SERIAL_PORT port, char *cmd, stParam *param)
         else if (ret == -UDRV_BUSY)
         {
             return AT_BUSY_ERROR;
+        }
+        else if (ret == -UDRV_WRONG_ARG)
+        {
+            return AT_PARAM_ERROR;
         }
         else
         {

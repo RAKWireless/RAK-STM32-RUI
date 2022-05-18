@@ -13,6 +13,11 @@ void service_battery_get_batt_level(float *bat_lvl) {
     float max, ref_over_gain;
 
     switch (udrv_adc_get_resolution()) {
+        case UDRV_ADC_RESOLUTION_6BIT:
+        {
+            max = 64.0;
+            break;
+        }
         case UDRV_ADC_RESOLUTION_8BIT:
         {
             max = 256.0;
@@ -41,6 +46,11 @@ void service_battery_get_batt_level(float *bat_lvl) {
         default:
         {
             ref_over_gain = 3.6;
+            break;
+        }
+        case UDRV_ADC_MODE_3_3:
+        {
+            ref_over_gain = 3.3;
             break;
         }
         case UDRV_ADC_MODE_3_0:
@@ -81,7 +91,9 @@ void service_battery_get_batt_level(float *bat_lvl) {
      * Vin = ((ref)/(gain))*((adc value)/(max))/(divider)
      *
      *******************************************/
-    *bat_lvl = ref_over_gain*(((float)adc_value)/max)*((float)5.0)/((float)3.0);
+#ifndef RAK3372+RAK5005-O_V1.0
+    *bat_lvl = ref_over_gain*(((float)adc_value)/max)*(5.0f)/(3.0f);
+#endif
 
 #endif
     return;

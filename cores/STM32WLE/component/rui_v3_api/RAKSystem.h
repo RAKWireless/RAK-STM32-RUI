@@ -1,8 +1,7 @@
 #ifndef __RAK_SYSTEM_H__
 #define __RAK_STSTEM_H__
 
-#include <string>
-#include <sstream>
+#include "WString.h"
 
 #include "sleep.h"
 #include "atcmd.h"
@@ -19,25 +18,64 @@
 
 using namespace std;
 
+/**@addtogroup	RUI_System_Data_Type
+ * @{
+ */
+
+/**@par	Description
+ * 	The ID of timer
+ */
+typedef enum {
+    RAK_TIMER_0 = TIMER_0,	///< timer ID #0
+    RAK_TIMER_1 = TIMER_1,	///< timer ID #1
+    RAK_TIMER_2 = TIMER_2,	///< timer ID #2
+    RAK_TIMER_3 = TIMER_3,	///< timer ID #3
+    RAK_TIMER_4 = TIMER_4,	///< timer ID #4
+    RAK_TIMER_ID_MAX = TIMER_ID_MAX,	///< this is the number of all available timers
+} RAK_TIMER_ID;
+
+/**@par	Description
+ * 	The handler function of timer
+ */
+typedef void (*RAK_TIMER_HANDLER) (void *data);
+
+typedef enum {
+    RAK_TIMER_ONESHOT = HTMR_ONESHOT,	///< This timer is only triggered one time
+    RAK_TIMER_PERIODIC = HTMR_PERIODIC,	///< This timer is triggered periodically
+} RAK_TIMER_MODE;
+
+/**@par	Description
+ * 	The permission setting of AT command
+ */
+/* ATCMD PERMISSION */
+typedef enum {
+    RAK_ATCMD_PERM_READ          = ATCMD_PERM_READ,             ///< Read permission allows for reading a variable data only and disables any write functionality.
+    RAK_ATCMD_PERM_WRITE         = ATCMD_PERM_WRITE,            ///< Write permission allows for writting a variable data only and disables any read functionality.
+    RAK_ATCMD_PERM_WRITEONCEREAD = ATCMD_PERM_WRITEONCEREAD,    ///< Special functionality that allows for setting variable once and only allows for reading after.
+    RAK_ATCMD_PERM_DISABLE       = ATCMD_PERM_DISABLE,          ///< Disables the AT command from being used.
+} RAK_AT_PERMISSION;
+
+/**@}*/
+
 /** @def CHANGE_ATCMD_PERM(ATCMD,ATCMD_PERMISSIONS);
      * @ingroup System_Misc
      * @brief change AT command permission
 
         PERMISSION LEVEL:\n
-            ATCMD_PERM_READ,\n
-            ATCMD_PERM_WRITE,\n
-            ATCMD_PERM_WRITEONCEREAD,\n
-            ATCMD_PERM_DISABLE\n
-        AT commands' default permission are ATCMD_PERM_READ | ATCMD_PERM_WRITE
+            RAK_ATCMD_PERM_READ,\n
+            RAK_ATCMD_PERM_WRITE,\n
+            RAK_ATCMD_PERM_WRITEONCEREAD,\n
+            RAK_ATCMD_PERM_DISABLE\n
+        AT commands' default permission are RAK_ATCMD_PERM_READ | RAK_ATCMD_PERM_WRITE
      * @par		Example
      * @verbatim
-       CHANGE_ATCMD_PERM("AT+APPKEY",ATCMD_PERM_READ);
-       CHANGE_ATCMD_PERM("AT+APPSKEY",ATCMD_PERM_WRITE);
-       CHANGE_ATCMD_PERM("AT+DEVADDR",ATCMD_PERM_WRITEONCEREAD);
-       CHANGE_ATCMD_PERM("AT+APPEUI",ATCMD_PERM_DISABLE);
-       CHANGE_ATCMD_PERM("AT+NETID",ATCMD_PERM_READ | ATCMD_PERM_WRITE);
-       CHANGE_ATCMD_PERM("AT+ALIAS",ATCMD_PERM_READ | ATCMD_PERM_WRITE);
-       CHANGE_ATCMD_PERM("AT+HWID",ATCMD_PERM_READ | ATCMD_PERM_WRITE);
+       CHANGE_ATCMD_PERM("AT+APPKEY", RAK_ATCMD_PERM_READ);
+       CHANGE_ATCMD_PERM("AT+APPSKEY", RAK_ATCMD_PERM_WRITE);
+       CHANGE_ATCMD_PERM("AT+DEVADDR", RAK_ATCMD_PERM_WRITEONCEREAD);
+       CHANGE_ATCMD_PERM("AT+APPEUI", RAK_ATCMD_PERM_DISABLE);
+       CHANGE_ATCMD_PERM("AT+NETID", RAK_ATCMD_PERM_READ | RAK_ATCMD_PERM_WRITE);
+       CHANGE_ATCMD_PERM("AT+ALIAS", RAK_ATCMD_PERM_READ | RAK_ATCMD_PERM_WRITE);
+       CHANGE_ATCMD_PERM("AT+HWID", RAK_ATCMD_PERM_READ | RAK_ATCMD_PERM_WRITE);
 
        void setup()
        {
@@ -49,15 +87,12 @@ using namespace std;
        @endverbatim
     */
 
-
-
 #define CHANGE_ATCMD_PERM(_atcmd_name,_atcmd_perm)                 \
     ATCMD_ITEM(atcmd_queue, atcmd_permission_item UNIQUE_NAME(permissions)) =   \
     {                                       \
     .atcmd_id = _atcmd_name,                \
     .permission = _atcmd_perm,              \
     }
-
 
 #ifdef SUPPORT_FS
 /**@addtogroup	RUI_System_Data_Type
@@ -120,7 +155,7 @@ class RAKSystem {
 
     class firmwareVersion {
       private:
-        string ver;
+        String ver;
 
       public:
         firmwareVersion();
@@ -130,7 +165,7 @@ class RAKSystem {
 	 * @ingroup	Firmware_Version
 	 * @par		Syntax
 	 * 		api.system.firmwareVersion.get()
-	 * @return	firmware version(Type: string)
+	 * @return	firmware version(Type: String)
 	 * @par		Example
 	 * @verbatim	
 	   void setup()
@@ -145,12 +180,12 @@ class RAKSystem {
 	   }
 	   @endverbatim
 	 */
-        const string get();
+        const String get();
     };
 
     class cliVersion {
       private:
-        string ver;
+        String ver;
 
       public:
         cliVersion();
@@ -160,7 +195,7 @@ class RAKSystem {
 	 * @ingroup	Cli_Version
 	 * @par		Syntax
 	 *		api.system.cliVersion.get()
-	 * @return	cli version(Type: string)
+	 * @return	cli version(Type: String)
 	 * @par         Example
          * @verbatim
            void setup()
@@ -176,12 +211,12 @@ class RAKSystem {
            @endverbatim
 
 	 */
-        const string get();
+        const String get();
     };
 
     class apiVersion {
       private:
-        string ver;
+        String ver;
 
       public:
         apiVersion();
@@ -191,7 +226,7 @@ class RAKSystem {
 	 * @ingroup	Api_Version
 	 * @par		Syntax
 	 * 		api.system.apiVersion.get()
-	 * @return	api version(Type: string)
+	 * @return	api version(Type: String)
 	 * @par         Example
          * @verbatim
            void setup()
@@ -207,12 +242,12 @@ class RAKSystem {
            @endverbatim
 
 	 */
-        const string get();
+        const String get();
     };
 
     class modelId {
       private:
-        string id;
+        String id;
 
       public:
         modelId();
@@ -222,7 +257,7 @@ class RAKSystem {
 	 * @ingroup	Model_ID
 	 * @par		Syntax
 	 * 		api.system.modelId.get()
-	 * @return	model ID(Type: string)
+	 * @return	model ID(Type: String)
 	 * @par         Example
          * @verbatim
            void setup()
@@ -238,12 +273,12 @@ class RAKSystem {
            @endverbatim
 
 	 */
-        const string get();
+        const String get();
     };
 
     class chipId {
       private:
-        string id;
+        String id;
 
       public:
         chipId();
@@ -253,7 +288,7 @@ class RAKSystem {
 	 * @ingroup	Chip_ID
 	 * @par		Syntax
 	 *		api.system.chipId.get()
-	 * @return	chip ID(Type: string)
+	 * @return	chip ID(Type: String)
 	 * @par         Example
          * @verbatim
            void setup()
@@ -269,7 +304,7 @@ class RAKSystem {
            @endverbatim
 
 	 */
-        const string get();
+        const String get();
     };
     
     firmwareVersion firmwareVersion;
@@ -333,7 +368,7 @@ class RAKSystem {
 	 * @par		Syntax
 	 * 		api.system.pword.set(passwd_Str)\n
 	 * 		api.system.pword.set(passwd_Char, len)
-	 * @param	passwd_Str	the password to lock the Default Serial(Type: string)
+	 * @param	passwd_Str	the password to lock the Default Serial(Type: String)
 	 * @param	passwd_Char	the password to lock the Default Serial(Type: cahr *)
 	 * @param	len		the length of passwod
 	 * @return	bool
@@ -345,7 +380,7 @@ class RAKSystem {
 
 	   void setup()
 	   {
-	     string password = "12345678";
+	     String password = "12345678";
 	     api.system.pword.set(password); // set the password to 12345678
 	     api.system.pword.lock();        // lock the default port 
 	   }
@@ -362,7 +397,7 @@ class RAKSystem {
 	   @endverbatim
 	 */
         bool set(char *passwd, uint32_t len);
-        bool set(string passwd);
+        bool set(String passwd);
 
 	/**@par		Description
 	 *		This api allow user to lock the default serial with the pass set in api.system.pword.set()	
@@ -377,7 +412,7 @@ class RAKSystem {
 
            void setup()
            {
-             string password = "12345678";
+             String password = "12345678";
              api.system.pword.set(password); // set the password to 12345678
              api.system.pword.lock();        // lock the default port
            }
@@ -408,7 +443,7 @@ class RAKSystem {
 
            void setup()
            {
-             string password = "12345678";
+             String password = "12345678";
              api.system.pword.set(password); // set the password to 12345678
              api.system.pword.lock();        // lock the default port
            }
@@ -503,7 +538,7 @@ class RAKSystem {
       
       void setup()
       {
-          api.system.atMode.add("LED", "This controls both green and blue LEDs.", "LED", led_handle, ATCMD_PERM_WRITE | ATCMD_PERM_READ);
+          api.system.atMode.add("LED", "This controls both green and blue LEDs.", "LED", led_handle, RAK_ATCMD_PERM_WRITE | RAK_ATCMD_PERM_READ);
       }
       
       void loop()
@@ -511,7 +546,7 @@ class RAKSystem {
       }
 	   @endverbatim
 	 */
-        bool add(char *cmd, char *usage, char *title, PF_handle handle,unsigned int perm = ATCMD_PERM_WRITE | ATCMD_PERM_READ);
+        bool add(char *cmd, char *usage, char *title, PF_handle handle,unsigned int perm = RAK_ATCMD_PERM_WRITE | RAK_ATCMD_PERM_READ);
     };
 
 #ifdef SUPPORT_FS
@@ -911,7 +946,7 @@ class RAKSystem {
             }
            @endverbatim
      */
-        bool    set(char *,uint32_t);
+        bool    set(char * buf,uint32_t len);
     /**@par     Description
      *      Set the alias name for device.
      * @ingroup System_Alias
@@ -937,7 +972,112 @@ class RAKSystem {
             }
            @endverbatim
      */
-        bool    get(char *,uint32_t);
+        bool    get(char * buf,uint32_t len);
+    };
+    class timer {
+      public :
+    /**@par     Description
+     *      Create a timer.
+     * @ingroup System_Timer
+     * @par     Syntax
+     *  api.system.timer.create(id, handler, mode)
+     * @param   id the timer ID
+     * @param   handler the handler function for this timer
+     * @param   mode the mode of this timer
+     * @return  bool
+     * @retval  TRUE for creating timer successfully
+     * @retval  FALSE for creating timer failure
+     * @par         Example
+         * @verbatim
+            void handler(void *data)
+            {
+              Serial.printf("[%lu]This is the handler\r\n", millis());
+            }
+            void setup()
+            {
+              Serial.begin(115200);
+
+              if (api.system.timer.create(RAK_TIMER_0, (RAK_TIMER_HANDLER)handler, RAK_TIMER_PERIODIC) != true) {
+                Serial.printf("Creating timer failed.\r\n");
+              } else if (api.system.timer.start(RAK_TIMER_0, 1000, NULL) != true) {
+                Serial.printf("Starting timer failed.\r\n");
+              }
+            }
+            void loop()
+            {
+            }
+           @endverbatim
+     */
+        bool    create(RAK_TIMER_ID id, RAK_TIMER_HANDLER handler, RAK_TIMER_MODE mode);
+    /**@par     Description
+     *      Start a timer.
+     * @ingroup System_Timer
+     * @par     Syntax
+     *  api.system.timer.start(id, ms, data)
+     * @param   id the timer ID
+     * @param   ms the period of timer
+     * @param   data the data passed to timer handler function
+     * @return  bool
+     * @retval  TRUE for starting timer successfully
+     * @retval  FALSE for starting timer failure
+     * @par         Example
+         * @verbatim
+            void handler(void *data)
+            {
+              Serial.printf("[%lu]This is the handler\r\n", millis());
+            }
+            void setup()
+            {
+              Serial.begin(115200);
+
+              if (api.system.timer.create(RAK_TIMER_0, (RAK_TIMER_HANDLER)handler, RAK_TIMER_PERIODIC) != true) {
+                Serial.printf("Creating timer failed.\r\n");
+              } else if (api.system.timer.start(RAK_TIMER_0, 1000, NULL) != true) {
+                Serial.printf("Starting timer failed.\r\n");
+              }
+            }
+            void loop()
+            {
+            }
+           @endverbatim
+     */
+        bool    start(RAK_TIMER_ID id, uint32_t ms, void *data);
+    /**@par     Description
+     *      Stop a timer.
+     * @ingroup System_Timer
+     * @par     Syntax
+     *  api.system.timer.stop(id)
+     * @param   id the timer ID
+     * @return  bool
+     * @retval  TRUE for stoping timer successfully
+     * @retval  FALSE for stoping timer failure
+     * @par         Example
+         * @verbatim
+            void handler(void *data)
+            {
+              Serial.printf("[%lu]This is the handler\r\n", millis());
+            }
+            void setup()
+            {
+              Serial.begin(115200);
+
+              if (api.system.timer.create(RAK_TIMER_0, (RAK_TIMER_HANDLER)handler, RAK_TIMER_PERIODIC) != true) {
+                Serial.printf("Creating timer failed.\r\n");
+              } else if (api.system.timer.start(RAK_TIMER_0, 1000, NULL) != true) {
+                Serial.printf("Starting timer failed.\r\n");
+              }
+            }
+            void loop()
+            {
+              if (millis() > 60000) {
+                if (api.system.timer.stop(RAK_TIMER_0) != true) {
+                  Serial.printf("Stoping timer failed.\r\n");
+                }
+              }
+            }
+           @endverbatim
+     */
+        bool    stop(RAK_TIMER_ID id);
     };
     pword pword;
     bat bat;
@@ -948,7 +1088,7 @@ class RAKSystem {
     flash flash;
 #endif
     alias alias;
-
+    timer timer;
 };
 
 /**@example	System_FS/src/app.cpp

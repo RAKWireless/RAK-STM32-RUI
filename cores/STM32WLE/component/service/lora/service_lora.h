@@ -204,13 +204,21 @@ extern "C"
         SERVICE_LORA_CLASS_C = 2,
     } SERVICE_LORA_CLASS;
 
+    typedef enum _AS923_SUB_BAND
+    {
+        AS923_1 = 1,
+        AS923_2 = 2,
+        AS923_3 = 3,
+        AS923_4 = 4
+    } AS923_SUB_BAND;
+
     /*!
  * LoRaMAC region enumeration
  */
     typedef enum _SERVICE_LORA_BAND
     {
         /*!
-     * AS band on 923MHz
+     * AS band on 923MHz     SERVICE_LORA_AS923-1
      */
         SERVICE_LORA_AS923 = LORAMAC_REGION_AS923,
         /*!
@@ -256,6 +264,16 @@ extern "C"
      */
     SERVICE_LORA_US915_HYBRID = LORAMAC_REGION_US915_HYBRID,
 #endif
+
+    /*
+     * 10 - 19  Reserved for lorawan protocol stack ,after 20 used by RAK 
+     */
+       SERVICE_LORA_AS923_2 = 20,
+
+       SERVICE_LORA_AS923_3 = 21,
+
+       SERVICE_LORA_AS923_4 = 22,
+
     } SERVICE_LORA_BAND;
 
     LmHandlerErrorStatus_t LmHandlerPackageRegister( uint8_t id, void *params );

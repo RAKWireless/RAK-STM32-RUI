@@ -23,6 +23,8 @@
 #ifdef SUPPORT_LORA
 #include "radio.h"
 #include "LoRaMac.h"
+
+extern service_lora_join_cb service_lora_join_callback;
 #endif
 
 #define LED1_PIN GPIO_PIN_0
@@ -265,6 +267,13 @@ void rui_event_handler_func(void *data, uint16_t size) {
             LmHandlerPackagesProcess( );
             break;
         }
+        case UDRV_SYS_EVT_OP_LORAWAN_JOIN_CB:
+        {
+            if (service_lora_join_callback != NULL) {
+                service_lora_join_callback(event->p_context);
+            }
+            break;
+        }
 #endif
         case UDRV_SYS_EVT_OP_USER_APP:
         {
@@ -394,6 +403,22 @@ void main(void)
         }
     }
 #endif
+
+    //XXX: dirty workaround for 0x20000528
+    {
+        extern int _sidata, _sdata, _edata;
+        if (0x20000528 > (uint32_t)&_sdata && 0x20000528 < (uint32_t)&_edata)
+        {
+            uint8_t buff[4];
+            uint32_t offset = 0x20000528 - (uint32_t)&_sdata;
+            udrv_flash_read((uint32_t)&_sidata+offset, 4, buff);
+            for (int j = 0 ; j < 4 ; j++) {
+                if (*(uint8_t *)(0x20000528+j) != buff[j]) {
+                    *(uint8_t *)(0x20000528+j) = buff[j];
+                }
+            }
+        }
+    }
 
     while(1)
     {

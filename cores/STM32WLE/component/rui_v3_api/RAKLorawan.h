@@ -4,7 +4,7 @@
 #ifdef SUPPORT_LORA
 
 #include <cstdint>
-#include <string>
+#include "WString.h"
 #include <cstring>
 
 #include "udrv_errno.h"
@@ -1780,7 +1780,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set device class to Class_A  %s\r\n", api.lorawan.deviceClass.set(0) ? "Success" : "Fail");
+           Serial.printf("Set device class to Class_A  %s\r\n", api.lorawan.deviceClass.set(RAK_LORA_CLASS_A) ? "Success" : "Fail");
        }
 
        void loop()
@@ -1821,7 +1821,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set device class to Class_A  %s\r\n", api.lorawan.deviceClass.set(0) ? "Success" : "Fail");
+           Serial.printf("Set device class to Class_A  %s\r\n", api.lorawan.deviceClass.set(RAK_LORA_CLASS_A) ? "Success" : "Fail");
        }
 
        void loop()
@@ -2933,7 +2933,7 @@ public:
        }
            @endverbatim
 	 */
-    string get();
+    String get();
   };
 
   /**@par	Description
@@ -2949,7 +2949,7 @@ public:
 	 * @par	Syntax
 	 *	api.lorawan.ver.get()
 	 *
-	 * @return	the LoRaWan version(Type: string)
+	 * @return	the LoRaWan version(Type: String)
 	 * @par         Example
          * @verbatim
        void setup()
@@ -2965,7 +2965,7 @@ public:
 
            @endverbatim
 	 */
-    string get();
+    String get();
   };
 
   /**@par	Description
@@ -3058,7 +3058,10 @@ channel mask
      *                  5: US915\n 
      *                  6: AU915\n 
      *                  7: KR920\n 
-     *                  8: AS923
+     *                  8: AS923-1\n 
+     *                  9: AS923-2\n
+     *                  10:AS923-3\n 
+     *                  11:AS923-4 
      */
   class band
   {
@@ -3078,7 +3081,10 @@ channel mask
 	 * @retval	5	US915
 	 * @retval	6	AU915
 	 * @retval	7	KR920
-	 * @retval	8	AS923
+	 * @retval	8	AS923-1
+   * @retval	9	AS923-2
+   * @retval	10 AS923-3
+   * @retval	11 AS923-4
 	 * @par         Example
          * @verbatim
        void setup()

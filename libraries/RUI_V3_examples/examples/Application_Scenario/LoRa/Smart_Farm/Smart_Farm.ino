@@ -33,46 +33,37 @@ rak1902 p_sensor;
 /** Packet buffer for sending */
 uint8_t collected_data[64] = { 0 };
 
-void
-recvCallback (SERVICE_LORA_RECEIVE_T * data)
+void recvCallback(SERVICE_LORA_RECEIVE_T * data)
 {
-  if (data->BufferSize > 0)
-  {
-    Serial.println ("Something received!");
-    for (int i = 0; i < data->BufferSize; i++)
-    {
-      Serial.printf ("%x", data->Buffer[i]);
+  if (data->BufferSize > 0) {
+    Serial.println("Something received!");
+    for (int i = 0; i < data->BufferSize; i++) {
+      Serial.printf("%x", data->Buffer[i]);
     }
-    Serial.print ("\r\n");
+    Serial.print("\r\n");
   }
 }
 
-void
-joinCallback (int32_t status)
+void joinCallback(int32_t status)
 {
-  Serial.printf ("Join status: %d\r\n", status);
+  Serial.printf("Join status: %d\r\n", status);
 }
 
-void
-sendCallback (int32_t status)
+void sendCallback(int32_t status)
 {
-  if (status == 0)
-  {
-    Serial.println ("Successfully sent");
-  }
-  else
-  {
-    Serial.println ("Sending failed");
+  if (status == 0) {
+    Serial.println("Successfully sent");
+  } else {
+    Serial.println("Sending failed");
   }
 }
 
-void
-setup ()
+void setup()
 {
-  Serial.begin (115200, RAK_AT_MODE);
+  Serial.begin(115200, RAK_AT_MODE);
 
-  Serial.println ("RAKwireless Smart Farm Example");
-  Serial.println ("------------------------------------------------------");
+  Serial.println("RAKwireless Smart Farm Example");
+  Serial.println("------------------------------------------------------");
 
   // OTAA Device EUI MSB first
   uint8_t node_device_eui[8] = SMART_FARM_DEVEUI;
@@ -81,104 +72,96 @@ setup ()
   // OTAA Application Key MSB first
   uint8_t node_app_key[16] = SMART_FARM_APPKEY;
 
-  if (!api.lorawan.appeui.set (node_app_eui, 8))
-  {
+  if (!api.lorawan.appeui.set(node_app_eui, 8)) {
     Serial.printf
-      ("LoRaWan Smart Farm - set application EUI is incorrect! \r\n");
+	("LoRaWan Smart Farm - set application EUI is incorrect! \r\n");
     return;
   }
-  if (!api.lorawan.appkey.set (node_app_key, 16))
-  {
+  if (!api.lorawan.appkey.set(node_app_key, 16)) {
     Serial.printf
-      ("LoRaWan Smart Farm - set application key is incorrect! \r\n");
+	("LoRaWan Smart Farm - set application key is incorrect! \r\n");
     return;
   }
-  if (!api.lorawan.deui.set (node_device_eui, 8))
-  {
-    Serial.printf ("LoRaWan Smart Farm - set device EUI is incorrect! \r\n");
+  if (!api.lorawan.deui.set(node_device_eui, 8)) {
+    Serial.printf
+	("LoRaWan Smart Farm - set device EUI is incorrect! \r\n");
     return;
   }
 
-  if (!api.lorawan.band.set (SMART_FARM_BAND))
-  {
-    Serial.printf ("LoRaWan Smart Farm - set band is incorrect! \r\n");
+  if (!api.lorawan.band.set(SMART_FARM_BAND)) {
+    Serial.printf("LoRaWan Smart Farm - set band is incorrect! \r\n");
     return;
   }
-  if (!api.lorawan.deviceClass.set (RAK_LORA_CLASS_A))
+  if (!api.lorawan.deviceClass.set(RAK_LORA_CLASS_A)) {
+    Serial.printf
+	("LoRaWan Smart Farm - set device class is incorrect! \r\n");
+    return;
+  }
+  if (!api.lorawan.njm.set(RAK_LORA_OTAA))	// Set the network join mode to OTAA
   {
     Serial.printf
-      ("LoRaWan Smart Farm - set device class is incorrect! \r\n");
+	("LoRaWan Smart Farm - set network join mode is incorrect! \r\n");
     return;
   }
-  if (!api.lorawan.njm.set (RAK_LORA_OTAA))	// Set the network join mode to OTAA
+  if (!api.lorawan.join())	// Join to Gateway
   {
-    Serial.printf
-      ("LoRaWan Smart Farm - set network join mode is incorrect! \r\n");
-    return;
-  }
-  if (!api.lorawan.join ())	// Join to Gateway
-  {
-    Serial.printf ("LoRaWan Smart Farm - join fail! \r\n");
+    Serial.printf("LoRaWan Smart Farm - join fail! \r\n");
     return;
   }
 
-  Serial.println ("++++++++++++++++++++++++++");
-  Serial.println ("RUI3 Environment Sensing");
-  Serial.println ("++++++++++++++++++++++++++");
+  Serial.println("++++++++++++++++++++++++++");
+  Serial.println("RUI3 Environment Sensing");
+  Serial.println("++++++++++++++++++++++++++");
 
-  Wire.begin ();		// Start I2C Bus
-  Serial.printf ("RAK1901 init %s\r\n", th_sensor.init ()? "success" : "fail");	// Check if RAK1901 init success
-  Serial.printf ("RAK1902 init %s\r\n", p_sensor.init ()? "success" : "fail");	// Check if RAK1902 init success
+  Wire.begin();			// Start I2C Bus
+  Serial.printf("RAK1901 init %s\r\n", th_sensor.init()? "success" : "fail");	// Check if RAK1901 init success
+  Serial.printf("RAK1902 init %s\r\n", p_sensor.init()? "success" : "fail");	// Check if RAK1902 init success
 
   /** Wait for Join success */
-  while (api.lorawan.njs.get () == 0)
-  {
-    Serial.print ("Wait for LoRaWAN join...");
-    api.lorawan.join ();
-    delay (10000);
+  while (api.lorawan.njs.get() == 0) {
+    Serial.print("Wait for LoRaWAN join...");
+    api.lorawan.join();
+    delay(10000);
   }
 
-  if (!api.lorawan.adr.set (true))
-  {
+  if (!api.lorawan.adr.set(true)) {
     Serial.printf
-      ("LoRaWan Smart Farm - set adaptive data rate is incorrect! \r\n");
+	("LoRaWan Smart Farm - set adaptive data rate is incorrect! \r\n");
     return;
   }
-  if (!api.lorawan.rety.set (1))
-  {
-    Serial.printf ("LoRaWan Smart Farm - set retry times is incorrect! \r\n");
+  if (!api.lorawan.rety.set(1)) {
+    Serial.printf
+	("LoRaWan Smart Farm - set retry times is incorrect! \r\n");
     return;
   }
-  if (!api.lorawan.cfm.set (1))
-  {
+  if (!api.lorawan.cfm.set(1)) {
     Serial.printf
-      ("LoRaWan Smart Farm - set confirm mode is incorrect! \r\n");
+	("LoRaWan Smart Farm - set confirm mode is incorrect! \r\n");
     return;
   }
 
   /** Check LoRaWan Status*/
-  Serial.printf ("Duty cycle is %s\r\n", api.lorawan.dcs.get ()? "ON" : "OFF");	// Check Duty Cycle status
-  Serial.printf ("Packet is %s\r\n", api.lorawan.cfm.get ()? "CONFIRMED" : "UNCONFIRMED");	// Check Confirm status
+  Serial.printf("Duty cycle is %s\r\n", api.lorawan.dcs.get()? "ON" : "OFF");	// Check Duty Cycle status
+  Serial.printf("Packet is %s\r\n", api.lorawan.cfm.get()? "CONFIRMED" : "UNCONFIRMED");	// Check Confirm status
   uint8_t assigned_dev_addr[4] = { 0 };
-  api.lorawan.daddr.get (assigned_dev_addr, 4);
-  Serial.printf ("Device Address is %02X%02X%02X%02X\r\n", assigned_dev_addr[0], assigned_dev_addr[1], assigned_dev_addr[2], assigned_dev_addr[3]);	// Check Device Address
-  Serial.printf ("Uplink period is %ums\r\n", SMART_FARM_PERIOD);
-  Serial.println ("");
-  api.lorawan.registerRecvCallback (recvCallback);
-  api.lorawan.registerJoinCallback (joinCallback);
-  api.lorawan.registerSendCallback (sendCallback);
+  api.lorawan.daddr.get(assigned_dev_addr, 4);
+  Serial.printf("Device Address is %02X%02X%02X%02X\r\n", assigned_dev_addr[0], assigned_dev_addr[1], assigned_dev_addr[2], assigned_dev_addr[3]);	// Check Device Address
+  Serial.printf("Uplink period is %ums\r\n", SMART_FARM_PERIOD);
+  Serial.println("");
+  api.lorawan.registerRecvCallback(recvCallback);
+  api.lorawan.registerJoinCallback(joinCallback);
+  api.lorawan.registerSendCallback(sendCallback);
 }
 
-void
-uplink_routine ()
+void uplink_routine()
 {
   /** Get sensor RAK1901 values */
-  th_sensor.update ();
+  th_sensor.update();
 
-  float temp_f = th_sensor.temperature ();
-  float humid_f = th_sensor.humidity ();
-  float press_f = p_sensor.pressure (MILLIBAR);
-  Serial.printf ("T %.2f H %.2f P %.2f\r\n", temp_f, humid_f, press_f);
+  float temp_f = th_sensor.temperature();
+  float humid_f = th_sensor.humidity();
+  float press_f = p_sensor.pressure(MILLIBAR);
+  Serial.printf("T %.2f H %.2f P %.2f\r\n", temp_f, humid_f, press_f);
 
   uint16_t t = (uint16_t) (temp_f * 10.0);
   uint16_t h = (uint16_t) (humid_f * 2);
@@ -203,38 +186,25 @@ uplink_routine ()
   //collected_data[data_len++] = (uint8_t)(batt >> 8);
   //collected_data[data_len++] = (uint8_t)batt;
 
-  Serial.println ("Data Packet:");
-  for (int i = 0; i < data_len; i++)
-  {
-    Serial.printf ("0x%02X ", collected_data[i]);
+  Serial.println("Data Packet:");
+  for (int i = 0; i < data_len; i++) {
+    Serial.printf("0x%02X ", collected_data[i]);
   }
-  Serial.println ("");
+  Serial.println("");
 
   /** Send the data package */
-  if (api.lorawan.send (data_len, (uint8_t *) & collected_data, 2, true, 1))
-  {
-    Serial.println ("Sending is requested");
-  }
-  else
-  {
-    Serial.println ("Sending failed");
+  if (api.lorawan.send(data_len, (uint8_t *) & collected_data, 2, true, 1)) {
+    Serial.println("Sending is requested");
+  } else {
+    Serial.println("Sending failed");
   }
 }
 
-void
-loop ()
+void loop()
 {
-  static uint64_t last = 0;
-  static uint64_t elapsed;
+  uplink_routine();
 
-  if ((elapsed = millis () - last) > SMART_FARM_PERIOD)
-  {
-    uplink_routine ();
-
-    last = millis ();
-  }
-
-  //Serial.printf("Try sleep %ums..", SMART_FARM_PERIOD);
-  api.system.sleep.all (SMART_FARM_PERIOD);
-  //Serial.println("Wakeup..");
+  Serial.printf("Try sleep %ums..\r\n", SMART_FARM_PERIOD);
+  api.system.sleep.all(SMART_FARM_PERIOD);
+  Serial.println("Wakeup..\r\n");
 }
