@@ -372,6 +372,25 @@ void main(void)
     //system init
     rui_init();
 
+    //dirty workaround
+    {
+        extern int _sidata, _sdata, _edata;
+        extern const at_cmd_info atcmd_info_tbl[];
+
+        uint32_t offset = (uint32_t)atcmd_info_tbl - (uint32_t)&_sdata;
+        uint32_t length = sizeof(at_cmd_info)*At_CmdGetTotalNum();
+
+        for (uint32_t i = 0 ; i < length ; i+=4) {
+            uint8_t buff[4];
+            udrv_flash_read((uint32_t)&_sidata+offset+i, 4, buff);
+            for (int j = 0 ; j < 4 ; j++) {
+                if (*(uint8_t *)((uint32_t)&_sdata+offset+i+j) != buff[j]) {
+                    *(uint8_t *)((uint32_t)&_sdata+offset+i+j) = buff[j];
+                }
+            }
+        }
+    }
+
     //user init
     rui_setup();
 
@@ -403,22 +422,6 @@ void main(void)
         }
     }
 #endif
-
-    //XXX: dirty workaround for 0x20000528
-    {
-        extern int _sidata, _sdata, _edata;
-        if (0x20000528 > (uint32_t)&_sdata && 0x20000528 < (uint32_t)&_edata)
-        {
-            uint8_t buff[4];
-            uint32_t offset = 0x20000528 - (uint32_t)&_sdata;
-            udrv_flash_read((uint32_t)&_sidata+offset, 4, buff);
-            for (int j = 0 ; j < 4 ; j++) {
-                if (*(uint8_t *)(0x20000528+j) != buff[j]) {
-                    *(uint8_t *)(0x20000528+j) = buff[j];
-                }
-            }
-        }
-    }
 
     while(1)
     {
