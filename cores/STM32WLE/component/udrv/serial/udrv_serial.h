@@ -140,14 +140,6 @@ bool is_udrv_serial_initialized(SERIAL_PORT Port);
 void udrv_serial_init (SERIAL_PORT Port, uint32_t BaudRate, SERIAL_WORD_LEN_E DataBits, SERIAL_STOP_BIT_E StopBits, SERIAL_PARITY_E Parity, SERIAL_WIRE_MODE_E WireMode);
 
 /**
- * @brief       This API is used to enable a specified serial usb port.
- * @retval      void
- * @param       SERIAL_PORT Port: the specified serial port to be initialized
- */
-
-void udrv_serial_usb_enable (SERIAL_PORT Port);
-
-/**
  * @brief       This API is used to deinitialize a specified serial port.
  * @retval      void
  * @param       SERIAL_PORT Port: the specified serial port to be deinitialized

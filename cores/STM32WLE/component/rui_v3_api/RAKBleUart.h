@@ -9,6 +9,8 @@
 #ifndef __RAK_BLE_UART_H__
 #define __RAK_BLE_UART_H__
 
+#ifdef SUPPORT_BLE
+
 #include "udrv_ble.h"
 
 /**@addtogroup	RUI_Ble_Data_Type
@@ -127,5 +129,7 @@ class RAKBleUart {
     uint32_t localLength;
     uint32_t readCount = 0;
 };
+
+#endif
 
 #endif

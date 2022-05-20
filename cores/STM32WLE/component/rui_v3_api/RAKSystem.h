@@ -23,6 +23,17 @@ using namespace std;
  */
 
 /**@par	Description
+ * 	The permission setting of AT command
+ */
+/* ATCMD PERMISSION */
+typedef enum {
+    RAK_ATCMD_PERM_WRITE         = ATCMD_PERM_WRITE,            ///< Write permission allows for writting a variable data only and disables any read functionality.
+    RAK_ATCMD_PERM_READ          = ATCMD_PERM_READ,             ///< Read permission allows for reading a variable data only and disables any write functionality.
+    RAK_ATCMD_PERM_WRITEONCEREAD = ATCMD_PERM_WRITEONCEREAD,    ///< Special functionality that allows for setting variable once and only allows for reading after.
+    RAK_ATCMD_PERM_DISABLE       = ATCMD_PERM_DISABLE,          ///< Disables the AT command from being used.
+} RAK_AT_PERMISSION;
+
+/**@par	Description
  * 	The ID of timer
  */
 typedef enum {
@@ -43,17 +54,6 @@ typedef enum {
     RAK_TIMER_ONESHOT = HTMR_ONESHOT,	///< This timer is only triggered one time
     RAK_TIMER_PERIODIC = HTMR_PERIODIC,	///< This timer is triggered periodically
 } RAK_TIMER_MODE;
-
-/**@par	Description
- * 	The permission setting of AT command
- */
-/* ATCMD PERMISSION */
-typedef enum {
-    RAK_ATCMD_PERM_READ          = ATCMD_PERM_READ,             ///< Read permission allows for reading a variable data only and disables any write functionality.
-    RAK_ATCMD_PERM_WRITE         = ATCMD_PERM_WRITE,            ///< Write permission allows for writting a variable data only and disables any read functionality.
-    RAK_ATCMD_PERM_WRITEONCEREAD = ATCMD_PERM_WRITEONCEREAD,    ///< Special functionality that allows for setting variable once and only allows for reading after.
-    RAK_ATCMD_PERM_DISABLE       = ATCMD_PERM_DISABLE,          ///< Disables the AT command from being used.
-} RAK_AT_PERMISSION;
 
 /**@}*/
 
@@ -896,9 +896,9 @@ class RAKSystem {
          * @ingroup Flash
          * @par     Syntax
          *  api.system.flash.get(offset, buf, len)
-         * @param   offset the offset to the start of user flash partition
+         * @param   offset the offset to the start of user flash partition (The sum of offset and length can't exceed 0x7800. If the chip is nRF52840(e.g. RAK4631), this limitation becomes 0x20000.)
          * @param   buf the buffer for reading the data
-         * @param   len the length of data
+         * @param   len the length of data (The sum of offset and length can't exceed 0x7800. If the chip is nRF52840(e.g. RAK4631), this limitation becomes 0x20000.)
          * @return  bool
          * @retval  TRUE for reading data successfully
          * @retval  FALSE for reading data failure
@@ -909,9 +909,9 @@ class RAKSystem {
          * @ingroup Flash
          * @par     Syntax
          *  api.system.flash.set(offset, buf, len)
-         * @param   offset the offset to the start of user flash partition
+         * @param   offset the offset to the start of user flash partition (The sum of offset and length can't exceed 0x7800. If the chip is nRF52840(e.g. RAK4631), this limitation becomes 0x20000.)
          * @param   buf the buffer for writing the data
-         * @param   len the length of data
+         * @param   len the length of data (The sum of offset and length can't exceed 0x7800. If the chip is nRF52840(e.g. RAK4631), this limitation becomes 0x20000.)
          * @return  bool
          * @retval  TRUE for writing data successfully
          * @retval  FALSE for writing data failure

@@ -34,8 +34,8 @@ static void atcmd_printf(const char *fmt, ...) {
 #define MAX_ARGUMENT 25
 /* ATCMD PERMISSION */
 typedef enum AT_PERM_{
-    ATCMD_PERM_READ = 1 << 0,
-    ATCMD_PERM_WRITE = 1 << 1,
+    ATCMD_PERM_WRITE = 1 << 0,
+    ATCMD_PERM_READ = 1 << 1,
     ATCMD_PERM_WRITEONCEREAD = 1 << 2,
     ATCMD_PERM_ISWRITE = 1 << 3,
     ATCMD_PERM_DISABLE = 1 << 4,

@@ -1,6 +1,8 @@
 #ifndef __RAK_BLE_BEACON_H__
 #define __RAK_BLE_BEACON_H__
 
+#ifdef SUPPORT_BLE
+
 #include "udrv_ble.h"
 
 class cusPayload
@@ -125,5 +127,7 @@ private:
 
 /**@example	BLE_Beacon_Custom_Payload/src/app.cpp
  */
+
+#endif
 
 #endif

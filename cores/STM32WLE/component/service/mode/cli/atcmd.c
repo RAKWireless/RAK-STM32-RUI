@@ -239,24 +239,22 @@ at_cmd_cust_info atcmd_cust_tbl[ATCMD_CUST_TABLE_SIZE];
 static int At_CmdList (SERIAL_PORT port, stParam *param)
 {
     int i = 0;
-    char * perm = "NULL";
+    char perm[8]={0};
     atcmd_printf("\r\n");
     int num = sizeof(atcmd_info_tbl)/sizeof(at_cmd_info);
     for(i = 0;i<num;i++)
     {
         if(strlen(atcmd_info_tbl[i].CmdUsage)) {
+            memset(perm,'\0',sizeof(perm));
             if (atcmd_info_tbl[i].permission & ATCMD_PERM_DISABLE)
-                perm = "Disable";
+                strcpy(perm,"Disable");
             else if (atcmd_info_tbl[i].permission & ATCMD_PERM_WRITEONCEREAD)
-                perm = "R*";
+                strcpy(perm,"R*");
             else
                 if (atcmd_info_tbl[i].permission & ATCMD_PERM_READ)
-                    if (atcmd_info_tbl[i].permission & ATCMD_PERM_WRITE)
-                        perm = "RW";
-                    else
-                        perm = "R";
-                else if (atcmd_info_tbl[i].permission & ATCMD_PERM_WRITE)
-                    perm = "W";
+                    strcpy(perm+strlen(perm),"R");
+                if (atcmd_info_tbl[i].permission & ATCMD_PERM_WRITE)
+                    strcpy(perm+strlen(perm),"W");
             atcmd_printf("%s,%s: %s\r\n", atcmd_info_tbl[i].atCmd, perm, atcmd_info_tbl[i].CmdUsage);
         }
     }
@@ -269,19 +267,17 @@ static int At_CmdList (SERIAL_PORT port, stParam *param)
             sprintf(cust_atcmd_buff, "%s%s", "ATC+", atcmd_cust_tbl[i].atCmd);
 
             if( strlen(atcmd_cust_tbl[i].CmdUsage)) {
+                memset(perm,'\0',sizeof(perm));
                 if (atcmd_cust_tbl[i].permission & ATCMD_PERM_DISABLE)
-                    perm = "Disable";
-            else if (atcmd_cust_tbl[i].permission & ATCMD_PERM_WRITEONCEREAD)
-                perm = "R*";
-            else
-                if (atcmd_cust_tbl[i].permission & ATCMD_PERM_READ)
+                    strcpy(perm,"Disable");
+                else if (atcmd_cust_tbl[i].permission & ATCMD_PERM_WRITEONCEREAD)
+                    strcpy(perm,"R*");
+                else
+                    if (atcmd_cust_tbl[i].permission & ATCMD_PERM_READ)
+                        strcpy(perm+strlen(perm),"R");
                     if (atcmd_cust_tbl[i].permission & ATCMD_PERM_WRITE)
-                        perm = "RW";
-                    else
-                        perm = "R";
-                else if (atcmd_cust_tbl[i].permission & ATCMD_PERM_WRITE)
-                    perm = "W";
-            atcmd_printf("%s,%s: %s, %s\r\n", cust_atcmd_buff, perm, atcmd_cust_tbl[i].title, atcmd_cust_tbl[i].CmdUsage);
+                        strcpy(perm+strlen(perm),"W");
+                atcmd_printf("%s,%s: %s, %s\r\n", cust_atcmd_buff, perm, atcmd_cust_tbl[i].title, atcmd_cust_tbl[i].CmdUsage);
             }
         }
     }
@@ -371,7 +367,7 @@ int At_Parser (SERIAL_PORT port, char *buff, int len)
                     nRet = AT_ERROR;
                     goto exit_rsp;
                 }
-                else if (strcmp(param.argv[0], "?"))
+                else if (strcmp(param.argv[0], "?") && param.argc > 0)
                 {
                     is_write = 1;
                     if (atcmd_info_tbl[i].permission & ATCMD_PERM_WRITEONCEREAD)
@@ -424,7 +420,7 @@ int At_Parser (SERIAL_PORT port, char *buff, int len)
                         nRet = AT_ERROR;
                         goto exit_rsp;
                     }
-                    else if (strcmp(param.argv[0], "?"))
+                    else if (strcmp(param.argv[0], "?") && param.argc > 0)
                     {
                         is_write = 1;
                         if (atcmd_cust_tbl[j].permission & ATCMD_PERM_WRITEONCEREAD)
@@ -618,7 +614,18 @@ void update_permisssion()
             atcmd_queue_pop(&item,j);
             for(i = 0; i < sizeof(atcmd_info_tbl)/sizeof(at_cmd_info); i++)
                 if(strcasecmp(atcmd_info_tbl[i].atCmd, item.atcmd_id) == 0)
-                    atcmd_info_tbl[i].permission = item.permission;
+                    if (item.permission & ATCMD_PERM_DISABLE)
+                        atcmd_info_tbl[i].permission = ATCMD_PERM_DISABLE;
+                    else if (item.permission & ATCMD_PERM_WRITEONCEREAD)
+                    {
+                        if (atcmd_info_tbl[i].permission & (ATCMD_PERM_WRITE | ATCMD_PERM_READ))
+                            atcmd_info_tbl[i].permission = item.permission;
+                    }
+                    else
+                    {
+                        if (atcmd_info_tbl[i].permission & item.permission)
+                            atcmd_info_tbl[i].permission = atcmd_info_tbl[i].permission & item.permission;
+                    }
         }
     }
 }

@@ -1,6 +1,8 @@
 #ifndef __RAK_BLE_SCANNER_H__
 #define __RAK_BLE_SCANNER_H__
 
+#ifdef SUPPORT_BLE
+
 #include "udrv_ble.h"
 
 class RAKBleScanner
@@ -45,4 +47,6 @@ public:
   /**@}*/
 private:
 };
+#endif
+
 #endif

@@ -3,23 +3,23 @@
 
 
 #ifndef AT_PERM
-#define AT_PERM             ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_PERM             ATCMD_PERM_READ
 #endif
 
 #ifndef ATZ_PERM
-#define ATZ_PERM            ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define ATZ_PERM            ATCMD_PERM_READ
 #endif
 
 #ifndef ATR_PERM
-#define ATR_PERM            ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define ATR_PERM            ATCMD_PERM_READ
 #endif
 
 #ifndef AT_BOOT_PERM
-#define AT_BOOT_PERM        ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_BOOT_PERM        ATCMD_PERM_READ
 #endif
 
 #ifndef ATE_PERM
-#define ATE_PERM            ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define ATE_PERM            ATCMD_PERM_READ
 #endif
 
 #ifndef AT_FSN_PERM
@@ -31,39 +31,39 @@
 #endif
 
 #ifndef AT_SN_PERM
-#define AT_SN_PERM          ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_SN_PERM          ATCMD_PERM_READ
 #endif
 
 #ifndef AT_BAT_PERM
-#define AT_BAT_PERM         ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_BAT_PERM         ATCMD_PERM_READ
 #endif
 
 #ifndef AT_BUILDTIME_PERM
-#define AT_BUILDTIME_PERM   ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_BUILDTIME_PERM   ATCMD_PERM_READ
 #endif
 
 #ifndef AT_REPOINFO_PERM
-#define AT_REPOINFO_PERM    ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_REPOINFO_PERM    ATCMD_PERM_READ
 #endif
 
 #ifndef AT_VER_PERM
-#define AT_VER_PERM         ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_VER_PERM         ATCMD_PERM_READ
 #endif
 
 #ifndef AT_CLIVER_PERM
-#define AT_CLIVER_PERM      ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_CLIVER_PERM      ATCMD_PERM_READ
 #endif
 
 #ifndef AT_APIVER_PERM
-#define AT_APIVER_PERM      ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_APIVER_PERM      ATCMD_PERM_READ
 #endif
 
 #ifndef AT_HWMODEL_PERM
-#define AT_HWMODEL_PERM     ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_HWMODEL_PERM     ATCMD_PERM_READ
 #endif
 
 #ifndef AT_HWID_PERM
-#define AT_HWID_PERM        ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_HWID_PERM        ATCMD_PERM_READ
 #endif
 
 #ifndef AT_ALIAS_PERM
@@ -75,11 +75,11 @@
 #endif
 
 #ifndef AT_SLEEP_PERM
-#define AT_SLEEP_PERM       ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_SLEEP_PERM       ATCMD_PERM_WRITE
 #endif
 
 #ifndef AT_LOCK_PERM
-#define AT_LOCK_PERM        ATCMD_PERM_READ | ATCMD_PERM_WRITE 
+#define AT_LOCK_PERM        ATCMD_PERM_READ
 #endif
 
 #ifndef AT_PWORD_PERM
@@ -91,11 +91,11 @@
 #endif
 
 #ifndef AT_ATM_PERM
-#define AT_ATM_PERM         ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_ATM_PERM         ATCMD_PERM_READ
 #endif
 
 #ifndef AT_APM_PERM
-#define AT_APM_PERM         ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_APM_PERM         ATCMD_PERM_READ
 #endif
 
 #ifndef ATD_PERM
@@ -135,7 +135,7 @@
 #endif
 
 #ifndef AT_CFS_PERM
-#define AT_CFS_PERM         ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_CFS_PERM         ATCMD_PERM_READ
 #endif
 
 #ifndef AT_JOIN_PERM
@@ -147,19 +147,19 @@
 #endif
 
 #ifndef AT_NJS_PERM
-#define AT_NJS_PERM         ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_NJS_PERM         ATCMD_PERM_READ
 #endif
 
 #ifndef AT_RECV_PERM
-#define AT_RECV_PERM        ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_RECV_PERM        ATCMD_PERM_READ
 #endif
 
 #ifndef AT_SEND_PERM
-#define AT_SEND_PERM        ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_SEND_PERM        ATCMD_PERM_WRITE
 #endif
 
 #ifndef AT_LPSEND_PERM
-#define AT_LPSEND_PERM      ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_LPSEND_PERM      ATCMD_PERM_WRITE
 #endif
 
 #ifndef AT_RETY_PERM
@@ -223,31 +223,31 @@
 #endif
 
 #ifndef AT_BFREQ_PERM
-#define AT_BFREQ_PERM       ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_BFREQ_PERM       ATCMD_PERM_READ
 #endif
 
 #ifndef AT_BTIME_PERM
-#define AT_BTIME_PERM       ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_BTIME_PERM       ATCMD_PERM_READ 
 #endif
 
 #ifndef AT_BGW_PERM
-#define AT_BGW_PERM         ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_BGW_PERM         ATCMD_PERM_READ
 #endif
 
 #ifndef AT_LTIME_PERM
-#define AT_LTIME_PERM       ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_LTIME_PERM       ATCMD_PERM_READ
 #endif
 
 #ifndef AT_RSSI_PERM
-#define AT_RSSI_PERM        ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_RSSI_PERM        ATCMD_PERM_READ
 #endif
 
 #ifndef AT_ARSSI_PERM
-#define AT_ARSSI_PERM       ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_ARSSI_PERM       ATCMD_PERM_READ
 #endif
 
 #ifndef AT_SNR_PERM
-#define AT_SNR_PERM         ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_SNR_PERM         ATCMD_PERM_READ
 #endif
 
 #ifndef AT_MASK_PERM
@@ -295,11 +295,11 @@
 #endif
 
 #ifndef AT_PSEND_PERM
-#define AT_PSEND_PERM       ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_PSEND_PERM       ATCMD_PERM_WRITE
 #endif
 
 #ifndef AT_PRECV_PERM
-#define AT_PRECV_PERM       ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_PRECV_PERM       ATCMD_PERM_WRITE
 #endif
 
 #ifndef AT_ENCRY_PERM
@@ -323,15 +323,15 @@
 #endif
 
 #ifndef AT_ADDMULC_PERM
-#define AT_ADDMULC_PERM     ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_ADDMULC_PERM     ATCMD_PERM_WRITE
 #endif
 
 #ifndef AT_RMVMULC_PERM
-#define AT_RMVMULC_PERM     ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_RMVMULC_PERM     ATCMD_PERM_WRITE
 #endif
 
 #ifndef AT_LSTMULC_PERM
-#define AT_LSTMULC_PERM     ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_LSTMULC_PERM     ATCMD_PERM_READ
 #endif
 
 #ifndef AT_TRSSI_PERM

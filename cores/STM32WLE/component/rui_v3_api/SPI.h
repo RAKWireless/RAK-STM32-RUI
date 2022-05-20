@@ -1,6 +1,8 @@
 #ifndef __SPI_H__
 #define __SPI_H__
 
+#ifdef SUPPORT_SPI
+
 #include "udrv_spimst.h"
 #include "Arduino.h"
 
@@ -166,3 +168,5 @@ class SPIClass
 extern SPIClass SPI;
 
 #endif //end SPI.h
+
+#endif

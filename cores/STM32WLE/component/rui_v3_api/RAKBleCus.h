@@ -1,6 +1,8 @@
 #ifndef __RAK_BLE_CUS_H__
 #define __RAK_BLE_CUS_H__
 
+#ifdef SUPPORT_BLE
+
 #include <inttypes.h>
 #include "WString.h"
 
@@ -233,6 +235,6 @@ class RAKBleCustom {
 
 #endif
 
-
+#endif
 
 

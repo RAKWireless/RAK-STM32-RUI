@@ -1,3 +1,4 @@
+#ifdef SUPPORT_BLE
 /**@file	RAKBle.h
  *
  * @brief	The nested class wrapper file for ble
@@ -45,3 +46,4 @@ class RAKBle {
 };
 #endif
 
+#endif

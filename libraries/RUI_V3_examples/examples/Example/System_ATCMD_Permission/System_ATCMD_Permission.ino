@@ -1,12 +1,15 @@
 
 /*
 PERMISSION LEVEL:
-RAK_ATCMD_PERM_READ,
 RAK_ATCMD_PERM_WRITE,
+RAK_ATCMD_PERM_READ,
 RAK_ATCMD_PERM_WRITEONCEREAD,
 RAK_ATCMD_PERM_DISABLE
 
 RAK_ATCMD_PERM_DISABLE will have the highest priority then other permission.
+Every commands will have a default permission, the permission you set could only be the subset of default permission.
+If the default permission is RAK_ATCMD_PERM_READ and RAK_ATCMD_PERM_WRITE, then you can only set the permission to RAK_ATCMD_PERM_WRITE or RAK_ATCMD_PERM_READ or RAK_ATCMD_PERM_DISABLE.
+If the permission you set is not the subset of default permisson, the commands will set permission as default.
 
 Can also add the directives in variant.h
 The format is AT_*your_command*_PERM.

@@ -1,6 +1,8 @@
 #ifndef __RAK_BLE_SETTINGS_H__
 #define __RAK_BLE_SETTINGS_H__
 
+#ifdef SUPPORT_BLE
+
 #include "udrv_ble.h"
 #include "WString.h"
 
@@ -205,5 +207,7 @@ If x is NOT passed, the function will default to returning a string, all upperca
 
 /**@example	BLE_Configuration/src/app.cpp
  */
+
+#endif
 
 #endif

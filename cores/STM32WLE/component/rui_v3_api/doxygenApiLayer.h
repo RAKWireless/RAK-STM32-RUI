@@ -13,9 +13,11 @@
 	 * @ingroup	ruiapi
 	 */
 
+#ifdef SUPPORT_SPI 
 	/**@defgroup	SPI	SPI
 	 * @ingroup	ruiapi
 	 */
+#endif
 
 	/**@defgroup	Time		Time
 	 * @ingroup	ruiapi
@@ -118,6 +120,7 @@
          * @ingroup System_Misc
          */
 
+#ifdef SUPPORT_LORA
 /**@defgroup    lorawan  Lorawan
  */
 
@@ -156,7 +159,9 @@
 	/**@defgroup	Multicast	Multicast Group Command
 	 * @ingroup	lorawan
 	 */
+#endif
 	
+#ifdef SUPPORT_BLE
 /**@defgroup	ble	Ble
  */
     /**@defgroup    BLE_func BLE Function
@@ -210,6 +215,7 @@
 	/**@defgroup	Customize_Service	Customize Service
 	 * @ingroup	ble
 	 */
+#endif
 
 #ifdef SUPPORT_NFC
 /**@defgroup	NFC	Nfc
