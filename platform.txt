@@ -139,8 +139,8 @@ tools.uploader_ymodem.upload.pattern={cmd} -f "{build.path}/{build.project_name}
 #***************************************************
 # prebuild hooks for buildtime
 #***************************************************
-recipe.hooks.sketch.prebuild.1.pattern=python3 "{runtime.tools.buildtime.path}/buildtime.py" "{runtime.platform.path}/cores/{build.core}/version.c"
-recipe.hooks.sketch.prebuild.1.pattern.windows="{runtime.tools.buildtime.path}/buildtime.exe" "{runtime.platform.path}/cores/{build.core}/version.c"
+recipe.hooks.sketch.prebuild.1.pattern=python3 "{runtime.tools.buildtime.path}/buildtime.py" "{runtime.platform.path}/variants/{build.variant}/version.c"
+recipe.hooks.sketch.prebuild.1.pattern.windows="{runtime.tools.buildtime.path}/buildtime.exe" "{runtime.platform.path}/variants/{build.variant}/version.c"
 
 #***************************************************
 # Burning bootloader with either jlink or nrfutil
