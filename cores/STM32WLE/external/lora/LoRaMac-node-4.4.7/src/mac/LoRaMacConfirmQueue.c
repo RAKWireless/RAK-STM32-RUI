@@ -1,5 +1,5 @@
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3//"
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3//"
 # 1 "<built-in>"
 #define __STDC__ 1
 #define __STDC_VERSION__ 199901L
@@ -480,8 +480,8 @@
 #define ATCMD_CUST_TABLE_SIZE 64
 #define WAN_TYPE 0
 #define LORA_STACK_VER 0x040407
-#define RAK3372 +RAK5005-O_V1.0 1
-#define rak3172 1
+#define RAK3272_SIP_VA 1
+#define rak3172_sip 1
 #define CORE_CM4 1
 #define USE_HAL_DRIVER 1
 #define STM32WLE5xx 1
@@ -498,17 +498,16 @@
 #define SOFT_SE 1
 #define SECURE_ELEMENT_PRE_PROVISIONED 1
 #define LORAMAC_CLASSB_ENABLED 1
-#define WISBLOCK_BASE_5005_O 1
 #define SUPPORT_SPI 1
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
-# 20 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdint.h" 1 3 4
-# 9 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdint.h" 3 4
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 1 3 4
-# 10 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 20 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdint.h" 1 3 4
+# 9 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdint.h" 3 4
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 1 3 4
+# 10 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define _STDINT_H 
 
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 1 3 4
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 1 3 4
 
 
 
@@ -516,15 +515,15 @@
 
 #define _MACHINE__DEFAULT_TYPES_H 
 
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 1 3 4
-# 22 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3 4
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 1 3 4
+# 22 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3 4
 #define _SYS_FEATURES_H 
 
 
 
 
 
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_newlib_version.h" 1 3 4
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_newlib_version.h" 1 3 4
 
 
 
@@ -534,7 +533,7 @@
 #define __NEWLIB__ 3
 #define __NEWLIB_MINOR__ 3
 #define __NEWLIB_PATCHLEVEL__ 0
-# 29 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 2 3 4
+# 29 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 2 3 4
 
 
 
@@ -547,7 +546,7 @@
 
 
 #define __GNUC_PREREQ__(ma,mi) __GNUC_PREREQ(ma, mi)
-# 249 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3 4
+# 249 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3 4
 #define __ATFILE_VISIBLE 0
 
 
@@ -583,7 +582,7 @@
 
 
 #define __MISC_VISIBLE 0
-# 299 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3 4
+# 299 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3 4
 #define __POSIX_VISIBLE 0
 
 
@@ -591,11 +590,11 @@
 
 
 #define __SVID_VISIBLE 0
-# 319 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3 4
+# 319 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3 4
 #define __XSI_VISIBLE 0
-# 330 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3 4
+# 330 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3 4
 #define __SSP_FORTIFY_LEVEL 0
-# 9 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 2 3 4
+# 9 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 2 3 4
 
 
 
@@ -603,7 +602,7 @@
 
 
 #define __EXP(x) __ ##x ##__
-# 26 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
+# 26 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
 #define __have_longlong64 1
 
 
@@ -620,7 +619,7 @@
 
 
 
-# 41 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
+# 41 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
 typedef signed char __int8_t;
 
 typedef unsigned char __uint8_t;
@@ -642,7 +641,7 @@ typedef short unsigned int __uint16_t;
 
 
 #define ___int16_t_defined 1
-# 77 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
+# 77 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
 typedef long int __int32_t;
 
 typedef long unsigned int __uint32_t;
@@ -650,7 +649,7 @@ typedef long unsigned int __uint32_t;
 
 
 #define ___int32_t_defined 1
-# 103 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
+# 103 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
 typedef long long int __int64_t;
 
 typedef long long unsigned int __uint64_t;
@@ -658,7 +657,7 @@ typedef long long unsigned int __uint64_t;
 
 
 #define ___int64_t_defined 1
-# 134 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
+# 134 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
 typedef signed char __int_least8_t;
 
 typedef unsigned char __uint_least8_t;
@@ -666,7 +665,7 @@ typedef unsigned char __uint_least8_t;
 
 
 #define ___int_least8_t_defined 1
-# 160 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
+# 160 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
 typedef short int __int_least16_t;
 
 typedef short unsigned int __uint_least16_t;
@@ -674,7 +673,7 @@ typedef short unsigned int __uint_least16_t;
 
 
 #define ___int_least16_t_defined 1
-# 182 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
+# 182 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
 typedef long int __int_least32_t;
 
 typedef long unsigned int __uint_least32_t;
@@ -682,7 +681,7 @@ typedef long unsigned int __uint_least32_t;
 
 
 #define ___int_least32_t_defined 1
-# 200 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
+# 200 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
 typedef long long int __int_least64_t;
 
 typedef long long unsigned int __uint_least64_t;
@@ -716,11 +715,11 @@ typedef long long unsigned int __uintmax_t;
 typedef int __intptr_t;
 
 typedef unsigned int __uintptr_t;
-# 244 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
+# 244 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3 4
 #undef __EXP
-# 13 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 2 3 4
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 1 3 4
-# 10 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
+# 13 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 2 3 4
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 1 3 4
+# 10 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
 #define _SYS__INTSUP_H 
 
 
@@ -728,7 +727,7 @@ typedef unsigned int __uintptr_t;
 
 
 #define __STDINT_EXP(x) __ ##x ##__
-# 35 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
+# 35 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
        
        
        
@@ -753,7 +752,7 @@ typedef unsigned int __uintptr_t;
 #define __int20__ +2
 #define int +2
 #define long +4
-# 67 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
+# 67 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
 #define _INTPTR_EQ_INT 
 
 
@@ -770,11 +769,11 @@ typedef unsigned int __uintptr_t;
 
 
 #define __INT8 "hh"
-# 93 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
+# 93 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
 #define __INT16 "h"
-# 104 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
+# 104 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
 #define __INT32 "l"
-# 113 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
+# 113 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
 #define __INT64 "ll"
 
 
@@ -783,7 +782,7 @@ typedef unsigned int __uintptr_t;
 
 
 #define __FAST8 
-# 129 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
+# 129 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
 #define __FAST16 
 
 
@@ -792,17 +791,17 @@ typedef unsigned int __uintptr_t;
 
 
 #define __FAST32 
-# 147 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
+# 147 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
 #define __FAST64 "ll"
 
 
 
 #define __LEAST8 "hh"
-# 162 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
+# 162 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
 #define __LEAST16 "h"
-# 173 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
+# 173 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
 #define __LEAST32 "l"
-# 182 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
+# 182 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
 #define __LEAST64 "ll"
 
 #undef signed
@@ -816,18 +815,18 @@ typedef unsigned int __uintptr_t;
        
        
        
-# 194 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
+# 194 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
 #undef __int20
        
-# 195 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
+# 195 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_intsup.h" 3 4
 #undef __int20__
        
        
-# 14 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 2 3 4
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_stdint.h" 1 3 4
-# 10 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_stdint.h" 3 4
+# 14 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 2 3 4
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_stdint.h" 1 3 4
+# 10 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_stdint.h" 3 4
 #define _SYS__STDINT_H 
-# 20 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_stdint.h" 3 4
+# 20 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_stdint.h" 3 4
 typedef __int8_t int8_t ;
 #define _INT8_T_DECLARED 
 
@@ -892,7 +891,7 @@ typedef __intptr_t intptr_t;
 
 typedef __uintptr_t uintptr_t;
 #define _UINTPTR_T_DECLARED 
-# 15 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 2 3 4
+# 15 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 2 3 4
 
 
 
@@ -920,7 +919,7 @@ typedef __uint_least32_t uint_least32_t;
 typedef __int_least64_t int_least64_t;
 typedef __uint_least64_t uint_least64_t;
 #define __int_least64_t_defined 1
-# 51 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 51 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
   typedef int int_fast8_t;
   typedef unsigned int uint_fast8_t;
 #define __int_fast8_t_defined 1
@@ -954,11 +953,11 @@ typedef __uint_least64_t uint_least64_t;
   typedef long long int int_fast64_t;
   typedef long long unsigned int uint_fast64_t;
 #define __int_fast64_t_defined 1
-# 128 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 128 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INTPTR_MIN (-__INTPTR_MAX__ - 1)
 #define INTPTR_MAX (__INTPTR_MAX__)
 #define UINTPTR_MAX (__UINTPTR_MAX__)
-# 152 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 152 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INT8_MIN (-__INT8_MAX__ - 1)
 #define INT8_MAX (__INT8_MAX__)
 #define UINT8_MAX (__UINT8_MAX__)
@@ -972,7 +971,7 @@ typedef __uint_least64_t uint_least64_t;
 #define INT_LEAST8_MIN (-__INT_LEAST8_MAX__ - 1)
 #define INT_LEAST8_MAX (__INT_LEAST8_MAX__)
 #define UINT_LEAST8_MAX (__UINT_LEAST8_MAX__)
-# 174 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 174 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INT16_MIN (-__INT16_MAX__ - 1)
 #define INT16_MAX (__INT16_MAX__)
 #define UINT16_MAX (__UINT16_MAX__)
@@ -986,39 +985,39 @@ typedef __uint_least64_t uint_least64_t;
 #define INT_LEAST16_MIN (-__INT_LEAST16_MAX__ - 1)
 #define INT_LEAST16_MAX (__INT_LEAST16_MAX__)
 #define UINT_LEAST16_MAX (__UINT_LEAST16_MAX__)
-# 196 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 196 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INT32_MIN (-__INT32_MAX__ - 1)
 #define INT32_MAX (__INT32_MAX__)
 #define UINT32_MAX (__UINT32_MAX__)
-# 212 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 212 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INT_LEAST32_MIN (-__INT_LEAST32_MAX__ - 1)
 #define INT_LEAST32_MAX (__INT_LEAST32_MAX__)
 #define UINT_LEAST32_MAX (__UINT_LEAST32_MAX__)
-# 230 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 230 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INT64_MIN (-__INT64_MAX__ - 1)
 #define INT64_MAX (__INT64_MAX__)
 #define UINT64_MAX (__UINT64_MAX__)
-# 246 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 246 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INT_LEAST64_MIN (-__INT_LEAST64_MAX__ - 1)
 #define INT_LEAST64_MAX (__INT_LEAST64_MAX__)
 #define UINT_LEAST64_MAX (__UINT_LEAST64_MAX__)
-# 262 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 262 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INT_FAST8_MIN (-__INT_FAST8_MAX__ - 1)
 #define INT_FAST8_MAX (__INT_FAST8_MAX__)
 #define UINT_FAST8_MAX (__UINT_FAST8_MAX__)
-# 278 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 278 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INT_FAST16_MIN (-__INT_FAST16_MAX__ - 1)
 #define INT_FAST16_MAX (__INT_FAST16_MAX__)
 #define UINT_FAST16_MAX (__UINT_FAST16_MAX__)
-# 294 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 294 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INT_FAST32_MIN (-__INT_FAST32_MAX__ - 1)
 #define INT_FAST32_MAX (__INT_FAST32_MAX__)
 #define UINT_FAST32_MAX (__UINT_FAST32_MAX__)
-# 310 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 310 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INT_FAST64_MIN (-__INT_FAST64_MAX__ - 1)
 #define INT_FAST64_MAX (__INT_FAST64_MAX__)
 #define UINT_FAST64_MAX (__UINT_FAST64_MAX__)
-# 326 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 326 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INTMAX_MAX (__INTMAX_MAX__)
 #define INTMAX_MIN (-INTMAX_MAX - 1)
 
@@ -1057,9 +1056,9 @@ typedef __uint_least64_t uint_least64_t;
 
 
 #define WCHAR_MIN (__WCHAR_MIN__)
-# 374 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 374 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define WCHAR_MAX (__WCHAR_MAX__)
-# 384 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 384 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define WINT_MAX (__WINT_MAX__)
 
 
@@ -1074,26 +1073,26 @@ typedef __uint_least64_t uint_least64_t;
 
 #define INT8_C(x) __INT8_C(x)
 #define UINT8_C(x) __UINT8_C(x)
-# 408 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 408 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INT16_C(x) __INT16_C(x)
 #define UINT16_C(x) __UINT16_C(x)
-# 420 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 420 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INT32_C(x) __INT32_C(x)
 #define UINT32_C(x) __UINT32_C(x)
-# 433 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 433 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INT64_C(x) __INT64_C(x)
 #define UINT64_C(x) __UINT64_C(x)
-# 449 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
+# 449 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdint.h" 3 4
 #define INTMAX_C(x) __INTMAX_C(x)
 #define UINTMAX_C(x) __UINTMAX_C(x)
-# 10 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdint.h" 2 3 4
+# 10 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdint.h" 2 3 4
 
 
 
 #define _GCC_WRAP_STDINT_H 
-# 21 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 2
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdbool.h" 1 3 4
-# 29 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdbool.h" 3 4
+# 21 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 2
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdbool.h" 1 3 4
+# 29 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdbool.h" 3 4
 #define _STDBOOL_H 
 
 
@@ -1101,16 +1100,16 @@ typedef __uint_least64_t uint_least64_t;
 #define bool _Bool
 #define true 1
 #define false 0
-# 52 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdbool.h" 3 4
+# 52 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdbool.h" 3 4
 #define __bool_true_false_are_defined 1
-# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 2
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 1 3 4
-# 39 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 2
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 1 3 4
+# 39 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #define _STDDEF_H 
 #define _STDDEF_H_ 
 
 #define _ANSI_STDDEF_H 
-# 131 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 131 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #define _PTRDIFF_T 
 #define _T_PTRDIFF_ 
 #define _T_PTRDIFF 
@@ -1124,9 +1123,9 @@ typedef __uint_least64_t uint_least64_t;
 
 
 typedef int ptrdiff_t;
-# 155 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 155 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef __need_ptrdiff_t
-# 181 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 181 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #define __size_t__ 
 #define __SIZE_T__ 
 #define _SIZE_T 
@@ -1156,9 +1155,9 @@ typedef int ptrdiff_t;
 
 
 typedef unsigned int size_t;
-# 231 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 231 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef __need_size_t
-# 260 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 260 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #define __wchar_t__ 
 #define __WCHAR_T__ 
 #define _WCHAR_T 
@@ -1174,13 +1173,13 @@ typedef unsigned int size_t;
 #define __INT_WCHAR_T_H 
 #define _GCC_WCHAR_T 
 #define _WCHAR_T_DECLARED 
-# 287 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 287 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef _BSD_WCHAR_T_
-# 321 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 321 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 typedef unsigned int wchar_t;
-# 340 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 340 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef __need_wchar_t
-# 390 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 390 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef NULL
 
 
@@ -1198,10 +1197,10 @@ typedef unsigned int wchar_t;
 
 
 #define offsetof(TYPE,MEMBER) __builtin_offsetof (TYPE, MEMBER)
-# 23 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 2
+# 23 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 2
 
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/timer.h" 1
-# 24 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/timer.h"
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/timer.h" 1
+# 24 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/timer.h"
 #define __TIMER_H__ 
 
 
@@ -1209,18 +1208,18 @@ typedef unsigned int wchar_t;
 
 
 
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h" 1
-# 44 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h"
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h" 1
+# 44 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h"
 #define UTIL_TIME_SERVER_H__ 
-# 58 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h"
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 1 3 4
-# 59 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h" 2
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_compiler.h" 1
-# 26 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_compiler.h"
+# 58 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h"
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 1 3 4
+# 59 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h" 2
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_compiler.h" 1
+# 26 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_compiler.h"
 #define __CMSIS_COMPILER_H 
-# 54 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_compiler.h"
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h" 1
-# 26 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 54 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_compiler.h"
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h" 1
+# 26 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 #define __CMSIS_GCC_H 
 
 
@@ -1228,7 +1227,7 @@ typedef unsigned int wchar_t;
 #pragma GCC diagnostic ignored "-Wsign-conversion"
 #pragma GCC diagnostic ignored "-Wconversion"
 #pragma GCC diagnostic ignored "-Wunused-parameter"
-# 41 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 41 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 #define __ASM __asm
 
 
@@ -1263,7 +1262,7 @@ typedef unsigned int wchar_t;
 #pragma GCC diagnostic ignored "-Wpacked"
 #pragma GCC diagnostic ignored "-Wattributes"
   
-# 74 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 74 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
  struct __attribute__((packed)) T_UINT32 { uint32_t v; };
 #pragma GCC diagnostic pop
 #define __UNALIGNED_UINT32(x) (((struct T_UINT32 *)(x))->v)
@@ -1308,7 +1307,7 @@ typedef unsigned int wchar_t;
 
 
 #define __COMPILER_BARRIER() __ASM volatile("":::"memory")
-# 131 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 131 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline __attribute__((__noreturn__)) void __cmsis_start(void)
 {
   extern void _start(void) __attribute__((__noreturn__));
@@ -1361,7 +1360,7 @@ __attribute__((always_inline)) static inline __attribute__((__noreturn__)) void 
 
 
 #define __VECTOR_TABLE_ATTRIBUTE __attribute((used, section(".vectors")))
-# 196 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 196 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline void __enable_irq(void)
 {
   __asm volatile ("cpsie i" : : : "memory");
@@ -1391,12 +1390,12 @@ __attribute__((always_inline)) static inline uint32_t __get_CONTROL(void)
   __asm volatile ("MRS %0, control" : "=r" (result) );
   return(result);
 }
-# 248 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 248 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline void __set_CONTROL(uint32_t control)
 {
   __asm volatile ("MSR control, %0" : : "r" (control) : "memory");
 }
-# 272 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 272 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __get_IPSR(void)
 {
   uint32_t result;
@@ -1446,12 +1445,12 @@ __attribute__((always_inline)) static inline uint32_t __get_PSP(void)
   __asm volatile ("MRS %0, psp" : "=r" (result) );
   return(result);
 }
-# 344 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 344 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline void __set_PSP(uint32_t topOfProcStack)
 {
   __asm volatile ("MSR psp, %0" : : "r" (topOfProcStack) : );
 }
-# 368 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 368 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __get_MSP(void)
 {
   uint32_t result;
@@ -1459,12 +1458,12 @@ __attribute__((always_inline)) static inline uint32_t __get_MSP(void)
   __asm volatile ("MRS %0, msp" : "=r" (result) );
   return(result);
 }
-# 398 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 398 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline void __set_MSP(uint32_t topOfMainStack)
 {
   __asm volatile ("MSR msp, %0" : : "r" (topOfMainStack) : );
 }
-# 449 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 449 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __get_PRIMASK(void)
 {
   uint32_t result;
@@ -1472,12 +1471,12 @@ __attribute__((always_inline)) static inline uint32_t __get_PRIMASK(void)
   __asm volatile ("MRS %0, primask" : "=r" (result) :: "memory");
   return(result);
 }
-# 479 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 479 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline void __set_PRIMASK(uint32_t priMask)
 {
   __asm volatile ("MSR primask, %0" : : "r" (priMask) : "memory");
 }
-# 506 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 506 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline void __enable_fault_irq(void)
 {
   __asm volatile ("cpsie f" : : : "memory");
@@ -1507,12 +1506,12 @@ __attribute__((always_inline)) static inline uint32_t __get_BASEPRI(void)
   __asm volatile ("MRS %0, basepri" : "=r" (result) );
   return(result);
 }
-# 558 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 558 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline void __set_BASEPRI(uint32_t basePri)
 {
   __asm volatile ("MSR basepri, %0" : : "r" (basePri) : "memory");
 }
-# 583 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 583 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline void __set_BASEPRI_MAX(uint32_t basePri)
 {
   __asm volatile ("MSR basepri_max, %0" : : "r" (basePri) : "memory");
@@ -1531,15 +1530,15 @@ __attribute__((always_inline)) static inline uint32_t __get_FAULTMASK(void)
   __asm volatile ("MRS %0, faultmask" : "=r" (result) );
   return(result);
 }
-# 624 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 624 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline void __set_FAULTMASK(uint32_t faultMask)
 {
   __asm volatile ("MSR faultmask, %0" : : "r" (faultMask) : "memory");
 }
-# 833 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 833 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __get_FPSCR(void)
 {
-# 849 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 849 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
   return(0U);
 
 }
@@ -1552,11 +1551,11 @@ __attribute__((always_inline)) static inline uint32_t __get_FPSCR(void)
 
 __attribute__((always_inline)) static inline void __set_FPSCR(uint32_t fpscr)
 {
-# 872 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 872 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
   (void)fpscr;
 
 }
-# 894 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 894 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 #define __CMSIS_GCC_OUT_REG(r) "=r" (r)
 #define __CMSIS_GCC_RW_REG(r) "+r" (r)
 #define __CMSIS_GCC_USE_REG(r) "r" (r)
@@ -1588,7 +1587,7 @@ __attribute__((always_inline)) static inline void __set_FPSCR(uint32_t fpscr)
 
 
 #define __SEV() __ASM volatile ("sev")
-# 933 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 933 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline void __ISB(void)
 {
   __asm volatile ("isb 0xF":::"memory");
@@ -1615,7 +1614,7 @@ __attribute__((always_inline)) static inline void __DMB(void)
 {
   __asm volatile ("dmb 0xF":::"memory");
 }
-# 967 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 967 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __REV(uint32_t value)
 {
 
@@ -1627,7 +1626,7 @@ __attribute__((always_inline)) static inline uint32_t __REV(uint32_t value)
 
 
 }
-# 986 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 986 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __REV16(uint32_t value)
 {
   uint32_t result;
@@ -1635,7 +1634,7 @@ __attribute__((always_inline)) static inline uint32_t __REV16(uint32_t value)
   __asm volatile ("rev16 %0, %1" : "=r" (result) : "r" (value) );
   return result;
 }
-# 1001 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1001 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline int16_t __REVSH(int16_t value)
 {
 
@@ -1647,7 +1646,7 @@ __attribute__((always_inline)) static inline int16_t __REVSH(int16_t value)
 
 
 }
-# 1021 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1021 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __ROR(uint32_t op1, uint32_t op2)
 {
   op2 %= 32U;
@@ -1657,9 +1656,9 @@ __attribute__((always_inline)) static inline uint32_t __ROR(uint32_t op1, uint32
   }
   return (op1 >> op2) | (op1 << (32U - op2));
 }
-# 1039 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1039 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 #define __BKPT(value) __ASM volatile ("bkpt "#value)
-# 1048 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1048 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __RBIT(uint32_t value)
 {
   uint32_t result;
@@ -1668,20 +1667,20 @@ __attribute__((always_inline)) static inline uint32_t __RBIT(uint32_t value)
 
 
    __asm volatile ("rbit %0, %1" : "=r" (result) : "r" (value) );
-# 1068 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1068 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
   return result;
 }
-# 1078 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1078 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint8_t __CLZ(uint32_t value)
 {
-# 1089 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1089 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
   if (value == 0U)
   {
     return 32U;
   }
   return __builtin_clz(value);
 }
-# 1107 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1107 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint8_t __LDREXB(volatile uint8_t *addr)
 {
     uint32_t result;
@@ -1696,7 +1695,7 @@ __attribute__((always_inline)) static inline uint8_t __LDREXB(volatile uint8_t *
 
    return ((uint8_t) result);
 }
-# 1129 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1129 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint16_t __LDREXH(volatile uint16_t *addr)
 {
     uint32_t result;
@@ -1711,7 +1710,7 @@ __attribute__((always_inline)) static inline uint16_t __LDREXH(volatile uint16_t
 
    return ((uint16_t) result);
 }
-# 1151 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1151 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __LDREXW(volatile uint32_t *addr)
 {
     uint32_t result;
@@ -1719,7 +1718,7 @@ __attribute__((always_inline)) static inline uint32_t __LDREXW(volatile uint32_t
    __asm volatile ("ldrex %0, %1" : "=r" (result) : "Q" (*addr) );
    return(result);
 }
-# 1168 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1168 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __STREXB(uint8_t value, volatile uint8_t *addr)
 {
    uint32_t result;
@@ -1727,7 +1726,7 @@ __attribute__((always_inline)) static inline uint32_t __STREXB(uint8_t value, vo
    __asm volatile ("strexb %0, %2, %1" : "=&r" (result), "=Q" (*addr) : "r" ((uint32_t)value) );
    return(result);
 }
-# 1185 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1185 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __STREXH(uint16_t value, volatile uint16_t *addr)
 {
    uint32_t result;
@@ -1735,7 +1734,7 @@ __attribute__((always_inline)) static inline uint32_t __STREXH(uint16_t value, v
    __asm volatile ("strexh %0, %2, %1" : "=&r" (result), "=Q" (*addr) : "r" ((uint32_t)value) );
    return(result);
 }
-# 1202 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1202 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __STREXW(uint32_t value, volatile uint32_t *addr)
 {
    uint32_t result;
@@ -1753,11 +1752,11 @@ __attribute__((always_inline)) static inline void __CLREX(void)
 {
   __asm volatile ("clrex" ::: "memory");
 }
-# 1236 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1236 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 #define __SSAT(ARG1,ARG2) __extension__ ({ int32_t __RES, __ARG1 = (ARG1); __ASM ("ssat %0, %1, %2" : "=r" (__RES) : "I" (ARG2), "r" (__ARG1) ); __RES; })
-# 1252 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1252 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 #define __USAT(ARG1,ARG2) __extension__ ({ uint32_t __RES, __ARG1 = (ARG1); __ASM ("usat %0, %1, %2" : "=r" (__RES) : "I" (ARG2), "r" (__ARG1) ); __RES; })
-# 1268 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1268 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __RRX(uint32_t value)
 {
   uint32_t result;
@@ -1765,7 +1764,7 @@ __attribute__((always_inline)) static inline uint32_t __RRX(uint32_t value)
   __asm volatile ("rrx %0, %1" : "=r" (result) : "r" (value) );
   return(result);
 }
-# 1283 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1283 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint8_t __LDRBT(volatile uint8_t *ptr)
 {
     uint32_t result;
@@ -1780,7 +1779,7 @@ __attribute__((always_inline)) static inline uint8_t __LDRBT(volatile uint8_t *p
 
    return ((uint8_t) result);
 }
-# 1305 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1305 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint16_t __LDRHT(volatile uint16_t *ptr)
 {
     uint32_t result;
@@ -1795,7 +1794,7 @@ __attribute__((always_inline)) static inline uint16_t __LDRHT(volatile uint16_t 
 
    return ((uint16_t) result);
 }
-# 1327 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1327 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __LDRT(volatile uint32_t *ptr)
 {
     uint32_t result;
@@ -1803,22 +1802,22 @@ __attribute__((always_inline)) static inline uint32_t __LDRT(volatile uint32_t *
    __asm volatile ("ldrt %0, %1" : "=r" (result) : "Q" (*ptr) );
    return(result);
 }
-# 1342 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1342 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline void __STRBT(uint8_t value, volatile uint8_t *ptr)
 {
    __asm volatile ("strbt %1, %0" : "=Q" (*ptr) : "r" ((uint32_t)value) );
 }
-# 1354 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1354 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline void __STRHT(uint16_t value, volatile uint16_t *ptr)
 {
    __asm volatile ("strht %1, %0" : "=Q" (*ptr) : "r" ((uint32_t)value) );
 }
-# 1366 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1366 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline void __STRT(uint32_t value, volatile uint32_t *ptr)
 {
    __asm volatile ("strt %1, %0" : "=Q" (*ptr) : "r" (value) );
 }
-# 1621 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 1621 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 __attribute__((always_inline)) static inline uint32_t __SADD8(uint32_t op1, uint32_t op2)
 {
   uint32_t result;
@@ -2326,7 +2325,7 @@ __attribute__((always_inline)) static inline int32_t __QSUB( int32_t op1, int32_
   __asm volatile ("qsub %0, %1, %2" : "=r" (result) : "r" (op1), "r" (op2) );
   return(result);
 }
-# 2148 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
+# 2148 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h"
 #define __PKHBT(ARG1,ARG2,ARG3) ( ((((uint32_t)(ARG1)) ) & 0x0000FFFFUL) | ((((uint32_t)(ARG2)) << (ARG3)) & 0xFFFF0000UL) )
 
 
@@ -2346,14 +2345,14 @@ __attribute__((always_inline)) static inline int32_t __SMMLA (int32_t op1, int32
 
 
 #pragma GCC diagnostic pop
-# 55 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_compiler.h" 2
-# 60 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h" 2
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/utilities_conf.h" 1
-# 24 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/utilities_conf.h"
+# 55 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_compiler.h" 2
+# 60 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h" 2
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/utilities_conf.h" 1
+# 24 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/utilities_conf.h"
 #define __UTILITIES_CONF_H__ 
-# 34 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/utilities_conf.h"
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_mem.h" 1
-# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_mem.h"
+# 34 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/utilities_conf.h"
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_mem.h" 1
+# 22 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_mem.h"
 #define __STM32_MEM_H__ 
 
 
@@ -2362,8 +2361,8 @@ __attribute__((always_inline)) static inline int32_t __SMMLA (int32_t op1, int32
 
 
 
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/utilities_conf.h" 1
-# 31 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_mem.h" 2
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/utilities_conf.h" 1
+# 31 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_mem.h" 2
 
 
 
@@ -2371,16 +2370,16 @@ __attribute__((always_inline)) static inline int32_t __SMMLA (int32_t op1, int32
 
 #define UTIL_MEM_PLACE_IN_SECTION(__x__) UTIL_PLACE_IN_SECTION( __x__ )
 #define UTIL_MEM_ALIGN ALIGN
-# 47 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_mem.h"
+# 47 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_mem.h"
 void UTIL_MEM_cpy_8( void *dst, const void *src, uint16_t size );
-# 56 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_mem.h"
+# 56 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_mem.h"
 void UTIL_MEM_cpyr_8( void *dst, const void *src, uint16_t size );
-# 65 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_mem.h"
+# 65 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_mem.h"
 void UTIL_MEM_set_8( void *dst, uint8_t value, uint16_t size );
-# 35 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/utilities_conf.h" 2
+# 35 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/utilities_conf.h" 2
 
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h" 1
-# 21 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h"
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h" 1
+# 21 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h"
 #define __STM32_TINY_VSNPRINTF_H__ 
 
 
@@ -2388,8 +2387,8 @@ void UTIL_MEM_set_8( void *dst, uint8_t value, uint16_t size );
 
 
 
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdarg.h" 1 3 4
-# 31 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdarg.h" 3 4
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdarg.h" 1 3 4
+# 31 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdarg.h" 3 4
 #define _STDARG_H 
 #define _ANSI_STDARG_H_ 
 
@@ -2400,7 +2399,7 @@ void UTIL_MEM_set_8( void *dst, uint8_t value, uint16_t size );
 
 #define __GNUC_VA_LIST 
 
-# 40 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdarg.h" 3 4
+# 40 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdarg.h" 3 4
 typedef __builtin_va_list __gnuc_va_list;
 
 
@@ -2416,7 +2415,7 @@ typedef __builtin_va_list __gnuc_va_list;
 #define va_copy(d,s) __builtin_va_copy(d,s)
 
 #define __va_copy(d,s) __builtin_va_copy(d,s)
-# 99 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdarg.h" 3 4
+# 99 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdarg.h" 3 4
 typedef __gnuc_va_list va_list;
 
 
@@ -2436,8 +2435,8 @@ typedef __gnuc_va_list va_list;
 
 
 #define __va_list__ 
-# 29 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h" 2
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 1 3
+# 29 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h" 2
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 1 3
 
 
 
@@ -2447,7 +2446,7 @@ typedef __gnuc_va_list va_list;
 
 #define _STRING_H_ 
 
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_ansi.h" 1 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_ansi.h" 1 3
 
 
 
@@ -2457,7 +2456,7 @@ typedef __gnuc_va_list va_list;
 
 #define _ANSIDECL_H_ 
 
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/newlib.h" 1 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/newlib.h" 1 3
 
 
 
@@ -2466,7 +2465,7 @@ typedef __gnuc_va_list va_list;
 
 
 #define __NEWLIB_H__ 1
-# 18 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/newlib.h" 3
+# 18 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/newlib.h" 3
 #define _WANT_IO_C99_FORMATS 1
 
 
@@ -2474,7 +2473,7 @@ typedef __gnuc_va_list va_list;
 
 
 #define _WANT_REGISTER_FINI 1
-# 37 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/newlib.h" 3
+# 37 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/newlib.h" 3
 #define _REENT_CHECK_VERIFY 1
 
 
@@ -2482,7 +2481,7 @@ typedef __gnuc_va_list va_list;
 
 
 #define _MB_LEN_MAX 1
-# 53 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/newlib.h" 3
+# 53 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/newlib.h" 3
 #define HAVE_INITFINI_ARRAY 1
 
 
@@ -2509,23 +2508,23 @@ typedef __gnuc_va_list va_list;
 
 
 #define _UNBUF_STREAM_OPT 1
-# 95 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/newlib.h" 3
+# 95 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/newlib.h" 3
 #define _RETARGETABLE_LOCKING 1
-# 11 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_ansi.h" 2 3
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/config.h" 1 3
+# 11 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_ansi.h" 2 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/config.h" 1 3
 
 #define __SYS_CONFIG_H__ 
 
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/ieeefp.h" 1 3
-# 77 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/ieeefp.h" 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/ieeefp.h" 1 3
+# 77 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/ieeefp.h" 3
 #define __IEEE_LITTLE_ENDIAN 
-# 473 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/ieeefp.h" 3
+# 473 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/ieeefp.h" 3
 #define __OBSOLETE_MATH_DEFAULT 1
 
 
 #define __OBSOLETE_MATH __OBSOLETE_MATH_DEFAULT
-# 5 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/config.h" 2 3
-# 224 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/config.h" 3
+# 5 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/config.h" 2 3
+# 224 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/config.h" 3
 #define _POINTER_INT long
 
 
@@ -2537,7 +2536,7 @@ typedef __gnuc_va_list va_list;
 
 
 #define __RAND_MAX 0x7fffffff
-# 250 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/config.h" 3
+# 250 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/config.h" 3
 #define __EXPORT 
 
 
@@ -2556,8 +2555,8 @@ typedef __gnuc_va_list va_list;
 
 
 #define _READ_WRITE_BUFSIZE_TYPE int
-# 12 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_ansi.h" 2 3
-# 31 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_ansi.h" 3
+# 12 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_ansi.h" 2 3
+# 31 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_ansi.h" 3
 #define _BEGIN_STD_C 
 #define _END_STD_C 
 #define _NOTHROW 
@@ -2571,34 +2570,34 @@ typedef __gnuc_va_list va_list;
 
 
 #define _ATTRIBUTE(attrs) __attribute__ (attrs)
-# 69 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_ansi.h" 3
+# 69 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_ansi.h" 3
 #define _ELIDABLE_INLINE static __inline__
 
 
 
 #define _NOINLINE __attribute__ ((__noinline__))
 #define _NOINLINE_STATIC _NOINLINE static
-# 11 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 2 3
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 1 3
-# 11 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
+# 11 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 2 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 1 3
+# 11 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
 #define _SYS_REENT_H_ 
 
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_ansi.h" 1 3
-# 14 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 2 3
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 1 3 4
-# 15 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 2 3
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 1 3
-# 20 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_ansi.h" 1 3
+# 14 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 2 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 1 3 4
+# 15 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 2 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 1 3
+# 20 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 3
 #define _SYS__TYPES_H 
 
 #define __need_size_t 
 #define __need_wint_t 
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 1 3 4
-# 155 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 1 3 4
+# 155 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef __need_ptrdiff_t
-# 231 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 231 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef __need_size_t
-# 340 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 340 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef __need_wchar_t
 
 
@@ -2612,7 +2611,7 @@ typedef __gnuc_va_list va_list;
 typedef unsigned int wint_t;
 
 #undef __need_wint_t
-# 390 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 390 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef NULL
 
 
@@ -2630,17 +2629,17 @@ typedef unsigned int wint_t;
 
 
 #define offsetof(TYPE,MEMBER) __builtin_offsetof (TYPE, MEMBER)
-# 25 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 2 3
+# 25 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 2 3
 
 
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_types.h" 1 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_types.h" 1 3
 
 
 
 
 
 #define _MACHINE__TYPES_H 
-# 28 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 2 3
+# 28 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 2 3
 
 
 typedef long __blkcnt_t;
@@ -2689,7 +2688,7 @@ typedef __uint32_t __id_t;
 
 
 typedef unsigned short __ino_t;
-# 90 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 3
+# 90 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 3
 typedef __uint32_t __mode_t;
 
 
@@ -2717,17 +2716,17 @@ typedef long __key_t;
 
 
 typedef long _fpos_t;
-# 127 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 3
+# 127 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 3
 #undef __size_t
 
 
 
 typedef unsigned int __size_t;
-# 146 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 3
+# 146 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 3
 #define unsigned signed
 typedef signed int _ssize_t;
 #undef unsigned
-# 158 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 3
+# 158 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 3
 typedef _ssize_t __ssize_t;
 
 
@@ -2790,7 +2789,7 @@ typedef unsigned long __useconds_t;
 
 
 typedef __builtin_va_list __va_list;
-# 16 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 2 3
+# 16 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 2 3
 
 #define _NULL 0
 
@@ -2798,11 +2797,11 @@ typedef __builtin_va_list __va_list;
 
 #define __Long long
 typedef unsigned long __ULong;
-# 34 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/lock.h" 1 3
+# 34 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/lock.h" 1 3
 
 #define __SYS_LOCK_H__ 
-# 33 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/lock.h" 3
+# 33 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/lock.h" 3
 struct __lock;
 typedef struct __lock * _LOCK_T;
 #define _LOCK_RECURSIVE_T _LOCK_T
@@ -2832,7 +2831,7 @@ extern void __retarget_lock_release(_LOCK_T lock);
 #define __lock_release(lock) __retarget_lock_release(lock)
 extern void __retarget_lock_release_recursive(_LOCK_T lock);
 #define __lock_release_recursive(lock) __retarget_lock_release_recursive(lock)
-# 35 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 2 3
+# 35 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 2 3
 typedef _LOCK_T _flock_t;
 
 
@@ -2886,7 +2885,7 @@ struct _on_exit_args {
 
  __ULong _is_cxa;
 };
-# 98 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
+# 98 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
 struct _atexit {
  struct _atexit *_next;
  int _ind;
@@ -2901,12 +2900,12 @@ struct _atexit {
 
 
 #define _REENT_INIT_ATEXIT _NULL, _ATEXIT_INIT,
-# 122 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
+# 122 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
 struct __sbuf {
  unsigned char *_base;
  int _size;
 };
-# 183 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
+# 183 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
 #define _REENT_SMALL_CHECK_INIT(ptr) 
 
 
@@ -2960,7 +2959,7 @@ struct __sFILE {
   _mbstate_t _mbstate;
   int _flags2;
 };
-# 292 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
+# 292 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
 typedef struct __sFILE __FILE;
 
 
@@ -2971,7 +2970,7 @@ struct _glue
   int _niobs;
   __FILE *_iobs;
 };
-# 317 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
+# 317 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
 #define _RAND48_SEED_0 (0x330e)
 #define _RAND48_SEED_1 (0xabcd)
 #define _RAND48_SEED_2 (0x1234)
@@ -2993,7 +2992,7 @@ struct _rand48 {
 #define _REENT_EMERGENCY_SIZE 25
 #define _REENT_ASCTIME_SIZE 26
 #define _REENT_SIGNAL_SIZE 24
-# 613 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
+# 613 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
 struct _reent
 {
   int _errno;
@@ -3085,9 +3084,9 @@ struct _reent
 
 
 #define _REENT_INIT(var) { 0, _REENT_STDIO_STREAM(&(var), 0), _REENT_STDIO_STREAM(&(var), 1), _REENT_STDIO_STREAM(&(var), 2), 0, "", 0, _NULL, 0, _NULL, _NULL, 0, _NULL, _NULL, 0, _NULL, { { 0, _NULL, "", {0, 0, 0, 0, 0, 0, 0, 0, 0}, 0, 1, { {_RAND48_SEED_0, _RAND48_SEED_1, _RAND48_SEED_2}, {_RAND48_MULT_0, _RAND48_MULT_1, _RAND48_MULT_2}, _RAND48_ADD }, {0, {0}}, {0, {0}}, {0, {0}}, "", "", 0, {0, {0}}, {0, {0}}, {0, {0}}, {0, {0}}, {0, {0}} } }, _REENT_INIT_ATEXIT _NULL, {_NULL, 0, _NULL} }
-# 751 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
+# 751 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
 #define _REENT_INIT_PTR_ZEROED(var) { (var)->_stdin = _REENT_STDIO_STREAM(var, 0); (var)->_stdout = _REENT_STDIO_STREAM(var, 1); (var)->_stderr = _REENT_STDIO_STREAM(var, 2); (var)->_new._reent._rand_next = 1; (var)->_new._reent._r48._seed[0] = _RAND48_SEED_0; (var)->_new._reent._r48._seed[1] = _RAND48_SEED_1; (var)->_new._reent._r48._seed[2] = _RAND48_SEED_2; (var)->_new._reent._r48._mult[0] = _RAND48_MULT_0; (var)->_new._reent._r48._mult[1] = _RAND48_MULT_1; (var)->_new._reent._r48._mult[2] = _RAND48_MULT_2; (var)->_new._reent._r48._add = _RAND48_ADD; }
-# 765 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
+# 765 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
 #define _REENT_CHECK_RAND48(ptr) 
 #define _REENT_CHECK_MP(ptr) 
 #define _REENT_CHECK_TM(ptr) 
@@ -3146,7 +3145,7 @@ extern struct _reent *_impure_ptr ;
 extern struct _reent *const _global_impure_ptr ;
 
 void _reclaim_reent (struct _reent *);
-# 832 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
+# 832 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
 #define _REENT _impure_ptr
 
 
@@ -3157,15 +3156,15 @@ void _reclaim_reent (struct _reent *);
 
 
 #define _GLOBAL_ATEXIT (_GLOBAL_REENT->_atexit)
-# 12 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 2 3
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 1 3
-# 43 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 12 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 2 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 1 3
+# 43 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define _SYS_CDEFS_H_ 
 
 
 
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 1 3 4
-# 48 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 2 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 1 3 4
+# 48 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 2 3
 
 #define __PMT(args) args
 #define __DOTS , ...
@@ -3187,15 +3186,15 @@ void _reclaim_reent (struct _reent *);
 #define __bounded 
 #define __unbounded 
 #define __ptrvalue 
-# 78 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 78 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __has_extension __has_feature
 
 
 #define __has_feature(x) 0
-# 94 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 94 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __BEGIN_DECLS 
 #define __END_DECLS 
-# 107 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 107 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __GNUCLIKE_ASM 3
 #define __GNUCLIKE_MATH_BUILTIN_CONSTANTS 
 
@@ -3250,7 +3249,7 @@ void _reclaim_reent (struct _reent *);
 #define __CC_SUPPORTS_VARADIC_XXX 1
 
 #define __CC_SUPPORTS_DYNAMIC_ARRAY_INIT 1
-# 177 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 177 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __P(protos) protos
 #define __CONCAT1(x,y) x ## y
 #define __CONCAT(x,y) __CONCAT1(x,y)
@@ -3260,9 +3259,9 @@ void _reclaim_reent (struct _reent *);
 #define __const const
 #define __signed signed
 #define __volatile volatile
-# 230 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 230 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __weak_symbol __attribute__((__weak__))
-# 243 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 243 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __dead2 __attribute__((__noreturn__))
 #define __pure2 __attribute__((__const__))
 #define __unused __attribute__((__unused__))
@@ -3280,7 +3279,7 @@ void _reclaim_reent (struct _reent *);
 
 
 #define __alloc_align(x) __attribute__((__alloc_align__(x)))
-# 280 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 280 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define _Alignas(x) __aligned(x)
 
 
@@ -3289,7 +3288,7 @@ void _reclaim_reent (struct _reent *);
 
 
 #define _Alignof(x) __alignof(x)
-# 296 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 296 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define _Atomic(T) struct { T volatile __val; }
 
 
@@ -3297,11 +3296,11 @@ void _reclaim_reent (struct _reent *);
 
 
 #define _Noreturn __dead2
-# 331 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 331 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define _Thread_local __thread
-# 351 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 351 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __generic(expr,t,yes,no) __builtin_choose_expr( __builtin_types_compatible_p(__typeof(expr), t), yes, no)
-# 366 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 366 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __min_size(x) static (x)
 
 
@@ -3351,9 +3350,9 @@ void _reclaim_reent (struct _reent *);
 
 
 #define __unreachable() __builtin_unreachable()
-# 434 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 434 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __restrict restrict
-# 467 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 467 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __predict_true(exp) __builtin_expect((exp), 1)
 #define __predict_false(exp) __builtin_expect((exp), 0)
 
@@ -3367,12 +3366,12 @@ void _reclaim_reent (struct _reent *);
 
 
 #define __hidden __attribute__((__visibility__("hidden")))
-# 489 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 489 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __offsetof(type,field) offsetof(type, field)
 #define __rangeof(type,start,end) (__offsetof(type, end) - __offsetof(type, start))
-# 500 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 500 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __containerof(x,s,m) ({ const volatile __typeof(((s *)0)->m) *__x = (x); __DEQUALIFY(s *, (const volatile char *)__x - __offsetof(s, m));})
-# 522 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 522 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __printflike(fmtarg,firstvararg) __attribute__((__format__ (__printf__, fmtarg, firstvararg)))
 
 #define __scanflike(fmtarg,firstvararg) __attribute__((__format__ (__scanf__, fmtarg, firstvararg)))
@@ -3381,7 +3380,7 @@ void _reclaim_reent (struct _reent *);
 #define __strfmonlike(fmtarg,firstvararg) __attribute__((__format__ (__strfmon__, fmtarg, firstvararg)))
 
 #define __strftimelike(fmtarg,firstvararg) __attribute__((__format__ (__strftime__, fmtarg, firstvararg)))
-# 539 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 539 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __printf0like(fmtarg,firstvararg) 
 
 
@@ -3402,7 +3401,7 @@ void _reclaim_reent (struct _reent *);
 #define __sym_compat(sym,impl,verid) __asm__(".symver " #impl ", " #sym "@" #verid)
 
 #define __sym_default(sym,impl,verid) __asm__(".symver " #impl ", " #sym "@@" #verid)
-# 593 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 593 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __FBSDID(s) struct __hack
 
 
@@ -3443,10 +3442,10 @@ void _reclaim_reent (struct _reent *);
 #define _Null_unspecified 
 #define __NULLABILITY_PRAGMA_PUSH 
 #define __NULLABILITY_PRAGMA_POP 
-# 653 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 653 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __arg_type_tag(arg_kind,arg_idx,type_tag_idx) 
 #define __datatype_type_tag(kind,type) 
-# 672 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 672 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __lock_annotate(x) 
 
 
@@ -3490,19 +3489,19 @@ void _reclaim_reent (struct _reent *);
 
 #define __guarded_by(x) __lock_annotate(guarded_by(x))
 #define __pt_guarded_by(x) __lock_annotate(pt_guarded_by(x))
-# 13 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 2 3
+# 13 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 2 3
 
 
 #define __need_size_t 
 #define __need_NULL 
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 1 3 4
-# 155 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 1 3 4
+# 155 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef __need_ptrdiff_t
-# 231 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 231 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef __need_size_t
-# 340 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 340 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef __need_wchar_t
-# 390 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 390 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef NULL
 
 
@@ -3520,8 +3519,8 @@ void _reclaim_reent (struct _reent *);
 
 
 #define offsetof(TYPE,MEMBER) __builtin_offsetof (TYPE, MEMBER)
-# 18 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 2 3
-# 27 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 3
+# 18 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 2 3
+# 27 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 3
 
 
 void * memchr (const void *, int, size_t);
@@ -3548,28 +3547,28 @@ char *strstr (const char *, const char *);
 char *strtok (char *restrict, const char *restrict);
 
 size_t strxfrm (char *restrict, const char *restrict, size_t);
-# 86 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 3
+# 86 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 3
 char *_strdup_r (struct _reent *, const char *);
 
 
 
 char *_strndup_r (struct _reent *, const char *, size_t);
-# 112 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 3
+# 112 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 3
 char * _strerror_r (struct _reent *, int, int, int *);
-# 134 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 3
+# 134 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 3
 char *strsignal (int __signo);
-# 175 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 3
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/string.h" 1 3
-# 176 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 2 3
+# 175 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/string.h" 1 3
+# 176 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 2 3
 
 
-# 30 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h" 2
-# 54 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h"
+# 30 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h" 2
+# 54 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h"
 
-# 54 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h"
+# 54 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h"
 int tiny_vsnprintf_like(char *buf, const int size, const char *fmt, va_list args);
-# 37 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/utilities_conf.h" 2
-# 49 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/utilities_conf.h"
+# 37 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/utilities_conf.h" 2
+# 49 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/utilities_conf.h"
 #define VLEVEL_OFF 0
 #define VLEVEL_ALWAYS 0
 
@@ -3581,7 +3580,7 @@ int tiny_vsnprintf_like(char *buf, const int size, const char *fmt, va_list args
 #define TS_ON 1
 
 #define T_REG_OFF 0
-# 78 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/utilities_conf.h"
+# 78 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/utilities_conf.h"
 #define UTIL_PLACE_IN_SECTION(__x__) __attribute__((section (__x__)))
 
 
@@ -3630,7 +3629,7 @@ int tiny_vsnprintf_like(char *buf, const int size, const char *fmt, va_list args
 
 
 #define UTILS_EXIT_CRITICAL_SECTION() __set_PRIMASK(primask_bit)
-# 135 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/utilities_conf.h"
+# 135 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/utilities_conf.h"
 #define UTIL_ADV_TRACE_CONDITIONNAL 
 #define UTIL_ADV_TRACE_UNCHUNK_MODE 
 #define UTIL_ADV_TRACE_DEBUG(...) 
@@ -3642,8 +3641,8 @@ int tiny_vsnprintf_like(char *buf, const int size, const char *fmt, va_list args
 #define UTIL_ADV_TRACE_FIFO_SIZE (1024U)
 #define UTIL_ADV_TRACE_MEMSET8(dest,value,size) UTIL_MEM_set_8((dest),(value),(size))
 #define UTIL_ADV_TRACE_VSNPRINTF(...) tiny_vsnprintf_like(__VA_ARGS__)
-# 61 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h" 2
-# 70 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h"
+# 61 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h" 2
+# 70 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h"
 typedef enum {
   UTIL_TIMER_ONESHOT = 0,
   UTIL_TIMER_PERIODIC = 1
@@ -3702,9 +3701,9 @@ typedef struct
 
 
 typedef uint32_t UTIL_TIMER_Time_t;
-# 142 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h"
+# 142 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h"
 extern const UTIL_TIMER_Driver_s UTIL_TimerDriver;
-# 162 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h"
+# 162 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h"
 UTIL_TIMER_Status_t UTIL_TIMER_Init(void);
 
 
@@ -3713,7 +3712,7 @@ UTIL_TIMER_Status_t UTIL_TIMER_Init(void);
 
 
 UTIL_TIMER_Status_t UTIL_TIMER_DeInit(void);
-# 184 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h"
+# 184 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h"
 UTIL_TIMER_Status_t UTIL_TIMER_Create( UTIL_TIMER_Object_t *TimerObject, uint32_t PeriodValue, UTIL_TIMER_Mode_t Mode, void ( *Callback )( void *) , void *Argument);
 
 
@@ -3723,7 +3722,7 @@ UTIL_TIMER_Status_t UTIL_TIMER_Create( UTIL_TIMER_Object_t *TimerObject, uint32_
 
 
 UTIL_TIMER_Status_t UTIL_TIMER_Start( UTIL_TIMER_Object_t *TimerObject );
-# 201 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h"
+# 201 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h"
 UTIL_TIMER_Status_t UTIL_TIMER_StartWithPeriod( UTIL_TIMER_Object_t *TimerObject, uint32_t PeriodValue);
 
 
@@ -3733,11 +3732,11 @@ UTIL_TIMER_Status_t UTIL_TIMER_StartWithPeriod( UTIL_TIMER_Object_t *TimerObject
 
 
 UTIL_TIMER_Status_t UTIL_TIMER_Stop( UTIL_TIMER_Object_t *TimerObject );
-# 219 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h"
+# 219 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h"
 UTIL_TIMER_Status_t UTIL_TIMER_SetPeriod(UTIL_TIMER_Object_t *TimerObject, uint32_t NewPeriodValue);
-# 228 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h"
+# 228 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h"
 UTIL_TIMER_Status_t UTIL_TIMER_SetReloadMode(UTIL_TIMER_Object_t *TimerObject, UTIL_TIMER_Mode_t ReloadMode);
-# 237 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h"
+# 237 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h"
 UTIL_TIMER_Status_t UTIL_TIMER_GetRemainingTime(UTIL_TIMER_Object_t *TimerObject, uint32_t *Time);
 
 
@@ -3762,14 +3761,14 @@ uint32_t UTIL_TIMER_GetFirstRemainingTime(void);
 
 
 UTIL_TIMER_Time_t UTIL_TIMER_GetCurrentTime(void);
-# 269 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h"
+# 269 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h"
 UTIL_TIMER_Time_t UTIL_TIMER_GetElapsedTime(UTIL_TIMER_Time_t past );
-# 278 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h"
+# 278 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h"
 void UTIL_TIMER_IRQ_Handler( void );
-# 32 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/timer.h" 2
-# 45 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/timer.h"
+# 32 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/timer.h" 2
+# 45 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/timer.h"
 #define TIMERTIME_T_MAX ( ( uint32_t )~0 )
-# 60 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/timer.h"
+# 60 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/timer.h"
 #define TimerTime_t UTIL_TIMER_Time_t
 
 
@@ -3802,7 +3801,7 @@ void UTIL_TIMER_IRQ_Handler( void );
 
 
 #define TimerStop(HANDLE) do { if (UTIL_TIMER_IsRunning(HANDLE)) { UTIL_TIMER_Stop(HANDLE); } } while(0)
-# 100 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/timer.h"
+# 100 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/timer.h"
 #define TimerGetCurrentTime UTIL_TIMER_GetCurrentTime
 
 
@@ -3813,21 +3812,21 @@ void UTIL_TIMER_IRQ_Handler( void );
 
 
 #define TimerTempCompensation(x,y) (x)
-# 25 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 2
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h" 1
-# 24 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h"
+# 25 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 2
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h" 1
+# 24 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h"
 #define __UTILITIES_H__ 
-# 37 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h"
+# 37 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h"
 #define SUCCESS 1
 
 
 
 #define FAIL 0
-# 52 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h"
+# 52 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h"
 #define MIN(a,b) ( ( ( a ) < ( b ) ) ? ( a ) : ( b ) )
-# 63 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h"
+# 63 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h"
 #define MAX(a,b) ( ( ( a ) > ( b ) ) ? ( a ) : ( b ) )
-# 72 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h"
+# 72 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h"
 #define POW2(n) ( 1 << n )
 
 
@@ -3851,13 +3850,13 @@ typedef union Version_u
 
 
 void srand1( uint32_t seed );
-# 103 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h"
+# 103 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h"
 int32_t randr( int32_t min, int32_t max );
-# 114 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h"
+# 114 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h"
 void memcpy1( uint8_t *dst, const uint8_t *src, uint16_t size );
-# 123 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h"
+# 123 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h"
 void memcpyr( uint8_t *dst, const uint8_t *src, uint16_t size );
-# 134 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h"
+# 134 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h"
 void memset1( uint8_t *dst, uint8_t value, uint16_t size );
 
 
@@ -3867,7 +3866,7 @@ void memset1( uint8_t *dst, uint8_t value, uint16_t size );
 
 
 int8_t Nibble2HexChar( uint8_t a );
-# 152 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h"
+# 152 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h"
 uint32_t Crc32( uint8_t *buffer, uint16_t length );
 
 
@@ -3877,9 +3876,9 @@ uint32_t Crc32( uint8_t *buffer, uint16_t length );
 
 
 uint32_t Crc32Init( void );
-# 171 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h"
+# 171 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h"
 uint32_t Crc32Update( uint32_t crcInit, uint8_t *buffer, uint16_t length );
-# 180 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h"
+# 180 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h"
 uint32_t Crc32Finalize( uint32_t crc );
 
 
@@ -3891,7 +3890,7 @@ uint32_t Crc32Finalize( uint32_t crc );
 
 
 #define CRITICAL_SECTION_END() BoardCriticalSectionEnd( &mask )
-# 203 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h"
+# 203 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h"
 void BoardCriticalSectionBegin( uint32_t *mask );
 
 
@@ -3900,13 +3899,13 @@ void BoardCriticalSectionBegin( uint32_t *mask );
 
 
 void BoardCriticalSectionEnd( uint32_t *mask );
-# 26 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 2
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 1
-# 67 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 26 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 2
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 1
+# 67 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 #define __LORAMAC_H__ 
-# 78 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/systime.h" 1
-# 24 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/systime.h"
+# 78 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/systime.h" 1
+# 24 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/systime.h"
 #define __SYSTIME_H__ 
 
 
@@ -3914,11 +3913,11 @@ void BoardCriticalSectionEnd( uint32_t *mask );
 
 
 
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_systime.h" 1
-# 46 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_systime.h"
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_systime.h" 1
+# 46 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_systime.h"
 #define __STM32_SYS_TIME_H__ 
-# 59 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_systime.h"
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/time.h" 1 3
+# 59 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_systime.h"
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/time.h" 1 3
 
 
 
@@ -3934,14 +3933,14 @@ void BoardCriticalSectionEnd( uint32_t *mask );
 
 #define __need_size_t 
 #define __need_NULL 
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 1 3 4
-# 155 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 1 3 4
+# 155 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef __need_ptrdiff_t
-# 231 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 231 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef __need_size_t
-# 340 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 340 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef __need_wchar_t
-# 390 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 390 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef NULL
 
 
@@ -3959,10 +3958,10 @@ void BoardCriticalSectionEnd( uint32_t *mask );
 
 
 #define offsetof(TYPE,MEMBER) __builtin_offsetof (TYPE, MEMBER)
-# 17 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/time.h" 2 3
+# 17 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/time.h" 2 3
 
 
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/time.h" 1 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/time.h" 1 3
 
 #define _MACHTIME_H_ 
 
@@ -3970,7 +3969,7 @@ void BoardCriticalSectionEnd( uint32_t *mask );
 
 
 #define _CLOCKS_PER_SEC_ 100
-# 20 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/time.h" 2 3
+# 20 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/time.h" 2 3
 
 
 
@@ -3979,10 +3978,10 @@ void BoardCriticalSectionEnd( uint32_t *mask );
 #define CLOCKS_PER_SEC _CLOCKS_PER_SEC_
 #define CLK_TCK CLOCKS_PER_SEC
 
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/types.h" 1 3
-# 28 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/types.h" 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/types.h" 1 3
+# 28 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/types.h" 3
 
-# 28 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/types.h" 3
+# 28 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/types.h" 3
 typedef __uint8_t u_int8_t;
 
 
@@ -4000,7 +3999,7 @@ typedef __intptr_t register_t;
 
 
 #define _SYS_TYPES_H 
-# 97 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/types.h" 3
+# 97 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/types.h" 3
 typedef __blkcnt_t blkcnt_t;
 #define _BLKCNT_T_DECLARED 
 
@@ -4045,7 +4044,7 @@ typedef __id_t id_t;
 
 typedef __ino_t ino_t;
 #define _INO_T_DECLARED 
-# 157 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/types.h" 3
+# 157 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/types.h" 3
 typedef __off_t off_t;
 #define _OFF_T_DECLARED 
 
@@ -4112,37 +4111,37 @@ typedef __suseconds_t suseconds_t;
 typedef __int64_t sbintime_t;
 
 
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_pthreadtypes.h" 1 3
-# 19 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_pthreadtypes.h" 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_pthreadtypes.h" 1 3
+# 19 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_pthreadtypes.h" 3
 #define _SYS__PTHREADTYPES_H_ 
-# 224 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/types.h" 2 3
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/types.h" 1 3
-# 225 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/types.h" 2 3
+# 224 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/types.h" 2 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/types.h" 1 3
+# 225 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/types.h" 2 3
 
 
 
 #undef __need_inttypes
-# 29 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/time.h" 2 3
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/timespec.h" 1 3
-# 35 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/timespec.h" 3
+# 29 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/time.h" 2 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/timespec.h" 1 3
+# 35 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/timespec.h" 3
 #define _SYS_TIMESPEC_H_ 
 
 
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_timespec.h" 1 3
-# 37 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_timespec.h" 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_timespec.h" 1 3
+# 37 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_timespec.h" 3
 #define _SYS__TIMESPEC_H_ 
-# 47 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_timespec.h" 3
+# 47 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_timespec.h" 3
 struct timespec {
  time_t tv_sec;
  long tv_nsec;
 };
-# 39 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/timespec.h" 2 3
-# 58 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/timespec.h" 3
+# 39 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/timespec.h" 2 3
+# 58 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/timespec.h" 3
 struct itimerspec {
  struct timespec it_interval;
  struct timespec it_value;
 };
-# 30 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/time.h" 2 3
+# 30 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/time.h" 2 3
 
 
 
@@ -4198,7 +4197,7 @@ struct tm *localtime_r (const time_t *restrict,
      struct tm *restrict);
 
 
-# 103 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/time.h" 3
+# 103 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/time.h" 3
 void _tzset_r (struct _reent *);
 
 typedef struct __tzrule_struct
@@ -4220,7 +4219,7 @@ typedef struct __tzinfo_struct
 } __tzinfo_type;
 
 __tzinfo_type *__gettzinfo (void);
-# 240 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/time.h" 3
+# 240 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/time.h" 3
 #define CLOCK_ENABLED 1
 #define CLOCK_DISABLED 0
 
@@ -4245,8 +4244,8 @@ __tzinfo_type *__gettzinfo (void);
 
 
 #define CLOCK_REALTIME ((clockid_t) 1)
-# 60 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_systime.h" 2
-# 70 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_systime.h"
+# 60 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_systime.h" 2
+# 70 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_systime.h"
 #define TM_DAYS_IN_LEAP_YEAR ( ( uint32_t ) 366U )
 #define TM_DAYS_IN_YEAR ( ( uint32_t ) 365U )
 #define TM_SECONDS_IN_1DAY ( ( uint32_t )86400U )
@@ -4286,9 +4285,9 @@ __tzinfo_type *__gettzinfo (void);
 
 
 #define UNIX_GPS_EPOCH_OFFSET 315964800
-# 122 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_systime.h"
+# 122 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_systime.h"
 
-# 122 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_systime.h"
+# 122 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_systime.h"
 typedef struct SysTime_s
 {
 uint32_t Seconds;
@@ -4306,11 +4305,11 @@ typedef struct
   uint32_t (*BKUPRead_SubSeconds) ( void );
   uint32_t (*GetCalendarTime)( uint16_t* SubSeconds );
 } UTIL_SYSTIM_Driver_s;
-# 156 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_systime.h"
+# 156 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_systime.h"
 extern const UTIL_SYSTIM_Driver_s UTIL_SYSTIMDriver;
-# 174 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_systime.h"
+# 174 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_systime.h"
 SysTime_t SysTimeAdd( SysTime_t a, SysTime_t b );
-# 184 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_systime.h"
+# 184 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_systime.h"
 SysTime_t SysTimeSub( SysTime_t a, SysTime_t b );
 
 
@@ -4333,9 +4332,9 @@ SysTime_t SysTimeGet( void );
 
 
 SysTime_t SysTimeGetMcuTime( void );
-# 214 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_systime.h"
+# 214 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_systime.h"
 uint32_t SysTimeToMs( SysTime_t sysTime );
-# 223 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_systime.h"
+# 223 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_systime.h"
 SysTime_t SysTimeFromMs( uint32_t timeMs );
 
 
@@ -4345,14 +4344,14 @@ SysTime_t SysTimeFromMs( uint32_t timeMs );
 
 
 uint32_t SysTimeMkTime( const struct tm* localtime );
-# 240 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_systime.h"
+# 240 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_systime.h"
 void SysTimeLocalTime( const uint32_t timestamp, struct tm *localtime );
-# 32 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/systime.h" 2
-# 79 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 2
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h" 1
-# 36 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 32 "/home/eddieho/tmp/phase2_release/rui-v3/component/core/board/rak3172-sip/systime.h" 2
+# 79 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 2
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h" 1
+# 36 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define __LORAMAC_TYPES_H__ 
-# 51 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 51 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define LORAMAC_CRYPTO_UNICAST_KEYS 0
 
 
@@ -4364,67 +4363,67 @@ void SysTimeLocalTime( const uint32_t timestamp, struct tm *localtime );
 
 
 #define LORAMAC_MAX_MC_CTX 4
-# 77 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 77 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define DR_0 0
-# 93 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 93 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define DR_1 1
-# 109 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 109 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define DR_2 2
-# 125 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 125 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define DR_3 3
-# 141 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 141 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define DR_4 4
-# 157 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 157 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define DR_5 5
-# 173 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 173 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define DR_6 6
-# 189 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 189 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define DR_7 7
-# 205 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 205 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define DR_8 8
-# 221 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 221 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define DR_9 9
-# 237 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 237 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define DR_10 10
-# 253 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 253 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define DR_11 11
-# 269 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 269 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define DR_12 12
-# 285 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 285 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define DR_13 13
-# 301 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 301 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define DR_14 14
-# 317 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 317 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define DR_15 15
-# 335 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 335 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define TX_POWER_0 0
-# 351 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 351 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define TX_POWER_1 1
-# 367 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 367 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define TX_POWER_2 2
-# 383 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 383 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define TX_POWER_3 3
-# 399 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 399 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define TX_POWER_4 4
-# 415 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 415 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define TX_POWER_5 5
-# 431 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 431 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define TX_POWER_6 6
-# 447 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 447 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define TX_POWER_7 7
-# 463 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 463 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define TX_POWER_8 8
-# 479 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 479 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define TX_POWER_9 9
-# 495 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 495 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define TX_POWER_10 10
-# 511 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 511 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define TX_POWER_11 11
-# 527 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 527 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define TX_POWER_12 12
-# 543 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 543 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define TX_POWER_13 13
-# 559 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 559 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
 #define TX_POWER_14 14
 
 
@@ -4709,9 +4708,9 @@ typedef struct sMcChannelParams
 
 
     
-# 842 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h" 3 4
+# 842 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h" 3 4
    _Bool 
-# 842 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 842 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
         IsRemotelySetup;
 
 
@@ -4721,9 +4720,9 @@ typedef struct sMcChannelParams
 
 
     
-# 850 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h" 3 4
+# 850 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h" 3 4
    _Bool 
-# 850 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 850 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
         IsEnabled;
 
 
@@ -4785,7 +4784,7 @@ typedef struct sMulticastCtx
 
 
     uint32_t* DownLinkCounter;
-# 920 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 920 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
     uint8_t PingNb;
 
 
@@ -4993,9 +4992,9 @@ typedef struct sBand
 
 
     
-# 1126 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h" 3 4
+# 1126 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h" 3 4
    _Bool 
-# 1126 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
+# 1126 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h"
         ReadyForTransmission;
 }Band_t;
 
@@ -5114,10 +5113,10 @@ typedef enum eLoRaMacBatteryLevel
 
     BAT_LEVEL_NO_MEASURE = 0xFF,
 }LoRaMacBatteryLevel_t;
-# 80 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 2
+# 80 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 2
 
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionNvm.h" 1
-# 34 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionNvm.h"
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionNvm.h" 1
+# 34 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionNvm.h"
 #define __REGIONNVM_H__ 
 
 
@@ -5125,17 +5124,17 @@ typedef enum eLoRaMacBatteryLevel
 
 
 
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h" 1
-# 42 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionNvm.h" 2
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTypes.h" 1
+# 42 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionNvm.h" 2
 
 
 
 #define REGION_NVM_MAX_NB_CHANNELS 96
-# 59 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionNvm.h"
+# 59 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionNvm.h"
 #define REGION_NVM_MAX_NB_BANDS 6
-# 68 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionNvm.h"
+# 68 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionNvm.h"
 #define REGION_NVM_CHANNELS_MASK_SIZE 6
-# 77 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionNvm.h"
+# 77 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionNvm.h"
 typedef struct sRegionNvmDataGroup1
 {
 
@@ -5186,11 +5185,11 @@ typedef struct sRegionNvmDataGroup2
 
     uint32_t Crc32;
 }RegionNvmDataGroup2_t;
-# 82 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 2
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacCryptoNvm.h" 1
-# 34 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacCryptoNvm.h"
+# 82 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 2
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacCryptoNvm.h" 1
+# 34 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacCryptoNvm.h"
 #define __LORAMAC_CRYPTO_NVM_H__ 
-# 49 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacCryptoNvm.h"
+# 49 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacCryptoNvm.h"
 typedef struct sFCntList
 {
 
@@ -5259,11 +5258,11 @@ typedef struct sLoRaMacCryptoNvmData
 
     uint32_t Crc32;
 }LoRaMacCryptoNvmData_t;
-# 83 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 2
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/secure-element-nvm.h" 1
-# 35 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/secure-element-nvm.h"
+# 83 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 2
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/secure-element-nvm.h" 1
+# 35 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/secure-element-nvm.h"
 #define __SECURE_ELEMENT_NVM_H__ 
-# 48 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/secure-element-nvm.h"
+# 48 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/secure-element-nvm.h"
 #define SE_KEY_SIZE 16
 
 
@@ -5324,11 +5323,11 @@ typedef struct sSecureElementNvCtx
 
     uint32_t Crc32;
 } SecureElementNvmData_t;
-# 84 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 2
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacClassBNvm.h" 1
-# 34 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacClassBNvm.h"
+# 84 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 2
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacClassBNvm.h" 1
+# 34 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacClassBNvm.h"
 #define __LORAMACCLASSBNVM_H__ 
-# 47 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacClassBNvm.h"
+# 47 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacClassBNvm.h"
 typedef struct sLoRaMacClassBPingSlotNvmData
 {
     struct sPingSlotCtrlNvm
@@ -5397,7 +5396,7 @@ typedef struct sLoRaMacClassBNvmData
 
     uint32_t Crc32;
 } LoRaMacClassBNvmData_t;
-# 85 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 2
+# 85 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 2
 
 
 
@@ -5883,9 +5882,9 @@ typedef struct sLoRaMacNvmDataGroup1
 
 
     
-# 569 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
+# 569 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
    _Bool 
-# 569 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 569 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
         SrvAckRequested;
 
 
@@ -5936,17 +5935,17 @@ typedef struct sLoRaMacNvmDataGroup2
 
 
     
-# 618 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
+# 618 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
    _Bool 
-# 618 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 618 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
         PublicNetwork;
 
 
 
     
-# 622 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
+# 622 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
    _Bool 
-# 622 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 622 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
         AdrCtrlOn;
 
 
@@ -5957,9 +5956,9 @@ typedef struct sLoRaMacNvmDataGroup2
 
 
     
-# 631 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
+# 631 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
    _Bool 
-# 631 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 631 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
         DutyCycleOn;
 
 
@@ -6025,7 +6024,7 @@ typedef struct sLoRaMacNvmData
 
     LoRaMacClassBNvmData_t ClassB;
 }LoRaMacNvmData_t;
-# 720 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 720 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 typedef enum eMcps
 {
 
@@ -6109,7 +6108,7 @@ typedef struct sMcpsReqConfirmed
 
 
     int8_t Datarate;
-# 823 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 823 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
     uint8_t NbTrials;
 }McpsReqConfirmed_t;
 
@@ -6192,9 +6191,9 @@ typedef struct sMcpsConfirm
 
 
     
-# 904 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
+# 904 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
    _Bool 
-# 904 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 904 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
         AckReceived;
 
 
@@ -6255,9 +6254,9 @@ typedef struct sMcpsIndication
 
 
     
-# 963 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
+# 963 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
    _Bool 
-# 963 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 963 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
         RxData;
 
 
@@ -6275,9 +6274,9 @@ typedef struct sMcpsIndication
 
 
     
-# 979 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
+# 979 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
    _Bool 
-# 979 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 979 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
         AckReceived;
 
 
@@ -6291,12 +6290,12 @@ typedef struct sMcpsIndication
 
 
     
-# 991 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
+# 991 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
    _Bool 
-# 991 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 991 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
         DeviceTimeAnsReceived;
 }McpsIndication_t;
-# 1018 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 1018 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 typedef enum eMlme
 {
 
@@ -6565,7 +6564,7 @@ typedef struct sMlmeIndication
 
     BeaconInfo_t BeaconInfo;
 }MlmeIndication_t;
-# 1369 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 1369 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 typedef enum eMib
 {
 
@@ -6873,9 +6872,9 @@ typedef enum eMib
 
 
     MIB_MIN_RX_SYMBOLS,
-# 1686 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 1686 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
     MIB_ANTENNA_GAIN,
-# 1697 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 1697 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
     MIB_DEFAULT_ANTENNA_GAIN,
 
 
@@ -6990,9 +6989,9 @@ typedef union uMibParam
 
 
     
-# 1810 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
+# 1810 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
    _Bool 
-# 1810 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 1810 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
         AdrEnable;
 
 
@@ -7138,9 +7137,9 @@ typedef union uMibParam
 
 
     
-# 1954 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
+# 1954 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
    _Bool 
-# 1954 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 1954 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
         EnablePublicNetwork;
 
 
@@ -7462,7 +7461,7 @@ typedef enum eLoRaMacStatus
 
 
     LORAMAC_STATUS_SKIPPED_APP_DATA,
-# 2288 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2288 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
     LORAMAC_STATUS_DUTYCYCLE_RESTRICTED,
 
 
@@ -7551,7 +7550,7 @@ typedef struct sLoRaMacPrimitives
 
 typedef struct sLoRaMacCallback
 {
-# 2384 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2384 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
     uint8_t ( *GetBatteryLevel )( void );
 
 
@@ -7580,11 +7579,11 @@ typedef struct sLoRaMacCallback
 
 
 static const uint8_t LoRaMacMaxEirpTable[] = { 8, 10, 12, 13, 14, 16, 18, 20, 21, 24, 26, 27, 29, 30, 33, 36 };
-# 2435 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2435 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 LoRaMacStatus_t LoRaMacInitialization( LoRaMacPrimitives_t* primitives, LoRaMacCallback_t* callbacks, LoRaMacRegion_t region );
-# 2444 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2444 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 LoRaMacStatus_t LoRaMacStart( void );
-# 2453 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2453 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 LoRaMacStatus_t LoRaMacStop( void );
 
 
@@ -7593,9 +7592,9 @@ LoRaMacStatus_t LoRaMacStop( void );
 
 
 
-# 2460 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
+# 2460 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
 _Bool 
-# 2460 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2460 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
     LoRaMacIsBusy( void );
 
 
@@ -7604,35 +7603,35 @@ _Bool
 
 
 void LoRaMacProcess( void );
-# 2494 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2494 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 LoRaMacStatus_t LoRaMacQueryTxPossible( uint8_t size, LoRaMacTxInfo_t* txInfo );
-# 2512 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2512 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 LoRaMacStatus_t LoRaMacChannelAdd( uint8_t id, ChannelParams_t params );
-# 2526 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2526 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 LoRaMacStatus_t LoRaMacChannelRemove( uint8_t id );
-# 2541 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2541 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 LoRaMacStatus_t LoRaMacMcChannelSetup( McChannelParams_t *channel );
-# 2555 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2555 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 LoRaMacStatus_t LoRaMacMcChannelDelete( AddressIdentifier_t groupID );
-# 2565 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2565 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 uint8_t LoRaMacMcChannelGetGroupId( uint32_t mcAddress );
-# 2582 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2582 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 LoRaMacStatus_t LoRaMacMcChannelSetupRxParams( AddressIdentifier_t groupID, McRxParams_t *rxParams, uint8_t *status );
-# 2610 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2610 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 LoRaMacStatus_t LoRaMacMibGetRequestConfirm( MibRequestConfirm_t* mibGet );
-# 2641 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2641 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet );
-# 2674 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2674 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 LoRaMacStatus_t LoRaMacMlmeRequest( MlmeReq_t* mlmeRequest );
-# 2708 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2708 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 LoRaMacStatus_t LoRaMacMcpsRequest( McpsReq_t* mcpsRequest );
-# 2720 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2720 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 LoRaMacStatus_t LoRaMacDeInitialization( void );
-# 27 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 2
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h" 1
-# 40 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h"
+# 27 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 2
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h" 1
+# 40 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h"
 #define __LORAMAC_CONFIRMQUEUE_H__ 
-# 55 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h"
+# 55 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h"
 #define LORA_MAC_MLME_CONFIRM_QUEUE_LEN 5
 
 
@@ -7652,18 +7651,18 @@ typedef struct sMlmeConfirmQueue
 
 
     
-# 73 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h" 3 4
+# 73 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h" 3 4
    _Bool 
-# 73 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h"
+# 73 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h"
         ReadyToHandle;
 
 
 
 
     
-# 78 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h" 3 4
+# 78 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h" 3 4
    _Bool 
-# 78 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h"
+# 78 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h"
         RestrictCommonReadyToHandle;
 }MlmeConfirmQueue_t;
 
@@ -7673,11 +7672,11 @@ typedef struct sMlmeConfirmQueue
 
 
 void LoRaMacConfirmQueueInit( LoRaMacPrimitives_t* primitive );
-# 95 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h"
+# 95 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h"
 
-# 95 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h" 3 4
+# 95 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h" 3 4
 _Bool 
-# 95 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h"
+# 95 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h"
     LoRaMacConfirmQueueAdd( MlmeConfirmQueue_t* mlmeConfirm );
 
 
@@ -7686,9 +7685,9 @@ _Bool
 
 
 
-# 102 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h" 3 4
+# 102 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h" 3 4
 _Bool 
-# 102 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h"
+# 102 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h"
     LoRaMacConfirmQueueRemoveLast( void );
 
 
@@ -7697,13 +7696,13 @@ _Bool
 
 
 
-# 109 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h" 3 4
+# 109 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h" 3 4
 _Bool 
-# 109 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h"
+# 109 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h"
     LoRaMacConfirmQueueRemoveFirst( void );
-# 118 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h"
+# 118 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h"
 void LoRaMacConfirmQueueSetStatus( LoRaMacEventInfoStatus_t status, Mlme_t request );
-# 127 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h"
+# 127 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h"
 LoRaMacEventInfoStatus_t LoRaMacConfirmQueueGetStatus( Mlme_t request );
 
 
@@ -7719,11 +7718,11 @@ void LoRaMacConfirmQueueSetStatusCmn( LoRaMacEventInfoStatus_t status );
 
 
 LoRaMacEventInfoStatus_t LoRaMacConfirmQueueGetStatusCmn( void );
-# 150 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h"
+# 150 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h"
 
-# 150 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h" 3 4
+# 150 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h" 3 4
 _Bool 
-# 150 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h"
+# 150 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h"
     LoRaMacConfirmQueueIsCmdActive( Mlme_t request );
 
 
@@ -7746,11 +7745,11 @@ uint8_t LoRaMacConfirmQueueGetCnt( void );
 
 
 
-# 171 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h" 3 4
+# 171 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h" 3 4
 _Bool 
-# 171 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h"
+# 171 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.h"
     LoRaMacConfirmQueueIsFull( void );
-# 28 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 2
+# 28 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 2
 
 
 
@@ -7830,44 +7829,44 @@ static MlmeConfirmQueue_t* DecreaseBufferPointer( MlmeConfirmQueue_t* bufferPoin
 }
 
 static 
-# 106 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 106 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
       _Bool 
-# 106 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 106 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
            IsListEmpty( uint8_t count )
 {
     if( count == 0 )
     {
         return 
-# 110 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 110 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
               1
-# 110 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 110 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                   ;
     }
     return 
-# 112 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 112 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
           0
-# 112 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 112 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                ;
 }
 
 static 
-# 115 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 115 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
       _Bool 
-# 115 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 115 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
            IsListFull( uint8_t count )
 {
     if( count >= 5 )
     {
         return 
-# 119 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 119 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
               1
-# 119 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 119 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                   ;
     }
     return 
-# 121 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 121 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
           0
-# 121 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 121 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                ;
 }
 
@@ -7876,15 +7875,15 @@ static MlmeConfirmQueue_t* GetElement( Mlme_t request, MlmeConfirmQueue_t* buffe
     MlmeConfirmQueue_t* element = bufferStart;
 
     if( IsListEmpty( ConfirmQueueCtx.Nvm.MlmeConfirmQueueCnt ) == 
-# 128 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 128 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
                                                                  1 
-# 128 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 128 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                                                                       )
     {
         return 
-# 130 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 130 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
               ((void *)0)
-# 130 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 130 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                   ;
     }
 
@@ -7899,9 +7898,9 @@ static MlmeConfirmQueue_t* GetElement( Mlme_t request, MlmeConfirmQueue_t* buffe
     }
 
     return 
-# 143 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 143 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
           ((void *)0)
-# 143 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 143 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
               ;
 }
 
@@ -7923,22 +7922,22 @@ void LoRaMacConfirmQueueInit( LoRaMacPrimitives_t* primitives )
 }
 
 
-# 163 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 163 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
 _Bool 
-# 163 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 163 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
     LoRaMacConfirmQueueAdd( MlmeConfirmQueue_t* mlmeConfirm )
 {
     if( IsListFull( ConfirmQueueCtx.Nvm.MlmeConfirmQueueCnt ) == 
-# 165 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 165 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
                                                                 1 
-# 165 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 165 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                                                                      )
     {
 
         return 
-# 168 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 168 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
               0
-# 168 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 168 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                    ;
     }
 
@@ -7947,9 +7946,9 @@ _Bool
     ConfirmQueueCtx.BufferEnd->Status = mlmeConfirm->Status;
     ConfirmQueueCtx.BufferEnd->RestrictCommonReadyToHandle = mlmeConfirm->RestrictCommonReadyToHandle;
     ConfirmQueueCtx.BufferEnd->ReadyToHandle = 
-# 175 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 175 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
                                               0
-# 175 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 175 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                                                    ;
 
     ConfirmQueueCtx.Nvm.MlmeConfirmQueueCnt++;
@@ -7957,28 +7956,28 @@ _Bool
     ConfirmQueueCtx.BufferEnd = IncreaseBufferPointer( ConfirmQueueCtx.BufferEnd );
 
     return 
-# 181 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 181 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
           1
-# 181 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 181 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
               ;
 }
 
 
-# 184 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 184 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
 _Bool 
-# 184 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 184 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
     LoRaMacConfirmQueueRemoveLast( void )
 {
     if( IsListEmpty( ConfirmQueueCtx.Nvm.MlmeConfirmQueueCnt ) == 
-# 186 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 186 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
                                                                  1 
-# 186 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 186 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                                                                       )
     {
         return 
-# 188 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 188 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
               0
-# 188 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 188 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                    ;
     }
 
@@ -7988,28 +7987,28 @@ _Bool
     ConfirmQueueCtx.BufferEnd = DecreaseBufferPointer( ConfirmQueueCtx.BufferEnd );
 
     return 
-# 196 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 196 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
           1
-# 196 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 196 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
               ;
 }
 
 
-# 199 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 199 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
 _Bool 
-# 199 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 199 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
     LoRaMacConfirmQueueRemoveFirst( void )
 {
     if( IsListEmpty( ConfirmQueueCtx.Nvm.MlmeConfirmQueueCnt ) == 
-# 201 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 201 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
                                                                  1 
-# 201 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 201 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                                                                       )
     {
         return 
-# 203 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 203 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
               0
-# 203 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 203 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                    ;
     }
 
@@ -8019,38 +8018,38 @@ _Bool
     ConfirmQueueCtx.BufferStart = IncreaseBufferPointer( ConfirmQueueCtx.BufferStart );
 
     return 
-# 211 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 211 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
           1
-# 211 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 211 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
               ;
 }
 
 void LoRaMacConfirmQueueSetStatus( LoRaMacEventInfoStatus_t status, Mlme_t request )
 {
     MlmeConfirmQueue_t* element = 
-# 216 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 216 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
                                  ((void *)0)
-# 216 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 216 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                                      ;
 
     if( IsListEmpty( ConfirmQueueCtx.Nvm.MlmeConfirmQueueCnt ) == 
-# 218 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 218 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
                                                                  0 
-# 218 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 218 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                                                                        )
     {
         element = GetElement( request, ConfirmQueueCtx.BufferStart, ConfirmQueueCtx.BufferEnd );
         if( element != 
-# 221 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 221 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
                       ((void *)0) 
-# 221 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 221 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                            )
         {
             element->Status = status;
             element->ReadyToHandle = 
-# 224 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 224 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
                                     1
-# 224 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 224 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                                         ;
         }
     }
@@ -8059,22 +8058,22 @@ void LoRaMacConfirmQueueSetStatus( LoRaMacEventInfoStatus_t status, Mlme_t reque
 LoRaMacEventInfoStatus_t LoRaMacConfirmQueueGetStatus( Mlme_t request )
 {
     MlmeConfirmQueue_t* element = 
-# 231 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 231 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
                                  ((void *)0)
-# 231 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 231 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                                      ;
 
     if( IsListEmpty( ConfirmQueueCtx.Nvm.MlmeConfirmQueueCnt ) == 
-# 233 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 233 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
                                                                  0 
-# 233 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 233 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                                                                        )
     {
         element = GetElement( request, ConfirmQueueCtx.BufferStart, ConfirmQueueCtx.BufferEnd );
         if( element != 
-# 236 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 236 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
                       ((void *)0) 
-# 236 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 236 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                            )
         {
             return element->Status;
@@ -8090,9 +8089,9 @@ void LoRaMacConfirmQueueSetStatusCmn( LoRaMacEventInfoStatus_t status )
     ConfirmQueueCtx.Nvm.CommonStatus = status;
 
     if( IsListEmpty( ConfirmQueueCtx.Nvm.MlmeConfirmQueueCnt ) == 
-# 250 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 250 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
                                                                  0 
-# 250 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 250 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                                                                        )
     {
         do
@@ -8101,15 +8100,15 @@ void LoRaMacConfirmQueueSetStatusCmn( LoRaMacEventInfoStatus_t status )
 
 
             if( element->RestrictCommonReadyToHandle == 
-# 257 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 257 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
                                                        0 
-# 257 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 257 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                                                              )
             {
                 element->ReadyToHandle = 
-# 259 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 259 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
                                         1
-# 259 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 259 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                                             ;
             }
             element = IncreaseBufferPointer( element );
@@ -8123,27 +8122,27 @@ LoRaMacEventInfoStatus_t LoRaMacConfirmQueueGetStatusCmn( void )
 }
 
 
-# 271 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 271 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
 _Bool 
-# 271 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 271 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
     LoRaMacConfirmQueueIsCmdActive( Mlme_t request )
 {
     if( GetElement( request, ConfirmQueueCtx.BufferStart, ConfirmQueueCtx.BufferEnd ) != 
-# 273 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 273 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
                                                                                         ((void *)0) 
-# 273 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 273 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                                                                                              )
     {
         return 
-# 275 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 275 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
               1
-# 275 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 275 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                   ;
     }
     return 
-# 277 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 277 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
           0
-# 277 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 277 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                ;
 }
 
@@ -8151,13 +8150,13 @@ void LoRaMacConfirmQueueHandleCb( MlmeConfirm_t* mlmeConfirm )
 {
     uint8_t nbElements = ConfirmQueueCtx.Nvm.MlmeConfirmQueueCnt;
     
-# 283 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 283 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
    _Bool 
-# 283 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 283 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
         readyToHandle = 
-# 283 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 283 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
                         0
-# 283 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 283 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                              ;
     MlmeConfirmQueue_t mlmeConfirmToStore;
 
@@ -8168,9 +8167,9 @@ void LoRaMacConfirmQueueHandleCb( MlmeConfirm_t* mlmeConfirm )
         readyToHandle = ConfirmQueueCtx.BufferStart->ReadyToHandle;
 
         if( readyToHandle == 
-# 292 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 292 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
                             1 
-# 292 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 292 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                                  )
         {
             ConfirmQueueCtx.Primitives->MacMlmeConfirm( mlmeConfirm );
@@ -8187,9 +8186,9 @@ void LoRaMacConfirmQueueHandleCb( MlmeConfirm_t* mlmeConfirm )
         LoRaMacConfirmQueueRemoveFirst( );
 
         if( readyToHandle == 
-# 307 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 307 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
                             0 
-# 307 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 307 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                                   )
         {
 
@@ -8204,29 +8203,29 @@ uint8_t LoRaMacConfirmQueueGetCnt( void )
 }
 
 
-# 320 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 320 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
 _Bool 
-# 320 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 320 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
     LoRaMacConfirmQueueIsFull( void )
 {
     if( IsListFull( ConfirmQueueCtx.Nvm.MlmeConfirmQueueCnt ) == 
-# 322 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 322 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
                                                                 1 
-# 322 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 322 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                                                                      )
     {
         return 
-# 324 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 324 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
               1
-# 324 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 324 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                   ;
     }
     else
     {
         return 
-# 328 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
+# 328 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c" 3 4
               0
-# 328 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
+# 328 "/home/eddieho/tmp/phase2_release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacConfirmQueue.c"
                    ;
     }
 }

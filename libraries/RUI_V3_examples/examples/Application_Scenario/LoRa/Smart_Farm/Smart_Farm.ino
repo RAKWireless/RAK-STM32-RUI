@@ -83,8 +83,8 @@ void setup()
     return;
   }
   if (!api.lorawan.deui.set(node_device_eui, 8)) {
-    Serial.printf
-	("LoRaWan Smart Farm - set device EUI is incorrect! \r\n");
+    Serial.
+	printf("LoRaWan Smart Farm - set device EUI is incorrect! \r\n");
     return;
   }
 
@@ -130,8 +130,8 @@ void setup()
     return;
   }
   if (!api.lorawan.rety.set(1)) {
-    Serial.printf
-	("LoRaWan Smart Farm - set retry times is incorrect! \r\n");
+    Serial.
+	printf("LoRaWan Smart Farm - set retry times is incorrect! \r\n");
     return;
   }
   if (!api.lorawan.cfm.set(1)) {

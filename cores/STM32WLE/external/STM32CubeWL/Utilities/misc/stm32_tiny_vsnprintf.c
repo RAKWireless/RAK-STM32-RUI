@@ -1,5 +1,5 @@
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3//"
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3//"
 # 1 "<built-in>"
 #define __STDC__ 1
 #define __STDC_VERSION__ 199901L
@@ -480,8 +480,8 @@
 #define ATCMD_CUST_TABLE_SIZE 64
 #define WAN_TYPE 0
 #define LORA_STACK_VER 0x040407
-#define RAK3372 +RAK5005-O_V1.0 1
-#define rak3172 1
+#define RAK3272_SIP_VA 1
+#define rak3172_sip 1
 #define CORE_CM4 1
 #define USE_HAL_DRIVER 1
 #define STM32WLE5xx 1
@@ -498,12 +498,11 @@
 #define SOFT_SE 1
 #define SECURE_ELEMENT_PRE_PROVISIONED 1
 #define LORAMAC_CLASSB_ENABLED 1
-#define WISBLOCK_BASE_5005_O 1
 #define SUPPORT_SPI 1
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
-# 51 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h" 1
-# 21 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h"
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 51 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 1 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h" 1
+# 21 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h"
 #define __STM32_TINY_VSNPRINTF_H__ 
 
 
@@ -511,8 +510,8 @@
 
 
 
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdarg.h" 1 3 4
-# 31 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdarg.h" 3 4
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdarg.h" 1 3 4
+# 31 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdarg.h" 3 4
 #define _STDARG_H 
 #define _ANSI_STDARG_H_ 
 
@@ -523,7 +522,7 @@
 
 #define __GNUC_VA_LIST 
 
-# 40 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdarg.h" 3 4
+# 40 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdarg.h" 3 4
 typedef __builtin_va_list __gnuc_va_list;
 
 
@@ -539,7 +538,7 @@ typedef __builtin_va_list __gnuc_va_list;
 #define va_copy(d,s) __builtin_va_copy(d,s)
 
 #define __va_copy(d,s) __builtin_va_copy(d,s)
-# 99 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdarg.h" 3 4
+# 99 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdarg.h" 3 4
 typedef __gnuc_va_list va_list;
 
 
@@ -559,8 +558,8 @@ typedef __gnuc_va_list va_list;
 
 
 #define __va_list__ 
-# 29 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h" 2
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 1 3
+# 29 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h" 2
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 1 3
 
 
 
@@ -570,7 +569,7 @@ typedef __gnuc_va_list va_list;
 
 #define _STRING_H_ 
 
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_ansi.h" 1 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_ansi.h" 1 3
 
 
 
@@ -580,7 +579,7 @@ typedef __gnuc_va_list va_list;
 
 #define _ANSIDECL_H_ 
 
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/newlib.h" 1 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/newlib.h" 1 3
 
 
 
@@ -594,7 +593,7 @@ typedef __gnuc_va_list va_list;
 
 
 
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_newlib_version.h" 1 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_newlib_version.h" 1 3
 
 
 
@@ -604,7 +603,7 @@ typedef __gnuc_va_list va_list;
 #define __NEWLIB__ 3
 #define __NEWLIB_MINOR__ 3
 #define __NEWLIB_PATCHLEVEL__ 0
-# 15 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/newlib.h" 2 3
+# 15 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/newlib.h" 2 3
 
 
 
@@ -615,7 +614,7 @@ typedef __gnuc_va_list va_list;
 
 
 #define _WANT_REGISTER_FINI 1
-# 37 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/newlib.h" 3
+# 37 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/newlib.h" 3
 #define _REENT_CHECK_VERIFY 1
 
 
@@ -623,7 +622,7 @@ typedef __gnuc_va_list va_list;
 
 
 #define _MB_LEN_MAX 1
-# 53 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/newlib.h" 3
+# 53 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/newlib.h" 3
 #define HAVE_INITFINI_ARRAY 1
 
 
@@ -650,26 +649,26 @@ typedef __gnuc_va_list va_list;
 
 
 #define _UNBUF_STREAM_OPT 1
-# 95 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/newlib.h" 3
+# 95 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/newlib.h" 3
 #define _RETARGETABLE_LOCKING 1
-# 11 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_ansi.h" 2 3
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/config.h" 1 3
+# 11 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_ansi.h" 2 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/config.h" 1 3
 
 #define __SYS_CONFIG_H__ 
 
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/ieeefp.h" 1 3
-# 77 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/ieeefp.h" 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/ieeefp.h" 1 3
+# 77 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/ieeefp.h" 3
 #define __IEEE_LITTLE_ENDIAN 
-# 473 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/ieeefp.h" 3
+# 473 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/ieeefp.h" 3
 #define __OBSOLETE_MATH_DEFAULT 1
 
 
 #define __OBSOLETE_MATH __OBSOLETE_MATH_DEFAULT
-# 5 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/config.h" 2 3
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 1 3
-# 22 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3
+# 5 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/config.h" 2 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 1 3
+# 22 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3
 #define _SYS_FEATURES_H 
-# 33 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3
+# 33 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3
 #define __GNUC_PREREQ(maj,min) ((__GNUC__ << 16) + __GNUC_MINOR__ >= ((maj) << 16) + (min))
 
 
@@ -678,7 +677,7 @@ typedef __gnuc_va_list va_list;
 
 
 #define __GNUC_PREREQ__(ma,mi) __GNUC_PREREQ(ma, mi)
-# 249 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3
+# 249 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3
 #define __ATFILE_VISIBLE 0
 
 
@@ -714,7 +713,7 @@ typedef __gnuc_va_list va_list;
 
 
 #define __MISC_VISIBLE 0
-# 299 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3
+# 299 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3
 #define __POSIX_VISIBLE 0
 
 
@@ -722,12 +721,12 @@ typedef __gnuc_va_list va_list;
 
 
 #define __SVID_VISIBLE 0
-# 319 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3
+# 319 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3
 #define __XSI_VISIBLE 0
-# 330 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3
+# 330 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/features.h" 3
 #define __SSP_FORTIFY_LEVEL 0
-# 6 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/config.h" 2 3
-# 224 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/config.h" 3
+# 6 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/config.h" 2 3
+# 224 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/config.h" 3
 #define _POINTER_INT long
 
 
@@ -739,7 +738,7 @@ typedef __gnuc_va_list va_list;
 
 
 #define __RAND_MAX 0x7fffffff
-# 250 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/config.h" 3
+# 250 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/config.h" 3
 #define __EXPORT 
 
 
@@ -758,8 +757,8 @@ typedef __gnuc_va_list va_list;
 
 
 #define _READ_WRITE_BUFSIZE_TYPE int
-# 12 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_ansi.h" 2 3
-# 31 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_ansi.h" 3
+# 12 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_ansi.h" 2 3
+# 31 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_ansi.h" 3
 #define _BEGIN_STD_C 
 #define _END_STD_C 
 #define _NOTHROW 
@@ -773,27 +772,27 @@ typedef __gnuc_va_list va_list;
 
 
 #define _ATTRIBUTE(attrs) __attribute__ (attrs)
-# 69 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_ansi.h" 3
+# 69 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_ansi.h" 3
 #define _ELIDABLE_INLINE static __inline__
 
 
 
 #define _NOINLINE __attribute__ ((__noinline__))
 #define _NOINLINE_STATIC _NOINLINE static
-# 11 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 2 3
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 1 3
-# 11 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
+# 11 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 2 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 1 3
+# 11 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
 #define _SYS_REENT_H_ 
 
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_ansi.h" 1 3
-# 14 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 2 3
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 1 3 4
-# 39 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/_ansi.h" 1 3
+# 14 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 2 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 1 3 4
+# 39 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #define _STDDEF_H 
 #define _STDDEF_H_ 
 
 #define _ANSI_STDDEF_H 
-# 131 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 131 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #define _PTRDIFF_T 
 #define _T_PTRDIFF_ 
 #define _T_PTRDIFF 
@@ -807,9 +806,9 @@ typedef __gnuc_va_list va_list;
 
 
 typedef int ptrdiff_t;
-# 155 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 155 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef __need_ptrdiff_t
-# 181 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 181 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #define __size_t__ 
 #define __SIZE_T__ 
 #define _SIZE_T 
@@ -839,9 +838,9 @@ typedef int ptrdiff_t;
 
 
 typedef unsigned int size_t;
-# 231 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 231 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef __need_size_t
-# 260 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 260 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #define __wchar_t__ 
 #define __WCHAR_T__ 
 #define _WCHAR_T 
@@ -857,13 +856,13 @@ typedef unsigned int size_t;
 #define __INT_WCHAR_T_H 
 #define _GCC_WCHAR_T 
 #define _WCHAR_T_DECLARED 
-# 287 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 287 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef _BSD_WCHAR_T_
-# 321 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 321 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 typedef unsigned int wchar_t;
-# 340 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 340 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef __need_wchar_t
-# 390 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 390 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef NULL
 
 
@@ -881,19 +880,19 @@ typedef unsigned int wchar_t;
 
 
 #define offsetof(TYPE,MEMBER) __builtin_offsetof (TYPE, MEMBER)
-# 15 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 2 3
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 1 3
-# 20 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 3
+# 15 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 2 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 1 3
+# 20 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 3
 #define _SYS__TYPES_H 
 
 #define __need_size_t 
 #define __need_wint_t 
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 1 3 4
-# 155 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 1 3 4
+# 155 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef __need_ptrdiff_t
-# 231 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 231 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef __need_size_t
-# 340 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 340 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef __need_wchar_t
 
 
@@ -907,7 +906,7 @@ typedef unsigned int wchar_t;
 typedef unsigned int wint_t;
 
 #undef __need_wint_t
-# 390 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 390 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef NULL
 
 
@@ -925,26 +924,26 @@ typedef unsigned int wint_t;
 
 
 #define offsetof(TYPE,MEMBER) __builtin_offsetof (TYPE, MEMBER)
-# 25 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 2 3
+# 25 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 2 3
 
 
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_types.h" 1 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_types.h" 1 3
 
 
 
 
 
 #define _MACHINE__TYPES_H 
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 1 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 1 3
 
 
 
 
 
 #define _MACHINE__DEFAULT_TYPES_H 
-# 15 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3
+# 15 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3
 #define __EXP(x) __ ##x ##__
-# 26 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3
+# 26 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3
 #define __have_longlong64 1
 
 
@@ -981,7 +980,7 @@ typedef short unsigned int __uint16_t;
 
 
 #define ___int16_t_defined 1
-# 77 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3
+# 77 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3
 typedef long int __int32_t;
 
 typedef long unsigned int __uint32_t;
@@ -989,7 +988,7 @@ typedef long unsigned int __uint32_t;
 
 
 #define ___int32_t_defined 1
-# 103 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3
+# 103 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3
 typedef long long int __int64_t;
 
 typedef long long unsigned int __uint64_t;
@@ -997,7 +996,7 @@ typedef long long unsigned int __uint64_t;
 
 
 #define ___int64_t_defined 1
-# 134 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3
+# 134 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3
 typedef signed char __int_least8_t;
 
 typedef unsigned char __uint_least8_t;
@@ -1005,7 +1004,7 @@ typedef unsigned char __uint_least8_t;
 
 
 #define ___int_least8_t_defined 1
-# 160 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3
+# 160 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3
 typedef short int __int_least16_t;
 
 typedef short unsigned int __uint_least16_t;
@@ -1013,7 +1012,7 @@ typedef short unsigned int __uint_least16_t;
 
 
 #define ___int_least16_t_defined 1
-# 182 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3
+# 182 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3
 typedef long int __int_least32_t;
 
 typedef long unsigned int __uint_least32_t;
@@ -1021,7 +1020,7 @@ typedef long unsigned int __uint_least32_t;
 
 
 #define ___int_least32_t_defined 1
-# 200 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3
+# 200 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3
 typedef long long int __int_least64_t;
 
 typedef long long unsigned int __uint_least64_t;
@@ -1055,10 +1054,10 @@ typedef long long unsigned int __uintmax_t;
 typedef int __intptr_t;
 
 typedef unsigned int __uintptr_t;
-# 244 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3
+# 244 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_default_types.h" 3
 #undef __EXP
-# 8 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_types.h" 2 3
-# 28 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 2 3
+# 8 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_types.h" 2 3
+# 28 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 2 3
 
 
 typedef long __blkcnt_t;
@@ -1107,7 +1106,7 @@ typedef __uint32_t __id_t;
 
 
 typedef unsigned short __ino_t;
-# 90 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 3
+# 90 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 3
 typedef __uint32_t __mode_t;
 
 
@@ -1135,17 +1134,17 @@ typedef long __key_t;
 
 
 typedef long _fpos_t;
-# 127 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 3
+# 127 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 3
 #undef __size_t
 
 
 
 typedef unsigned int __size_t;
-# 146 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 3
+# 146 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 3
 #define unsigned signed
 typedef signed int _ssize_t;
 #undef unsigned
-# 158 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 3
+# 158 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_types.h" 3
 typedef _ssize_t __ssize_t;
 
 
@@ -1208,7 +1207,7 @@ typedef unsigned long __useconds_t;
 
 
 typedef __builtin_va_list __va_list;
-# 16 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 2 3
+# 16 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 2 3
 
 #define _NULL 0
 
@@ -1216,11 +1215,11 @@ typedef __builtin_va_list __va_list;
 
 #define __Long long
 typedef unsigned long __ULong;
-# 34 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/lock.h" 1 3
+# 34 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/lock.h" 1 3
 
 #define __SYS_LOCK_H__ 
-# 33 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/lock.h" 3
+# 33 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/lock.h" 3
 struct __lock;
 typedef struct __lock * _LOCK_T;
 #define _LOCK_RECURSIVE_T _LOCK_T
@@ -1250,7 +1249,7 @@ extern void __retarget_lock_release(_LOCK_T lock);
 #define __lock_release(lock) __retarget_lock_release(lock)
 extern void __retarget_lock_release_recursive(_LOCK_T lock);
 #define __lock_release_recursive(lock) __retarget_lock_release_recursive(lock)
-# 35 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 2 3
+# 35 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 2 3
 typedef _LOCK_T _flock_t;
 
 
@@ -1304,7 +1303,7 @@ struct _on_exit_args {
 
  __ULong _is_cxa;
 };
-# 98 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
+# 98 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
 struct _atexit {
  struct _atexit *_next;
  int _ind;
@@ -1319,12 +1318,12 @@ struct _atexit {
 
 
 #define _REENT_INIT_ATEXIT _NULL, _ATEXIT_INIT,
-# 122 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
+# 122 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
 struct __sbuf {
  unsigned char *_base;
  int _size;
 };
-# 183 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
+# 183 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
 #define _REENT_SMALL_CHECK_INIT(ptr) 
 
 
@@ -1378,7 +1377,7 @@ struct __sFILE {
   _mbstate_t _mbstate;
   int _flags2;
 };
-# 292 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
+# 292 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
 typedef struct __sFILE __FILE;
 
 
@@ -1389,7 +1388,7 @@ struct _glue
   int _niobs;
   __FILE *_iobs;
 };
-# 317 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
+# 317 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
 #define _RAND48_SEED_0 (0x330e)
 #define _RAND48_SEED_1 (0xabcd)
 #define _RAND48_SEED_2 (0x1234)
@@ -1411,7 +1410,7 @@ struct _rand48 {
 #define _REENT_EMERGENCY_SIZE 25
 #define _REENT_ASCTIME_SIZE 26
 #define _REENT_SIGNAL_SIZE 24
-# 613 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
+# 613 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
 struct _reent
 {
   int _errno;
@@ -1503,9 +1502,9 @@ struct _reent
 
 
 #define _REENT_INIT(var) { 0, _REENT_STDIO_STREAM(&(var), 0), _REENT_STDIO_STREAM(&(var), 1), _REENT_STDIO_STREAM(&(var), 2), 0, "", 0, _NULL, 0, _NULL, _NULL, 0, _NULL, _NULL, 0, _NULL, { { 0, _NULL, "", {0, 0, 0, 0, 0, 0, 0, 0, 0}, 0, 1, { {_RAND48_SEED_0, _RAND48_SEED_1, _RAND48_SEED_2}, {_RAND48_MULT_0, _RAND48_MULT_1, _RAND48_MULT_2}, _RAND48_ADD }, {0, {0}}, {0, {0}}, {0, {0}}, "", "", 0, {0, {0}}, {0, {0}}, {0, {0}}, {0, {0}}, {0, {0}} } }, _REENT_INIT_ATEXIT _NULL, {_NULL, 0, _NULL} }
-# 751 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
+# 751 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
 #define _REENT_INIT_PTR_ZEROED(var) { (var)->_stdin = _REENT_STDIO_STREAM(var, 0); (var)->_stdout = _REENT_STDIO_STREAM(var, 1); (var)->_stderr = _REENT_STDIO_STREAM(var, 2); (var)->_new._reent._rand_next = 1; (var)->_new._reent._r48._seed[0] = _RAND48_SEED_0; (var)->_new._reent._r48._seed[1] = _RAND48_SEED_1; (var)->_new._reent._r48._seed[2] = _RAND48_SEED_2; (var)->_new._reent._r48._mult[0] = _RAND48_MULT_0; (var)->_new._reent._r48._mult[1] = _RAND48_MULT_1; (var)->_new._reent._r48._mult[2] = _RAND48_MULT_2; (var)->_new._reent._r48._add = _RAND48_ADD; }
-# 765 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
+# 765 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
 #define _REENT_CHECK_RAND48(ptr) 
 #define _REENT_CHECK_MP(ptr) 
 #define _REENT_CHECK_TM(ptr) 
@@ -1564,7 +1563,7 @@ extern struct _reent *_impure_ptr ;
 extern struct _reent *const _global_impure_ptr ;
 
 void _reclaim_reent (struct _reent *);
-# 832 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
+# 832 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/reent.h" 3
 #define _REENT _impure_ptr
 
 
@@ -1575,15 +1574,15 @@ void _reclaim_reent (struct _reent *);
 
 
 #define _GLOBAL_ATEXIT (_GLOBAL_REENT->_atexit)
-# 12 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 2 3
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 1 3
-# 43 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 12 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 2 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 1 3
+# 43 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define _SYS_CDEFS_H_ 
 
 
 
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 1 3 4
-# 48 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 2 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 1 3 4
+# 48 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 2 3
 
 #define __PMT(args) args
 #define __DOTS , ...
@@ -1605,15 +1604,15 @@ void _reclaim_reent (struct _reent *);
 #define __bounded 
 #define __unbounded 
 #define __ptrvalue 
-# 78 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 78 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __has_extension __has_feature
 
 
 #define __has_feature(x) 0
-# 94 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 94 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __BEGIN_DECLS 
 #define __END_DECLS 
-# 107 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 107 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __GNUCLIKE_ASM 3
 #define __GNUCLIKE_MATH_BUILTIN_CONSTANTS 
 
@@ -1668,7 +1667,7 @@ void _reclaim_reent (struct _reent *);
 #define __CC_SUPPORTS_VARADIC_XXX 1
 
 #define __CC_SUPPORTS_DYNAMIC_ARRAY_INIT 1
-# 177 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 177 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __P(protos) protos
 #define __CONCAT1(x,y) x ## y
 #define __CONCAT(x,y) __CONCAT1(x,y)
@@ -1678,9 +1677,9 @@ void _reclaim_reent (struct _reent *);
 #define __const const
 #define __signed signed
 #define __volatile volatile
-# 230 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 230 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __weak_symbol __attribute__((__weak__))
-# 243 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 243 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __dead2 __attribute__((__noreturn__))
 #define __pure2 __attribute__((__const__))
 #define __unused __attribute__((__unused__))
@@ -1698,7 +1697,7 @@ void _reclaim_reent (struct _reent *);
 
 
 #define __alloc_align(x) __attribute__((__alloc_align__(x)))
-# 280 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 280 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define _Alignas(x) __aligned(x)
 
 
@@ -1707,7 +1706,7 @@ void _reclaim_reent (struct _reent *);
 
 
 #define _Alignof(x) __alignof(x)
-# 296 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 296 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define _Atomic(T) struct { T volatile __val; }
 
 
@@ -1715,11 +1714,11 @@ void _reclaim_reent (struct _reent *);
 
 
 #define _Noreturn __dead2
-# 331 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 331 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define _Thread_local __thread
-# 351 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 351 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __generic(expr,t,yes,no) __builtin_choose_expr( __builtin_types_compatible_p(__typeof(expr), t), yes, no)
-# 366 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 366 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __min_size(x) static (x)
 
 
@@ -1769,9 +1768,9 @@ void _reclaim_reent (struct _reent *);
 
 
 #define __unreachable() __builtin_unreachable()
-# 434 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 434 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __restrict restrict
-# 467 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 467 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __predict_true(exp) __builtin_expect((exp), 1)
 #define __predict_false(exp) __builtin_expect((exp), 0)
 
@@ -1785,12 +1784,12 @@ void _reclaim_reent (struct _reent *);
 
 
 #define __hidden __attribute__((__visibility__("hidden")))
-# 489 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 489 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __offsetof(type,field) offsetof(type, field)
 #define __rangeof(type,start,end) (__offsetof(type, end) - __offsetof(type, start))
-# 500 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 500 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __containerof(x,s,m) ({ const volatile __typeof(((s *)0)->m) *__x = (x); __DEQUALIFY(s *, (const volatile char *)__x - __offsetof(s, m));})
-# 522 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 522 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __printflike(fmtarg,firstvararg) __attribute__((__format__ (__printf__, fmtarg, firstvararg)))
 
 #define __scanflike(fmtarg,firstvararg) __attribute__((__format__ (__scanf__, fmtarg, firstvararg)))
@@ -1799,7 +1798,7 @@ void _reclaim_reent (struct _reent *);
 #define __strfmonlike(fmtarg,firstvararg) __attribute__((__format__ (__strfmon__, fmtarg, firstvararg)))
 
 #define __strftimelike(fmtarg,firstvararg) __attribute__((__format__ (__strftime__, fmtarg, firstvararg)))
-# 539 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 539 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __printf0like(fmtarg,firstvararg) 
 
 
@@ -1820,7 +1819,7 @@ void _reclaim_reent (struct _reent *);
 #define __sym_compat(sym,impl,verid) __asm__(".symver " #impl ", " #sym "@" #verid)
 
 #define __sym_default(sym,impl,verid) __asm__(".symver " #impl ", " #sym "@@" #verid)
-# 593 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 593 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __FBSDID(s) struct __hack
 
 
@@ -1861,10 +1860,10 @@ void _reclaim_reent (struct _reent *);
 #define _Null_unspecified 
 #define __NULLABILITY_PRAGMA_PUSH 
 #define __NULLABILITY_PRAGMA_POP 
-# 653 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 653 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __arg_type_tag(arg_kind,arg_idx,type_tag_idx) 
 #define __datatype_type_tag(kind,type) 
-# 672 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
+# 672 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h" 3
 #define __lock_annotate(x) 
 
 
@@ -1908,19 +1907,19 @@ void _reclaim_reent (struct _reent *);
 
 #define __guarded_by(x) __lock_annotate(guarded_by(x))
 #define __pt_guarded_by(x) __lock_annotate(pt_guarded_by(x))
-# 13 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 2 3
+# 13 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 2 3
 
 
 #define __need_size_t 
 #define __need_NULL 
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 1 3 4
-# 155 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 1 3 4
+# 155 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef __need_ptrdiff_t
-# 231 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 231 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef __need_size_t
-# 340 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 340 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef __need_wchar_t
-# 390 "/opt/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
+# 390 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stddef.h" 3 4
 #undef NULL
 
 
@@ -1938,8 +1937,8 @@ void _reclaim_reent (struct _reent *);
 
 
 #define offsetof(TYPE,MEMBER) __builtin_offsetof (TYPE, MEMBER)
-# 18 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 2 3
-# 27 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 3
+# 18 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 2 3
+# 27 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 3
 
 
 void * memchr (const void *, int, size_t);
@@ -1966,27 +1965,27 @@ char *strstr (const char *, const char *);
 char *strtok (char *restrict, const char *restrict);
 
 size_t strxfrm (char *restrict, const char *restrict, size_t);
-# 86 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 3
+# 86 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 3
 char *_strdup_r (struct _reent *, const char *);
 
 
 
 char *_strndup_r (struct _reent *, const char *, size_t);
-# 112 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 3
+# 112 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 3
 char * _strerror_r (struct _reent *, int, int, int *);
-# 134 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 3
+# 134 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 3
 char *strsignal (int __signo);
-# 175 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 3
-# 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/string.h" 1 3
-# 176 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 2 3
+# 175 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 3
+# 1 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/string.h" 1 3
+# 176 "/home/eddieho/tool/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h" 2 3
 
 
-# 30 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h" 2
-# 54 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h"
+# 30 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h" 2
+# 54 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h"
 
-# 54 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h"
+# 54 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h"
 int tiny_vsnprintf_like(char *buf, const int size, const char *fmt, va_list args);
-# 52 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 2
+# 52 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 2
 
 
 
@@ -1995,7 +1994,7 @@ int tiny_vsnprintf_like(char *buf, const int size, const char *fmt, va_list args
 #define ZEROPAD (1<<0)
 #define SIGN (1<<1)
 #define UPPERCASE (1<<6)
-# 68 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 68 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
 #define is_digit(c) ((c) >= '0' && (c) <= '9')
 
 
@@ -2005,7 +2004,7 @@ int tiny_vsnprintf_like(char *buf, const int size, const char *fmt, va_list args
 
 static char *lower_digits = "0123456789abcdefghijklmnopqrstuvwxyz";
 static char *upper_digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-# 91 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 91 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
 static int ee_skip_atoi(const char **s)
 {
   int i = 0;
@@ -2039,9 +2038,9 @@ static char *ee_number(char *str, int max_size, long num, int base, int size, in
       num = -num;
       size--;
     }
-# 137 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 137 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
   }
-# 150 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 150 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
   i = 0;
 
   if (num == 0)
@@ -2059,7 +2058,7 @@ static char *ee_number(char *str, int max_size, long num, int base, int size, in
   size -= precision;
   if (!(type & ((1<<0) ))) while (size-- > 0) do { *str++ = (' '); max_size--; if (max_size == 0) return str; } while (0);
   if (sign) do { *str++ = (sign); max_size--; if (max_size == 0) return str; } while (0);
-# 183 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 183 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
   while (size-- > 0) do { *str++ = (c); max_size--; if (max_size == 0) return str; } while (0);
 
 
@@ -2070,7 +2069,7 @@ static char *ee_number(char *str, int max_size, long num, int base, int size, in
 
   return str;
 }
-# 482 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 482 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
 #define CHECK_STR_SIZE(_buf,_str,_size) if ((((_str) - (_buf)) >= ((_size)-1))) { break; }
 
 
@@ -2113,15 +2112,15 @@ int tiny_vsnprintf_like(char *buf, const int size, const char *fmt, va_list args
     {
       flags |= (1<<0);
     }
-# 538 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 538 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
     field_width = -1;
     if (((*fmt) >= '0' && (*fmt) <= '9'))
       field_width = ee_skip_atoi(&fmt);
-# 557 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 557 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
     precision = -1;
-# 576 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 576 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
     qualifier = -1;
-# 588 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 588 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
     base = 10;
 
     switch (*fmt)
@@ -2133,17 +2132,17 @@ int tiny_vsnprintf_like(char *buf, const int size, const char *fmt, va_list args
 
           while (--field_width > 0) *str++ = ' ';
         *str++ = (unsigned char) 
-# 598 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
+# 598 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
                                 __builtin_va_arg(
-# 598 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 598 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
                                 args
-# 598 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
+# 598 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
                                 ,
-# 598 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 598 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
                                 int
-# 598 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
+# 598 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
                                 )
-# 598 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 598 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
                                                  ;
 
 
@@ -2153,17 +2152,17 @@ int tiny_vsnprintf_like(char *buf, const int size, const char *fmt, va_list args
 
       case 's':
         s = 
-# 606 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
+# 606 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
            __builtin_va_arg(
-# 606 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 606 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
            args
-# 606 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
+# 606 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
            ,
-# 606 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 606 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
            char *
-# 606 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
+# 606 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
            )
-# 606 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 606 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
                                ;
         if (!s) s = "<NULL>";
 
@@ -2179,7 +2178,7 @@ int tiny_vsnprintf_like(char *buf, const int size, const char *fmt, va_list args
 
 
         continue;
-# 650 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 650 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
       case 'X':
         flags |= (1<<6);
 
@@ -2193,7 +2192,7 @@ int tiny_vsnprintf_like(char *buf, const int size, const char *fmt, va_list args
 
       case 'u':
         break;
-# 672 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 672 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
       default:
         if (*fmt != '%') *str++ = '%';
         if ((((str) - (buf)) >= ((size)-1))) { break; };
@@ -2207,45 +2206,45 @@ int tiny_vsnprintf_like(char *buf, const int size, const char *fmt, va_list args
 
     if (qualifier == 'l')
       num = 
-# 684 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
+# 684 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
            __builtin_va_arg(
-# 684 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 684 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
            args
-# 684 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
+# 684 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
            ,
-# 684 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 684 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
            unsigned long
-# 684 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
+# 684 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
            )
-# 684 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 684 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
                                       ;
     else if (flags & (1<<1))
       num = 
-# 686 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
+# 686 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
            __builtin_va_arg(
-# 686 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 686 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
            args
-# 686 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
+# 686 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
            ,
-# 686 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 686 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
            int
-# 686 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
+# 686 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
            )
-# 686 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 686 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
                             ;
     else
       num = 
-# 688 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
+# 688 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
            __builtin_va_arg(
-# 688 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 688 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
            args
-# 688 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
+# 688 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
            ,
-# 688 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 688 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
            unsigned int
-# 688 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
+# 688 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c" 3 4
            )
-# 688 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
+# 688 "/home/eddieho/tmp/phase2_release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.c"
                                      ;
 
     str = ee_number(str, ((size - 1) - (str - buf)), num, base, field_width, precision, flags);

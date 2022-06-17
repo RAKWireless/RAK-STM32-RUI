@@ -1113,20 +1113,23 @@ int32_t service_lora_get_dev_eui(uint8_t *buff, uint32_t len)
 
 int32_t service_lora_set_dev_eui(uint8_t *buff, uint32_t len)
 {
-    MibRequestConfirm_t mibReq;
-    LoRaMacStatus_t status;
-
-    mibReq.Type = MIB_DEV_EUI;
-    mibReq.Param.DevEui = buff;
-    if ((status = LoRaMacMibSetRequestConfirm(&mibReq)) != LORAMAC_STATUS_OK)
+    /* P2P mode will also set deveui, which is used as a unique ID */
+    if(SERVICE_LORAWAN==service_lora_get_nwm())
     {
-        if (status == LORAMAC_STATUS_BUSY) {
-            return -UDRV_BUSY;
-        } else {
-            return -UDRV_INTERNAL_ERR;
+        MibRequestConfirm_t mibReq;
+        LoRaMacStatus_t status;
+
+        mibReq.Type = MIB_DEV_EUI;
+        mibReq.Param.DevEui = buff;
+        if ((status = LoRaMacMibSetRequestConfirm(&mibReq)) != LORAMAC_STATUS_OK)
+        {
+            if (status == LORAMAC_STATUS_BUSY) {
+                return -UDRV_BUSY;
+            } else {
+                return -UDRV_INTERNAL_ERR;
+            }
         }
     }
-
     return service_nvm_set_dev_eui_to_nvm(buff, len);
 }
 
@@ -1296,6 +1299,27 @@ SERVICE_LORA_BAND service_lora_get_band(void)
 
 int32_t service_lora_set_band(SERVICE_LORA_BAND band)
 {
+
+#ifdef  rak3172
+        /* Only RAK3172 supports hardware high and low frequency detection */
+        uint8_t hardware_freq = 0;
+        hardware_freq =  BoardGetHardwareFreq();
+        if(hardware_freq)
+        {
+            if((band == SERVICE_LORA_CN470) || (band == SERVICE_LORA_EU433))
+            {
+                return -UDRV_WRONG_ARG;
+            }
+        }
+        else
+        {
+            if((band != SERVICE_LORA_CN470 ) && (band != SERVICE_LORA_EU433))
+            {
+                return -UDRV_WRONG_ARG;
+            }
+        }
+#endif 
+
     uint16_t mask = 0;
     int32_t ret;
     LoRaMacStatus_t Status;

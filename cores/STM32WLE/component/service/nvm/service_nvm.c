@@ -123,7 +123,21 @@ int32_t service_nvm_set_default_config_to_nvm(void) {
         memcpy(&g_rui_cfg_t.cfg.g_lora_cfg_t, &factory_default.cfg.g_lora_cfg_t , sizeof(lora_cfg_t));
         memcpy(g_rui_cfg_t.cfg.sn, factory_default.cfg.sn, 18);
     } else {
+#ifdef rak3172
+        /* Only RAK3172 supports hardware high and low frequency detection */
+        uint8_t hardware_freq = 0;
+        hardware_freq =  BoardGetHardwareFreq();
+        if(hardware_freq)
+        {
+            g_rui_cfg_t.cfg.g_lora_cfg_t.region = SERVICE_LORA_EU868;
+        }
+        else
+        {
+            g_rui_cfg_t.cfg.g_lora_cfg_t.region = SERVICE_LORA_CN470;
+        }
+#else
         g_rui_cfg_t.cfg.g_lora_cfg_t.region = SERVICE_LORA_EU868;
+#endif
         g_rui_cfg_t.cfg.g_lora_cfg_t.join_mode = SERVICE_LORA_OTAA;
         g_rui_cfg_t.cfg.g_lora_cfg_t.device_class = SERVICE_LORA_CLASS_A;
         g_rui_cfg_t.cfg.g_lora_cfg_t.confirm = SERVICE_LORA_ACK;
@@ -144,7 +158,19 @@ int32_t service_nvm_set_default_config_to_nvm(void) {
         memset(g_rui_cfg_t.cfg.g_lora_cfg_t.McSession_group,0x00,4*sizeof(McSession_t));
 
         /* lora p2p configuration */
+#ifdef rak3172
+        /* Only RAK3172 supports hardware high and low frequency detection */
+        if(hardware_freq)
+        {
+            g_rui_cfg_t.cfg.g_lora_p2p_cfg_t.Frequency = 868000000; 
+        }
+        else
+        {
+            g_rui_cfg_t.cfg.g_lora_p2p_cfg_t.Frequency = 470000000; 
+        }
+#else
         g_rui_cfg_t.cfg.g_lora_p2p_cfg_t.Frequency = 868000000; // 150MHz - 960MHz
+#endif
         g_rui_cfg_t.cfg.g_lora_p2p_cfg_t.Spreadfact = 7;// 6 - 12
         g_rui_cfg_t.cfg.g_lora_p2p_cfg_t.Bandwidth = 125; // 125 kHz, 250 kHz, 500 kHz
         g_rui_cfg_t.cfg.g_lora_p2p_cfg_t.Codingrate = 0;// 0: 4/5, 1: 4/6, 2: 4/7, 3: 4/8

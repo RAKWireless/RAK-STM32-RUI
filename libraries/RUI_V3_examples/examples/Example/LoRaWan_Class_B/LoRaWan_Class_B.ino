@@ -84,8 +84,8 @@ void setup()
   }
   if (!api.lorawan.njm.set(RAK_LORA_OTAA))	// Set the network join mode to OTAA
   {
-    Serial.printf
-	("LoRaWan OTAA - set network join mode is incorrect! \r\n");
+    Serial.
+	printf("LoRaWan OTAA - set network join mode is incorrect! \r\n");
     return;
   }
   if (!api.lorawan.join())	// Join to Gateway

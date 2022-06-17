@@ -44,6 +44,8 @@ static bool run_user_app = false;
 
 extern bool udrv_powersave_in_sleep;
 extern const char *sw_version;
+extern const char *build_date ;
+extern const char *build_time ;
 
 void SystemClock_Config(void)
 {
@@ -400,6 +402,22 @@ void main(void)
         udrv_system_timer_start(SYSTIMER_LED, 1000, NULL);
     }
 #endif
+
+#ifdef rak3172
+    /* Only RAK3172 supports hardware high and low frequency detection */
+    uint8_t hardware_freq = 0;
+    hardware_freq =  BoardGetHardwareFreq();
+    if(hardware_freq)
+    {
+        udrv_serial_log_printf("RAK3172-H ");
+    }
+    else
+    {
+        udrv_serial_log_printf("RAK3172-L ");
+    }
+    udrv_serial_log_printf("Version:%s %s\r\n",sw_version,build_date);
+#endif
+
 
 #ifdef SUPPORT_LORA
     udrv_serial_log_printf("Current Work Mode: ");

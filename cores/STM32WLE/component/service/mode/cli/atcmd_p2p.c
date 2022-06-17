@@ -6,6 +6,7 @@
 #include "udrv_errno.h"
 #include "service_lora.h"
 #include "service_lora_test.h"
+#include "board.h"
 
 static void dump_hex2str(uint8_t *buf, uint8_t len)
 {
@@ -68,6 +69,26 @@ int At_P2pFreq(SERIAL_PORT port, char *cmd, stParam *param)
 
         if ((frequency < 150e6) || (frequency > 960e6))
             return AT_PARAM_ERROR;
+	
+#ifdef  rak3172
+        /* Only RAK3172 supports hardware high and low frequency detection */
+        uint8_t hardware_freq = 0;
+        hardware_freq =  BoardGetHardwareFreq();
+        if(hardware_freq)
+        {
+            if(frequency < 600e6)
+            {
+                return AT_PARAM_ERROR;
+            };
+        }
+        else
+        {
+            if(frequency >= 600e6)
+            {
+                return AT_PARAM_ERROR;
+            }
+        }
+#endif   
 
         if (service_lora_p2p_set_freq(frequency) != UDRV_RETURN_OK)
         { 

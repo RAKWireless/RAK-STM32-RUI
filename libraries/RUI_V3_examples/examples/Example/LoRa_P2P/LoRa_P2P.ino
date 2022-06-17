@@ -11,15 +11,15 @@ void hexDump(uint8_t * buf, uint16_t len)
 {
   char alphabet[17] = "0123456789abcdef";
   Serial.print(F
-	       ("   +------------------------------------------------+ +----------------+\n"));
+	       ("   +------------------------------------------------+ +----------------+\r\n"));
   Serial.print(F
-	       ("   |.0 .1 .2 .3 .4 .5 .6 .7 .8 .9 .a .b .c .d .e .f | |      ASCII     |\n"));
+	       ("   |.0 .1 .2 .3 .4 .5 .6 .7 .8 .9 .a .b .c .d .e .f | |      ASCII     |\r\n"));
   for (uint16_t i = 0; i < len; i += 16) {
     if (i % 128 == 0)
       Serial.print(F
-		   ("   +------------------------------------------------+ +----------------+\n"));
+		   ("   +------------------------------------------------+ +----------------+\r\n"));
     char s[] =
-	"|                                                | |                |\n";
+	"|                                                | |                |\r\n";
     uint8_t ix = 1, iy = 52;
     for (uint8_t j = 0; j < 16; j++) {
       if (i + j < len) {
@@ -41,7 +41,7 @@ void hexDump(uint8_t * buf, uint16_t len)
     Serial.print(s);
   }
   Serial.print(F
-	       ("   +------------------------------------------------+ +----------------+\n"));
+	       ("   +------------------------------------------------+ +----------------+\r\n"));
 }
 
 /*
@@ -116,11 +116,17 @@ void setup()
 void loop()
 {
   uint8_t payload[] = "payload";
+  bool send_result = false;
   if (rx_done) {
     rx_done = false;
-    Serial.printf("P2P send %s\r\n",
-		  api.lorawan.psend(sizeof(payload),
-				    payload) ? "Success" : "Fail");
+    while (!send_result) {
+      send_result = api.lorawan.psend(sizeof(payload), payload);
+      Serial.printf("P2P send %s\r\n", send_result ? "Success" : "Fail");
+      if (!send_result) {
+        Serial.printf("P2P finish Rx mode %s\r\n", api.lorawan.precv(0) ? "Success" : "Fail");
+        delay(1000);
+      }
+    }
   }
   delay(500);
 }

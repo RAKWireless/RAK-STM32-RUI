@@ -3676,10 +3676,14 @@ channel mask
   /**@par	Description
      *          This API is used to enter P2P RX mode for a specified period.
      *
+     * @ingroup	P2P
      * @par	Syntax
      *      	api.lorawan.precv(uint32_t timeout)
      *
-     * @param	timeout		the duration of P2P Rx mode
+     * @param	timeout		the duration of P2P Rx mode in milli-seconds, except the following magic input:
+     *                          - 65535: Stay in RX mode until a packet is received.
+     *                          - 65534: Stay in RX mode until api.lorawan.precv(0) is called.
+     *                          - 65533: Stay in RX mode, but still can do TX without calling api.lorawan.precv(0).
      * @return	bool
      * @retval	TRUE for entering P2P Rx mode success
      * @retval	FALSE for entering P2P Rx mode failure
