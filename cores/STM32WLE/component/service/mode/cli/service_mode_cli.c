@@ -202,7 +202,9 @@ void service_mode_cli_handler(SERIAL_PORT port, uint8_t ch) {
                     __put_char(port, 0x0d);
                 }
                 At_Parser(port, sgCmdBuffer,strlen(sgCmdBuffer));
+#ifdef SUPPORT_AT                   
                 atcmd_printf("\r\n%s", CLI_PROMPT);
+#endif                  
             }
 
             //if ( 0 !=sgCurPos ) {
@@ -251,7 +253,7 @@ void service_mode_cli_init(SERIAL_PORT port) {
     memset(sgCmdBuffer, 0x00, sizeof(sgCmdBuffer));
     sgCurPos = 0;
     sgArgC = 0;
-    update_permisssion();
+    update_permission();
 }
 
 void service_mode_cli_deinit(SERIAL_PORT port) {

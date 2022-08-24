@@ -11,6 +11,46 @@
 
 #include <math.h>
 
+/**@addtogroup	RUI_Arduino_Data_Type
+ * @{
+ */
+
+typedef enum{
+    RAK_ADC_RESOLUTION_8BIT = UDRV_ADC_RESOLUTION_8BIT,    ///< 8 bit resolution
+    RAK_ADC_RESOLUTION_10BIT = UDRV_ADC_RESOLUTION_10BIT,  ///< 10 bit resolution
+    RAK_ADC_RESOLUTION_12BIT = UDRV_ADC_RESOLUTION_12BIT,  ///< 12 bit resolution
+    RAK_ADC_RESOLUTION_14BIT = UDRV_ADC_RESOLUTION_14BIT,  ///< 14 bit resolution
+} RAK_ADC_RESOLUTION;
+
+typedef enum{
+    RAK_ADC_MODE_DEFAULT = UDRV_ADC_MODE_DEFAULT,  ///< default range which depends on platform
+    RAK_ADC_MODE_3_0 = UDRV_ADC_MODE_3_0,          ///< maximum 3.0V
+    RAK_ADC_MODE_2_4 = UDRV_ADC_MODE_2_4,          ///< maximum 2.4V
+    RAK_ADC_MODE_1_8 = UDRV_ADC_MODE_1_8,          ///< maximum 1.8V
+    RAK_ADC_MODE_1_2 = UDRV_ADC_MODE_1_2,          ///< maximum 1.2V
+} RAK_ADC_MODE;
+
+typedef enum{
+    RAK_PWM_RESOLUTION_8BIT = UDRV_PWM_RESOLUTION_8BIT,    ///< 8 bit resolution
+    RAK_PWM_RESOLUTION_10BIT = UDRV_PWM_RESOLUTION_10BIT,  ///< 10 bit resolution
+    RAK_PWM_RESOLUTION_12BIT = UDRV_PWM_RESOLUTION_12BIT,  ///< 12 bit resolution
+    RAK_PWM_RESOLUTION_14BIT = UDRV_PWM_RESOLUTION_14BIT,  ///< 14 bit resolution
+} RAK_PWM_RESOLUTION;
+
+typedef enum _eAnalogReference
+{
+  AR_DEFAULT = UDRV_ADC_MODE_DEFAULT,
+  AR_INTERNAL = UDRV_ADC_MODE_3_3,          // 0.6V Ref * 6 = 0..3.6V
+  AR_INTERNAL_3_0 = UDRV_ADC_MODE_3_0,      // 0.6V Ref * 5 = 0..3.0V
+  AR_INTERNAL_2_4 = UDRV_ADC_MODE_2_4,      // 0.6V Ref * 4 = 0..2.4V
+  AR_INTERNAL_1_8 = UDRV_ADC_MODE_1_8,      // 0.6V Ref * 3 = 0..1.8V
+  AR_INTERNAL_1_2 = UDRV_ADC_MODE_1_2,      // 0.6V Ref * 2 = 0..1.6V
+} eAnalogReference;
+
+/**@}*/
+
+
+
 enum BitOrder {
 	LSBFIRST = 0,
 	MSBFIRST = 1
@@ -461,7 +501,14 @@ int analogRead(uint8_t pin);
  *
  * @return	void
  */
-void analogReference(uint8_t type);
+void analogReference(eAnalogReference mode);
+
+/*
+* \brief Configures the oversampling amount used to sample analog input.
+*
+* \param ulOversampling Should be set to 1, 2, 4, 8, 16, 32, 64, 128 or 256.
+*/
+void analogOversampling( uint32_t ulOversampling);
 
 /**@par	Description
  *     	Writes an analog value (PWM wave) to a pin. Can be used to light a LED at varying brightnesses or drive a motor at various speeds. After a call to analogWrite(), 
@@ -854,6 +901,7 @@ void detachInterrupt(uint32_t pin);
 
 void yield(void);
 
+
 /** @} */
 
 #include "wiring.h"
@@ -865,32 +913,6 @@ void yield(void);
 #include "Wire.h"
 #include "SPI.h"
 
-/**@addtogroup	RUI_Arduino_Data_Type
- * @{
- */
 
-typedef enum{
-    RAK_ADC_RESOLUTION_8BIT = UDRV_ADC_RESOLUTION_8BIT,    ///< 8 bit resolution
-    RAK_ADC_RESOLUTION_10BIT = UDRV_ADC_RESOLUTION_10BIT,  ///< 10 bit resolution
-    RAK_ADC_RESOLUTION_12BIT = UDRV_ADC_RESOLUTION_12BIT,  ///< 12 bit resolution
-    RAK_ADC_RESOLUTION_14BIT = UDRV_ADC_RESOLUTION_14BIT,  ///< 14 bit resolution
-} RAK_ADC_RESOLUTION;
-
-typedef enum{
-    RAK_ADC_MODE_DEFAULT = UDRV_ADC_MODE_DEFAULT,  ///< default range which depends on platform
-    RAK_ADC_MODE_3_0 = UDRV_ADC_MODE_3_0,          ///< maximum 3.0V
-    RAK_ADC_MODE_2_4 = UDRV_ADC_MODE_2_4,          ///< maximum 2.4V
-    RAK_ADC_MODE_1_8 = UDRV_ADC_MODE_1_8,          ///< maximum 1.8V
-    RAK_ADC_MODE_1_2 = UDRV_ADC_MODE_1_2,          ///< maximum 1.2V
-} RAK_ADC_MODE;
-
-typedef enum{
-    RAK_PWM_RESOLUTION_8BIT = UDRV_PWM_RESOLUTION_8BIT,    ///< 8 bit resolution
-    RAK_PWM_RESOLUTION_10BIT = UDRV_PWM_RESOLUTION_10BIT,  ///< 10 bit resolution
-    RAK_PWM_RESOLUTION_12BIT = UDRV_PWM_RESOLUTION_12BIT,  ///< 12 bit resolution
-    RAK_PWM_RESOLUTION_14BIT = UDRV_PWM_RESOLUTION_14BIT,  ///< 14 bit resolution
-} RAK_PWM_RESOLUTION;
-
-/**@}*/
 
 #endif

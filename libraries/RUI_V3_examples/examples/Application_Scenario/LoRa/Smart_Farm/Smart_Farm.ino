@@ -5,6 +5,8 @@
 #include "rak1901.h"
 #include "rak1902.h"
 
+void uplink_routine();
+
 #define SMART_FARM_PERIOD   (20000)
 /*************************************
 
@@ -72,6 +74,18 @@ void setup()
   // OTAA Application Key MSB first
   uint8_t node_app_key[16] = SMART_FARM_APPKEY;
 
+  if (!api.system.lpm.set(1)) {
+    Serial.printf
+	("LoRaWan Smart Farm - set low power mode is incorrect! \r\n");
+    return;
+  }
+
+  if (!api.lorawan.nwm.set(1)) {
+    Serial.printf
+	("LoRaWan Smart Farm - set network working mode is incorrect! \r\n");
+    return;
+  }
+
   if (!api.lorawan.appeui.set(node_app_eui, 8)) {
     Serial.printf
 	("LoRaWan Smart Farm - set application EUI is incorrect! \r\n");
@@ -83,8 +97,8 @@ void setup()
     return;
   }
   if (!api.lorawan.deui.set(node_device_eui, 8)) {
-    Serial.printf
-	("LoRaWan Smart Farm - set device EUI is incorrect! \r\n");
+    Serial.
+	printf("LoRaWan Smart Farm - set device EUI is incorrect! \r\n");
     return;
   }
 
@@ -130,8 +144,8 @@ void setup()
     return;
   }
   if (!api.lorawan.rety.set(1)) {
-    Serial.printf
-	("LoRaWan Smart Farm - set retry times is incorrect! \r\n");
+    Serial.
+	printf("LoRaWan Smart Farm - set retry times is incorrect! \r\n");
     return;
   }
   if (!api.lorawan.cfm.set(1)) {
@@ -151,6 +165,14 @@ void setup()
   api.lorawan.registerRecvCallback(recvCallback);
   api.lorawan.registerJoinCallback(joinCallback);
   api.lorawan.registerSendCallback(sendCallback);
+  if (api.system.timer.create(RAK_TIMER_0, (RAK_TIMER_HANDLER)uplink_routine, RAK_TIMER_PERIODIC) != true) {
+    Serial.printf("LoRaWan Smart Farm - Creating timer failed.\r\n");
+    return;
+  }
+  if (api.system.timer.start(RAK_TIMER_0, SMART_FARM_PERIOD, NULL) != true) {
+    Serial.printf("LoRaWan Smart Farm - Starting timer failed.\r\n");
+    return;
+  }
 }
 
 void uplink_routine()
@@ -202,9 +224,7 @@ void uplink_routine()
 
 void loop()
 {
-  uplink_routine();
-
-  Serial.printf("Try sleep %ums..\r\n", SMART_FARM_PERIOD);
-  api.system.sleep.all(SMART_FARM_PERIOD);
-  Serial.println("Wakeup..\r\n");
+  /* Destroy this busy loop and use timer to do what you want instead,
+   * so that the system thread can auto enter low power mode by api.system.lpm.set(1); */
+  api.system.scheduler.task.destroy();
 }

@@ -25,6 +25,31 @@
 #include "pins_arduino_analog.h"
 #include "pins_arduino_digital.h"
 
+#include "stm32wlxx_ll_gpio.h"
+ 
+ 
+static const uint32_t pin_map_ll[16] = {
+  LL_GPIO_PIN_0,
+  LL_GPIO_PIN_1,
+  LL_GPIO_PIN_2,
+  LL_GPIO_PIN_3,
+  LL_GPIO_PIN_4,
+  LL_GPIO_PIN_5,
+  LL_GPIO_PIN_6,
+  LL_GPIO_PIN_7,
+  LL_GPIO_PIN_8,
+  LL_GPIO_PIN_9,
+  LL_GPIO_PIN_10,
+  LL_GPIO_PIN_11,
+  LL_GPIO_PIN_12,
+  LL_GPIO_PIN_13,
+  LL_GPIO_PIN_14,
+  LL_GPIO_PIN_15
+};
+#define STM_PIN(X)  ((uint32_t)(X) & 0xF)
+
+#define STM_LL_GPIO_PIN(X) (pin_map_ll[STM_PIN(X)])
+
 /*
  * Pin number mask
  * allows to retrieve the pin number without ALTx
@@ -46,13 +71,13 @@ _Static_assert(NUM_ANALOG_INPUTS <= MAX_ANALOG_INPUTS,
   #define PIN_SPI_SS                4
 #endif
 #ifndef PIN_SPI_MOSI
-  #define PIN_SPI_MOSI              11
+  #define PIN_SPI_MOSI              7
 #endif
 #ifndef PIN_SPI_MISO
-  #define PIN_SPI_MISO              12
+  #define PIN_SPI_MISO              6
 #endif
 #ifndef PIN_SPI_SCK
-  #define PIN_SPI_SCK               13
+  #define PIN_SPI_SCK               5
 #endif
 
 static const uint32_t SS   = PIN_SPI_SS;
@@ -62,10 +87,10 @@ static const uint32_t SCK  = PIN_SPI_SCK;
 
 /* I2C Definitions */
 #ifndef PIN_WIRE_SDA
-  #define PIN_WIRE_SDA              14
+  #define PIN_WIRE_SDA              11
 #endif
 #ifndef PIN_WIRE_SCL
-  #define PIN_WIRE_SCL              15
+  #define PIN_WIRE_SCL              12
 #endif
 
 static const uint32_t SDA = PIN_WIRE_SDA;

@@ -1,3 +1,4 @@
+#ifdef SUPPORT_AT
 #ifdef SUPPORT_LORA
 #include <string.h>
 
@@ -131,21 +132,17 @@ int At_LocalTime(SERIAL_PORT port, char *cmd, stParam *param)
         return AT_MODE_NO_SUPPORT;
     }
 
-    if (class_b_state == SERVICE_LORA_CLASS_B_COMPLETED)
+    if (param->argc == 1 && !strcmp(param->argv[0], "?"))
     {
-        if (param->argc == 1 && !strcmp(param->argv[0], "?"))
-        {
-            char local_time[30] = {0};
-            service_lora_get_local_time(local_time);
-            atcmd_printf("%s=%s\r\n", cmd, local_time);
-            return AT_OK;
-        }
-        else
-        {
-            return AT_PARAM_ERROR;
-        }
-    } else {
-        return AT_NO_CLASSB_ENABLE;
+        char local_time[30] = {0};
+        service_lora_get_local_time(local_time);
+        atcmd_printf("%s=%s\r\n", cmd, local_time);
+        return AT_OK;
     }
+    else
+    {
+        return AT_PARAM_ERROR;
+    }    
 }
+#endif
 #endif

@@ -11,6 +11,8 @@
 #include "atcmd_sleep_def.h"
 #include "atcmd_serial_port.h"
 #include "atcmd_serial_port_def.h"
+#include "atcmd_bootloader.h"
+#include "atcmd_bootloader_def.h"
 #include "atcmd_misc.h"
 #include "atcmd_misc_def.h"
 #include "udrv_errno.h"
@@ -40,6 +42,10 @@
 #include "service_mode_cli.h"
 #ifdef rak3172
 #include "uhal_system.h"
+#endif
+#ifdef RAK5010_EVB
+#include "atcmd_cellular.h"
+#include "atcmd_cellular_def.h"
 #endif
 
 void At_RespOK (char* pStr)
@@ -104,11 +110,14 @@ at_cmd_info atcmd_info_tbl[] =
 {
 /* General Command */
     {ATCMD_ATTENTION,/*0*/          At_Attention,          0, "",AT_PERM},
+    {ATCMD_BOOT,     /*4*/          At_Dfu,                0, "enter bootloader mode for firmware upgrade", AT_BOOT_PERM},
+    {ATCMD_BOOTVER,  /*95*/         At_Bootver,            0, "get the version of RUI Bootloader", AT_BOOTVER_PERM},
+#ifdef SUPPORT_AT    
     {ATCMD_REBOOT,   /*1*/          At_Reboot,             0, "triggers a reset of the MCU", ATZ_PERM},
     {ATCMD_ATR,      /*3*/          At_Restore,            0, "restore default parameters", ATR_PERM},
-    {ATCMD_BOOT,     /*4*/          At_Dfu,                0, "enter bootloader mode for firmware upgrade", AT_BOOT_PERM},
+    {ATCMD_DEBUG,    /*3*/          At_Debug,              0, "set debug log", AT_DEBUG_PERM},
 #ifndef RUI_BOOTLOADER
-    {ATCMD_ATE,      /*88*/         At_Echo,               0, "toggle the At Command echo available", ATE_PERM},
+    {ATCMD_ATE,      /*88*/         At_Echo,               0, "show or hide the AT command input", ATE_PERM},
     {ATCMD_FSN,      /*hidden*/     At_FSn,                0, "", AT_FSN_PERM},
     {ATCMD_FACTORY , /*hidden*/     At_Factory,            0, "", AT_FACTORY_PERM},
     {ATCMD_SN,       /*87*/         At_Sn,                 0, "get the serial number of the device (max 18 char)", AT_SN_PERM},
@@ -121,12 +130,16 @@ at_cmd_info atcmd_info_tbl[] =
     {ATCMD_HWMODEL,  /*13*/         At_GetHwModel,         0, "get the string of the hardware model", AT_HWMODEL_PERM},
     {ATCMD_HWID,     /*14*/         At_GetHwID,            0, "get the string of the hardware id", AT_HWID_PERM},
     {ATCMD_ALIAS,    /*89*/         At_Alias,              0, "add an alias name to the device", AT_ALIAS_PERM},
+    {ATCMD_SYSV,     /*92*/         At_GetSysVolt,         0, "get the System Voltage", AT_SYSV_PERM},
 #ifdef rak3172
     {ATCMD_UID,      /*91*/         At_GetUid,             0, "", AT_UID_PERM},
 #endif
+#ifdef SUPPORT_BLE
+    {ATCMD_BLEMAC,   /*94*/         At_BLEMac,          0, "get the BLE Mac address", AT_BLEMAC_PERM},
+#endif
 /* Sleep Command */
     {ATCMD_SLEEP,    /*85*/         At_Sleep,              0, "enter sleep mode for a period of time (ms)", AT_SLEEP_PERM},
-    //{ATCMD_AUTOSLEEP,/*86*/         At_AutoSleep,          0, "automatically and periodically enter sleep mode (ms)", },
+    {ATCMD_AUTOSLEEP,/*86*/         At_AutoSleep,          0, "get or set the low power mode (0 = off, 1 = on)", AT_AUTOSLEEP_PERM},
 /* Serial Port Command */
     {ATCMD_LOCK,     /*10*/         At_Lock,               0, "lock the serial port",AT_LOCK_PERM },
     {ATCMD_PWORD,    /*11*/         At_Pword,              0, "set the serial port locking password (max 8 char)", AT_PWORD_PERM},
@@ -170,6 +183,7 @@ at_cmd_info atcmd_info_tbl[] =
     {ATCMD_RX2FQ,    /*41*/         At_RxWin2Freq,         0, "get the RX2 window frequency (Hz)", AT_RX2FQ_PERM},
     {ATCMD_TXP,      /*42*/         At_TxPower,            0, "get or set the transmitting power", AT_TXP_PERM},
     {ATCMD_LINKCHECK,/*43*/         At_LinkCheck,          0, "get or set the link check setting (0 = disabled, 1 = once, 2 = everytime)", AT_LINKCHECK_PERM},
+    {ATCMD_TIMEREQ,  /*43*/         At_Timereq,            0, "request the current date and time (0 = disabled, 1 = enabled)", AT_TIMEREQ_PERM},
 /* LoRaWAN Class B */
     {ATCMD_PGSLOT,   /*44*/         At_PingSlot,           0, "get or set the unicast ping slot periodicity (0-7)", AT_PGSLOT_PERM},
     {ATCMD_BFREQ,    /*45*/         At_BeaconFreq,         0, "get the data rate and beacon frequency (MHz)", AT_BFREQ_PERM},
@@ -192,7 +206,7 @@ at_cmd_info atcmd_info_tbl[] =
     {ATCMD_NWM,      /*55*/         At_NwkWorkMode,        0, "get or set the network working mode (0 = P2P_LORA, 1 = LoRaWAN, 2 = P2P_FSK)", AT_NWM_PERM},
     {ATCMD_PFREQ,    /*56*/         At_P2pFreq,            0, "configure P2P Frequency", AT_PFREQ_PERM},
     {ATCMD_PSF,      /*57*/         At_P2pSF,              0, "configure P2P Spreading Factor (5-12)", AT_PSF_PERM},
-    {ATCMD_PBW,      /*58*/         At_P2pBW,              0, "configure P2P Bandwidth(LORA:125,250,500 FSK:4800-467000)", AT_PBW_PERM},
+    {ATCMD_PBW,      /*58*/         At_P2pBW,              0, "configure P2P Bandwidth(LORA: 0 = 125, 1 = 250, 2 = 500, 3 = 7.8, 4 = 10.4, 5 = 15.63, 6 = 20.83, 7 = 31.25, 8 = 41.67, 9 = 62.5  FSK:4800-467000)", AT_PBW_PERM},
     {ATCMD_PCR,      /*59*/         At_P2pCR,              0, "configure P2P Code Rate(0=4/5, 1=4/6, 2=4/7, 3=4/8)", AT_PCR_PERM},
     {ATCMD_PPL,      /*60*/         At_P2pPL,              0, "configure P2P Preamble Length (5-65535)", AT_PPL_PERM},
     {ATCMD_PTP,      /*61*/         At_P2pTP,              0, "configure P2P TX Power(5-22)", AT_PTP_PERM},
@@ -218,13 +232,17 @@ at_cmd_info atcmd_info_tbl[] =
     {ATCMD_CERTIF,   /*84*/         At_Certif,             0, "set the module in LoraWAN certification mode (0 = normal mode, 1 = certification mode)", AT_CERTIF_PERM},
     {ATCMD_CW,       /*90*/         At_Cw,                 0, "start continuous wave", AT_CW_PERM}
 #endif
+#ifdef RAK5010_EVB
+/* LTE */
+    {ATCMD_CELLULAR, /*93*/         At_Cellular,           0, "Send a command to LTE module", AT_CELL_PERM},
+#endif
 /* Miscellaneous Command */
     //{ATCMD_DELBONDS, /*76*/         At_DelBLEBonds,        0, "delete all BLE bond information from flash memory", },
 #else
 /* Bootloader */
     {ATCMD_BOOTSTATUS ,             At_Bootstatus,         0, "get the status of the bootloader", AT_BOOTSTATUS_PERM},
 #endif
-
+#endif
 };
 
 uint32_t At_CmdGetTotalNum (void)
@@ -288,6 +306,7 @@ static int At_CmdList (SERIAL_PORT port, stParam *param)
 
 int At_Parser (SERIAL_PORT port, char *buff, int len)
 {
+  
     int i, j, help = 0;
     int	nRet = AT_ERROR;
     int is_write = 0;
@@ -341,6 +360,55 @@ int At_Parser (SERIAL_PORT port, char *buff, int len)
         atcmd_printf("strlen=%d\r\n",strlen(atcmd_info_tbl[i].atCmd));
 #endif
 
+#ifdef RAK5010_EVB
+        if (strncasecmp(atcmd_info_tbl[i].atCmd, "atcell", 6) == 0 && strncasecmp(cmd, "atcell", 6) == 0) {
+            if(operat != 0) {
+                parseBuff2Param(buff + strlen(cmd) + 1, &param, atcmd_info_tbl[i].maxargu);
+            }
+            if (help && strlen(cmd) == 6) {
+                atcmd_printf("%s: %s\r\n", atcmd_info_tbl[i].atCmd, atcmd_info_tbl[i].CmdUsage);
+                nRet = AT_OK;
+                goto exit_rsp;
+		    } else if (help) {
+                cmd[strlen(cmd)] = '?';
+            }
+                if (atcmd_info_tbl[i].permission & ATCMD_PERM_DISABLE)
+                {
+                    nRet = AT_ERROR;
+                    goto exit_rsp;
+                } 
+                if (!strcmp(param.argv[0], "?") && !(atcmd_info_tbl[i].permission & (ATCMD_PERM_READ | ATCMD_PERM_WRITEONCEREAD)))
+                {
+                    nRet = AT_ERROR;
+                    goto exit_rsp;
+                }
+                else if (strcmp(param.argv[0], "?"))
+                {
+                    is_write = 1;
+                    if (atcmd_info_tbl[i].permission & ATCMD_PERM_WRITEONCEREAD)
+                    {
+                        if (atcmd_info_tbl[i].permission & ATCMD_PERM_ISWRITE)
+                        {
+                            nRet = AT_ERROR;
+                            goto exit_rsp;
+                        }
+                    }
+                    else if (!(atcmd_info_tbl[i].permission & ATCMD_PERM_WRITE))
+                    {
+                        nRet = AT_PARAM_ERROR;
+                        goto exit_rsp;
+                    }
+                }
+                nRet = atcmd_info_tbl[i].pfHandle(port, cmd, &param);
+                if ((nRet == AT_OK) && (atcmd_info_tbl[i].permission & ATCMD_PERM_WRITEONCEREAD))
+                    if (!(atcmd_info_tbl[i].permission & ATCMD_PERM_ISWRITE) && is_write)
+                        atcmd_info_tbl[i].permission |= ATCMD_PERM_ISWRITE;
+            if (nRet == AT_OK)
+                goto exit;
+            goto exit_rsp;
+        }
+#endif
+
         //if(strncasecmp(atcmd_info_tbl[i].atCmd, cmd, strlen(atcmd_info_tbl[i].atCmd)) == 0)    
         if(strcasecmp(atcmd_info_tbl[i].atCmd, cmd) == 0)
         {
@@ -352,10 +420,10 @@ int At_Parser (SERIAL_PORT port, char *buff, int len)
                     atcmd_printf("\r\nAT+<CMD>?: help on <CMD>\r\nAT+<CMD>: run <CMD>\r\nAT+<CMD>=<value>: set the value\r\nAT+<CMD>=?: get the value\r\n");
                     //followed by the help of all commands:
                     At_CmdList(port, &param);
-		} else {
+                } else {
                     atcmd_printf("%s: %s\r\n", atcmd_info_tbl[i].atCmd, atcmd_info_tbl[i].CmdUsage);
-		}
-		nRet = AT_OK;
+                }
+                nRet = AT_OK;
             } else {
                 if (atcmd_info_tbl[i].permission & ATCMD_PERM_DISABLE)
                 {
@@ -364,7 +432,7 @@ int At_Parser (SERIAL_PORT port, char *buff, int len)
                 } 
                 if (!strcmp(param.argv[0], "?") && !(atcmd_info_tbl[i].permission & (ATCMD_PERM_READ | ATCMD_PERM_WRITEONCEREAD)))
                 {
-                    nRet = AT_ERROR;
+                    nRet = AT_PARAM_ERROR;
                     goto exit_rsp;
                 }
                 else if (strcmp(param.argv[0], "?") && param.argc > 0)
@@ -380,7 +448,7 @@ int At_Parser (SERIAL_PORT port, char *buff, int len)
                     }
                     else if (!(atcmd_info_tbl[i].permission & ATCMD_PERM_WRITE))
                     {
-                        nRet = AT_ERROR;
+                        nRet = AT_PARAM_ERROR;
                         goto exit_rsp;
                     }
                 }
@@ -433,7 +501,7 @@ int At_Parser (SERIAL_PORT port, char *buff, int len)
                         }
                         else if (!(atcmd_cust_tbl[j].permission & ATCMD_PERM_WRITE))
                         {
-                            nRet = AT_ERROR;
+                            nRet = AT_PARAM_ERROR;
                             goto exit_rsp;
                         }
                     }
@@ -449,8 +517,10 @@ int At_Parser (SERIAL_PORT port, char *buff, int len)
 #endif
 
 exit_rsp:
+#ifdef SUPPORT_AT   
     if (nRet < sizeof(atcmd_err_tbl)/sizeof(char *)) {
         atcmd_printf("%s", atcmd_err_tbl[nRet]);
+
     } else {
         atcmd_printf("%s", atcmd_err_tbl[1]);
     }
@@ -462,8 +532,16 @@ exit_rsp:
 		    ) {
         atcmd_printf("\r\n%s: Command not found!!", cmd);
     }
+#else
+    if (nRet == 0) {
+        atcmd_printf("%s\r\n", atcmd_err_tbl[nRet]);
+    }     
+#endif    
 exit:
     return nRet;
+
+
+ 
 }
 
 #ifndef RUI_BOOTLOADER
@@ -601,12 +679,14 @@ uint8_t at_check_digital_uint32_t(const char *p_str, uint32_t *value)
     return 0;
 }
 
-
-void update_permisssion()
+   
+void update_permission()
 {
+#ifdef SUPPORT_AT 
     atcmd_permission_item item;
     int i,j;
     int items = atcmd_queue_utilization_get();
+
     if (!atcmd_queue_is_empty())
     {
         for (j = 0; j < items; j++)
@@ -628,8 +708,9 @@ void update_permisssion()
                     }
         }
     }
+#endif
 }
-
+  
 
 /*
     0.UDRV_RETURN_OK,
@@ -676,6 +757,9 @@ uint8_t at_error_code_form_udrv(int8_t udrv_code)
         break;
         case -UDRV_BUSY : 
         at_status = AT_BUSY_ERROR ; 
+        break;
+        case -UDRV_NO_WAN_CONNECTION : 
+        at_status = AT_NO_NETWORK_JOINED ; 
         break;
         default :             
         at_status = AT_ERROR;

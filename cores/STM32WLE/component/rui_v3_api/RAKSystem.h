@@ -55,6 +55,11 @@ typedef enum {
     RAK_TIMER_PERIODIC = HTMR_PERIODIC,	///< This timer is triggered periodically
 } RAK_TIMER_MODE;
 
+/**@par	Description
+ * 	The handler function of task
+ */
+typedef void (*RAK_TASK_HANDLER) (void);
+
 /**@}*/
 
 /** @def CHANGE_ATCMD_PERM(ATCMD,ATCMD_PERMISSIONS);
@@ -152,6 +157,7 @@ class RAKSystem {
   public:
     RAKSystem();
     class sleep sleep;
+    class lpm lpm;
 
     class firmwareVersion {
       private:
@@ -466,7 +472,7 @@ class RAKSystem {
     class bat {
       public:
 	/**@par		Description
-	 *		Get the current battery level
+	 *		Get the current battery voltage (Unit: V)
 	 * @ingroup	System_Battery
 	 * @par		Syntax
 	 * 		api.system.bat.get()
@@ -480,7 +486,7 @@ class RAKSystem {
 
            void loop()
            {
-             Serial.printf("Battery Level: %f\r\n", api.system.bat.get());
+             Serial.printf("Battery Voltage: %f\r\n", api.system.bat.get());
              delay(1000);
            }
            @endverbatim
@@ -1079,6 +1085,81 @@ class RAKSystem {
      */
         bool    stop(RAK_TIMER_ID id);
     };
+    class scheduler {
+      public :
+      class task {
+        public :
+    /**@par     Description
+     *      Create a new task.
+     * @ingroup System_Scheduler
+     * @par     Syntax
+     *  api.system.scheduler.task.create(name, handler)
+     * @param   name task name
+     * @param   handler the handler function for this task
+     * @return  bool
+     * @retval  TRUE for creating task successfully
+     * @retval  FALSE for creating task failure
+     * @par         Example
+         * @verbatim
+            void handler(void *data)
+            {
+              Serial.printf("[%lu]This is the handler\r\n", millis());
+              delay(60000);
+            }
+            void setup()
+            {
+              Serial.begin(115200);
+
+              if (api.system.scheduler.task.create("task1", (RAK_TASK_HANDLER)handler) != true) {
+                Serial.printf("Creating new task failed.\r\n");
+              }
+            }
+            void loop()
+            {
+            }
+           @endverbatim
+     */
+          bool    create(char *name, RAK_TASK_HANDLER handler);
+    /**@par     Description
+     *      Destroy an existing task.
+     * @ingroup System_Scheduler
+     * @par     Syntax
+     *  api.system.scheduler.task.destroy(name)
+     *  api.system.scheduler.task.destroy()
+     * @param   name task name (if not specified, current thread is destroyed)
+     * @return  bool
+     * @retval  TRUE for destroying task successfully
+     * @retval  FALSE for destroying task failure
+     * @par         Example
+         * @verbatim
+            void handler(void *data)
+            {
+              Serial.printf("[%lu]This is the handler\r\n", millis());
+              delay(60000);
+            }
+            void setup()
+            {
+              Serial.begin(115200);
+
+              if (api.system.scheduler.task.create("task1", (RAK_TASK_HANDLER)handler) != true) {
+                Serial.printf("Creating new task failed.\r\n");
+              }
+            }
+            void loop()
+            {
+              if (millis() > 60000) {
+                if (api.system.scheduler.task.destroy("task1") != true) {
+                  Serial.printf("Destroying existing task failed.\r\n");
+                }
+              }
+            }
+           @endverbatim
+     */
+          bool    destroy(char *name);
+          bool    destroy(void);
+      };
+      task task;
+    };
     pword pword;
     bat bat;
     atMode atMode;
@@ -1089,6 +1170,7 @@ class RAKSystem {
 #endif
     alias alias;
     timer timer;
+    scheduler scheduler;
 };
 
 /**@example	System_FS/src/app.cpp

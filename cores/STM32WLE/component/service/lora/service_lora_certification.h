@@ -5,7 +5,7 @@
 extern "C" {
 #endif
 
-
+#ifdef SUPPORT_LORA
 
 int32_t service_lora_certification(int32_t mode);
 
@@ -16,5 +16,6 @@ int32_t service_lora_Certifi_Callback(McpsIndication_t *mcpsIndication);
 }
 #endif
 
+#endif // end SUPPORT_LORA
 
-#endif
+#endif // __SERVICE_LORA_CERFICATION_H__

@@ -95,29 +95,21 @@ extern const uint32_t g_ADigitalPinMap[];
 #define WB_TXD0                PB6          // IO_SLOT
 #define WB_RXD1                PA3          // SLOT_A IO_SLOT
 #define WB_TXD1                PA2          // SLOT_A IO_SLOT
-#define WB_LED1                PA0          // IO_SLOT
-#define WB_LED2                PA1          // IO_SLOT
-
-// LEDs
-#define PIN_LED1 WB_LED1//PA0
-#define PIN_LED2 WB_LED2//PA1
-
-#define LED_BUILTIN PIN_LED1
-#define LED_CONN PIN_LED2
-
-#define LED_GREEN PIN_LED1
-#define LED_BLUE PIN_LED2
-
-#define LED_STATE_ON 1 // State when LED is litted
 
 /*
  * Analog pins
  */
 #define PIN_A0 PB3
 #define PIN_A1 PB4
+#define PIN_A2 PB2
+#define PIN_A3 PA10
+#define PIN_A4 PA15
 
 #define A0 PIN_A0
 #define A1 PIN_A1
+#define A2 PIN_A2
+#define A3 PIN_A3
+#define A4 PIN_A4
 
 
 /*

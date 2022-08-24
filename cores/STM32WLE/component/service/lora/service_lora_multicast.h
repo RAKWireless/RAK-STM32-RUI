@@ -9,10 +9,11 @@
 #ifndef __SERVICE_LORA_MULTICAST_H__
 #define __SERVICE_LORA_MULTICAST_H__
 
+#ifdef SUPPORT_LORA
+
 #ifdef __cplusplus
 extern "C" {
 #endif
-
 
 #include <stdint.h>
 #include <stdbool.h>
@@ -47,5 +48,6 @@ int32_t service_lora_clear_multicast(void);
 }
 #endif
 
+#endif // end SUPPORT_LORA
 
-#endif
+#endif // __SERVICE_LORA_MULTICAST_H__

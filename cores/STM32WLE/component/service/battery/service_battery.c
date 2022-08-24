@@ -8,7 +8,6 @@
 extern batt_level batt_table[];
 
 void service_battery_get_batt_level(float *bat_lvl) {
-#if defined(WISBLOCK_BASE_5005) || defined(WISBLOCK_BASE_5005_O)
     uint16_t adc_value;
     float max, ref_over_gain;
 
@@ -75,7 +74,13 @@ void service_battery_get_batt_level(float *bat_lvl) {
         }
     }
 
+#if defined(WISBLOCK_BASE_5005) || defined(WISBLOCK_BASE_5005_O)
     udrv_adc_read(WB_A0, &adc_value);
+#endif
+
+#ifdef RAK5010_EVB
+    udrv_adc_read(BAT_PIN, &adc_value);
+#endif
 
     for (int i = 0 ; i < get_batt_table_size() ; i++) {
         *bat_lvl = batt_table[i].batt_vol;
@@ -95,6 +100,83 @@ void service_battery_get_batt_level(float *bat_lvl) {
     *bat_lvl = ref_over_gain*(((float)adc_value)/max)*(5.0f)/(3.0f);
 #endif
 
+#ifdef RAK5010_EVB
+    *bat_lvl = (ref_over_gain*(((float)adc_value)/max)*(5.0f)/(2.0f)) + 0.3f;
 #endif
+
     return;
 }
+
+void service_battery_get_SysVolt_level (float *sys_lvl) {
+    uint16_t adc_value;
+    float max, ref_over_gain;
+
+    switch (udrv_adc_get_resolution()) {
+        case UDRV_ADC_RESOLUTION_6BIT:
+        {
+            max = 64.0;
+            break;
+        }
+        case UDRV_ADC_RESOLUTION_8BIT:
+        {
+            max = 256.0;
+            break;
+        }
+        case UDRV_ADC_RESOLUTION_10BIT:
+        default:
+        {
+            max = 1024.0;
+            break;
+        }
+        case UDRV_ADC_RESOLUTION_12BIT:
+        {
+            max = 4096.0;
+            break;
+        }
+        case UDRV_ADC_RESOLUTION_14BIT:
+        {
+            max = 16384.0;
+            break;
+        }
+    }
+
+    switch (udrv_adc_get_mode()) {
+        case UDRV_ADC_MODE_DEFAULT:
+        default:
+        {
+            ref_over_gain = 3.6;
+            break;
+        }
+        case UDRV_ADC_MODE_3_3:
+        {
+            ref_over_gain = 3.3;
+            break;
+        }
+        case UDRV_ADC_MODE_3_0:
+        {
+            ref_over_gain = 3.0;
+            break;
+        }
+        case UDRV_ADC_MODE_2_4:
+        {
+            ref_over_gain = 2.4;
+            break;
+        }
+        case UDRV_ADC_MODE_1_8:
+        {
+            ref_over_gain = 1.8;
+            break;
+        }
+        case UDRV_ADC_MODE_1_2:
+        {
+            ref_over_gain = 1.2;
+            break;
+        }
+    }
+
+    udrv_adc_read(255, &adc_value);
+    *sys_lvl = ((float)adc_value)*ref_over_gain/max;
+
+    return;
+}
+

@@ -9,6 +9,8 @@
 #ifndef __SERVICE_LORA_P2P_H__
 #define __SERVICE_LORA_P2P_H__
 
+#ifdef SUPPORT_LORA
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -123,6 +125,8 @@ int32_t service_lora_p2p_register_recv_cb(service_lora_p2p_recv_cb_type callback
 #ifdef __cplusplus
 }
 #endif
+
+#endif // end SUPPORT_LORA
 
 #endif  // __SERVICE_LORA_P2P_H__
 

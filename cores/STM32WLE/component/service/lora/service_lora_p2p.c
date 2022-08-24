@@ -1,3 +1,5 @@
+#ifdef SUPPORT_LORA
+
 #include <stddef.h>
 #include <stdint.h>
 #include "udrv_errno.h"
@@ -12,6 +14,7 @@
 #include "radio.h"
 #include "service_lora_test.h"
 #include "soft-se/aes.h"
+#include "board.h"
 
 static int PKCS7Cutting(char *p, int plen);
 static int PKCS7Padding(char *p, int plen);
@@ -189,23 +192,12 @@ int32_t service_lora_p2p_config(void)
 
     if (SERVICE_LORA_P2P == service_lora_get_nwm())
     {
-        switch (g_rui_cfg_t.g_lora_p2p_cfg_t.Bandwidth)
-        {
-        case 125:
-            bandwidth = 0;
-            break;
-        case 250:
-            bandwidth = 1;
-            break;
-        case 500:
-            bandwidth = 2;
-            break;
-        default:
-            break;
-        }
+        //NULL
     }
     else if (SERVICE_LORA_FSK == service_lora_get_nwm())
     {
+        //Because RadioGetFskBandwidthRegValue( bandwidth << 1 ); 
+        // SX126x badwidth is double sided
         bandwidth = (g_rui_cfg_t.g_lora_p2p_cfg_t.fsk_rxbw >> 1);
     }
 
@@ -380,6 +372,26 @@ int32_t service_lora_p2p_set_freq(uint32_t freq)
 {
     if ((freq < 150e6) || (freq > 960e6))
         return -UDRV_WRONG_ARG;
+    
+#ifdef  rak3172
+        /* Only RAK3172 supports hardware high and low frequency detection */
+        uint8_t hardware_freq = 0;
+        hardware_freq =  BoardGetHardwareFreq();
+        if(hardware_freq)
+        {
+            if(freq < 600e6)
+            {
+                return -UDRV_WRONG_ARG;
+            }
+        }
+        else
+        {
+            if(freq >= 600e6)
+            {
+                return -UDRV_WRONG_ARG;
+            }
+        }
+#endif
 
     service_nvm_set_freq_to_nvm(freq);
     service_lora_p2p_config();
@@ -394,7 +406,7 @@ uint8_t service_lora_p2p_get_sf(void)
 
 int32_t service_lora_p2p_set_sf(uint8_t spreadfact)
 {
-    if ((spreadfact < 6) || (spreadfact > 12))
+    if ((spreadfact < 5) || (spreadfact > 12))
         return -UDRV_WRONG_ARG;
 
     service_nvm_set_sf_to_nvm(spreadfact);
@@ -412,7 +424,7 @@ int32_t service_lora_p2p_set_bandwidth(uint32_t bandwidth)
 {
     if (SERVICE_LORA_P2P == service_lora_get_nwm())
     {
-        if ((bandwidth != 125) && (bandwidth != 250) && (bandwidth != 500))
+        if (bandwidth > 9)
         {
             return -UDRV_WRONG_ARG;
         }
@@ -796,3 +808,4 @@ int32_t service_lora_p2p_register_recv_cb(service_lora_p2p_recv_cb_type callback
     return UDRV_RETURN_OK;
 }
 
+#endif

@@ -1,3 +1,5 @@
+#ifdef SUPPORT_LORA
+
 #include "service_lora_test.h"
 #include <stddef.h>
 #include <stdint.h>
@@ -173,7 +175,7 @@ int32_t service_lora_trssi(int16_t *rssiVal)
     *rssiVal = Radio.Rssi(MODEM_FSK);
     Radio.Sleep();
     TestState &= ~RX_TEST_RSSI;
-    return rssiVal;
+    return *rssiVal;
   }
   else
   {
@@ -542,3 +544,5 @@ int32_t service_lora_set_cw(testCwParameter_t *param)
   // }
   return UDRV_RETURN_OK;
 }
+
+#endif

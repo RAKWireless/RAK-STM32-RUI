@@ -3,8 +3,8 @@
 void test_bit()
 {
   Serial.println(">>>>Test bit()<<<<<");
-  Serial.println
-      ("(bit 0 is 1, bit 1 is 2, bit 2 is 4, bit 3 is 8,  etc.)");
+  Serial.
+      println("(bit 0 is 1, bit 1 is 2, bit 2 is 4, bit 3 is 8,  etc.)");
   Serial.print("bit 0: ");
   Serial.println(bit(0));	// show the bit 0 with binary
   Serial.print("bit 3: ");

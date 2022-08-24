@@ -59,10 +59,18 @@ extern "C" {
 /* In order to use BSP driver, add the correspondent files in the IDE workspace */
 /* and define USE_BSP_DRIVER in the preprocessor definitions  or in platform.h */
 #define IS_TCXO_SUPPORTED                   1U
-#define RBI_CONF_RFO                        RBI_CONF_RFO_HP
 #define IS_DCDC_SUPPORTED                   1U
 
+/* RAK3172lp_sip and RAK3172_sip use different radio configurations */
+#ifdef LORA_RF_LP
+#define RBI_CONF_RFO                        RBI_CONF_RFO_LP
 #else
+#define RBI_CONF_RFO                        RBI_CONF_RFO_HP
+#endif
+
+#else
+
+
 /* USER CODE BEGIN Exported Parameters */
 
 /* USER CODE END Exported Parameters */

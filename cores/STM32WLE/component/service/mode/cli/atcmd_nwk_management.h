@@ -15,6 +15,6 @@ int At_RxWin2DataRate (SERIAL_PORT port, char *cmd, stParam *param);
 int At_RxWin2Freq (SERIAL_PORT port, char *cmd, stParam *param);
 int At_TxPower (SERIAL_PORT port, char *cmd, stParam *param);
 int At_LinkCheck(SERIAL_PORT port, char *cmd, stParam *param);
-
+int At_Timereq(SERIAL_PORT port, char *cmd, stParam *param);
 
 #endif //_ATCMD_NWK_MNG_H_

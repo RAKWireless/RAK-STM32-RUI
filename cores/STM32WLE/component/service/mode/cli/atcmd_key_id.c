@@ -1,3 +1,4 @@
+#ifdef SUPPORT_AT
 #ifdef SUPPORT_LORA
 #include <string.h>
 
@@ -378,4 +379,4 @@ int At_NwkSKey (SERIAL_PORT port, char *cmd, stParam *param)
     }
 }
 #endif
-
+#endif

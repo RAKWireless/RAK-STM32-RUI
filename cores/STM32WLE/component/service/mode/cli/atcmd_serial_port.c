@@ -1,5 +1,5 @@
+#ifdef SUPPORT_AT
 #include <string.h>
-
 #include "atcmd.h"
 #include "atcmd_serial_port.h"
 #include "udrv_errno.h"
@@ -10,7 +10,7 @@
 int At_Lock (SERIAL_PORT port, char *cmd, stParam *param)
 {
     if (param->argc == 1 && !strcmp(param->argv[0], "?")) {
-        atcmd_printf("unlocked\r\n");
+        atcmd_printf("AT+LOCK=unlocked\r\n");
 
         return AT_OK;
     } else if (param->argc == 0) {
@@ -265,4 +265,4 @@ int At_TransparentMode(SERIAL_PORT port, char *cmd, stParam *param)
     }
 }
 #endif
-
+#endif

@@ -28,11 +28,33 @@ static proto_arrived_packet_info arrived_pkt_info[SERIAL_MAX];
 
 static proto_upper_layer_info proto_upper_layer_table[PROTO_UPPER_LAYER_NUM_MAX];
 
+static uint32_t proto_wlock_cnt[SERIAL_MAX];
+
+static void proto_wake_lock(SERIAL_PORT port) {
+    udrv_powersave_wake_lock();
+    proto_wlock_cnt[port]++;
+}
+
+static void proto_wake_unlock(SERIAL_PORT port) {
+    if (proto_wlock_cnt > 0) {
+        udrv_powersave_wake_unlock();
+        proto_wlock_cnt[port]--;
+    }
+}
+
+static void proto_wake_unlock_all(SERIAL_PORT port) {
+    while (proto_wlock_cnt[port] > 0) {
+        udrv_powersave_wake_unlock();
+        proto_wlock_cnt[port]--;
+    }
+}
+
 static void proto_rst_handler(void *p_context) {
     memset(((proto_arrived_packet_info *)p_context)->sgProtoBuffer, 0x00, PROTO_BUFFER_SIZE+1);
     ((proto_arrived_packet_info *)p_context)->sgCurPos = 0;
     ((proto_arrived_packet_info *)p_context)->curr_state = PROTO_STATE_DEFAULT;
     ((proto_arrived_packet_info *)p_context)->last_recv_time = 0;//Keep start time zero
+    proto_wake_unlock_all(((proto_arrived_packet_info *)p_context)->port);
 }
 
 static PROTO_STATE proto_normal_handler(SERIAL_PORT port, PROTO_STATE state, uint8_t ch) {
@@ -174,6 +196,7 @@ static PROTO_STATE proto_delimiter_handler(SERIAL_PORT port, PROTO_STATE state, 
         {
             arrived_pkt_info[port].sgCurPos = 0;//clear data buffer
             arrived_pkt_info[port].last_recv_time = udrv_rtc_get_timestamp((RtcID_E)SYS_RTC_COUNTER_PORT);//record start time!
+            proto_wake_lock(port);
             return PROTO_STATE_RECV_DELIMITER;
         }
         default:
@@ -258,10 +281,12 @@ void service_mode_proto_recv(SERIAL_PORT port, uint8_t ch) {
                     proto_upper_layer_table[arrived_pkt_info[port].frame_type].request_handler(port, arrived_pkt_info[port].sgProtoBuffer, arrived_pkt_info[port].sgCurPos);
                 }
             }
+            proto_wake_unlock_all(port);
         }
     } else {
         arrived_pkt_info[port].sgCurPos = 0;//clear data buffer
         arrived_pkt_info[port].curr_state = PROTO_STATE_DEFAULT;
+        proto_wake_unlock_all(port);
     }
 }
 

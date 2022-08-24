@@ -31,9 +31,7 @@ extern "C"
 #include <stdint.h>
 
 void BoardGetUniqueId( uint8_t *id );
-
-
-
+uint8_t BoardGetHardwareFreq(void);
 
 #ifdef __cplusplus
 }

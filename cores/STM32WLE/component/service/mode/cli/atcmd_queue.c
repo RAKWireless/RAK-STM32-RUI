@@ -1,3 +1,4 @@
+#ifdef SUPPORT_AT
 #include <stdbool.h>
 #include "atcmd_queue.h"
 
@@ -32,3 +33,5 @@ bool atcmd_queue_is_empty()
 {
     return !(ATCMD_SECTION_LENGTH(atcmd_queue));
 }
+
+#endif

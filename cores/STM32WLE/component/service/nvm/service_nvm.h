@@ -30,6 +30,15 @@ extern "C" {
 #define SERVICE_NVM_USER_DATA_NVM_ADDR          MCU_USER_DATA_NVM_ADDR
 #define SERVICE_NVM_FACTORY_DEFAULT_NVM_ADDR    MCU_FACTORY_DEFAULT_NVM_ADDR
 
+#define RUI_CFG_MAGIC_NUM               0xAABBCCDD
+
+//Version code, different values are set for each version, used to distinguish versions to move user data
+#define RUI_VERSION_CODE_V85            0x01
+#define RUI_VERSION_CODE_V87            0x02
+#define RUI_VERSION_CODE_V99            0x03
+#define RUI_VERSION_CODE_LATEST         0x04
+#define RUI_CFG_VERSION_CODE            RUI_VERSION_CODE_LATEST
+
 #ifndef RUI_BOOTLOADER
 void service_nvm_init_config(void);
 
@@ -66,6 +75,15 @@ int32_t service_nvm_set_auto_sleep_time_to_nvm(uint32_t time);
 int32_t service_nvm_get_atcmd_alias_from_nvm(uint8_t *buff, uint32_t len);
 
 int32_t service_nvm_set_atcmd_alias_to_nvm(uint8_t *buff, uint32_t len);
+
+#ifdef SUPPORT_BLE
+/***********************************************************/
+/* BLE                                                     */
+/***********************************************************/
+uint8_t service_nvm_set_ble_mac_to_nvm(uint8_t *buff, uint32_t len);
+
+uint8_t service_nvm_get_ble_mac_from_nvm(uint8_t *buff, uint32_t len);
+#endif
 
 /***********************************************************/
 /* User Data                                               */
@@ -269,6 +287,10 @@ int32_t service_nvm_set_sn_to_nvm (uint8_t *buff, uint32_t len);
 uint32_t service_nvm_set_rx2fq_to_nvm(uint32_t freq);
 
 uint32_t service_nvm_get_rx2fq_from_nvm(void);
+
+uint32_t service_nvm_set_debug_level_to_nvm(uint8_t level);
+
+uint8_t service_nvm_get_debug_level_from_nvm();
 
 #endif
 

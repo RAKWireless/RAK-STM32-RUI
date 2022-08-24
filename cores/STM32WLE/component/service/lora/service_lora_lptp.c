@@ -1,3 +1,5 @@
+#ifdef SUPPORT_LORA
+
 #include <stddef.h>
 #include <stdint.h>
 #include "udrv_errno.h"
@@ -205,3 +207,4 @@ int32_t service_lora_lptp_send(uint8_t port, bool ack, uint8_t *p_data, uint16_t
     return UDRV_RETURN_OK;
 }
 
+#endif

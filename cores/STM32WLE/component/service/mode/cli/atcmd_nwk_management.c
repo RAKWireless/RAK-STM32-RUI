@@ -1,3 +1,4 @@
+#ifdef SUPPORT_AT
 #ifdef SUPPORT_LORA
 #include <string.h>
 
@@ -495,4 +496,38 @@ int At_LinkCheck(SERIAL_PORT port, char *cmd, stParam *param)
         return service_lora_set_linkcheck(linkcheck_mode);
     }
 }
+
+int At_Timereq(SERIAL_PORT port, char *cmd, stParam *param)
+{
+    int32_t ret = AT_OK;
+
+    if(SERVICE_LORAWAN != service_lora_get_nwm())
+    {
+        return AT_MODE_NO_SUPPORT;
+    }
+    
+    if (param->argc == 1 && !strcmp(param->argv[0], "?"))
+    {
+        atcmd_printf("%s=%d\r\n", cmd, service_lora_get_timereq());
+        return AT_OK;
+    }
+    else
+    {
+        uint8_t timereq_mode;
+
+        if (0 != at_check_digital_uint32_t(param->argv[0], &timereq_mode))
+        {
+            return AT_PARAM_ERROR;
+        }
+        if(timereq_mode>1)
+        {
+            return AT_PARAM_ERROR;
+        }
+        ret =  service_lora_set_timereq(timereq_mode);       
+    }
+    return at_error_code_form_udrv(ret);
+}
+
+
+#endif
 #endif

@@ -47,7 +47,7 @@
  *
  * | Command            | Input parameter    | Return value                                                      | Return code        |
  * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
- * | AT+PBW?            | --                 | AT+PBW: configure P2P Bandwidth(LORA:125,250,500 FSK:4800-467000) | OK                 |
+ * | AT+PBW?            | --                 | AT+PBW: configure P2P Bandwidth(LORA:0=125,1=250,2=500,3=7.8,4=10.4,5=15.63,6=20.83,7=31.25,8=41.67,9=62.5 FSK:4800-467000) | OK                 |
  * | AT+PBW=?           | --                 | <interger>                                                        | OK                 |
  * | AT+PBW=\<Param\>   | <interger>         | --                                                                | OK / AT_PARAM_ERROR|
  * | Example<br>AT+PSF=?| --                 | 0                                                                 | OK                 |
@@ -143,7 +143,7 @@
  *
  * Freq: 150000000-960000000<br>
  * SF: 6,7,8,9,10,11,12<br>
- * Bandwidth: 125, 250, 500<br>
+ * Bandwidth: 0 = 125,1 = 250,2 = 500,3 = 7.8,4 = 10.4,5 = 15.63,6 = 20.83,7 = 31.25,8 = 41.67,9 = 62.5<br>
  * CR: 0 = 4/5, 1 = 4/6, 2 = 4/7, 3 = 4/8<br>
  * Preamble Length: 2-65535<br>
  * TX Power = 5-22<br>

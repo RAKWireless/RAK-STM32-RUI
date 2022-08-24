@@ -16,6 +16,7 @@
 #include "RAKOneWireSerial.h"
 
 #include "RAKProtocol.h"
+#include "RAKThread.h"
 
 class RAKUnifiedApi {
 

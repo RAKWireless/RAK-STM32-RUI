@@ -118,7 +118,6 @@
  *
  */
 #endif 
-
 #ifndef _ATCMD_CERT_DEF_H_
 #define _ATCMD_CERT_DEF_H_
 

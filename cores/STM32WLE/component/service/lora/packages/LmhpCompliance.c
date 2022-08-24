@@ -18,6 +18,8 @@
  *
  * \author    Miguel Luis ( Semtech )
  */
+#ifdef SUPPORT_LORA
+
 #include <stdlib.h>
 #include <stdint.h>
 #include <stdbool.h>
@@ -144,7 +146,7 @@ static void LmhpComplianceOnMlmeConfirm( MlmeConfirm_t *mlmeConfirm );
 /*!
  * Function executed on TxNextPacket Timeout event
  */
-static void OnComplianceTxNextPacketTimerEvent( void *context );
+//void OnComplianceTxNextPacketTimerEvent( void *context );
 
 /*!
  * Processes the data to transmit on port \ref COMPLIANCE_PORT
@@ -274,7 +276,7 @@ static LmHandlerErrorStatus_t LmhpComplianceTxProcess( void )
     };
 
     // Schedule next transmission
-    TimerStart( &ComplianceTxNextPacketTimer );
+    //TimerStart( &ComplianceTxNextPacketTimer );
 
     return LmhpCompliancePackage.OnSendRequest( &appData, ( LmHandlerMsgTypes_t )ComplianceTestState.IsTxConfirmed );
 }
@@ -288,6 +290,11 @@ static void LmhpComplianceOnMcpsIndication( McpsIndication_t* mcpsIndication )
 
     if( mcpsIndication->RxData == false )
     {
+        if(ComplianceTestState.IsRunning == true)
+        {
+            // Increment the compliance certification protocol downlink counter
+            ComplianceTestState.DownLinkCounter++;       
+        }
         return;
     }
 
@@ -499,9 +506,11 @@ static void LmhpComplianceProcess( void )
     }
 }
 
-static void OnComplianceTxNextPacketTimerEvent( void* context )
+void OnComplianceTxNextPacketTimerEvent( void* context )
 {
     ComplianceTestState.TxPending = true;
     udrv_system_event_produce(&rui_lora_event);
     udrv_powersave_in_sleep = false;
 }
+
+#endif

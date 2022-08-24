@@ -1,3 +1,4 @@
+#ifdef SUPPORT_AT
 #ifdef SUPPORT_LORA
 #include <string.h>
 
@@ -417,6 +418,7 @@ int At_Band(SERIAL_PORT port, char *cmd, stParam *param)
 
 int At_Chs(SERIAL_PORT port, char *cmd, stParam *param)
 {
+    uint8_t status = 0;
     if(SERVICE_LORAWAN != service_lora_get_nwm())
     {
         return AT_MODE_NO_SUPPORT;
@@ -442,17 +444,14 @@ int At_Chs(SERIAL_PORT port, char *cmd, stParam *param)
         }
 
         freq = strtoul(param->argv[0], NULL, 10);
-        if (service_lora_set_chs(freq) == UDRV_RETURN_OK) {
-            return AT_OK;
-        } else {
-            return AT_ERROR;
-        }
+        status = service_lora_set_chs(freq);
+        return at_error_code_form_udrv(status);
     } else {
         return AT_PARAM_ERROR;
     }
 }
 #endif
-
+#endif
 //int At_DelBLEBonds(SERIAL_PORT port, char *cmd, stParam *param)
 //{
 //    if (param->argc == 0)
