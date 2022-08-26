@@ -41,6 +41,7 @@ static LmhPackage_t *LmHandlerPackages[PKG_MAX_NUMBER];
 
 static LmhpComplianceParams_t LmhpComplianceParams;
 
+
 #define LORAWAN_APP_DATA_BUFFER_MAX_SIZE            242
 static uint8_t AppDataBuffer[LORAWAN_APP_DATA_BUFFER_MAX_SIZE];
 
@@ -117,46 +118,6 @@ static SingleChannel_t SingleChannelUS915 =
     .AlternateDr = AlternateDrUS915Callback
 };
 
-static uint32_t service_lora_full_wlock_cnt;
-static uint32_t service_lora_radio_wlock_cnt;
-
-static void service_lora_full_wake_lock(void) {
-    udrv_powersave_wake_lock();
-    service_lora_full_wlock_cnt++;
-}
-
-static void service_lora_full_wake_unlock(void) {
-    if (service_lora_full_wlock_cnt > 0) {
-        udrv_powersave_wake_unlock();
-        service_lora_full_wlock_cnt--;
-    }
-}
-
-static void service_lora_full_wake_unlock_all(void) {
-    while (service_lora_full_wlock_cnt > 0) {
-        udrv_powersave_wake_unlock();
-        service_lora_full_wlock_cnt--;
-    }
-}
-
-static void service_lora_radio_wake_lock(void) {
-    udrv_powersave_lora_wake_lock();
-    service_lora_radio_wlock_cnt++;
-}
-
-static void service_lora_radio_wake_unlock(void) {
-    if (service_lora_radio_wlock_cnt > 0) {
-        udrv_powersave_lora_wake_unlock();
-        service_lora_radio_wlock_cnt--;
-    }
-}
-
-static void service_lora_radio_wake_unlock_all(void) {
-    while (service_lora_radio_wlock_cnt > 0) {
-        udrv_powersave_lora_wake_unlock();
-        service_lora_radio_wlock_cnt--;
-    }
-}
 
 void service_lora_suspend(void) {
     Radio.Sleep();
@@ -267,7 +228,6 @@ static void service_lora_send_null(void *m_data)
 
 static void McpsConfirm(McpsConfirm_t *mcpsConfirm)
 {
-    service_lora_radio_wake_unlock();
 
     if (mcpsConfirm->Status == LORAMAC_EVENT_INFO_STATUS_OK)
     {
@@ -384,8 +344,6 @@ static void MlmeConfirm(MlmeConfirm_t *mlmeConfirm)
     switch (mlmeConfirm->MlmeRequest)
     {
     case MLME_JOIN:
-        service_lora_full_wake_unlock();
-
         if (mlmeConfirm->Status == LORAMAC_EVENT_INFO_STATUS_OK)
         {
             LoRaMacStatus_t status;
@@ -589,7 +547,7 @@ static void MlmeIndication(MlmeIndication_t *mlmeIndication)
     case MLME_BEACON:
     {
         if (mlmeIndication->Status == LORAMAC_EVENT_INFO_STATUS_BEACON_LOCKED)
-        {
+       {
             udrv_serial_log_printf("+BC:LOCKED\r\n");
 
             LORA_TEST_DEBUG("Lock Beacon Success\r\n");
@@ -1676,7 +1634,6 @@ int32_t service_lora_join(int32_t param1, int32_t param2, int32_t param3, int32_
 
         mlmeReq.Req.Join.Datarate = service_lora_get_dr();
 
-        service_lora_full_wake_lock();
         status = LoRaMacMlmeRequest(&mlmeReq);
         LORA_TEST_DEBUG("status=%d", status);
 
@@ -1691,18 +1648,15 @@ int32_t service_lora_join(int32_t param1, int32_t param2, int32_t param3, int32_
         }
         else if (status == LORAMAC_STATUS_BUSY)
         {
-            service_lora_radio_wake_unlock();
             return -UDRV_BUSY;
         }
         else if (status == LORAMAC_STATUS_DUTYCYCLE_RESTRICTED)
         {
             udrv_serial_log_printf("Restricted_Wait_%d_ms\r\n", mlmeReq.ReqReturn.DutyCycleWaitTime);
-            service_lora_radio_wake_unlock();
             return -UDRV_BUSY;
         }
         else
         {
-            service_lora_radio_wake_unlock();
             return -UDRV_INTERNAL_ERR;
         }
     }
@@ -2110,8 +2064,6 @@ int32_t service_lora_send(uint8_t *buff, uint32_t len, SERVICE_LORA_SEND_INFO in
         last_ack = false;
     }
 
-    service_lora_radio_wake_lock();
-
     status = LoRaMacMcpsRequest(&mcpsReq);
     LORA_TEST_DEBUG("status %d",status);
     LORA_TEST_DEBUG("DutyCycleWaitTime  %d",mcpsReq.ReqReturn.DutyCycleWaitTime);
@@ -2120,7 +2072,6 @@ int32_t service_lora_send(uint8_t *buff, uint32_t len, SERVICE_LORA_SEND_INFO in
     {
         if (tx_possible == false)
         {
-            service_lora_radio_wake_unlock();
             return -UDRV_WRONG_ARG;
         }
 
@@ -2133,23 +2084,19 @@ int32_t service_lora_send(uint8_t *buff, uint32_t len, SERVICE_LORA_SEND_INFO in
     }
     else if (status == LORAMAC_STATUS_BUSY_PING_SLOT_WINDOW_TIME)
     {
-        service_lora_radio_wake_unlock();
         return -UDRV_BUSY;
     }
     else if (status == LORAMAC_STATUS_BUSY_BEACON_RESERVED_TIME)
     {
-        service_lora_radio_wake_unlock();
         return -UDRV_BUSY;
     }
     else if (status == LORAMAC_STATUS_DUTYCYCLE_RESTRICTED)
     {
         udrv_serial_log_printf("Restricted_Wait_%d_ms\r\n", mcpsReq.ReqReturn.DutyCycleWaitTime);
-        service_lora_radio_wake_unlock();
         return -UDRV_BUSY;
     }
     else
     {
-        service_lora_radio_wake_unlock();
         return -UDRV_INTERNAL_ERR;
     }
 }
