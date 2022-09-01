@@ -217,11 +217,8 @@ int At_Sn (SERIAL_PORT port, char *cmd, stParam *param)
 
 int At_Bootver (SERIAL_PORT port, char *cmd, stParam *param)
 {
-    char boot_version[33];
-    memset(boot_version,'\0',33);
     if (param->argc == 1 && !strcmp(param->argv[0], "?")) {
-        memcpy(boot_version,&BOOT_VERSION,32);
-        atcmd_printf("%s=%s\r\n", cmd, boot_version);
+        atcmd_printf("%s=%s\r\n", cmd, &BOOT_VERSION);
         return AT_OK;
     } else {
         return AT_PARAM_ERROR;

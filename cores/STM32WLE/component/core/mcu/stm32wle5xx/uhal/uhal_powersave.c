@@ -1,6 +1,5 @@
 #include "uhal_powersave.h"
 #include "udrv_errno.h"
-#include "radio_conf.h"
 
 static UTIL_TIMER_Object_t uhal_ps_timer_id;
 
@@ -45,8 +44,6 @@ int32_t uhal_ps_timer_stop () {
 }
 
 void uhal_mcu_sleep (void) {
-    CRITICAL_SECTION_BEGIN();
-
     HAL_SuspendTick();
 
     LL_PWR_ClearFlag_C1STOP_C1STB();
@@ -54,8 +51,6 @@ void uhal_mcu_sleep (void) {
     HAL_PWREx_EnterSTOP2Mode(PWR_STOPENTRY_WFI);
 
     HAL_ResumeTick();
-
-    CRITICAL_SECTION_END();
 }
 
 static void clock_initialization() {
