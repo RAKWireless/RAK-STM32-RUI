@@ -388,7 +388,7 @@ uint8_t service_nvm_get_debug_level_from_nvm()
 /***********************************************************/
 uint8_t service_nvm_set_ble_mac_to_nvm(uint8_t *buff, uint32_t len)
 {
-    if (len != 12) {
+    if (strlen(buff) != 12) {
         return -UDRV_WRONG_ARG;
     }
     for (int i = 0 ; i < len ; i++)
@@ -399,7 +399,7 @@ uint8_t service_nvm_set_ble_mac_to_nvm(uint8_t *buff, uint32_t len)
                 return -UDRV_WRONG_ARG;
         }
     }
-    memcpy(g_rui_cfg_t.g_ble_cfg_t.mac,buff,len);
+    memcpy(g_rui_cfg_t.g_ble_cfg_t.mac,buff,sizeof(g_rui_cfg_t.g_ble_cfg_t.mac));
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
 }
 

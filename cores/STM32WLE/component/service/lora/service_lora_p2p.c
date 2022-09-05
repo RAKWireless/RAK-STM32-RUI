@@ -192,7 +192,7 @@ int32_t service_lora_p2p_config(void)
 
     if (SERVICE_LORA_P2P == service_lora_get_nwm())
     {
-        //NULL
+        bandwidth = g_rui_cfg_t.g_lora_p2p_cfg_t.Bandwidth;
     }
     else if (SERVICE_LORA_FSK == service_lora_get_nwm())
     {

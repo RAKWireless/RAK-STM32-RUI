@@ -460,6 +460,8 @@ int At_P2p(SERIAL_PORT port, char *cmd, stParam *param)
         if (0 != at_check_digital_uint32_t(param->argv[4], &preamble_length))
             return AT_PARAM_ERROR;
 
+        if ( preamble_length < 5 || preamble_length > 65535)
+            return AT_PARAM_ERROR;
         if (service_lora_p2p_set_preamlen((uint16_t)preamble_length) != UDRV_RETURN_OK)
         {
             return at_error_code_form_udrv(service_lora_p2p_set_preamlen((uint16_t)preamble_length));
