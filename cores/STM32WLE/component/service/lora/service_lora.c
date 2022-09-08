@@ -744,6 +744,7 @@ int32_t service_lora_init(SERVICE_LORA_BAND band)
         }
 
         /* Set CHS function of EU868 */
+        /* 
         if(band == SERVICE_LORA_EU868)
         {
             if (service_lora_get_chs() != 0)
@@ -754,7 +755,8 @@ int32_t service_lora_init(SERVICE_LORA_BAND band)
                 }
             }
         }
-
+        */
+       
         if ((ret = service_lora_set_njm(service_nvm_get_njm_from_nvm(), false)) != UDRV_RETURN_OK)
         {
             goto out;
@@ -1248,11 +1250,6 @@ int32_t service_lora_set_band(SERVICE_LORA_BAND band)
     int32_t ret;
     LoRaMacStatus_t Status;
     SERVICE_LORA_BAND AS923_sub_band_bak = 0;
-
-    if (band == service_lora_get_band())
-    {
-        return UDRV_RETURN_OK;
-    }
 
     /**************************************************************************************
      *
@@ -2794,7 +2791,7 @@ int32_t service_lora_set_chs(uint32_t frequency)
     SERVICE_LORA_BAND band = service_lora_get_band();
     MibRequestConfirm_t mibReq;
 
-    if ((band != SERVICE_LORA_AU915) && (band != SERVICE_LORA_US915) && (band != SERVICE_LORA_CN470)&& (band != SERVICE_LORA_EU868))
+    if ((band != SERVICE_LORA_AU915) && (band != SERVICE_LORA_US915) && (band != SERVICE_LORA_CN470))
     {
         return -UDRV_INTERNAL_ERR;
     }
@@ -2857,6 +2854,7 @@ int32_t service_lora_set_chs(uint32_t frequency)
             return -UDRV_WRONG_ARG;
             }
         }
+        /*
         else if(band == SERVICE_LORA_EU868)
         {
             //Restore default mask
@@ -2900,6 +2898,7 @@ int32_t service_lora_set_chs(uint32_t frequency)
             return service_rui_set_chs_to_nvm(frequency);
 
         }
+        */
     }
     return UDRV_RETURN_OK;
 }

@@ -7,7 +7,9 @@
 #ifdef SUPPORT_LORA
 #include "service_lora_multicast.h"
 #endif
-
+extern char *sw_version;
+extern char *model_id;
+extern char *cli_version;
 
 rui_cfg_t g_rui_cfg_t;
 
@@ -122,6 +124,8 @@ int32_t service_nvm_set_default_config_to_nvm(void) {
     else
     {
         g_rui_cfg_t.g_lora_cfg_t.region = SERVICE_LORA_CN470;
+        for( int i = 0; i < REGION_NVM_CHANNELS_MASK_SIZE; i ++)
+            g_rui_cfg_t.g_lora_cfg_t.ch_mask[i] = 0xffff;
     }
     #else
     g_rui_cfg_t.g_lora_cfg_t.region = SERVICE_LORA_EU868;
@@ -171,6 +175,30 @@ int32_t service_nvm_set_default_config_to_nvm(void) {
     g_rui_cfg_t.g_lora_p2p_cfg_t.fsk_rxbw = 20000 ;
     memset(g_rui_cfg_t.g_lora_p2p_cfg_t.crypt_key, 0x00, sizeof(g_rui_cfg_t.g_lora_p2p_cfg_t.crypt_key));
 #endif
+    if(sizeof(g_rui_cfg_t.firmware_ver) > strlen(sw_version))
+    {
+        memset(g_rui_cfg_t.firmware_ver,0x00,sizeof(g_rui_cfg_t.firmware_ver));
+        memcpy(g_rui_cfg_t.firmware_ver,sw_version,strlen(sw_version));
+    }
+    else
+        memcpy(g_rui_cfg_t.firmware_ver,sw_version,32);
+
+    if(sizeof(g_rui_cfg_t.hwmodel) > strlen(model_id))
+    {
+        memset(g_rui_cfg_t.hwmodel,0x00,sizeof(g_rui_cfg_t.hwmodel));
+        memcpy(g_rui_cfg_t.hwmodel,model_id,strlen(model_id));
+    }
+    else
+        memcpy(g_rui_cfg_t.hwmodel,model_id,32);
+
+    if(sizeof(g_rui_cfg_t.cli_ver) > strlen(cli_version))
+    {
+        memset(g_rui_cfg_t.cli_ver,0x00,sizeof(g_rui_cfg_t.cli_ver));
+        memcpy(g_rui_cfg_t.cli_ver,cli_version,strlen(cli_version));
+    }
+    else
+        memcpy(g_rui_cfg_t.cli_ver,cli_version,32);
+
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
 }
 
@@ -234,6 +262,78 @@ uint32_t service_nvm_get_auto_sleep_time_from_nvm(void) {
 
 int32_t service_nvm_set_auto_sleep_time_to_nvm(uint32_t time) {
     g_rui_cfg_t.auto_sleep_time = time;
+
+    return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
+}
+
+uint8_t service_nvm_get_firmware_ver_from_nvm(uint8_t *buff, uint32_t len) {
+    if (len < sizeof(g_rui_cfg_t.firmware_ver)) {
+        return -UDRV_BUFF_OVERFLOW;
+    }
+    memcpy(buff, g_rui_cfg_t.firmware_ver, sizeof(g_rui_cfg_t.firmware_ver));
+    return UDRV_RETURN_OK;
+}
+
+int32_t service_nvm_set_firmware_ver_to_nvm(uint8_t *buff, uint32_t len) {
+    if (len > 32) {
+        return -UDRV_WRONG_ARG;
+    }
+    for (int i = 0 ; i < len ; i++)
+    {
+        if ((uint8_t)buff[i] < 0x20 || (uint8_t)buff[i] > 0x7E) {
+            return -UDRV_WRONG_ARG;
+        }
+    }
+    memset(g_rui_cfg_t.firmware_ver, 0 , sizeof(g_rui_cfg_t.firmware_ver));
+    memcpy(g_rui_cfg_t.firmware_ver, buff, len);
+
+    return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
+}
+
+uint8_t service_nvm_get_hwmodel_from_nvm(uint8_t *buff, uint32_t len) {
+    if (len < sizeof(g_rui_cfg_t.hwmodel)) {
+        return -UDRV_BUFF_OVERFLOW;
+    }
+    memcpy(buff, g_rui_cfg_t.hwmodel, sizeof(g_rui_cfg_t.hwmodel));
+    return UDRV_RETURN_OK;
+}
+
+int32_t service_nvm_set_hwmodel_to_nvm(uint8_t *buff, uint32_t len) {
+    if (len > 32) {
+        return -UDRV_WRONG_ARG;
+    }
+    for (int i = 0 ; i < len ; i++)
+    {
+        if ((uint8_t)buff[i] < 0x20 || (uint8_t)buff[i] > 0x7E) {
+            return -UDRV_WRONG_ARG;
+        }
+    }
+    memset(g_rui_cfg_t.hwmodel, 0 , sizeof(g_rui_cfg_t.hwmodel));
+    memcpy(g_rui_cfg_t.hwmodel, buff, len);
+
+    return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
+}
+
+uint8_t service_nvm_get_cli_ver_from_nvm(uint8_t *buff, uint32_t len) {
+    if (len < sizeof(g_rui_cfg_t.hwmodel)) {
+        return -UDRV_BUFF_OVERFLOW;
+    }
+    memcpy(buff, g_rui_cfg_t.cli_ver, sizeof(g_rui_cfg_t.cli_ver));
+    return UDRV_RETURN_OK;
+}
+
+int32_t service_nvm_set_cli_ver_to_nvm(uint8_t *buff, uint32_t len) {
+    if (len > 32) {
+        return -UDRV_WRONG_ARG;
+    }
+    for (int i = 0 ; i < len ; i++)
+    {
+        if ((uint8_t)buff[i] < 0x20 || (uint8_t)buff[i] > 0x7E) {
+            return -UDRV_WRONG_ARG;
+        }
+    }
+    memset(g_rui_cfg_t.cli_ver, 0 , sizeof(g_rui_cfg_t.cli_ver));
+    memcpy(g_rui_cfg_t.cli_ver, buff, len);
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
 }

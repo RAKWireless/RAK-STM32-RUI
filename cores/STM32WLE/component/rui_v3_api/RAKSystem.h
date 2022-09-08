@@ -170,7 +170,7 @@ class RAKSystem {
 	 * 		This api allow user to get the firmware version
 	 * @ingroup	Firmware_Version
 	 * @par		Syntax
-	 * 		api.system.firmwareVersion.get()
+	 * 		api.system.firmwareVer.get()
 	 * @return	firmware version(Type: String)
 	 * @par		Example
 	 * @verbatim	
@@ -181,12 +181,37 @@ class RAKSystem {
 
 	   void loop()
 	   {
-             Serial.printf("Firmware Version: %s\r\n", api.system.firmwareVersion.get().c_str());
+             Serial.printf("Firmware Version: %s\r\n", api.system.firmwareVer.get().c_str());
 	     delay(1000);
 	   }
 	   @endverbatim
 	 */
-        const String get();
+        String get();
+    /**@par     Description
+     *      This api allow user to set the firmware version
+     * @ingroup Firmware_Version
+     * @par     Syntax
+     *      api.system.firmwareVer.set(version)
+     * @param   version  firmware version for user to be set(Type: String)
+     * @return  bool
+     * @retval  TRUE for successfully set firmware version
+     * @retval  FALSE for set firmware version fail
+     * @par     Example
+     * @verbatim    
+       void setup()
+       {
+         Serial.begin(115200);
+       }
+
+       void loop()
+       {
+             String version = "your version";
+             api.system.firmwareVer.set(version);
+             delay(1000);
+       }
+       @endverbatim
+     */
+        bool set(String version);
     };
 
     class cliVersion {
@@ -200,7 +225,7 @@ class RAKSystem {
 	 *		This api allow user to get the cli version
 	 * @ingroup	Cli_Version
 	 * @par		Syntax
-	 *		api.system.cliVersion.get()
+	 *		api.system.cliVer.get()
 	 * @return	cli version(Type: String)
 	 * @par         Example
          * @verbatim
@@ -211,13 +236,40 @@ class RAKSystem {
 
            void loop()
            {
-             Serial.printf("AT Command Version: %s\r\n", api.system.cliVersion.get().c_str());
+             Serial.printf("AT Command Version: %s\r\n", api.system.cliVer.get().c_str());
              delay(1000);
            }
            @endverbatim
 
 	 */
-        const String get();
+        String get();
+    /**@par     Description
+     *      This api allow user to set the cli version
+     * @ingroup Cli_Version
+     * @par     Syntax
+     *      api.system.cliVer.set(version)
+     * @param   version  cli version for user to be set(Type: String)
+     * @return  bool
+     * @retval  TRUE for successfully set cli version
+     * @retval  FALSE for set cli version fail
+     * @par         Example
+         * @verbatim
+           void setup()
+           {
+             Serial.begin(115200);
+           }
+
+           void loop()
+           {
+             String version = "your version"
+             api.system.cliVer.set(version);
+             delay(1000);
+           }
+           @endverbatim
+
+     */
+
+        bool set(String version);
     };
 
     class apiVersion {
@@ -259,10 +311,10 @@ class RAKSystem {
         modelId();
 
 	/**@par		Description
-	 *		This api allow user to get the mode ID
+	 *		This api allow user to get the model ID
 	 * @ingroup	Model_ID
 	 * @par		Syntax
-	 * 		api.system.modelId.get()
+	 * 		api.system.hwModel.get()
 	 * @return	model ID(Type: String)
 	 * @par         Example
          * @verbatim
@@ -273,13 +325,39 @@ class RAKSystem {
 
            void loop()
            {
-             Serial.printf("Model ID: %s\r\n", api.system.modelId.get().c_str());
+             Serial.printf("Model ID: %s\r\n", api.system.hwModel.get().c_str());
              delay(1000);
            }
            @endverbatim
 
 	 */
-        const String get();
+        String get();
+    /**@par     Description
+     *      This api allow user to set the model ID
+     * @ingroup Model_ID
+     * @par     Syntax
+     *      api.system.hwModel.set(model_id)
+     * @param   model_id  model ID for user to be set(Type: String)
+     * @return  bool
+     * @retval  TRUE for successfully set model ID
+     * @retval  FALSE for set model ID fail
+     * @par         Example
+         * @verbatim
+           void setup()
+           {
+             Serial.begin(115200);
+           }
+
+           void loop()
+           {
+             String model_id = "your model"
+             api.system.hwModel.set(model_id);
+             delay(1000);
+           }
+           @endverbatim
+
+     */
+        bool set(String model);
     };
 
     class chipId {
@@ -313,10 +391,10 @@ class RAKSystem {
         const String get();
     };
     
-    firmwareVersion firmwareVersion;
-    cliVersion cliVersion;
+    firmwareVersion firmwareVer;
+    cliVersion cliVer;
     apiVersion apiVersion;
-    modelId modelId;
+    modelId hwModel;
     chipId chipId;
 
     /**@par	Description

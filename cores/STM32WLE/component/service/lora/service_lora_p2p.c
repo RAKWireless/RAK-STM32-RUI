@@ -379,14 +379,14 @@ int32_t service_lora_p2p_set_freq(uint32_t freq)
         hardware_freq =  BoardGetHardwareFreq();
         if(hardware_freq)
         {
-            if(freq < 600e6)
+            if(freq <= 600e6)
             {
                 return -UDRV_WRONG_ARG;
             }
         }
         else
         {
-            if(freq >= 600e6)
+            if(freq > 600e6)
             {
                 return -UDRV_WRONG_ARG;
             }
@@ -424,7 +424,20 @@ int32_t service_lora_p2p_set_bandwidth(uint32_t bandwidth)
 {
     if (SERVICE_LORA_P2P == service_lora_get_nwm())
     {
-        if (bandwidth > 9)
+        
+        if( bandwidth == 125 )
+        {
+            bandwidth = 0;
+        }
+        else if( bandwidth == 250 )
+        {
+            bandwidth = 1;
+        }
+        else if( bandwidth == 500 )
+        {
+            bandwidth = 2;
+        }
+        else if (bandwidth > 9)
         {
             return -UDRV_WRONG_ARG;
         }
@@ -437,8 +450,10 @@ int32_t service_lora_p2p_set_bandwidth(uint32_t bandwidth)
         }
     }
 
-    service_lora_p2p_config();
-    return service_nvm_set_bandwidth_to_nvm(bandwidth);
+    int32_t ret = service_nvm_set_bandwidth_to_nvm(bandwidth);
+    if( ret == UDRV_RETURN_OK )
+        service_lora_p2p_config();
+    return ret;
 }
 
 uint8_t service_lora_p2p_get_codingrate(void)

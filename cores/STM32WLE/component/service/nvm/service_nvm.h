@@ -76,6 +76,18 @@ int32_t service_nvm_get_atcmd_alias_from_nvm(uint8_t *buff, uint32_t len);
 
 int32_t service_nvm_set_atcmd_alias_to_nvm(uint8_t *buff, uint32_t len);
 
+uint8_t service_nvm_get_firmware_ver_from_nvm(uint8_t *buff, uint32_t len);
+
+int32_t service_nvm_set_firmware_ver_to_nvm(uint8_t *buff, uint32_t len);
+
+uint8_t service_nvm_get_hwmodel_from_nvm(uint8_t *buff, uint32_t len);
+
+int32_t service_nvm_set_hwmodel_to_nvm(uint8_t *buff, uint32_t len);
+
+uint8_t service_nvm_get_cli_ver_from_nvm(uint8_t *buff, uint32_t len);
+
+int32_t service_nvm_set_cli_ver_to_nvm(uint8_t *buff, uint32_t len);
+
 #ifdef SUPPORT_BLE
 /***********************************************************/
 /* BLE                                                     */

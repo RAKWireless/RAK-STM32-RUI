@@ -136,17 +136,6 @@ int At_P2pBW(SERIAL_PORT port, char *cmd, stParam *param)
 
         if (0 != at_check_digital_uint32_t(param->argv[0], &bandwidth))
             return AT_PARAM_ERROR;
-        
-        if (SERVICE_LORA_FSK == service_lora_get_nwm())
-        {
-           if(bandwidth < 4800 || bandwidth > 467000 )
-           return AT_PARAM_ERROR;
-        }
-        else
-        {
-            if(bandwidth > 9 )
-            return AT_PARAM_ERROR;
-        }
 
         status = service_lora_p2p_set_bandwidth(bandwidth);
         return at_error_code_form_udrv(status);

@@ -156,6 +156,9 @@ typedef struct {
     uint8_t sn[18];
     uint8_t alias[16];
     uint8_t debug_level;
+    uint8_t firmware_ver[32];
+    uint8_t hwmodel[32];
+    uint8_t cli_ver[32];
 } rui_cfg_t;
 
 

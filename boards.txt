@@ -19,7 +19,7 @@
 menu.softdevice=Bootloader
 menu.debug=Debug
 menu.supportnfc=Support NFC
-
+menu.supportat=Support AT
 # ----------------------------------
 # WisDuo RAK3172 Evaluation Board
 # ----------------------------------
@@ -64,6 +64,12 @@ WisDuoRAK3172EvaluationBoard.menu.debug.l2.build.debug_flags=-DCFG_DEBUG=2
 WisDuoRAK3172EvaluationBoard.menu.debug.l3=Level 3 (Segger SystemView)
 WisDuoRAK3172EvaluationBoard.menu.debug.l3.build.debug_flags=-DCFG_DEBUG=3
 WisDuoRAK3172EvaluationBoard.menu.debug.l3.build.sysview_flags=-DCFG_SYSVIEW=1
+
+WisDuoRAK3172EvaluationBoard.menu.supportat.1=On
+WisDuoRAK3172EvaluationBoard.menu.supportat.1.build.support_at_flag=-DSUPPORT_AT
+WisDuoRAK3172EvaluationBoard.menu.supportat.2=Off
+WisDuoRAK3172EvaluationBoard.menu.supportat.2.build.support_at_flag=-USUPPORT_AT
+
 
 # ----------------------------------
 # WisDuo RAK3272-SiP Board
@@ -123,6 +129,12 @@ WisDuoRAK3272SiPBoard.menu.debug.l3=Level 3 (Segger SystemView)
 WisDuoRAK3272SiPBoard.menu.debug.l3.build.debug_flags=-DCFG_DEBUG=3
 WisDuoRAK3272SiPBoard.menu.debug.l3.build.sysview_flags=-DCFG_SYSVIEW=1
 
+WisDuoRAK3272SiPBoard.menu.supportat.1=On
+WisDuoRAK3272SiPBoard.menu.supportat.1.build.support_at_flag=-DSUPPORT_AT
+WisDuoRAK3272SiPBoard.menu.supportat.2=Off
+WisDuoRAK3272SiPBoard.menu.supportat.2.build.support_at_flag=-USUPPORT_AT
+
+
 # ----------------------------------
 # WisDuo RAK3272LP-SiP Board
 # ----------------------------------
@@ -162,3 +174,9 @@ WisDuoRAK3272LPSiPBoard.menu.debug.l2.build.debug_flags=-DCFG_DEBUG=2
 WisDuoRAK3272LPSiPBoard.menu.debug.l3=Level 3 (Segger SystemView)
 WisDuoRAK3272LPSiPBoard.menu.debug.l3.build.debug_flags=-DCFG_DEBUG=3
 WisDuoRAK3272LPSiPBoard.menu.debug.l3.build.sysview_flags=-DCFG_SYSVIEW=1
+
+WisDuoRAK3272LPSiPBoard.menu.supportat.1=On
+WisDuoRAK3272LPSiPBoard.menu.supportat.1.build.support_at_flag=-DSUPPORT_AT
+WisDuoRAK3272LPSiPBoard.menu.supportat.2=Off
+WisDuoRAK3272LPSiPBoard.menu.supportat.2.build.support_at_flag=-USUPPORT_AT
+
