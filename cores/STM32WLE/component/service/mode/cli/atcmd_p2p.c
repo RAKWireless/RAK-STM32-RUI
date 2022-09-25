@@ -7,6 +7,7 @@
 #include "udrv_errno.h"
 #include "service_lora.h"
 #include "service_lora_test.h"
+#include "service_lora_p2p.h"
 #include "board.h"
 
 static void dump_hex2str(uint8_t *buf, uint8_t len)
@@ -544,6 +545,290 @@ int At_Pfdev(SERIAL_PORT port, char *cmd, stParam *param)
         return AT_PARAM_ERROR;
     }
 }
+
+int At_iqInver(SERIAL_PORT port, char *cmd, stParam *param)
+{
+    if (SERVICE_LORAWAN == service_lora_get_nwm())
+    {
+        return AT_MODE_NO_SUPPORT;
+    }
+
+    if (param->argc == 1 && !strcmp(param->argv[0], "?"))
+    {
+        atcmd_printf("%s=%u\r\n", cmd, service_lora_p2p_get_iqinverted()?1:0);
+        return AT_OK;
+    }
+    else if (param->argc == 1)
+    {
+        uint32_t val;
+        bool iqinverted;
+
+        if (0 != at_check_digital_uint32_t(param->argv[0], &val))
+            return AT_PARAM_ERROR;
+
+        if(val == 0)
+            iqinverted = false;
+        else if( val == 1)
+            iqinverted = true;
+        else
+            return AT_PARAM_ERROR;
+
+        int32_t ret = service_lora_p2p_set_iqinverted(iqinverted);
+        return at_error_code_form_udrv(ret);
+    }
+    return AT_PARAM_ERROR;
+}
+
+int At_syncword(SERIAL_PORT port, char *cmd, stParam *param)
+{
+    if (SERVICE_LORAWAN == service_lora_get_nwm())
+    {
+        return AT_MODE_NO_SUPPORT;
+    }
+
+    if (param->argc == 1 && !strcmp(param->argv[0], "?"))
+    {
+        atcmd_printf("%s=%04x\r\n", cmd, service_lora_p2p_get_syncword());
+        return AT_OK;
+    }
+    else if (param->argc == 1)
+    {
+        uint16_t syncword;
+
+        if (0 != at_check_hex_uint16(param->argv[0], &syncword))
+            return AT_PARAM_ERROR;
+
+        int32_t ret =  service_lora_p2p_set_syncword(syncword);
+        return at_error_code_form_udrv(ret);
+    }
+    return AT_PARAM_ERROR;
+}
+
+int At_rfFrequency(SERIAL_PORT port, char *cmd, stParam *param)
+{
+    if (SERVICE_LORAWAN == service_lora_get_nwm())
+    {
+        return AT_MODE_NO_SUPPORT;
+    }
+
+    if (param->argc == 1 && !strcmp(param->argv[0], "?"))
+    {
+        atcmd_printf("%s=%u\r\n", cmd, service_lora_p2p_get_freq());
+        return AT_OK;
+    }
+    else if (param->argc == 1)
+    {
+        uint32_t frequency;
+
+        if (0 != at_check_digital_uint32_t(param->argv[0], &frequency))
+            return AT_PARAM_ERROR;
+
+        int32_t ret =  service_lora_p2p_set_freq(frequency);
+        return at_error_code_form_udrv(ret);
+    }
+    return AT_PARAM_ERROR;
+}
+
+int At_txOutputPower(SERIAL_PORT port, char *cmd, stParam *param)
+{
+    if (SERVICE_LORAWAN == service_lora_get_nwm())
+    {
+        return AT_MODE_NO_SUPPORT;
+    }
+
+    if (param->argc == 1 && !strcmp(param->argv[0], "?"))
+    {
+        atcmd_printf("%s=%u\r\n", cmd, service_lora_p2p_get_powerdbm());
+        return AT_OK;
+    }
+    else if (param->argc == 1)
+    {
+        uint32_t txpower;
+
+        if (0 != at_check_digital_uint32_t(param->argv[0], &txpower))
+            return AT_PARAM_ERROR;
+        
+        if (txpower < 5 || txpower > 22)
+            return AT_PARAM_ERROR;
+
+        int32_t ret = service_lora_p2p_set_powerdbm((uint8_t)txpower);
+        return at_error_code_form_udrv(ret);
+
+        return AT_OK;
+    }
+    return AT_PARAM_ERROR;
+}
+
+int At_bandwidth(SERIAL_PORT port, char *cmd, stParam *param)
+{
+    if (SERVICE_LORAWAN == service_lora_get_nwm())
+    {
+        return AT_MODE_NO_SUPPORT;
+    }
+
+    if (param->argc == 1 && !strcmp(param->argv[0], "?"))
+    {
+        atcmd_printf("%s=%u\r\n", cmd, service_lora_p2p_get_bandwidth());
+        return AT_OK;
+    }
+    else if (param->argc == 1)
+    {
+        uint32_t bandwidth;
+
+        if (0 != at_check_digital_uint32_t(param->argv[0], &bandwidth))
+            return AT_PARAM_ERROR;
+
+        int32_t ret = service_lora_p2p_set_bandwidth(bandwidth);
+        return at_error_code_form_udrv(ret);
+    }
+    return AT_PARAM_ERROR;
+}
+
+int At_speradingFactor(SERIAL_PORT port, char *cmd, stParam *param)
+{
+    if (SERVICE_LORAWAN == service_lora_get_nwm())
+    {
+        return AT_MODE_NO_SUPPORT;
+    }
+
+    if (param->argc == 1 && !strcmp(param->argv[0], "?"))
+    {
+        atcmd_printf("%s=%u\r\n", cmd, service_lora_p2p_get_sf());
+        return AT_OK;
+    }
+    else if (param->argc == 1)
+    {
+        uint32_t spreading_factor;
+
+        if (0 != at_check_digital_uint32_t(param->argv[0], &spreading_factor))
+            return AT_PARAM_ERROR;
+
+        if ( spreading_factor < 5 || spreading_factor > 12)
+            return AT_PARAM_ERROR;
+
+        int32_t ret = service_lora_p2p_set_sf((uint8_t)spreading_factor);
+        return at_error_code_form_udrv(ret);
+    }
+    return AT_PARAM_ERROR;
+}
+
+int At_codingrate(SERIAL_PORT port, char *cmd, stParam *param)
+{
+    if (SERVICE_LORAWAN == service_lora_get_nwm())
+    {
+        return AT_MODE_NO_SUPPORT;
+    }
+
+    if (param->argc == 1 && !strcmp(param->argv[0], "?"))
+    {
+        atcmd_printf("%s=%u\r\n", cmd, service_lora_p2p_get_codingrate());
+        return AT_OK;
+    }
+    else if (param->argc == 1)
+    {
+        uint32_t coding_rate;
+
+        if (0 != at_check_digital_uint32_t(param->argv[0], &coding_rate))
+            return AT_PARAM_ERROR;
+
+        if (coding_rate > 3)
+            return AT_PARAM_ERROR;
+
+        int32_t ret = service_lora_p2p_set_codingrate((uint8_t)coding_rate) ;
+        return at_error_code_form_udrv(ret);
+    }
+    return AT_PARAM_ERROR;
+}
+
+int At_preambleLength(SERIAL_PORT port, char *cmd, stParam *param)
+{
+    if (SERVICE_LORAWAN == service_lora_get_nwm())
+    {
+        return AT_MODE_NO_SUPPORT;
+    }
+
+    if (param->argc == 1 && !strcmp(param->argv[0], "?"))
+    {
+        atcmd_printf("%s=%u\r\n", cmd, service_lora_p2p_get_preamlen());
+        return AT_OK;
+    }
+    else if (param->argc == 1)
+    {
+        uint32_t preamble_length;
+
+        if (0 != at_check_digital_uint32_t(param->argv[0], &preamble_length))
+            return AT_PARAM_ERROR;
+
+        if(preamble_length< 5 || preamble_length > 65535)
+            return AT_PARAM_ERROR;
+
+        int32_t ret = service_lora_p2p_set_preamlen((uint16_t)preamble_length);
+        return at_error_code_form_udrv(ret);
+    }
+    return AT_PARAM_ERROR;
+}
+
+int At_symbolTimeout(SERIAL_PORT port, char *cmd, stParam *param)
+{
+    if (SERVICE_LORAWAN == service_lora_get_nwm())
+    {
+        return AT_MODE_NO_SUPPORT;
+    }
+
+    if (param->argc == 1 && !strcmp(param->argv[0], "?"))
+    {
+        atcmd_printf("%s=%u\r\n", cmd, service_lora_p2p_get_symbol_timeout());
+        return AT_OK;
+    }
+    else if (param->argc == 1)
+    {
+        uint32_t symbolTimeout;
+
+        if (0 != at_check_digital_uint32_t(param->argv[0], &symbolTimeout))
+            return AT_PARAM_ERROR;
+
+        if(symbolTimeout > SYMBTIMEOUT_MAX)
+            return AT_PARAM_ERROR;
+
+        int32_t ret = service_lora_p2p_set_symbol_timeout((uint16_t)symbolTimeout);
+        return at_error_code_form_udrv(ret);
+    }
+    return AT_PARAM_ERROR;
+}
+
+int At_fixLengthPayload(SERIAL_PORT port, char *cmd, stParam *param)
+{    
+    if (SERVICE_LORAWAN == service_lora_get_nwm())
+    {
+        return AT_MODE_NO_SUPPORT;
+    }
+
+    if (param->argc == 1 && !strcmp(param->argv[0], "?"))
+    {
+        atcmd_printf("%s=%u\r\n", cmd, service_lora_p2p_get_fix_length_payload()?1:0);
+        return AT_OK;
+    }
+    else if (param->argc == 1)
+    {
+        uint32_t val;
+        bool fixLengthPayloadOn;
+
+        if (0 != at_check_digital_uint32_t(param->argv[0], &val))
+            return AT_PARAM_ERROR;
+
+        if(val == 0)
+            fixLengthPayloadOn = false;
+        else if( val == 1)
+            fixLengthPayloadOn = true;
+        else
+            return AT_PARAM_ERROR;
+
+        int32_t ret = service_lora_p2p_set_fix_length_payload(fixLengthPayloadOn);
+        return at_error_code_form_udrv(ret);
+    }
+    return AT_PARAM_ERROR;
+}
+
 #endif
 #endif
 

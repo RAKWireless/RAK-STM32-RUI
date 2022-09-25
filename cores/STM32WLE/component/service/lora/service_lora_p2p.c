@@ -16,6 +16,14 @@
 #include "soft-se/aes.h"
 #include "board.h"
 
+#ifdef sx1276
+    #include "sx1276Regs-LoRa.h"
+#elif defined sx126x
+    #include "sx126x.h"
+#elif defined stm32wle5xx
+    #include "radio_driver.h"
+#endif
+
 static int PKCS7Cutting(char *p, int plen);
 static int PKCS7Padding(char *p, int plen);
 
@@ -23,6 +31,7 @@ extern rui_cfg_t g_rui_cfg_t;
 
 static rui_lora_p2p_recv_t recv_data_pkg;
 
+void radio_set_syncword( uint16_t syncword);
 void (*service_lora_p2p_send_callback)(void);
 void (*service_lora_p2p_recv_callback)(rui_lora_p2p_recv_t recv_data_pkg);
 
@@ -189,6 +198,7 @@ int32_t service_lora_p2p_config(void)
     uint32_t timeOnAir = 0x00FFFFFF;
 
     uint32_t bandwidth, codingrate;
+    bool rxContinuous = false;
 
     if (SERVICE_LORA_P2P == service_lora_get_nwm())
     {
@@ -206,17 +216,20 @@ int32_t service_lora_p2p_config(void)
     if (SERVICE_LORA_P2P == service_lora_get_nwm())
     {
 
+        if( g_rui_cfg_t.g_lora_p2p_cfg_t.symbol_timeout == 0)
+            rxContinuous = true;
         Radio.SetTxConfig(MODEM_LORA, g_rui_cfg_t.g_lora_p2p_cfg_t.Powerdbm, 0, bandwidth,
                           g_rui_cfg_t.g_lora_p2p_cfg_t.Spreadfact, codingrate,
-                          g_rui_cfg_t.g_lora_p2p_cfg_t.Preamlen, LORA_FIX_LENGTH_PAYLOAD_ON,
-                          true, 0, 0, LORA_IQ_INVERSION_ON, timeOnAir);
+                          g_rui_cfg_t.g_lora_p2p_cfg_t.Preamlen, g_rui_cfg_t.g_lora_p2p_cfg_t.fix_length_payload,
+                          true, 0, 0, g_rui_cfg_t.g_lora_p2p_cfg_t.iqinverted, timeOnAir);
 
         Radio.SetRxConfig(MODEM_LORA, bandwidth, g_rui_cfg_t.g_lora_p2p_cfg_t.Spreadfact,
                           codingrate, 0, g_rui_cfg_t.g_lora_p2p_cfg_t.Preamlen,
-                          LORA_SYMBOL_TIMEOUT, LORA_FIX_LENGTH_PAYLOAD_ON,
-                          0, true, 0, 0, LORA_IQ_INVERSION_ON, true);
+                          g_rui_cfg_t.g_lora_p2p_cfg_t.symbol_timeout, g_rui_cfg_t.g_lora_p2p_cfg_t.fix_length_payload,
+                          0, true, 0, 0, g_rui_cfg_t.g_lora_p2p_cfg_t.iqinverted, rxContinuous);
 
         Radio.SetMaxPayloadLength(MODEM_LORA, LORA_BUFFER_SIZE);
+        radio_set_syncword(g_rui_cfg_t.g_lora_p2p_cfg_t.syncword);
     }
 
     if (SERVICE_LORA_FSK == service_lora_get_nwm())
@@ -336,6 +349,7 @@ int32_t service_lora_p2p_recv(uint32_t timeout)
     {
         lora_p2p_status.isContinue = true;
         LORA_P2P_DEBUG("Radio rx continue.\r\n");
+        service_lora_p2p_config();
         Radio.Standby();
         Radio.Rx(0);  
         udrv_powersave_wake_lock();   
@@ -343,6 +357,7 @@ int32_t service_lora_p2p_recv(uint32_t timeout)
     else if (timeout == 65534)
     {
         lora_p2p_status.isContinue_no_exit = true;
+        service_lora_p2p_config();
         Radio.Standby();
         Radio.Rx(0); 
         udrv_powersave_wake_lock();
@@ -350,6 +365,7 @@ int32_t service_lora_p2p_recv(uint32_t timeout)
     else if (timeout == 65533)
     {
         lora_p2p_status.isContinue_compatible_tx = true;
+        service_lora_p2p_config();
         Radio.Standby();
         Radio.Rx(0); 
         udrv_powersave_wake_lock();
@@ -821,6 +837,67 @@ int32_t service_lora_p2p_register_recv_cb(service_lora_p2p_recv_cb_type callback
 {
     service_lora_p2p_recv_callback = callback;
     return UDRV_RETURN_OK;
+}
+uint32_t service_lora_p2p_get_symbol_timeout(void)
+{
+    return service_nvm_get_symbol_timeout_from_nvm();
+}
+
+int32_t service_lora_p2p_set_symbol_timeout(uint32_t symbol_timeout)
+{
+    uint32_t udrv_ret;
+    if (symbol_timeout > SYMBTIMEOUT_MAX)
+    {
+        return -UDRV_WRONG_ARG;
+    }
+    udrv_ret = service_nvm_set_symbol_timeout_to_nvm(symbol_timeout);
+    return udrv_ret;
+}
+
+bool service_lora_p2p_get_iqinverted(void)
+{
+    return service_nvm_get_iqinverted_from_nvm();
+}
+
+int32_t service_lora_p2p_set_iqinverted(bool iqinverted)
+{
+    uint32_t udrv_ret;
+    udrv_ret = service_nvm_set_iqinverted_to_nvm(iqinverted);
+    return udrv_ret;
+}
+
+bool service_lora_p2p_get_fix_length_payload(void)
+{
+    return service_nvm_get_fix_length_payload();
+}
+
+int32_t service_lora_p2p_set_fix_length_payload(bool enable)
+{
+    uint32_t udrv_ret;
+    udrv_ret = service_nvm_set_fix_length_payload(enable);
+    return udrv_ret;
+}
+
+uint32_t service_lora_p2p_get_syncword(void)
+{
+    return g_rui_cfg_t.g_lora_p2p_cfg_t.syncword;
+}
+
+int32_t service_lora_p2p_set_syncword( uint16_t syncword )
+{
+    uint32_t udrv_ret;
+    udrv_ret = service_nvm_set_syncword(syncword);
+    return udrv_ret;
+}
+
+void radio_set_syncword( uint16_t syncword)
+{
+#if defined stm32wle5xx ||  defined sx126x
+    Radio.Write( REG_LR_SYNCWORD, ( syncword >> 8 ) & 0xFF );
+    Radio.Write( REG_LR_SYNCWORD + 1, syncword & 0xFF );
+#elif defined sx1276
+    Radio.Write( REG_LR_SYNCWORD , syncword & 0xFF );
+#endif
 }
 
 #endif

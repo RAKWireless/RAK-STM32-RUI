@@ -65,6 +65,10 @@ typedef struct _lorap2p_param{
     /* 2*Fdev + BR) < BW */
     uint32_t deviation;
     uint32_t fsk_rxbw;
+    bool iqinverted;
+    uint32_t symbol_timeout;
+    uint16_t syncword;
+    bool fix_length_payload;
 }S_LORAP2P_PARAM;
 
 typedef struct {
@@ -134,6 +138,9 @@ typedef struct{
 }rtc_delta_t;
 
 typedef struct {
+    // If you want to add a new variable to this structure, add its store handler in service_nvm.c. 
+    // Note the points the file "service_nvm.c": 
+    // structure :STORE_REOGANIZED fountion: service_nvm_store_config, service_nvm_read_config
     uint32_t magic_num;
     uint32_t version_code;
 #ifdef SUPPORT_LORA
@@ -160,59 +167,6 @@ typedef struct {
     uint8_t hwmodel[32];
     uint8_t cli_ver[32];
 } rui_cfg_t;
-
-
-#define RUI_CFG_V85_SZ                              500
-#define RUI_CFG_V87_SZ                              504
-#define RUI_CFG_V99_SZ                              508
-
-//The offset in memory of the address of the element in rui_cfg relative to the starting position of rui_cfg
-#define ELEM_OFS_V85_crc_verify                     0
-#define ELEM_OFS_V85_lora_work_mode                 4
-#define ELEM_OFS_V85_g_lora_p2p_cfg_t               8
-#define ELEM_OFS_V85_g_lora_cfg_t                   44
-#define ELEM_OFS_V85_g_rtc_delta_t                  432
-#define ELEM_OFS_V85_mode_type                      440
-#define ELEM_OFS_V85_baudrate                       444
-#define ELEM_OFS_V85_atcmd_echo                     448
-#define ELEM_OFS_V85_serial_passwd                  449
-#define ELEM_OFS_V85_auto_sleep_time                460
-#define ELEM_OFS_V85_sn                             464
-#define ELEM_OFS_V85_alias                          482
-
-//follows are differences in version 87
-//The content between crc_verify and mode_type has same offset as v85 
-#define ELEM_OFS_V87_crc_verify                     ELEM_OFS_V85_crc_verify
-#define ELEM_OFS_V87_lora_work_mode                 ELEM_OFS_V85_lora_work_mode
-#define ELEM_OFS_V87_g_lora_p2p_cfg_t               ELEM_OFS_V85_g_lora_p2p_cfg_t
-#define ELEM_OFS_V87_g_lora_cfg_t                   ELEM_OFS_V85_g_lora_cfg_t
-#define ELEM_OFS_V87_g_rtc_delta_t                  ELEM_OFS_V85_g_rtc_delta_t
-#define ELEM_OFS_V87_mode_type                      ELEM_OFS_V85_mode_type
-#define ELEM_OFS_V87_serial_lock_status             443
-#define ELEM_OFS_V87_baudrate                       448
-#define ELEM_OFS_V87_atcmd_echo                     452
-#define ELEM_OFS_V87_serial_passwd                  453
-#define ELEM_OFS_V87_auto_sleep_time                464
-#define ELEM_OFS_V87_sn                             468
-#define ELEM_OFS_V87_alias                          486
-
-
-//follows are differences in version 99
-//The content between crc_verify and alias has same offset as v87
-#define ELEM_OFS_V99_crc_verify                     ELEM_OFS_V87_crc_verify
-#define ELEM_OFS_V99_lora_work_mode                 ELEM_OFS_V87_lora_work_mode
-#define ELEM_OFS_V99_g_lora_p2p_cfg_t               ELEM_OFS_V87_g_lora_p2p_cfg_t
-#define ELEM_OFS_V99_g_lora_cfg_t                   ELEM_OFS_V87_g_lora_cfg_t
-#define ELEM_OFS_V99_g_rtc_delta_t                  ELEM_OFS_V87_g_rtc_delta_t
-#define ELEM_OFS_V99_mode_type                      ELEM_OFS_V87_mode_type
-#define ELEM_OFS_V99_serial_lock_status             ELEM_OFS_V87_serial_lock_status
-#define ELEM_OFS_V99_baudrate                       ELEM_OFS_V87_baudrate
-#define ELEM_OFS_V99_atcmd_echo                     ELEM_OFS_V87_atcmd_echo
-#define ELEM_OFS_V99_serial_passwd                  ELEM_OFS_V87_serial_passwd
-#define ELEM_OFS_V99_auto_sleep_time                ELEM_OFS_V87_auto_sleep_time
-#define ELEM_OFS_V99_sn                             ELEM_OFS_V87_sn
-#define ELEM_OFS_V99_alias                          ELEM_OFS_V87_alias
-#define ELEM_OFS_V99_magic                          504
 
 uint32_t get_batt_table_size(void);
 #endif

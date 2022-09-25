@@ -304,6 +304,22 @@ uint32_t service_nvm_set_debug_level_to_nvm(uint8_t level);
 
 uint8_t service_nvm_get_debug_level_from_nvm();
 
+bool service_nvm_get_iqinverted_from_nvm(void);
+
+int32_t service_nvm_set_iqinverted_to_nvm(bool iqinverted);
+
+uint32_t service_nvm_get_symbol_timeout_from_nvm(void);
+
+int32_t service_nvm_set_symbol_timeout_to_nvm(uint32_t symbol_timeout);
+
+bool service_nvm_get_fix_length_payload(void);
+
+int32_t service_nvm_set_fix_length_payload(bool enable);
+
+uint16_t service_nvm_get_syncword(void);
+
+int32_t service_nvm_set_syncword( uint16_t syncword);
+
 #endif
 
 #endif

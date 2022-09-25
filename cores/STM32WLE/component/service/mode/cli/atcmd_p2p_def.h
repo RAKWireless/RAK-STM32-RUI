@@ -21,7 +21,7 @@
  *
  * @subsection ATCMD_p2p_2 AT+PFREQ: frequency
  *
- * This command allows the user to access the frequency in p2p mode.
+ * This command allows the user to access the frequency in p2p mode. Note: This command will be deleted in the future
  *
  * | Command            | Input parameter    | Return value                                                      | Return code        |
  * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
@@ -32,7 +32,7 @@
  *
  * @subsection ATCMD_p2p_3 AT+PSF: spreading factor
  *
- * This command allows the user to access the spreading factor in p2p mode.
+ * This command allows the user to access the spreading factor in p2p mode. Note: This command will be deleted in the future
  *
  * | Command            | Input parameter    | Return value                                                      | Return code        |
  * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
@@ -43,7 +43,7 @@
  *
  * @subsection ATCMD_p2p_4 AT+PBW: bandwidth
  *
- * This command allows the user to access the bandwidh in p2p mode.
+ * This command allows the user to access the bandwidh in p2p mode. Note: This command will be deleted in the future
  *
  * | Command            | Input parameter    | Return value                                                      | Return code        |
  * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
@@ -54,7 +54,7 @@
  *
  * @subsection ATCMD_p2p_5 AT+PCR: coding rate
  *
- * This command allows the user to access the codingrate in p2p mode.
+ * This command allows the user to access the codingrate in p2p mode. Note: This command will be deleted in the future
  *
  * | Command            | Input parameter    | Return value                                                      | Return code        |
  * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
@@ -65,7 +65,7 @@
  *
  * @subsection ATCMD_p2p_6 AT+PPL: the length of preamble
  *
- * This command allows the user to access the length of preamble in p2p mode.
+ * This command allows the user to access the length of preamble in p2p mode. This command will be deleted in the future
  *
  * | Command            | Input parameter    | Return value                                                      | Return code        |
  * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
@@ -76,7 +76,7 @@
  *
  * @subsection ATCMD_p2p_7 AT+PTP: tx power
  *
- * This command allows the user to access the tx power in p2p mode.
+ * This command allows the user to access the tx power in p2p mode. This command will be deleted in the future
  *
  * | Command            | Input parameter    | Return value                                                      | Return code        |
  * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
@@ -170,7 +170,117 @@
  * | AT+PFDEV=\<Param\> | <frequency deviation> | --                                                             | OK / AT_PARAM_ERROR|
  * | Example<br>AT+PFDEV=?| --               | 5000                                                              | OK                 |
  *
+ * @subsection ATCMD_p2p_15 AT+IQINVER: IQ inversion in p2p mode
  *
+ * This command allows the user to get or set P2P IQ inversion (1 = on, 0 = off)
+ *
+ * | Command            | Input parameter    | Return value                                                      | Return code        |
+ * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
+ * | AT+IQINVER?          | --                 | AT+IQINVER:  get or set P2P IQ inversion (1 = on, 0 = off)      | OK                 |
+ * | AT+IQINVER=?         | --                 | \<0 or 1\>                                                      | OK                 |
+ * | AT+IQINVER=\<Param\> | \<0 or 1\>         | --                                                              | OK / AT_PARAM_ERROR|
+ * | Example<br>AT+IQINVER=?| --               | 0                                                               | OK                 |
+ *
+ * @subsection ATCMD_p2p_15 AT+SYNCWORD: P2P syncword (0x0000 - 0xffff) in p2p mode
+ *
+ * This command allows the user to get or set P2P syncword (0x0000 - 0xffff)
+ *
+ * | Command            | Input parameter    | Return value                                                      | Return code        |
+ * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
+ * | AT+SYNCWORD?          | --              | AT+SYNCWORD:  get or set P2P syncword (0x0000 - 0xffff)        | OK                 |
+ * | AT+SYNCWORD=?         | --              | \<2 Hex\>                                                      | OK                 |
+ * | AT+SYNCWORD=\<Param\> | \<2 Hex\>       | --                                                             | OK / AT_PARAM_ERROR|
+ * | Example<br>AT+SYNCWORD=?| --            | 3444                                                           | OK                 |
+ *
+ * @subsection ATCMD_p2p_15 AT+RFFREQUENCY: frequency in p2p mode
+ *
+ * This command allows the user to access the frequency in p2p mode.
+ *
+ * | Command            | Input parameter    | Return value                                                      | Return code        |
+ * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
+ * | AT+RFFREQUENCY?          | --           | AT+RFFREQUENCY:  get or set P2P Frequency                         | OK                 |
+ * | AT+RFFREQUENCY=?         | --           | <interger>                                                        | OK                 |
+ * | AT+RFFREQUENCY=\<Param\> | <interger>   | --                                                                | OK / AT_PARAM_ERROR|
+ * | Example<br>AT+RFFREQUENCY=?| --         | 0                                                                 | OK                 |
+ *
+ * @subsection ATCMD_p2p_15 AT+TXOUTPUTPOWER: P2P Tx Power(5-22)
+ *
+ * This command allows the user to get or set P2P Tx Power(5-22)
+ *
+ * | Command            | Input parameter    | Return value                                                      | Return code        |
+ * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
+ * | AT+TXOUTPUTPOWER?          | --         | AT+TXOUTPUTPOWER:  get or set P2P Tx Power(5-22)                  | OK                 |
+ * | AT+TXOUTPUTPOWER=?         | --         | \<powerlevel\>                                                    | OK                 |
+ * | AT+TXOUTPUTPOWER=\<Param\> | \<powerlevel\>| --                                                             | OK / AT_PARAM_ERROR|
+ * | Example<br>AT+TXOUTPUTPOWER=?| --       | 20                                                                | OK                 |
+ *
+ * @subsection ATCMD_p2p_15 AT+BANDWIDTH:P2P Bandwidth
+ *
+ * This command allows the user to get or set P2P Bandwidth(LORA: 0 = 125, 1 = 250, 2 = 500, 3 = 7.8, 4 = 10.4, 5 = 15.63, 6 = 20.83, 7 = 31.25, 8 = 41.67, 9 = 62.5  FSK:4800-467000)
+ *
+ * | Command            | Input parameter    | Return value                                                      | Return code        |
+ * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
+ * | AT+BANDWIDTH?          | --             | AT+BANDWIDTH: get or set P2P Bandwidth(LORA:0=125,1=250,2=500,3=7.8,4=10.4,5=15.63,6=20.83,7=31.25,8=41.67,9=62.5 FSK:4800-467000)                  | OK                 |
+ * | AT+BANDWIDTH=?         | --             | \<bandwidth\>                                                     | OK                 |
+ * | AT+BANDWIDTH=\<Param\> | \<bandwidth\>    | --                                                              | OK / AT_PARAM_ERROR|
+ * | Example<br>AT+BANDWIDTH=?| --           | 0                                                                 | OK                 |
+ *
+ * @subsection ATCMD_p2p_15 AT+SPREADINGFACTOR: P2P Spreading Factor (5-12)
+ *
+ * This command allows the user to get or set P2P Spreading Factor (5-12)
+ *
+ * | Command            | Input parameter    | Return value                                                      | Return code        |
+ * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
+ * | AT+SPREADINGFACTOR?          | --       | AT+SPREADINGFACTOR:  get or set P2P Spreading Factor (5-12)       | OK                 |
+ * | AT+SPREADINGFACTOR=?         | --       | \<Spreading Factor\>                                              | OK                 |
+ * | AT+SPREADINGFACTOR=\<Param\> | \<Spreading Factor\>| --                                                     | OK / AT_PARAM_ERROR|
+ * | Example<br>AT+SPREADINGFACTOR=?| --     | 5                                                                 | OK                 |
+ *
+ * @subsection ATCMD_p2p_15 AT+SPREADINGFACTOR: P2P coding rate
+ *
+ * This command allows the user to get or set P2P Code Rate(0=4/5, 1=4/6, 2=4/7, 3=4/8)
+ *
+ * | Command            | Input parameter    | Return value                                                      | Return code        |
+ * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
+ * | AT+SPREADINGFACTOR?          | --       | AT+SPREADINGFACTOR:get or set P2P Code Rate(0=4/5, 1=4/6, 2=4/7, 3=4/8)| OK                 |
+ * | AT+SPREADINGFACTOR=?         | --       | \<coding rate\>                                                   | OK                 |
+ * | AT+SPREADINGFACTOR=\<Param\> | \<coding rate\>| --                                                          | OK / AT_PARAM_ERROR|
+ * | Example<br>AT+SPREADINGFACTOR=?| --     | 0                                                                 | OK                 |
+ *
+ * @subsection ATCMD_p2p_15 AT+PREAMBLELENGTH: P2P Preamble Length (5-65535)
+ *
+ * This command allows the user to get or set P2P Preamble Length (5-65535)
+ *
+ * | Command            | Input parameter    | Return value                                                      | Return code        |
+ * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
+ * | AT+PREAMBLELENGTH?          | --        | AT+PREAMBLELENGTH:set get or set P2P Preamble Length (5-65535)    | OK                 |
+ * | AT+PREAMBLELENGTH=?         | --        | <interger>                                                        | OK                 |
+ * | AT+PREAMBLELENGTH=\<Param\> | <interger>| --                                                                | OK / AT_PARAM_ERROR|
+ * | Example<br>AT+PREAMBLELENGTH=?| --      | 10                                                                | OK                 |
+ *
+ * @subsection ATCMD_p2p_15 AT+SYMBOLTIMEOUT: P2P symbolTimeout (0-248)
+ *
+ * This command allows the user to get or set P2P symbolTimeout (0-248)
+ *
+ * | Command            | Input parameter    | Return value                                                      | Return code        |
+ * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
+ * | AT+SYMBOLTIMEOUT?          | --       | AT+SYMBOLTIMEOUT:get or set P2P symbolTimeout (0-248)               | OK                 |
+ * | AT+SYMBOLTIMEOUT=?         | --       | <interger>                                                          | OK                 |
+ * | AT+SYMBOLTIMEOUT=\<Param\> | <interger>| --                                                                 | OK / AT_PARAM_ERROR|
+ * | Example<br>AT+SYMBOLTIMEOUT=?| --     | 0                                                                   | OK                 |
+ *
+ * @subsection ATCMD_p2p_15 AT+FIXLENGTHPAYLOAD: P2P fix length payload on/off ( 1 = on, 0 = off)
+ *
+ * This command allows the user to get or set P2P fix length payload on/off ( 1 = on, 0 = off)
+ *
+ * | Command            | Input parameter    | Return value                                                      | Return code        |
+ * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
+ * | AT+FIXLENGTHPAYLOAD?          | --        | AT+FIXLENGTHPAYLOAD:  get or set P2P fix length payload on/off ( 1 = on, 0 = off) | OK                 |
+ * | AT+FIXLENGTHPAYLOAD=?         | --        | \<0 or 1\>                                                      | OK                 |
+ * | AT+FIXLENGTHPAYLOAD=\<Param\> | \<0 or 1\>| --                                                              | OK / AT_PARAM_ERROR|
+ * | Example<br>AT+FIXLENGTHPAYLOAD=?| --      | 0                                                               | OK                 |
+ * 
+ * 
  */
 #endif
 
@@ -192,6 +302,16 @@
 #define ATCMD_P2P             "AT+P2P"
 #define ATCMD_PBR             "AT+PBR"
 #define ATCMD_PFDEV           "AT+PFDEV"             
+#define ATCMD_IQINVER           "AT+IQINVER"
+#define ATCMD_SYNCWORD          "AT+SYNCWORD"
+#define ATCMD_RFFREQUENCY       "AT+RFFREQUENCY"
+#define ATCMD_TXOUTPUTPOWER     "AT+TXOUTPUTPOWER"
+#define ATCMD_BANDWIDTH         "AT+BANDWIDTH"
+#define ATCMD_SPREADINGFACTOR   "AT+SPREADINGFACTOR"
+#define ATCMD_CODINGRATE        "AT+CODINGRATE"
+#define ATCMD_PREAMBLELENGTH    "AT+PREAMBLELENGTH"
+#define ATCMD_SYMBOLTIMEOUT     "AT+SYMBOLTIMEOUT"
+#define ATCMD_FIXLENGTHPAYLOAD  "AT+FIXLENGTHPAYLOAD"
 
 
 #endif //_ATCMD_INFO_DEF_H_

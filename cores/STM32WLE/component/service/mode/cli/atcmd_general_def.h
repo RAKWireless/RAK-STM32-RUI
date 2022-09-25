@@ -208,11 +208,8 @@
 #define ATCMD_BAT                   "AT+BAT"
 #define ATCMD_BUILDTIME             "AT+BUILDTIME"
 #define ATCMD_REPOINFO              "AT+REPOINFO"
-#if 1
 #define ATCMD_FWVER                 "AT+VER"
-#else
-#define ATCMD_FWVER                 "AT+FIRMWAREVER"
-#endif
+#define ATCMD_CUSFWVER              "AT+FIRMWAREVER"
 #define ATCMD_CLIVER                "AT+CLIVER"
 #define ATCMD_APIVER                "AT+APIVER"
 #define ATCMD_HWMODEL               "AT+HWMODEL"
