@@ -23,6 +23,10 @@
 #include "uhal_sched.h"
 
 extern bool sched_start;
+#ifdef SUPPORT_WDT
+extern bool is_custom_wdt;
+#endif
+
 extern tcb_ thread_pool[THREAD_POOL_SIZE];
 extern tcb_ *current_thread;
 extern unsigned long int current_sp;
@@ -344,11 +348,19 @@ void rui_init(void)
         }
     }
 
+#ifdef SUPPORT_WDT
+    bool is_custom_wdt = false;
+#endif
+
     udrv_system_event_init();
 }
 
 void rui_running(void)
 {
+#ifdef SUPPORT_WDT
+    udrv_wdt_feed();//Consider software reset case, reload WDT counter first.
+#endif
+
     udrv_system_event_consume();
 }
 
@@ -367,6 +379,13 @@ void rui_user_thread(void)
 {
     //user init
     rui_setup();
+
+#ifdef WDT_SUPPORT
+    if(!is_custom_wdt) {
+        udrv_wdt_init(WDT_FEED_PERIOD);
+        udrv_wdt_feed();//Consider software reset case, reload WDT counter first.
+    }
+#endif
 
     while (1) {
         rui_loop();

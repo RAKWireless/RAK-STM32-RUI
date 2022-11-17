@@ -16,13 +16,17 @@
 #include "soft-se/aes.h"
 #include "board.h"
 
-#ifdef sx1276
-    #include "sx1276Regs-LoRa.h"
-#elif defined sx126x
-    #include "sx126x.h"
-#elif defined stm32wle5xx
-    #include "radio_driver.h"
+#ifdef LORA_CHIP_SX1276
+    // #include "sx1276Regs-LoRa.h"
+    #define REG_LR_SYNCWORD                             0x39
+#elif defined LORA_CHIP_SX126X
+    // #include "sx126x.h"
+    #define REG_LR_SYNCWORD                             0x0740
+#elif defined LORA_CHIP_STM32WLE5XX
+    // #include "radio_driver.h"
+    #define REG_LR_SYNCWORD                             0x0740
 #endif
+
 
 static int PKCS7Cutting(char *p, int plen);
 static int PKCS7Padding(char *p, int plen);
@@ -892,10 +896,10 @@ int32_t service_lora_p2p_set_syncword( uint16_t syncword )
 
 void radio_set_syncword( uint16_t syncword)
 {
-#if defined stm32wle5xx ||  defined sx126x
+#if defined LORA_CHIP_STM32WLE5XX ||  defined LORA_CHIP_SX126X
     Radio.Write( REG_LR_SYNCWORD, ( syncword >> 8 ) & 0xFF );
     Radio.Write( REG_LR_SYNCWORD + 1, syncword & 0xFF );
-#elif defined sx1276
+#elif defined LORA_CHIP_SX1276
     Radio.Write( REG_LR_SYNCWORD , syncword & 0xFF );
 #endif
 }

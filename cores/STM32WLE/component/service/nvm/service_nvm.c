@@ -139,7 +139,7 @@ int32_t service_nvm_set_default_config_to_nvm(void) {
     #endif
     g_rui_cfg_t.g_lora_cfg_t.join_mode = SERVICE_LORA_OTAA;
     g_rui_cfg_t.g_lora_cfg_t.device_class = SERVICE_LORA_CLASS_A;
-    g_rui_cfg_t.g_lora_cfg_t.confirm = SERVICE_LORA_ACK;
+    g_rui_cfg_t.g_lora_cfg_t.confirm = SERVICE_LORA_NO_ACK;
     g_rui_cfg_t.g_lora_cfg_t.retry = 0;
     g_rui_cfg_t.g_lora_cfg_t.adr = true;
     g_rui_cfg_t.g_lora_cfg_t.dr = SERVICE_LORA_DR_0;
@@ -277,7 +277,7 @@ uint8_t service_nvm_get_firmware_ver_from_nvm(uint8_t *buff, uint32_t len) {
 }
 
 int32_t service_nvm_set_firmware_ver_to_nvm(uint8_t *buff, uint32_t len) {
-    if (len > 32) {
+    if (len > 32 || len == 0) {
         return -UDRV_WRONG_ARG;
     }
     for (int i = 0 ; i < len ; i++)
@@ -301,7 +301,7 @@ uint8_t service_nvm_get_hwmodel_from_nvm(uint8_t *buff, uint32_t len) {
 }
 
 int32_t service_nvm_set_hwmodel_to_nvm(uint8_t *buff, uint32_t len) {
-    if (len > 32) {
+    if (len > 32 || len == 0) {
         return -UDRV_WRONG_ARG;
     }
     for (int i = 0 ; i < len ; i++)
@@ -325,7 +325,7 @@ uint8_t service_nvm_get_cli_ver_from_nvm(uint8_t *buff, uint32_t len) {
 }
 
 int32_t service_nvm_set_cli_ver_to_nvm(uint8_t *buff, uint32_t len) {
-    if (len > 32) {
+    if (len > 32 || len == 0 ) {
         return -UDRV_WRONG_ARG;
     }
     for (int i = 0 ; i < len ; i++)

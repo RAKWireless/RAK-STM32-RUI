@@ -176,7 +176,7 @@
  *
  * | Command            | Input parameter    | Return value                                                      | Return code        |
  * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
- * | AT+BLEMAC?         | --                 | AT+BLEMAC: get the BLE Mac address                                | OK                 |
+ * | AT+BLEMAC?         | --                 | AT+BLEMAC: get or set the BLE Mac address                         | OK                 |
  * | AT+BLEMAC=?        | --                 | <string>:<string>:<string>:<string>:<string>:<string>             | OK                 |
  * | AT+BLEMAC=\<Input\>| <string,12 char>   | <string>                                                          | OK                 |
  * | Example<br>AT+BLEMAC=?| --              | dc:a1:26:1e:e6:84                                                 | OK                 |

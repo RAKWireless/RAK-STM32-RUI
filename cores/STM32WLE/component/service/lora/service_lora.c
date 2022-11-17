@@ -16,7 +16,7 @@
 #include "utilities.h"
 #include "service_lora_certification.c"
 #include "RegionNvm.h"
-#include "service_lora_arssi.h"
+#include "service_lora_arssi.h"git push --set-upstream RUI763 RUI763
 #include "service_lora_test.h"
 #include "LmhPackage.h"
 #include "LmhpCompliance.h"
@@ -541,6 +541,12 @@ static void MlmeIndication(MlmeIndication_t *mlmeIndication)
         udrv_serial_log_printf("+BC:LOST\r\n");
         //user need to re execute the ClassB process
         class_b_state = SERVICE_LORA_CLASS_B_S0;
+
+        MibRequestConfirm_t mibReq;
+        // Switch to class A again
+        mibReq.Type = MIB_DEVICE_CLASS;
+        mibReq.Param.Class = CLASS_A;
+        LoRaMacMibSetRequestConfirm( &mibReq );
 
     }
     break;
@@ -1759,7 +1765,6 @@ int32_t service_lora_set_nwm(SERVICE_LORA_WORK_MODE nwm)
     }
 
     service_nvm_set_nwm_to_nvm(nwm);
-    udrv_system_reboot();
 
     return UDRV_RETURN_OK;
 }
@@ -1924,7 +1929,7 @@ int32_t service_lora_send(uint8_t *buff, uint32_t len, SERVICE_LORA_SEND_INFO in
     LoRaMacStatus_t status;
     McpsReq_t mcpsReq;
     LoRaMacTxInfo_t txInfo;
-    SERVICE_LORA_DATA_RATE dr = service_lora_get_dr();
+    SERVICE_LORA_DATA_RATE dr = service_nvm_get_dr_from_nvm();
     bool tx_possible = true;
     MlmeReq_t mlmeReq;
 

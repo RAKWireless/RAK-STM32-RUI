@@ -170,6 +170,7 @@ class RAKSystem {
 	 * 		This api allow user to get the firmware version
 	 * @ingroup	Firmware_Version
 	 * @par		Syntax
+	 * 		api.system.firmwareVersion.get()
 	 * 		api.system.firmwareVer.get()
 	 * @return	firmware version(Type: String)
 	 * @par		Example
@@ -181,6 +182,7 @@ class RAKSystem {
 
 	   void loop()
 	   {
+             Serial.printf("Firmware Version: %s\r\n", api.system.firmwareVersion.get().c_str());
              Serial.printf("Firmware Version: %s\r\n", api.system.firmwareVer.get().c_str());
 	     delay(1000);
 	   }
@@ -225,6 +227,7 @@ class RAKSystem {
 	 *		This api allow user to get the cli version
 	 * @ingroup	Cli_Version
 	 * @par		Syntax
+	 *		api.system.cliVersion.get()
 	 *		api.system.cliVer.get()
 	 * @return	cli version(Type: String)
 	 * @par         Example
@@ -236,6 +239,7 @@ class RAKSystem {
 
            void loop()
            {
+             Serial.printf("AT Command Version: %s\r\n", api.system.cliVersion.get().c_str());
              Serial.printf("AT Command Version: %s\r\n", api.system.cliVer.get().c_str());
              delay(1000);
            }
@@ -314,6 +318,7 @@ class RAKSystem {
 	 *		This api allow user to get the model ID
 	 * @ingroup	Model_ID
 	 * @par		Syntax
+	 * 		api.system.modelId.get()
 	 * 		api.system.hwModel.get()
 	 * @return	model ID(Type: String)
 	 * @par         Example
@@ -325,6 +330,7 @@ class RAKSystem {
 
            void loop()
            {
+             Serial.printf("Model ID: %s\r\n", api.system.modelId.get().c_str());
              Serial.printf("Model ID: %s\r\n", api.system.hwModel.get().c_str());
              delay(1000);
            }
@@ -392,9 +398,12 @@ class RAKSystem {
     };
     
     firmwareVersion firmwareVer;
+    firmwareVersion firmwareVersion;
     cliVersion cliVer;
+    cliVersion cliVersion;
     apiVersion apiVersion;
     modelId hwModel;
+    modelId modelId;
     chipId chipId;
 
     /**@par	Description

@@ -36,6 +36,7 @@
 #include "atcmd_p2p_def.h"
 #include "atcmd_cert.h"
 #include "atcmd_cert_def.h"
+#include "service_lora_p2p.h"
 #endif
 #endif
 #include "udrv_serial.h"
@@ -136,7 +137,7 @@ at_cmd_info atcmd_info_tbl[] =
     {ATCMD_UID,      /*91*/         At_GetUid,             0, "", AT_UID_PERM},
 #endif
 #ifdef SUPPORT_BLE
-    {ATCMD_BLEMAC,   /*94*/         At_BLEMac,             0, "get the BLE Mac address", AT_BLEMAC_PERM},
+    {ATCMD_BLEMAC,   /*94*/         At_BLEMac,             0, "get or set the BLE Mac address", AT_BLEMAC_PERM},
 #endif
 /* Sleep Command */
     {ATCMD_SLEEP,    /*85*/         At_Sleep,              0, "enter sleep mode for a period of time (ms)", AT_SLEEP_PERM},
@@ -226,9 +227,9 @@ at_cmd_info atcmd_info_tbl[] =
     {ATCMD_SPREADINGFACTOR,/*68*/   At_speradingFactor,    0, "get or set P2P Spreading Factor (5-12)", AT_SPREADINGFACTOR_PERM},
     {ATCMD_CODINGRATE,/*68*/        At_codingrate,         0, "get or set P2P Code Rate(0=4/5, 1=4/6, 2=4/7, 3=4/8)", AT_CODINGRATE_PERM},
     {ATCMD_PREAMBLELENGTH,/*68*/    At_preambleLength,     0, "get or set P2P Preamble Length (5-65535)", AT_PREAMBLELENGTH_PERM},
-#ifdef sx1276
+#ifdef LORA_CHIP_SX1276
     {ATCMD_SYMBOLTIMEOUT,/*68*/     At_symbolTimeout,      0, "get or set P2P symbolTimeout (0-1023)", AT_SYMBOLTIMEOUT_PERM},
-#elif defined sx126x || defined stm32wle5xx
+#elif defined LORA_CHIP_SX126X || defined LORA_CHIP_STM32WLE5XX
     {ATCMD_SYMBOLTIMEOUT,/*68*/     At_symbolTimeout,      0, "get or set P2P symbolTimeout (0-248)", AT_SYMBOLTIMEOUT_PERM},
 #endif
     {ATCMD_FIXLENGTHPAYLOAD,/*68*/  At_fixLengthPayload,   0, "get or set P2P fix length payload on/off ( 1 = on, 0 = off)", AT_FIXLENGTHPAYLOAD_PERM},

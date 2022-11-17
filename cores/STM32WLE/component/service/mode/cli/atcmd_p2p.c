@@ -34,6 +34,8 @@ int At_NwkWorkMode(SERIAL_PORT port, char *cmd, stParam *param)
         if ((param->argv[0][0] == '0') || (param->argv[0][0] == '1')||(param->argv[0][0] == '2'))
         {
             if (service_lora_set_nwm((SERVICE_LORA_WORK_MODE)atoi(param->argv[0])) == UDRV_RETURN_OK) {
+                atcmd_printf("OK");
+                udrv_system_reboot();
                 return AT_OK;
             } else {
                 return AT_ERROR;
