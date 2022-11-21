@@ -16,7 +16,7 @@
 #include "utilities.h"
 #include "service_lora_certification.c"
 #include "RegionNvm.h"
-#include "service_lora_arssi.h"git push --set-upstream RUI763 RUI763
+#include "service_lora_arssi.h"
 #include "service_lora_test.h"
 #include "LmhPackage.h"
 #include "LmhpCompliance.h"
