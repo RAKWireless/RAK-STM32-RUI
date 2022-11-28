@@ -279,21 +279,8 @@ int At_GetFwRepoInfo (SERIAL_PORT port, char *cmd, stParam *param)
 int At_GetFwVersion (SERIAL_PORT port, char *cmd, stParam *param)
 {
     if (param->argc == 1 && !strcmp(param->argv[0], "?")) {
-		atcmd_printf("%s=%s\r\n", cmd, sw_version);
+        atcmd_printf("%s=%s\r\n", cmd, sw_version);
 
-        return AT_OK;
-    } else {
-        return AT_PARAM_ERROR;
-    }
-}
-
-int At_GetCusFwVersion (SERIAL_PORT port, char *cmd, stParam *param)
-{
-    if (param->argc == 1 && !strcmp(param->argv[0], "?")) {
-        char ver[33];
-        ver[32] = '\0';
-        service_nvm_get_firmware_ver_from_nvm(ver,32);
-        atcmd_printf("%s=%s\r\n", cmd, ver);
         return AT_OK;
     } else {
         return AT_PARAM_ERROR;
@@ -303,10 +290,7 @@ int At_GetCusFwVersion (SERIAL_PORT port, char *cmd, stParam *param)
 int At_GetCliVersion (SERIAL_PORT port, char *cmd, stParam *param)
 {
     if (param->argc == 1 && !strcmp(param->argv[0], "?")) {
-         char ver[33];
-        ver[32] = '\0';
-        service_nvm_get_cli_ver_from_nvm(ver,32);
-        atcmd_printf("%s=%s\r\n", cmd, ver);
+        atcmd_printf("%s=%s\r\n", cmd, cli_version);
 
         return AT_OK;
     } else {
@@ -328,11 +312,7 @@ int At_GetApiVersion (SERIAL_PORT port, char *cmd, stParam *param)
 int At_GetHwModel (SERIAL_PORT port, char *cmd, stParam *param)
 {
     if (param->argc == 1 && !strcmp(param->argv[0], "?")) {
-        char model[33];
-        model[32] = '\0';
-        service_nvm_get_hwmodel_from_nvm(model,32);
-        atcmd_printf("%s=%s\r\n", cmd, model);
-
+        atcmd_printf("%s=%s\r\n", cmd, model_id);
         return AT_OK;
     } else {
         return AT_PARAM_ERROR;

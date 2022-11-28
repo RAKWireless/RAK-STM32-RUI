@@ -51,7 +51,7 @@ void uhal_mcu_sleep (void) {
 
     LL_PWR_ClearFlag_C1STOP_C1STB();
   
-    HAL_PWREx_EnterSTOP2Mode(PWR_STOPENTRY_WFI);
+    HAL_PWREx_EnterSTOP1Mode(PWR_STOPENTRY_WFI);
 
     HAL_ResumeTick();
 

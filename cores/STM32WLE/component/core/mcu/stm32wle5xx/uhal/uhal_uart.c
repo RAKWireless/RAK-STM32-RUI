@@ -157,6 +157,15 @@ SERIAL_PARITY_E parity, SERIAL_WIRE_MODE_E WireMode)
             Error_Handler();
         }
         StartReception(port);
+        UART_WakeUpTypeDef WakeUpSelection;
+        WakeUpSelection.WakeUpEvent   = UART_WAKEUP_ON_READDATA_NONEMPTY;
+        if (HAL_UARTEx_StopModeWakeUpSourceConfig(&huart1, WakeUpSelection) != HAL_OK)
+        {
+            Error_Handler();
+        }
+
+	    __HAL_RCC_WAKEUPSTOP_CLK_CONFIG(RCC_STOP_WAKEUPCLOCK_HSI);
+
     } 
     else if (port == SERIAL_UART2) {
         
@@ -336,9 +345,13 @@ void uhal_uart_suspend(void)
             }
             if(i == SERIAL_UART1)  //RAK3172 uart1
             {
-                __HAL_UART_CLEAR_IDLEFLAG(&huart1);   
-                __HAL_UART_DISABLE_IT(&huart1, UART_IT_IDLE);
-                HAL_UART_DeInit(&huart1);
+                LL_USART_ClearFlag_ORE(USART1);
+                while (LL_USART_IsActiveFlag_BUSY(USART1) == 1);
+                while (LL_USART_IsActiveFlag_REACK(USART1) == 0);
+                LL_USART_ClearFlag_WKUP(USART1);
+                LL_USART_EnableInStopMode(USART1);
+                LL_USART_EnableIT_WKUP(USART1);
+                LL_EXTI_EnableIT_0_31(LL_EXTI_LINE_26);
             }
 	    }
     }
@@ -348,7 +361,7 @@ void uhal_uart_suspend(void)
 void uhal_uart_resume(void)
 {
     for (int i = SERIAL_UART0 ; i < UHAL_UART_MAX ; i++) {
-        if (i == SERIAL_UART2) {//LPUART doesn't need to be re-initialized.
+        if (i == SERIAL_UART2 || i == SERIAL_UART1) {//LPUART doesn't need to be re-initialized.
             continue;
         }
  
@@ -452,8 +465,14 @@ void USAR_UART_IDLECallback(UART_HandleTypeDef *huart)
         }
 #endif
         fund_circular_queue_in(&SERIAL_UART1_rxq, uart1_dma_buff, data_length);
-        HAL_UART_Receive_DMA(huart, (uint8_t*)uart1_dma_buff, BUFFER_SIZE); 
-   
+        HAL_UART_Receive_DMA(huart, (uint8_t*)uart1_dma_buff, BUFFER_SIZE);
+
+        if(LpuartDMAdoing == 1 )
+        {
+            LpuartDMAdoing = 0;
+            udrv_powersave_wake_unlock();
+        }
+
     } 
 #ifndef RUI_BOOTLOADER
         udrv_system_event_produce(&rui_uart_event);
@@ -490,13 +509,14 @@ void UserDataTreatment(UART_HandleTypeDef *huart, uint8_t* pData, uint16_t Size)
 
 void HAL_UARTEx_WakeupCallback(UART_HandleTypeDef *huart)
 {
+
     uint8_t rdr_register; 
     udrv_powersave_in_sleep = false;
 
-    HAL_UARTEx_DisableStopMode(&hlpuart1);
-   
     rdr_register = huart->Instance->RDR ;
-
+if(huart->Instance==LPUART1)
+{
+    HAL_UARTEx_DisableStopMode(&hlpuart1);
     /* Reinitialize DMA receive mode */
     hdma_lpuart1_rx.Instance = DMA1_Channel1;
     hdma_lpuart1_rx.Init.Request = DMA_REQUEST_LPUART1_RX;
@@ -512,12 +532,34 @@ void HAL_UARTEx_WakeupCallback(UART_HandleTypeDef *huart)
       Error_Handler();
     }
     __HAL_LINKDMA(huart,hdmarx,hdma_lpuart1_rx);
-
     StartReception(SERIAL_UART2);
+}
+if(huart->Instance==USART1)
+{
+    HAL_UARTEx_DisableStopMode(&huart1);
+    /* Reinitialize DMA receive mode */
+    hdma_usart1_rx.Instance = DMA1_Channel4;
+    hdma_usart1_rx.Init.Request = DMA_REQUEST_USART1_RX;
+    hdma_usart1_rx.Init.Direction = DMA_PERIPH_TO_MEMORY;
+    hdma_usart1_rx.Init.PeriphInc = DMA_PINC_DISABLE;
+    hdma_usart1_rx.Init.MemInc = DMA_MINC_ENABLE;
+    hdma_usart1_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
+    hdma_usart1_rx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
+    hdma_usart1_rx.Init.Mode = DMA_NORMAL;
+    hdma_usart1_rx.Init.Priority = DMA_PRIORITY_LOW;
+    if (HAL_DMA_Init(&hdma_usart1_rx) != HAL_OK)
+    {
+      Error_Handler();
+    }
+    __HAL_LINKDMA(huart,hdmarx,hdma_usart1_rx);
+    StartReception(SERIAL_UART1);
+}
 
 #ifndef RUI_BOOTLOADER
+    if(huart->Instance==LPUART1)
     serial_fallback_handler(SERIAL_UART2, rdr_register);
 #endif
+    if(huart->Instance==LPUART1)
     fund_circular_queue_in(&SERIAL_UART2_rxq, &rdr_register, 1);
    
 #ifndef RUI_BOOTLOADER
@@ -529,4 +571,3 @@ void HAL_UARTEx_WakeupCallback(UART_HandleTypeDef *huart)
         udrv_powersave_wake_lock();
     }
 }
-

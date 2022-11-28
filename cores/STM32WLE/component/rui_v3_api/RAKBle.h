@@ -42,8 +42,7 @@ class RAKBle {
      * @return  void
      */
     void stop(void);
-    void registerCallback(Event event,BLE_HANDLER callback);
-    
+    /**@}*/
 };
 #endif
 

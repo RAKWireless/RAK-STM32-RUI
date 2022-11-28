@@ -16,7 +16,7 @@
 #include "utilities.h"
 #include "service_lora_certification.c"
 #include "RegionNvm.h"
-#include "service_lora_arssi.h"git push --set-upstream RUI763 RUI763
+#include "service_lora_arssi.h"
 #include "service_lora_test.h"
 #include "LmhPackage.h"
 #include "LmhpCompliance.h"
@@ -542,12 +542,6 @@ static void MlmeIndication(MlmeIndication_t *mlmeIndication)
         //user need to re execute the ClassB process
         class_b_state = SERVICE_LORA_CLASS_B_S0;
 
-        MibRequestConfirm_t mibReq;
-        // Switch to class A again
-        mibReq.Type = MIB_DEVICE_CLASS;
-        mibReq.Param.Class = CLASS_A;
-        LoRaMacMibSetRequestConfirm( &mibReq );
-
     }
     break;
     case MLME_BEACON:
@@ -750,7 +744,6 @@ int32_t service_lora_init(SERVICE_LORA_BAND band)
         }
 
         /* Set CHS function of EU868 */
-        /* 
         if(band == SERVICE_LORA_EU868)
         {
             if (service_lora_get_chs() != 0)
@@ -761,8 +754,7 @@ int32_t service_lora_init(SERVICE_LORA_BAND band)
                 }
             }
         }
-        */
-       
+
         if ((ret = service_lora_set_njm(service_nvm_get_njm_from_nvm(), false)) != UDRV_RETURN_OK)
         {
             goto out;
@@ -1256,6 +1248,11 @@ int32_t service_lora_set_band(SERVICE_LORA_BAND band)
     int32_t ret;
     LoRaMacStatus_t Status;
     SERVICE_LORA_BAND AS923_sub_band_bak = 0;
+
+    if (band == service_lora_get_band())
+    {
+        return UDRV_RETURN_OK;
+    }
 
     /**************************************************************************************
      *
@@ -1765,6 +1762,7 @@ int32_t service_lora_set_nwm(SERVICE_LORA_WORK_MODE nwm)
     }
 
     service_nvm_set_nwm_to_nvm(nwm);
+    udrv_system_reboot();
 
     return UDRV_RETURN_OK;
 }
@@ -1929,7 +1927,7 @@ int32_t service_lora_send(uint8_t *buff, uint32_t len, SERVICE_LORA_SEND_INFO in
     LoRaMacStatus_t status;
     McpsReq_t mcpsReq;
     LoRaMacTxInfo_t txInfo;
-    SERVICE_LORA_DATA_RATE dr = service_nvm_get_dr_from_nvm();
+    SERVICE_LORA_DATA_RATE dr = service_lora_get_dr();
     bool tx_possible = true;
     MlmeReq_t mlmeReq;
 
@@ -2796,7 +2794,7 @@ int32_t service_lora_set_chs(uint32_t frequency)
     SERVICE_LORA_BAND band = service_lora_get_band();
     MibRequestConfirm_t mibReq;
 
-    if ((band != SERVICE_LORA_AU915) && (band != SERVICE_LORA_US915) && (band != SERVICE_LORA_CN470))
+    if ((band != SERVICE_LORA_AU915) && (band != SERVICE_LORA_US915) && (band != SERVICE_LORA_CN470)&& (band != SERVICE_LORA_EU868))
     {
         return -UDRV_INTERNAL_ERR;
     }
@@ -2859,7 +2857,6 @@ int32_t service_lora_set_chs(uint32_t frequency)
             return -UDRV_WRONG_ARG;
             }
         }
-        /*
         else if(band == SERVICE_LORA_EU868)
         {
             //Restore default mask
@@ -2903,7 +2900,6 @@ int32_t service_lora_set_chs(uint32_t frequency)
             return service_rui_set_chs_to_nvm(frequency);
 
         }
-        */
     }
     return UDRV_RETURN_OK;
 }

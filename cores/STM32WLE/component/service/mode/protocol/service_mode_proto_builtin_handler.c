@@ -193,60 +193,13 @@ void service_mode_proto_atcmd_request_handler (SERIAL_PORT port, uint8_t *payloa
             }
             break;
         }
-        case SERVICE_MODE_PROTO_ATCMD_CUSFWVER:
-        {
-            if (flag & PROTO_ATCMD_FLAG_WR_OR_EXE) {
-                if (payload_len > 32) {
-                    nRet = AT_PARAM_ERROR;
-                    goto out;
-                }
-                if (service_nvm_set_firmware_ver_to_nvm(arg, strlen(arg)) == UDRV_RETURN_OK) {
-                    nRet = AT_OK;
-                } else {
-                    nRet = AT_ERROR;
-                }
-            } else {
-                uint8_t rbuff[33];
-                if (service_nvm_get_firmware_ver_from_nvm(rbuff, 32) != UDRV_RETURN_OK) {
-                    nRet = AT_ERROR;
-                    goto out;
-                }
-                rbuff[32] = '\0';
-                memset(buff, 0, 256);
-                reply_len = strlen(rbuff);
-                memcpy(buff+sizeof(header), rbuff, reply_len);
-                header.length = __builtin_bswap16(reply_len);
-                header.flag = PROTO_ATCMD_FLAG_RESPONSE;
-                header.atcmd_id = atcmd_id;
-                memcpy(buff, &header, sizeof(header));
-
-                service_mode_proto_send(port, PROTO_FLAG_RESPONSE, 0x01, buff, sizeof(header)+reply_len, NULL);
-                nRet = AT_OK;
-            }
-            break;
-        }
         case SERVICE_MODE_PROTO_ATCMD_CLIVER:
         {
             if (flag & PROTO_ATCMD_FLAG_WR_OR_EXE) {
-                if (payload_len > 32) {
-                    nRet = AT_PARAM_ERROR;
-                    goto out;
-                }
-                if (service_nvm_set_cli_ver_to_nvm(arg, strlen(arg)) == UDRV_RETURN_OK) {
-                    nRet = AT_OK;
-                } else {
-                    nRet = AT_ERROR;
-                }
+                nRet = AT_PARAM_ERROR;
             } else {
-                uint8_t rbuff[33];
-                if (service_nvm_get_cli_ver_from_nvm(rbuff, 32) != UDRV_RETURN_OK) {
-                    nRet = AT_ERROR;
-                    goto out;
-                }
-                rbuff[32] = '\0';
                 memset(buff, 0, 256);
-                reply_len = strlen(rbuff);
-                memcpy(buff+sizeof(header), rbuff, reply_len);
+                reply_len = sprintf(buff+sizeof(header), "%s", cli_version);
                 header.length = __builtin_bswap16(reply_len);
                 header.flag = PROTO_ATCMD_FLAG_RESPONSE;
                 header.atcmd_id = atcmd_id;
@@ -277,25 +230,10 @@ void service_mode_proto_atcmd_request_handler (SERIAL_PORT port, uint8_t *payloa
         case SERVICE_MODE_PROTO_ATCMD_HWMODEL:
         {
             if (flag & PROTO_ATCMD_FLAG_WR_OR_EXE) {
-                if (payload_len > 32) {
-                    nRet = AT_PARAM_ERROR;
-                    goto out;
-                }
-                if (service_nvm_set_hwmodel_to_nvm(arg, strlen(arg)) == UDRV_RETURN_OK) {
-                    nRet = AT_OK;
-                } else {
-                    nRet = AT_ERROR;
-                }
+                nRet = AT_PARAM_ERROR;
             } else {
-                uint8_t rbuff[33];
-                if (service_nvm_get_hwmodel_from_nvm(rbuff, 32) != UDRV_RETURN_OK) {
-                    nRet = AT_ERROR;
-                    goto out;
-                }
-                rbuff[32] = '\0';
                 memset(buff, 0, 256);
-                reply_len = strlen(rbuff);
-                memcpy(buff+sizeof(header), rbuff, reply_len);
+                reply_len = sprintf(buff+sizeof(header), "%s", model_id);
                 header.length = __builtin_bswap16(reply_len);
                 header.flag = PROTO_ATCMD_FLAG_RESPONSE;
                 header.atcmd_id = atcmd_id;
@@ -337,15 +275,14 @@ void service_mode_proto_atcmd_request_handler (SERIAL_PORT port, uint8_t *payloa
                     nRet = AT_ERROR;
                 }
             } else {
-                uint8_t rbuff[17];
+                uint8_t rbuff[16];
                 if (service_nvm_get_atcmd_alias_from_nvm(rbuff, 16) != UDRV_RETURN_OK) {
                     nRet = AT_ERROR;
                     goto out;
                 }
-                rbuff[16] = '\0';
                 memset(buff, 0, 256);
                 reply_len = strlen(rbuff);
-                memcpy(buff+sizeof(header), rbuff, reply_len);
+                memcpy(buff+sizeof(header), rbuff, strlen(rbuff));
                 header.length = __builtin_bswap16(reply_len);
                 header.flag = PROTO_ATCMD_FLAG_RESPONSE;
                 header.atcmd_id = atcmd_id;

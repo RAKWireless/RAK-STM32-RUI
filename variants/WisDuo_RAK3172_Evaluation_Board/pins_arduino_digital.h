@@ -1116,8 +1116,4 @@ enum {
   #define PZ15_ALT0      (PZ15 | ALT0)
 #endif
 
-#define digitalReadFast     digitalRead
-#define digitalWriteFast    digitalWrite
-#define pin_function        pinMode
-
 #endif /*_PINS_ARDUINO_DIGITAL_H_*/

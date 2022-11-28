@@ -500,7 +500,6 @@
 #define SECURE_ELEMENT_PRE_PROVISIONED 1
 #define LORAMAC_CLASSB_ENABLED 1
 #define WISBLOCK_BASE_5005_O 1
-#define SUPPORT_WDT 1
 #define SUPPORT_SPI 1
 #define SUPPORT_AT 1
 # 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionUS915.c"
@@ -42795,10 +42794,6 @@ enum {
   D20, D21
 # 533 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino_digital.h"
 };
-# 1119 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino_digital.h"
-#define digitalReadFast digitalRead
-#define digitalWriteFast digitalWrite
-#define pin_function pinMode
 # 27 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h" 2
 
 # 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h" 1

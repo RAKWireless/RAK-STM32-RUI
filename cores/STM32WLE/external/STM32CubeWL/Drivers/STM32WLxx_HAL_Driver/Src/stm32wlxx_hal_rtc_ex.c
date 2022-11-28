@@ -500,7 +500,6 @@
 #define SECURE_ELEMENT_PRE_PROVISIONED 1
 #define LORAMAC_CLASSB_ENABLED 1
 #define WISBLOCK_BASE_5005_O 1
-#define SUPPORT_WDT 1
 #define SUPPORT_SPI 1
 #define SUPPORT_AT 1
 # 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_rtc_ex.c"

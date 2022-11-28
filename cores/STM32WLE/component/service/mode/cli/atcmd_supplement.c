@@ -49,17 +49,23 @@ int At_Mask(SERIAL_PORT port, char *cmd, stParam *param)
 
         if( band == SERVICE_LORA_US915 || band == SERVICE_LORA_AU915)
         {
-            if(mask_param> 0x100 )
-                return AT_PARAM_ERROR;
-        }
-        else if( band == SERVICE_LORA_CN470 )
-        {
-            if( mask_param > 0x800 )
+            if(mask_param>255)
                 return AT_PARAM_ERROR;
         }
 
         ret = service_lora_set_mask(&mask_param, true);
-        return at_error_code_form_udrv(ret);
+        if (ret == UDRV_RETURN_OK)
+        {
+            return AT_OK;
+        }
+        else if (ret = -UDRV_BUSY)
+        {
+            return AT_BUSY_ERROR;
+        }
+        else
+        {
+            return AT_ERROR;
+        }
     }
     else
     {

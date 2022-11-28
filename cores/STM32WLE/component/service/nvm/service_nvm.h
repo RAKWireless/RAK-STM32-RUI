@@ -76,18 +76,6 @@ int32_t service_nvm_get_atcmd_alias_from_nvm(uint8_t *buff, uint32_t len);
 
 int32_t service_nvm_set_atcmd_alias_to_nvm(uint8_t *buff, uint32_t len);
 
-uint8_t service_nvm_get_firmware_ver_from_nvm(uint8_t *buff, uint32_t len);
-
-int32_t service_nvm_set_firmware_ver_to_nvm(uint8_t *buff, uint32_t len);
-
-uint8_t service_nvm_get_hwmodel_from_nvm(uint8_t *buff, uint32_t len);
-
-int32_t service_nvm_set_hwmodel_to_nvm(uint8_t *buff, uint32_t len);
-
-uint8_t service_nvm_get_cli_ver_from_nvm(uint8_t *buff, uint32_t len);
-
-int32_t service_nvm_set_cli_ver_to_nvm(uint8_t *buff, uint32_t len);
-
 #ifdef SUPPORT_BLE
 /***********************************************************/
 /* BLE                                                     */
@@ -303,22 +291,6 @@ uint32_t service_nvm_get_rx2fq_from_nvm(void);
 uint32_t service_nvm_set_debug_level_to_nvm(uint8_t level);
 
 uint8_t service_nvm_get_debug_level_from_nvm();
-
-bool service_nvm_get_iqinverted_from_nvm(void);
-
-int32_t service_nvm_set_iqinverted_to_nvm(bool iqinverted);
-
-uint32_t service_nvm_get_symbol_timeout_from_nvm(void);
-
-int32_t service_nvm_set_symbol_timeout_to_nvm(uint32_t symbol_timeout);
-
-bool service_nvm_get_fix_length_payload(void);
-
-int32_t service_nvm_set_fix_length_payload(bool enable);
-
-uint16_t service_nvm_get_syncword(void);
-
-int32_t service_nvm_set_syncword( uint16_t syncword);
 
 #endif
 

@@ -167,7 +167,7 @@ void uhal_pwm_init(udrv_pwm_port port, uint32_t freq_hz, uint8_t is_invert, uint
 }
 
 static void pwm_deinit(udrv_pwm_port port) {
-    HAL_TIM_PWM_DeInit(&htim); 
+    HAL_TIM_PWM_Init(&htim); 
 }
 
 void uhal_pwm_deinit(udrv_pwm_port port) {
@@ -223,33 +223,10 @@ void uhal_pwm_enable(udrv_pwm_port port) {
 }
 
 static void pwm_disable(udrv_pwm_port port) {
-    switch (pwm_status[port].pin) {
-        case 0:
-        case 15:
-            if (HAL_TIM_PWM_Stop(&htim, TIM_CHANNEL_1) != HAL_OK)
-            {
-              Error_Handler();
-            }
-            break;
-        case 1:
-        case 9:
-            if (HAL_TIM_PWM_Stop(&htim, TIM_CHANNEL_2) != HAL_OK)
-            {
-              Error_Handler();
-            }
-            break;
-        case 10:
-            if (HAL_TIM_PWM_Stop(&htim, TIM_CHANNEL_3) != HAL_OK)
-            {
-              Error_Handler();
-            }
-            break;
-        case 8:
-            if (HAL_TIM_PWM_Stop(&htim, TIM_CHANNEL_4) != HAL_OK)
-            {
-              Error_Handler();
-            }
-            break;
+    if (HAL_TIM_PWM_Stop(&htim, TIM_CHANNEL_1) != HAL_OK)
+    {
+      /* PWM Generation Error */
+      Error_Handler();
     }
 }
 
