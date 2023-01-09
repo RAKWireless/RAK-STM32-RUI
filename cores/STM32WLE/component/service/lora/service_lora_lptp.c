@@ -11,6 +11,7 @@
 #include "systime.h"
 #include "utilities.h"
 #include "service_lora_test.h"
+#include "udrv_system.h"
 
 extern rui_cfg_t g_rui_cfg_t;
 
@@ -191,7 +192,7 @@ int32_t service_lora_lptp_send(uint8_t port, bool ack, uint8_t *p_data, uint16_t
 
     lp_state.header.RetryFlag = 0;
     lp_state.header.LType = 1;
-    lp_state.magic = (uint8_t)RtcGetTimerValue(); // Radom
+    lp_state.magic = (uint8_t)udrv_system_random(0xFF);// Radom
     lp_state.fser = 1;
 
     lp_state.pdata = lp_data;

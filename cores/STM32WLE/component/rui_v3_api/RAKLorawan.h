@@ -34,7 +34,10 @@ typedef enum
   RAK_REGION_US915 = 5, ///< US902 ~ 928
   RAK_REGION_AU915 = 6, ///< AU915 ~ 928
   RAK_REGION_KR920 = 7, ///< KR920 ~ 923
-  RAK_REGION_AS923 = 8, ///< AS923
+  RAK_REGION_AS923 = 8, ///< AS923-1
+  RAK_REGION_AS923_2 = 9, ///< AS923-2
+  RAK_REGION_AS923_3 = 10, ///< AS923-3
+  RAK_REGION_AS923_4 = 11, ///< AS923-4
 } RAK_LORA_BAND;
 
 /**@par	Description
@@ -62,7 +65,7 @@ typedef enum
 typedef enum
 {
   RAK_LORA_NO_ACK = 0, ///< The device will not get received data from network
-  RAL_LORA_ACK = 1,    ///< The device will get received data from network
+  RAK_LORA_ACK = 1,    ///< The device will get received data from network
 } RAK_LORA_CONFIRM_MODE;
 
 /**@par	Description
@@ -3280,7 +3283,7 @@ channel mask
   {
   public:
     /**@par	Description
-	 *     	This api allows to get the P2P frequency
+	 *     	This api allows to get the P2P frequency  Note:This API will be deleted in the future
 	 *
 	 * @par	Syntax
 	 *	api.lorawan.pfreq.get()
@@ -3308,7 +3311,7 @@ channel mask
     uint32_t get();
 
     /**@par	Description
-	 *     	This api allows to set the P2P frequency
+	 *     	This api allows to set the P2P frequency Note:This API will be deleted in the future
 	 *
 	 * @par	Syntax
 	 *	api.lorawan.pfreq.set(value)
@@ -3340,7 +3343,7 @@ channel mask
   };
 
   /**@par	Description
-     *		This api provides a configuration Spreading Factor for the P2P mode
+     *		This api provides a configuration Spreading Factor for the P2P mode Note:This API will be deleted in the future
      * @ingroup		P2P
      */
   class psf
@@ -3375,7 +3378,7 @@ channel mask
     uint8_t get();
 
     /**@par	Description
-	 *     	This api allows to set P2P Spreading Factor (6,7, 8,9, 10, 11, 12)
+	 *     	This api allows to set P2P Spreading Factor (6,7, 8,9, 10, 11, 12) Note:This API will be deleted in the future
 	 *
 	 * @par	Syntax
 	 *	api.lorawan.psf.set(value)
@@ -3414,7 +3417,7 @@ channel mask
   {
   public:
     /**@par	Description
-	 *     	This api allows to get P2P Bandwidth(125,250,500)
+	 *     	This api allows to get P2P Bandwidth(125,250,500) Note:This API will be deleted in the future
 	 *
 	 * @par	Syntax
 	 *	api.lorawan.pbw.get()
@@ -3442,7 +3445,7 @@ channel mask
     uint32_t get();
 
     /**@par	Description
-	 *     	This api allow to set P2P Bandwidth(125,250,500)
+	 *     	This api allow to set P2P Bandwidth(125,250,500) Note:This API will be deleted in the future
 	 *
 	 * @par	Syntax
 	 *	api.lorawan.pbw.set(value)
@@ -3481,7 +3484,7 @@ channel mask
   {
   public:
     /**@par	Description
-	 *     	This api allows to get code rate for the P2P mode
+	 *     	This api allows to get code rate for the P2P mode Note:This API will be deleted in the future
 	 *
 	 * @par	Syntax
 	 *	api.lorawan.pcr.get()
@@ -3509,7 +3512,7 @@ channel mask
     uint8_t get();
 
     /**@par	Description
-	 *     	This api allows to set code rate for the P2P mode
+	 *     	This api allows to set code rate for the P2P mode Note:This API will be deleted in the future
 	 *
 	 * @par	Syntax
 	 *	api.lorawan.pcr.set(value)
@@ -3541,7 +3544,7 @@ channel mask
   };
 
   /**@par	Description
-     *		This api provides configuration Preamble Length for the P2P mode
+     *		This api provides configuration Preamble Length for the P2P mode Note:This API will be deleted in the future
      * @ingroup		P2P
      */
   class ppl
@@ -3576,7 +3579,7 @@ channel mask
     uint16_t get();
 
     /**@par	Description
-	 *     	This api allows to set P2P Preamble Length (2-65535)
+	 *     	This api allows to set P2P Preamble Length (2-65535) Note:This API will be deleted in the future
 	 *
 	 * @par	Syntax
 	 *	api.lorawan.ppl.set(value)
@@ -3615,7 +3618,7 @@ channel mask
   {
   public:
     /**@par	Description
-	 *     	This api allows to get P2P TX Power(5-22)
+	 *     	This api allows to get P2P TX Power(5-22) Note:This API will be deleted in the future
 	 *
 	 * @par	Syntax
 	 *	api.lorawan.ptp.get()
@@ -3643,7 +3646,7 @@ channel mask
     uint8_t get();
 
     /**@par	Description
-	 *     	This api allows to set P2P TX Power(5-22)
+	 *     	This api allows to set P2P TX Power(5-22) Note:This API will be deleted in the future
 	 *
 	 * @par	Syntax
 	 *	api.lorawan.ptp.set(value)

@@ -1,39 +1,31 @@
 #include "uhal_rtc.h"
 #include "udrv_serial.h"
 #include "stm32wlxx_ll_rtc.h"
+#include "timer_if.h"
 
 RTC_HandleTypeDef hrtc;
 
-uint8_t aShowTime[] = "hh:ms:ss";
-uint8_t aShowTimeStamp[] = "hh:ms:ss";
-uint8_t aShowDate[] = "dd-mm-yyyy";
-uint8_t aShowDateStamp[] = "dd-mm-yyyy";
-
-static uint32_t rtc_timer_context = 0;
-
-static uint64_t time_base = 0;
-static uint32_t max_ticks;
-static rtc_handler compare0_handler;
+extern const UTIL_TIMER_Driver_s UTIL_TimerDriver;
+extern const UTIL_SYSTIM_Driver_s UTIL_SYSTIMDriver;
 
 uint32_t uhal_rtc_tick2ms(uint32_t tick) {
-    return (uint32_t)((float)tick*(float)1000/(float)SYS_RTC_FREQ);
+    return UTIL_TimerDriver.Tick2ms(tick);
 }
 
 uint32_t uhal_rtc_ms2tick(uint32_t ms) {
-    return (uint32_t)((float)ms*(float)SYS_RTC_FREQ/(float)1000);
+    return UTIL_TimerDriver.ms2Tick(ms);
 }
 
 uint32_t uhal_rtc_sleep_mode_tick2ms(uint32_t tick) {
-    return (uint32_t)((float)tick*(float)1000/(float)UHAL_RTC_SLEEP_MODE_FREQ);
+    return UTIL_TimerDriver.Tick2ms(tick);
 }
+
 
 uint32_t uhal_rtc_sleep_mode_ms2tick(uint32_t ms) {
-    return (uint32_t)((float)ms*(float)UHAL_RTC_SLEEP_MODE_FREQ/(float)1000);
+    return UTIL_TimerDriver.ms2Tick(ms);
 }
 
-static int32_t rtc_init (RtcID_E timer_id, rtc_handler handler, uint32_t hz) {
-    return 0;
-}
+
 
 int32_t uhal_rtc_init (RtcID_E timer_id, rtc_handler handler, uint32_t hz) {
 
@@ -64,8 +56,7 @@ int32_t uhal_rtc_init (RtcID_E timer_id, rtc_handler handler, uint32_t hz) {
     /** Enable the Alarm A
     */
     sAlarm.BinaryAutoClr = RTC_ALARMSUBSECONDBIN_AUTOCLR_NO;
-    sAlarm.AlarmTime.SubSeconds = 0x0;
-    //sAlarm.AlarmTime.SubSeconds = (0xFFFFFFFFu - (5 * 32768 / (127 + 1))); 
+    sAlarm.AlarmTime.SubSeconds = 0x0; 
     sAlarm.AlarmMask = RTC_ALARMMASK_NONE;
     sAlarm.AlarmSubSecondMask = RTC_ALARMSUBSECONDMASK_NONE;
     sAlarm.Alarm = RTC_ALARM_A;
@@ -73,62 +64,50 @@ int32_t uhal_rtc_init (RtcID_E timer_id, rtc_handler handler, uint32_t hz) {
     {
       Error_Handler();
     }
-
-    rtc_timer_context = uhal_rtc_get_counter(UDRV_RTC_0);
-
-    if (HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BIN) != HAL_OK)
-    {
-      Error_Handler();
-    }
-
     return 0;
 }
 
 int32_t uhal_rtc_set_alarm (RtcID_E timer_id, uint32_t count, void *m_data) {
-    RTC_AlarmTypeDef sAlarm = {0};
-
-    uhal_rtc_cancel_alarm(UDRV_RTC_0);
-
-    count += rtc_timer_context;
-
-    /* starts timer*/
-    sAlarm.BinaryAutoClr = RTC_ALARMSUBSECONDBIN_AUTOCLR_NO;
-    sAlarm.AlarmTime.SubSeconds = 0xFFFFFFFFu - 4096;
-    sAlarm.AlarmMask = RTC_ALARMMASK_NONE;
-    sAlarm.AlarmSubSecondMask = RTC_ALARMSUBSECONDBINMASK_NONE;
-    sAlarm.Alarm = RTC_ALARM_A;
-    if (HAL_RTC_SetAlarm_IT(&hrtc, &sAlarm, RTC_FORMAT_BCD) != HAL_OK)
-    {
-      Error_Handler();
-    }
-    udrv_serial_printf(SERIAL_UART2, "UAHL alarm init %d\r\n", count);
-
+    UTIL_TimerDriver.StartTimerEvt(count);
     return 0;
 }
 
 int32_t uhal_rtc_cancel_alarm (RtcID_E timer_id) {
-    /* Clear RTC Alarm Flag */
-    __HAL_RTC_ALARM_CLEAR_FLAG(&hrtc, RTC_FLAG_ALRAF);
-
-    /* Disable the Alarm A interrupt */
-    HAL_RTC_DeactivateAlarm(&hrtc, RTC_ALARM_A);
-    
-    /*overload RTC feature enable*/
-    hrtc.IsEnabled.RtcFeatures = UINT32_MAX;
-
+    UTIL_TimerDriver.StopTimerEvt();
     return 0;
 }
 
 uint64_t uhal_rtc_get_counter (RtcID_E timer_id) {
-    return (UINT32_MAX - LL_RTC_TIME_GetSubSecond(RTC));
+    return  UTIL_TimerDriver.GetTimerValue();
 }
 
 uint64_t uhal_rtc_get_timestamp(RtcID_E timer_id){
-    return (UINT32_MAX - LL_RTC_TIME_GetSubSecond(RTC));
+    uint32_t Seconds;
+    uint16_t SubSeconds;
+    Seconds = UTIL_SYSTIMDriver.GetCalendarTime(&SubSeconds );
+    return  Seconds*1000 + SubSeconds;
+}
+
+static inline uint32_t LL_SYSTICK_IsActiveCounterFlag(void)
+{
+    return ((SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk) == (SysTick_CTRL_COUNTFLAG_Msk));
+}
+
+uint64_t uhal_rtc_get_us_timestamp(RtcID_E timer_id){
+    uint16_t SubSeconds;
+    uint32_t m = uhal_rtc_get_timestamp(timer_id);
+    const uint32_t tms = SysTick->LOAD + 1;
+    __IO uint32_t u = tms - SysTick->VAL;
+    if (LL_SYSTICK_IsActiveCounterFlag()) {
+    u = tms - SysTick->VAL;
+     }
+    return (m * 1000 + (u * 1000) / tms);
 }
 
 uint64_t uhal_rtc_get_elapsed_time (RtcID_E timer_id, uint64_t old_ts) {
-    return 0;
+    uint32_t nowInTicks = UTIL_TimerDriver.GetTimerValue( );
+    uint32_t pastInTicks = UTIL_TimerDriver.ms2Tick( old_ts );
+    return UTIL_TimerDriver.Tick2ms( nowInTicks- pastInTicks );
 }
 
 void uhal_rtc_suspend(void){

@@ -475,7 +475,6 @@
 #define __USES_INITFINI__ 1
 #define stm32wle5xx 1
 #define SUPPORT_LORA 1
-#define LORA_RF_LP 1
 #define LORA_IO_SPI_PORT 2
 #define SYS_RTC_COUNTER_PORT 2
 #define ATCMD_CUST_TABLE_SIZE 64
@@ -42833,6 +42832,10 @@ enum {
   D20, D21
 # 533 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino_digital.h"
 };
+# 1119 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino_digital.h"
+#define digitalReadFast digitalRead
+#define digitalWriteFast digitalWrite
+#define pin_function pinMode
 # 27 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h" 2
 
 # 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h" 1

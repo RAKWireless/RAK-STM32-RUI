@@ -9,7 +9,12 @@ extern uint32_t orig_auto_sleep_time;
 
 int At_Sleep(SERIAL_PORT port, char *cmd, stParam *param)
 {
-    if (param->argc == 1)
+    if (param->argc == 0) 
+    {
+        udrv_sleep_ms(0);
+        return AT_OK;   
+    }
+    else if (param->argc == 1)
     {
         uint32_t input;
         char * input_s = "4294967295";

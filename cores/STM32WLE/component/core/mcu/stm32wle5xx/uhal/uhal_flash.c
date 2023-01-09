@@ -16,8 +16,8 @@ int32_t uhal_flash_write (uint32_t addr, uint8_t *buff, uint32_t len) {
     /* Unlock the Flash to enable the flash control register access *************/
     HAL_FLASH_Unlock();
   
-    /* Clear OPTVERR bit set on virgin samples */
-    __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_OPTVERR);
+    /* Clear all error flags */
+    __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_SR_ERRORS);
 
     uint32_t uhal_addr = addr;     
     uint8_t* data = buff;
@@ -44,8 +44,8 @@ int32_t uhal_flash_erase (uint32_t addr, uint32_t len) {
     /* Unlock the Flash to enable the flash control register access *************/
     HAL_FLASH_Unlock();
   
-    /* Clear OPTVERR bit set on virgin samples */
-    __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_OPTVERR);
+    /* Clear all error flags */
+    __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_SR_ERRORS);
 
     uint32_t page_cnt = len / uhal_flash_get_page_size();
     uint32_t pageError = 0;

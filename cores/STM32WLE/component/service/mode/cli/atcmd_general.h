@@ -15,6 +15,7 @@ int At_GetBat (SERIAL_PORT port, char *cmd, stParam *param);
 int At_GetFwBuildTime (SERIAL_PORT port, char *cmd, stParam *param);
 int At_GetFwRepoInfo (SERIAL_PORT port, char *cmd, stParam *param);
 int At_GetFwVersion (SERIAL_PORT port, char *cmd, stParam *param);
+int At_GetCusFwVersion (SERIAL_PORT port, char *cmd, stParam *param);
 int At_GetCliVersion (SERIAL_PORT port, char *cmd, stParam *param);
 int At_GetApiVersion (SERIAL_PORT port, char *cmd, stParam *param);
 int At_GetHwModel (SERIAL_PORT port, char *cmd, stParam *param);

@@ -475,7 +475,6 @@
 #define __USES_INITFINI__ 1
 #define stm32wle5xx 1
 #define SUPPORT_LORA 1
-#define LORA_RF_LP 1
 #define LORA_IO_SPI_PORT 2
 #define SYS_RTC_COUNTER_PORT 2
 #define ATCMD_CUST_TABLE_SIZE 64
@@ -11248,6 +11247,8 @@ int32_t udrv_system_timer_start (SysTimerID_E timer_id, uint32_t count, void *m_
 int32_t udrv_system_timer_stop (SysTimerID_E timer_id);
 
 void udrv_system_timer_handler_handler (void *pdata);
+
+unsigned long udrv_get_microsecond(void);
 # 11 "/home/jenkins/workspace/RUI_Release/rui-v3/component/udrv/system/udrv_system.h" 2
 
 #define RANDOM_LENGTH 4
