@@ -49,8 +49,6 @@ typedef struct
     void                     *p_context;
 } udrv_system_event_t;
 
-typedef void (*UDRV_TASK_HANDLER) (void);
-
 void udrv_system_event_init(void);
 
 int32_t udrv_system_event_produce(udrv_system_event_t *event);
@@ -73,12 +71,6 @@ int32_t udrv_system_user_app_timer_create (timer_handler tmr_handler, TimerMode_
 int32_t udrv_system_user_app_timer_start (uint32_t count, void *m_data);
 
 int32_t udrv_system_user_app_timer_stop (void);
-
-int32_t udrv_create_thread(char *name, UDRV_TASK_HANDLER handler);
-void udrv_destroy_thread(char *name);
-void udrv_destroy_myself(void);
-void udrv_thread_lock(void);
-void udrv_thread_unlock(void);
 #endif
 
 #ifdef __cplusplus

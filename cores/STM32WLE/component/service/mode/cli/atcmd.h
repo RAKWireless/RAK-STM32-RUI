@@ -53,7 +53,6 @@ typedef enum AT_ERRNO_E_{
         AT_NO_NETWORK_JOINED,
         AT_RX_ERROR,
         AT_MODE_NO_SUPPORT,
-        AT_COMMAND_NOT_FOUND,
 }AT_ERRNO_E;
 
 typedef struct _stParam

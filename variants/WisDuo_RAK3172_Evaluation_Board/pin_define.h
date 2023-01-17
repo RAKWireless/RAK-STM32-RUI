@@ -18,11 +18,11 @@
 #define SPIM1_MISO              WB_SPI_MISO
 #define SPIM1_SCK               WB_SPI_CLK
 
-#define _ADC1                   PIN_A0
-#define _ADC2                   PIN_A1
-#define _ADC3                   PIN_A2
-#define _ADC4                   PIN_A3
-#define _ADC5                   PIN_A4
+#define _ADC1                    WB_A0
+#define _ADC2                    WB_A1
+#define _ADC3                    WB_IO4
+#define _ADC4                    WB_IO7
+#define _ADC5                    WB_IO5
 
 #define SWDIO                   PA13
 #define SWCLK                   PA14

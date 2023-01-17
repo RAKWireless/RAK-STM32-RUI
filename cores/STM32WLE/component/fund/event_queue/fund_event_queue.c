@@ -63,7 +63,6 @@ void fund_event_queue_execute(void) {
         uint16_t event_data_size;
         fund_event_queue_handler_t event_handler;
 
-        udrv_thread_lock();
         p_event_data = &m_queue_event_data[event_index * m_queue_event_size];
         event_data_size = m_queue_event_headers[event_index].event_data_size;
         event_handler   = m_queue_event_headers[event_index].handler;
@@ -71,7 +70,6 @@ void fund_event_queue_execute(void) {
         m_queue_start_index = next_index(m_queue_start_index);
 
         event_handler(p_event_data, event_data_size);
-        udrv_thread_unlock();
     }
 }
 

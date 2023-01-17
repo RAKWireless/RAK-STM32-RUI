@@ -21,8 +21,6 @@
 #ifndef __LMH_PACKAGE_H__
 #define __LMH_PACKAGE_H__
 
-#ifdef SUPPORT_LORA
-
 #include <stdint.h>
 #include <stdbool.h>
 #include "LmHandlerTypes.h"
@@ -154,7 +152,5 @@ typedef struct LmhPackage_s
     void ( *OnSysTimeUpdate )( void );
 #endif
 }LmhPackage_t;
-
-#endif // end SUPPORT_LORA
 
 #endif // __LMH_PACKAGE_H__

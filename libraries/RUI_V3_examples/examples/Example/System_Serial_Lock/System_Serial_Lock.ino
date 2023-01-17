@@ -10,7 +10,7 @@ void setup()
   Serial.println("RAKwireless System Serial Lock Example");
   Serial.println("------------------------------------------------------");
   /* Lock serial port with password => 12345678 */
-  String password = "12345678";
+  string password = "12345678";
   Serial.
       println
       ("Type 12345678 and then press enter to unlock the serial port:");

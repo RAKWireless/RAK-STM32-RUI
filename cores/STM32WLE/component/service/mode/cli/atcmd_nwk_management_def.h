@@ -159,17 +159,6 @@
  * | Example<br>AT+LINKCHECK=?| --                 | 1                                                           | OK                 |
  * | Example<br>AT+LINKCHECK= | 2                  | --                                                          | OK                 |
  *
- * @subsection ATCMD_nwk_mng_14 AT+TIMEREQ: time request
- *
- * This command allows the user to request the current date and time
- *
- * | Command            | Input parameter    | Return value                                                      | Return code        |
- * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
- * | AT+TIMEREQ?            | --                 | AT+TIMEREQ: request the current date and time (0 = disabled, 1 = enabled)                       | OK                 |
- * | AT+TIMEREQ=?     | --                 | <0-1>                                                             | OK                 |
- * | AT+TIMEREQ=\<Input\>   | <0-1>        | --                                                                | OK / AT_PARAM_ERROR |
- * | Example<br>AT+TIMEREQ=?| --                 | 1                                                           | OK                 |
- * | Example<br>AT+TIMEREQ= | 1                  | --                                                          | OK                 |
  *
  */
 #endif 
@@ -191,6 +180,5 @@
 #define ATCMD_RX2FQ           "AT+RX2FQ"
 #define ATCMD_TXP             "AT+TXP"
 #define ATCMD_LINKCHECK       "AT+LINKCHECK"
-#define ATCMD_TIMEREQ         "AT+TIMEREQ"
 
 #endif //_ATCMD_NWK_MNG_DEF_H_

@@ -1,4 +1,3 @@
-#ifdef SUPPORT_AT
 #ifdef SUPPORT_LORA
 #include <string.h>
 
@@ -408,5 +407,4 @@ int At_Cw(SERIAL_PORT port, char *cmd, stParam *param)
         return AT_PARAM_ERROR;
     }
 }
-#endif
 #endif

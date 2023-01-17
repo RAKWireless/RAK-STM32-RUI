@@ -475,6 +475,7 @@
 #define __USES_INITFINI__ 1
 #define stm32wle5xx 1
 #define SUPPORT_LORA 1
+#define LORA_RF_LP 1
 #define LORA_IO_SPI_PORT 2
 #define SYS_RTC_COUNTER_PORT 2
 #define ATCMD_CUST_TABLE_SIZE 64
@@ -500,7 +501,6 @@
 #define LORAMAC_CLASSB_ENABLED 1
 #define WISBLOCK_BASE_5005_O 1
 #define SUPPORT_SPI 1
-#define SUPPORT_AT 1
 # 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
 # 31 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
 # 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/radio/radio.h" 1
@@ -9805,7 +9805,13 @@ uint8_t RegionAS923SubBandGet();
 # 1 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h" 1
 
 #define __SERVICE_LORA_TEST_H__ 
-# 12 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h"
+
+
+
+
+
+
+
 # 1 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pin_define.h" 1
 
 #define __PIN_DEFINE_H__ 
@@ -42832,316 +42838,7 @@ enum {
   D20, D21
 # 533 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino_digital.h"
 };
-# 1119 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino_digital.h"
-#define digitalReadFast digitalRead
-#define digitalWriteFast digitalWrite
-#define pin_function pinMode
 # 27 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h" 2
-
-# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h" 1
-# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
-#define STM32WLxx_LL_GPIO_H 
-# 113 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
-#define LL_GPIO_PIN_0 GPIO_BSRR_BS0
-#define LL_GPIO_PIN_1 GPIO_BSRR_BS1
-#define LL_GPIO_PIN_2 GPIO_BSRR_BS2
-#define LL_GPIO_PIN_3 GPIO_BSRR_BS3
-#define LL_GPIO_PIN_4 GPIO_BSRR_BS4
-#define LL_GPIO_PIN_5 GPIO_BSRR_BS5
-#define LL_GPIO_PIN_6 GPIO_BSRR_BS6
-#define LL_GPIO_PIN_7 GPIO_BSRR_BS7
-#define LL_GPIO_PIN_8 GPIO_BSRR_BS8
-#define LL_GPIO_PIN_9 GPIO_BSRR_BS9
-#define LL_GPIO_PIN_10 GPIO_BSRR_BS10
-#define LL_GPIO_PIN_11 GPIO_BSRR_BS11
-#define LL_GPIO_PIN_12 GPIO_BSRR_BS12
-#define LL_GPIO_PIN_13 GPIO_BSRR_BS13
-#define LL_GPIO_PIN_14 GPIO_BSRR_BS14
-#define LL_GPIO_PIN_15 GPIO_BSRR_BS15
-#define LL_GPIO_PIN_ALL (GPIO_BSRR_BS0 | GPIO_BSRR_BS1 | GPIO_BSRR_BS2 | GPIO_BSRR_BS3 | GPIO_BSRR_BS4 | GPIO_BSRR_BS5 | GPIO_BSRR_BS6 | GPIO_BSRR_BS7 | GPIO_BSRR_BS8 | GPIO_BSRR_BS9 | GPIO_BSRR_BS10 | GPIO_BSRR_BS11 | GPIO_BSRR_BS12 | GPIO_BSRR_BS13 | GPIO_BSRR_BS14 | GPIO_BSRR_BS15)
-# 142 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
-#define LL_GPIO_MODE_INPUT (0x00000000U)
-#define LL_GPIO_MODE_OUTPUT GPIO_MODER_MODE0_0
-#define LL_GPIO_MODE_ALTERNATE GPIO_MODER_MODE0_1
-#define LL_GPIO_MODE_ANALOG GPIO_MODER_MODE0
-
-
-
-
-
-
-
-#define LL_GPIO_OUTPUT_PUSHPULL (0x00000000U)
-#define LL_GPIO_OUTPUT_OPENDRAIN GPIO_OTYPER_OT0
-
-
-
-
-
-
-
-#define LL_GPIO_SPEED_FREQ_LOW (0x00000000U)
-#define LL_GPIO_SPEED_FREQ_MEDIUM GPIO_OSPEEDR_OSPEED0_0
-#define LL_GPIO_SPEED_FREQ_HIGH GPIO_OSPEEDR_OSPEED0_1
-#define LL_GPIO_SPEED_FREQ_VERY_HIGH GPIO_OSPEEDR_OSPEED0
-
-
-
-
-
-
-
-#define LL_GPIO_PULL_NO (0x00000000U)
-#define LL_GPIO_PULL_UP GPIO_PUPDR_PUPD0_0
-#define LL_GPIO_PULL_DOWN GPIO_PUPDR_PUPD0_1
-
-
-
-
-
-
-
-#define LL_GPIO_AF_0 (0x0000000U)
-#define LL_GPIO_AF_1 (0x0000001U)
-#define LL_GPIO_AF_2 (0x0000002U)
-#define LL_GPIO_AF_3 (0x0000003U)
-#define LL_GPIO_AF_4 (0x0000004U)
-#define LL_GPIO_AF_5 (0x0000005U)
-#define LL_GPIO_AF_6 (0x0000006U)
-#define LL_GPIO_AF_7 (0x0000007U)
-#define LL_GPIO_AF_8 (0x0000008U)
-#define LL_GPIO_AF_9 (0x0000009U)
-#define LL_GPIO_AF_10 (0x000000AU)
-#define LL_GPIO_AF_11 (0x000000BU)
-#define LL_GPIO_AF_12 (0x000000CU)
-#define LL_GPIO_AF_13 (0x000000DU)
-#define LL_GPIO_AF_14 (0x000000EU)
-#define LL_GPIO_AF_15 (0x000000FU)
-# 223 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
-#define LL_GPIO_WriteReg(__INSTANCE__,__REG__,__VALUE__) WRITE_REG(__INSTANCE__->__REG__, (__VALUE__))
-
-
-
-
-
-
-
-#define LL_GPIO_ReadReg(__INSTANCE__,__REG__) READ_REG(__INSTANCE__->__REG__)
-# 279 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
-static inline void LL_GPIO_SetPinMode(GPIO_TypeDef *GPIOx, uint32_t Pin, uint32_t Mode)
-{
-
-
-
-  (((GPIOx->MODER)) = ((((((GPIOx->MODER))) & (~(((0x3UL << (0U)) << ((__CLZ(__RBIT(Pin))) * 2U))))) | ((Mode << ((__CLZ(__RBIT(Pin))) * 2U))))));
-
-}
-# 317 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
-static inline uint32_t LL_GPIO_GetPinMode(GPIO_TypeDef *GPIOx, uint32_t Pin)
-{
-
-
-
-  return (uint32_t)(((GPIOx->MODER) & (((0x3UL << (0U)) << ((__CLZ(__RBIT(Pin))) * 2U))))
-                                                                             >> ((__CLZ(__RBIT(Pin))) * 2U));
-
-}
-# 356 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
-static inline void LL_GPIO_SetPinOutputType(GPIO_TypeDef *GPIOx, uint32_t PinMask, uint32_t OutputType)
-{
-  (((GPIOx->OTYPER)) = ((((((GPIOx->OTYPER))) & (~(PinMask))) | ((PinMask * OutputType)))));
-}
-# 390 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
-static inline uint32_t LL_GPIO_GetPinOutputType(GPIO_TypeDef *GPIOx, uint32_t Pin)
-{
-
-
-
-  return (uint32_t)(((GPIOx->OTYPER) & (Pin)) >> (__CLZ(__RBIT(Pin))));
-
-}
-# 431 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
-static inline void LL_GPIO_SetPinSpeed(GPIO_TypeDef *GPIOx, uint32_t Pin, uint32_t Speed)
-{
-
-
-
-  (((GPIOx->OSPEEDR)) = ((((((GPIOx->OSPEEDR))) & (~(((0x3UL << (0U)) << ((__CLZ(__RBIT(Pin))) * 2U))))) | ((Speed << ((__CLZ(__RBIT(Pin))) * 2U))))))
-                                                 ;
-
-}
-# 472 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
-static inline uint32_t LL_GPIO_GetPinSpeed(GPIO_TypeDef *GPIOx, uint32_t Pin)
-{
-
-
-
-  return (uint32_t)(((GPIOx->OSPEEDR) & (((0x3UL << (0U)) << ((__CLZ(__RBIT(Pin))) * 2U))))
-                                                                                 >> ((__CLZ(__RBIT(Pin))) * 2U));
-
-}
-# 510 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
-static inline void LL_GPIO_SetPinPull(GPIO_TypeDef *GPIOx, uint32_t Pin, uint32_t Pull)
-{
-
-
-
-  (((GPIOx->PUPDR)) = ((((((GPIOx->PUPDR))) & (~(((0x3UL << (0U)) << ((__CLZ(__RBIT(Pin))) * 2U))))) | ((Pull << ((__CLZ(__RBIT(Pin))) * 2U))))));
-
-}
-# 546 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
-static inline uint32_t LL_GPIO_GetPinPull(GPIO_TypeDef *GPIOx, uint32_t Pin)
-{
-
-
-
-  return (uint32_t)(((GPIOx->PUPDR) & (((0x3UL << (0U)) << ((__CLZ(__RBIT(Pin))) * 2U))))
-                                                                             >> ((__CLZ(__RBIT(Pin))) * 2U));
-
-}
-# 590 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
-static inline void LL_GPIO_SetAFPin_0_7(GPIO_TypeDef *GPIOx, uint32_t Pin, uint32_t Alternate)
-{
-
-
-
-
-  (((GPIOx->AFR[0])) = ((((((GPIOx->AFR[0]))) & (~(((0xFUL << (0U)) << ((__CLZ(__RBIT(Pin))) * 4U))))) | ((Alternate << ((__CLZ(__RBIT(Pin))) * 4U))))))
-                                                     ;
-
-}
-# 632 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
-static inline uint32_t LL_GPIO_GetAFPin_0_7(GPIO_TypeDef *GPIOx, uint32_t Pin)
-{
-
-
-
-
-  return (uint32_t)(((GPIOx->AFR[0]) & (((0xFUL << (0U)) << ((__CLZ(__RBIT(Pin))) * 4U))))
-                                                                             >> ((__CLZ(__RBIT(Pin))) * 4U));
-
-}
-# 677 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
-static inline void LL_GPIO_SetAFPin_8_15(GPIO_TypeDef *GPIOx, uint32_t Pin, uint32_t Alternate)
-{
-
-
-
-
-  (((GPIOx->AFR[1])) = ((((((GPIOx->AFR[1]))) & (~(((0xFUL << (0U)) << ((__CLZ(__RBIT(Pin >> 8U))) * 4U))))) | ((Alternate << ((__CLZ(__RBIT(Pin >> 8U))) * 4U))))))
-                                                           ;
-
-}
-# 720 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
-static inline uint32_t LL_GPIO_GetAFPin_8_15(GPIO_TypeDef *GPIOx, uint32_t Pin)
-{
-
-
-
-
-
-  return (uint32_t)(((GPIOx->AFR[1]) & (((0xFUL << (0U)) << ((__CLZ(__RBIT(Pin >> 8U))) * 4U))))
-                                                                                   >> ((__CLZ(__RBIT(Pin >> 8U))) * 4U));
-
-}
-# 762 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
-static inline void LL_GPIO_LockPin(GPIO_TypeDef *GPIOx, uint32_t PinMask)
-{
-  volatile uint32_t temp;
-  ((GPIOx->LCKR) = ((0x1UL << (16U)) | PinMask));
-  ((GPIOx->LCKR) = (PinMask));
-  ((GPIOx->LCKR) = ((0x1UL << (16U)) | PinMask));
-
-  temp = ((GPIOx->LCKR));
-  (void) temp;
-}
-# 797 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
-static inline uint32_t LL_GPIO_IsPinLocked(GPIO_TypeDef *GPIOx, uint32_t PinMask)
-{
-  return ((((GPIOx->LCKR) & (PinMask)) == (PinMask)) ? 1UL : 0UL);
-}
-
-
-
-
-
-
-
-static inline uint32_t LL_GPIO_IsAnyPinLocked(GPIO_TypeDef *GPIOx)
-{
-  return ((((GPIOx->LCKR) & ((0x1UL << (16U)))) == ((0x1UL << (16U)))) ? 1UL : 0UL);
-}
-# 827 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
-static inline uint32_t LL_GPIO_ReadInputPort(GPIO_TypeDef *GPIOx)
-{
-  return (uint32_t)(((GPIOx->IDR)));
-}
-# 856 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
-static inline uint32_t LL_GPIO_IsInputPinSet(GPIO_TypeDef *GPIOx, uint32_t PinMask)
-{
-  return ((((GPIOx->IDR) & (PinMask)) == (PinMask)) ? 1UL : 0UL);
-}
-# 868 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
-static inline void LL_GPIO_WriteOutputPort(GPIO_TypeDef *GPIOx, uint32_t PortValue)
-{
-  ((GPIOx->ODR) = (PortValue));
-}
-
-
-
-
-
-
-
-static inline uint32_t LL_GPIO_ReadOutputPort(GPIO_TypeDef *GPIOx)
-{
-  return (uint32_t)(((GPIOx->ODR)));
-}
-# 908 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
-static inline uint32_t LL_GPIO_IsOutputPinSet(GPIO_TypeDef *GPIOx, uint32_t PinMask)
-{
-  return ((((GPIOx->ODR) & (PinMask)) == (PinMask)) ? 1UL : 0UL);
-}
-# 937 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
-static inline void LL_GPIO_SetOutputPin(GPIO_TypeDef *GPIOx, uint32_t PinMask)
-{
-  ((GPIOx->BSRR) = (PinMask));
-}
-# 966 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
-static inline void LL_GPIO_ResetOutputPin(GPIO_TypeDef *GPIOx, uint32_t PinMask)
-{
-  ((GPIOx->BRR) = (PinMask));
-}
-# 995 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
-static inline void LL_GPIO_TogglePin(GPIO_TypeDef *GPIOx, uint32_t PinMask)
-{
-  uint32_t odr = ((GPIOx->ODR));
-  ((GPIOx->BSRR) = (((odr & PinMask) << 16u) | (~odr & PinMask)));
-}
-# 29 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h" 2
-
-
-static const uint32_t pin_map_ll[16] = {
-  (0x1UL << (0U)),
-  (0x1UL << (1U)),
-  (0x1UL << (2U)),
-  (0x1UL << (3U)),
-  (0x1UL << (4U)),
-  (0x1UL << (5U)),
-  (0x1UL << (6U)),
-  (0x1UL << (7U)),
-  (0x1UL << (8U)),
-  (0x1UL << (9U)),
-  (0x1UL << (10U)),
-  (0x1UL << (11U)),
-  (0x1UL << (12U)),
-  (0x1UL << (13U)),
-  (0x1UL << (14U)),
-  (0x1UL << (15U))
-};
-#define STM_PIN(X) ((uint32_t)(X) & 0xF)
-
-#define STM_LL_GPIO_PIN(X) (pin_map_ll[STM_PIN(X)])
 
 
 
@@ -43164,30 +42861,30 @@ _Static_assert(0 <= 0,
 #define PIN_SPI_SS 4
 
 
-#define PIN_SPI_MOSI 7
+#define PIN_SPI_MOSI 11
 
 
-#define PIN_SPI_MISO 6
+#define PIN_SPI_MISO 12
 
 
-#define PIN_SPI_SCK 5
+#define PIN_SPI_SCK 13
 
 
 static const uint32_t SS = 4;
-static const uint32_t MOSI = 7;
-static const uint32_t MISO = 6;
-static const uint32_t SCK = 5;
+static const uint32_t MOSI = 11;
+static const uint32_t MISO = 12;
+static const uint32_t SCK = 13;
 
 
 
-#define PIN_WIRE_SDA 11
+#define PIN_WIRE_SDA 14
 
 
-#define PIN_WIRE_SCL 12
+#define PIN_WIRE_SCL 15
 
 
-static const uint32_t SDA = 11;
-static const uint32_t SCL = 12;
+static const uint32_t SDA = 14;
+static const uint32_t SCL = 15;
 
 
 
@@ -43196,13 +42893,13 @@ extern const PinName digitalPin[];
 extern const uint32_t analogInputPin[];
 
 #define NOT_AN_INTERRUPT (uint32_t)NC
-# 116 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h"
+# 91 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h"
 #define digitalPinToPinName(p) ((((uint32_t)(p) & PNUM_MASK) < NUM_DIGITAL_PINS) ? (PinName)(digitalPin[(uint32_t)(p) & PNUM_MASK] | ((p) & ALTX_MASK)) : NC)
 
 
 
 uint32_t pinNametoDigitalPin(PinName p);
-# 132 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h"
+# 107 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h"
 #define analogInputToDigitalPin(p) (NUM_DIGITAL_PINS)
 
 
@@ -43236,7 +42933,7 @@ PinName analogInputToPinName(uint32_t pin);
 
 
 #define portClearRegister(P) (&(P->BRR))
-# 177 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h"
+# 152 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h"
 #define portModeRegister(P) (&(P->MODER))
 
 #define portConfigRegister(P) (portModeRegister(P))
@@ -43247,12 +42944,12 @@ PinName analogInputToPinName(uint32_t pin);
 
 
 #define digitalPinFirstOccurence(p) (pinNametoDigitalPin(digitalPinToPinName(p)))
-# 196 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h"
+# 171 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h"
 #define pinIsAnalogInput digitalpinIsAnalogInput
 
-# 197 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h" 3 4
+# 172 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h" 3 4
 _Bool 
-# 197 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h"
+# 172 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h"
     digitalpinIsAnalogInput(uint32_t pin);
 uint32_t digitalPinToAnalogInput(uint32_t pin);
 
@@ -43373,17 +43070,12 @@ extern const uint32_t g_ADigitalPinMap[];
 
 
 
-#define PIN_A0 WB_A0
-#define PIN_A1 WB_A1
-#define PIN_A2 PB2
-#define PIN_A3 PA10
-#define PIN_A4 PA15
+#define PIN_A0 PB3
+#define PIN_A1 PB4
 
 #define A0 PIN_A0
 #define A1 PIN_A1
-#define A2 PIN_A2
-#define A3 PIN_A3
-#define A4 PIN_A4
+
 
 
 
@@ -43427,11 +43119,11 @@ extern const uint32_t g_ADigitalPinMap[];
 #define SPIM1_MISO WB_SPI_MISO
 #define SPIM1_SCK WB_SPI_CLK
 
-#define _ADC1 PIN_A0
-#define _ADC2 PIN_A1
-#define _ADC3 PIN_A2
-#define _ADC4 PIN_A3
-#define _ADC5 PIN_A4
+#define _ADC1 WB_A0
+#define _ADC2 WB_A1
+#define _ADC3 WB_IO4
+#define _ADC4 WB_IO7
+#define _ADC5 WB_IO5
 
 #define SWDIO PA13
 #define SWCLK PA14
@@ -43444,14 +43136,14 @@ extern const uint32_t g_ADigitalPinMap[];
 #define UART2_RXD_PIN PIN_SERIAL2_RX
 
 #define SPI_CSN_PIN SPIM1_NSS
-# 13 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h" 2
+# 11 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h" 2
 
 
 
 
 
 #define LORA_TEST_DEBUG(fmt,args...) 
-# 61 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h"
+# 59 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h"
 typedef struct
 {
   uint32_t modem;
@@ -43461,33 +43153,33 @@ typedef struct
   uint32_t bandwidthAfc;
   uint16_t preambleLen;
   
-# 69 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h" 3 4
+# 67 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h" 3 4
  _Bool 
-# 69 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h"
+# 67 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h"
       fixLen;
   uint8_t payloadLen;
   
-# 71 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h" 3 4
+# 69 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h" 3 4
  _Bool 
-# 71 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h"
+# 69 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h"
       crcOn;
+  
+# 70 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h" 3 4
+ _Bool 
+# 70 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h"
+      FreqHopOn;
+  uint8_t HopPeriod;
   
 # 72 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h" 3 4
  _Bool 
 # 72 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h"
-      FreqHopOn;
-  uint8_t HopPeriod;
-  
-# 74 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h" 3 4
- _Bool 
-# 74 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h"
       iqInverted;
 
 
   
-# 77 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h" 3 4
+# 75 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h" 3 4
  _Bool 
-# 77 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h"
+# 75 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h"
       rxContinuous;
   uint32_t symbTimeout;
 

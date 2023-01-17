@@ -25,7 +25,6 @@ int32_t udrv_rtc_set_alarm (RtcID_E timer_id, uint32_t count, void *m_data);
 int32_t udrv_rtc_cancel_alarm (RtcID_E timer_id);
 uint64_t udrv_rtc_get_counter (RtcID_E timer_id);
 uint64_t udrv_rtc_get_timestamp (RtcID_E timer_id);
-uint64_t udrv_rtc_get_us_timestamp (RtcID_E timer_id);
 uint64_t udrv_rtc_get_elapsed_time (RtcID_E timer_id, uint64_t savedTime);
 void udrv_rtc_suspend (void);
 void udrv_rtc_resume (void);

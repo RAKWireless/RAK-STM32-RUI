@@ -1,4 +1,3 @@
-#ifdef SUPPORT_AT
 #ifdef SUPPORT_LORA
 #include <string.h>
 
@@ -517,7 +516,7 @@ int At_Lpsend(SERIAL_PORT port, char *cmd, stParam *param)
         }
         for (int i = 0; i < strlen(param->argv[2]); i++)
         {
-            if (!isxdigit(*(param->argv[2] + i)))
+            if (!isdigit(*(param->argv[2] + i)))
             {
                 return AT_PARAM_ERROR;
             }
@@ -547,5 +546,4 @@ int At_Lpsend(SERIAL_PORT port, char *cmd, stParam *param)
         return AT_OK;
     }   
 }
-#endif
 #endif

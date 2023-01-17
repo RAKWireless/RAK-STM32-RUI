@@ -5,13 +5,9 @@
 extern "C" {
 #endif
 
-#include <stdint.h>
-
-#define UDRV_WDT_FEED_PERIOD     8*1000
-
 void udrv_wdt_feed(void);
 
-void udrv_wdt_init(uint32_t period);
+void udrv_wdt_init(void);
 
 #ifdef __cplusplus
 }

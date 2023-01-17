@@ -7,8 +7,6 @@
  * @FilePath: \rui-v3-all\component\service\lora\service_lora_multicast.c
  */
 
-#ifdef SUPPORT_LORA
-
 #include "service_lora_multicast.h"
 #include <stddef.h>
 #include <stdint.h>
@@ -248,34 +246,17 @@ int32_t service_lora_rmvmulc(uint32_t devaddr)
 
 int32_t service_lora_lstmulc(McSession_t *iterator)
 {
-    static uint8_t entry_Initialized = false;
-    McSession_t empty;
-    memset(&empty,0,sizeof(McSession_t));
-  
-    uint8_t j=1;
-    for (int i = 0 ; i < LORAMAC_MAX_MC_CTX ; i++)
+    for (int i = 1 ; i <= LORAMAC_MAX_MC_CTX ; i++)
     {
-        //The initial value of j is 1 , To avoid empty multicast group
-        McSession_group[i].entry = j++;
-    }
-    
-    //If an empty structure is passed in, the first group needs to be returned
-    if(!memcmp(iterator,&empty,sizeof(McSession_t)))
-    {
-        memcpy(iterator, &McSession_group[0], sizeof(McSession_t));
-        return -UDRV_CONTINUE;
+        McSession_group[i].entry = i;
     }
 
-    
-    LORA_TEST_DEBUG("iterator->entry %d",iterator->entry);
-   
     for (int i = 0 ; i < LORAMAC_MAX_MC_CTX ; i++)     
     {
-        //If equal , return to next group
         if (!memcmp(iterator, &McSession_group[i], sizeof(McSession_t)))   
         {
             if (i == (LORAMAC_MAX_MC_CTX-1)) 
-            {   //This is the last call
+            {//This is the last call
                 return UDRV_RETURN_OK;
             } 
             else 
@@ -287,11 +268,11 @@ int32_t service_lora_lstmulc(McSession_t *iterator)
         }
         else //
         {
-            LORA_TEST_DEBUG("i=%d",i);        
+            LORA_TEST_DEBUG("i=%d",i);
+            
         }
     }
-    LORA_TEST_DEBUG();
-    //If there are no equal groups, return to the first group
+    //This is the first call
     memcpy(iterator, &McSession_group[0], sizeof(McSession_t));
     return -UDRV_CONTINUE;
 }
@@ -339,5 +320,3 @@ int32_t service_lora_clear_multicast(void)
     }
     return UDRV_RETURN_OK;
 }
-
-#endif

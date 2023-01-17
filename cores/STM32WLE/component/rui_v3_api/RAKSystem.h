@@ -4,7 +4,6 @@
 #include "WString.h"
 
 #include "sleep.h"
-#include "wdt.h"
 #include "atcmd.h"
 #include "udrv_errno.h"
 #include "udrv_system.h"
@@ -55,11 +54,6 @@ typedef enum {
     RAK_TIMER_ONESHOT = HTMR_ONESHOT,	///< This timer is only triggered one time
     RAK_TIMER_PERIODIC = HTMR_PERIODIC,	///< This timer is triggered periodically
 } RAK_TIMER_MODE;
-
-/**@par	Description
- * 	The handler function of task
- */
-typedef void (*RAK_TASK_HANDLER) (void);
 
 /**@}*/
 
@@ -158,8 +152,6 @@ class RAKSystem {
   public:
     RAKSystem();
     class sleep sleep;
-    class lpm lpm;
-    class wdt wdt;
 
     class firmwareVersion {
       private:
@@ -173,7 +165,6 @@ class RAKSystem {
 	 * @ingroup	Firmware_Version
 	 * @par		Syntax
 	 * 		api.system.firmwareVersion.get()
-	 * 		api.system.firmwareVer.get()
 	 * @return	firmware version(Type: String)
 	 * @par		Example
 	 * @verbatim	
@@ -185,37 +176,11 @@ class RAKSystem {
 	   void loop()
 	   {
              Serial.printf("Firmware Version: %s\r\n", api.system.firmwareVersion.get().c_str());
-             Serial.printf("Firmware Version: %s\r\n", api.system.firmwareVer.get().c_str());
 	     delay(1000);
 	   }
 	   @endverbatim
 	 */
-        String get();
-    /**@par     Description
-     *      This api allow user to set the firmware version
-     * @ingroup Firmware_Version
-     * @par     Syntax
-     *      api.system.firmwareVer.set(version)
-     * @param   version  firmware version for user to be set(Type: String)
-     * @return  bool
-     * @retval  TRUE for successfully set firmware version
-     * @retval  FALSE for set firmware version fail
-     * @par     Example
-     * @verbatim    
-       void setup()
-       {
-         Serial.begin(115200);
-       }
-
-       void loop()
-       {
-             String version = "your version";
-             api.system.firmwareVer.set(version);
-             delay(1000);
-       }
-       @endverbatim
-     */
-        bool set(String version);
+        const String get();
     };
 
     class cliVersion {
@@ -230,7 +195,6 @@ class RAKSystem {
 	 * @ingroup	Cli_Version
 	 * @par		Syntax
 	 *		api.system.cliVersion.get()
-	 *		api.system.cliVer.get()
 	 * @return	cli version(Type: String)
 	 * @par         Example
          * @verbatim
@@ -242,40 +206,12 @@ class RAKSystem {
            void loop()
            {
              Serial.printf("AT Command Version: %s\r\n", api.system.cliVersion.get().c_str());
-             Serial.printf("AT Command Version: %s\r\n", api.system.cliVer.get().c_str());
              delay(1000);
            }
            @endverbatim
 
 	 */
-        String get();
-    /**@par     Description
-     *      This api allow user to set the cli version
-     * @ingroup Cli_Version
-     * @par     Syntax
-     *      api.system.cliVer.set(version)
-     * @param   version  cli version for user to be set(Type: String)
-     * @return  bool
-     * @retval  TRUE for successfully set cli version
-     * @retval  FALSE for set cli version fail
-     * @par         Example
-         * @verbatim
-           void setup()
-           {
-             Serial.begin(115200);
-           }
-
-           void loop()
-           {
-             String version = "your version"
-             api.system.cliVer.set(version);
-             delay(1000);
-           }
-           @endverbatim
-
-     */
-
-        bool set(String version);
+        const String get();
     };
 
     class apiVersion {
@@ -317,11 +253,10 @@ class RAKSystem {
         modelId();
 
 	/**@par		Description
-	 *		This api allow user to get the model ID
+	 *		This api allow user to get the mode ID
 	 * @ingroup	Model_ID
 	 * @par		Syntax
 	 * 		api.system.modelId.get()
-	 * 		api.system.hwModel.get()
 	 * @return	model ID(Type: String)
 	 * @par         Example
          * @verbatim
@@ -333,39 +268,12 @@ class RAKSystem {
            void loop()
            {
              Serial.printf("Model ID: %s\r\n", api.system.modelId.get().c_str());
-             Serial.printf("Model ID: %s\r\n", api.system.hwModel.get().c_str());
              delay(1000);
            }
            @endverbatim
 
 	 */
-        String get();
-    /**@par     Description
-     *      This api allow user to set the model ID
-     * @ingroup Model_ID
-     * @par     Syntax
-     *      api.system.hwModel.set(model_id)
-     * @param   model_id  model ID for user to be set(Type: String)
-     * @return  bool
-     * @retval  TRUE for successfully set model ID
-     * @retval  FALSE for set model ID fail
-     * @par         Example
-         * @verbatim
-           void setup()
-           {
-             Serial.begin(115200);
-           }
-
-           void loop()
-           {
-             String model_id = "your model"
-             api.system.hwModel.set(model_id);
-             delay(1000);
-           }
-           @endverbatim
-
-     */
-        bool set(String model);
+        const String get();
     };
 
     class chipId {
@@ -399,12 +307,9 @@ class RAKSystem {
         const String get();
     };
     
-    firmwareVersion firmwareVer;
     firmwareVersion firmwareVersion;
-    cliVersion cliVer;
     cliVersion cliVersion;
     apiVersion apiVersion;
-    modelId hwModel;
     modelId modelId;
     chipId chipId;
 
@@ -561,7 +466,7 @@ class RAKSystem {
     class bat {
       public:
 	/**@par		Description
-	 *		Get the current battery voltage (Unit: V)
+	 *		Get the current battery level
 	 * @ingroup	System_Battery
 	 * @par		Syntax
 	 * 		api.system.bat.get()
@@ -575,7 +480,7 @@ class RAKSystem {
 
            void loop()
            {
-             Serial.printf("Battery Voltage: %f\r\n", api.system.bat.get());
+             Serial.printf("Battery Level: %f\r\n", api.system.bat.get());
              delay(1000);
            }
            @endverbatim
@@ -1174,81 +1079,6 @@ class RAKSystem {
      */
         bool    stop(RAK_TIMER_ID id);
     };
-    class scheduler {
-      public :
-      class task {
-        public :
-    /**@par     Description
-     *      Create a new task.
-     * @ingroup System_Scheduler
-     * @par     Syntax
-     *  api.system.scheduler.task.create(name, handler)
-     * @param   name task name
-     * @param   handler the handler function for this task
-     * @return  bool
-     * @retval  TRUE for creating task successfully
-     * @retval  FALSE for creating task failure
-     * @par         Example
-         * @verbatim
-            void handler(void *data)
-            {
-              Serial.printf("[%lu]This is the handler\r\n", millis());
-              delay(60000);
-            }
-            void setup()
-            {
-              Serial.begin(115200);
-
-              if (api.system.scheduler.task.create("task1", (RAK_TASK_HANDLER)handler) != true) {
-                Serial.printf("Creating new task failed.\r\n");
-              }
-            }
-            void loop()
-            {
-            }
-           @endverbatim
-     */
-          bool    create(char *name, RAK_TASK_HANDLER handler);
-    /**@par     Description
-     *      Destroy an existing task.
-     * @ingroup System_Scheduler
-     * @par     Syntax
-     *  api.system.scheduler.task.destroy(name)
-     *  api.system.scheduler.task.destroy()
-     * @param   name task name (if not specified, current thread is destroyed)
-     * @return  bool
-     * @retval  TRUE for destroying task successfully
-     * @retval  FALSE for destroying task failure
-     * @par         Example
-         * @verbatim
-            void handler(void *data)
-            {
-              Serial.printf("[%lu]This is the handler\r\n", millis());
-              delay(60000);
-            }
-            void setup()
-            {
-              Serial.begin(115200);
-
-              if (api.system.scheduler.task.create("task1", (RAK_TASK_HANDLER)handler) != true) {
-                Serial.printf("Creating new task failed.\r\n");
-              }
-            }
-            void loop()
-            {
-              if (millis() > 60000) {
-                if (api.system.scheduler.task.destroy("task1") != true) {
-                  Serial.printf("Destroying existing task failed.\r\n");
-                }
-              }
-            }
-           @endverbatim
-     */
-          bool    destroy(char *name);
-          bool    destroy(void);
-      };
-      task task;
-    };
     pword pword;
     bat bat;
     atMode atMode;
@@ -1259,7 +1089,6 @@ class RAKSystem {
 #endif
     alias alias;
     timer timer;
-    scheduler scheduler;
 };
 
 /**@example	System_FS/src/app.cpp

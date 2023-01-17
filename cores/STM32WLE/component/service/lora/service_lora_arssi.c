@@ -1,5 +1,3 @@
-#ifdef SUPPORT_LORA
-
 #include <stddef.h>
 #include <stdint.h>
 #include "udrv_errno.h"
@@ -78,5 +76,3 @@ get_arssi_out:
     memcpy(iterator, &service_lora_chan_arssi, sizeof(chan_rssi));
     return -UDRV_CONTINUE;
 }
-
-#endif

@@ -12,8 +12,6 @@
 #include "udrv_gpio.h"
 #include "udrv_system.h"
 #include "udrv_rtc.h"
-#include "service_nvm.h"
-#include "udrv_errno.h"
 
 /**@addtogroup	RUI_System_Data_Type
  * @{
@@ -34,12 +32,14 @@ class sleep {
   public:
   sleep();
 
+  void cpu(uint32_t ms_time);
+
   /**@par	Description
-   *    	Sleep the cpu
+   *    	Sleep the cpu with default no timeout
    * @ingroup	Powersave
    * @par	Syntax
    *      	api.system.sleep.cpu();
-   * @param   	ms_time(optional) Duration for cpu to sleep. No parameter means sleeping until the next interrupt.
+   * @param   	ms_time(optional) Duration for cpu to sleep(default = no timeout)
    * @retval  	void
    * @par 	Example
    * @verbatim	
@@ -53,19 +53,16 @@ class sleep {
      }
      @endverbatim	
    */
-  void cpu(int ms_time);
-  void cpu(uint32_t ms_time);
-  void cpu();
+  void cpu(int ms_time = POWERSAVE_NO_TIMEOUT);
 
-#ifdef SUPPORT_LORA
   void lora(uint32_t ms_time);
 
   /**@par	Description
-   *    	Sleep lora.
+   *    	Sleep lora with default no timeout.
    * @ingroup	Powersave
    * @par	Syntax
    *      	api.system.sleep.lora();
-   * @param   ms_time(optional)	Duration for lora to sleep
+   * @param   ms_time(optional)	Duration for lora to sleep(default = no timeout)
    * @retval  void
    * @par       Example
    * @verbatim
@@ -79,15 +76,16 @@ class sleep {
      }
      @endverbatim
    */
-  void lora(int ms_time);
-#endif
+  void lora(int ms_time = POWERSAVE_NO_TIMEOUT);
+
+  void all(uint32_t ms_time);
 
   /**@par	Description
-   *      	Sleep all component.
+   *      	Sleep all component with default no timeout.
    * @ingroup	Powersave
    * @par	Syntax
    *      	api.system.sleep.all();
-   * @param   ms_time(optional)	Duration for all component to sleep. No parameter means sleeping until the next interrupt.
+   * @param   ms_time(optional)	Duration for all component to sleep(default = no timeout)	
    * @retval  void
    * @par       Example
    * @verbatim
@@ -101,9 +99,7 @@ class sleep {
      }
      @endverbatim
    */
-  void all(int ms_time);
-  void all(uint32_t ms_time);
-  void all();
+  void all(int ms_time = POWERSAVE_NO_TIMEOUT);
 
   /**@par	Description
    *	        Setup the sleep function
@@ -129,71 +125,4 @@ class sleep {
    */
   void setup(RUI_WAKEUP_TRIGGER_MODE mode, uint32_t pin);
 };
-
-/**@par	Description
-   * 		This api gets or sets the low power mode
-   * @ingroup		Powersave
-   */
-class lpm
-{
-public:
-  /**@par	Description
-       *     	This api allows to get the low power mode
-       *
-       * @par	Syntax
-       *	api.system.lpm.get()
-       * @retval	1 for low power mode enabled
-       * @retval	0 for low power mode disabled
-       * @par         Example
-       * @verbatim
-     void setup()
-     {
-         Serial.begin(115200);
-
-         Serial.printf("Set the low power mode %s\n\r", api.system.lpm.set(1) ? "Success" : "Fail");
-     }
-
-     void loop()
-     {
-         Serial.printf("The low power mode = %d\n\r", api.system.lpm.get());
-
-         delay(1000);
-     }
-
-         @endverbatim
-       */
-  uint8_t get();
-
-  /**@par	Description
-       *     	This api allows to set the low power mode
-       *
-       * @par	Syntax
-       *	api.system.lpm.set(value)
-       *
-       * @note	Only 0 or 1 is acceptable
-       * @param	value	0 or 1
- * @return	bool
-       * @retval	TRUE for setting low power mode success
-       * @retval	FALSE for setting low power mode failure
-       * @par         Example
-       * @verbatim
-     void setup()
-     {
-         Serial.begin(115200);
-
-         Serial.printf("Set the low power mode %s\n\r", api.system.lpm.set(1) ? "Success" : "Fail");
-     }
-
-     void loop()
-     {
-         Serial.printf("The low power mode = %d\n\r", api.system.lpm.get());
-
-         delay(1000);
-     }
-
-         @endverbatim
-       */
-  bool set(uint8_t value);
-};
-
 #endif

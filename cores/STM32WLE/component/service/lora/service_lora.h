@@ -9,8 +9,6 @@
 #ifndef __SERVICE_LORA_H__
 #define __SERVICE_LORA_H__
 
-#ifdef SUPPORT_LORA
-
 #ifdef __cplusplus
 extern "C"
 {
@@ -55,12 +53,6 @@ extern "C"
         SERVICE_LORA_CLASS_B_S3,
         SERVICE_LORA_CLASS_B_COMPLETED,
     } SERVICE_LORA_CLASS_B_STATE;
-
-    typedef enum _TIMEREQ_STATE
-    {
-       TIMEREQ_DISABLED,
-       TIMEREQ_ENABLED
-    } TIMEREQ_STATE;
 
     typedef struct SERVICE_LORA_RECEIVE
     {
@@ -473,16 +465,8 @@ extern "C"
     void service_lora_suspend(void);
 
     void service_lora_resume(void);
-
-    uint8_t service_lora_get_timereq(void);
-
-    int32_t service_lora_set_timereq(uint8_t mode);
-
-    void service_lora_systemMaxRxError(void);
 #ifdef __cplusplus
 }
 #endif
-
-#endif // end SUPPORT_LORA
 
 #endif // __SERVICE_LORA_H__

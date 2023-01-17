@@ -475,6 +475,7 @@
 #define __USES_INITFINI__ 1
 #define stm32wle5xx 1
 #define SUPPORT_LORA 1
+#define LORA_RF_LP 1
 #define LORA_IO_SPI_PORT 2
 #define SYS_RTC_COUNTER_PORT 2
 #define ATCMD_CUST_TABLE_SIZE 64
@@ -500,7 +501,6 @@
 #define LORAMAC_CLASSB_ENABLED 1
 #define WISBLOCK_BASE_5005_O 1
 #define SUPPORT_SPI 1
-#define SUPPORT_AT 1
 # 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
 # 34 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
 # 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/math.h" 1 3
@@ -39315,8 +39315,6 @@ int32_t udrv_system_timer_start (SysTimerID_E timer_id, uint32_t count, void *m_
 int32_t udrv_system_timer_stop (SysTimerID_E timer_id);
 
 void udrv_system_timer_handler_handler (void *pdata);
-
-unsigned long udrv_get_microsecond(void);
 # 11 "/home/jenkins/workspace/RUI_Release/rui-v3/component/udrv/system/udrv_system.h" 2
 
 #define RANDOM_LENGTH 4
@@ -39359,8 +39357,6 @@ typedef struct
     void *p_context;
 } udrv_system_event_t;
 
-typedef void (*UDRV_TASK_HANDLER) (void);
-
 void udrv_system_event_init(void);
 
 int32_t udrv_system_event_produce(udrv_system_event_t *event);
@@ -39383,12 +39379,6 @@ int32_t udrv_system_user_app_timer_create (timer_handler tmr_handler, TimerMode_
 int32_t udrv_system_user_app_timer_start (uint32_t count, void *m_data);
 
 int32_t udrv_system_user_app_timer_stop (void);
-
-int32_t udrv_create_thread(char *name, UDRV_TASK_HANDLER handler);
-void udrv_destroy_thread(char *name);
-void udrv_destroy_myself(void);
-void udrv_thread_lock(void);
-void udrv_thread_unlock(void);
 # 42 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 2
 
 extern 
@@ -39781,8 +39771,7 @@ const struct Radio_s Radio =
 
 };
 
-const RadioLoRaBandwidths_t Bandwidths[] = { LORA_BW_125, LORA_BW_250, LORA_BW_500, LORA_BW_007,
-LORA_BW_010, LORA_BW_015, LORA_BW_020, LORA_BW_031, LORA_BW_041, LORA_BW_062};
+const RadioLoRaBandwidths_t Bandwidths[] = { LORA_BW_125, LORA_BW_250, LORA_BW_500 };
 
 static uint8_t MaxPayloadLength = 255;
 
@@ -39811,9 +39800,9 @@ static void RadioInit( RadioEvents_t *events )
     RadioEvents = events;
 
     SubgRf.RxContinuous = 
-# 649 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 648 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                          0
-# 649 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 648 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                               ;
     SubgRf.TxTimeout = 0;
     SubgRf.RxTimeout = 0;
@@ -39821,9 +39810,9 @@ static void RadioInit( RadioEvents_t *events )
     SUBGRF_Init( RadioOnDioIrq );
 
     RadioSetPublicNetwork( 
-# 655 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 654 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                           0 
-# 655 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 654 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                 );
 
     ;
@@ -39839,14 +39828,14 @@ static void RadioInit( RadioEvents_t *events )
 
 
     do { UTIL_TIMER_Create( &TxTimeoutTimer, ( ( uint32_t )~0 ), UTIL_TIMER_ONESHOT, RadioOnTxTimeoutIrq, 
+# 668 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+   ((void *)0)
+# 668 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+   ); } while(0);
+    do { UTIL_TIMER_Create( &RxTimeoutTimer, ( ( uint32_t )~0 ), UTIL_TIMER_ONESHOT, RadioOnRxTimeoutIrq, 
 # 669 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
    ((void *)0)
 # 669 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
-   ); } while(0);
-    do { UTIL_TIMER_Create( &RxTimeoutTimer, ( ( uint32_t )~0 ), UTIL_TIMER_ONESHOT, RadioOnRxTimeoutIrq, 
-# 670 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
-   ((void *)0)
-# 670 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
    ); } while(0);
     do { if (UTIL_TIMER_IsRunning(&TxTimeoutTimer)) { UTIL_TIMER_Stop(&TxTimeoutTimer); } } while(0);
     do { if (UTIL_TIMER_IsRunning(&RxTimeoutTimer)) { UTIL_TIMER_Stop(&RxTimeoutTimer); } } while(0);
@@ -39879,9 +39868,9 @@ static void RadioSetModem( RadioModems_t modem )
 
 
         SubgRf.PublicNetwork.Current = 
-# 701 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 700 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                       0
-# 701 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 700 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                            ;
         break;
     case MODEM_LORA:
@@ -39898,9 +39887,9 @@ static void RadioSetModem( RadioModems_t modem )
 
 
         SubgRf.PublicNetwork.Current = 
-# 716 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 715 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                       0
-# 716 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 715 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                            ;
         break;
     case MODEM_SIGFOX_TX:
@@ -39908,9 +39897,9 @@ static void RadioSetModem( RadioModems_t modem )
 
 
         SubgRf.PublicNetwork.Current = 
-# 722 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 721 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                       0
-# 722 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 721 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                            ;
         break;
     case MODEM_SIGFOX_RX:
@@ -39918,9 +39907,9 @@ static void RadioSetModem( RadioModems_t modem )
 
 
         SubgRf.PublicNetwork.Current = 
-# 728 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 727 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                       0
-# 728 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 727 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                            ;
         break;
     }
@@ -39932,19 +39921,19 @@ static void RadioSetChannel( uint32_t freq )
 }
 
 static 
-# 738 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 737 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
       _Bool 
-# 738 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 737 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
            RadioIsChannelFree( uint32_t freq, uint32_t rxBandwidth, int16_t rssiThresh, uint32_t maxCarrierSenseTime )
 {
     
-# 740 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 739 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
    _Bool 
-# 740 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 739 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
         status = 
-# 740 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 739 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                  1
-# 740 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 739 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                      ;
     int16_t rssi = 0;
     uint32_t carrierSenseTime = 0;
@@ -39959,22 +39948,22 @@ static
 
 
     RadioSetRxConfig( MODEM_FSK, rxBandwidth, 600, 0, rxBandwidth, 3, 0, 
-# 753 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 752 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                                                         0
-# 753 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 752 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                                              ,
                       0, 
-# 754 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 753 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                         0
-# 754 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 753 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                              , 0, 0, 
-# 754 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 753 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                      0
-# 754 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 753 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                           , 
-# 754 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 753 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                             1 
-# 754 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 753 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                  );
     RadioRx( 0 );
 
@@ -39990,9 +39979,9 @@ static
         if( rssi > rssiThresh )
         {
             status = 
-# 768 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 767 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                     0
-# 768 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 767 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                          ;
             break;
         }
@@ -40025,28 +40014,28 @@ static void RadioSetRxConfig( RadioModems_t modem, uint32_t bandwidth,
                               uint32_t datarate, uint8_t coderate,
                               uint32_t bandwidthAfc, uint16_t preambleLen,
                               uint16_t symbTimeout, 
-# 799 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 798 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                                    _Bool 
-# 799 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 798 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                         fixLen,
                               uint8_t payloadLen,
                               
-# 801 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 800 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                              _Bool 
-# 801 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 800 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                   crcOn, 
-# 801 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 800 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                          _Bool 
-# 801 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 800 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                               freqHopOn, uint8_t hopPeriod,
                               
-# 802 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 801 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                              _Bool 
-# 802 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 801 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                   iqInverted, 
-# 802 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 801 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                               _Bool 
-# 802 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 801 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                    rxContinuous )
 {
 
@@ -40054,17 +40043,17 @@ static void RadioSetRxConfig( RadioModems_t modem, uint32_t bandwidth,
     SubgRf.RxContinuous = rxContinuous;
     RFW_DeInit();
     if( rxContinuous == 
-# 808 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 807 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                        1 
-# 808 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 807 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                             )
     {
         symbTimeout = 0;
     }
     if( fixLen == 
-# 812 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 811 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                  1 
-# 812 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 811 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                       )
     {
         MaxPayloadLength = payloadLen;
@@ -40078,9 +40067,9 @@ static void RadioSetRxConfig( RadioModems_t modem, uint32_t bandwidth,
     {
         case MODEM_SIGFOX_RX:
             SUBGRF_SetStopRxTimerOnPreambleDetect( 
-# 824 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 823 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                                   1 
-# 824 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 823 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                        );
             SubgRf.ModulationParams.PacketType = PACKET_TYPE_GFSK;
 
@@ -40132,9 +40121,9 @@ static void RadioSetRxConfig( RadioModems_t modem, uint32_t bandwidth,
             break;
         case MODEM_FSK:
             SUBGRF_SetStopRxTimerOnPreambleDetect( 
-# 874 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 873 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                                   0 
-# 874 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 873 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                         );
             SubgRf.ModulationParams.PacketType = PACKET_TYPE_GFSK;
 
@@ -40148,15 +40137,15 @@ static void RadioSetRxConfig( RadioModems_t modem, uint32_t bandwidth,
             SubgRf.PacketParams.Params.Gfsk.SyncWordLength = 3 << 3;
             SubgRf.PacketParams.Params.Gfsk.AddrComp = RADIO_ADDRESSCOMP_FILT_OFF;
             SubgRf.PacketParams.Params.Gfsk.HeaderType = ( fixLen == 
-# 886 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 885 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                                                     1 
-# 886 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 885 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                                          ) ? RADIO_PACKET_FIXED_LENGTH : RADIO_PACKET_VARIABLE_LENGTH;
             SubgRf.PacketParams.Params.Gfsk.PayloadLength = MaxPayloadLength;
             if( crcOn == 
-# 888 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 887 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                         1 
-# 888 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 887 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                              )
             {
                 SubgRf.PacketParams.Params.Gfsk.CrcLength = RADIO_CRC_2_BYTES_CCIT;
@@ -40180,9 +40169,9 @@ static void RadioSetRxConfig( RadioModems_t modem, uint32_t bandwidth,
 
         case MODEM_LORA:
             SUBGRF_SetStopRxTimerOnPreambleDetect( 
-# 910 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 909 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                                   0 
-# 910 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 909 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                         );
             SubgRf.ModulationParams.PacketType = PACKET_TYPE_LORA;
             SubgRf.ModulationParams.Params.LoRa.SpreadingFactor = ( RadioLoRaSpreadingFactors_t )datarate;
@@ -40256,22 +40245,22 @@ static void RadioSetTxConfig( RadioModems_t modem, int8_t power, uint32_t fdev,
                               uint32_t bandwidth, uint32_t datarate,
                               uint8_t coderate, uint16_t preambleLen,
                               
-# 982 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 981 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                              _Bool 
-# 982 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 981 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                   fixLen, 
-# 982 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 981 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                           _Bool 
-# 982 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 981 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                crcOn, 
-# 982 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 981 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                                       _Bool 
-# 982 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 981 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                            freqHopOn,
                               uint8_t hopPeriod, 
-# 983 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 982 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                                 _Bool 
-# 983 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 982 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                      iqInverted, uint32_t timeout )
 {
     RFW_DeInit();
@@ -40291,15 +40280,15 @@ static void RadioSetTxConfig( RadioModems_t modem, int8_t power, uint32_t fdev,
             SubgRf.PacketParams.Params.Gfsk.SyncWordLength = 3 << 3 ;
             SubgRf.PacketParams.Params.Gfsk.AddrComp = RADIO_ADDRESSCOMP_FILT_OFF;
             SubgRf.PacketParams.Params.Gfsk.HeaderType = ( fixLen == 
-# 1001 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1000 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                                                     1 
-# 1001 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1000 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                                          ) ? RADIO_PACKET_FIXED_LENGTH : RADIO_PACKET_VARIABLE_LENGTH;
 
             if( crcOn == 
-# 1003 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1002 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                         1 
-# 1003 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1002 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                              )
             {
                 SubgRf.PacketParams.Params.Gfsk.CrcLength = RADIO_CRC_2_BYTES_CCIT;
@@ -40383,15 +40372,15 @@ static void RadioSetTxConfig( RadioModems_t modem, int8_t power, uint32_t fdev,
 }
 
 static 
-# 1085 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1084 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
       _Bool 
-# 1085 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1084 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
            RadioCheckRfFrequency( uint32_t frequency )
 {
     return 
-# 1087 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1086 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
           1
-# 1087 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1086 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
               ;
 }
 
@@ -40438,27 +40427,27 @@ static uint32_t RadioGetLoRaBandwidthInHz( RadioLoRaBandwidths_t bw )
 
 static uint32_t RadioGetGfskTimeOnAirNumerator( uint32_t datarate, uint8_t coderate,
                                                 uint16_t preambleLen, 
-# 1132 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1131 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                                                      _Bool 
-# 1132 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1131 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                                           fixLen, uint8_t payloadLen,
                                                 
-# 1133 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1132 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                                _Bool 
-# 1133 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1132 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                     crcOn )
 {
 
     return ( preambleLen << 3 ) +
            ( ( fixLen == 
-# 1137 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1136 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                         0 
-# 1137 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1136 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                               ) ? 8 : 0 ) + 24 +
            ( ( payloadLen + ( ( crcOn == 
-# 1138 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1137 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                         1 
-# 1138 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1137 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                              ) ? 2 : 0 ) ) << 3 );
 
 }
@@ -40466,25 +40455,25 @@ static uint32_t RadioGetGfskTimeOnAirNumerator( uint32_t datarate, uint8_t coder
 static uint32_t RadioGetLoRaTimeOnAirNumerator( uint32_t bandwidth,
                                                 uint32_t datarate, uint8_t coderate,
                                                 uint16_t preambleLen, 
-# 1144 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1143 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                                                      _Bool 
-# 1144 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1143 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                                           fixLen, uint8_t payloadLen,
                                                 
-# 1145 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1144 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                                _Bool 
-# 1145 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1144 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                     crcOn )
 {
     int32_t crDenom = coderate + 4;
     
-# 1148 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1147 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
    _Bool 
-# 1148 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1147 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
            lowDatareOptimize = 
-# 1148 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1147 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                0
-# 1148 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1147 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                     ;
 
 
@@ -40500,9 +40489,9 @@ static uint32_t RadioGetLoRaTimeOnAirNumerator( uint32_t bandwidth,
         ( ( bandwidth == 1 ) && ( datarate == 12 ) ) )
     {
         lowDatareOptimize = 
-# 1162 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1161 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                            1
-# 1162 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1161 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                ;
     }
 
@@ -40521,9 +40510,9 @@ static uint32_t RadioGetLoRaTimeOnAirNumerator( uint32_t bandwidth,
         ceilNumerator += 8;
 
         if( lowDatareOptimize == 
-# 1179 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1178 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                 1 
-# 1179 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1178 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                      )
         {
             ceilDenominator = 4 * ( datarate - 2 );
@@ -40554,14 +40543,14 @@ static uint32_t RadioGetLoRaTimeOnAirNumerator( uint32_t bandwidth,
 static uint32_t RadioTimeOnAir( RadioModems_t modem, uint32_t bandwidth,
                                 uint32_t datarate, uint8_t coderate,
                                 uint16_t preambleLen, 
-# 1208 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1207 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                                      _Bool 
-# 1208 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1207 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                           fixLen, uint8_t payloadLen,
                                 
-# 1209 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1208 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                _Bool 
-# 1209 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1208 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                     crcOn )
 {
     uint32_t numerator = 0;
@@ -40742,9 +40731,9 @@ static void RadioRx( uint32_t timeout )
 
 
     if( SubgRf.RxContinuous == 
-# 1388 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1387 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                               1 
-# 1388 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1387 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                    )
     {
         SUBGRF_SetRx( 0xFFFFFF );
@@ -40778,9 +40767,9 @@ static void RadioRxBoosted( uint32_t timeout )
     SUBGRF_SetSwitch(SubgRf.AntSwitchPaSelect, RFSWITCH_RX);
 
     if( SubgRf.RxContinuous == 
-# 1420 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1419 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                               1 
-# 1420 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1419 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                    )
     {
         SUBGRF_SetRxBoosted( 0xFFFFFF );
@@ -40872,18 +40861,18 @@ static void RadioSetMaxPayloadLength( RadioModems_t modem, uint8_t max )
 }
 
 static void RadioSetPublicNetwork( 
-# 1510 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1509 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                   _Bool 
-# 1510 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1509 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                        enable )
 {
     SubgRf.PublicNetwork.Current = SubgRf.PublicNetwork.Previous = enable;
 
     RadioSetModem( MODEM_LORA );
     if( enable == 
-# 1515 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1514 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                  1 
-# 1515 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1514 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                       )
     {
 
@@ -40920,21 +40909,21 @@ static void RadioOnTxTimeoutProcess( void )
 
 
     if( ( RadioEvents != 
-# 1550 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1549 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                         ((void *)0) 
-# 1550 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1549 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                              ) && ( RadioEvents->TxTimeout != 
-# 1550 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1549 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                                               ((void *)0) 
-# 1550 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1549 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                                    ) )
     {
         RadioEvents->TxTimeout( );
         udrv_system_event_produce(&rui_lora_event);
         udrv_powersave_in_sleep = 
-# 1554 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1553 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                  0
-# 1554 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1553 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                       ;
     }
 }
@@ -40946,21 +40935,21 @@ static void RadioOnRxTimeoutProcess( void )
 
 
     if( ( RadioEvents != 
-# 1564 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1563 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                         ((void *)0) 
-# 1564 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1563 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                              ) && ( RadioEvents->RxTimeout != 
-# 1564 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1563 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                                               ((void *)0) 
-# 1564 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1563 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                                    ) )
     {
         RadioEvents->RxTimeout( );
         udrv_system_event_produce(&rui_lora_event);
         udrv_powersave_in_sleep = 
-# 1568 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1567 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                  0
-# 1568 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1567 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                       ;
     }
 }
@@ -40971,9 +40960,9 @@ static void RadioOnDioIrq( RadioIrqMasks_t radioIrq )
 
     udrv_system_event_produce(&rui_lora_event);
     udrv_powersave_in_sleep = 
-# 1577 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1576 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                              0
-# 1577 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1576 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                   ;
 
     RadioIrqProcess();
@@ -41001,13 +40990,13 @@ static void RadioIrqProcess( void )
         }
 
         if( ( RadioEvents != 
-# 1603 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1602 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                             ((void *)0) 
-# 1603 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1602 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                  ) && ( RadioEvents->TxDone != 
-# 1603 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1602 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                                                ((void *)0) 
-# 1603 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1602 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                                     ) )
         {
             RadioEvents->TxDone( );
@@ -41021,9 +41010,9 @@ static void RadioIrqProcess( void )
 
         do { if (UTIL_TIMER_IsRunning(&RxTimeoutTimer)) { UTIL_TIMER_Stop(&RxTimeoutTimer); } } while(0);
         if( SubgRf.RxContinuous == 
-# 1615 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1614 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                   0 
-# 1615 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1614 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                         )
         {
 
@@ -41039,13 +41028,13 @@ static void RadioIrqProcess( void )
         SUBGRF_GetPayload( RadioBuffer, &size , 255 );
         SUBGRF_GetPacketStatus( &(SubgRf.PacketStatus) );
         if( ( RadioEvents != 
-# 1629 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1628 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                             ((void *)0) 
-# 1629 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1628 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                  ) && ( RadioEvents->RxDone != 
-# 1629 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1628 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                                                ((void *)0) 
-# 1629 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1628 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                                     ) )
         {
             switch ( SubgRf.PacketStatus.packetType )
@@ -41065,19 +41054,19 @@ static void RadioIrqProcess( void )
 
         SUBGRF_SetStandby( STDBY_RC );
         if( ( RadioEvents != 
-# 1647 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1646 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                             ((void *)0) 
-# 1647 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1646 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                  ) && ( RadioEvents->CadDone != 
-# 1647 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1646 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                                                 ((void *)0) 
-# 1647 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1646 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                                      ) )
         {
             RadioEvents->CadDone( 
-# 1649 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1648 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                  0 
-# 1649 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1648 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                        );
         }
         break;
@@ -41085,19 +41074,19 @@ static void RadioIrqProcess( void )
 
         SUBGRF_SetStandby( STDBY_RC );
         if( ( RadioEvents != 
-# 1655 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1654 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                             ((void *)0) 
-# 1655 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1654 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                  ) && ( RadioEvents->CadDone != 
-# 1655 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1654 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                                                 ((void *)0) 
-# 1655 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1654 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                                      ) )
         {
             RadioEvents->CadDone( 
-# 1657 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1656 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                  1 
-# 1657 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1656 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                       );
         }
         break;
@@ -41115,13 +41104,13 @@ static void RadioIrqProcess( void )
 
             SUBGRF_SetStandby( STDBY_RC );
             if( ( RadioEvents != 
-# 1673 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1672 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                 ((void *)0) 
-# 1673 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1672 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                      ) && ( RadioEvents->TxTimeout != 
-# 1673 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1672 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                                                       ((void *)0) 
-# 1673 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1672 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                                            ) )
             {
                 RadioEvents->TxTimeout( );
@@ -41137,13 +41126,13 @@ static void RadioIrqProcess( void )
 
             SUBGRF_SetStandby( STDBY_RC );
             if( ( RadioEvents != 
-# 1687 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1686 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                 ((void *)0) 
-# 1687 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1686 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                      ) && ( RadioEvents->RxTimeout != 
-# 1687 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1686 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                                                       ((void *)0) 
-# 1687 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1686 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                                            ) )
             {
                 RadioEvents->RxTimeout( );
@@ -41170,22 +41159,22 @@ static void RadioIrqProcess( void )
     case IRQ_HEADER_ERROR:
         do { if (UTIL_TIMER_IsRunning(&RxTimeoutTimer)) { UTIL_TIMER_Stop(&RxTimeoutTimer); } } while(0);
         if( SubgRf.RxContinuous == 
-# 1712 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1711 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                   0 
-# 1712 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1711 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                         )
         {
 
             SUBGRF_SetStandby( STDBY_RC );
         }
         if( ( RadioEvents != 
-# 1717 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1716 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                             ((void *)0) 
-# 1717 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1716 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                  ) && ( RadioEvents->RxTimeout != 
-# 1717 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1716 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                                                   ((void *)0) 
-# 1717 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1716 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                                        ) )
         {
             RadioEvents->RxTimeout( );
@@ -41197,18 +41186,18 @@ static void RadioIrqProcess( void )
         ;
 
         if( SubgRf.RxContinuous == 
-# 1727 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1726 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                   0 
-# 1727 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1726 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                         )
         {
 
             SUBGRF_SetStandby( STDBY_RC );
         }
         if( ( RadioEvents != 
-# 1732 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1731 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                             ((void *)0) 
-# 1732 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1731 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                  ) && ( RadioEvents->RxError ) )
         {
             RadioEvents->RxError( );
@@ -41284,13 +41273,13 @@ static int32_t RadioSetRxGenericConfig( GenericModems_t modem, RxConfigGeneric_t
         symbTimeout = 0;
     }
     SubgRf.RxContinuous = ( rxContinuous == 0 ) ? 
-# 1806 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1805 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                                  0 
-# 1806 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1805 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                        : 
-# 1806 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1805 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                                          1
-# 1806 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1805 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                              ;
 
     switch( modem )
@@ -41313,13 +41302,13 @@ static int32_t RadioSetRxGenericConfig( GenericModems_t modem, RxConfigGeneric_t
         }
 
         SUBGRF_SetStopRxTimerOnPreambleDetect( ( config->fsk.StopTimerOnPreambleDetect == 0 ) ? 
-# 1827 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1826 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                                                                                0 
-# 1827 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1826 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                                                                      : 
-# 1827 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1826 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                                                                                        1 
-# 1827 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1826 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                                                                             );
 
         SubgRf.ModulationParams.PacketType = PACKET_TYPE_GFSK;
@@ -41401,13 +41390,13 @@ static int32_t RadioSetRxGenericConfig( GenericModems_t modem, RxConfigGeneric_t
             MaxPayloadLength = 0xFF;
         }
         SUBGRF_SetStopRxTimerOnPreambleDetect( ( config->lora.StopTimerOnPreambleDetect == 0 ) ? 
-# 1907 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1906 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                                                                                 0 
-# 1907 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1906 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                                                                       : 
-# 1907 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
+# 1906 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c" 3 4
                                                                                                         1 
-# 1907 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
+# 1906 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio.c"
                                                                                                              );
         SUBGRF_SetLoRaSymbNumTimeout( symbTimeout );
 

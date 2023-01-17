@@ -1,8 +1,6 @@
 #ifndef __SERVICE_LORA_ARSSI_H__
 #define __SERVICE_LORA_ARSSI_H__
 
-#ifdef SUPPORT_LORA
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -24,6 +22,5 @@ int32_t service_lora_get_arssi(chan_rssi *iterator);
 }
 #endif
 
-#endif // end SUPPORT_LORA
 
-#endif // end service_lora_arssi.h  
+#endif

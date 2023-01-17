@@ -78,5 +78,4 @@ out/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionUS915.c: \
  /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/PinNamesVar.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino_analog.h \
- /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino_digital.h \
- /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h
+ /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino_digital.h

@@ -30,138 +30,7 @@ extern "C" {
 #define SERVICE_NVM_USER_DATA_NVM_ADDR          MCU_USER_DATA_NVM_ADDR
 #define SERVICE_NVM_FACTORY_DEFAULT_NVM_ADDR    MCU_FACTORY_DEFAULT_NVM_ADDR
 
-#define RUI_CFG_MAGIC_NUM               0xAABBCCDD
-
-//Version code, different values are set for each version, used to distinguish versions to move user data
-#define RUI_VERSION_CODE_V85            0x01
-#define RUI_VERSION_CODE_V87            0x02
-#define RUI_VERSION_CODE_V99            0x03
-#define RUI_VERSION_CODE_LATEST         0x04
-#define RUI_CFG_VERSION_CODE            RUI_VERSION_CODE_LATEST
-
 #ifndef RUI_BOOTLOADER
-
-#ifdef SUPPORT_LORA
-typedef struct {
-    uint32_t Frequency;
-    uint8_t  Spreadfact;
-    uint16_t  Bandwidth;
-    uint8_t  Codingrate;
-    uint16_t  Preamlen;
-    uint8_t  Powerdbm;
-    uint8_t  p2p_workmode;
-    bool crypt_enable;
-    uint8_t crypt_key[8];
-    uint32_t bitrate;
-    uint32_t deviation;
-    uint32_t fsk_rxbw;
-}PRE_S_LORAP2P_PARAM; //DO NOT CHANGE
-
-typedef struct {
-    SERVICE_LORA_BAND region;
-    uint8_t dev_eui[8];
-    uint8_t app_eui[8];
-    uint8_t app_key[16];
-    uint8_t app_skey[16];
-    uint8_t dev_addr[4];
-    uint8_t nwk_id[4];
-    uint8_t nwk_skey[16];
-    uint32_t multi_dev_addr;
-    uint8_t multi_nwks_key[16];
-    uint8_t multi_apps_key[16];
-    bool MulticastEnable;
-#if defined( REGION_CN470 ) || defined( REGION_US915 ) || \
-    defined( REGION_AU915 )
-    uint16_t ch_mask[REGION_NVM_CHANNELS_MASK_SIZE];
-#endif
-    SERVICE_LORA_JOIN_MODE join_mode;
-    SERVICE_LORA_CLASS device_class;
-    uint8_t confirm;
-    uint8_t retry;
-    SERVICE_LORA_DATA_RATE dr;
-    SERVICE_LORA_DATA_RATE rx2dr;
-    bool adr;
-    uint8_t tx_power;
-    uint8_t DutycycleEnable;
-    uint32_t jn1dl;
-    uint32_t jn2dl;
-    uint32_t rx1dl;
-    uint32_t rx2dl;
-    uint32_t rx2fq;
-    bool pub_nwk_mode;
-    uint8_t linkcheck_mode;
-    uint8_t ping_slot_periodicity;
-    bool join_start;
-    bool auto_join;
-    uint32_t auto_join_period;
-    uint32_t auto_join_max_cnt;
-    McSession_t McSession_group[4];
-    uint32_t chs;
-    uint8_t tp_port[SERIAL_MAX];
-} PRE_lora_cfg_t; //DO NOT CHANGE
-#endif
-
-typedef struct {
-        uint8_t server_ip[20];
-        uint8_t server_port[20];
-        uint8_t operator_long_data[20];
-        uint8_t operator_short_data[20];
-        uint8_t operator_apn_data[20];
-        uint8_t operator_net_data[20];
-        uint8_t hologram_card_num[20];
-} PRE_cellular_cfg_t; //DO NOT CHANGE
-
-typedef struct{
-    uint8_t work_mode;  // 0:ble peripheral  1:ble central  2:ble observer
-    uint8_t long_range_enable;
-    uint8_t mac[12];
-    uint8_t reserve[2];
-}PRE_ble_central_cfg_t; //DO NOT CHANGE
-
-typedef struct{
-    uint32_t seconds;
-    uint32_t subseconds;
-}PRE_rtc_delta_t; //DO NOT CHANGE
-
-typedef struct {
-#ifdef SUPPORT_LORA
-    bool iqinverted;
-    uint32_t symbol_timeout;
-    uint16_t syncword;
-    uint8_t syncword_dirty_byte;
-    bool fix_length_payload;
-#endif
-}rui_cfg_t_ex; //add new config here in sequence 
-
-typedef struct {
-    uint32_t magic_num;
-    uint32_t version_code;
-#ifdef SUPPORT_LORA
-    uint8_t lora_work_mode;
-    PRE_S_LORAP2P_PARAM g_lora_p2p_cfg_t;
-#endif
-#ifdef SUPPORT_BLE
-    PRE_ble_central_cfg_t g_ble_cfg_t;
-#endif
-#ifdef SUPPORT_LORA
-    PRE_lora_cfg_t g_lora_cfg_t;
-#endif
-    PRE_rtc_delta_t g_rtc_delta_t;
-    SERVICE_MODE_TYPE mode_type[SERIAL_MAX];
-    SERIAL_WLOCK_STATE serial_lock_status[SERIAL_MAX];
-    uint32_t baudrate;
-    uint8_t atcmd_echo;
-    uint8_t serial_passwd[9];
-    uint32_t auto_sleep_time;
-    uint8_t sn[18];
-    uint8_t alias[16];
-    uint8_t debug_level;
-    uint8_t firmware_ver[32];
-    uint8_t hwmodel[32];
-    uint8_t cli_ver[32];
-    rui_cfg_t_ex g_lora_cfg_ex;
-} PRE_rui_cfg_t;
-
 void service_nvm_init_config(void);
 
 int32_t service_nvm_set_default_config_to_nvm(void);
@@ -197,27 +66,6 @@ int32_t service_nvm_set_auto_sleep_time_to_nvm(uint32_t time);
 int32_t service_nvm_get_atcmd_alias_from_nvm(uint8_t *buff, uint32_t len);
 
 int32_t service_nvm_set_atcmd_alias_to_nvm(uint8_t *buff, uint32_t len);
-
-uint8_t service_nvm_get_firmware_ver_from_nvm(uint8_t *buff, uint32_t len);
-
-int32_t service_nvm_set_firmware_ver_to_nvm(uint8_t *buff, uint32_t len);
-
-uint8_t service_nvm_get_hwmodel_from_nvm(uint8_t *buff, uint32_t len);
-
-int32_t service_nvm_set_hwmodel_to_nvm(uint8_t *buff, uint32_t len);
-
-uint8_t service_nvm_get_cli_ver_from_nvm(uint8_t *buff, uint32_t len);
-
-int32_t service_nvm_set_cli_ver_to_nvm(uint8_t *buff, uint32_t len);
-
-#ifdef SUPPORT_BLE
-/***********************************************************/
-/* BLE                                                     */
-/***********************************************************/
-uint8_t service_nvm_set_ble_mac_to_nvm(uint8_t *buff, uint32_t len);
-
-uint8_t service_nvm_get_ble_mac_from_nvm(uint8_t *buff, uint32_t len);
-#endif
 
 /***********************************************************/
 /* User Data                                               */
@@ -398,9 +246,9 @@ uint8_t service_nvm_get_tp_port_from_nvm(SERIAL_PORT port);
 
 int32_t service_nvm_set_tp_port_to_nvm(SERIAL_PORT port, uint8_t tp_port);
 
-uint32_t service_nvm_get_chs_from_nvm(void);
+uint32_t service_rui_get_chs_from_nvm(void);
 
-uint32_t service_nvm_set_chs_to_nvm(uint32_t frequency);
+uint32_t service_rui_set_chs_to_nvm(uint32_t frequency);
 
 uint32_t service_nvm_set_fdev_to_nvm(uint32_t fdev) ;
 
@@ -421,26 +269,6 @@ int32_t service_nvm_set_sn_to_nvm (uint8_t *buff, uint32_t len);
 uint32_t service_nvm_set_rx2fq_to_nvm(uint32_t freq);
 
 uint32_t service_nvm_get_rx2fq_from_nvm(void);
-
-uint32_t service_nvm_set_debug_level_to_nvm(uint8_t level);
-
-uint8_t service_nvm_get_debug_level_from_nvm();
-
-bool service_nvm_get_iqinverted_from_nvm(void);
-
-int32_t service_nvm_set_iqinverted_to_nvm(bool iqinverted);
-
-uint32_t service_nvm_get_symbol_timeout_from_nvm(void);
-
-int32_t service_nvm_set_symbol_timeout_to_nvm(uint32_t symbol_timeout);
-
-bool service_nvm_get_fix_length_payload_from_nvm(void);
-
-int32_t service_nvm_set_fix_length_payload_to_nvm(bool enable);
-
-uint16_t service_nvm_get_syncword_from_nvm(void);
-
-int32_t service_nvm_set_syncword_to_nvm( uint16_t syncword);
 
 #endif
 

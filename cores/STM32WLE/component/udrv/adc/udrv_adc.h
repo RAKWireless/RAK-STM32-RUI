@@ -74,12 +74,6 @@ void udrv_adc_set_mode (UDRV_ADC_MODE mode);
 
 UDRV_ADC_MODE udrv_adc_get_mode (void);
 
-/*
-* \brief Configures the oversampling amount used to sample analog input.
-*
-* \param ulOversampling Should be set to 1, 2, 4, 8, 16, 32, 64, 128 or 256.
-*/
-void udrv_adc_oversampling (uint32_t uloversampling);
 /**
  * Read out the ADC value.
  * @param  pin                      The analog input pin

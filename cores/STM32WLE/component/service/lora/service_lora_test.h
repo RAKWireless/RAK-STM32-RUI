@@ -1,8 +1,6 @@
 #ifndef __SERVICE_LORA_TEST_H__
 #define __SERVICE_LORA_TEST_H__
 
-#ifdef SUPPORT_LORA
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -126,6 +124,5 @@ int32_t service_lora_set_cw(testCwParameter_t *param);
 }
 #endif
 
-#endif // end SUPPORT_LORA
 
-#endif // __SERVICE_LORA_TEST_H__
+#endif

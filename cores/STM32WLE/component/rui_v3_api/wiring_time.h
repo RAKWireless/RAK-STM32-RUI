@@ -102,7 +102,4 @@ unsigned long millis();
  */
 unsigned long micros();
 
-unsigned long systick_micros();
-
-
 #endif // __WIRING_TIME_H__

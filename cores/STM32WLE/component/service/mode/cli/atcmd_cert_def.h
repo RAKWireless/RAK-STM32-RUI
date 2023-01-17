@@ -54,19 +54,19 @@
  * | Command            | Input parameter    | Return value                                                      | Return code        |
  * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
  * | AT+TCONF?          | --                 | AT+TCONF: configure LoRa RF test                                  | OK                 |
- * | AT+TCONF=\<input\> | \<Freq\>:\<Power\>:\<Bandwidth\>:\<SpreadingFactor\>:\<CodingRate\>:\<LNA\>:\<PABoost\>:\<Modulation\>:\<PayloadLen\>:\<FskDeviation\>:\<LowDRopt\>:\<BTproduct\>          | --                                                                | OK / AT_BUSY_ERROR |
- * | Example<br>AT+TCONF= | AT+TCONF=868000000:14:4:12:0:0:0:1:16:25000:2:3                  | --                                                                | OK                 |
+ * | AT+TCONF=\<input\> | \<integer1\>:\<integer2\>:\<integer3\>:\<integer4\>:\<integer5\>:\<integer6\>:\<integer7\>:\<integer8\>:\<integer9\>:\<integer10\>:\<integer11\>:\<integer12\>          | --                                                                | OK / AT_BUSY_ERROR |
+ * | Example<br>AT+TCONF= | 868000000:14:4:12:4/5:0:0:1:16:25000:2:3                  | --                                                                | OK                 |
  *
  * <freq> <br>
  * <power> : output power [dBm]<br>
- * <bw> : bandwidth. (LoRa mode in Khz) 0=125, 1=250, 2=500, 3=7.8, 4=10.4, 5=15.63, 6=20.83, 7=31.25, 8=41.67, 9=62.5; (FSK mode in Hz): 4800-467000<br>
- * <sf> : datarate. FSK : 600..300000 bits/s; LoRa: [5-12]<br>
- * <cr> : coding rate (LoRa only). FSK : N/A ( set to 0 ); LoRa: [1: 4/5, 2: 4/6, 3: 4/7, 4: 4/8]<br>
+ * <bw> : bandwidth. FSK : >= 2600 and <= 250000 Hz; LoRa: [0: 125 kHz, 1: 250 kHz, 2: 500 kHz, 3: Reserved]<br>
+ * <sf> : datarate. FSK : 600..300000 bits/s; LoRa: [6: 64, 7: 128, 8: 256, 9: 512, 10: 1024, 11: 2048, 12: 4096  chips]<br>
+ * <cr> : coding rate (LoRa only). FSK : N/A ( set to 0 ); LoRa: [1: 4/5, 2: 4/6, 3: 4/7, 4: 4/8]
  * <lna> : not implemented yet<br>
  * <pa_boost> : not implemented yet<br>
  * <mod> : radio modem to be used [0: FSK, 1: LoRa] <br>
  * <len> : payload length when fixed length is used<br>
- * <fdev> : Freq deviation (only fsk 600 - 200000 Hz)<br>
+ * <fdev> : frequency deviation (FSK only). FSK : [Hz]; LoRa: 0<br>
  * <lowdropt> : not implemented yet<br>
  * <bt> : not implemented yet<br>
  *
@@ -118,6 +118,7 @@
  *
  */
 #endif 
+
 #ifndef _ATCMD_CERT_DEF_H_
 #define _ATCMD_CERT_DEF_H_
 

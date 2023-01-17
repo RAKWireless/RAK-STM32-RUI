@@ -31,7 +31,6 @@ typedef enum _UDRV_RETURN_CODE
     UDRV_FORBIDDEN,
     UDRV_CONTINUE,
     UDRV_NOT_FOUND,
-    UDRV_PARAM_ERR,
 } UDRV_RETURN_CODE;
 
 #ifdef __cplusplus

@@ -109,7 +109,6 @@ struct udrv_serial_api {
     int32_t (*SERIAL_PEEK) (SERIAL_PORT Port);
     void (*SERIAL_FLUSH) (SERIAL_PORT Port, uint32_t Timeout);
     int32_t (*SERIAL_READ_AVAIL) (SERIAL_PORT Port);
-    bool (*SERIAL_IS_READY) (SERIAL_PORT Port);
     //void (*SERIAL_SUSPEND) (void);
     //void (*SERIAL_RESUME) (void);
 };

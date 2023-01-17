@@ -1,5 +1,5 @@
-#ifdef SUPPORT_AT
 #include <string.h>
+
 #include "atcmd.h"
 #include "atcmd_serial_port.h"
 #include "udrv_errno.h"
@@ -10,7 +10,7 @@
 int At_Lock (SERIAL_PORT port, char *cmd, stParam *param)
 {
     if (param->argc == 1 && !strcmp(param->argv[0], "?")) {
-        atcmd_printf("AT+LOCK=unlocked\r\n");
+        atcmd_printf("unlocked\r\n");
 
         return AT_OK;
     } else if (param->argc == 0) {
@@ -76,10 +76,6 @@ int At_Baud (SERIAL_PORT port, char *cmd, stParam *param)
         }
 
         baud = strtoul(param->argv[0], NULL, 10);
-#ifdef stm32wle5xx
-        if (baud > 115200)
-            return AT_PARAM_ERROR;
-#endif
 
         udrv_serial_init(port, baud, SERIAL_WORD_LEN_8, SERIAL_STOP_BIT_1, SERIAL_PARITY_DISABLE, SERIAL_TWO_WIRE_NORMAL_MODE);
 
@@ -269,4 +265,4 @@ int At_TransparentMode(SERIAL_PORT port, char *cmd, stParam *param)
     }
 }
 #endif
-#endif
+

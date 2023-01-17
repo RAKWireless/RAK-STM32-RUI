@@ -1,4 +1,3 @@
-
 #include <string.h>
 
 #include "atcmd.h"
@@ -6,14 +5,9 @@
 #include "udrv_errno.h"
 #include "udrv_system.h"
 #include "mcu_basic.h"
-#include "service_debug.h"
 #ifdef RUI_BOOTLOADER
 #include "uhal_flash.h"
 #include "service_nvm.h"
-#endif
-
-#ifdef SUPPORT_BLE
-#include "ble_gap.h"
 #endif
 
 #ifndef RUI_BOOTLOADER
@@ -26,23 +20,6 @@ extern const char *repo_info;
 extern const char *cli_version;
 extern const char *api_version;
 #endif
-extern const char BOOT_VERSION;
-
-int At_Dfu (SERIAL_PORT port, char *cmd, stParam *param)
-{
-    if (param->argc == 0) {
-#ifdef RUI_BOOTLOADER
-        uhal_enter_dfu();
-#else
-        udrv_enter_dfu();
-#endif
-
-        return AT_OK;
-    } else {
-        return AT_PARAM_ERROR;
-    }
-}
-
 
 //AT Command General Function
 int At_Attention (SERIAL_PORT port, char *cmd, stParam *param)
@@ -54,34 +31,6 @@ int At_Attention (SERIAL_PORT port, char *cmd, stParam *param)
         return AT_PARAM_ERROR;
     }
 }
-
-
-#ifdef SUPPORT_AT
-int At_Debug (SERIAL_PORT port, char *cmd, stParam *param)
-{
-    if (param->argc == 1 && !strcmp(param->argv[0], "?"))
-    {
-        atcmd_printf("%s=%d",cmd,service_get_debug_level());
-        atcmd_printf("\r\n");
-        return AT_OK;
-    }
-    else if (param->argc == 1)
-    {
-        uint8_t level;
-        if (0 != at_check_digital_uint32_t(param->argv[0], &level))
-            return AT_PARAM_ERROR;
-        if(level > 1 )
-            return AT_PARAM_ERROR;
-        service_set_debug_level(level);
-        return AT_OK;
-    }
-    else
-    {
-        return AT_ERROR;
-    }
-    
-}
-
 
 int At_Reboot (SERIAL_PORT port, char *cmd, stParam *param)
 {
@@ -124,6 +73,21 @@ int At_Restore(SERIAL_PORT port, char *cmd, stParam *param)
     else
     {
         return AT_ERROR;
+    }
+}
+
+int At_Dfu (SERIAL_PORT port, char *cmd, stParam *param)
+{
+    if (param->argc == 0) {
+#ifdef RUI_BOOTLOADER
+        uhal_enter_dfu();
+#else
+        udrv_enter_dfu();
+#endif
+
+        return AT_OK;
+    } else {
+        return AT_PARAM_ERROR;
     }
 }
 
@@ -215,19 +179,6 @@ int At_Sn (SERIAL_PORT port, char *cmd, stParam *param)
     }
 }
 
-int At_Bootver (SERIAL_PORT port, char *cmd, stParam *param)
-{
-    char boot_version[33];
-    memset(boot_version,'\0',33);
-    if (param->argc == 1 && !strcmp(param->argv[0], "?")) {
-        memcpy(boot_version,&BOOT_VERSION,32);
-        atcmd_printf("%s=%s\r\n", cmd, boot_version);
-        return AT_OK;
-    } else {
-        return AT_PARAM_ERROR;
-    }
-}
-
 int At_GetBat (SERIAL_PORT port, char *cmd, stParam *param)
 {
     if (param->argc == 1 && !strcmp(param->argv[0], "?")) {
@@ -239,19 +190,6 @@ int At_GetBat (SERIAL_PORT port, char *cmd, stParam *param)
     } else {
         return AT_PARAM_ERROR;
     }
-}
-
-int At_GetSysVolt (SERIAL_PORT port, char *cmd, stParam *param)
-{       
-    if (param->argc == 1 && !strcmp(param->argv[0], "?")) {
-        float sys_lvl;
-            
-        service_battery_get_SysVolt_level(&sys_lvl);
-        atcmd_printf("%s=%f\r\n", cmd, sys_lvl);
-        return AT_OK;
-    } else {
-        return AT_PARAM_ERROR;
-    } 
 }
 
 int At_GetFwBuildTime (SERIAL_PORT port, char *cmd, stParam *param)
@@ -279,21 +217,8 @@ int At_GetFwRepoInfo (SERIAL_PORT port, char *cmd, stParam *param)
 int At_GetFwVersion (SERIAL_PORT port, char *cmd, stParam *param)
 {
     if (param->argc == 1 && !strcmp(param->argv[0], "?")) {
-		atcmd_printf("%s=%s\r\n", cmd, sw_version);
+        atcmd_printf("%s=%s\r\n", cmd, sw_version);
 
-        return AT_OK;
-    } else {
-        return AT_PARAM_ERROR;
-    }
-}
-
-int At_GetCusFwVersion (SERIAL_PORT port, char *cmd, stParam *param)
-{
-    if (param->argc == 1 && !strcmp(param->argv[0], "?")) {
-        char ver[33];
-        ver[32] = '\0';
-        service_nvm_get_firmware_ver_from_nvm(ver,32);
-        atcmd_printf("%s=%s\r\n", cmd, ver);
         return AT_OK;
     } else {
         return AT_PARAM_ERROR;
@@ -303,10 +228,7 @@ int At_GetCusFwVersion (SERIAL_PORT port, char *cmd, stParam *param)
 int At_GetCliVersion (SERIAL_PORT port, char *cmd, stParam *param)
 {
     if (param->argc == 1 && !strcmp(param->argv[0], "?")) {
-         char ver[33];
-        ver[32] = '\0';
-        service_nvm_get_cli_ver_from_nvm(ver,32);
-        atcmd_printf("%s=%s\r\n", cmd, ver);
+        atcmd_printf("%s=%s\r\n", cmd, cli_version);
 
         return AT_OK;
     } else {
@@ -328,11 +250,7 @@ int At_GetApiVersion (SERIAL_PORT port, char *cmd, stParam *param)
 int At_GetHwModel (SERIAL_PORT port, char *cmd, stParam *param)
 {
     if (param->argc == 1 && !strcmp(param->argv[0], "?")) {
-        char model[33];
-        model[32] = '\0';
-        service_nvm_get_hwmodel_from_nvm(model,32);
-        atcmd_printf("%s=%s\r\n", cmd, model);
-
+        atcmd_printf("%s=%s\r\n", cmd, model_id);
         return AT_OK;
     } else {
         return AT_PARAM_ERROR;
@@ -398,49 +316,4 @@ int At_GetUid (SERIAL_PORT port, char *cmd, stParam *param)
         return AT_PARAM_ERROR;
     }
 }
-#endif
-
-#ifdef SUPPORT_BLE
-int At_BLEMac (SERIAL_PORT port, char *cmd, stParam *param)
-{
-    if (param->argc == 1 && !strcmp(param->argv[0], "?")) {
-        ble_gap_addr_t gap_addr;
-        sd_ble_gap_addr_get(&gap_addr);
-        int i,len = sizeof(gap_addr.addr)/sizeof(uint8_t);
-        atcmd_printf("%s=", cmd);
-        for (int i=len;i>0;i--)
-        {
-            atcmd_printf("%02x",gap_addr.addr[i-1]);
-            if(i-1 != 0)
-                atcmd_printf(":");
-        }
-        atcmd_printf("\r\n");
-        return AT_OK;
-    } 
-    else if (param->argc == 1)
-    {
-        int32_t ret;
-        if (strlen(param->argv[0]) != 12)
-            return AT_PARAM_ERROR;
-        for (int i = 0 ; i < strlen(param->argv[0]) ; i++) {
-            if ((param->argv[0][i] < 0x30 || param->argv[0][i] > 0x39) && 
-                (param->argv[0][i] < 0x41 || param->argv[0][i] > 0x46) && 
-                (param->argv[0][i] < 0x61 || param->argv[0][i] > 0x66)) {
-                return AT_PARAM_ERROR;
-            }
-        }
-        if(udrv_ble_set_macaddress(param->argv[0]) != UDRV_RETURN_OK)
-            return AT_ERROR;
-
-        if(service_nvm_set_ble_mac_to_nvm(param->argv[0],strlen(param->argv[0])) != UDRV_RETURN_OK)
-            return AT_ERROR;
-
-        return AT_OK;
-    }
-    else 
-        return AT_PARAM_ERROR;
-
-}
-
-#endif
 #endif

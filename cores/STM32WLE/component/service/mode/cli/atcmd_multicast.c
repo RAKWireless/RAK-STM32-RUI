@@ -1,4 +1,3 @@
-#ifdef SUPPORT_AT
 #ifdef SUPPORT_LORA
 #include "atcmd_multicast.h"
 #include "udrv_errno.h"
@@ -12,83 +11,142 @@
 //at+rmvmulc=11223344
 int At_Addmulc(SERIAL_PORT port, char *cmd, stParam *param)
 {
-    int32_t ret;
+    if(SERVICE_LORAWAN != service_lora_get_nwm())
+    {
+        return AT_MODE_NO_SUPPORT;
+    }
+    uint8_t McAppSKey[16], McNwkSKey[16], Address[4];
+    char hex_num[5] = {0};
+
     McSession_t McSession;
-
-    if(SERVICE_LORAWAN != service_lora_get_nwm())
-    {
-        return AT_MODE_NO_SUPPORT;
-    }
-
-    if( param->argc < 4 || param->argc > 7)
-        return AT_PARAM_ERROR;
-
-    if ((strcmp(param->argv[0],"b") == 0) || (strcmp(param->argv[0],"B") == 0))
-        McSession.Devclass = 1;
-    else if((strcmp(param->argv[0],"c") == 0) || (strcmp(param->argv[0],"C") == 0))
-        McSession.Devclass = 2;
-    else
-        return AT_PARAM_ERROR;
-
-    if( 0 != at_check_hex_uint32(param->argv[1],&McSession.Address) )
-        return AT_PARAM_ERROR;
-    if( 0 != at_check_hex_param(param->argv[2],32,McSession.McNwkSKey) )
-        return AT_PARAM_ERROR;
-    if( 0 != at_check_hex_param(param->argv[3],32,McSession.McAppSKey) )
-        return AT_PARAM_ERROR;
-
-    //Set default value parameters 
-    McSession.Frequency = 0;
-    McSession.Datarate = 0;
-    McSession.Periodicity = 0;
-
-    //Frequency point and DR must be set at the same time
-    if(param->argc == 5)
-        return AT_PARAM_ERROR;
-    if(param->argc >= 6)
-    {
-        uint32_t Datarate_u32;
-        if( 0 != at_check_digital_uint32_t(param->argv[4], &McSession.Frequency) )
-            return AT_PARAM_ERROR;
-        if( 0 != at_check_digital_uint32_t( param->argv[5], &Datarate_u32))
-            return AT_PARAM_ERROR;
-        McSession.Datarate = Datarate_u32;
-    }
-
-    if ((param->argc == 7)&&(McSession.Devclass == 1))
-    {
-        uint32_t Periodicity_u32;
-        if( 0 != at_check_digital_uint32_t( param->argv[6], &Periodicity_u32))
-            return AT_PARAM_ERROR;
-        if( Periodicity_u32 > 7)
-            return AT_PARAM_ERROR;
-        McSession.Periodicity = (uint16_t)Periodicity_u32;
-    }
-
-    ret = service_lora_addmulc(McSession);
-    
-    if(ret == -UDRV_PARAM_ERR)
-        return AT_PARAM_ERROR;
-    return ret;
-}
-
-int At_Rmvmulc(SERIAL_PORT port, char *cmd, stParam *param)
-{
-    uint32_t addr;
-    if(SERVICE_LORAWAN != service_lora_get_nwm())
-    {
-        return AT_MODE_NO_SUPPORT;
-    }
-    
-    if (param->argc != 1 )
+    if (param->argc == 1 && !strcmp(param->argv[0], "?"))
     {
         /* This command is unreadable and can only be set */
         return AT_PARAM_ERROR;
     }
-    if( 0 != at_check_hex_uint32(param->argv[0],&addr) )
+    else if (param->argc >= 4)
+    {
+        if ((strcmp(param->argv[0],"b") == 0) || (strcmp(param->argv[0],"B") == 0))
+        {
+            McSession.Devclass = 1;
+            // if(param->argc != 7)
+            // return AT_PARAM_ERROR;
+        }
+        else if((strcmp(param->argv[0],"c") == 0) || (strcmp(param->argv[0],"C") == 0))
+        {
+            McSession.Devclass = 2;
+        }
+        else
+        {
+            return AT_PARAM_ERROR;
+        }
+
+        if((strlen(param->argv[2])!=32)||(strlen(param->argv[3])!=32)||(strlen(param->argv[1])!=8))
+        {
+            return AT_PARAM_ERROR;
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+            memcpy(hex_num, &param->argv[1][i * 2], 2);
+            Address[i] = strtoul(hex_num, NULL, 16);
+        }
+
+        McSession.Address = Address[0] << 24 | Address[1] << 16 | Address[2] << 8 | Address[3];
+
+        for (int i = 0; i < 16; i++)
+        {
+            memcpy(hex_num, &param->argv[2][i * 2], 2);
+            McNwkSKey[i] = strtoul(hex_num, NULL, 16);
+        }
+
+        for (int i = 0; i < 16; i++)
+        {
+            memcpy(hex_num, &param->argv[3][i * 2], 2);
+            McAppSKey[i] = strtoul(hex_num, NULL, 16);
+        }
+        memcpy(McSession.McAppSKey, McAppSKey, 16);
+        memcpy(McSession.McNwkSKey, McNwkSKey, 16);
+
+        //Set default value parameters 
+        if(param->argc == 4)
+        {
+            McSession.Frequency = 0;
+            McSession.Datarate = 0;
+            if(McSession.Devclass == 1)
+                McSession.Periodicity = 0;
+            else
+                McSession.Periodicity = 0;
+        }
+
+        //Frequency point and DR must be set at the same time 
+        if(param->argc == 5)
+        {
+            //if(strlen(param->argv[4])!=9)
+            return AT_PARAM_ERROR;
+            //McSession.Frequency = strtoul(param->argv[4], 0, 10);
+        }
+        if(param->argc >= 6)
+        {
+            if((strlen(param->argv[5])>2)||(strlen(param->argv[4])!=9))
+            return AT_PARAM_ERROR;
+            McSession.Frequency = strtoul(param->argv[4], 0, 10);
+            McSession.Datarate = strtoul(param->argv[5], 0, 10);
+            McSession.Periodicity =0;
+        }
+
+        if ((param->argc == 7)&&(McSession.Devclass == 1))
+        {
+            if(strlen(param->argv[6])!=1)
+            return AT_PARAM_ERROR;
+            McSession.Periodicity = strtoul(param->argv[6], 0, 10);
+            if(McSession.Periodicity>7)
+            return AT_PARAM_ERROR;
+        }
+        return service_lora_addmulc(McSession);
+       
+    }
+    else
+    {
         return AT_PARAM_ERROR;
-    if(service_lora_rmvmulc(addr) != AT_OK)
+    }
+
+}
+
+int At_Rmvmulc(SERIAL_PORT port, char *cmd, stParam *param)
+{
+    if(SERVICE_LORAWAN != service_lora_get_nwm())
+    {
+        return AT_MODE_NO_SUPPORT;
+    }
+    char hex_num[5] = {0};
+    uint8_t Address[4];
+    uint32_t addr;
+
+    if (param->argc == 1 && !strcmp(param->argv[0], "?"))
+    {
+        /* This command is unreadable and can only be set */
         return AT_PARAM_ERROR;
+    }
+    else if (param->argc == 1)
+    {
+        if(strlen(param->argv[0])!=8)
+        {
+            return AT_PARAM_ERROR;
+        }
+        for (int i = 0; i < 4; i++)
+        {
+            memcpy(hex_num, &param->argv[0][i * 2], 2);
+            Address[i] = strtoul(hex_num, NULL, 16);
+        }
+        addr = Address[0] << 24 | Address[1] << 16 | Address[2] << 8 | Address[3];
+        if(service_lora_rmvmulc(addr) != AT_OK)
+        return AT_PARAM_ERROR;
+    }
+    else
+    {
+        return AT_PARAM_ERROR;
+    }
     return AT_OK;
 }
 
@@ -151,5 +209,4 @@ int At_Lstmulc(SERIAL_PORT port, char *cmd, stParam *param)
         return AT_PARAM_ERROR;
     }
 }
-#endif
 #endif
