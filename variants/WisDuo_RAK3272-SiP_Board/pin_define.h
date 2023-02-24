@@ -1,6 +1,8 @@
 #ifndef __PIN_DEFINE_H__
 #define __PIN_DEFINE_H__
 
+#include "variant.h"
+
 #define RAK_PA0                 0
 #define RAK_PA1                 1
 #define RAK_PA2                 2
@@ -49,11 +51,11 @@
 #define SPIM1_MISO              RAK_PA6
 #define SPIM1_SCK               RAK_PA5
 
-#define _ADC1                    RAK_PB3
-#define _ADC2                    RAK_PB4
-#define _ADC3                    RAK_PB2
-#define _ADC4                    RAK_PA10
-#define _ADC5                    RAK_PA15
+#define _ADC1                   PIN_A0 
+#define _ADC2                   PIN_A1
+#define _ADC3                   PIN_A2
+#define _ADC4                   PIN_A3
+#define _ADC5                   PIN_A4
 
 #define SWDIO                   RAK_PA13
 #define SWCLK                   RAK_PA14

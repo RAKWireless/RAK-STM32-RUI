@@ -8,13 +8,11 @@ extern "C" {
 #include <stdint.h>
 #include <udrv_timer.h>
 
-#define POWERSAVE_NO_TIMEOUT 0
-
 typedef void (*POWER_SAVE_HANDLER) (void);
 
 //The structure of powersave function 
 struct udrv_powersave_api {
-    void (*MCU_SLEEP) (void);
+    void (*MCU_SLEEP) (uint32_t level);
     void (*SYS_CLOCK_INIT) (void);
     void (*SYS_CLOCK_ON) (void);
     void (*SYS_CLOCK_OFF) (void);
@@ -22,9 +20,9 @@ struct udrv_powersave_api {
 
 void udrv_powersave_wake_lock (void);
 void udrv_powersave_wake_unlock (void);
-void udrv_mcu_sleep_ms (uint32_t ms_time);
+int32_t udrv_mcu_sleep_ms (uint32_t ms_time);
 void udrv_radio_sleep_ms (uint32_t ms_time);
-void udrv_sleep_ms (uint32_t ms_time);
+int32_t udrv_sleep_ms (uint32_t ms_time);
 void udrv_clock_init (void);
 void udrv_clock_on (void);
 void udrv_clock_off (void);

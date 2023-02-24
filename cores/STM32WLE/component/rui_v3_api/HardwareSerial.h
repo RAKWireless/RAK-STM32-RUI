@@ -32,6 +32,7 @@ using namespace std;
 #define SERIAL_8E1 0x26
 #define SERIAL_5E2 0x28
 #define SERIAL_6E2 0x2C
+#define SERIAL_7E2 0x2D
 #define SERIAL_8E2 0x2E
 #define SERIAL_5O1 0x30
 #define SERIAL_6O1 0x32
@@ -116,6 +117,7 @@ class HardwareSerial : public Stream
 #else
     /**@par	Description
      *      	Sets the data rate in bits per second (baud) for serial data transmission
+     * @note For RAK3172/RAK3172-SiP/RAK3172LP-SiP, Baudrate is only allow maximum 115200
      *
      * @par	Syntax
      *      	Serial.begin(baud);\n
@@ -356,6 +358,11 @@ class HardwareSerial : public Stream
     /**@}*/
 };
 
+#define SERIAL_PORT_MONITOR         Serial
+#define SERIAL_PORT_USBVIRTUAL      Serial
+
+#define SERIAL_PORT_HARDWARE        Serial1
+#define SERIAL_PORT_HARDWARE_OPEN   Serial1
 
 extern HardwareSerial Serial;
 extern HardwareSerial Serial0;

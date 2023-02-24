@@ -9,6 +9,8 @@
 #ifndef __SERVICE_LORA_H__
 #define __SERVICE_LORA_H__
 
+#ifdef SUPPORT_LORA
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -20,6 +22,7 @@ extern "C"
 #include "LoRaMac.h"
 #include "LoRaMacTypes.h"
 #include "LmHandlerTypes.h"
+#include "secure-element.h"
 
 #define SERVICE_LORA_DLINK_BUFF_SIZE 256
 
@@ -53,6 +56,12 @@ extern "C"
         SERVICE_LORA_CLASS_B_S3,
         SERVICE_LORA_CLASS_B_COMPLETED,
     } SERVICE_LORA_CLASS_B_STATE;
+
+    typedef enum _TIMEREQ_STATE
+    {
+       TIMEREQ_DISABLED,
+       TIMEREQ_ENABLED
+    } TIMEREQ_STATE;
 
     typedef struct SERVICE_LORA_RECEIVE
     {
@@ -322,6 +331,8 @@ extern "C"
 
     int32_t service_lora_set_nwk_skey(uint8_t *buff, uint32_t len);
 
+    int32_t service_lora_get_McRoot_key(uint8_t *buff);
+
     int32_t service_lora_set_lora_default(void);
 
     uint8_t service_lora_get_retry(void);
@@ -465,8 +476,24 @@ extern "C"
     void service_lora_suspend(void);
 
     void service_lora_resume(void);
+
+    uint8_t service_lora_get_timereq(void);
+
+    int32_t service_lora_set_timereq(uint8_t mode);
+
+    void service_lora_systemMaxRxError(void);
+
+    int32_t service_lora_get_lbt();
+    int32_t service_lora_set_lbt(uint8_t enable);
+    int16_t service_lora_get_lbt_rssi();
+    int32_t service_lora_set_lbt_rssi(int16_t rssi);
+    uint32_t service_lora_get_lbt_scantime();
+    int32_t service_lora_set_lbt_scantime(uint32_t time);
+
 #ifdef __cplusplus
 }
 #endif
+
+#endif // end SUPPORT_LORA
 
 #endif // __SERVICE_LORA_H__

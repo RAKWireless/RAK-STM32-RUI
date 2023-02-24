@@ -41,8 +41,8 @@ extern const uint32_t g_ADigitalPinMap[];
 #define PA8                 8//IO2
 #define PA9                 9//IO6 or I2C2_SCL
 #define PA10                10//IO7 or I2C2_SDA
-#define PA11                11//I2C2_SDA
-#define PA12                12//I2C2_SCL
+#define PA11                11//I2C1_SDA
+#define PA12                12//I2C1_SCL
 #define PA13                13//SWDIO
 #define PA14                14//SWCLK
 #define PA15                15//IO5
@@ -104,13 +104,18 @@ extern const uint32_t g_ADigitalPinMap[];
 /*
  * Analog pins
  */
-#define PIN_A0 PB3
-#define PIN_A1 PB4
+#define PIN_A0 WB_A0
+#define PIN_A1 WB_A1
+#define PIN_A2 PB2
+#define PIN_A3 PA10
+#define PIN_A4 PA15
 
 #define A0 PIN_A0
 #define A1 PIN_A1
-
-
+#define A2 PIN_A2
+#define A3 PIN_A3
+#define A4 PIN_A4
+ 
 /*
  * Serial interfaces
  */

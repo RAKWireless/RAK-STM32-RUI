@@ -475,7 +475,6 @@
 #define __USES_INITFINI__ 1
 #define stm32wle5xx 1
 #define SUPPORT_LORA 1
-#define LORA_RF_LP 1
 #define LORA_IO_SPI_PORT 2
 #define SYS_RTC_COUNTER_PORT 2
 #define ATCMD_CUST_TABLE_SIZE 64
@@ -501,6 +500,7 @@
 #define LORAMAC_CLASSB_ENABLED 1
 #define WISBLOCK_BASE_5005_O 1
 #define SUPPORT_SPI 1
+#define SUPPORT_AT 1
 # 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacClassB.c"
 # 20 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacClassB.c"
 # 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/math.h" 1 3
@@ -6560,6 +6560,16 @@ SecureElementStatus_t SecureElementSetPin( uint8_t* pin );
 
 
 uint8_t* SecureElementGetPin( void );
+
+
+
+
+
+
+# 224 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/secure-element.h" 3 4
+_Bool 
+# 224 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/secure-element.h"
+    Get_McRoot_Key(uint8_t *key);
 # 23 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacClassB.c" 2
 # 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 1
 # 67 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
@@ -11247,6 +11257,8 @@ int32_t udrv_system_timer_start (SysTimerID_E timer_id, uint32_t count, void *m_
 int32_t udrv_system_timer_stop (SysTimerID_E timer_id);
 
 void udrv_system_timer_handler_handler (void *pdata);
+
+unsigned long udrv_get_microsecond(void);
 # 11 "/home/jenkins/workspace/RUI_Release/rui-v3/component/udrv/system/udrv_system.h" 2
 
 #define RANDOM_LENGTH 4
@@ -11289,6 +11301,8 @@ typedef struct
     void *p_context;
 } udrv_system_event_t;
 
+typedef void (*UDRV_TASK_HANDLER) (void);
+
 void udrv_system_event_init(void);
 
 int32_t udrv_system_event_produce(udrv_system_event_t *event);
@@ -11296,8 +11310,7 @@ int32_t udrv_system_event_produce(udrv_system_event_t *event);
 void udrv_system_event_consume(void);
 
 void udrv_system_reboot(void);
-
-
+# 69 "/home/jenkins/workspace/RUI_Release/rui-v3/component/udrv/system/udrv_system.h"
 void udrv_system_critical_section_begin(uint32_t *mask);
 
 void udrv_system_critical_section_end (uint32_t *mask);
@@ -11311,6 +11324,12 @@ int32_t udrv_system_user_app_timer_create (timer_handler tmr_handler, TimerMode_
 int32_t udrv_system_user_app_timer_start (uint32_t count, void *m_data);
 
 int32_t udrv_system_user_app_timer_stop (void);
+
+int32_t udrv_create_thread(char *name, UDRV_TASK_HANDLER handler);
+void udrv_destroy_thread(char *name);
+void udrv_destroy_myself(void);
+void udrv_thread_lock(void);
+void udrv_thread_unlock(void);
 # 32 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacClassB.c" 2
 
 

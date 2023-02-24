@@ -10,17 +10,17 @@ ENTRY(Reset_Handler)
 /* Highest address of the user mode stack */
 _estack = ORIGIN(RAM1) + LENGTH(RAM1); /* end of "SRAM1" Ram type memory */
 
-_Min_Heap_Size = 0x200;      /* required amount of heap  */
+_Min_Heap_Size = 0x1E00;      /* required amount of heap  */
 _Min_Stack_Size = 0x2000; /* required amount of stack */
-
+BOOT_VERSION = 0x08005000;
 /* Memories definition */
 MEMORY
 {
   BL     (rx)    : ORIGIN = 0x08000000, LENGTH = 24K    /* Bootloader */
   ROM    (rx)    : ORIGIN = 0x08006000, LENGTH = 196K   /* Application */
 /*Originally RAM1 and RAM2 are the same size: 32K, but it is not enough size for stack*/
-  RAM1   (xrw)   : ORIGIN = 0x20000000, LENGTH = 56K    /* Non-backup SRAM1 */
-  RAM2   (xrw)   : ORIGIN = 0x2000E000, LENGTH = 8K    /* Backup SRAM2 */
+  RAM1   (xrw)   : ORIGIN = 0x20000000, LENGTH = 63K    /* Non-backup SRAM1 */
+  RAM2   (xrw)   : ORIGIN = 0x2000FC00, LENGTH = 1K    /* Backup SRAM2 */
 }
 
 /* Sections */

@@ -7,6 +7,8 @@
  * @FilePath: \rui-v3-all\component\service\lora\service_lora_multicast.c
  */
 
+#ifdef SUPPORT_LORA
+
 #include "service_lora_multicast.h"
 #include <stddef.h>
 #include <stdint.h>
@@ -39,7 +41,7 @@ int32_t service_lora_addmulc(McSession_t McSession)
     for (i = 0; i < 4; i++)
     {
         if (McSession.Address == McSession_group[i].Address)
-            return -UDRV_WRONG_ARG;
+            return -UDRV_PARAM_ERR;
     }
 
     for (i = 0; i < 4; i++)
@@ -114,7 +116,7 @@ int32_t service_lora_addmulc(McSession_t McSession)
                         channel.RxParams.ClassC.Datarate = 0;
                         break;
                         default:
-                        return UDRV_INTERNAL_ERR;
+                        return -UDRV_PARAM_ERR;
                     }
                     McSession.Frequency = channel.RxParams.ClassC.Frequency;
                     McSession.Datarate = channel.RxParams.ClassC.Datarate;
@@ -175,7 +177,7 @@ int32_t service_lora_addmulc(McSession_t McSession)
                         channel.RxParams.ClassB.Datarate = 3;
                         break;
                         default:
-                        return UDRV_INTERNAL_ERR;
+                        return -UDRV_PARAM_ERR;
                     }
 
                     McSession.Frequency = channel.RxParams.ClassB.Frequency;
@@ -186,17 +188,17 @@ int32_t service_lora_addmulc(McSession_t McSession)
             }
             if (LoRaMacMcChannelSetup(&channel) != LORAMAC_STATUS_OK)
             {
-                return -UDRV_INTERNAL_ERR;
+                return -UDRV_PARAM_ERR;
             }
 
 
             if (LoRaMacMcChannelSetupRxParams(channel.GroupID, &channel.RxParams, &status) != LORAMAC_STATUS_OK)
             {
-                return -UDRV_INTERNAL_ERR;
+                return -UDRV_PARAM_ERR;
             }
             if((status & 0xFC) != 0x00)
             {
-                return -UDRV_WRONG_ARG;
+                return -UDRV_PARAM_ERR;
             }
 
             memcpy(&McSession_group[i], &McSession, sizeof(McSession_t));   
@@ -212,7 +214,7 @@ int32_t service_lora_addmulc(McSession_t McSession)
      if (i == 4)
     {
         memset(&McSession_group[i], 0, sizeof(McSession_t));
-        return -UDRV_INTERNAL_ERR;
+        return -UDRV_PARAM_ERR;
     }
 
     return UDRV_RETURN_OK;
@@ -246,17 +248,34 @@ int32_t service_lora_rmvmulc(uint32_t devaddr)
 
 int32_t service_lora_lstmulc(McSession_t *iterator)
 {
-    for (int i = 1 ; i <= LORAMAC_MAX_MC_CTX ; i++)
+    static uint8_t entry_Initialized = false;
+    McSession_t empty;
+    memset(&empty,0,sizeof(McSession_t));
+  
+    uint8_t j=1;
+    for (int i = 0 ; i < LORAMAC_MAX_MC_CTX ; i++)
     {
-        McSession_group[i].entry = i;
+        //The initial value of j is 1 , To avoid empty multicast group
+        McSession_group[i].entry = j++;
+    }
+    
+    //If an empty structure is passed in, the first group needs to be returned
+    if(!memcmp(iterator,&empty,sizeof(McSession_t)))
+    {
+        memcpy(iterator, &McSession_group[0], sizeof(McSession_t));
+        return -UDRV_CONTINUE;
     }
 
+    
+    LORA_TEST_DEBUG("iterator->entry %d",iterator->entry);
+   
     for (int i = 0 ; i < LORAMAC_MAX_MC_CTX ; i++)     
     {
+        //If equal , return to next group
         if (!memcmp(iterator, &McSession_group[i], sizeof(McSession_t)))   
         {
             if (i == (LORAMAC_MAX_MC_CTX-1)) 
-            {//This is the last call
+            {   //This is the last call
                 return UDRV_RETURN_OK;
             } 
             else 
@@ -268,11 +287,11 @@ int32_t service_lora_lstmulc(McSession_t *iterator)
         }
         else //
         {
-            LORA_TEST_DEBUG("i=%d",i);
-            
+            LORA_TEST_DEBUG("i=%d",i);        
         }
     }
-    //This is the first call
+    LORA_TEST_DEBUG();
+    //If there are no equal groups, return to the first group
     memcpy(iterator, &McSession_group[0], sizeof(McSession_t));
     return -UDRV_CONTINUE;
 }
@@ -320,3 +339,5 @@ int32_t service_lora_clear_multicast(void)
     }
     return UDRV_RETURN_OK;
 }
+
+#endif

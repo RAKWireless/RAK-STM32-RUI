@@ -475,7 +475,6 @@
 #define __USES_INITFINI__ 1
 #define stm32wle5xx 1
 #define SUPPORT_LORA 1
-#define LORA_RF_LP 1
 #define LORA_IO_SPI_PORT 2
 #define SYS_RTC_COUNTER_PORT 2
 #define ATCMD_CUST_TABLE_SIZE 64
@@ -501,6 +500,7 @@
 #define LORAMAC_CLASSB_ENABLED 1
 #define WISBLOCK_BASE_5005_O 1
 #define SUPPORT_SPI 1
+#define SUPPORT_AT 1
 # 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
 # 33 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
 # 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/boards/utilities.h" 1
@@ -10363,6 +10363,16 @@ SecureElementStatus_t SecureElementSetPin( uint8_t* pin );
 
 
 uint8_t* SecureElementGetPin( void );
+
+
+
+
+
+
+# 224 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/secure-element.h" 3 4
+_Bool 
+# 224 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/secure-element.h"
+    Get_McRoot_Key(uint8_t *key);
 # 38 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 2
 # 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTest.h" 1
 # 37 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacTest.h"
@@ -11087,13 +11097,7 @@ extern const struct Radio_s Radio;
 # 1 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_arssi.h" 1
 
 #define __SERVICE_LORA_ARSSI_H__ 
-
-
-
-
-
-
-
+# 12 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_arssi.h"
 typedef struct chan_rssi_t
 {
     uint32_t chan;
@@ -11168,6 +11172,8 @@ int32_t udrv_system_timer_start (SysTimerID_E timer_id, uint32_t count, void *m_
 int32_t udrv_system_timer_stop (SysTimerID_E timer_id);
 
 void udrv_system_timer_handler_handler (void *pdata);
+
+unsigned long udrv_get_microsecond(void);
 # 11 "/home/jenkins/workspace/RUI_Release/rui-v3/component/udrv/system/udrv_system.h" 2
 
 #define RANDOM_LENGTH 4
@@ -11210,6 +11216,8 @@ typedef struct
     void *p_context;
 } udrv_system_event_t;
 
+typedef void (*UDRV_TASK_HANDLER) (void);
+
 void udrv_system_event_init(void);
 
 int32_t udrv_system_event_produce(udrv_system_event_t *event);
@@ -11217,8 +11225,7 @@ int32_t udrv_system_event_produce(udrv_system_event_t *event);
 void udrv_system_event_consume(void);
 
 void udrv_system_reboot(void);
-
-
+# 69 "/home/jenkins/workspace/RUI_Release/rui-v3/component/udrv/system/udrv_system.h"
 void udrv_system_critical_section_begin(uint32_t *mask);
 
 void udrv_system_critical_section_end (uint32_t *mask);
@@ -11232,6 +11239,12 @@ int32_t udrv_system_user_app_timer_create (timer_handler tmr_handler, TimerMode_
 int32_t udrv_system_user_app_timer_start (uint32_t count, void *m_data);
 
 int32_t udrv_system_user_app_timer_stop (void);
+
+int32_t udrv_create_thread(char *name, UDRV_TASK_HANDLER handler);
+void udrv_destroy_thread(char *name);
+void udrv_destroy_myself(void);
+void udrv_thread_lock(void);
+void udrv_thread_unlock(void);
 # 51 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 2
 
 
@@ -13449,6 +13462,16 @@ static void ProcessMacCommands( uint8_t *payload, uint8_t macIndex, uint8_t comm
                     status = RegionLinkAdrReq( Nvm.MacGroup2.Region, &linkAdrReq, &linkAdrDatarate,
                                                &linkAdrTxPower, &linkAdrNbRep, &linkAdrNbBytesParsed );
 
+
+                    if(Nvm.MacGroup2.AdrCtrlOn == 
+# 1960 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+                                                 0
+# 1960 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+                                                      )
+                    {
+                        status = 0x00;
+                    }
+
                     if( ( status & 0x07 ) == 0x07 )
                     {
                         Nvm.MacGroup1.ChannelsDatarate = linkAdrDatarate;
@@ -13510,13 +13533,13 @@ static void ProcessMacCommands( uint8_t *payload, uint8_t macIndex, uint8_t comm
             {
                 uint8_t batteryLevel = BAT_LEVEL_NO_MEASURE;
                 if( ( MacCtx.MacCallbacks != 
-# 2019 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2025 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                             ((void *)0) 
-# 2019 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2025 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                  ) && ( MacCtx.MacCallbacks->GetBatteryLevel != 
-# 2019 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2025 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                                                                 ((void *)0) 
-# 2019 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2025 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                                                                      ) )
                 {
                     batteryLevel = MacCtx.MacCallbacks->GetBatteryLevel( );
@@ -13629,9 +13652,9 @@ static void ProcessMacCommands( uint8_t *payload, uint8_t macIndex, uint8_t comm
             case SRV_MAC_DEVICE_TIME_ANS:
             {
                 if( LoRaMacConfirmQueueIsCmdActive( MLME_DEVICE_TIME ) == 
-# 2130 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2136 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                                          1 
-# 2130 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2136 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                                               )
                 {
                     LoRaMacConfirmQueueSetStatus( LORAMAC_EVENT_INFO_STATUS_OK, MLME_DEVICE_TIME );
@@ -13662,9 +13685,9 @@ static void ProcessMacCommands( uint8_t *payload, uint8_t macIndex, uint8_t comm
                     SysTimeSet( sysTime );
                     LoRaMacClassBDeviceTimeAns( );
                     MacCtx.McpsIndication.DeviceTimeAnsReceived = 
-# 2159 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2165 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                                  1
-# 2159 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2165 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                                      ;
                 }
                 break;
@@ -13672,9 +13695,9 @@ static void ProcessMacCommands( uint8_t *payload, uint8_t macIndex, uint8_t comm
             case SRV_MAC_PING_SLOT_INFO_ANS:
             {
                 if( LoRaMacConfirmQueueIsCmdActive( MLME_PING_SLOT_INFO ) == 
-# 2165 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2171 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                                             1 
-# 2165 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2171 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                                                  )
                 {
                     LoRaMacConfirmQueueSetStatus( LORAMAC_EVENT_INFO_STATUS_OK, MLME_PING_SLOT_INFO );
@@ -13707,9 +13730,9 @@ static void ProcessMacCommands( uint8_t *payload, uint8_t macIndex, uint8_t comm
             case SRV_MAC_BEACON_TIMING_ANS:
             {
                 if( LoRaMacConfirmQueueIsCmdActive( MLME_BEACON_TIMING ) == 
-# 2196 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2202 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                                            1 
-# 2196 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2202 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                                                 )
                 {
                     LoRaMacConfirmQueueSetStatus( LORAMAC_EVENT_INFO_STATUS_OK, MLME_BEACON_TIMING );
@@ -13734,9 +13757,9 @@ static void ProcessMacCommands( uint8_t *payload, uint8_t macIndex, uint8_t comm
                     frequency *= 100;
 
                     if( LoRaMacClassBBeaconFreqReq( frequency ) == 
-# 2219 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2225 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                                   1 
-# 2219 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2225 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                                        )
                     {
                         macCmdPayload[0] = 1;
@@ -13790,9 +13813,9 @@ LoRaMacStatus_t Send( LoRaMacHeader_t* macHdr, uint8_t fPort, void* fBuffer, uin
 
 
     if( Nvm.MacGroup1.SrvAckRequested == 
-# 2271 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2277 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                         1 
-# 2271 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2277 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                              )
     {
         fCtrl.Bits.Ack = 1;
@@ -13801,9 +13824,9 @@ LoRaMacStatus_t Send( LoRaMacHeader_t* macHdr, uint8_t fPort, void* fBuffer, uin
 
     adrNext.Version = Nvm.MacGroup2.Version;
     adrNext.UpdateChanMask = 
-# 2278 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2284 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                             1
-# 2278 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2284 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                 ;
     adrNext.AdrEnabled = fCtrl.Bits.Adr;
     adrNext.AdrAckCounter = Nvm.MacGroup1.AdrAckCounter;
@@ -13825,9 +13848,9 @@ LoRaMacStatus_t Send( LoRaMacHeader_t* macHdr, uint8_t fPort, void* fBuffer, uin
     {
 
         status = ScheduleTx( 
-# 2298 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2304 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                             0 
-# 2298 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2304 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                   );
     }
 
@@ -13843,9 +13866,9 @@ LoRaMacStatus_t Send( LoRaMacHeader_t* macHdr, uint8_t fPort, void* fBuffer, uin
     {
 
         Nvm.MacGroup1.SrvAckRequested = 
-# 2312 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2318 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                        0
-# 2312 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2318 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                             ;
         Nvm.MacGroup1.AdrAckCounter = adrAckCounter;
 
@@ -13863,13 +13886,13 @@ LoRaMacStatus_t SendReJoinReq( JoinReqIdentifier_t joinReqType )
     LoRaMacHeader_t macHdr;
     macHdr.Value = 0;
     
-# 2328 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2334 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
    _Bool 
-# 2328 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2334 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
         allowDelayedTx = 
-# 2328 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2334 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                          1
-# 2328 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2334 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                              ;
 
 
@@ -13890,9 +13913,9 @@ LoRaMacStatus_t SendReJoinReq( JoinReqIdentifier_t joinReqType )
             memcpy1( MacCtx.TxMsg.Message.JoinReq.DevEUI, SecureElementGetDevEui( ), 8 );
 
             allowDelayedTx = 
-# 2347 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2353 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                             0
-# 2347 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2353 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                  ;
 
             break;
@@ -13910,9 +13933,9 @@ LoRaMacStatus_t SendReJoinReq( JoinReqIdentifier_t joinReqType )
 static LoRaMacStatus_t CheckForClassBCollision( void )
 {
     if( LoRaMacClassBIsBeaconExpected( ) == 
-# 2363 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2369 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                            1 
-# 2363 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2369 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                 )
     {
         return LORAMAC_STATUS_BUSY_BEACON_RESERVED_TIME;
@@ -13921,17 +13944,17 @@ static LoRaMacStatus_t CheckForClassBCollision( void )
     if( Nvm.MacGroup2.DeviceClass == CLASS_B )
     {
         if( LoRaMacClassBIsPingExpected( ) == 
-# 2370 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2376 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                              1 
-# 2370 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2376 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                   )
         {
             return LORAMAC_STATUS_BUSY_PING_SLOT_WINDOW_TIME;
         }
         else if( LoRaMacClassBIsMulticastExpected( ) == 
-# 2374 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2380 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                        1 
-# 2374 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2380 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                             )
         {
             return LORAMAC_STATUS_BUSY_PING_SLOT_WINDOW_TIME;
@@ -13981,9 +14004,9 @@ static LoRaMacStatus_t VerifyTxFrame( void )
         }
 
         if( ValidatePayloadLength( MacCtx.AppDataSize, Nvm.MacGroup1.ChannelsDatarate, macCmdsSize ) == 
-# 2422 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2428 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                                                                        0 
-# 2422 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2428 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                                                                              )
         {
             return LORAMAC_STATUS_LENGTH_ERROR;
@@ -14023,9 +14046,9 @@ static LoRaMacStatus_t SerializeTxFrame( void )
 }
 
 static LoRaMacStatus_t ScheduleTx( 
-# 2460 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2466 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                   _Bool 
-# 2460 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2466 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                        allowDelayedTx )
 {
     LoRaMacStatus_t status = LORAMAC_STATUS_PARAMETER_INVALID;
@@ -14054,14 +14077,14 @@ static LoRaMacStatus_t ScheduleTx(
     nextChan.ElapsedTimeSinceStartUp = SysTimeSub( SysTimeGetMcuTime( ), Nvm.MacGroup2.InitializationTime );
     nextChan.LastAggrTx = Nvm.MacGroup1.LastTxDoneTime;
     nextChan.LastTxIsJoinRequest = 
-# 2487 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2493 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                   0
-# 2487 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2493 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                        ;
     nextChan.Joined = 
-# 2488 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2494 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                      1
-# 2488 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2494 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                          ;
     nextChan.PktLen = MacCtx.PktBufferLen;
 
@@ -14069,14 +14092,14 @@ static LoRaMacStatus_t ScheduleTx(
     if( Nvm.MacGroup2.NetworkActivation == ACTIVATION_TYPE_NONE )
     {
         nextChan.LastTxIsJoinRequest = 
-# 2494 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2500 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                       1
-# 2494 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2500 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                           ;
         nextChan.Joined = 
-# 2495 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2501 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                          0
-# 2495 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2501 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                               ;
     }
 
@@ -14087,9 +14110,9 @@ static LoRaMacStatus_t ScheduleTx(
     {
         if( ( status == LORAMAC_STATUS_DUTYCYCLE_RESTRICTED ) &&
             ( allowDelayedTx == 
-# 2504 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2510 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                1 
-# 2504 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2510 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                     ) )
         {
 
@@ -14212,9 +14235,9 @@ static void ResetMacParameters( void )
     MacCtx.AckTimeoutRetries = 1;
     MacCtx.AckTimeoutRetriesCounter = 1;
     MacCtx.AckTimeoutRetry = 
-# 2625 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2631 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                             0
-# 2625 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2631 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                  ;
 
     Nvm.MacGroup2.MaxDCycle = 0;
@@ -14231,14 +14254,14 @@ static void ResetMacParameters( void )
     Nvm.MacGroup2.MacParams.AntennaGain = Nvm.MacGroup2.MacParamsDefaults.AntennaGain;
 
     MacCtx.NodeAckRequested = 
-# 2640 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2646 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                              0
-# 2640 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2646 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                   ;
     Nvm.MacGroup1.SrvAckRequested = 
-# 2641 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2647 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                    0
-# 2641 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2647 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                         ;
 
 
@@ -14256,38 +14279,38 @@ static void ResetMacParameters( void )
     MacCtx.RxWindow2Config.Frequency = Nvm.MacGroup2.MacParams.Rx2Channel.Frequency;
     MacCtx.RxWindow2Config.DownlinkDwellTime = Nvm.MacGroup2.MacParams.DownlinkDwellTime;
     MacCtx.RxWindow2Config.RxContinuous = 
-# 2657 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2663 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                          0
-# 2657 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2663 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                               ;
     MacCtx.RxWindow2Config.RxSlot = RX_SLOT_WIN_2;
 
 
     MacCtx.RxWindowCConfig = MacCtx.RxWindow2Config;
     MacCtx.RxWindowCConfig.RxContinuous = 
-# 2662 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2668 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                          1
-# 2662 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2668 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                              ;
     MacCtx.RxWindowCConfig.RxSlot = RX_SLOT_WIN_CLASS_C;
 
 
 
     classBCallbacks.GetTemperatureLevel = 
-# 2667 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2673 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                          ((void *)0)
-# 2667 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2673 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                              ;
     classBCallbacks.MacProcessNotify = 
-# 2668 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2674 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                       ((void *)0)
-# 2668 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2674 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                           ;
 
     if( MacCtx.MacCallbacks != 
-# 2670 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2676 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                               ((void *)0) 
-# 2670 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2676 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                    )
     {
         classBCallbacks.GetTemperatureLevel = MacCtx.MacCallbacks->GetTemperatureLevel;
@@ -14321,9 +14344,9 @@ static void RxWindowSetup( UTIL_TIMER_Object_t* rxTimer, RxConfigParams_t* rxCon
     Radio.Standby( );
 
     if( RegionRxConfig( Nvm.MacGroup2.Region, rxConfig, ( int8_t* )&MacCtx.McpsIndication.RxDatarate ) == 
-# 2702 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2708 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                                                                          1 
-# 2702 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2708 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                                                                               )
     {
         Radio.Rx( Nvm.MacGroup2.MacParams.MaxRxWindow );
@@ -14343,17 +14366,17 @@ static void OpenContinuousRxCWindow( void )
     MacCtx.RxWindowCConfig.RxSlot = RX_SLOT_WIN_CLASS_C;
 
     MacCtx.RxWindowCConfig.RxContinuous = 
-# 2720 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2726 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                          1
-# 2720 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2726 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                              ;
 
 
 
     if( RegionRxConfig( Nvm.MacGroup2.Region, &MacCtx.RxWindowCConfig, ( int8_t* )&MacCtx.McpsIndication.RxDatarate ) == 
-# 2724 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2730 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                                                                                         1 
-# 2724 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2730 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                                                                                              )
     {
         Radio.Rx( 0 );
@@ -14365,18 +14388,18 @@ LoRaMacStatus_t PrepareFrame( LoRaMacHeader_t* macHdr, LoRaMacFrameCtrl_t* fCtrl
 {
     MacCtx.PktBufferLen = 0;
     MacCtx.NodeAckRequested = 
-# 2734 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2740 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                              0
-# 2734 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2740 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                   ;
     uint32_t fCntUp = 0;
     size_t macCmdsSize = 0;
     uint8_t availableSize = 0;
 
     if( fBuffer == 
-# 2739 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2745 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                   ((void *)0) 
-# 2739 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2745 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                        )
     {
         fBufferSize = 0;
@@ -14390,9 +14413,9 @@ LoRaMacStatus_t PrepareFrame( LoRaMacHeader_t* macHdr, LoRaMacFrameCtrl_t* fCtrl
     {
         case FRAME_TYPE_DATA_CONFIRMED_UP:
             MacCtx.NodeAckRequested = 
-# 2751 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2757 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                      1
-# 2751 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2757 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                          ;
 
         case FRAME_TYPE_DATA_UNCONFIRMED_UP:
@@ -14415,9 +14438,9 @@ LoRaMacStatus_t PrepareFrame( LoRaMacHeader_t* macHdr, LoRaMacFrameCtrl_t* fCtrl
 
             MacCtx.McpsConfirm.NbRetries = 0;
             MacCtx.McpsConfirm.AckReceived = 
-# 2772 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2778 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                             0
-# 2772 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2778 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                  ;
             MacCtx.McpsConfirm.UpLinkCounter = fCntUp;
 
@@ -14470,9 +14493,9 @@ LoRaMacStatus_t PrepareFrame( LoRaMacHeader_t* macHdr, LoRaMacFrameCtrl_t* fCtrl
             break;
         case FRAME_TYPE_PROPRIETARY:
             if( ( fBuffer != 
-# 2823 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2829 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                             ((void *)0) 
-# 2823 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2829 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                  ) && ( MacCtx.AppDataSize > 0 ) )
             {
                 memcpy1( MacCtx.PktBuffer + 1, ( uint8_t* ) fBuffer, MacCtx.AppDataSize );
@@ -14511,9 +14534,9 @@ LoRaMacStatus_t SendFrameOnChannel( uint8_t channel )
     MacCtx.MlmeConfirm.TxTimeOnAir = MacCtx.TxTimeOnAir;
 
     if( LoRaMacClassBIsBeaconModeActive( ) == 
-# 2860 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2866 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                              1 
-# 2860 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2866 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                   )
     {
 
@@ -14543,9 +14566,9 @@ LoRaMacStatus_t SendFrameOnChannel( uint8_t channel )
 
     MacCtx.MacState |= LORAMAC_TX_RUNNING;
     if( MacCtx.NodeAckRequested == 
-# 2888 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2894 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                   0 
-# 2888 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2894 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                         )
     {
         MacCtx.ChannelsNbTransCounter++;
@@ -14595,9 +14618,9 @@ LoRaMacStatus_t RestoreNvmData( LoRaMacNvmData_t* nvm )
 
 
     if( nvm == 
-# 2936 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2942 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
               ((void *)0) 
-# 2936 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2942 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                    )
     {
         return LORAMAC_STATUS_PARAMETER_INVALID;
@@ -14638,9 +14661,9 @@ LoRaMacStatus_t RestoreNvmData( LoRaMacNvmData_t* nvm )
         MacCtx.RxWindowCConfig.Frequency = Nvm.MacGroup2.MacParams.RxCChannel.Frequency;
         MacCtx.RxWindowCConfig.DownlinkDwellTime = Nvm.MacGroup2.MacParams.DownlinkDwellTime;
         MacCtx.RxWindowCConfig.RxContinuous = 
-# 2975 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 2981 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                              1
-# 2975 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 2981 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                  ;
         MacCtx.RxWindowCConfig.RxSlot = RX_SLOT_WIN_CLASS_C;
     }
@@ -14677,18 +14700,18 @@ LoRaMacStatus_t RestoreNvmData( LoRaMacNvmData_t* nvm )
 LoRaMacStatus_t DetermineFrameType( LoRaMacMessageData_t* macMsg, FType_t* fType )
 {
     if( ( macMsg == 
-# 3010 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3016 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                    ((void *)0) 
-# 3010 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3016 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                         ) || ( fType == 
-# 3010 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3016 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                         ((void *)0) 
-# 3010 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3016 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                              ) )
     {
         return LORAMAC_STATUS_PARAMETER_INVALID;
     }
-# 3035 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3041 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
     if( ( macMsg->FHDR.FCtrl.Bits.FOptsLen > 0 ) && ( macMsg->FPort > 0 ) )
     {
         *fType = FRAME_TYPE_A;
@@ -14715,9 +14738,9 @@ LoRaMacStatus_t DetermineFrameType( LoRaMacMessageData_t* macMsg, FType_t* fType
 }
 
 static 
-# 3060 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3066 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
       _Bool 
-# 3060 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3066 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
            CheckRetransUnconfirmedUplink( void )
 {
 
@@ -14725,9 +14748,9 @@ static
         Nvm.MacGroup2.MacParams.ChannelsNbTrans )
     {
         return 
-# 3066 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3072 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
               1
-# 3066 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3072 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                   ;
     }
     else if( MacCtx.MacFlags.Bits.McpsInd == 1 )
@@ -14736,9 +14759,9 @@ static
         if( Nvm.MacGroup2.DeviceClass == CLASS_A )
         {
             return 
-# 3073 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3079 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                   1
-# 3073 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3079 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                       ;
         }
         else
@@ -14746,24 +14769,24 @@ static
             if( MacCtx.McpsIndication.RxSlot == RX_SLOT_WIN_1 )
             {
                 return 
-# 3079 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3085 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                       1
-# 3079 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3085 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                           ;
             }
         }
     }
     return 
-# 3083 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3089 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
           0
-# 3083 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3089 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                ;
 }
 
 static 
-# 3086 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3092 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
       _Bool 
-# 3086 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3092 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
            CheckRetransConfirmedUplink( void )
 {
 
@@ -14771,37 +14794,37 @@ static
         MacCtx.AckTimeoutRetries )
     {
         return 
-# 3092 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3098 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
               1
-# 3092 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3098 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                   ;
     }
     else if( MacCtx.MacFlags.Bits.McpsInd == 1 )
     {
         if( MacCtx.McpsConfirm.AckReceived == 
-# 3096 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3102 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                              1 
-# 3096 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3102 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                   )
         {
             return 
-# 3098 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3104 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                   1
-# 3098 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3104 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                       ;
         }
     }
     return 
-# 3101 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3107 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
           0
-# 3101 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3107 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                ;
 }
 
 static 
-# 3104 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3110 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
       _Bool 
-# 3104 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3110 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
            StopRetransmission( void )
 {
     if( ( MacCtx.MacFlags.Bits.McpsInd == 0 ) ||
@@ -14810,9 +14833,9 @@ static
     {
 
         if( Nvm.MacGroup2.AdrCtrlOn == 
-# 3111 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3117 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                       1 
-# 3111 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3117 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                            )
         {
             Nvm.MacGroup1.AdrAckCounter++;
@@ -14821,35 +14844,35 @@ static
 
     MacCtx.ChannelsNbTransCounter = 0;
     MacCtx.NodeAckRequested = 
-# 3118 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3124 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                              0
-# 3118 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3124 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                   ;
     MacCtx.AckTimeoutRetry = 
-# 3119 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3125 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                             0
-# 3119 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3125 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                  ;
     MacCtx.MacState &= ~LORAMAC_TX_RUNNING;
 
     return 
-# 3122 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3128 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
           1
-# 3122 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3128 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
               ;
 }
 
 static void CallNvmDataChangeCallback( uint16_t notifyFlags )
 {
     if( ( MacCtx.MacCallbacks != 
-# 3127 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3133 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                 ((void *)0) 
-# 3127 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3133 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                      ) &&
         ( MacCtx.MacCallbacks->NvmDataChange != 
-# 3128 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3134 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                 ((void *)0) 
-# 3128 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3134 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                      ) )
     {
         MacCtx.MacCallbacks->NvmDataChange ( notifyFlags );
@@ -14878,9 +14901,9 @@ static void AckTimeoutRetriesProcess( void )
 static void AckTimeoutRetriesFinalize( void )
 {
     if( MacCtx.McpsConfirm.AckReceived == 
-# 3155 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3161 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                          0 
-# 3155 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3161 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                )
     {
         InitDefaultsParams_t params;
@@ -14890,14 +14913,14 @@ static void AckTimeoutRetriesFinalize( void )
         RegionInitDefaults( Nvm.MacGroup2.Region, &params );
 
         MacCtx.NodeAckRequested = 
-# 3163 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3169 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                  0
-# 3163 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3169 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                       ;
         MacCtx.McpsConfirm.AckReceived = 
-# 3164 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3170 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                         0
-# 3164 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3170 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                              ;
     }
     MacCtx.McpsConfirm.NbRetries = MacCtx.AckTimeoutRetriesCounter;
@@ -14920,47 +14943,47 @@ LoRaMacStatus_t LoRaMacInitialization( LoRaMacPrimitives_t* primitives, LoRaMacC
     PhyParam_t phyParam;
 
     if( ( primitives == 
-# 3185 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3191 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                        ((void *)0) 
-# 3185 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3191 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                             ) ||
         ( callbacks == 
-# 3186 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3192 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                       ((void *)0) 
-# 3186 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3192 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                            ) )
     {
         return LORAMAC_STATUS_PARAMETER_INVALID;
     }
 
     if( ( primitives->MacMcpsConfirm == 
-# 3191 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3197 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                        ((void *)0) 
-# 3191 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3197 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                             ) ||
         ( primitives->MacMcpsIndication == 
-# 3192 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3198 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                           ((void *)0) 
-# 3192 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3198 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                ) ||
         ( primitives->MacMlmeConfirm == 
-# 3193 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3199 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                        ((void *)0) 
-# 3193 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3199 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                             ) ||
         ( primitives->MacMlmeIndication == 
-# 3194 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3200 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                           ((void *)0) 
-# 3194 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3200 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                ) )
     {
         return LORAMAC_STATUS_PARAMETER_INVALID;
     }
 
     if( RegionIsActive( region ) == 
-# 3199 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3205 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                    0 
-# 3199 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3205 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                          )
     {
         return LORAMAC_STATUS_REGION_NOT_SUPPORTED;
@@ -14986,9 +15009,9 @@ LoRaMacStatus_t LoRaMacInitialization( LoRaMacPrimitives_t* primitives, LoRaMacC
     getPhy.Attribute = PHY_DUTY_CYCLE;
     phyParam = RegionGetPhyParam( Nvm.MacGroup2.Region, &getPhy );
     Nvm.MacGroup2.DutyCycleOn = ( 
-# 3223 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3229 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                  _Bool 
-# 3223 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3229 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                       ) phyParam.Value;
 
     getPhy.Attribute = PHY_DEF_TX_POWER;
@@ -15080,9 +15103,9 @@ LoRaMacStatus_t LoRaMacInitialization( LoRaMacPrimitives_t* primitives, LoRaMacC
     ResetMacParameters( );
 
     Nvm.MacGroup2.PublicNetwork = 
-# 3313 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3319 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                  1
-# 3313 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3319 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                      ;
 
     MacCtx.MacPrimitives = primitives;
@@ -15096,24 +15119,24 @@ LoRaMacStatus_t LoRaMacInitialization( LoRaMacPrimitives_t* primitives, LoRaMacC
 
 
     do { UTIL_TIMER_Create( &MacCtx.TxDelayedTimer, ( ( uint32_t )~0 ), UTIL_TIMER_ONESHOT, OnTxDelayedTimerEvent, 
-# 3325 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3331 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
    ((void *)0)
-# 3325 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3331 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
    ); } while(0);
     do { UTIL_TIMER_Create( &MacCtx.RxWindowTimer1, ( ( uint32_t )~0 ), UTIL_TIMER_ONESHOT, OnRxWindow1TimerEvent, 
-# 3326 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3332 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
    ((void *)0)
-# 3326 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3332 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
    ); } while(0);
     do { UTIL_TIMER_Create( &MacCtx.RxWindowTimer2, ( ( uint32_t )~0 ), UTIL_TIMER_ONESHOT, OnRxWindow2TimerEvent, 
-# 3327 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3333 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
    ((void *)0)
-# 3327 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3333 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
    ); } while(0);
     do { UTIL_TIMER_Create( &MacCtx.AckTimeoutTimer, ( ( uint32_t )~0 ), UTIL_TIMER_ONESHOT, OnAckTimeoutTimerEvent, 
-# 3328 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3334 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
    ((void *)0)
-# 3328 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3334 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
    ); } while(0);
 
 
@@ -15171,9 +15194,9 @@ LoRaMacStatus_t LoRaMacStart( void )
 LoRaMacStatus_t LoRaMacStop( void )
 {
     if( LoRaMacIsBusy( ) == 
-# 3384 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3390 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                            0 
-# 3384 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3390 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                  )
     {
         MacCtx.MacState = LORAMAC_STOPPED;
@@ -15195,9 +15218,9 @@ LoRaMacStatus_t LoRaMacQueryTxPossible( uint8_t size, LoRaMacTxInfo_t* txInfo )
     size_t macCmdsSize = 0;
 
     if( txInfo == 
-# 3404 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3410 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                  ((void *)0) 
-# 3404 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3410 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                       )
     {
         return LORAMAC_STATUS_PARAMETER_INVALID;
@@ -15206,9 +15229,9 @@ LoRaMacStatus_t LoRaMacQueryTxPossible( uint8_t size, LoRaMacTxInfo_t* txInfo )
 
     adrNext.Version = Nvm.MacGroup2.Version;
     adrNext.UpdateChanMask = 
-# 3411 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3417 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                             0
-# 3411 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3417 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                  ;
     adrNext.AdrEnabled = Nvm.MacGroup2.AdrCtrlOn;
     adrNext.AdrAckCounter = Nvm.MacGroup1.AdrAckCounter;
@@ -15259,9 +15282,9 @@ LoRaMacStatus_t LoRaMacMibGetRequestConfirm( MibRequestConfirm_t* mibGet )
     PhyParam_t phyParam;
 
     if( mibGet == 
-# 3460 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3466 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                  ((void *)0) 
-# 3460 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3466 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                       )
     {
         return LORAMAC_STATUS_PARAMETER_INVALID;
@@ -15442,29 +15465,29 @@ LoRaMacStatus_t LoRaMacMibGetRequestConfirm( MibRequestConfirm_t* mibGet )
  case MIB_APP_S_KEY:
         {
             
-# 3639 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3645 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
            _Bool 
-# 3639 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3645 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                 found = 
-# 3639 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3645 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                         0
-# 3639 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3645 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                              ;
             for (int i = 0 ; i < 23 ; i++) {
                 if (Nvm.SecureElement.KeyList[i].KeyID == APP_S_KEY) {
                     mibGet->Param.AppSKey = Nvm.SecureElement.KeyList[i].KeyValue;
                     found = 
-# 3643 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3649 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                            1
-# 3643 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3649 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                ;
                     break;
                 }
             }
             if (found == 
-# 3647 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3653 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                         0
-# 3647 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3653 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                              ) {
                 status = LORAMAC_STATUS_SERVICE_UNKNOWN;
             }
@@ -15473,29 +15496,29 @@ LoRaMacStatus_t LoRaMacMibGetRequestConfirm( MibRequestConfirm_t* mibGet )
  case MIB_NWK_S_ENC_KEY:
         {
             
-# 3654 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3660 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
            _Bool 
-# 3654 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3660 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                 found = 
-# 3654 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3660 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                         0
-# 3654 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3660 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                              ;
             for (int i = 0 ; i < 23 ; i++) {
                 if (Nvm.SecureElement.KeyList[i].KeyID == NWK_S_ENC_KEY) {
                     mibGet->Param.NwkSEncKey = Nvm.SecureElement.KeyList[i].KeyValue;
                     found = 
-# 3658 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3664 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                            1
-# 3658 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3664 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                ;
                     break;
                 }
             }
             if (found == 
-# 3662 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3668 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                         0
-# 3662 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3668 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                              ) {
                 status = LORAMAC_STATUS_SERVICE_UNKNOWN;
             }
@@ -15517,9 +15540,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
     VerifyParams_t verify;
 
     if( mibSet == 
-# 3682 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3688 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                  ((void *)0) 
-# 3682 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3688 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                       )
     {
         return LORAMAC_STATUS_PARAMETER_INVALID;
@@ -15590,9 +15613,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
         case MIB_APP_KEY:
         {
             if( mibSet->Param.AppKey != 
-# 3751 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3757 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                        ((void *)0) 
-# 3751 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3757 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                             )
             {
                 if( LORAMAC_CRYPTO_SUCCESS != LoRaMacCryptoSetKey( APP_KEY, mibSet->Param.AppKey ) )
@@ -15609,9 +15632,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
         case MIB_NWK_KEY:
         {
             if( mibSet->Param.NwkKey != 
-# 3766 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3772 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                        ((void *)0) 
-# 3766 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3772 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                             )
             {
                 if( LORAMAC_CRYPTO_SUCCESS != LoRaMacCryptoSetKey( NWK_KEY, mibSet->Param.NwkKey ) )
@@ -15628,9 +15651,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
         case MIB_J_S_INT_KEY:
         {
             if( mibSet->Param.JSIntKey != 
-# 3781 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3787 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                          ((void *)0) 
-# 3781 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3787 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                               )
             {
                 if( LORAMAC_CRYPTO_SUCCESS != LoRaMacCryptoSetKey( J_S_INT_KEY, mibSet->Param.JSIntKey ) )
@@ -15647,9 +15670,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
         case MIB_J_S_ENC_KEY:
         {
             if( mibSet->Param.JSEncKey != 
-# 3796 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3802 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                          ((void *)0) 
-# 3796 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3802 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                               )
             {
                 if( LORAMAC_CRYPTO_SUCCESS != LoRaMacCryptoSetKey( J_S_ENC_KEY, mibSet->Param.JSEncKey ) )
@@ -15666,9 +15689,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
         case MIB_F_NWK_S_INT_KEY:
         {
             if( mibSet->Param.FNwkSIntKey != 
-# 3811 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3817 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                             ((void *)0) 
-# 3811 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3817 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                  )
             {
                 if( LORAMAC_CRYPTO_SUCCESS != LoRaMacCryptoSetKey( F_NWK_S_INT_KEY, mibSet->Param.FNwkSIntKey ) )
@@ -15685,9 +15708,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
         case MIB_S_NWK_S_INT_KEY:
         {
             if( mibSet->Param.SNwkSIntKey != 
-# 3826 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3832 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                             ((void *)0) 
-# 3826 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3832 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                  )
             {
                 if( LORAMAC_CRYPTO_SUCCESS != LoRaMacCryptoSetKey( S_NWK_S_INT_KEY, mibSet->Param.SNwkSIntKey ) )
@@ -15704,9 +15727,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
         case MIB_NWK_S_ENC_KEY:
         {
             if( mibSet->Param.NwkSEncKey != 
-# 3841 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3847 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                            ((void *)0) 
-# 3841 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3847 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                 )
             {
                 if( LORAMAC_CRYPTO_SUCCESS != LoRaMacCryptoSetKey( NWK_S_ENC_KEY, mibSet->Param.NwkSEncKey ) )
@@ -15723,9 +15746,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
         case MIB_APP_S_KEY:
         {
             if( mibSet->Param.AppSKey != 
-# 3856 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3862 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                         ((void *)0) 
-# 3856 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3862 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                              )
             {
                 if( LORAMAC_CRYPTO_SUCCESS != LoRaMacCryptoSetKey( APP_S_KEY, mibSet->Param.AppSKey ) )
@@ -15742,9 +15765,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
         case MIB_MC_KE_KEY:
         {
             if( mibSet->Param.McKEKey != 
-# 3871 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3877 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                         ((void *)0) 
-# 3871 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3877 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                              )
             {
                 if( LORAMAC_CRYPTO_SUCCESS != LoRaMacCryptoSetKey( MC_KE_KEY, mibSet->Param.McKEKey ) )
@@ -15761,9 +15784,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
         case MIB_MC_KEY_0:
         {
             if( mibSet->Param.McKey0 != 
-# 3886 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3892 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                        ((void *)0) 
-# 3886 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3892 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                             )
             {
                 if( LORAMAC_CRYPTO_SUCCESS != LoRaMacCryptoSetKey( MC_KEY_0, mibSet->Param.McKey0 ) )
@@ -15780,9 +15803,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
         case MIB_MC_APP_S_KEY_0:
         {
             if( mibSet->Param.McAppSKey0 != 
-# 3901 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3907 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                            ((void *)0) 
-# 3901 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3907 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                 )
             {
                 if( LORAMAC_CRYPTO_SUCCESS != LoRaMacCryptoSetKey( MC_APP_S_KEY_0, mibSet->Param.McAppSKey0 ) )
@@ -15799,9 +15822,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
         case MIB_MC_NWK_S_KEY_0:
         {
             if( mibSet->Param.McNwkSKey0 != 
-# 3916 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3922 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                            ((void *)0) 
-# 3916 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3922 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                 )
             {
                 if( LORAMAC_CRYPTO_SUCCESS != LoRaMacCryptoSetKey( MC_NWK_S_KEY_0, mibSet->Param.McNwkSKey0 ) )
@@ -15818,9 +15841,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
         case MIB_MC_KEY_1:
         {
             if( mibSet->Param.McKey1 != 
-# 3931 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3937 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                        ((void *)0) 
-# 3931 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3937 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                             )
             {
                 if( LORAMAC_CRYPTO_SUCCESS != LoRaMacCryptoSetKey( MC_KEY_1, mibSet->Param.McKey1 ) )
@@ -15837,9 +15860,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
         case MIB_MC_APP_S_KEY_1:
         {
             if( mibSet->Param.McAppSKey1 != 
-# 3946 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3952 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                            ((void *)0) 
-# 3946 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3952 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                 )
             {
                 if( LORAMAC_CRYPTO_SUCCESS != LoRaMacCryptoSetKey( MC_APP_S_KEY_1, mibSet->Param.McAppSKey1 ) )
@@ -15856,9 +15879,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
         case MIB_MC_NWK_S_KEY_1:
         {
             if( mibSet->Param.McNwkSKey1 != 
-# 3961 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3967 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                            ((void *)0) 
-# 3961 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3967 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                 )
             {
                 if( LORAMAC_CRYPTO_SUCCESS != LoRaMacCryptoSetKey( MC_NWK_S_KEY_1, mibSet->Param.McNwkSKey1 ) )
@@ -15875,9 +15898,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
         case MIB_MC_KEY_2:
         {
             if( mibSet->Param.McKey2 != 
-# 3976 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3982 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                        ((void *)0) 
-# 3976 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3982 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                             )
             {
                 if( LORAMAC_CRYPTO_SUCCESS != LoRaMacCryptoSetKey( MC_KEY_2, mibSet->Param.McKey2 ) )
@@ -15894,9 +15917,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
         case MIB_MC_APP_S_KEY_2:
         {
             if( mibSet->Param.McAppSKey2 != 
-# 3991 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 3997 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                            ((void *)0) 
-# 3991 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 3997 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                 )
             {
                 if( LORAMAC_CRYPTO_SUCCESS != LoRaMacCryptoSetKey( MC_APP_S_KEY_2, mibSet->Param.McAppSKey2 ) )
@@ -15913,9 +15936,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
         case MIB_MC_NWK_S_KEY_2:
         {
             if( mibSet->Param.McNwkSKey2 != 
-# 4006 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4012 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                            ((void *)0) 
-# 4006 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4012 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                 )
             {
                 if( LORAMAC_CRYPTO_SUCCESS != LoRaMacCryptoSetKey( MC_NWK_S_KEY_2, mibSet->Param.McNwkSKey2 ) )
@@ -15932,9 +15955,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
         case MIB_MC_KEY_3:
         {
             if( mibSet->Param.McKey3 != 
-# 4021 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4027 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                        ((void *)0) 
-# 4021 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4027 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                             )
             {
                 if( LORAMAC_CRYPTO_SUCCESS != LoRaMacCryptoSetKey( MC_KEY_3, mibSet->Param.McKey3 ) )
@@ -15951,9 +15974,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
         case MIB_MC_APP_S_KEY_3:
         {
             if( mibSet->Param.McAppSKey3 != 
-# 4036 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4042 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                            ((void *)0) 
-# 4036 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4042 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                 )
             {
                 if( LORAMAC_CRYPTO_SUCCESS != LoRaMacCryptoSetKey( MC_APP_S_KEY_3, mibSet->Param.McAppSKey3 ) )
@@ -15970,9 +15993,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
         case MIB_MC_NWK_S_KEY_3:
         {
             if( mibSet->Param.McNwkSKey3 != 
-# 4051 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4057 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                            ((void *)0) 
-# 4051 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4057 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                 )
             {
                 if( LORAMAC_CRYPTO_SUCCESS != LoRaMacCryptoSetKey( MC_NWK_S_KEY_3, mibSet->Param.McNwkSKey3 ) )
@@ -15996,11 +16019,11 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
         {
             verify.DatarateParams.Datarate = mibSet->Param.Rx2Channel.Datarate;
             verify.DatarateParams.DownlinkDwellTime = Nvm.MacGroup2.MacParams.DownlinkDwellTime;
-# 4083 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4089 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
             if( RegionVerify( Nvm.MacGroup2.Region, &verify, PHY_RX_DR ) != 
-# 4083 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4089 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                                            1 
-# 4083 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4089 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                                                 )
             {
                 status = LORAMAC_STATUS_PARAMETER_INVALID;
@@ -16009,9 +16032,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
             {
                 verify.Frequency = mibSet->Param.Rx2Channel.Frequency;
                 if( RegionVerify( Nvm.MacGroup2.Region, &verify, PHY_FREQUENCY ) != 
-# 4090 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4096 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                                                    1 
-# 4090 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4096 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                                                         )
                 {
                     status = LORAMAC_STATUS_PARAMETER_INVALID;
@@ -16029,9 +16052,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
             verify.DatarateParams.DownlinkDwellTime = Nvm.MacGroup2.MacParams.DownlinkDwellTime;
 
             if( RegionVerify( Nvm.MacGroup2.Region, &verify, PHY_RX_DR ) == 
-# 4106 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4112 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                                            1 
-# 4106 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4112 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                                                 )
             {
                 Nvm.MacGroup2.MacParamsDefaults.Rx2Channel = mibSet->Param.Rx2DefaultChannel;
@@ -16048,9 +16071,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
             verify.DatarateParams.DownlinkDwellTime = Nvm.MacGroup2.MacParams.DownlinkDwellTime;
 
             if( RegionVerify( Nvm.MacGroup2.Region, &verify, PHY_RX_DR ) == 
-# 4121 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4127 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                                            1 
-# 4121 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4127 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                                                 )
             {
                 Nvm.MacGroup2.MacParams.RxCChannel = mibSet->Param.RxCChannel;
@@ -16078,9 +16101,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
             verify.DatarateParams.DownlinkDwellTime = Nvm.MacGroup2.MacParams.DownlinkDwellTime;
 
             if( RegionVerify( Nvm.MacGroup2.Region, &verify, PHY_RX_DR ) == 
-# 4147 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4153 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                                            1 
-# 4147 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4153 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                                                 )
             {
                 Nvm.MacGroup2.MacParamsDefaults.RxCChannel = mibSet->Param.RxCDefaultChannel;
@@ -16097,9 +16120,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
             chanMaskSet.ChannelsMaskType = CHANNELS_DEFAULT_MASK;
 
             if( RegionChanMaskSet( Nvm.MacGroup2.Region, &chanMaskSet ) == 
-# 4162 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4168 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                                           0 
-# 4162 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4168 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                                                 )
             {
                 status = LORAMAC_STATUS_PARAMETER_INVALID;
@@ -16112,9 +16135,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
             chanMaskSet.ChannelsMaskType = CHANNELS_MASK;
 
             if( RegionChanMaskSet( Nvm.MacGroup2.Region, &chanMaskSet ) == 
-# 4173 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4179 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                                           0 
-# 4173 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4179 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                                                 )
             {
                 status = LORAMAC_STATUS_PARAMETER_INVALID;
@@ -16164,9 +16187,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
             verify.DatarateParams.Datarate = mibSet->Param.ChannelsDefaultDatarate;
 
             if( RegionVerify( Nvm.MacGroup2.Region, &verify, PHY_DEF_TX_DR ) == 
-# 4221 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4227 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                                                1 
-# 4221 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4227 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                                                     )
             {
                 Nvm.MacGroup2.ChannelsDatarateDefault = verify.DatarateParams.Datarate;
@@ -16183,9 +16206,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
             verify.DatarateParams.UplinkDwellTime = Nvm.MacGroup2.MacParams.UplinkDwellTime;
 
             if( RegionVerify( Nvm.MacGroup2.Region, &verify, PHY_TX_DR ) == 
-# 4236 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4242 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                                            1 
-# 4236 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4242 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                                                 )
             {
                 Nvm.MacGroup1.ChannelsDatarate = verify.DatarateParams.Datarate;
@@ -16201,9 +16224,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
             verify.TxPower = mibSet->Param.ChannelsDefaultTxPower;
 
             if( RegionVerify( Nvm.MacGroup2.Region, &verify, PHY_DEF_TX_POWER ) == 
-# 4250 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4256 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                                                   1 
-# 4250 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4256 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                                                        )
             {
                 Nvm.MacGroup2.ChannelsTxPowerDefault = verify.TxPower;
@@ -16219,9 +16242,9 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
             verify.TxPower = mibSet->Param.ChannelsTxPower;
 
             if( RegionVerify( Nvm.MacGroup2.Region, &verify, PHY_TX_POWER ) == 
-# 4264 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4270 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                                               1 
-# 4264 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4270 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                                                    )
             {
                 Nvm.MacGroup1.ChannelsTxPower = verify.TxPower;
@@ -16323,9 +16346,9 @@ LoRaMacStatus_t LoRaMacChannelRemove( uint8_t id )
     channelRemove.ChannelId = id;
 
     if( RegionChannelsRemove( Nvm.MacGroup2.Region, &channelRemove ) == 
-# 4364 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4370 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                                        0 
-# 4364 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4370 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                                              )
     {
         return LORAMAC_STATUS_PARAMETER_INVALID;
@@ -16348,9 +16371,9 @@ LoRaMacStatus_t LoRaMacMcChannelSetup( McChannelParams_t *channel )
     Nvm.MacGroup2.MulticastChannelList[channel->GroupID].ChannelParams = *channel;
 
     if( channel->IsRemotelySetup == 
-# 4385 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4391 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                    1 
-# 4385 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4391 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                         )
     {
         const KeyIdentifier_t mcKeys[4] = { MC_KEY_0, MC_KEY_1, MC_KEY_2, MC_KEY_3 };
@@ -16398,9 +16421,9 @@ LoRaMacStatus_t LoRaMacMcChannelDelete( AddressIdentifier_t groupID )
 
     if( ( groupID >= 4 ) ||
         ( Nvm.MacGroup2.MulticastChannelList[groupID].ChannelParams.IsEnabled == 
-# 4431 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4437 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                                                 0 
-# 4431 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4437 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                                                       ) )
     {
         return LORAMAC_STATUS_MC_GROUP_UNDEFINED;
@@ -16444,9 +16467,9 @@ LoRaMacStatus_t LoRaMacMcChannelSetupRxParams( AddressIdentifier_t groupID, McRx
 
     if( ( groupID >= 4 ) ||
         ( Nvm.MacGroup2.MulticastChannelList[groupID].ChannelParams.IsEnabled == 
-# 4473 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4479 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                                                 0 
-# 4473 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4479 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                                                       ) )
     {
         return LORAMAC_STATUS_MC_GROUP_UNDEFINED;
@@ -16466,9 +16489,9 @@ LoRaMacStatus_t LoRaMacMcChannelSetupRxParams( AddressIdentifier_t groupID, McRx
     verify.DatarateParams.DownlinkDwellTime = Nvm.MacGroup2.MacParams.DownlinkDwellTime;
 
     if( RegionVerify( Nvm.MacGroup2.Region, &verify, PHY_RX_DR ) == 
-# 4491 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4497 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                                    1 
-# 4491 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4497 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                                         )
     {
         *status &= 0xFB;
@@ -16484,9 +16507,9 @@ LoRaMacStatus_t LoRaMacMcChannelSetupRxParams( AddressIdentifier_t groupID, McRx
         verify.Frequency = rxParams->ClassC.Frequency;
     }
     if( RegionVerify( Nvm.MacGroup2.Region, &verify, PHY_FREQUENCY ) == 
-# 4505 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4511 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                                        1 
-# 4505 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4511 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                                             )
     {
         *status &= 0xF7;
@@ -16510,9 +16533,9 @@ LoRaMacStatus_t LoRaMacMcChannelSetupRxParams( AddressIdentifier_t groupID, McRx
             for( int8_t i = 0; i < 4; i++ )
             {
                 if( Nvm.MacGroup2.MulticastChannelList[i].ChannelParams.IsEnabled == 
-# 4527 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4533 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                                                     1 
-# 4527 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4533 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                                                          )
 
                 {
@@ -16524,16 +16547,16 @@ LoRaMacStatus_t LoRaMacMcChannelSetupRxParams( AddressIdentifier_t groupID, McRx
                     MacCtx.RxWindowCConfig.DownlinkDwellTime = Nvm.MacGroup2.MacParams.DownlinkDwellTime;
                     MacCtx.RxWindowCConfig.RxSlot = RX_SLOT_WIN_CLASS_C_MULTICAST;
                     MacCtx.RxWindowCConfig.RxContinuous = 
-# 4537 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4543 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                          1
-# 4537 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4543 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                              ;
 
 
                     MacCtx.NodeAckRequested = 
-# 4540 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4546 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                              0
-# 4540 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4546 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                   ;
 
                     Radio.Sleep( );
@@ -16555,25 +16578,25 @@ LoRaMacStatus_t LoRaMacMlmeRequest( MlmeReq_t* mlmeRequest )
     uint8_t macCmdPayload[2] = { 0x00, 0x00 };
 
     if( mlmeRequest == 
-# 4560 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4566 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                       ((void *)0) 
-# 4560 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4566 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                            )
     {
         return LORAMAC_STATUS_PARAMETER_INVALID;
     }
     if( LoRaMacIsBusy( ) == 
-# 4564 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4570 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                            1 
-# 4564 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4570 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                 )
     {
         return LORAMAC_STATUS_BUSY;
     }
     if( LoRaMacConfirmQueueIsFull( ) == 
-# 4568 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4574 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                        1 
-# 4568 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4574 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                             )
     {
         return LORAMAC_STATUS_BUSY;
@@ -16589,9 +16612,9 @@ LoRaMacStatus_t LoRaMacMlmeRequest( MlmeReq_t* mlmeRequest )
     queueElement.Request = mlmeRequest->Type;
     queueElement.Status = LORAMAC_EVENT_INFO_STATUS_ERROR;
     queueElement.RestrictCommonReadyToHandle = 
-# 4582 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4588 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                               0
-# 4582 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4588 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                    ;
 
     switch( mlmeRequest->Type )
@@ -16680,23 +16703,23 @@ LoRaMacStatus_t LoRaMacMlmeRequest( MlmeReq_t* mlmeRequest )
         {
 
             queueElement.RestrictCommonReadyToHandle = 
-# 4669 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4675 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                       1
-# 4669 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4675 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                           ;
 
             if( LoRaMacClassBIsAcquisitionInProgress( ) == 
-# 4671 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4677 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                           0 
-# 4671 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4677 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                                 )
             {
 
                 LoRaMacClassBSetBeaconState( BEACON_STATE_ACQUISITION );
                 LoRaMacClassBBeaconTimerEvent( 
-# 4675 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4681 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                               ((void *)0) 
-# 4675 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4681 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                    );
 
                 status = LORAMAC_STATUS_OK;
@@ -16719,9 +16742,9 @@ LoRaMacStatus_t LoRaMacMlmeRequest( MlmeReq_t* mlmeRequest )
         if( LoRaMacConfirmQueueGetCnt( ) == 0 )
         {
             MacCtx.NodeAckRequested = 
-# 4696 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4702 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                      0
-# 4696 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4702 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                           ;
             MacCtx.MacFlags.Bits.MlmeReq = 0;
         }
@@ -16745,27 +16768,27 @@ LoRaMacStatus_t LoRaMacMcpsRequest( McpsReq_t* mcpsRequest )
     uint16_t fBufferSize;
     int8_t datarate = 0;
     
-# 4718 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4724 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
    _Bool 
-# 4718 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4724 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
         readyToSend = 
-# 4718 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4724 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                       0
-# 4718 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4724 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                            ;
 
     if( mcpsRequest == 
-# 4720 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4726 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                       ((void *)0) 
-# 4720 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4726 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                            )
     {
         return LORAMAC_STATUS_PARAMETER_INVALID;
     }
     if( LoRaMacIsBusy( ) == 
-# 4724 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4730 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                            1 
-# 4724 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4730 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                 )
     {
         return LORAMAC_STATUS_BUSY;
@@ -16783,9 +16806,9 @@ LoRaMacStatus_t LoRaMacMcpsRequest( McpsReq_t* mcpsRequest )
         case MCPS_UNCONFIRMED:
         {
             readyToSend = 
-# 4740 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4746 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                          1
-# 4740 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4746 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                              ;
             MacCtx.AckTimeoutRetries = 1;
 
@@ -16799,9 +16822,9 @@ LoRaMacStatus_t LoRaMacMcpsRequest( McpsReq_t* mcpsRequest )
         case MCPS_CONFIRMED:
         {
             readyToSend = 
-# 4752 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4758 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                          1
-# 4752 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4758 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                              ;
             MacCtx.AckTimeoutRetries = ( ( ( mcpsRequest->Req.Confirmed.NbTrials ) < ( 8 ) ) ? ( mcpsRequest->Req.Confirmed.NbTrials ) : ( 8 ) );
 
@@ -16815,9 +16838,9 @@ LoRaMacStatus_t LoRaMacMcpsRequest( McpsReq_t* mcpsRequest )
         case MCPS_PROPRIETARY:
         {
             readyToSend = 
-# 4764 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4770 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                          1
-# 4764 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4770 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                              ;
             MacCtx.AckTimeoutRetries = 1;
 
@@ -16840,24 +16863,24 @@ LoRaMacStatus_t LoRaMacMcpsRequest( McpsReq_t* mcpsRequest )
     datarate = ( ( ( datarate ) > ( ( int8_t )phyParam.Value ) ) ? ( datarate ) : ( ( int8_t )phyParam.Value ) );
 
     if( readyToSend == 
-# 4785 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4791 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                       1 
-# 4785 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4791 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                            )
     {
         if( Nvm.MacGroup2.AdrCtrlOn == 
-# 4787 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4793 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                       0 
-# 4787 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4793 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                             )
         {
             verify.DatarateParams.Datarate = datarate;
             verify.DatarateParams.UplinkDwellTime = Nvm.MacGroup2.MacParams.UplinkDwellTime;
 
             if( RegionVerify( Nvm.MacGroup2.Region, &verify, PHY_TX_DR ) == 
-# 4792 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4798 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                                            1 
-# 4792 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4798 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                                                 )
             {
                 Nvm.MacGroup1.ChannelsDatarate = verify.DatarateParams.Datarate;
@@ -16877,9 +16900,9 @@ LoRaMacStatus_t LoRaMacMcpsRequest( McpsReq_t* mcpsRequest )
         else
         {
             MacCtx.NodeAckRequested = 
-# 4810 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4816 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                      0
-# 4810 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4816 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                           ;
         }
     }
@@ -16891,9 +16914,9 @@ LoRaMacStatus_t LoRaMacMcpsRequest( McpsReq_t* mcpsRequest )
 }
 
 void LoRaMacTestSetDutyCycleOn( 
-# 4820 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4826 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                _Bool 
-# 4820 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4826 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                     enable )
 {
     VerifyParams_t verify;
@@ -16901,9 +16924,9 @@ void LoRaMacTestSetDutyCycleOn(
     verify.DutyCycle = enable;
 
     if( RegionVerify( Nvm.MacGroup2.Region, &verify, PHY_DUTY_CYCLE ) == 
-# 4826 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
+# 4832 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c" 3 4
                                                                         1 
-# 4826 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
+# 4832 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.c"
                                                                              )
     {
         Nvm.MacGroup2.DutyCycleOn = enable;

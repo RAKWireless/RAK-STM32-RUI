@@ -1,3 +1,4 @@
+#ifdef SUPPORT_AT
 #ifdef SUPPORT_LORA
 #include <string.h>
 
@@ -149,7 +150,7 @@ int At_DataRate (SERIAL_PORT port, char *cmd, stParam *param)
     int32_t ret;
 
     if (param->argc == 1 && !strcmp(param->argv[0], "?")) {
-        atcmd_printf("%s=%u\r\n", cmd, service_lora_get_dr());
+        atcmd_printf("%s=%u\r\n", cmd, service_nvm_get_dr_from_nvm());
         return AT_OK;
     } else if (param->argc == 1) {
         uint32_t dr;
@@ -495,4 +496,123 @@ int At_LinkCheck(SERIAL_PORT port, char *cmd, stParam *param)
         return service_lora_set_linkcheck(linkcheck_mode);
     }
 }
+
+int At_Timereq(SERIAL_PORT port, char *cmd, stParam *param)
+{
+    int32_t ret = AT_OK;
+
+    if(SERVICE_LORAWAN != service_lora_get_nwm())
+    {
+        return AT_MODE_NO_SUPPORT;
+    }
+    
+    if (param->argc == 1 && !strcmp(param->argv[0], "?"))
+    {
+        atcmd_printf("%s=%d\r\n", cmd, service_lora_get_timereq());
+        return AT_OK;
+    }
+    else
+    {
+        uint8_t timereq_mode;
+
+        if (0 != at_check_digital_uint32_t(param->argv[0], &timereq_mode))
+        {
+            return AT_PARAM_ERROR;
+        }
+        if(timereq_mode>1)
+        {
+            return AT_PARAM_ERROR;
+        }
+        ret =  service_lora_set_timereq(timereq_mode);       
+    }
+    return at_error_code_form_udrv(ret);
+}
+
+int At_Lbt(SERIAL_PORT port, char *cmd, stParam *param)
+{
+    int32_t ret = AT_OK;
+
+    if(SERVICE_LORAWAN != service_lora_get_nwm())
+    {
+        return AT_MODE_NO_SUPPORT;
+    }
+    
+    if (param->argc == 1 && !strcmp(param->argv[0], "?"))
+    {
+        atcmd_printf("%s=%d\r\n", cmd, service_lora_get_lbt());
+        return AT_OK;
+    }
+    else
+    {
+        uint8_t enable;
+
+        if (0 != at_check_digital_uint32_t(param->argv[0], &enable))
+        {
+            return AT_PARAM_ERROR;
+        }
+        if(enable>1)
+        {
+            return AT_PARAM_ERROR;
+        }
+        ret =  service_lora_set_lbt(enable);       
+    }
+    return at_error_code_form_udrv(ret);
+
+}
+
+int At_LbtRssi(SERIAL_PORT port, char *cmd, stParam *param)
+{
+    int32_t ret = AT_OK;
+
+    if(SERVICE_LORAWAN != service_lora_get_nwm())
+    {
+        return AT_MODE_NO_SUPPORT;
+    }
+    
+    if (param->argc == 1 && !strcmp(param->argv[0], "?"))
+    {
+        atcmd_printf("%s=%d\r\n", cmd, service_lora_get_lbt_rssi());
+        return AT_OK;
+    }
+    else
+    {
+        int16_t rssi;
+        rssi = atoi(param->argv[0]);
+        ret =  service_lora_set_lbt_rssi(rssi);       
+    }
+    return at_error_code_form_udrv(ret);
+
+}
+
+int At_LbtScantime(SERIAL_PORT port, char *cmd, stParam *param)
+{
+    int32_t ret = AT_OK;
+
+    if(SERVICE_LORAWAN != service_lora_get_nwm())
+    {
+        return AT_MODE_NO_SUPPORT;
+    }
+    
+    if (param->argc == 1 && !strcmp(param->argv[0], "?"))
+    {
+        atcmd_printf("%s=%d\r\n", cmd, service_lora_get_lbt_scantime());
+        return AT_OK;
+    }
+    else
+    {
+        uint32_t time;
+
+        if (0 != at_check_digital_uint32_t(param->argv[0], &time))
+        {
+            return AT_PARAM_ERROR;
+        }
+        ret =  service_lora_set_lbt_scantime(time);       
+    }
+    return at_error_code_form_udrv(ret);
+
+}
+
+
+
+#endif
 #endif

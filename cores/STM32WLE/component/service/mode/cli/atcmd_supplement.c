@@ -1,3 +1,4 @@
+#ifdef SUPPORT_AT
 #ifdef SUPPORT_LORA
 #include <string.h>
 
@@ -48,23 +49,17 @@ int At_Mask(SERIAL_PORT port, char *cmd, stParam *param)
 
         if( band == SERVICE_LORA_US915 || band == SERVICE_LORA_AU915)
         {
-            if(mask_param>255)
+            if(mask_param> 0x100 )
+                return AT_PARAM_ERROR;
+        }
+        else if( band == SERVICE_LORA_CN470 )
+        {
+            if( mask_param > 0x800 && mask_param != 0x10ff)
                 return AT_PARAM_ERROR;
         }
 
         ret = service_lora_set_mask(&mask_param, true);
-        if (ret == UDRV_RETURN_OK)
-        {
-            return AT_OK;
-        }
-        else if (ret = -UDRV_BUSY)
-        {
-            return AT_BUSY_ERROR;
-        }
-        else
-        {
-            return AT_ERROR;
-        }
+        return at_error_code_form_udrv(ret);
     }
     else
     {
@@ -106,7 +101,7 @@ int At_Che(SERIAL_PORT port, char *cmd, stParam *param)
         }
         else
         {
-            return AT_ERROR;
+            return AT_MODE_NO_SUPPORT;
         }
 
         return AT_OK;
@@ -417,6 +412,7 @@ int At_Band(SERIAL_PORT port, char *cmd, stParam *param)
 
 int At_Chs(SERIAL_PORT port, char *cmd, stParam *param)
 {
+    uint8_t status = 0;
     if(SERVICE_LORAWAN != service_lora_get_nwm())
     {
         return AT_MODE_NO_SUPPORT;
@@ -426,7 +422,7 @@ int At_Chs(SERIAL_PORT port, char *cmd, stParam *param)
         int32_t freq;
 
         if((freq = service_lora_get_chs()) < 0) {
-            return AT_ERROR;
+            return AT_MODE_NO_SUPPORT;
         }
         atcmd_printf("%s=%d\r\n", cmd, service_lora_get_chs());
         return AT_OK;
@@ -442,17 +438,14 @@ int At_Chs(SERIAL_PORT port, char *cmd, stParam *param)
         }
 
         freq = strtoul(param->argv[0], NULL, 10);
-        if (service_lora_set_chs(freq) == UDRV_RETURN_OK) {
-            return AT_OK;
-        } else {
-            return AT_ERROR;
-        }
+        status = service_lora_set_chs(freq);
+        return at_error_code_form_udrv(status);
     } else {
         return AT_PARAM_ERROR;
     }
 }
 #endif
-
+#endif
 //int At_DelBLEBonds(SERIAL_PORT port, char *cmd, stParam *param)
 //{
 //    if (param->argc == 0)

@@ -21,6 +21,8 @@
 #ifndef __LMH_PACKAGE_H__
 #define __LMH_PACKAGE_H__
 
+#ifdef SUPPORT_LORA
+
 #include <stdint.h>
 #include <stdbool.h>
 #include "LmHandlerTypes.h"
@@ -28,7 +30,7 @@
 /*!
  * Maximum number of packages
  */
-#define PKG_MAX_NUMBER                              4
+#define PKG_MAX_NUMBER                              5
 
 typedef struct LmhPackage_s
 {
@@ -137,20 +139,13 @@ typedef struct LmhPackage_s
     * \retval status Returns \ref LORAMAC_HANDLER_SET if joined else \ref LORAMAC_HANDLER_RESET
     */
     LmHandlerErrorStatus_t ( *OnDeviceTimeRequest )( void );
-#if( LMH_SYS_TIME_UPDATE_NEW_API == 1 )
-    /*!
-     * Notifies the upper layer that the system time has been updated.
-     *
-     * \param [in] isSynchronized Indicates if the system time is synchronized in the range +/-1 second
-     * \param [in] timeCorrection Received time correction value
-     */
-    void ( *OnSysTimeUpdate )( bool isSynchronized, int32_t timeCorrection );
-#else
     /*!
      * Notifies the upper layer that the system time has been updated.
      */
     void ( *OnSysTimeUpdate )( void );
-#endif
+
 }LmhPackage_t;
+
+#endif // end SUPPORT_LORA
 
 #endif // __LMH_PACKAGE_H__

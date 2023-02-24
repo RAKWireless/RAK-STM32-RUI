@@ -56,6 +56,7 @@ build.float_flags=-mfpu=fpv4-sp-d16 -u _printf_float
 build.debug_flags=-DCFG_DEBUG=0
 build.logger_flags=-DCFG_LOGGER=1
 build.sysview_flags=-DCFG_SYSVIEW=0
+build.support_at_flag=-DSUPPORT_AT
 build.variant_h=variant.h
 
 # common compiler for nrf
@@ -66,7 +67,7 @@ lora.path={runtime.platform.path}/cores/{build.core}/external/lora
 
 # build.logger_flags and build.sysview_flags and intentionally empty,
 # to allow modification via a user's own boards.local.txt or platform.local.txt files.
-build.flags.default= {compiler.optimization_flag} {build.flags.feature} {build.debug_flags} {build.logger_flags} {build.sysview_flags} {build.flags.inc_path}
+build.flags.default= {compiler.optimization_flag} {build.flags.feature} {build.debug_flags} {build.logger_flags} {build.sysview_flags} {build.flags.inc_path} {build.support_at_flag}
 build.info.flags=-DVARIANT_H="{build.variant_h}"
 build.info.flags=-D{build.series}
 
@@ -157,4 +158,4 @@ tools.bootburn.bootloader.pattern={program.burn_pattern}
 tools.bootburn.erase.params.verbose=
 tools.bootburn.erase.params.quiet=
 tools.bootburn.erase.pattern=
-version=3.4.11
+version=4.0.0

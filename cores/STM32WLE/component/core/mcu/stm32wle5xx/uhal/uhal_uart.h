@@ -8,6 +8,7 @@
 #include "udrv_errno.h"
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #include "stm32wlxx_hal.h"
+#include "stm32wlxx_ll_usart.h"
 //atcmd+++++
 #include "udrv_system.h"
 #include "fund_circular_queue.h"

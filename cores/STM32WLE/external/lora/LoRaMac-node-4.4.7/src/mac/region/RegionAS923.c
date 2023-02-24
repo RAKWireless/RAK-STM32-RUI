@@ -475,7 +475,6 @@
 #define __USES_INITFINI__ 1
 #define stm32wle5xx 1
 #define SUPPORT_LORA 1
-#define LORA_RF_LP 1
 #define LORA_IO_SPI_PORT 2
 #define SYS_RTC_COUNTER_PORT 2
 #define ATCMD_CUST_TABLE_SIZE 64
@@ -501,6 +500,7 @@
 #define LORAMAC_CLASSB_ENABLED 1
 #define WISBLOCK_BASE_5005_O 1
 #define SUPPORT_SPI 1
+#define SUPPORT_AT 1
 # 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
 # 31 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
 # 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/radio/radio.h" 1
@@ -9805,13 +9805,7 @@ uint8_t RegionAS923SubBandGet();
 # 1 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h" 1
 
 #define __SERVICE_LORA_TEST_H__ 
-
-
-
-
-
-
-
+# 12 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h"
 # 1 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pin_define.h" 1
 
 #define __PIN_DEFINE_H__ 
@@ -42838,7 +42832,316 @@ enum {
   D20, D21
 # 533 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino_digital.h"
 };
+# 1119 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino_digital.h"
+#define digitalReadFast digitalRead
+#define digitalWriteFast digitalWrite
+#define pin_function pinMode
 # 27 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h" 2
+
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
+#define STM32WLxx_LL_GPIO_H 
+# 113 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
+#define LL_GPIO_PIN_0 GPIO_BSRR_BS0
+#define LL_GPIO_PIN_1 GPIO_BSRR_BS1
+#define LL_GPIO_PIN_2 GPIO_BSRR_BS2
+#define LL_GPIO_PIN_3 GPIO_BSRR_BS3
+#define LL_GPIO_PIN_4 GPIO_BSRR_BS4
+#define LL_GPIO_PIN_5 GPIO_BSRR_BS5
+#define LL_GPIO_PIN_6 GPIO_BSRR_BS6
+#define LL_GPIO_PIN_7 GPIO_BSRR_BS7
+#define LL_GPIO_PIN_8 GPIO_BSRR_BS8
+#define LL_GPIO_PIN_9 GPIO_BSRR_BS9
+#define LL_GPIO_PIN_10 GPIO_BSRR_BS10
+#define LL_GPIO_PIN_11 GPIO_BSRR_BS11
+#define LL_GPIO_PIN_12 GPIO_BSRR_BS12
+#define LL_GPIO_PIN_13 GPIO_BSRR_BS13
+#define LL_GPIO_PIN_14 GPIO_BSRR_BS14
+#define LL_GPIO_PIN_15 GPIO_BSRR_BS15
+#define LL_GPIO_PIN_ALL (GPIO_BSRR_BS0 | GPIO_BSRR_BS1 | GPIO_BSRR_BS2 | GPIO_BSRR_BS3 | GPIO_BSRR_BS4 | GPIO_BSRR_BS5 | GPIO_BSRR_BS6 | GPIO_BSRR_BS7 | GPIO_BSRR_BS8 | GPIO_BSRR_BS9 | GPIO_BSRR_BS10 | GPIO_BSRR_BS11 | GPIO_BSRR_BS12 | GPIO_BSRR_BS13 | GPIO_BSRR_BS14 | GPIO_BSRR_BS15)
+# 142 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
+#define LL_GPIO_MODE_INPUT (0x00000000U)
+#define LL_GPIO_MODE_OUTPUT GPIO_MODER_MODE0_0
+#define LL_GPIO_MODE_ALTERNATE GPIO_MODER_MODE0_1
+#define LL_GPIO_MODE_ANALOG GPIO_MODER_MODE0
+
+
+
+
+
+
+
+#define LL_GPIO_OUTPUT_PUSHPULL (0x00000000U)
+#define LL_GPIO_OUTPUT_OPENDRAIN GPIO_OTYPER_OT0
+
+
+
+
+
+
+
+#define LL_GPIO_SPEED_FREQ_LOW (0x00000000U)
+#define LL_GPIO_SPEED_FREQ_MEDIUM GPIO_OSPEEDR_OSPEED0_0
+#define LL_GPIO_SPEED_FREQ_HIGH GPIO_OSPEEDR_OSPEED0_1
+#define LL_GPIO_SPEED_FREQ_VERY_HIGH GPIO_OSPEEDR_OSPEED0
+
+
+
+
+
+
+
+#define LL_GPIO_PULL_NO (0x00000000U)
+#define LL_GPIO_PULL_UP GPIO_PUPDR_PUPD0_0
+#define LL_GPIO_PULL_DOWN GPIO_PUPDR_PUPD0_1
+
+
+
+
+
+
+
+#define LL_GPIO_AF_0 (0x0000000U)
+#define LL_GPIO_AF_1 (0x0000001U)
+#define LL_GPIO_AF_2 (0x0000002U)
+#define LL_GPIO_AF_3 (0x0000003U)
+#define LL_GPIO_AF_4 (0x0000004U)
+#define LL_GPIO_AF_5 (0x0000005U)
+#define LL_GPIO_AF_6 (0x0000006U)
+#define LL_GPIO_AF_7 (0x0000007U)
+#define LL_GPIO_AF_8 (0x0000008U)
+#define LL_GPIO_AF_9 (0x0000009U)
+#define LL_GPIO_AF_10 (0x000000AU)
+#define LL_GPIO_AF_11 (0x000000BU)
+#define LL_GPIO_AF_12 (0x000000CU)
+#define LL_GPIO_AF_13 (0x000000DU)
+#define LL_GPIO_AF_14 (0x000000EU)
+#define LL_GPIO_AF_15 (0x000000FU)
+# 223 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
+#define LL_GPIO_WriteReg(__INSTANCE__,__REG__,__VALUE__) WRITE_REG(__INSTANCE__->__REG__, (__VALUE__))
+
+
+
+
+
+
+
+#define LL_GPIO_ReadReg(__INSTANCE__,__REG__) READ_REG(__INSTANCE__->__REG__)
+# 279 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
+static inline void LL_GPIO_SetPinMode(GPIO_TypeDef *GPIOx, uint32_t Pin, uint32_t Mode)
+{
+
+
+
+  (((GPIOx->MODER)) = ((((((GPIOx->MODER))) & (~(((0x3UL << (0U)) << ((__CLZ(__RBIT(Pin))) * 2U))))) | ((Mode << ((__CLZ(__RBIT(Pin))) * 2U))))));
+
+}
+# 317 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
+static inline uint32_t LL_GPIO_GetPinMode(GPIO_TypeDef *GPIOx, uint32_t Pin)
+{
+
+
+
+  return (uint32_t)(((GPIOx->MODER) & (((0x3UL << (0U)) << ((__CLZ(__RBIT(Pin))) * 2U))))
+                                                                             >> ((__CLZ(__RBIT(Pin))) * 2U));
+
+}
+# 356 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
+static inline void LL_GPIO_SetPinOutputType(GPIO_TypeDef *GPIOx, uint32_t PinMask, uint32_t OutputType)
+{
+  (((GPIOx->OTYPER)) = ((((((GPIOx->OTYPER))) & (~(PinMask))) | ((PinMask * OutputType)))));
+}
+# 390 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
+static inline uint32_t LL_GPIO_GetPinOutputType(GPIO_TypeDef *GPIOx, uint32_t Pin)
+{
+
+
+
+  return (uint32_t)(((GPIOx->OTYPER) & (Pin)) >> (__CLZ(__RBIT(Pin))));
+
+}
+# 431 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
+static inline void LL_GPIO_SetPinSpeed(GPIO_TypeDef *GPIOx, uint32_t Pin, uint32_t Speed)
+{
+
+
+
+  (((GPIOx->OSPEEDR)) = ((((((GPIOx->OSPEEDR))) & (~(((0x3UL << (0U)) << ((__CLZ(__RBIT(Pin))) * 2U))))) | ((Speed << ((__CLZ(__RBIT(Pin))) * 2U))))))
+                                                 ;
+
+}
+# 472 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
+static inline uint32_t LL_GPIO_GetPinSpeed(GPIO_TypeDef *GPIOx, uint32_t Pin)
+{
+
+
+
+  return (uint32_t)(((GPIOx->OSPEEDR) & (((0x3UL << (0U)) << ((__CLZ(__RBIT(Pin))) * 2U))))
+                                                                                 >> ((__CLZ(__RBIT(Pin))) * 2U));
+
+}
+# 510 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
+static inline void LL_GPIO_SetPinPull(GPIO_TypeDef *GPIOx, uint32_t Pin, uint32_t Pull)
+{
+
+
+
+  (((GPIOx->PUPDR)) = ((((((GPIOx->PUPDR))) & (~(((0x3UL << (0U)) << ((__CLZ(__RBIT(Pin))) * 2U))))) | ((Pull << ((__CLZ(__RBIT(Pin))) * 2U))))));
+
+}
+# 546 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
+static inline uint32_t LL_GPIO_GetPinPull(GPIO_TypeDef *GPIOx, uint32_t Pin)
+{
+
+
+
+  return (uint32_t)(((GPIOx->PUPDR) & (((0x3UL << (0U)) << ((__CLZ(__RBIT(Pin))) * 2U))))
+                                                                             >> ((__CLZ(__RBIT(Pin))) * 2U));
+
+}
+# 590 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
+static inline void LL_GPIO_SetAFPin_0_7(GPIO_TypeDef *GPIOx, uint32_t Pin, uint32_t Alternate)
+{
+
+
+
+
+  (((GPIOx->AFR[0])) = ((((((GPIOx->AFR[0]))) & (~(((0xFUL << (0U)) << ((__CLZ(__RBIT(Pin))) * 4U))))) | ((Alternate << ((__CLZ(__RBIT(Pin))) * 4U))))))
+                                                     ;
+
+}
+# 632 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
+static inline uint32_t LL_GPIO_GetAFPin_0_7(GPIO_TypeDef *GPIOx, uint32_t Pin)
+{
+
+
+
+
+  return (uint32_t)(((GPIOx->AFR[0]) & (((0xFUL << (0U)) << ((__CLZ(__RBIT(Pin))) * 4U))))
+                                                                             >> ((__CLZ(__RBIT(Pin))) * 4U));
+
+}
+# 677 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
+static inline void LL_GPIO_SetAFPin_8_15(GPIO_TypeDef *GPIOx, uint32_t Pin, uint32_t Alternate)
+{
+
+
+
+
+  (((GPIOx->AFR[1])) = ((((((GPIOx->AFR[1]))) & (~(((0xFUL << (0U)) << ((__CLZ(__RBIT(Pin >> 8U))) * 4U))))) | ((Alternate << ((__CLZ(__RBIT(Pin >> 8U))) * 4U))))))
+                                                           ;
+
+}
+# 720 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
+static inline uint32_t LL_GPIO_GetAFPin_8_15(GPIO_TypeDef *GPIOx, uint32_t Pin)
+{
+
+
+
+
+
+  return (uint32_t)(((GPIOx->AFR[1]) & (((0xFUL << (0U)) << ((__CLZ(__RBIT(Pin >> 8U))) * 4U))))
+                                                                                   >> ((__CLZ(__RBIT(Pin >> 8U))) * 4U));
+
+}
+# 762 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
+static inline void LL_GPIO_LockPin(GPIO_TypeDef *GPIOx, uint32_t PinMask)
+{
+  volatile uint32_t temp;
+  ((GPIOx->LCKR) = ((0x1UL << (16U)) | PinMask));
+  ((GPIOx->LCKR) = (PinMask));
+  ((GPIOx->LCKR) = ((0x1UL << (16U)) | PinMask));
+
+  temp = ((GPIOx->LCKR));
+  (void) temp;
+}
+# 797 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
+static inline uint32_t LL_GPIO_IsPinLocked(GPIO_TypeDef *GPIOx, uint32_t PinMask)
+{
+  return ((((GPIOx->LCKR) & (PinMask)) == (PinMask)) ? 1UL : 0UL);
+}
+
+
+
+
+
+
+
+static inline uint32_t LL_GPIO_IsAnyPinLocked(GPIO_TypeDef *GPIOx)
+{
+  return ((((GPIOx->LCKR) & ((0x1UL << (16U)))) == ((0x1UL << (16U)))) ? 1UL : 0UL);
+}
+# 827 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
+static inline uint32_t LL_GPIO_ReadInputPort(GPIO_TypeDef *GPIOx)
+{
+  return (uint32_t)(((GPIOx->IDR)));
+}
+# 856 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
+static inline uint32_t LL_GPIO_IsInputPinSet(GPIO_TypeDef *GPIOx, uint32_t PinMask)
+{
+  return ((((GPIOx->IDR) & (PinMask)) == (PinMask)) ? 1UL : 0UL);
+}
+# 868 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
+static inline void LL_GPIO_WriteOutputPort(GPIO_TypeDef *GPIOx, uint32_t PortValue)
+{
+  ((GPIOx->ODR) = (PortValue));
+}
+
+
+
+
+
+
+
+static inline uint32_t LL_GPIO_ReadOutputPort(GPIO_TypeDef *GPIOx)
+{
+  return (uint32_t)(((GPIOx->ODR)));
+}
+# 908 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
+static inline uint32_t LL_GPIO_IsOutputPinSet(GPIO_TypeDef *GPIOx, uint32_t PinMask)
+{
+  return ((((GPIOx->ODR) & (PinMask)) == (PinMask)) ? 1UL : 0UL);
+}
+# 937 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
+static inline void LL_GPIO_SetOutputPin(GPIO_TypeDef *GPIOx, uint32_t PinMask)
+{
+  ((GPIOx->BSRR) = (PinMask));
+}
+# 966 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
+static inline void LL_GPIO_ResetOutputPin(GPIO_TypeDef *GPIOx, uint32_t PinMask)
+{
+  ((GPIOx->BRR) = (PinMask));
+}
+# 995 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h"
+static inline void LL_GPIO_TogglePin(GPIO_TypeDef *GPIOx, uint32_t PinMask)
+{
+  uint32_t odr = ((GPIOx->ODR));
+  ((GPIOx->BSRR) = (((odr & PinMask) << 16u) | (~odr & PinMask)));
+}
+# 29 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h" 2
+
+
+static const uint32_t pin_map_ll[16] = {
+  (0x1UL << (0U)),
+  (0x1UL << (1U)),
+  (0x1UL << (2U)),
+  (0x1UL << (3U)),
+  (0x1UL << (4U)),
+  (0x1UL << (5U)),
+  (0x1UL << (6U)),
+  (0x1UL << (7U)),
+  (0x1UL << (8U)),
+  (0x1UL << (9U)),
+  (0x1UL << (10U)),
+  (0x1UL << (11U)),
+  (0x1UL << (12U)),
+  (0x1UL << (13U)),
+  (0x1UL << (14U)),
+  (0x1UL << (15U))
+};
+#define STM_PIN(X) ((uint32_t)(X) & 0xF)
+
+#define STM_LL_GPIO_PIN(X) (pin_map_ll[STM_PIN(X)])
 
 
 
@@ -42861,30 +43164,30 @@ _Static_assert(0 <= 0,
 #define PIN_SPI_SS 4
 
 
-#define PIN_SPI_MOSI 11
+#define PIN_SPI_MOSI 7
 
 
-#define PIN_SPI_MISO 12
+#define PIN_SPI_MISO 6
 
 
-#define PIN_SPI_SCK 13
+#define PIN_SPI_SCK 5
 
 
 static const uint32_t SS = 4;
-static const uint32_t MOSI = 11;
-static const uint32_t MISO = 12;
-static const uint32_t SCK = 13;
+static const uint32_t MOSI = 7;
+static const uint32_t MISO = 6;
+static const uint32_t SCK = 5;
 
 
 
-#define PIN_WIRE_SDA 14
+#define PIN_WIRE_SDA 11
 
 
-#define PIN_WIRE_SCL 15
+#define PIN_WIRE_SCL 12
 
 
-static const uint32_t SDA = 14;
-static const uint32_t SCL = 15;
+static const uint32_t SDA = 11;
+static const uint32_t SCL = 12;
 
 
 
@@ -42893,13 +43196,13 @@ extern const PinName digitalPin[];
 extern const uint32_t analogInputPin[];
 
 #define NOT_AN_INTERRUPT (uint32_t)NC
-# 91 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h"
+# 116 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h"
 #define digitalPinToPinName(p) ((((uint32_t)(p) & PNUM_MASK) < NUM_DIGITAL_PINS) ? (PinName)(digitalPin[(uint32_t)(p) & PNUM_MASK] | ((p) & ALTX_MASK)) : NC)
 
 
 
 uint32_t pinNametoDigitalPin(PinName p);
-# 107 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h"
+# 132 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h"
 #define analogInputToDigitalPin(p) (NUM_DIGITAL_PINS)
 
 
@@ -42933,7 +43236,7 @@ PinName analogInputToPinName(uint32_t pin);
 
 
 #define portClearRegister(P) (&(P->BRR))
-# 152 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h"
+# 177 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h"
 #define portModeRegister(P) (&(P->MODER))
 
 #define portConfigRegister(P) (portModeRegister(P))
@@ -42944,12 +43247,12 @@ PinName analogInputToPinName(uint32_t pin);
 
 
 #define digitalPinFirstOccurence(p) (pinNametoDigitalPin(digitalPinToPinName(p)))
-# 171 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h"
+# 196 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h"
 #define pinIsAnalogInput digitalpinIsAnalogInput
 
-# 172 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h" 3 4
+# 197 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h" 3 4
 _Bool 
-# 172 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h"
+# 197 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h"
     digitalpinIsAnalogInput(uint32_t pin);
 uint32_t digitalPinToAnalogInput(uint32_t pin);
 
@@ -43070,12 +43373,17 @@ extern const uint32_t g_ADigitalPinMap[];
 
 
 
-#define PIN_A0 PB3
-#define PIN_A1 PB4
+#define PIN_A0 WB_A0
+#define PIN_A1 WB_A1
+#define PIN_A2 PB2
+#define PIN_A3 PA10
+#define PIN_A4 PA15
 
 #define A0 PIN_A0
 #define A1 PIN_A1
-
+#define A2 PIN_A2
+#define A3 PIN_A3
+#define A4 PIN_A4
 
 
 
@@ -43119,11 +43427,11 @@ extern const uint32_t g_ADigitalPinMap[];
 #define SPIM1_MISO WB_SPI_MISO
 #define SPIM1_SCK WB_SPI_CLK
 
-#define _ADC1 WB_A0
-#define _ADC2 WB_A1
-#define _ADC3 WB_IO4
-#define _ADC4 WB_IO7
-#define _ADC5 WB_IO5
+#define _ADC1 PIN_A0
+#define _ADC2 PIN_A1
+#define _ADC3 PIN_A2
+#define _ADC4 PIN_A3
+#define _ADC5 PIN_A4
 
 #define SWDIO PA13
 #define SWCLK PA14
@@ -43136,14 +43444,14 @@ extern const uint32_t g_ADigitalPinMap[];
 #define UART2_RXD_PIN PIN_SERIAL2_RX
 
 #define SPI_CSN_PIN SPIM1_NSS
-# 11 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h" 2
+# 13 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h" 2
 
 
 
 
 
 #define LORA_TEST_DEBUG(fmt,args...) 
-# 59 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h"
+# 61 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h"
 typedef struct
 {
   uint32_t modem;
@@ -43153,33 +43461,33 @@ typedef struct
   uint32_t bandwidthAfc;
   uint16_t preambleLen;
   
-# 67 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h" 3 4
- _Bool 
-# 67 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h"
-      fixLen;
-  uint8_t payloadLen;
-  
 # 69 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h" 3 4
  _Bool 
 # 69 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h"
-      crcOn;
+      fixLen;
+  uint8_t payloadLen;
   
-# 70 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h" 3 4
+# 71 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h" 3 4
  _Bool 
-# 70 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h"
-      FreqHopOn;
-  uint8_t HopPeriod;
+# 71 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h"
+      crcOn;
   
 # 72 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h" 3 4
  _Bool 
 # 72 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h"
+      FreqHopOn;
+  uint8_t HopPeriod;
+  
+# 74 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h" 3 4
+ _Bool 
+# 74 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h"
       iqInverted;
 
 
   
-# 75 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h" 3 4
+# 77 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h" 3 4
  _Bool 
-# 75 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h"
+# 77 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h"
       rxContinuous;
   uint32_t symbTimeout;
 
@@ -43228,7 +43536,1249 @@ int32_t service_lora_tth(const testParameter_t *param);
 int32_t service_lora_get_cw(testCwParameter_t *param);
 int32_t service_lora_set_cw(testCwParameter_t *param);
 # 35 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 2
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 1
+# 10 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+#define __SERVICE_LORA_H__ 
+# 24 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/apps/LoRaMac/common/LmHandler/LmHandlerTypes.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/apps/LoRaMac/common/LmHandler/LmHandlerTypes.h"
+#define __LORAMAC_HANDLER_TYPES_H__ 
 
+
+
+
+
+
+#define LMH_SYS_TIME_UPDATE_NEW_API 1
+
+
+
+
+typedef enum
+{
+    LORAMAC_HANDLER_ADR_OFF = 0,
+    LORAMAC_HANDLER_ADR_ON = !LORAMAC_HANDLER_ADR_OFF
+}LmHandlerAdrStates_t;
+
+
+
+
+typedef enum
+{
+    LORAMAC_HANDLER_RESET = 0,
+    LORAMAC_HANDLER_SET = !LORAMAC_HANDLER_RESET
+}LmHandlerFlagStatus_t;
+
+
+
+
+typedef enum
+{
+    LORAMAC_HANDLER_ERROR = -1,
+    LORAMAC_HANDLER_SUCCESS = 0
+}LmHandlerErrorStatus_t;
+
+
+
+
+typedef enum
+{
+    LORAMAC_HANDLER_UNCONFIRMED_MSG = 0,
+    LORAMAC_HANDLER_CONFIRMED_MSG = !LORAMAC_HANDLER_UNCONFIRMED_MSG
+}LmHandlerMsgTypes_t;
+
+
+
+
+typedef enum
+{
+    LORAMAC_HANDLER_FALSE = 0,
+    LORAMAC_HANDLER_TRUE = !LORAMAC_HANDLER_FALSE
+}LmHandlerBoolean_t;
+
+typedef enum
+{
+    LORAMAC_HANDLER_BEACON_ACQUIRING,
+    LORAMAC_HANDLER_BEACON_LOST,
+    LORAMAC_HANDLER_BEACON_RX,
+    LORAMAC_HANDLER_BEACON_NRX
+}LmHandlerBeaconState_t;
+
+typedef enum
+{
+    LORAMAC_HANDLER_NVM_RESTORE,
+    LORAMAC_HANDLER_NVM_STORE,
+}LmHandlerNvmContextStates_t;
+
+
+
+
+typedef struct CommissioningParams_s
+{
+    
+# 95 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/apps/LoRaMac/common/LmHandler/LmHandlerTypes.h" 3 4
+   _Bool 
+# 95 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/apps/LoRaMac/common/LmHandler/LmHandlerTypes.h"
+        IsOtaaActivation;
+    uint8_t DevEui[8];
+    uint8_t JoinEui[8];
+    uint8_t SePin[4];
+    uint32_t NetworkId;
+    uint32_t DevAddr;
+}CommissioningParams_t;
+
+
+
+
+typedef struct LmHandlerAppData_s
+{
+    uint8_t Port;
+    uint8_t BufferSize;
+    uint8_t *Buffer;
+}LmHandlerAppData_t;
+
+typedef struct LmHandlerRequestParams_s
+{
+    uint8_t IsMcpsRequest;
+    LoRaMacStatus_t Status;
+    union
+    {
+        Mcps_t Mcps;
+        Mlme_t Mlme;
+    }RequestType;
+}LmHandlerRequestParams_t;
+# 25 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 2
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/secure-element.h" 1
+# 39 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/secure-element.h"
+#define __SECURE_ELEMENT_H__ 
+
+
+
+
+
+
+
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacCrypto.h" 1
+# 38 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacCrypto.h"
+#define __LORAMAC_CRYPTO_H__ 
+# 50 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacCrypto.h"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacMessageTypes.h" 1
+# 38 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacMessageTypes.h"
+#define __LORAMAC_MESSAGE_TYPES_H__ 
+
+
+
+
+
+
+
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacHeaderTypes.h" 1
+# 47 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacMessageTypes.h" 2
+
+
+
+
+typedef struct sLoRaMacMessageJoinRequest
+{
+
+
+
+    uint8_t* Buffer;
+
+
+
+    uint8_t BufSize;
+
+
+
+    LoRaMacHeader_t MHDR;
+
+
+
+    uint8_t JoinEUI[8];
+
+
+
+    uint8_t DevEUI[8];
+
+
+
+    uint16_t DevNonce;
+
+
+
+    uint32_t MIC;
+}LoRaMacMessageJoinRequest_t;
+
+
+
+
+typedef struct sLoRaMacMessageReJoinType1
+{
+
+
+
+    uint8_t* Buffer;
+
+
+
+    uint8_t BufSize;
+
+
+
+    LoRaMacHeader_t MHDR;
+
+
+
+    uint8_t ReJoinType;
+
+
+
+    uint8_t JoinEUI[8];
+
+
+
+    uint8_t DevEUI[8];
+
+
+
+    uint16_t RJcount1;
+
+
+
+    uint32_t MIC;
+}LoRaMacMessageReJoinType1_t;
+
+
+
+
+typedef struct sLoRaMacMessageReJoinType0or2
+{
+
+
+
+    uint8_t* Buffer;
+
+
+
+    uint8_t BufSize;
+
+
+
+    LoRaMacHeader_t MHDR;
+
+
+
+    uint8_t ReJoinType;
+
+
+
+    uint8_t NetID[3];
+
+
+
+    uint8_t DevEUI[8];
+
+
+
+    uint16_t RJcount0;
+
+
+
+    uint32_t MIC;
+}LoRaMacMessageReJoinType0or2_t;
+
+
+
+
+typedef struct sLoRaMacMessageJoinAccept
+{
+
+
+
+    uint8_t* Buffer;
+
+
+
+    uint8_t BufSize;
+
+
+
+    LoRaMacHeader_t MHDR;
+
+
+
+    uint8_t JoinNonce[3];
+
+
+
+    uint8_t NetID[3];
+
+
+
+    uint32_t DevAddr;
+
+
+
+    LoRaMacDLSettings_t DLSettings;
+
+
+
+    uint8_t RxDelay;
+
+
+
+    uint8_t CFList[16];
+
+
+
+    uint32_t MIC;
+}LoRaMacMessageJoinAccept_t;
+
+
+
+
+
+
+typedef struct sLoRaMacMessageData
+{
+
+
+
+    uint8_t* Buffer;
+
+
+
+    uint8_t BufSize;
+
+
+
+    LoRaMacHeader_t MHDR;
+
+
+
+    LoRaMacFrameHeader_t FHDR;
+
+
+
+    uint8_t FPort;
+
+
+
+    uint8_t* FRMPayload;
+
+
+
+    uint8_t FRMPayloadSize;
+
+
+
+    uint32_t MIC;
+}LoRaMacMessageData_t;
+
+
+
+
+typedef enum eLoRaMacMessageType
+{
+
+
+
+    LORAMAC_MSG_TYPE_JOIN_REQUEST,
+
+
+
+    LORAMAC_MSG_TYPE_RE_JOIN_1,
+
+
+
+    LORAMAC_MSG_TYPE_RE_JOIN_0_2,
+
+
+
+    LORAMAC_MSG_TYPE_JOIN_ACCEPT,
+
+
+
+    LORAMAC_MSG_TYPE_DATA,
+
+
+
+    LORAMAC_MSG_TYPE_UNDEF,
+}LoRaMacMessageType_t;
+
+
+
+
+typedef struct sLoRaMacMessage
+{
+    LoRaMacMessageType_t Type;
+    union uMessage
+    {
+        LoRaMacMessageJoinRequest_t JoinReq;
+        LoRaMacMessageReJoinType1_t ReJoin1;
+        LoRaMacMessageReJoinType0or2_t ReJoin0or2;
+        LoRaMacMessageJoinAccept_t JoinAccept;
+        LoRaMacMessageData_t Data;
+    }Message;
+}LoRaMacMessage_t;
+# 51 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacCrypto.h" 2
+
+
+
+
+
+#define USE_LRWAN_1_1_X_CRYPTO 0
+
+
+
+
+#define USE_RANDOM_DEV_NONCE 1
+
+
+
+
+#define USE_JOIN_NONCE_COUNTER_CHECK 0
+
+
+
+
+#define FCNT_DOWN_INITAL_VALUE 0xFFFFFFFF
+
+
+
+
+typedef enum eLoRaMacCryptoStatus
+{
+
+
+
+    LORAMAC_CRYPTO_SUCCESS = 0,
+
+
+
+    LORAMAC_CRYPTO_FAIL_MIC,
+
+
+
+    LORAMAC_CRYPTO_FAIL_ADDRESS,
+
+
+
+    LORAMAC_CRYPTO_FAIL_JOIN_NONCE,
+
+
+
+    LORAMAC_CRYPTO_FAIL_RJCOUNT0_OVERFLOW,
+
+
+
+    LORAMAC_CRYPTO_FAIL_FCNT_ID,
+
+
+
+    LORAMAC_CRYPTO_FAIL_FCNT_SMALLER,
+
+
+
+    LORAMAC_CRYPTO_FAIL_FCNT_DUPLICATED,
+
+
+
+    LORAMAC_CRYPTO_FAIL_MAX_GAP_FCNT,
+
+
+
+    LORAMAC_CRYPTO_FAIL_PARAM,
+
+
+
+    LORAMAC_CRYPTO_ERROR_NPE,
+
+
+
+    LORAMAC_CRYPTO_ERROR_INVALID_KEY_ID,
+
+
+
+    LORAMAC_CRYPTO_ERROR_INVALID_ADDR_ID,
+
+
+
+    LORAMAC_CRYPTO_ERROR_INVALID_VERSION,
+
+
+
+    LORAMAC_CRYPTO_ERROR_BUF_SIZE,
+
+
+
+    LORAMAC_CRYPTO_ERROR_SECURE_ELEMENT_FUNC,
+
+
+
+    LORAMAC_CRYPTO_ERROR_PARSER,
+
+
+
+    LORAMAC_CRYPTO_ERROR_SERIALIZER,
+
+
+
+    LORAMAC_CRYPTO_ERROR_RJCOUNT1_OVERFLOW,
+
+
+
+    LORAMAC_CRYPTO_ERROR,
+}LoRaMacCryptoStatus_t;
+
+
+
+
+
+
+
+typedef void ( *LoRaMacCryptoNvmEvent )( void );
+# 176 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacCrypto.h"
+LoRaMacCryptoStatus_t LoRaMacCryptoInit( LoRaMacCryptoNvmData_t* nvm );
+# 187 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacCrypto.h"
+LoRaMacCryptoStatus_t LoRaMacCryptoSetLrWanVersion( Version_t version );
+# 198 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacCrypto.h"
+LoRaMacCryptoStatus_t LoRaMacCryptoGetFCntDown( FCntIdentifier_t fCntID, uint16_t maxFCntGap, uint32_t frameFcnt, uint32_t* currentDown );
+
+
+
+
+
+
+
+LoRaMacCryptoStatus_t LoRaMacCryptoGetFCntUp( uint32_t* currentUp );
+# 215 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacCrypto.h"
+LoRaMacCryptoStatus_t LoRaMacCryptoSetMulticastReference( MulticastCtx_t* multicastList );
+# 224 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacCrypto.h"
+LoRaMacCryptoStatus_t LoRaMacCryptoSetKey( KeyIdentifier_t keyID, uint8_t* key );
+# 233 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacCrypto.h"
+LoRaMacCryptoStatus_t LoRaMacCryptoPrepareJoinRequest( LoRaMacMessageJoinRequest_t* macMsg );
+# 242 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacCrypto.h"
+LoRaMacCryptoStatus_t LoRaMacCryptoPrepareReJoinType1( LoRaMacMessageReJoinType1_t* macMsg );
+# 251 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacCrypto.h"
+LoRaMacCryptoStatus_t LoRaMacCryptoPrepareReJoinType0or2( LoRaMacMessageReJoinType0or2_t* macMsg );
+# 262 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacCrypto.h"
+LoRaMacCryptoStatus_t LoRaMacCryptoHandleJoinAccept( JoinReqIdentifier_t joinReqType, uint8_t* joinEUI, LoRaMacMessageJoinAccept_t* macMsg );
+# 273 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacCrypto.h"
+LoRaMacCryptoStatus_t LoRaMacCryptoSecureMessage( uint32_t fCntUp, uint8_t txDr, uint8_t txCh, LoRaMacMessageData_t* macMsg );
+# 285 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacCrypto.h"
+LoRaMacCryptoStatus_t LoRaMacCryptoUnsecureMessage( AddressIdentifier_t addrID, uint32_t address, FCntIdentifier_t fCntID, uint32_t fCntDown, LoRaMacMessageData_t* macMsg );
+# 300 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacCrypto.h"
+LoRaMacCryptoStatus_t LoRaMacCryptoDeriveMcRootKey( uint8_t versionMinor, KeyIdentifier_t keyID );
+# 310 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacCrypto.h"
+LoRaMacCryptoStatus_t LoRaMacCryptoDeriveMcKEKey( KeyIdentifier_t keyID );
+# 322 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMacCrypto.h"
+LoRaMacCryptoStatus_t LoRaMacCryptoDeriveMcSessionKeyPair( AddressIdentifier_t addrID, uint32_t mcAddr );
+# 48 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/secure-element.h" 2
+
+
+
+
+
+typedef enum eSecureElementStatus
+{
+
+
+
+    SECURE_ELEMENT_SUCCESS = 0,
+
+
+
+    SECURE_ELEMENT_FAIL_CMAC,
+
+
+
+    SECURE_ELEMENT_ERROR_NPE,
+
+
+
+    SECURE_ELEMENT_ERROR_INVALID_KEY_ID,
+
+
+
+    SECURE_ELEMENT_ERROR_INVALID_LORAWAM_SPEC_VERSION,
+
+
+
+    SECURE_ELEMENT_ERROR_BUF_SIZE,
+
+
+
+    SECURE_ELEMENT_ERROR,
+
+
+
+    SECURE_ELEMENT_FAIL_ENCRYPT,
+}SecureElementStatus_t;
+# 96 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/secure-element.h"
+SecureElementStatus_t SecureElementInit( SecureElementNvmData_t* nvm );
+# 105 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/secure-element.h"
+SecureElementStatus_t SecureElementSetKey( KeyIdentifier_t keyID, uint8_t* key );
+# 117 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/secure-element.h"
+SecureElementStatus_t SecureElementComputeAesCmac( uint8_t* micBxBuffer, uint8_t* buffer, uint16_t size, KeyIdentifier_t keyID, uint32_t* cmac );
+# 128 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/secure-element.h"
+SecureElementStatus_t SecureElementVerifyAesCmac( uint8_t* buffer, uint16_t size, uint32_t expectedCmac, KeyIdentifier_t keyID );
+# 139 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/secure-element.h"
+SecureElementStatus_t SecureElementAesEncrypt( uint8_t* buffer, uint16_t size, KeyIdentifier_t keyID, uint8_t* encBuffer );
+# 149 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/secure-element.h"
+SecureElementStatus_t SecureElementDeriveAndStoreKey( uint8_t* input, KeyIdentifier_t rootKeyID, KeyIdentifier_t targetKeyID );
+# 162 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/secure-element.h"
+SecureElementStatus_t SecureElementProcessJoinAccept( JoinReqIdentifier_t joinReqType, uint8_t* joinEui,
+                                                      uint16_t devNonce, uint8_t* encJoinAccept,
+                                                      uint8_t encJoinAcceptSize, uint8_t* decJoinAccept,
+                                                      uint8_t* versionMinor );
+
+
+
+
+
+
+
+SecureElementStatus_t SecureElementRandomNumber( uint32_t* randomNum );
+
+
+
+
+
+
+
+SecureElementStatus_t SecureElementSetDevEui( uint8_t* devEui );
+
+
+
+
+
+
+uint8_t* SecureElementGetDevEui( void );
+
+
+
+
+
+
+
+SecureElementStatus_t SecureElementSetJoinEui( uint8_t* joinEui );
+
+
+
+
+
+
+uint8_t* SecureElementGetJoinEui( void );
+
+
+
+
+
+
+
+SecureElementStatus_t SecureElementSetPin( uint8_t* pin );
+
+
+
+
+
+
+uint8_t* SecureElementGetPin( void );
+
+
+
+
+
+
+# 224 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/secure-element.h" 3 4
+_Bool 
+# 224 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/secure-element.h"
+    Get_McRoot_Key(uint8_t *key);
+# 26 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 2
+
+#define SERVICE_LORA_DLINK_BUFF_SIZE 256
+
+#define LORAWAN_VERSION "LoRaWAN 1.0.3"
+
+#define SERVICE_LORA_CHANNEL_ALL 0U
+#define SERVICE_LORA_CHANNEL_0_63 0x00ff
+#define SERVICE_LORA_CHANNEL_0_7 (1 << 0)
+#define SERVICE_LORA_CHANNEL_8_15 (1 << 1)
+#define SERVICE_LORA_CHANNEL_16_23 (1 << 2)
+#define SERVICE_LORA_CHANNEL_24_31 (1 << 3)
+#define SERVICE_LORA_CHANNEL_32_39 (1 << 4)
+#define SERVICE_LORA_CHANNEL_40_47 (1 << 5)
+#define SERVICE_LORA_CHANNEL_48_55 (1 << 6)
+#define SERVICE_LORA_CHANNEL_56_63 (1 << 7)
+#define SERVICE_LORA_CHANNEL_80_87 (1 << 10)
+#define SERVICE_LORA_CHANNEL_88_95 (1 << 11)
+
+    typedef enum _SERVICE_LORA_MAC_CMD
+    {
+        SERVICE_LORA_MAC_CMD_NONE,
+        SERVICE_LORA_MAC_CMD_DEVICE_TIME,
+        SERVICE_LORA_MAC_CMD_PING_SLOT_INFO,
+    } SERVICE_LORA_MAC_CMD;
+
+    typedef enum _SERVICE_LORA_CLASS_B_STATE
+    {
+        SERVICE_LORA_CLASS_B_S0,
+        SERVICE_LORA_CLASS_B_S1,
+        SERVICE_LORA_CLASS_B_S2,
+        SERVICE_LORA_CLASS_B_S3,
+        SERVICE_LORA_CLASS_B_COMPLETED,
+    } SERVICE_LORA_CLASS_B_STATE;
+
+    typedef enum _TIMEREQ_STATE
+    {
+       TIMEREQ_DISABLED,
+       TIMEREQ_ENABLED
+    } TIMEREQ_STATE;
+
+    typedef struct SERVICE_LORA_RECEIVE
+    {
+
+
+
+        uint8_t Port;
+
+
+
+        uint8_t RxDatarate;
+
+
+
+        uint8_t *Buffer;
+
+
+
+        uint8_t BufferSize;
+
+
+
+
+        int16_t Rssi;
+
+
+
+        int8_t Snr;
+
+
+
+
+        uint32_t DownLinkCounter;
+    } SERVICE_LORA_RECEIVE_T;
+
+    typedef void (*service_lora_recv_cb)(SERVICE_LORA_RECEIVE_T *data);
+    typedef void (*service_lora_join_cb)(int32_t status);
+    typedef void (*service_lora_send_cb)(int32_t status);
+
+    typedef enum _SERVICE_LORA_TX_POWER
+    {
+        SERVICE_LORA_TX_POWER_0 = 0,
+        SERVICE_LORA_TX_POWER_1 = 1,
+        SERVICE_LORA_TX_POWER_2 = 2,
+        SERVICE_LORA_TX_POWER_3 = 3,
+        SERVICE_LORA_TX_POWER_4 = 4,
+        SERVICE_LORA_TX_POWER_5 = 5,
+        SERVICE_LORA_TX_POWER_6 = 6,
+        SERVICE_LORA_TX_POWER_7 = 7,
+        SERVICE_LORA_TX_POWER_8 = 8,
+        SERVICE_LORA_TX_POWER_9 = 9,
+        SERVICE_LORA_TX_POWER_10 = 10,
+        SERVICE_LORA_TX_POWER_11 = 11,
+        SERVICE_LORA_TX_POWER_12 = 12,
+        SERVICE_LORA_TX_POWER_13 = 13,
+        SERVICE_LORA_TX_POWER_14 = 14,
+        SERVICE_LORA_TX_POWER_15 = 15,
+        SERVICE_LORA_TX_POWER_MAX = 15,
+    } SERVICE_LORA_TX_POWER;
+
+    typedef struct sbeacon_bgw
+    {
+        uint16_t GPS_coordinate;
+        uint32_t latitude;
+        uint32_t longitude;
+        uint32_t net_ID;
+        uint32_t gateway_ID;
+    } beacon_bgw_t;
+
+    typedef struct sdelay_send
+    {
+        uint8_t buffer[256];
+        uint16_t len;
+        uint8_t flag;
+    }delay_send_t;
+
+    typedef enum _SERVICE_LORA_WORK_MODE
+    {
+        SERVICE_LORA_P2P = 0,
+        SERVICE_LORAWAN = 1,
+        SERVICE_LORA_FSK = 2
+    } SERVICE_LORA_WORK_MODE;
+
+    typedef enum _LINK_CHECK_MODE
+    {
+        LINK_CHECK_DISABLE = 0,
+        LINK_CHECK_ONCE = 1,
+        LINK_CHECK_EVERYTIME = 2
+    } LINK_CHECK_MODE;
+
+    typedef enum _SERVICE_LORA_CONFIRM_MODE
+    {
+        SERVICE_LORA_NO_ACK = 0,
+        SERVICE_LORA_ACK = 1,
+    } SERVICE_LORA_CONFIRM_MODE;
+
+    typedef enum _SERVICE_LORA_JOIN_MODE
+    {
+        SERVICE_LORA_ABP = 0,
+        SERVICE_LORA_OTAA = 1,
+    } SERVICE_LORA_JOIN_MODE;
+
+    typedef enum _SERVICE_LORA_DATA_RATE
+    {
+        SERVICE_LORA_DR_0 = 0,
+        SERVICE_LORA_DR_1 = 1,
+        SERVICE_LORA_DR_2 = 2,
+        SERVICE_LORA_DR_3 = 3,
+        SERVICE_LORA_DR_4 = 4,
+        SERVICE_LORA_DR_5 = 5,
+        SERVICE_LORA_DR_6 = 6,
+        SERVICE_LORA_DR_7 = 7,
+        SERVICE_LORA_DR_8 = 8,
+        SERVICE_LORA_DR_9 = 9,
+        SERVICE_LORA_DR_10 = 10,
+        SERVICE_LORA_DR_11 = 11,
+        SERVICE_LORA_DR_12 = 12,
+        SERVICE_LORA_DR_13 = 13,
+        SERVICE_LORA_DR_14 = 14,
+        SERVICE_LORA_DR_15 = 15,
+    } SERVICE_LORA_DATA_RATE;
+
+    typedef enum _SERVICE_LORA_CH_EIGHT_MODE
+    {
+        SERVICE_LORA_CH_EIGHT_MODE_0,
+        SERVICE_LORA_CH_EIGHT_MODE_1,
+        SERVICE_LORA_CH_EIGHT_MODE_2,
+        SERVICE_LORA_CH_EIGHT_MODE_3,
+        SERVICE_LORA_CH_EIGHT_MODE_4,
+        SERVICE_LORA_CH_EIGHT_MODE_5,
+        SERVICE_LORA_CH_EIGHT_MODE_6,
+        SERVICE_LORA_CH_EIGHT_MODE_7,
+        SERVICE_LORA_CH_EIGHT_MODE_8
+    } SERVICE_LORA_CH_EIGHT_MODE;
+
+    typedef struct _SERVICE_LORA_SEND_INFO
+    {
+        uint8_t port;
+        
+# 203 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+       _Bool 
+# 203 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+            retry_valid;
+        uint8_t retry;
+        
+# 205 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+       _Bool 
+# 205 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+            confirm_valid;
+        SERVICE_LORA_CONFIRM_MODE confirm;
+    } SERVICE_LORA_SEND_INFO;
+
+    typedef enum _SERVICE_LORA_CLASS
+    {
+        SERVICE_LORA_CLASS_A = 0,
+        SERVICE_LORA_CLASS_B = 1,
+        SERVICE_LORA_CLASS_C = 2,
+    } SERVICE_LORA_CLASS;
+
+    typedef enum _AS923_SUB_BAND
+    {
+        AS923_1 = 1,
+        AS923_2 = 2,
+        AS923_3 = 3,
+        AS923_4 = 4
+    } AS923_SUB_BAND;
+
+
+
+
+    typedef enum _SERVICE_LORA_BAND
+    {
+
+
+
+        SERVICE_LORA_AS923 = LORAMAC_REGION_AS923,
+
+
+
+        SERVICE_LORA_AU915 = LORAMAC_REGION_AU915,
+
+
+
+        SERVICE_LORA_CN470 = LORAMAC_REGION_CN470,
+
+
+
+        SERVICE_LORA_CN779 = LORAMAC_REGION_CN779,
+
+
+
+        SERVICE_LORA_EU433 = LORAMAC_REGION_EU433,
+
+
+
+        SERVICE_LORA_EU868 = LORAMAC_REGION_EU868,
+
+
+
+        SERVICE_LORA_KR920 = LORAMAC_REGION_KR920,
+
+
+
+        SERVICE_LORA_IN865 = LORAMAC_REGION_IN865,
+
+
+
+        SERVICE_LORA_US915 = LORAMAC_REGION_US915,
+
+
+
+
+        SERVICE_LORA_RU864 = LORAMAC_REGION_RU864,
+# 280 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+       SERVICE_LORA_AS923_2 = 20,
+
+       SERVICE_LORA_AS923_3 = 21,
+
+       SERVICE_LORA_AS923_4 = 22,
+
+    } SERVICE_LORA_BAND;
+
+    LmHandlerErrorStatus_t LmHandlerPackageRegister( uint8_t id, void *params );
+    
+# 289 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+   _Bool 
+# 289 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+        LmHandlerPackageIsInitialized( uint8_t id );
+    
+# 290 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+   _Bool 
+# 290 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+        LmHandlerPackageIsRunning( uint8_t id );
+    void LmHandlerPackagesProcess( void );
+
+    int32_t service_lora_init(SERVICE_LORA_BAND band);
+
+    SERVICE_LORA_BAND service_lora_get_band(void);
+
+    int32_t service_lora_set_band(SERVICE_LORA_BAND band);
+
+
+
+    int32_t service_lora_get_mask(uint16_t *mask);
+
+    int32_t service_lora_set_mask(uint16_t *mask, 
+# 303 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+                                                 _Bool 
+# 303 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+                                                      commit);
+
+
+    int32_t service_lora_get_app_eui(uint8_t *buff, uint32_t len);
+
+    int32_t service_lora_set_app_eui(uint8_t *buff, uint32_t len);
+
+    int32_t service_lora_get_app_key(uint8_t *buff, uint32_t len);
+
+    int32_t service_lora_set_app_key(uint8_t *buff, uint32_t len);
+
+    int32_t service_lora_get_app_skey(uint8_t *buff, uint32_t len);
+
+    int32_t service_lora_set_app_skey(uint8_t *buff, uint32_t len);
+
+    int32_t service_lora_get_dev_addr(uint8_t *buff, uint32_t len);
+
+    int32_t service_lora_set_dev_addr(uint8_t *buff, uint32_t len);
+
+    int32_t service_lora_get_dev_eui(uint8_t *buff, uint32_t len);
+
+    int32_t service_lora_set_dev_eui(uint8_t *buff, uint32_t len);
+
+    int32_t service_lora_get_net_id(uint8_t *buff, uint32_t len);
+
+    int32_t service_lora_set_nwk_id(uint8_t *buff, uint32_t len);
+
+    int32_t service_lora_get_nwk_skey(uint8_t *buff, uint32_t len);
+
+    int32_t service_lora_set_nwk_skey(uint8_t *buff, uint32_t len);
+
+    int32_t service_lora_get_McRoot_key(uint8_t *buff);
+
+    int32_t service_lora_set_lora_default(void);
+
+    uint8_t service_lora_get_retry(void);
+
+    int32_t service_lora_set_retry(uint8_t retry);
+
+    SERVICE_LORA_CONFIRM_MODE service_lora_get_cfm(void);
+
+    int32_t service_lora_set_cfm(SERVICE_LORA_CONFIRM_MODE cfm);
+
+    
+# 346 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+   _Bool 
+# 346 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+        service_lora_get_cfs(void);
+
+    int32_t service_lora_join(int32_t param1, int32_t param2, int32_t param3, int32_t param4);
+
+    SERVICE_LORA_WORK_MODE service_lora_get_nwm(void);
+
+    int32_t service_lora_set_nwm(SERVICE_LORA_WORK_MODE nwm);
+
+    SERVICE_LORA_JOIN_MODE service_lora_get_njm(void);
+
+    int32_t service_lora_set_njm(SERVICE_LORA_JOIN_MODE njm, 
+# 356 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+                                                            _Bool 
+# 356 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+                                                                 commit);
+
+    
+# 358 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+   _Bool 
+# 358 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+        service_lora_get_njs(void);
+
+    int32_t service_lora_send(uint8_t *buff, uint32_t len, SERVICE_LORA_SEND_INFO info, 
+# 360 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+                                                                                       _Bool 
+# 360 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+                                                                                            blocking);
+
+    
+# 362 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+   _Bool 
+# 362 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+        service_lora_get_adr(void);
+
+    int32_t service_lora_set_adr(
+# 364 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+                                _Bool 
+# 364 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+                                     adr, 
+# 364 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+                                          _Bool 
+# 364 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+                                               commit);
+
+    SERVICE_LORA_CLASS service_lora_get_class(void);
+
+    SERVICE_LORA_CLASS service_lora_get_real_class_from_stack(void);
+
+    int32_t service_lora_set_class(SERVICE_LORA_CLASS device_class, 
+# 370 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+                                                                   _Bool 
+# 370 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+                                                                        commit);
+
+    
+# 372 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+   _Bool 
+# 372 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+        service_lora_get_dcs(void);
+
+    int32_t service_lora_set_dcs(uint8_t dutycycle, 
+# 374 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+                                                   _Bool 
+# 374 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+                                                        commit );
+
+    SERVICE_LORA_DATA_RATE service_lora_get_dr(void);
+
+    int32_t service_lora_set_dr(SERVICE_LORA_DATA_RATE dr, 
+# 378 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+                                                          _Bool 
+# 378 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+                                                               commit);
+
+    uint32_t service_lora_get_jn1dl(void);
+
+    int32_t service_lora_set_jn1dl(uint32_t jn1dl, 
+# 382 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+                                                  _Bool 
+# 382 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+                                                       commit);
+
+    uint32_t service_lora_get_jn2dl(void);
+
+    int32_t service_lora_set_jn2dl(uint32_t jn2dl, 
+# 386 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+                                                  _Bool 
+# 386 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+                                                       commit);
+
+    
+# 388 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+   _Bool 
+# 388 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+        service_lora_get_pub_nwk_mode(void);
+
+    int32_t service_lora_set_pub_nwk_mode(
+# 390 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+                                         _Bool 
+# 390 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+                                              pnm, 
+# 390 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+                                                   _Bool 
+# 390 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+                                                        commit);
+
+    uint32_t service_lora_get_rx1dl(void);
+
+    int32_t service_lora_set_rx1dl(uint32_t rx1dl, 
+# 394 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+                                                  _Bool 
+# 394 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+                                                       commit);
+
+    uint32_t service_lora_get_rx2dl(void);
+
+    int32_t service_lora_set_rx2dl(uint32_t rx2dl, 
+# 398 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+                                                  _Bool 
+# 398 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+                                                       commit);
+
+    uint8_t service_lora_get_txpower(void);
+
+    int32_t service_lora_set_txpower(uint8_t txp, 
+# 402 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+                                                 _Bool 
+# 402 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+                                                      commit);
+
+    uint8_t service_lora_get_ping_slot_periodicity(void);
+
+    int32_t service_lora_set_ping_slot_periodicity(uint8_t periodicity);
+
+    uint32_t service_lora_get_beacon_freq(void);
+
+    uint32_t service_lora_get_beacon_time(void);
+
+    int16_t service_lora_get_rssi(void);
+
+    int8_t service_lora_get_snr(void);
+
+    int32_t service_lora_get_local_time(char *local_time);
+
+    uint32_t service_lora_get_lorawan_version(char **version);
+
+    uint32_t service_lora_get_rx2freq(void);
+
+    uint32_t service_lora_set_rx2freq(uint32_t freq,
+# 422 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+                                                   _Bool 
+# 422 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+                                                        commit);
+
+    uint32_t service_lora_set_rx2dr(SERVICE_LORA_DATA_RATE datarate, 
+# 424 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+                                                                    _Bool 
+# 424 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+                                                                         commit);
+
+    SERVICE_LORA_DATA_RATE service_lora_get_rx2dr(void);
+
+    int32_t service_lora_set_linkcheck(uint8_t mode);
+
+    uint8_t service_lora_get_linkcheck(void);
+
+    void service_lora_lptp_send_callback(int status);
+
+    int32_t service_lora_lptp_send(uint8_t port, 
+# 434 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+                                                _Bool 
+# 434 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+                                                     ack, uint8_t *p_data, uint16_t len);
+
+    
+# 436 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+   _Bool 
+# 436 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+        service_lora_get_join_start(void);
+
+    int32_t service_lora_set_join_start(
+# 438 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+                                       _Bool 
+# 438 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+                                            join_start);
+
+    
+# 440 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+   _Bool 
+# 440 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+        service_lora_get_auto_join(void);
+
+    int32_t service_lora_set_auto_join(
+# 442 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+                                      _Bool 
+# 442 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+                                           auto_join);
+
+    uint32_t service_lora_get_auto_join_period(void);
+
+    int32_t service_lora_set_auto_join_period(uint32_t auto_join_period);
+
+    uint32_t service_lora_get_auto_join_max_cnt(void);
+
+    int32_t service_lora_set_auto_join_max_cnt(uint32_t auto_join_period);
+
+    int32_t service_lora_get_last_recv(uint8_t *port, uint8_t *buff, uint32_t len);
+
+    int32_t service_lora_set_che(uint8_t sub_band);
+
+    int32_t service_lora_get_che(void);
+
+    beacon_bgw_t service_lora_get_beacon_gwspecific(void);
+
+    int32_t service_lora_get_chs(void);
+
+    int32_t service_lora_set_chs(uint32_t frequency);
+
+    int32_t service_lora_register_recv_cb(service_lora_recv_cb callback);
+
+    int32_t service_lora_register_join_cb(service_lora_join_cb callback);
+
+    int32_t service_lora_register_send_cb(service_lora_send_cb callback);
+
+    uint32_t service_lora_get_beacon_dr(void);
+
+    SERVICE_LORA_CLASS_B_STATE service_lora_get_class_b_state(void);
+
+    int32_t service_lora_query_txPossible(int16_t len);
+
+    void service_lora_suspend(void);
+
+    void service_lora_resume(void);
+
+    uint8_t service_lora_get_timereq(void);
+
+    int32_t service_lora_set_timereq(uint8_t mode);
+
+    void service_lora_systemMaxRxError(void);
+
+    int32_t service_lora_get_lbt();
+    int32_t service_lora_set_lbt(uint8_t enable);
+    int16_t service_lora_get_lbt_rssi();
+    int32_t service_lora_set_lbt_rssi(int16_t rssi);
+    uint32_t service_lora_get_lbt_scantime();
+    int32_t service_lora_set_lbt_scantime(uint32_t time);
+# 36 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 2
 
 #define CHANNELS_MASK_SIZE 1
 
@@ -44279,9 +45829,45 @@ LoRaMacStatus_t RegionAS923NextChannel( NextChanParams_t* nextChanParams, uint8_
 
     if( status == LORAMAC_STATUS_OK )
     {
-# 1005 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
-        *channel = enabledChannels[randr( 0, nbEnabledChannels - 1 )];
 
+        if(SERVICE_LORA_AS923 == service_lora_get_band()&& (
+# 983 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
+                                                           1
+# 983 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
+                                                               ==service_lora_get_lbt()))
+        {
+
+        uint8_t channelNext = 0;
+        uint16_t lbt_rssi = service_lora_get_lbt_rssi();
+        uint32_t lbt_time = service_lora_get_lbt_scantime();
+
+        for( uint8_t i = 0, j = randr( 0, nbEnabledChannels - 1 ); i < 16; i++ )
+        {
+            channelNext = enabledChannels[j];
+            j = ( j + 1 ) % nbEnabledChannels;
+
+
+
+            if( Radio.IsChannelFree( RegionNvmGroup2->Channels[channelNext].Frequency, 200000, lbt_rssi, lbt_time ) == 
+# 997 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
+                                                                                                                      1 
+# 997 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
+                                                                                                                           )
+            {
+
+                *channel = channelNext;
+                return LORAMAC_STATUS_OK;
+            }
+        }
+
+
+        status = LORAMAC_STATUS_NO_FREE_CHANNEL_FOUND;
+        }
+        else
+        {
+
+            *channel = enabledChannels[randr( 0, nbEnabledChannels - 1 )];
+        }
     }
     else if( status == LORAMAC_STATUS_NO_CHANNEL_FOUND )
     {
@@ -44294,22 +45880,22 @@ LoRaMacStatus_t RegionAS923NextChannel( NextChanParams_t* nextChanParams, uint8_
 LoRaMacStatus_t RegionAS923ChannelAdd( ChannelAddParams_t* channelAdd )
 {
     
-# 1018 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
+# 1024 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
    _Bool 
-# 1018 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
+# 1024 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
         drInvalid = 
-# 1018 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
+# 1024 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
                     0
-# 1018 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
+# 1024 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
                          ;
     
-# 1019 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
+# 1025 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
    _Bool 
-# 1019 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
+# 1025 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
         freqInvalid = 
-# 1019 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
+# 1025 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
                       0
-# 1019 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
+# 1025 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
                            ;
     uint8_t id = channelAdd->ChannelId;
 
@@ -44325,84 +45911,84 @@ LoRaMacStatus_t RegionAS923ChannelAdd( ChannelAddParams_t* channelAdd )
 
 
     if( RegionCommonValueInRange( channelAdd->NewChannel->DrRange.Fields.Min, 0, 7 ) == 
-# 1033 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
+# 1039 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
                                                                                                                                0 
-# 1033 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
+# 1039 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
                                                                                                                                      )
     {
         drInvalid = 
-# 1035 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
+# 1041 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
                    1
-# 1035 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
+# 1041 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
                        ;
     }
     if( RegionCommonValueInRange( channelAdd->NewChannel->DrRange.Fields.Max, 0, 7 ) == 
-# 1037 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
+# 1043 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
                                                                                                                                0 
-# 1037 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
+# 1043 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
                                                                                                                                      )
     {
         drInvalid = 
-# 1039 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
+# 1045 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
                    1
-# 1039 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
+# 1045 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
                        ;
     }
     if( channelAdd->NewChannel->DrRange.Fields.Min > channelAdd->NewChannel->DrRange.Fields.Max )
     {
         drInvalid = 
-# 1043 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
+# 1049 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
                    1
-# 1043 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
+# 1049 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
                        ;
     }
 
 
     if( freqInvalid == 
-# 1047 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
+# 1053 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
                       0 
-# 1047 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
+# 1053 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
                             )
     {
         if( VerifyRfFreq( channelAdd->NewChannel->Frequency ) == 
-# 1049 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
+# 1055 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
                                                                 0 
-# 1049 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
+# 1055 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
                                                                       )
         {
             freqInvalid = 
-# 1051 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
+# 1057 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
                          1
-# 1051 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
+# 1057 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
                              ;
         }
     }
 
 
     if( ( drInvalid == 
-# 1056 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
+# 1062 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
                       1 
-# 1056 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
+# 1062 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
                            ) && ( freqInvalid == 
-# 1056 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
+# 1062 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
                                                  1 
-# 1056 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
+# 1062 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
                                                       ) )
     {
         return LORAMAC_STATUS_FREQ_AND_DR_INVALID;
     }
     if( drInvalid == 
-# 1060 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
+# 1066 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
                     1 
-# 1060 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
+# 1066 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
                          )
     {
         return LORAMAC_STATUS_DATARATE_INVALID;
     }
     if( freqInvalid == 
-# 1064 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
+# 1070 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
                       1 
-# 1064 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
+# 1070 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
                            )
     {
         return LORAMAC_STATUS_FREQUENCY_INVALID;
@@ -44415,9 +46001,9 @@ LoRaMacStatus_t RegionAS923ChannelAdd( ChannelAddParams_t* channelAdd )
 }
 
 
-# 1075 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
+# 1081 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
 _Bool 
-# 1075 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
+# 1081 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
     RegionAS923ChannelsRemove( ChannelRemoveParams_t* channelRemove )
 {
     uint8_t id = channelRemove->ChannelId;
@@ -44425,9 +46011,9 @@ _Bool
     if( id < 2 )
     {
         return 
-# 1081 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
+# 1087 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 3 4
               0
-# 1081 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
+# 1087 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c"
                    ;
     }
 

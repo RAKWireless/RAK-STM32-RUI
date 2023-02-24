@@ -2,8 +2,8 @@
 #define _ATCMD_MISC_H_
 #include "atcmd.h"
 
-#ifdef RUI_BOOTLOADER
-int At_Bootstatus(SERIAL_PORT port, char *cmd, stParam *param);
+#ifndef RUI_BOOTLOADER
+int At_Factory (SERIAL_PORT port, char *cmd, stParam *param);/* hidden AT command */
 #endif
 
 #endif //_ATCMD_MISC_H_

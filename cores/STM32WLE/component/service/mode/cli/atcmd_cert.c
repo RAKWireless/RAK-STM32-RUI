@@ -1,3 +1,4 @@
+#ifdef SUPPORT_AT
 #ifdef SUPPORT_LORA
 #include <string.h>
 
@@ -301,6 +302,59 @@ int At_Tth(SERIAL_PORT port, char *cmd, stParam *param)
     }
 }
 
+int At_Trth(SERIAL_PORT port, char *cmd, stParam *param)
+{
+    testParameter_t Param;
+    uint32_t freq_start;
+    uint32_t freq_stop;
+    uint32_t hp_step;
+    uint32_t nb_tx;
+
+    if (param->argc == 1 && !strcmp(param->argv[0], "?"))
+    {
+        service_lora_get_tconf(&Param);
+        atcmd_printf("%s=%d:%d:%d:%d\r\n", cmd, Param.freq_start,Param.freq_stop,Param.hp_step,Param.nb_tx);
+        return AT_OK;
+    }
+    else if (param->argc == 4)
+    {
+        if (0 != at_check_digital_uint32_t(param->argv[0], &Param.freq_start))
+        {
+            LORA_TEST_DEBUG();
+            return AT_PARAM_ERROR;
+        }
+        if (0 != at_check_digital_uint32_t(param->argv[1],&Param.freq_stop))
+        {
+            LORA_TEST_DEBUG();
+            return AT_PARAM_ERROR;
+        }
+
+        if (0 != at_check_digital_uint32_t(param->argv[2], &Param.hp_step))
+        {
+            LORA_TEST_DEBUG();
+            return AT_PARAM_ERROR;
+        }
+
+        if (0 != at_check_digital_uint32_t(param->argv[3], &Param.nb_tx))
+        {
+            LORA_TEST_DEBUG();
+            return AT_PARAM_ERROR;
+        }
+
+        if(Param.freq_start > Param.freq_stop)
+        {
+            return AT_PARAM_ERROR;
+        }
+
+        return service_lora_trth(&Param);
+    }
+    else
+    {
+        return AT_PARAM_ERROR;
+    }
+}
+
+
 int At_Toff(SERIAL_PORT port, char *cmd, stParam *param)
 {
     if (param->argc == 0)
@@ -316,18 +370,7 @@ int At_Toff(SERIAL_PORT port, char *cmd, stParam *param)
 
 int At_Certif(SERIAL_PORT port, char *cmd, stParam *param)
 {
-    if (param->argc == 0)
-    {
-        if (service_lora_certification(1) == UDRV_RETURN_OK)
-        {
-            return AT_OK;
-        }
-        else
-        {
-            return AT_ERROR;
-        }
-    }
-    else if (param->argc == 1 && !strcmp(param->argv[0], "?"))
+    if (param->argc == 1 && !strcmp(param->argv[0], "?"))
     {
         atcmd_printf("%s=%u\r\n", cmd, lct);
         return AT_OK;
@@ -407,4 +450,5 @@ int At_Cw(SERIAL_PORT port, char *cmd, stParam *param)
         return AT_PARAM_ERROR;
     }
 }
+#endif
 #endif

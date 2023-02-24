@@ -100,11 +100,11 @@
 	 * @ingroup	System
 	 */
 
-        /**@defgroup    System_Pword  pword
-         * @ingroup System_Misc
+        /**@defgroup    System_Timer  timer
+         * @ingroup System
          */
 
-        /**@defgroup    System_Timer  timer
+        /**@defgroup    System_Scheduler  scheduler
          * @ingroup System
          */
 
@@ -227,3 +227,8 @@
 
 /**@defgroup	Api_Mode	API Mode
  */
+
+#ifdef RAK5010_EVB
+/**@defgroup	Sensors  Sensors
+ */
+#endif

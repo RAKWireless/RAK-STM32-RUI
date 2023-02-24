@@ -475,7 +475,6 @@
 #define __USES_INITFINI__ 1
 #define stm32wle5xx 1
 #define SUPPORT_LORA 1
-#define LORA_RF_LP 1
 #define LORA_IO_SPI_PORT 2
 #define SYS_RTC_COUNTER_PORT 2
 #define ATCMD_CUST_TABLE_SIZE 64
@@ -501,6 +500,7 @@
 #define LORAMAC_CLASSB_ENABLED 1
 #define WISBLOCK_BASE_5005_O 1
 #define SUPPORT_SPI 1
+#define SUPPORT_AT 1
 # 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/peripherals/soft-se/soft-se.c"
 # 26 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/peripherals/soft-se/soft-se.c"
 # 1 "/opt/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdlib.h" 1 3
@@ -6299,6 +6299,16 @@ SecureElementStatus_t SecureElementSetPin( uint8_t* pin );
 
 
 uint8_t* SecureElementGetPin( void );
+
+
+
+
+
+
+# 224 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/secure-element.h" 3 4
+_Bool 
+# 224 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/secure-element.h"
+    Get_McRoot_Key(uint8_t *key);
 # 36 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/peripherals/soft-se/soft-se.c" 2
 # 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/secure-element-nvm.h" 1
 # 37 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/peripherals/soft-se/soft-se.c" 2
@@ -6778,4 +6788,33 @@ SecureElementStatus_t SecureElementSetPin( uint8_t* pin )
 uint8_t* SecureElementGetPin( void )
 {
     return SeNvm->Pin;
+}
+
+
+# 460 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/peripherals/soft-se/soft-se.c" 3 4
+_Bool 
+# 460 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/peripherals/soft-se/soft-se.c"
+    Get_McRoot_Key(uint8_t *key)
+{
+    aes_context aesContext;
+    Key_t* keyItem;
+    SecureElementStatus_t retval = GetKeyByID( MC_ROOT_KEY, &keyItem );
+    if( retval == SECURE_ELEMENT_SUCCESS )
+    {
+        aes_set_key( keyItem->KeyValue, 16, &aesContext );
+        memcpy(key, aesContext.ksch, 16);
+        return 
+# 469 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/peripherals/soft-se/soft-se.c" 3 4
+              1
+# 469 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/peripherals/soft-se/soft-se.c"
+                  ;
+    }
+    else
+    {
+        return 
+# 473 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/peripherals/soft-se/soft-se.c" 3 4
+              0
+# 473 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/peripherals/soft-se/soft-se.c"
+                   ;
+    }
 }

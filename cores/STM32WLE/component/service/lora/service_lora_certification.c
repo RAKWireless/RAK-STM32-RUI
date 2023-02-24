@@ -1,3 +1,5 @@
+#ifdef SUPPORT_LORA
+
 #include "service_lora_test.h"
 #include <stddef.h>
 #include <stdint.h>
@@ -12,28 +14,9 @@
 #include "timer.h"
 #include "udrv_timer.h"
 #include "LmhPackage.h"
+#include "LmhpCompliance.h"
+#include "service_lora_certification.h"
 
-#define LORAWAN_APP_DATA_MAX_SIZE                           242
-
-#define LORAWAN_ADR_ON                              1
-
-#define LORAWAN_DEFAULT_DATARATE                    DR_0
-
-#define LORAWAN_APP_PORT                            2
-
-#define LORAWAN_CONFIRMED_MSG_ON                    false
-
-static uint8_t AppDataBuffer[LORAWAN_APP_DATA_MAX_SIZE];
-
-static void CertifiTimerEvent( void* context );
-
-uint32_t Certifi_Send(uint8_t port);
-
-static bool SendFrame( void );
-
-static uint8_t AppPort = LORAWAN_APP_PORT;
-
-static uint8_t IsTxConfirmed = LORAWAN_CONFIRMED_MSG_ON;
 
 struct ComplianceTest_s
 {
@@ -89,99 +72,38 @@ static void CertifiTimerEvent( void* context )
     {
         Certifi_Send(LORAWAN_APP_PORT);
     }
+    else if (LmhpCompliancePackage.IsRunning() == true)
+    {
+        char *context;
+        OnComplianceTxNextPacketTimerEvent(context);
+    }
 }
 
 uint32_t Certifi_Send(uint8_t port)
 {
-    switch( port )
+    /* No practical significance, just for sending */
+    AppDataSize = 1; 
+    AppDataBuffer[0] = 0x43;  
+    
+    int32_t ret = 0;
+    SERVICE_LORA_SEND_INFO info;
+
+    info.port = port;
+    info.retry_valid = false;
+    info.confirm_valid = false;
+
+    if ((ret = service_lora_send(AppDataBuffer, AppDataSize, info, false)) == UDRV_RETURN_OK)
     {
-    case 2:
-        {
-            AppDataSize = 1;
-            AppDataBuffer[0] = 0x43;
-        }
-        break;
-    case 224:
-        if( ComplianceTest.LinkCheck == true )
-        {
-            ComplianceTest.LinkCheck = false;
-            AppDataSize = 3;
-            AppDataBuffer[0] = 5;
-            AppDataBuffer[1] = ComplianceTest.DemodMargin;
-            AppDataBuffer[2] = ComplianceTest.NbGateways;
-            ComplianceTest.State = 1;
-        }
-        else
-        {
-            switch( ComplianceTest.State )
-            {
-            case 4:
-                ComplianceTest.State = 1;
-                break;
-            case 1:
-                AppDataSize = 2;
-                AppDataBuffer[0] = ComplianceTest.DownLinkCounter >> 8;
-                AppDataBuffer[1] = ComplianceTest.DownLinkCounter;
-                break;
-            }
-        }
-        break;
-    default:
-        break;
-    }
-
-    SendFrame();
-}
-
-static bool SendFrame( void )
-{
-    McpsReq_t mcpsReq;
-    LoRaMacTxInfo_t txInfo;
-    LoRaMacStatus_t status;
-
-    if( LoRaMacQueryTxPossible( AppDataSize, &txInfo ) != LORAMAC_STATUS_OK )
-    {
-        // Send empty frame in order to flush MAC commands
-        mcpsReq.Type = MCPS_UNCONFIRMED;
-        mcpsReq.Req.Unconfirmed.fBuffer = NULL;
-        mcpsReq.Req.Unconfirmed.fBufferSize = 0;
-        mcpsReq.Req.Unconfirmed.Datarate = LORAWAN_DEFAULT_DATARATE;
+        LORA_TEST_DEBUG("Send Packet Success\r\n");
     }
     else
     {
-        if( IsTxConfirmed == false )
-        {
-            mcpsReq.Type = MCPS_UNCONFIRMED;
-            mcpsReq.Req.Unconfirmed.fPort = AppPort;
-            mcpsReq.Req.Unconfirmed.fBuffer = AppDataBuffer;
-            mcpsReq.Req.Unconfirmed.fBufferSize = AppDataSize;
-            mcpsReq.Req.Unconfirmed.Datarate = LORAWAN_DEFAULT_DATARATE;
-        }
-        else
-        {
-            mcpsReq.Type = MCPS_CONFIRMED;
-            mcpsReq.Req.Confirmed.fPort = AppPort;
-            mcpsReq.Req.Confirmed.fBuffer = AppDataBuffer;
-            mcpsReq.Req.Confirmed.fBufferSize = AppDataSize;
-#if LORA_STACK_VER == 0x040407
-            mcpsReq.Req.Confirmed.NbTrials = 8;
-#elif LORA_STACK_VER == 0x040502
-            //mcpsReq.Req.Confirmed.NbTrials = 8;
-#else
-            mcpsReq.Req.Confirmed.NbTrials = 8;
-#endif
-            mcpsReq.Req.Confirmed.Datarate = LORAWAN_DEFAULT_DATARATE;
-        }
+        LORA_TEST_DEBUG("Send Packet Fail\r\n");
+        return LORAMAC_HANDLER_ERROR;
     }
 
-    // Update global variable
-    status = LoRaMacMcpsRequest( &mcpsReq );
-    
-    if( status != LORAMAC_STATUS_OK )
-    {
-        LORA_TEST_DEBUG("status=%d", status);
-        return -UDRV_INTERNAL_ERR;
-    }
-    return UDRV_RETURN_OK;
+    return LORAMAC_HANDLER_SUCCESS;
 }
 
+
+#endif 

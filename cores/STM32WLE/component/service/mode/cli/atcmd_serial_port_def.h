@@ -22,6 +22,7 @@
  * | Command            | Input parameter    | Return value                                                      | Return code        |
  * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
  * | AT+PWORD?          | --                 | AT+PWORD: set the serial port locking password (max 8 char)       | OK                 |
+ * | AT+PWORD=?         | --                 | <1-8 hex>                                                         | OK                 |
  * | AT+PWORD=\<Input\> | <1-8 hex>          | --                                                                | OK                 |
  * | Example<br>AT+PWORD=88888888  | <1-8 hex>          | --                                                     | OK                 |
  *

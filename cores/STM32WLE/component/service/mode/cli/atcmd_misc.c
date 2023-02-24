@@ -1,3 +1,4 @@
+#ifdef SUPPORT_AT
 #include <string.h>
 
 #include "atcmd.h"
@@ -8,21 +9,14 @@
 #include "service_nvm.h"
 #endif
 
-#ifdef RUI_BOOTLOADER
-int At_Bootstatus (SERIAL_PORT port, char *cmd, stParam *param) {
-    if (param->argc == 1 && !strcmp(param->argv[0], "?")) {
-        atcmd_printf("DFU mode\r\n");
-        return AT_OK;
-    } else {
-        return AT_PARAM_ERROR;
-    }
-}
-#endif
-
 #ifndef RUI_BOOTLOADER
 int At_Factory (SERIAL_PORT port, char *cmd, stParam *param) {
     if (param->argc == 0) {
+        #ifdef rak11720
+        uint8_t buff[8192];
+        #else
         uint8_t buff[4096];
+        #endif
 
         udrv_flash_read(MCU_SYS_CONFIG_NVM_ADDR, udrv_flash_get_page_size(), buff);
         udrv_flash_erase(MCU_FACTORY_DEFAULT_NVM_ADDR, udrv_flash_get_page_size());
@@ -32,4 +26,5 @@ int At_Factory (SERIAL_PORT port, char *cmd, stParam *param) {
         return AT_PARAM_ERROR;
     }
 }
+#endif
 #endif

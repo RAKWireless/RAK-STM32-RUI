@@ -217,6 +217,12 @@ SecureElementStatus_t SecureElementSetPin( uint8_t* pin );
  */
 uint8_t* SecureElementGetPin( void );
 
+/*!
+ * Gets the Mc_Root_Key
+ *
+ */
+bool Get_McRoot_Key(uint8_t *key);
+
 /*! \} defgroup SECUREELEMENT */
 
 #ifdef __cplusplus
