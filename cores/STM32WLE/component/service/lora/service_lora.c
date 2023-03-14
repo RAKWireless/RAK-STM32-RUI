@@ -262,6 +262,7 @@ static void McpsConfirm(McpsConfirm_t *mcpsConfirm)
             service_lora_send_callback(mcpsConfirm->Status);
         }
     }
+
     if( mcpsConfirm->McpsRequest == MCPS_CONFIRMED)
     {
         if(mcpsConfirm->AckReceived)
@@ -356,6 +357,27 @@ static void McpsIndication(McpsIndication_t *mcpsIndication)
 
         service_lora_delay_send_process();
     }  
+    if(service_get_debug_level())
+    {
+        MibRequestConfirm_t  mibReq;
+        LoRaMacStatus_t status;
+
+        mibReq.Type = MIB_NVM_CTXS;
+        LoRaMacMibGetRequestConfirm(&mibReq);
+        if ((status = LoRaMacMibGetRequestConfirm(&mibReq)) == LORAMAC_STATUS_OK)
+        {
+            udrv_serial_log_printf("Frequency:%u\r\n",mibReq.Param.Contexts->RegionGroup2.Channels[0]);
+            udrv_serial_log_printf("Rx1Frequency:%u\r\n",mibReq.Param.Contexts->RegionGroup2.Channels[1]);
+            udrv_serial_log_printf("RxCFrequency:%u\r\n",mibReq.Param.Contexts->MacGroup2.MacParamsDefaults.RxCChannel.Frequency);
+            udrv_serial_log_printf("RxC Datarate:%u\r\n",mibReq.Param.Contexts->MacGroup2.MacParamsDefaults.RxCChannel.Datarate);
+            udrv_serial_log_printf("ChannelsDatarate:%u\r\n",mibReq.Param.Contexts->MacGroup1.ChannelsDatarate);
+            udrv_serial_log_printf("AdrAckCounter:%u\r\n",mibReq.Param.Contexts->MacGroup1.AdrAckCounter);
+            udrv_serial_log_printf("ChannelsTxPower:%u\r\n",mibReq.Param.Contexts->MacGroup1.ChannelsTxPower);
+        }
+        else
+            udrv_serial_log_printf("LoRaMacMibGetRequestConfirm ERROR\r\n");
+    }
+
 }
 
 static void MlmeConfirm(MlmeConfirm_t *mlmeConfirm)
@@ -446,6 +468,27 @@ static void MlmeConfirm(MlmeConfirm_t *mlmeConfirm)
         if (service_lora_get_class() != SERVICE_LORA_CLASS_B)
         {
         }
+        if(service_get_debug_level())
+        {
+            MibRequestConfirm_t  mibReq;
+            LoRaMacStatus_t status;
+
+            mibReq.Type = MIB_NVM_CTXS;
+            LoRaMacMibGetRequestConfirm(&mibReq);
+            if ((status = LoRaMacMibGetRequestConfirm(&mibReq)) == LORAMAC_STATUS_OK)
+            {
+                udrv_serial_log_printf("Frequency:%u\r\n",mibReq.Param.Contexts->RegionGroup2.Channels[0]);
+                udrv_serial_log_printf("Rx1Frequency:%u\r\n",mibReq.Param.Contexts->RegionGroup2.Channels[1]);
+                udrv_serial_log_printf("RxCFrequency:%u\r\n",mibReq.Param.Contexts->MacGroup2.MacParamsDefaults.RxCChannel.Frequency);
+                udrv_serial_log_printf("RxC Datarate:%u\r\n",mibReq.Param.Contexts->MacGroup2.MacParamsDefaults.RxCChannel.Datarate);
+                udrv_serial_log_printf("ChannelsDatarate:%u\r\n",mibReq.Param.Contexts->MacGroup1.ChannelsDatarate);
+                udrv_serial_log_printf("AdrAckCounter:%u\r\n",mibReq.Param.Contexts->MacGroup1.AdrAckCounter);
+                udrv_serial_log_printf("ChannelsTxPower:%u\r\n",mibReq.Param.Contexts->MacGroup1.ChannelsTxPower);
+            }
+            else
+                udrv_serial_log_printf("LoRaMacMibGetRequestConfirm ERROR\r\n");
+        }
+
         break;
     case MLME_DEVICE_TIME:
     {
@@ -2123,6 +2166,27 @@ int32_t service_lora_send(uint8_t *buff, uint32_t len, SERVICE_LORA_SEND_INFO in
     status = LoRaMacMcpsRequest(&mcpsReq);
     LORA_TEST_DEBUG("status %d",status);
     LORA_TEST_DEBUG("DutyCycleWaitTime  %d",mcpsReq.ReqReturn.DutyCycleWaitTime);
+
+    if(service_get_debug_level())
+    {
+        MibRequestConfirm_t  mibReq;
+        LoRaMacStatus_t status;
+
+        mibReq.Type = MIB_NVM_CTXS;
+        LoRaMacMibGetRequestConfirm(&mibReq);
+        if ((status = LoRaMacMibGetRequestConfirm(&mibReq)) == LORAMAC_STATUS_OK)
+        {
+            udrv_serial_log_printf("Frequency:%u\r\n",mibReq.Param.Contexts->RegionGroup2.Channels[0]);
+            udrv_serial_log_printf("Rx1Frequency:%u\r\n",mibReq.Param.Contexts->RegionGroup2.Channels[1]);
+            udrv_serial_log_printf("RxCFrequency:%u\r\n",mibReq.Param.Contexts->MacGroup2.MacParamsDefaults.RxCChannel.Frequency);
+            udrv_serial_log_printf("RxC Datarate:%u\r\n",mibReq.Param.Contexts->MacGroup2.MacParamsDefaults.RxCChannel.Datarate);
+            udrv_serial_log_printf("ChannelsDatarate:%u\r\n",mibReq.Param.Contexts->MacGroup1.ChannelsDatarate);
+            udrv_serial_log_printf("AdrAckCounter:%u\r\n",mibReq.Param.Contexts->MacGroup1.AdrAckCounter);
+            udrv_serial_log_printf("ChannelsTxPower:%u\r\n",mibReq.Param.Contexts->MacGroup1.ChannelsTxPower);
+        }
+        else
+            udrv_serial_log_printf("LoRaMacMibGetRequestConfirm ERROR\r\n");
+    }
 
     if (status == LORAMAC_STATUS_OK)
     {
