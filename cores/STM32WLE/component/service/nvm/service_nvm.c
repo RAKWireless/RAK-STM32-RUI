@@ -1414,10 +1414,12 @@ static void service_nvm_data_recovery_from_legacy(uint32_t data_flash_addr, PRE_
         memcpy(rui_cfg_cur->alias,              DATA_ADDR(ELEM_OFS_V99_alias),              sizeof(rui_cfg_cur->alias) );
         service_nvm_data_add_to_legacy(rui_cfg_cur);
     }
+    #endif
     else if( version_code == RUI_VERSION_CODE_LATEST )
     {
         memcpy(rui_cfg_cur,                     data_legacy,                                sizeof(PRE_rui_cfg_t) );
         //add new config
+#ifdef SUPPORT_LORA
         if(*(uint8_t*)&rui_cfg_cur->g_rui_cfg_ex.iqinverted == 0xFF)
             rui_cfg_cur->g_rui_cfg_ex.iqinverted = false;
         if(rui_cfg_cur->g_rui_cfg_ex.symbol_timeout > SYMBTIMEOUT_MAX)
@@ -1429,6 +1431,7 @@ static void service_nvm_data_recovery_from_legacy(uint32_t data_flash_addr, PRE_
         }
         if(*(uint8_t*)&rui_cfg_cur->g_rui_cfg_ex.fix_length_payload == 0xFF)
             rui_cfg_cur->g_rui_cfg_ex.fix_length_payload = false;
+#endif
         if(*(uint8_t*)&rui_cfg_cur->debug_level == 0xFF)
             rui_cfg_cur->debug_level = 0;
 
@@ -1449,16 +1452,17 @@ static void service_nvm_data_recovery_from_legacy(uint32_t data_flash_addr, PRE_
             memset(rui_cfg_cur->cli_ver,'\0',sizeof(rui_cfg_cur->cli_ver));
             memcpy(rui_cfg_cur->cli_ver,cli_version,strlen(cli_version));
         }
+#ifdef SUPPORT_LORA
         if(*(uint8_t*)&rui_cfg_cur->g_rui_cfg_ex.lbt_enable == 0xFF)
             rui_cfg_cur->g_rui_cfg_ex.lbt_enable = 0;
         if(*(uint8_t*)&rui_cfg_cur->g_rui_cfg_ex.lbt_rssi == 0xFF)
             rui_cfg_cur->g_rui_cfg_ex.lbt_rssi = -80;
         if(*(uint8_t*)&rui_cfg_cur->g_rui_cfg_ex.lbt_scantime == 0xFF)
             rui_cfg_cur->g_rui_cfg_ex.lbt_scantime = 5;
+#endif
         if(*(uint8_t*)&rui_cfg_cur->g_rui_cfg_ex.auto_sleep_level == 0xFF)
             rui_cfg_cur->g_rui_cfg_ex.auto_sleep_level = 1;
     }
-    #endif
     else
     {
         //The historical version could not be determined

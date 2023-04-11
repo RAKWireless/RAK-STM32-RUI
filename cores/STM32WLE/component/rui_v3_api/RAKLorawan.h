@@ -78,6 +78,32 @@ typedef enum
   RAK_LORA_CLASS_C = 2, ///< The LoRaWan will work in Class C
 } RAK_LORA_CLASS;
 
+/**@par Description
+ *  The LoRaMac Event Info
+ */
+
+typedef enum RAKLoRaMacEventInfoStatus
+{
+    RAK_LORAMAC_STATUS_OK = 0,                          ///Service performed successfully
+    RAK_LORAMAC_STATUS_ERROR,                           ///An error occurred during the execution of the service
+    RAK_LORAMAC_STATUS_TX_TIMEOUT,                      ///A Tx timeout occurred
+    RAK_LORAMAC_STATUS_RX1_TIMEOUT,                     ///An Rx timeout occurred on receive window 1
+    RAK_LORAMAC_STATUS_RX2_TIMEOUT,                     ///An Rx timeout occurred on receive window 2
+    RAK_LORAMAC_STATUS_RX1_ERROR,                       ///An Rx error occurred on receive window 1
+    RAK_LORAMAC_STATUS_RX2_ERROR,                       ///An Rx error occurred on receive window 2
+    RAK_LORAMAC_STATUS_JOIN_FAIL,                       ///An error occurred in the join procedure
+    RAK_LORAMAC_STATUS_DOWNLINK_REPEATED,               ///A frame with an invalid downlink counter was received. The downlink counter of the frame was equal to the local copy of the downlink counter of the node.
+    RAK_LORAMAC_STATUS_TX_DR_PAYLOAD_SIZE_ERROR,        ///The MAC could not retransmit a frame since the MAC decreased the datarate. The payload size is not applicable for the datarate.
+    RAK_LORAMAC_STATUS_DOWNLINK_TOO_MANY_FRAMES_LOSS,   ///The node has lost MAX_FCNT_GAP or more frames.
+    RAK_LORAMAC_STATUS_ADDRESS_FAIL,                    ///An address error occurred
+    RAK_LORAMAC_STATUS_MIC_FAIL,                        ///Message integrity check failure
+    RAK_LORAMAC_STATUS_MULTICAST_FAIL,                  ///Multicast error occurred
+    RAK_LORAMAC_STATUS_BEACON_LOCKED,                   ///Beacon locked
+    RAK_LORAMAC_STATUS_BEACON_LOST,                     ///Beacon lost
+    RAK_LORAMAC_STATUS_BEACON_NOT_FOUND,                ///Beacon not found
+}RAKLoRaMacEventInfoStatus_t;
+
+
 /**@par	Description
  * 	The structure of a multicast group
  */

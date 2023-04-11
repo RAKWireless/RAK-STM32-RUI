@@ -54,7 +54,7 @@ int At_Mask(SERIAL_PORT port, char *cmd, stParam *param)
         }
         else if( band == SERVICE_LORA_CN470 )
         {
-            if( mask_param > 0x800 && mask_param != 0x10ff)
+            if( mask_param > 0x800 )
                 return AT_PARAM_ERROR;
         }
 

@@ -137,16 +137,17 @@
  * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
  * | AT+P2P?            | --                 | AT+P2P: get or set all P2P parameters                             | OK                 |
  * | AT+P2P=?           | --                 | \<freq\>,\<sf\>,\<bw\>,\<cr\>,\<preamble length\>,\<txp\>         | OK                 |
- * | AT+P2P=            | \<freq\>,\<sf\>,\<bw\>,\<cr\>,\<preamble length\>,\<txp\>       |                      | OK                 |
- * | Example<br>AT+P2P= | 868500000,12,125,0,65535,20       | --                                                 | OK                 |
- * | Example<br>AT+P2P=?| --                 | 868000000,7,125,0,8,14                                            | OK                 |
+ * | AT+P2P=            | \<freq\>,\<sf\>,\<bw\>,\<cr\>,\<preamble length\>,\<txp\>,\<Runtime Setting\>    |                      | OK                 |
+ * | Example<br>AT+P2P= | 868500000,12,0,0,10,22<br>868500000,8,250,2,24,20:1       | --                                                 | OK                 |
+ * | Example<br>AT+P2P=?| --                 | 868000000,7,0,0,8,14                                            | OK                 |
  *
  * Freq: 150000000-960000000<br>
  * SF: 6,7,8,9,10,11,12<br>
  * Bandwidth: 0 = 125,1 = 250,2 = 500,3 = 7.8,4 = 10.4,5 = 15.63,6 = 20.83,7 = 31.25,8 = 41.67,9 = 62.5<br>
  * CR: 0 = 4/5, 1 = 4/6, 2 = 4/7, 3 = 4/8<br>
- * Preamble Length: 2-65535<br>
+ * Preamble Length: 5-65535<br>
  * TX Power = 5-22<br>
+ * Runtime Setting = 0-1. Optional. When Runtime Setting is 1, the configure will not store in Flash memory.<br>
  *
  * @subsection ATCMD_p2p_13 AT+PBR: get or set the P2P FSK modem bitrate (600b/s-300000b/s)
  *

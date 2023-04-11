@@ -2,6 +2,11 @@
  *  This example shows powersave function.
 ***/
 
+void WakeupCallback()
+{
+    Serial.printf("This is Wakeup Callback\r\n");
+}
+
 void setup()
 {
     Serial.begin(115200);
@@ -15,6 +20,11 @@ void setup()
 #warning Please set the right pin refer to the documentation
     api.system.sleep.setup(RUI_WAKEUP_FALLING_EDGE, 0xFF);
 #endif
+
+    if ( api.system.sleep.registerWakeupCallback(WakeupCallback) == false )
+    {
+        Serial.println("Create Wakeup Callback failed.");
+    }
 }
 
 void loop()

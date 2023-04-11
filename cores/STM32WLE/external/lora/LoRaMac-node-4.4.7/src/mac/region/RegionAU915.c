@@ -10219,13 +10219,13 @@ _Bool
         }
         case PHY_RX_DR:
         {
-            if( verify->DatarateParams.UplinkDwellTime == 0 )
+
             {
                 return RegionCommonValueInRange( verify->DatarateParams.Datarate, 8, 13 );
             }
-            else
+
             {
-                return RegionCommonValueInRange( verify->DatarateParams.Datarate, 2, 13 );
+
             }
         }
         case PHY_DEF_TX_POWER:

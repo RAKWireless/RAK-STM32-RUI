@@ -43,9 +43,30 @@ void joinCallback(int32_t status)
     Serial.printf("Join status: %d\r\n", status);
 }
 
+/*************************************
+ * enum type for LoRa Event
+    RAK_LORAMAC_STATUS_OK = 0,
+    RAK_LORAMAC_STATUS_ERROR,
+    RAK_LORAMAC_STATUS_TX_TIMEOUT,
+    RAK_LORAMAC_STATUS_RX1_TIMEOUT,
+    RAK_LORAMAC_STATUS_RX2_TIMEOUT,
+    RAK_LORAMAC_STATUS_RX1_ERROR,
+    RAK_LORAMAC_STATUS_RX2_ERROR,
+    RAK_LORAMAC_STATUS_JOIN_FAIL,
+    RAK_LORAMAC_STATUS_DOWNLINK_REPEATED,
+    RAK_LORAMAC_STATUS_TX_DR_PAYLOAD_SIZE_ERROR,
+    RAK_LORAMAC_STATUS_DOWNLINK_TOO_MANY_FRAMES_LOSS,
+    RAK_LORAMAC_STATUS_ADDRESS_FAIL,
+    RAK_LORAMAC_STATUS_MIC_FAIL,
+    RAK_LORAMAC_STATUS_MULTICAST_FAIL,
+    RAK_LORAMAC_STATUS_BEACON_LOCKED,
+    RAK_LORAMAC_STATUS_BEACON_LOST,
+    RAK_LORAMAC_STATUS_BEACON_NOT_FOUND,
+ *************************************/
+
 void sendCallback(int32_t status)
 {
-    if (status == 0) {
+    if (status == RAK_LORAMAC_STATUS_OK) {
         Serial.println("Successfully sent");
     } else {
         Serial.println("Sending failed");

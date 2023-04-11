@@ -158,4 +158,4 @@ tools.bootburn.bootloader.pattern={program.burn_pattern}
 tools.bootburn.erase.params.verbose=
 tools.bootburn.erase.params.quiet=
 tools.bootburn.erase.pattern=
-version=4.0.1
+version=4.0.2
