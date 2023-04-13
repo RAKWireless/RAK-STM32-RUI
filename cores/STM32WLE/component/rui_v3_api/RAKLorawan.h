@@ -143,6 +143,12 @@ public:
      * @ingroup	Joining_and_Sending
      * @par	Syntax
      *      	api.lorawan.join()
+     *      	api.lorawan.join(join_start, auto_join, auto_join_period, auto_join_cnt)
+     *
+     * @param   join_start          manually join network: 0 means stop to join network; 1 means start to join network.
+     * @param   auto_join           automatically join network: 0 means stop automatically joining network; 1 means start automatically joining network.
+     * @param   auto_join_period    the join attempt period. The acceptance values are 7 to 255 (in seconds).
+     * @param   auto_join_cnt       the maximum number of join attempts. The acceptance values are 0 to 255 (in seconds).
      * @return	bool
      * @retval	TRUE for success
      * @retval	FALSE for join failure
@@ -183,6 +189,7 @@ public:
            @endverbatim
      */
   bool join();
+  bool join(uint8_t join_start, uint8_t auto_join, uint8_t auto_join_period, uint8_t auto_join_cnt);
 
   /**@par	Description
      *          This api provides the way to send data on a dedicated port number
@@ -2708,7 +2715,7 @@ public:
 
        void loop()
        {
-           Serial.printf("The current beacon time = %l\r\n", api.lorawan.btime.get());
+           Serial.printf("The current beacon time = %lu\r\n", api.lorawan.btime.get());
            delay(1000);
        }
            @endverbatim

@@ -75,6 +75,10 @@ static void OnTxDone(void)
     {
         (*service_lora_p2p_send_callback)();
     }
+    if (SERVICE_LORA_P2P == service_lora_get_nwm())
+        udrv_serial_log_printf("+EVT:TXP2P DONE");
+    else
+        udrv_serial_log_printf("+EVT:TXFSK DONE");
 
 
     udrv_powersave_wake_unlock();   

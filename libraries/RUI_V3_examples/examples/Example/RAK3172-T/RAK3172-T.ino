@@ -2,7 +2,7 @@
 void setup()
 {
     Serial.begin(115200);
-    Serial.println("RAKwireless RAK3172-T Example");
+    Serial.println("RAKwireless RAK3172-T");
     Serial.println("------------------------------------------------------");
 }
 

@@ -105,6 +105,7 @@ void new_thread4(void)//log
 void setup()
 {
     Serial.begin(115200);
+    delay(2000);
     Serial.println("RAKwireless System Multitasking  Example");
     Serial.println("------------------------------------------------------");
     time_t timeout = millis();
