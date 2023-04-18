@@ -4,6 +4,7 @@ void setup()
     Serial.begin(115200);
     Serial.println("RAKwireless RAK3172-T");
     Serial.println("------------------------------------------------------");
+    Serial.printf("Version: %s\r\n", api.system.firmwareVersion.get().c_str());
 }
 
 void loop()
