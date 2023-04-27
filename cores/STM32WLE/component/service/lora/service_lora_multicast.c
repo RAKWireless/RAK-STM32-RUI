@@ -41,7 +41,7 @@ int32_t service_lora_addmulc(McSession_t McSession)
     for (i = 0; i < 4; i++)
     {
         if (McSession.Address == McSession_group[i].Address)
-            return -UDRV_WRONG_ARG;
+            return -UDRV_PARAM_ERR;
     }
 
     for (i = 0; i < 4; i++)
@@ -116,7 +116,7 @@ int32_t service_lora_addmulc(McSession_t McSession)
                         channel.RxParams.ClassC.Datarate = 0;
                         break;
                         default:
-                        return UDRV_INTERNAL_ERR;
+                        return -UDRV_PARAM_ERR;
                     }
                     McSession.Frequency = channel.RxParams.ClassC.Frequency;
                     McSession.Datarate = channel.RxParams.ClassC.Datarate;
@@ -177,7 +177,7 @@ int32_t service_lora_addmulc(McSession_t McSession)
                         channel.RxParams.ClassB.Datarate = 3;
                         break;
                         default:
-                        return UDRV_INTERNAL_ERR;
+                        return -UDRV_PARAM_ERR;
                     }
 
                     McSession.Frequency = channel.RxParams.ClassB.Frequency;
@@ -188,17 +188,17 @@ int32_t service_lora_addmulc(McSession_t McSession)
             }
             if (LoRaMacMcChannelSetup(&channel) != LORAMAC_STATUS_OK)
             {
-                return -UDRV_INTERNAL_ERR;
+                return -UDRV_PARAM_ERR;
             }
 
 
             if (LoRaMacMcChannelSetupRxParams(channel.GroupID, &channel.RxParams, &status) != LORAMAC_STATUS_OK)
             {
-                return -UDRV_INTERNAL_ERR;
+                return -UDRV_PARAM_ERR;
             }
             if((status & 0xFC) != 0x00)
             {
-                return -UDRV_WRONG_ARG;
+                return -UDRV_PARAM_ERR;
             }
 
             memcpy(&McSession_group[i], &McSession, sizeof(McSession_t));   
@@ -214,7 +214,7 @@ int32_t service_lora_addmulc(McSession_t McSession)
      if (i == 4)
     {
         memset(&McSession_group[i], 0, sizeof(McSession_t));
-        return -UDRV_INTERNAL_ERR;
+        return -UDRV_PARAM_ERR;
     }
 
     return UDRV_RETURN_OK;

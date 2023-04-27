@@ -33,7 +33,7 @@
  *
  * @subsection ATCMD_general_4 ATR: Restore Default Parameters
  *
- * This command is used to restore all parameters to the initial default values.
+ * This command is used to restore all parameters to the initial default values. MCU will reset after restore the initial default values.
  *
  * | Command            | Input parameter    | Return value                                                      | Return code        |
  * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
@@ -221,6 +221,7 @@
 #endif
 #ifdef SUPPORT_BLE
 #define ATCMD_BLEMAC                "AT+BLEMAC"
+#define ATCMD_BLEDTM                "AT+BLEDTM"
 #endif
 
 #endif //_ATCMD_GENERAL_DEF_H_

@@ -33,5 +33,5 @@
 
 #define ATCMD_SLEEP                 "AT+SLEEP"
 #define ATCMD_AUTOSLEEP             "AT+LPM"
-
+#define ATCMD_AUTOSLEEPLEVEL        "AT+LPMLVL"
 #endif //_ATCMD_SLEEP_DEF_H_

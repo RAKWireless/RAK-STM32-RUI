@@ -1,4 +1,8 @@
 
+#ifndef rak5010
+#error "Please select WisTrio Cellular RAK5010 Board and compile again"
+#endif
+
 void publish_routine();
 
 String command; //String to store BG96 commnads
@@ -28,12 +32,11 @@ void bg96_read() {
 
 //Write commnads to BG96
 void bg96_write(const char *command) {
-  while(*command)
-  {
-    Serial1.write(*command);
-    command++;
-  }
-  delay(1000);
+    while(*command){
+        Serial1.write(*command);
+        command++;
+    }
+    delay(1000);
 }
 
 /* Fill your "AmazonRootCA1.pem" wiht LINE ENDING */
@@ -115,370 +118,369 @@ v0c05Ee8uMP5HfOBVpY0e9zSpBkDBWr5t99xRnXij77iEFMULY5+DA==\n\
 
 void setup()
 {
-  Serial.begin(115200);
-  delay(5000);
-  Serial.println("RAKwireless RAK5010 MQTT with SSL Example");
-  Serial.println("------------------------------------------------------");
+    Serial.begin(115200);
+    delay(5000);
+    Serial.println("RAKwireless RAK5010 MQTT with SSL Example");
+    Serial.println("------------------------------------------------------");
 
-  // begin for I2C
-  Wire.begin();
+    // begin for I2C
+    Wire.begin();
 
-  Serial.printf("SHTC3 init %s\r\n", sensor.shtc3.init() ? "Success" : "Fail");
-  Serial.printf("LPS22HB init %s\r\n", sensor.lps22hb.init() ? "Success" : "Fail");
-  Serial.printf("OPT3001 init %s\r\n", sensor.opt3001.init() ? "Success" : "Fail");
-  Serial.printf("LIS3DH init %s\r\n", sensor.lis3dh.init() ? "Success" : "Fail");
+    Serial.printf("SHTC3 init %s\r\n", sensor.shtc3.init() ? "Success" : "Fail");
+    Serial.printf("LPS22HB init %s\r\n", sensor.lps22hb.init() ? "Success" : "Fail");
+    Serial.printf("OPT3001 init %s\r\n", sensor.opt3001.init() ? "Success" : "Fail");
+    Serial.printf("LIS3DH init %s\r\n", sensor.lis3dh.init() ? "Success" : "Fail");
 
-  command = "ATE0\r";
-  bg96_write(command.c_str());
+    command = "ATE0\r";
+    bg96_write(command.c_str());
 
-  bg96_read();
+    bg96_read();
 
-  command = "at&f0\r";
-  bg96_write(command.c_str());
+    command = "at&f0\r";
+    bg96_write(command.c_str());
 
-  bg96_read();
+    bg96_read();
 
-  Serial.println("Enable extended time zone and local time:");
-  command = "AT+CTZR=2\r";
-  bg96_write(command.c_str());
+    Serial.println("Enable extended time zone and local time:");
+    command = "AT+CTZR=2\r";
+    bg96_write(command.c_str());
 
-  bg96_read();
+    bg96_read();
 
-  command = "AT+CTZR?\r";  //Get the local time
-  bg96_write(command.c_str());
+    command = "AT+CTZR?\r";  //Get the local time
+    bg96_write(command.c_str());
 
-  bg96_read();
+    bg96_read();
 
-  Serial.println("Upload CA Certificate to UFS:");
-  command = "AT+QFDEL=\"cacert.pem\"\r";
-  bg96_write(command.c_str());
+    Serial.println("Upload CA Certificate to UFS:");
+    command = "AT+QFDEL=\"cacert.pem\"\r";
+    bg96_write(command.c_str());
 
-  bg96_read();
+    bg96_read();
 
-  command = "AT+QFUPL=\"cacert.pem\",1187,100\r";
-  bg96_write(command.c_str());
-  bg96_write(pem_CA);
+    command = "AT+QFUPL=\"cacert.pem\",1187,100\r";
+    bg96_write(command.c_str());
+    bg96_write(pem_CA);
 
-  bg96_read();
+    bg96_read();
 
-  Serial.println("Upload Client Certificate to UFS:");
-  command = "AT+QFDEL=\"client.pem\"\r";
-  bg96_write(command.c_str());
+    Serial.println("Upload Client Certificate to UFS:");
+    command = "AT+QFDEL=\"client.pem\"\r";
+    bg96_write(command.c_str());
 
-  bg96_read();
+    bg96_read();
 
-  command = "AT+QFUPL=\"client.pem\",1220,100\r";
-  bg96_write(command.c_str());
-  bg96_write(pem_cert);
+    command = "AT+QFUPL=\"client.pem\",1220,100\r";
+    bg96_write(command.c_str());
+    bg96_write(pem_cert);
 
-  bg96_read();
+    bg96_read();
 
-  Serial.println("Upload Client Private Key to UFS:");
-  command = "AT+QFDEL=\"user_key.pem\"\r";
-  bg96_write(command.c_str());
+    Serial.println("Upload Client Private Key to UFS:");
+    command = "AT+QFDEL=\"user_key.pem\"\r";
+    bg96_write(command.c_str());
 
-  bg96_read();
+    bg96_read();
 
-  command = "AT+QFUPL=\"user_key.pem\",1679,100\r";
-  bg96_write(command.c_str());
-  bg96_write(pem_pkey);
+    command = "AT+QFUPL=\"user_key.pem\",1679,100\r";
+    bg96_write(command.c_str());
+    bg96_write(pem_pkey);
 
-  bg96_read();
+    bg96_read();
 
-  //if (api.system.timer.create(RAK_TIMER_0, (RAK_TIMER_HANDLER)publish_routine, RAK_TIMER_PERIODIC) != true) {
-  //  Serial.printf("Creating timer failed.\r\n");
-  //  return;
-  //}
-  //if (api.system.timer.start(RAK_TIMER_0, 180000, NULL) != true) {
-  //  Serial.printf("Starting timer failed.\r\n");
-  //  return;
-  //}
+    //if (api.system.timer.create(RAK_TIMER_0, (RAK_TIMER_HANDLER)publish_routine, RAK_TIMER_PERIODIC) != true) {
+    //  Serial.printf("Creating timer failed.\r\n");
+    //  return;
+    //}
+    //if (api.system.timer.start(RAK_TIMER_0, 180000, NULL) != true) {
+    //  Serial.printf("Starting timer failed.\r\n");
+    //  return;
+    //}
 
-  api.system.lpm.set(0);
+    api.system.lpm.set(0);
 }
 
 void publish_routine()
 {
-  char data[256];
+    char data[256];
 
-  // Deactivate a PDP Context 
-  command = "AT+QIDEACT=1\r";
-  bg96_write(command.c_str());
+    // Deactivate a PDP Context 
+    command = "AT+QIDEACT=1\r";
+    bg96_write(command.c_str());
 
-  bg96_read();
+    bg96_read();
 
-  Serial.println("Registration the indicate registration status:");
-  command = "AT+CREG=1\r";
-  bg96_write(command.c_str());
+    Serial.println("Registration the indicate registration status:");
+    command = "AT+CREG=1\r";
+    bg96_write(command.c_str());
 
-  bg96_read();
+    bg96_read();
 
-  command = "AT+CPIN?\r";  //Waiting for (U)SIM PIN to be given
-  bg96_write(command.c_str());
+    command = "AT+CPIN?\r";  //Waiting for (U)SIM PIN to be given
+    bg96_write(command.c_str());
    
-  bg96_read();
+    bg96_read();
 
-  Serial.println("Setup the Operators setting during 30~60sec after APN is ready:");
-  command = "AT+COPS=1,0,\"Far EasTone\",9\r";
-  bg96_write(command.c_str());
-
-  bg96_read();
-
-  command = "AT+COPS?\r";
-  bg96_write(command.c_str());
-
-  bg96_read();
-
-  while (1) {
-    if (strstr(last_resp, "+COPS: 1,0,\"Far EasTone\",9") != NULL) {
-      Serial.printf("operator selected!\r\n");
-      break;
-    }
+    Serial.println("Setup the Operators setting during 30~60sec after APN is ready:");
     command = "AT+COPS=1,0,\"Far EasTone\",9\r";
     bg96_write(command.c_str());
+
+    bg96_read();
+
     command = "AT+COPS?\r";
     bg96_write(command.c_str());
 
-    Serial.println("Wait again until receiving +COPS: 1,0,\"Far EasTone\",9");
     bg96_read();
-  }
 
-  Serial.println("Query the Network Registration Status:");
-  command = "AT+CREG?\r";
-  bg96_write(command.c_str());
+    while (1) {
+        if (strstr(last_resp, "+COPS: 1,0,\"Far EasTone\",9") != NULL) {
+            Serial.printf("operator selected!\r\n");
+            break;
+        }
+        command = "AT+COPS=1,0,\"Far EasTone\",9\r";
+        bg96_write(command.c_str());
+        command = "AT+COPS?\r";
+        bg96_write(command.c_str());
 
-  bg96_read();
-
-  while (1) {
-    if (strstr(last_resp, "+CREG: 1,1") != NULL || 
-        strstr(last_resp, "+CREG: 1,5") != NULL) {
-      Serial.printf("registered!\r\n");
-      break;
+        Serial.println("Wait again until receiving +COPS: 1,0,\"Far EasTone\",9");
+        bg96_read();
     }
-    command = "AT+COPS=1,0,\"Far EasTone\",9\r";
-    bg96_write(command.c_str());
+
+    Serial.println("Query the Network Registration Status:");
     command = "AT+CREG?\r";
     bg96_write(command.c_str());
 
-    Serial.println("Wait again until receiving +CREG: 1,1");
     bg96_read();
-  }
 
-  Serial.println("Configure APN:");
-  //command = "AT+QICSGP=1,1,\"nbiot\",\"\",\"\",1\r";
-  command = "AT+QICSGP=1,1,\"FET Internet\",\"\",\"\",1\r";
-  bg96_write(command.c_str());
+    while (1) {
+        if (strstr(last_resp, "+CREG: 1,1") != NULL || strstr(last_resp, "+CREG: 1,5") != NULL) {
+            Serial.printf("registered!\r\n");
+            break;
+        }
+        command = "AT+COPS=1,0,\"Far EasTone\",9\r";
+        bg96_write(command.c_str());
+        command = "AT+CREG?\r";
+        bg96_write(command.c_str());
 
-  bg96_read();
+        Serial.println("Wait again until receiving +CREG: 1,1");
+        bg96_read();
+    }
 
-  // Activate a PDP Context
-  command = "AT+QIACT=1\r";
-  bg96_write(command.c_str());
+    Serial.println("Configure APN:");
+    //command = "AT+QICSGP=1,1,\"nbiot\",\"\",\"\",1\r";
+    command = "AT+QICSGP=1,1,\"FET Internet\",\"\",\"\",1\r";
+    bg96_write(command.c_str());
 
-  bg96_read();
+    bg96_read();
 
-  // Configure Address of DNS Server
-  command = "AT+QIDNSCFG=1,\"8.8.8.8\",\"8.8.8.4\"\r";
-  bg96_write(command.c_str());
+    // Activate a PDP Context
+    command = "AT+QIACT=1\r";
+    bg96_write(command.c_str());
 
-  bg96_read();
+    bg96_read();
 
-  command = "AT+CTZR?\r";  //Get the local time
-  bg96_write(command.c_str());
+    // Configure Address of DNS Server
+    command = "AT+QIDNSCFG=1,\"8.8.8.8\",\"8.8.8.4\"\r";
+    bg96_write(command.c_str());
 
-  bg96_read();
+    bg96_read();
 
-  command = "AT+QNWINFO\r";
-  bg96_write(command.c_str());
+    command = "AT+CTZR?\r";  //Get the local time
+    bg96_write(command.c_str());
 
-  bg96_read();
+    bg96_read();
 
-  command = "AT+QPING=1,\"8.8.8.8\"\r";
-  bg96_write(command.c_str());
+    command = "AT+QNWINFO\r";
+    bg96_write(command.c_str());
 
-  bg96_read();
+    bg96_read();
 
-  Serial.println("Use SSL TCP secure connection for MQTT:");
-  command = "AT+QMTCFG=\"ssl\",0,1,2\r";
-  bg96_write(command.c_str());
+    command = "AT+QPING=1,\"8.8.8.8\"\r";
+    bg96_write(command.c_str());
 
-  bg96_read();
+    bg96_read();
 
-  Serial.println("Configure the path of CA certificate for SSL context 2:");
-  command = "AT+QSSLCFG=\"cacert\",2,\"cacert.pem\"\r";
-  bg96_write(command.c_str());
+    Serial.println("Use SSL TCP secure connection for MQTT:");
+    command = "AT+QMTCFG=\"ssl\",0,1,2\r";
+    bg96_write(command.c_str());
 
-  bg96_read();
+    bg96_read();
 
-  command = "AT+QSSLCFG=\"cacert\",2\r";
-  bg96_write(command.c_str());
+    Serial.println("Configure the path of CA certificate for SSL context 2:");
+    command = "AT+QSSLCFG=\"cacert\",2,\"cacert.pem\"\r";
+    bg96_write(command.c_str());
+
+    bg96_read();
+
+    command = "AT+QSSLCFG=\"cacert\",2\r";
+    bg96_write(command.c_str());
     
-  bg96_read();
-
-  Serial.println("Configure the path of client certificate for SSL context 2");
-  command = "AT+QSSLCFG=\"clientcert\",2,\"client.pem\"\r";
-  bg96_write(command.c_str());
-
-  bg96_read();
-
-  command = "AT+QSSLCFG=\"clientcert\",2\r";
-  bg96_write(command.c_str());
-
-  bg96_read();
-
-  Serial.println("Configure the path of client private key for SSL context 2:");
-  command = "AT+QSSLCFG=\"clientkey\",2,\"user_key.pem\"\r";
-  bg96_write(command.c_str());
-
-  bg96_read();
-
-  command = "AT+QSSLCFG=\"clientkey\",2\r";
-  bg96_write(command.c_str());
-
-  bg96_read();
-
-  Serial.println("Enable SSL authentication mode:");
-  command = "AT+QSSLCFG=\"seclevel\",2,2\r";
-  bg96_write(command.c_str());
-
-  bg96_read();
-
-  command = "AT+QSSLCFG=\"seclevel\",2\r";
-  bg96_write(command.c_str());
-
-  bg96_read();
-
-  Serial.println("SSL authentication version:");
-  command = "AT+QSSLCFG=\"sslversion\",2,4\r";
-  bg96_write(command.c_str());
-
-  bg96_read();
-
-  command = "AT+QSSLCFG=\"sslversion\",2\r";
-  bg96_write(command.c_str());
-
-  bg96_read();
-
-  Serial.println("Cipher suite:");
-  command = "AT+QSSLCFG=\"ciphersuite\",2,0XFFFF\r";
-  bg96_write(command.c_str());
-
-  bg96_read();
-
-  command = "AT+QSSLCFG=\"ciphersuite\",2\r";
-  bg96_write(command.c_str());
-
-  bg96_read();
-
-  Serial.println("Ignore the time of authentication:");
-  command = "AT+QSSLCFG=\"ignorelocaltime\",2,1\r";
-  bg96_write(command.c_str());
-
-  bg96_read();
-
-  command = "AT+QSSLCFG=\"ignorelocaltime\",2\r";
-  bg96_write(command.c_str());
-
-  bg96_read();
-
-  Serial.println("List Files Information:");
-  command = "AT+QFLST\r";
-  bg96_write(command.c_str());
-
-  bg96_read();
-
-  Serial.println("Start MQTT SSL connection:");
-  command = "AT+QMTOPEN=0,\"ach7fkebnh9qw-ats.iot.ap-southeast-1.amazonaws.com\",8883\r";
-  bg96_write(command.c_str());
-
-  bg96_read();
-
-  for (int i = 0 ; i < 20 ; i++) {
-    if (strstr(last_resp, "+QMTOPEN: 0,0") != NULL) {
-      break;
-    }
-    Serial.println("Wait again until receiving +QMTOPEN: 0,0");
     bg96_read();
-  }
 
-  command = "AT+QMTOPEN?\r";
-  bg96_write(command.c_str());
+    Serial.println("Configure the path of client certificate for SSL context 2");
+    command = "AT+QSSLCFG=\"clientcert\",2,\"client.pem\"\r";
+    bg96_write(command.c_str());
 
-  bg96_read();
-
-  Serial.println("Connect to MQTT server:");
-  command = "AT+QMTCONN=0,\"rak5010\"\r";
-  bg96_write(command.c_str());
-
-  bg96_read();
-
-  for (int i = 0 ; i < 20 ; i++) {
-    if (strstr(last_resp, "+QMTCONN: 0,0,0") != NULL) {
-      break;
-    }
-    Serial.println("Wait again until receiving +QMTCONN: 0,0,0");
     bg96_read();
-  }
 
-  command = "AT+QMTCONN?\r";
-  bg96_write(command.c_str());
+    command = "AT+QSSLCFG=\"clientcert\",2\r";
+    bg96_write(command.c_str());
 
-  bg96_read();
+    bg96_read();
 
-  //Serial.println("MQTT & Subscribe to topic messages:");
-  //command = "AT+QMTSUB=0,1,\"$aws/things/rak5010/shadow/update\",1\r";
-  //bg96_write(command.c_str());
+    Serial.println("Configure the path of client private key for SSL context 2:");
+    command = "AT+QSSLCFG=\"clientkey\",2,\"user_key.pem\"\r";
+    bg96_write(command.c_str());
 
-  //bg96_read();
+    bg96_read();
 
-  command = "AT+QMTPUB=0,1,1,0,\"$aws/things/rak5010/shadow/update\"\r";
-  bg96_write(command.c_str());
+    command = "AT+QSSLCFG=\"clientkey\",2\r";
+    bg96_write(command.c_str());
 
-  bg96_read();
+    bg96_read();
 
-  // SHTC3
-  if (sensor.shtc3.update()) {
-      sprintf(data, "Temperature = %.2f。C\r\n", sensor.shtc3.temperature());
-      bg96_write(data);
-      sprintf(data, "Humidity = %.2f%%\r\n", sensor.shtc3.humidity());
-      bg96_write(data);
-  } else {
-      Serial.println("SHTC3 update fail!");
-  }
+    Serial.println("Enable SSL authentication mode:");
+    command = "AT+QSSLCFG=\"seclevel\",2,2\r";
+    bg96_write(command.c_str());
 
-  // LPS22HB
-  sprintf(data, "Pressure = %.2f hPa\r\n", sensor.lps22hb.pressure());
-  bg96_write(data);
+    bg96_read();
 
-  // OPT3001
-  if (sensor.opt3001.update()) {
-      sprintf(data, "Light = %.2f lux\r\n", sensor.opt3001.lux());
-      bg96_write(data);
-  } else {
-      Serial.println("OPT3001 update fail!");
-  }
+    command = "AT+QSSLCFG=\"seclevel\",2\r";
+    bg96_write(command.c_str());
 
-  // LIS2DH
-  if (sensor.lis3dh.update()) {
-      sprintf(data, "The X  acceleration = %.2f\r\n", sensor.lis3dh.x());
-      bg96_write(data);
-      sprintf(data, "The Y  acceleration = %.2f\r\n", sensor.lis3dh.y());
-      bg96_write(data);
-      sprintf(data, "The Z  acceleration = %.2f\r\n", sensor.lis3dh.z());
-      bg96_write(data);
-  } else {
-      Serial.println("LIS3DH update fail!");
-  }
+    bg96_read();
 
-  command = "\032";
-  bg96_write(command.c_str());
+    Serial.println("SSL authentication version:");
+    command = "AT+QSSLCFG=\"sslversion\",2,4\r";
+    bg96_write(command.c_str());
 
-  bg96_read();
+    bg96_read();
+
+    command = "AT+QSSLCFG=\"sslversion\",2\r";
+    bg96_write(command.c_str());
+
+    bg96_read();
+
+    Serial.println("Cipher suite:");
+    command = "AT+QSSLCFG=\"ciphersuite\",2,0XFFFF\r";
+    bg96_write(command.c_str());
+
+    bg96_read();
+
+    command = "AT+QSSLCFG=\"ciphersuite\",2\r";
+    bg96_write(command.c_str());
+
+    bg96_read();
+
+    Serial.println("Ignore the time of authentication:");
+    command = "AT+QSSLCFG=\"ignorelocaltime\",2,1\r";
+    bg96_write(command.c_str());
+
+    bg96_read();
+
+    command = "AT+QSSLCFG=\"ignorelocaltime\",2\r";
+    bg96_write(command.c_str());
+
+    bg96_read();
+
+    Serial.println("List Files Information:");
+    command = "AT+QFLST\r";
+    bg96_write(command.c_str());
+
+    bg96_read();
+
+    Serial.println("Start MQTT SSL connection:");
+    command = "AT+QMTOPEN=0,\"ach7fkebnh9qw-ats.iot.ap-southeast-1.amazonaws.com\",8883\r";
+    bg96_write(command.c_str());
+
+    bg96_read();
+
+    for (int i = 0 ; i < 20 ; i++) {
+        if (strstr(last_resp, "+QMTOPEN: 0,0") != NULL) {
+            break;
+        }
+        Serial.println("Wait again until receiving +QMTOPEN: 0,0");
+        bg96_read();
+    }
+
+    command = "AT+QMTOPEN?\r";
+    bg96_write(command.c_str());
+
+    bg96_read();
+
+    Serial.println("Connect to MQTT server:");
+    command = "AT+QMTCONN=0,\"rak5010\"\r";
+    bg96_write(command.c_str());
+
+    bg96_read();
+
+    for (int i = 0 ; i < 20 ; i++) {
+        if (strstr(last_resp, "+QMTCONN: 0,0,0") != NULL) {
+            break;
+        }
+        Serial.println("Wait again until receiving +QMTCONN: 0,0,0");
+        bg96_read();
+    }
+
+    command = "AT+QMTCONN?\r";
+    bg96_write(command.c_str());
+
+    bg96_read();
+
+    //Serial.println("MQTT & Subscribe to topic messages:");
+    //command = "AT+QMTSUB=0,1,\"$aws/things/rak5010/shadow/update\",1\r";
+    //bg96_write(command.c_str());
+
+    //bg96_read();
+
+    command = "AT+QMTPUB=0,1,1,0,\"$aws/things/rak5010/shadow/update\"\r";
+    bg96_write(command.c_str());
+
+    bg96_read();
+
+    // SHTC3
+    if (sensor.shtc3.update()) {
+        sprintf(data, "Temperature = %.2f。C\r\n", sensor.shtc3.temperature());
+        bg96_write(data);
+        sprintf(data, "Humidity = %.2f%%\r\n", sensor.shtc3.humidity());
+        bg96_write(data);
+    } else {
+        Serial.println("SHTC3 update fail!");
+    }
+
+    // LPS22HB
+    sprintf(data, "Pressure = %.2f hPa\r\n", sensor.lps22hb.pressure());
+    bg96_write(data);
+
+    // OPT3001
+    if (sensor.opt3001.update()) {
+        sprintf(data, "Light = %.2f lux\r\n", sensor.opt3001.lux());
+        bg96_write(data);
+    } else {
+        Serial.println("OPT3001 update fail!");
+    }
+
+    // LIS2DH
+    if (sensor.lis3dh.update()) {
+        sprintf(data, "The X  acceleration = %.2f\r\n", sensor.lis3dh.x());
+        bg96_write(data);
+        sprintf(data, "The Y  acceleration = %.2f\r\n", sensor.lis3dh.y());
+        bg96_write(data);
+        sprintf(data, "The Z  acceleration = %.2f\r\n", sensor.lis3dh.z());
+        bg96_write(data);
+    } else {
+        Serial.println("LIS3DH update fail!");
+    }
+
+    command = "\032";
+    bg96_write(command.c_str());
+
+    bg96_read();
 }
 
 void loop()
 {
-  publish_routine();
-  //api.system.scheduler.task.destroy();
-  api.system.sleep.all(180000);
+    publish_routine();
+    //api.system.scheduler.task.destroy();
+    api.system.sleep.all(180000);
 }

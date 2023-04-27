@@ -7,7 +7,7 @@
 #include "service_lora_multicast.h"
 #include "string.h"
 
-//at+addmulc=C,11223344,11223344556677881122334455667788,11223344556677881122334455667788
+//at+addmulc=C:11223344:11223344556677881122334455667788:11223344556677881122334455667788
 //at+lstmulc=?
 //at+rmvmulc=11223344
 int At_Addmulc(SERIAL_PORT port, char *cmd, stParam *param)
@@ -50,26 +50,36 @@ int At_Addmulc(SERIAL_PORT port, char *cmd, stParam *param)
         uint32_t Datarate_u32;
         if( 0 != at_check_digital_uint32_t(param->argv[4], &McSession.Frequency) )
             return AT_PARAM_ERROR;
-        if( 0 != at_check_digital_uint32_t( param->argv[5], &Datarate_u32))
-            return AT_PARAM_ERROR;
+        if(param->argv[5][0] == '0')
+        {
+            if( 0 != at_check_digital_uint32_t( param->argv[5] + 1, &Datarate_u32))
+                return AT_PARAM_ERROR;
+        }
+        else
+        {
+            if( 0 != at_check_digital_uint32_t( param->argv[5], &Datarate_u32))
+                return AT_PARAM_ERROR;
+        }
+
         McSession.Datarate = Datarate_u32;
     }
 
-    if ((param->argc == 7)&&(McSession.Devclass == 1))
+    if ((param->argc == 7))
     {
         uint32_t Periodicity_u32;
         if( 0 != at_check_digital_uint32_t( param->argv[6], &Periodicity_u32))
             return AT_PARAM_ERROR;
         if( Periodicity_u32 > 7)
             return AT_PARAM_ERROR;
-        McSession.Periodicity = (uint16_t)Periodicity_u32;
+        if(McSession.Devclass == 1)
+            McSession.Periodicity = (uint16_t)Periodicity_u32;
+        if(McSession.Devclass == 2 && Periodicity_u32 > 0)
+            return AT_PARAM_ERROR;
     }
 
     ret = service_lora_addmulc(McSession);
     
-    if(ret == -UDRV_PARAM_ERR)
-        return AT_PARAM_ERROR;
-    return ret;
+    return at_error_code_form_udrv(ret);
 }
 
 int At_Rmvmulc(SERIAL_PORT port, char *cmd, stParam *param)

@@ -88,5 +88,39 @@ int At_AutoSleep(SERIAL_PORT port, char *cmd, stParam *param)
         return AT_PARAM_ERROR;
     }
 }
+int At_AutoSleepLevel(SERIAL_PORT port, char *cmd, stParam *param)
+{
+    int32_t ret;
+
+    if (param->argc == 1 && !strcmp(param->argv[0], "?"))
+    {
+        atcmd_printf("%s=%u\r\n", cmd, service_nvm_get_auto_sleep_level_from_nvm());
+        return AT_OK;
+    }
+    else if (param->argc == 1)
+    {
+        uint32_t input;
+
+        for (int i = 0; i < strlen(param->argv[0]); i++)
+        {
+            if (!isdigit(*(param->argv[0] + i)))
+                return AT_PARAM_ERROR;
+        }
+
+        input = strtoul(param->argv[0], NULL, 10);
+
+        if (input != 1 && input != 2)
+            return AT_PARAM_ERROR;
+
+        ret = service_nvm_set_auto_sleep_level_to_nvm(input);
+        if (ret == UDRV_RETURN_OK)
+            return AT_OK;
+        else
+            return AT_ERROR;
+    }
+    else
+        return AT_PARAM_ERROR;
+}
+
 #endif
 

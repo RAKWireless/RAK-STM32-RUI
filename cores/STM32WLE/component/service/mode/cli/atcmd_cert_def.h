@@ -116,6 +116,17 @@
  * <power> : 5 - 22 dBm<br>
  * <time> : 0 - 65535 ms<br>
  *
+ * @subsection ATCMD_cert_10 AT+TRTH: RF Tx hopping test in random sequence
+ *
+ * This command is used to access and configure RF Tx hopping test in random sequence.
+ *
+ * | Command            | Input parameter    | Return value                                                      | Return code        |
+ * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
+ * | AT+TRTH?            | --                 | AT+TRTH: start RF TX hopping test from Fstart to Fstop, with Fdelta interval in random sequence           | OK                 |
+ * | AT+TRTH=\<input\>   | \<Fstart\>:\<Fstop\>:\<Fdelta\>:\<PacketNb\>                 | --                                                                | OK / AT_BUSY_ERROR |
+ * | Example<br>AT+TRTH= | 868000000:868300000,100000,4               | --                                                                | OK                 |
+ *
+
  */
 #endif 
 #ifndef _ATCMD_CERT_DEF_H_
@@ -127,6 +138,7 @@
 #define ATCMD_TRX              "AT+TRX"
 #define ATCMD_TCONF            "AT+TCONF"
 #define ATCMD_TTH              "AT+TTH"
+#define ATCMD_TRTH             "AT+TRTH"
 #define ATCMD_TOFF             "AT+TOFF"
 #define ATCMD_CERTIF           "AT+CERTIF"
 #define ATCMD_CW               "AT+CW"

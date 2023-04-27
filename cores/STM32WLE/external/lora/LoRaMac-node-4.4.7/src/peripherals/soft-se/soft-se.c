@@ -6299,6 +6299,16 @@ SecureElementStatus_t SecureElementSetPin( uint8_t* pin );
 
 
 uint8_t* SecureElementGetPin( void );
+
+
+
+
+
+
+# 224 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/secure-element.h" 3 4
+_Bool 
+# 224 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/secure-element.h"
+    Get_McRoot_Key(uint8_t *key);
 # 36 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/peripherals/soft-se/soft-se.c" 2
 # 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/secure-element-nvm.h" 1
 # 37 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/peripherals/soft-se/soft-se.c" 2
@@ -6778,4 +6788,33 @@ SecureElementStatus_t SecureElementSetPin( uint8_t* pin )
 uint8_t* SecureElementGetPin( void )
 {
     return SeNvm->Pin;
+}
+
+
+# 460 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/peripherals/soft-se/soft-se.c" 3 4
+_Bool 
+# 460 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/peripherals/soft-se/soft-se.c"
+    Get_McRoot_Key(uint8_t *key)
+{
+    aes_context aesContext;
+    Key_t* keyItem;
+    SecureElementStatus_t retval = GetKeyByID( MC_ROOT_KEY, &keyItem );
+    if( retval == SECURE_ELEMENT_SUCCESS )
+    {
+        aes_set_key( keyItem->KeyValue, 16, &aesContext );
+        memcpy(key, aesContext.ksch, 16);
+        return 
+# 469 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/peripherals/soft-se/soft-se.c" 3 4
+              1
+# 469 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/peripherals/soft-se/soft-se.c"
+                  ;
+    }
+    else
+    {
+        return 
+# 473 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/peripherals/soft-se/soft-se.c" 3 4
+              0
+# 473 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/peripherals/soft-se/soft-se.c"
+                   ;
+    }
 }

@@ -16,5 +16,8 @@ int At_RxWin2Freq (SERIAL_PORT port, char *cmd, stParam *param);
 int At_TxPower (SERIAL_PORT port, char *cmd, stParam *param);
 int At_LinkCheck(SERIAL_PORT port, char *cmd, stParam *param);
 int At_Timereq(SERIAL_PORT port, char *cmd, stParam *param);
+int At_Lbt(SERIAL_PORT port, char *cmd, stParam *param);
+int At_LbtRssi(SERIAL_PORT port, char *cmd, stParam *param);
+int At_LbtScantime(SERIAL_PORT port, char *cmd, stParam *param);
 
 #endif //_ATCMD_NWK_MNG_H_

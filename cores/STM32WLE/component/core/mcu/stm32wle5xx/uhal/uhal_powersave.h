@@ -10,7 +10,7 @@
 #include "stm32wlxx_hal.h"
 #include "stm32_timer.h"
 
-void uhal_mcu_sleep (void);
+void uhal_mcu_sleep (uint32_t level);
 void uhal_sys_clock_init(void);
 void uhal_sys_clock_on(void);
 void uhal_sys_clock_off(void);

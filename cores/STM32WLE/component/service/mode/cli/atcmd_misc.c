@@ -12,7 +12,11 @@
 #ifndef RUI_BOOTLOADER
 int At_Factory (SERIAL_PORT port, char *cmd, stParam *param) {
     if (param->argc == 0) {
+        #ifdef rak11720
+        uint8_t buff[8192];
+        #else
         uint8_t buff[4096];
+        #endif
 
         udrv_flash_read(MCU_SYS_CONFIG_NVM_ADDR, udrv_flash_get_page_size(), buff);
         udrv_flash_erase(MCU_FACTORY_DEFAULT_NVM_ADDR, udrv_flash_get_page_size());

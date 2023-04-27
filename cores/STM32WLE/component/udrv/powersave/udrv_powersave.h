@@ -12,7 +12,7 @@ typedef void (*POWER_SAVE_HANDLER) (void);
 
 //The structure of powersave function 
 struct udrv_powersave_api {
-    void (*MCU_SLEEP) (void);
+    void (*MCU_SLEEP) (uint32_t level);
     void (*SYS_CLOCK_INIT) (void);
     void (*SYS_CLOCK_ON) (void);
     void (*SYS_CLOCK_OFF) (void);

@@ -346,8 +346,8 @@ void uhal_uart_suspend(void)
             if(i == SERIAL_UART1)  //RAK3172 uart1
             {
                 LL_USART_ClearFlag_ORE(USART1);
-                while (LL_USART_IsActiveFlag_BUSY(USART1) == 1);
-                while (LL_USART_IsActiveFlag_REACK(USART1) == 0);
+                //while (LL_USART_IsActiveFlag_BUSY(USART1) == 1);
+                //while (LL_USART_IsActiveFlag_REACK(USART1) == 0);
                 LL_USART_ClearFlag_WKUP(USART1);
                 LL_USART_EnableInStopMode(USART1);
                 LL_USART_EnableIT_WKUP(USART1);

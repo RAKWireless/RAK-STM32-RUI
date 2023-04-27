@@ -18,7 +18,7 @@ static void dump_hex2str(uint8_t *buf , uint8_t len)
 //AT Command Keys, IDs and EUIs Management Function
 int At_AppEui (SERIAL_PORT port, char *cmd, stParam *param)
 {
-    if (SERVICE_LORA_P2P == service_lora_get_nwm())
+    if (SERVICE_LORAWAN != service_lora_get_nwm())
     {
         return AT_MODE_NO_SUPPORT;
     }
@@ -70,7 +70,7 @@ int At_AppEui (SERIAL_PORT port, char *cmd, stParam *param)
 
 int At_AppKey (SERIAL_PORT port, char *cmd, stParam *param)
 {
-    if (SERVICE_LORA_P2P == service_lora_get_nwm())
+    if (SERVICE_LORAWAN != service_lora_get_nwm())
     {
         return AT_MODE_NO_SUPPORT;
     }
@@ -122,7 +122,7 @@ int At_AppKey (SERIAL_PORT port, char *cmd, stParam *param)
 
 int At_AppSKey (SERIAL_PORT port, char *cmd, stParam *param)
 {
-    if (SERVICE_LORA_P2P == service_lora_get_nwm())
+    if (SERVICE_LORAWAN != service_lora_get_nwm())
     {
         return AT_MODE_NO_SUPPORT;
     }
@@ -174,7 +174,7 @@ int At_AppSKey (SERIAL_PORT port, char *cmd, stParam *param)
 
 int At_DevAddr (SERIAL_PORT port, char *cmd, stParam *param)
 {
-    if (SERVICE_LORA_P2P == service_lora_get_nwm())
+    if (SERVICE_LORAWAN != service_lora_get_nwm())
     {
         return AT_MODE_NO_SUPPORT;
     }
@@ -229,10 +229,10 @@ int At_DevAddr (SERIAL_PORT port, char *cmd, stParam *param)
 
 int At_DevEui (SERIAL_PORT port, char *cmd, stParam *param)
 {
-    // if (SERVICE_LORA_P2P == service_lora_get_nwm())
-    // {
-    //     return AT_MODE_NO_SUPPORT;
-    // }
+    if (SERVICE_LORAWAN != service_lora_get_nwm())
+    {
+        return AT_MODE_NO_SUPPORT;
+    }
     if (param->argc == 1 && !strcmp(param->argv[0], "?")) {
         uint8_t rbuff[8];
         if (service_lora_get_dev_eui(rbuff, 8) != UDRV_RETURN_OK) {
@@ -281,7 +281,7 @@ int At_DevEui (SERIAL_PORT port, char *cmd, stParam *param)
 
 int At_NetId (SERIAL_PORT port, char *cmd, stParam *param)
 {
-    if (SERVICE_LORA_P2P == service_lora_get_nwm())
+    if (SERVICE_LORAWAN != service_lora_get_nwm())
     {
         return AT_MODE_NO_SUPPORT;
     }
@@ -329,7 +329,7 @@ int At_NetId (SERIAL_PORT port, char *cmd, stParam *param)
 
 int At_NwkSKey (SERIAL_PORT port, char *cmd, stParam *param)
 {
-    if (SERVICE_LORA_P2P == service_lora_get_nwm())
+    if (SERVICE_LORAWAN != service_lora_get_nwm())
     {
         return AT_MODE_NO_SUPPORT;
     }
@@ -378,5 +378,30 @@ int At_NwkSKey (SERIAL_PORT port, char *cmd, stParam *param)
         return AT_PARAM_ERROR;
     }
 }
+
+int At_McRootkey (SERIAL_PORT port, char *cmd, stParam *param)
+{
+    if (param->argc == 1 && !strcmp(param->argv[0], "?")) {
+        uint8_t rbuff[16];
+        if (service_lora_get_McRoot_key(rbuff) != true) {
+            return AT_ERROR;
+        }
+        atcmd_printf("%s=", cmd);
+        dump_hex2str(rbuff, 16);
+        return AT_OK;
+    } else if (param->argc == 1) {
+        char lora_id[32];
+        char hex_num[3] = {0};
+        int32_t ret;
+
+	if (strlen(param->argv[0]) != 32) {
+            return AT_PARAM_ERROR;
+	}
+ 
+    } else {
+        return AT_PARAM_ERROR;
+    }
+}
+
 #endif
 #endif

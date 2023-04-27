@@ -528,6 +528,91 @@ int At_Timereq(SERIAL_PORT port, char *cmd, stParam *param)
     return at_error_code_form_udrv(ret);
 }
 
+int At_Lbt(SERIAL_PORT port, char *cmd, stParam *param)
+{
+    int32_t ret = AT_OK;
+
+    if(SERVICE_LORAWAN != service_lora_get_nwm())
+    {
+        return AT_MODE_NO_SUPPORT;
+    }
+    
+    if (param->argc == 1 && !strcmp(param->argv[0], "?"))
+    {
+        atcmd_printf("%s=%d\r\n", cmd, service_lora_get_lbt());
+        return AT_OK;
+    }
+    else
+    {
+        uint8_t enable;
+
+        if (0 != at_check_digital_uint32_t(param->argv[0], &enable))
+        {
+            return AT_PARAM_ERROR;
+        }
+        if(enable>1)
+        {
+            return AT_PARAM_ERROR;
+        }
+        ret =  service_lora_set_lbt(enable);       
+    }
+    return at_error_code_form_udrv(ret);
+
+}
+
+int At_LbtRssi(SERIAL_PORT port, char *cmd, stParam *param)
+{
+    int32_t ret = AT_OK;
+
+    if(SERVICE_LORAWAN != service_lora_get_nwm())
+    {
+        return AT_MODE_NO_SUPPORT;
+    }
+    
+    if (param->argc == 1 && !strcmp(param->argv[0], "?"))
+    {
+        atcmd_printf("%s=%d\r\n", cmd, service_lora_get_lbt_rssi());
+        return AT_OK;
+    }
+    else
+    {
+        int16_t rssi;
+        rssi = atoi(param->argv[0]);
+        ret =  service_lora_set_lbt_rssi(rssi);       
+    }
+    return at_error_code_form_udrv(ret);
+
+}
+
+int At_LbtScantime(SERIAL_PORT port, char *cmd, stParam *param)
+{
+    int32_t ret = AT_OK;
+
+    if(SERVICE_LORAWAN != service_lora_get_nwm())
+    {
+        return AT_MODE_NO_SUPPORT;
+    }
+    
+    if (param->argc == 1 && !strcmp(param->argv[0], "?"))
+    {
+        atcmd_printf("%s=%d\r\n", cmd, service_lora_get_lbt_scantime());
+        return AT_OK;
+    }
+    else
+    {
+        uint32_t time;
+
+        if (0 != at_check_digital_uint32_t(param->argv[0], &time))
+        {
+            return AT_PARAM_ERROR;
+        }
+        ret =  service_lora_set_lbt_scantime(time);       
+    }
+    return at_error_code_form_udrv(ret);
+
+}
+
+
 
 #endif
 #endif

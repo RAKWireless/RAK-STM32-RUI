@@ -101,7 +101,7 @@ int At_Che(SERIAL_PORT port, char *cmd, stParam *param)
         }
         else
         {
-            return AT_ERROR;
+            return AT_MODE_NO_SUPPORT;
         }
 
         return AT_OK;
@@ -422,7 +422,7 @@ int At_Chs(SERIAL_PORT port, char *cmd, stParam *param)
         int32_t freq;
 
         if((freq = service_lora_get_chs()) < 0) {
-            return AT_ERROR;
+            return AT_MODE_NO_SUPPORT;
         }
         atcmd_printf("%s=%d\r\n", cmd, service_lora_get_chs());
         return AT_OK;

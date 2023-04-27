@@ -139,10 +139,14 @@ at_cmd_info atcmd_info_tbl[] =
 #endif
 #ifdef SUPPORT_BLE
     {ATCMD_BLEMAC,   /*94*/         At_BLEMac,             0, "get or set the BLE Mac address", AT_BLEMAC_PERM},
+#ifdef rak11720
+    {ATCMD_BLEDTM,   /*97*/         At_BLEDTM,             0, "BLE DTM", AT_BLEDTM_PERM},
+#endif
 #endif
 /* Sleep Command */
     {ATCMD_SLEEP,    /*85*/         At_Sleep,              0, "enter sleep mode for a period of time (ms)", AT_SLEEP_PERM},
     {ATCMD_AUTOSLEEP,/*86*/         At_AutoSleep,          0, "get or set the low power mode (0 = off, 1 = on)", AT_AUTOSLEEP_PERM},
+    {ATCMD_AUTOSLEEPLEVEL,/*99*/    At_AutoSleepLevel,     0, "get or set the low power mode level", AT_AUTOSLEEPLEVEL_PERM},
 /* Serial Port Command */
     {ATCMD_LOCK,     /*10*/         At_Lock,               0, "lock the serial port",AT_LOCK_PERM },
     {ATCMD_PWORD,    /*11*/         At_Pword,              0, "set the serial port locking password (max 8 char)", AT_PWORD_PERM},
@@ -161,6 +165,7 @@ at_cmd_info atcmd_info_tbl[] =
     {ATCMD_DEUI,     /*20*/         At_DevEui,             0, "get or set the device EUI (8 bytes in hex)", AT_DEVEUI_PERM},
     {ATCMD_NETID,    /*21*/         At_NetId,              0, "get the network identifier (NetID) (3 bytes in hex)", AT_NETID_PERM},
     {ATCMD_NWKSKEY,  /*22*/         At_NwkSKey,            0, "get or set the network session key (16 bytes in hex)", AT_NWKSKEY_PERM},
+    {ATCMD_MCROOTKEY,/*96*/         At_McRootkey,          0, "get the Mc Root key (16 bytes in hex)", AT_MCROOTKEY_PERM},
 /* LoRaWAN Joining and Sending */
     {ATCMD_CFM,      /*23*/         At_CfMode,             0, "get or set the confirm mode (0 = off, 1 = on)", AT_CFM_PERM},
     {ATCMD_CFS,      /*24*/         At_CfStatus,           0, "get the confirmation status of the last AT+SEND (0 = failure, 1 = success)", AT_CFS_PERM},
@@ -187,6 +192,9 @@ at_cmd_info atcmd_info_tbl[] =
     {ATCMD_TXP,      /*42*/         At_TxPower,            0, "get or set the transmitting power", AT_TXP_PERM},
     {ATCMD_LINKCHECK,/*43*/         At_LinkCheck,          0, "get or set the link check setting (0 = disabled, 1 = once, 2 = everytime)", AT_LINKCHECK_PERM},
     {ATCMD_TIMEREQ,  /*43*/         At_Timereq,            0, "request the current date and time (0 = disabled, 1 = enabled)", AT_TIMEREQ_PERM},
+    {ATCMD_LBT,       /* */         At_Lbt,                0, "get or set the LoRaWAN LBT (support Korea Japan)", AT_TIMEREQ_PERM},
+    {ATCMD_LBTRSSI,   /* */         At_LbtRssi,            0, "get or set the LoRaWAN LBT rssi (support Korea Japan)", AT_TIMEREQ_PERM},
+    {ATCMD_LBTSCANTIME,/* */        At_LbtScantime,        0, "get or set the LoRaWAN LBT scantime (support Korea Japan)", AT_TIMEREQ_PERM},
 /* LoRaWAN Class B */
     {ATCMD_PGSLOT,   /*44*/         At_PingSlot,           0, "get or set the unicast ping slot periodicity (0-7)", AT_PGSLOT_PERM},
     {ATCMD_BFREQ,    /*45*/         At_BeaconFreq,         0, "get the data rate and beacon frequency (MHz)", AT_BFREQ_PERM},
@@ -246,6 +254,7 @@ at_cmd_info atcmd_info_tbl[] =
     {ATCMD_TRX,      /*80*/         At_Trx,                0, "set number of packets to be received for PER RF RX test", AT_TRX_PERM},
     {ATCMD_TCONF,    /*81*/         At_Tconf,              0, "configure LoRa RF test", AT_TCONF_PERM},
     {ATCMD_TTH,      /*82*/         At_Tth,                0, "start RF TX hopping test from Fstart to Fstop, with Fdelta steps", AT_TTH_PERM},
+    {ATCMD_TRTH,      /*98*/        At_Trth,               0, "start RF TX hopping test from Fstart to Fstop, with Fdelta interval in random sequence", AT_TRTH_PERM},
     {ATCMD_TOFF,     /*92*/         At_Toff,               0, "stop ongoing RF test", AT_TOFF_PERM},
     {ATCMD_CERTIF,   /*84*/         At_Certif,             0, "set the module in LoraWAN certification mode (0 = normal mode, 1 = certification mode)", AT_CERTIF_PERM},
     {ATCMD_CW,       /*90*/         At_Cw,                 0, "start continuous wave", AT_CW_PERM}
@@ -775,6 +784,7 @@ uint8_t at_error_code_form_udrv(int8_t udrv_code)
         case UDRV_RETURN_OK : 
         at_status=AT_OK ;
         break;
+        case -UDRV_PARAM_ERR :
         case -UDRV_WRONG_ARG : 
         at_status = AT_PARAM_ERROR ; 
         break;

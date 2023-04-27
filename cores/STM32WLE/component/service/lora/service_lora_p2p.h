@@ -49,6 +49,8 @@ typedef enum
     #define LORA_CHIP_SX1276
 #elif defined rak4630
     #define LORA_CHIP_SX126X
+#elif defined rak11720
+    #define LORA_CHIP_SX126X
 #elif defined rak3172 \
       || defined rak3172-sip
     #define LORA_CHIP_STM32WLE5XX

@@ -28,11 +28,15 @@ typedef enum{
 
 typedef enum{
     UDRV_ADC_MODE_DEFAULT = (0UL),  //default range
+    #ifndef rak11720 
     UDRV_ADC_MODE_3_3     = (1UL),  // 0 - 3.3 V
     UDRV_ADC_MODE_3_0     = (2UL),  // 0 - 3 V
     UDRV_ADC_MODE_2_4     = (3UL),  // 0 - 2.4 V
     UDRV_ADC_MODE_1_8     = (4UL),  // 0 - 1.8 V
     UDRV_ADC_MODE_1_2     = (5UL),  // 0 - 1.2 V
+    #else
+    UDRV_ADC_MODE_1_5     = (2UL),  // 0 - 1.5 V
+    #endif
 } UDRV_ADC_MODE;
 
 /**
@@ -58,6 +62,9 @@ UDRV_ADC_RESOLUTION udrv_adc_get_resolution (void);
  *  Set ADC mode.
  * @param  mode               The ADC mode to be set
  * UDRV_ADC_MODE_DEFAULT : default range
+ * For RAK11720 (Apollo3),
+ * UDRV_ADC_MODE_1_5 : 0 - 1.5 V
+ * For other RAK boards,
  * UDRV_ADC_MODE_3_0 : 0 - 3.0 V
  * UDRV_ADC_MODE_2_4 : 0 - 2.4 V
  * UDRV_ADC_MODE_1_8 : 0 - 1.8 V

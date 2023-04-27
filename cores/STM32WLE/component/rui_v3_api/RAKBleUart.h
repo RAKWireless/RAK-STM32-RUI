@@ -43,10 +43,11 @@ class RAKBleUart {
     /**@par	Description
      *		To start the BLE UART Service
      * @par	Syntax
-     * 		api.ble.uart.start()
+     * 		api.ble.uart.start(adv_time)
+     * @param	  adv_time	advertising timeout in seconds. If x = 0, advertising never stops
      * @return	void
      */
-    void start(void);
+    void start(uint8_t adv_time);
 
     /**@par	Description
      * 		To stop the BLE UART Service

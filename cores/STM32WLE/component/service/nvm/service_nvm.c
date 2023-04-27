@@ -13,14 +13,11 @@ extern char *model_id;
 extern char *cli_version;
 
 PRE_rui_cfg_t g_rui_cfg_t;
-rui_cfg_t_ex add_cfg;
 #define SERVICE_RUI_CONFIG_CRC32(x) Crc32(((uint8_t*)x)+sizeof(uint32_t),sizeof(PRE_rui_cfg_t)-sizeof(uint32_t))
 #define SERVICE_STORE_CRC32(x) Crc32(((uint8_t*)x)+sizeof(uint32_t),sizeof(STORE_REOGANIZED)-sizeof(uint32_t))
 
 static void service_nvm_data_recovery_from_legacy(uint32_t data_flash_addr, PRE_rui_cfg_t *rui_cfg_cur);
-static int32_t service_nvm_write_config(uint32_t data_flash_addr);
-static int32_t service_nvm_read_config(uint32_t data_flash_addr);
-
+void service_nvm_data_add_to_legacy(PRE_rui_cfg_t *rui_cfg_cur);
 void MemPrint( uint8_t *buf, uint32_t len)
 {
     for( uint32_t i = 0; i < len; )
@@ -165,7 +162,11 @@ int32_t service_nvm_set_default_config_to_nvm(void) {
     g_rui_cfg_t.g_lora_cfg_t.join_start = false;
     g_rui_cfg_t.g_lora_cfg_t.auto_join = false;
     g_rui_cfg_t.g_lora_cfg_t.auto_join_period = 8;
-    g_rui_cfg_t.g_lora_cfg_t.auto_join_max_cnt = 0;  
+    g_rui_cfg_t.g_lora_cfg_t.auto_join_max_cnt = 0;
+    g_rui_cfg_t.g_rui_cfg_ex.lbt_enable = 0;
+    g_rui_cfg_t.g_rui_cfg_ex.lbt_rssi = -80;
+    g_rui_cfg_t.g_rui_cfg_ex.lbt_scantime = 5;
+    g_rui_cfg_t.g_rui_cfg_ex.auto_sleep_level = 1;
     memset(g_rui_cfg_t.g_lora_cfg_t.McSession_group,0x00,4*sizeof(McSession_t));
 
     /* lora p2p configuration */
@@ -192,10 +193,10 @@ int32_t service_nvm_set_default_config_to_nvm(void) {
     g_rui_cfg_t.g_lora_p2p_cfg_t.bitrate = 4915;
     g_rui_cfg_t.g_lora_p2p_cfg_t.deviation = 5000 ;
     g_rui_cfg_t.g_lora_p2p_cfg_t.fsk_rxbw = 20000 ;
-    g_rui_cfg_t.g_lora_cfg_ex.iqinverted = false;
-    g_rui_cfg_t.g_lora_cfg_ex.symbol_timeout = 0;
-    g_rui_cfg_t.g_lora_cfg_ex.syncword = LORA_MAC_PRIVATE_SYNCWORD;
-    g_rui_cfg_t.g_lora_cfg_ex.fix_length_payload = false;
+    g_rui_cfg_t.g_rui_cfg_ex.iqinverted = false;
+    g_rui_cfg_t.g_rui_cfg_ex.symbol_timeout = 0;
+    g_rui_cfg_t.g_rui_cfg_ex.syncword = LORA_MAC_PRIVATE_SYNCWORD;
+    g_rui_cfg_t.g_rui_cfg_ex.fix_length_payload = false;
     memset(g_rui_cfg_t.g_lora_p2p_cfg_t.crypt_key, 0x00, sizeof(g_rui_cfg_t.g_lora_p2p_cfg_t.crypt_key));
 #endif
     if(sizeof(g_rui_cfg_t.firmware_ver) > strlen(sw_version))
@@ -244,6 +245,8 @@ SERVICE_MODE_TYPE service_nvm_get_mode_type_from_nvm(SERIAL_PORT port) {
 }
 
 int32_t service_nvm_set_mode_type_to_nvm(SERIAL_PORT port, SERVICE_MODE_TYPE mode_type) {
+    if (mode_type == g_rui_cfg_t.mode_type[port])
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.mode_type[port] = mode_type;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -263,6 +266,8 @@ int32_t service_nvm_set_serial_passwd_to_nvm(uint8_t *passwd, uint32_t len) {
     if (len > 8) {
         return -UDRV_WRONG_ARG;
     }
+    if (memcmp(g_rui_cfg_t.serial_passwd,passwd,len) == 0)
+        return UDRV_RETURN_OK;
     memset(g_rui_cfg_t.serial_passwd, 0, sizeof(g_rui_cfg_t.serial_passwd));
     memcpy(g_rui_cfg_t.serial_passwd, passwd, len);
 
@@ -274,10 +279,25 @@ uint32_t service_nvm_get_auto_sleep_time_from_nvm(void) {
 }
 
 int32_t service_nvm_set_auto_sleep_time_to_nvm(uint32_t time) {
+    if (g_rui_cfg_t.auto_sleep_time == time)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.auto_sleep_time = time;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
 }
+
+uint8_t service_nvm_get_auto_sleep_level_from_nvm(void) {
+    return g_rui_cfg_t.g_rui_cfg_ex.auto_sleep_level;
+}
+
+uint8_t service_nvm_set_auto_sleep_level_to_nvm(uint32_t level) {
+    if (g_rui_cfg_t.g_rui_cfg_ex.auto_sleep_level == level)
+        return UDRV_RETURN_OK;
+    g_rui_cfg_t.g_rui_cfg_ex.auto_sleep_level = level;
+    return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
+}
+
+
 
 uint8_t service_nvm_get_firmware_ver_from_nvm(uint8_t *buff, uint32_t len) {
     if (len < sizeof(g_rui_cfg_t.firmware_ver)) {
@@ -297,6 +317,8 @@ int32_t service_nvm_set_firmware_ver_to_nvm(uint8_t *buff, uint32_t len) {
             return -UDRV_WRONG_ARG;
         }
     }
+    if(memcmp(g_rui_cfg_t.firmware_ver,buff,len) == 0)
+        return UDRV_RETURN_OK;
     memset(g_rui_cfg_t.firmware_ver, 0 , sizeof(g_rui_cfg_t.firmware_ver));
     memcpy(g_rui_cfg_t.firmware_ver, buff, len);
 
@@ -321,6 +343,8 @@ int32_t service_nvm_set_hwmodel_to_nvm(uint8_t *buff, uint32_t len) {
             return -UDRV_WRONG_ARG;
         }
     }
+    if(memcmp(g_rui_cfg_t.hwmodel,buff,len) == 0)
+        return UDRV_RETURN_OK;
     memset(g_rui_cfg_t.hwmodel, 0 , sizeof(g_rui_cfg_t.hwmodel));
     memcpy(g_rui_cfg_t.hwmodel, buff, len);
 
@@ -345,6 +369,8 @@ int32_t service_nvm_set_cli_ver_to_nvm(uint8_t *buff, uint32_t len) {
             return -UDRV_WRONG_ARG;
         }
     }
+    if(memcmp(g_rui_cfg_t.cli_ver,buff,len) == 0)
+        return UDRV_RETURN_OK;
     memset(g_rui_cfg_t.cli_ver, 0 , sizeof(g_rui_cfg_t.cli_ver));
     memcpy(g_rui_cfg_t.cli_ver, buff, len);
 
@@ -388,6 +414,8 @@ uint32_t service_nvm_get_delta_sec_from_nvm (void) {
 }
 
 int32_t service_nvm_set_delta_sec_to_nvm (uint32_t sec) {
+    if(g_rui_cfg_t.g_rtc_delta_t.seconds == sec)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_rtc_delta_t.seconds = sec;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -398,6 +426,8 @@ uint32_t service_nvm_get_delta_subsec_from_nvm (void) {
 }
 
 int32_t service_nvm_set_delta_subsec_to_nvm (uint32_t subsec) {
+    if(g_rui_cfg_t.g_rtc_delta_t.subseconds == subsec)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_rtc_delta_t.subseconds = subsec;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -408,6 +438,8 @@ SERIAL_WLOCK_STATE  service_nvm_get_lock_status_from_nvm(SERIAL_PORT Port) {
 }
 
 int32_t service_nvm_set_lock_status_to_nvm(SERIAL_PORT Port, SERIAL_WLOCK_STATE wlock_state) {
+    if(g_rui_cfg_t.serial_lock_status[Port] == wlock_state)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.serial_lock_status[Port] = wlock_state;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -418,6 +450,8 @@ uint32_t service_nvm_get_baudrate_from_nvm(void) {
 }
 
 int32_t service_nvm_set_baudrate_to_nvm(uint32_t baudrate) {
+    if(g_rui_cfg_t.baudrate == baudrate)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.baudrate = baudrate;
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
 }
@@ -444,6 +478,8 @@ int32_t service_nvm_set_atcmd_alias_to_nvm(uint8_t *buff, uint32_t len) {
             return -UDRV_WRONG_ARG;
         }   
     }
+    if(memcmp(g_rui_cfg_t.alias,buff,len) == 0)
+        return UDRV_RETURN_OK;
     memcpy(g_rui_cfg_t.alias, buff, len);
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -467,6 +503,8 @@ int32_t service_nvm_set_sn_to_nvm (uint8_t *buff, uint32_t len) {
     if (len != 18) {
         memset(g_rui_cfg_t.sn, 0 , 18);
     }
+    if(memcmp(g_rui_cfg_t.sn,buff,len) == 0)
+        return UDRV_RETURN_OK;
     memcpy(g_rui_cfg_t.sn, buff, len);
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -477,6 +515,8 @@ uint8_t service_nvm_get_atcmd_echo_from_nvm(void) {
 }
 
 int32_t service_nvm_set_atcmd_echo_to_nvm(uint8_t atcmd_echo) {
+    if(g_rui_cfg_t.atcmd_echo == atcmd_echo)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.atcmd_echo = atcmd_echo;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -484,6 +524,8 @@ int32_t service_nvm_set_atcmd_echo_to_nvm(uint8_t atcmd_echo) {
 
 uint32_t service_nvm_set_debug_level_to_nvm(uint8_t level)
 {
+    if(g_rui_cfg_t.debug_level == level)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.debug_level = level;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -511,6 +553,8 @@ uint8_t service_nvm_set_ble_mac_to_nvm(uint8_t *buff, uint32_t len)
                 return -UDRV_WRONG_ARG;
         }
     }
+    if(memcmp(g_rui_cfg_t.g_ble_cfg_t.mac,buff,sizeof(g_rui_cfg_t.g_ble_cfg_t.mac)) == 0)
+        return UDRV_RETURN_OK;
     memcpy(g_rui_cfg_t.g_ble_cfg_t.mac,buff,sizeof(g_rui_cfg_t.g_ble_cfg_t.mac));
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
 }
@@ -534,6 +578,8 @@ SERVICE_LORA_BAND service_nvm_get_band_from_nvm (void) {
 }
 
 int32_t service_nvm_set_band_to_nvm (SERVICE_LORA_BAND band) {
+    if(g_rui_cfg_t.g_lora_cfg_t.region == band)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_cfg_t.region = band;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -548,6 +594,8 @@ int32_t service_nvm_get_mask_from_nvm (uint16_t *mask) {
 }
 
 int32_t service_nvm_set_mask_to_nvm (uint16_t *mask) {
+    if(memcmp(g_rui_cfg_t.g_lora_cfg_t.ch_mask,mask,sizeof(g_rui_cfg_t.g_lora_cfg_t.ch_mask)) == 0)
+        return UDRV_RETURN_OK;
     memcpy(g_rui_cfg_t.g_lora_cfg_t.ch_mask, mask, sizeof(g_rui_cfg_t.g_lora_cfg_t.ch_mask));
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -568,7 +616,8 @@ int32_t service_nvm_set_app_eui_to_nvm (uint8_t *buff, uint32_t len) {
     if (len != 8) {
         return -UDRV_WRONG_ARG;
     }
-
+    if(memcmp(g_rui_cfg_t.g_lora_cfg_t.app_eui,buff,len) == 0)
+        return UDRV_RETURN_OK;
     memcpy(g_rui_cfg_t.g_lora_cfg_t.app_eui, buff, 8);
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -588,7 +637,8 @@ int32_t service_nvm_set_app_key_to_nvm (uint8_t *buff, uint32_t len) {
     if (len != 16) {
         return -UDRV_WRONG_ARG;
     }
-
+    if(memcmp(g_rui_cfg_t.g_lora_cfg_t.app_key,buff,len) == 0)
+        return UDRV_RETURN_OK;
     memcpy(g_rui_cfg_t.g_lora_cfg_t.app_key, buff, 16);
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -608,7 +658,8 @@ int32_t service_nvm_set_app_skey_to_nvm (uint8_t *buff, uint32_t len) {
     if (len != 16) {
         return -UDRV_WRONG_ARG;
     }
-
+    if(memcmp(g_rui_cfg_t.g_lora_cfg_t.app_skey,buff,len) == 0)
+        return UDRV_RETURN_OK;
     memcpy(g_rui_cfg_t.g_lora_cfg_t.app_skey, buff, 16);
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -628,7 +679,8 @@ int32_t service_nvm_set_dev_addr_to_nvm (uint8_t *buff, uint32_t len) {
     if (len != 4) {
         return -UDRV_WRONG_ARG;
     }
-
+    if(memcmp(g_rui_cfg_t.g_lora_cfg_t.dev_addr,buff,len) == 0)
+        return UDRV_RETURN_OK;
     memcpy(g_rui_cfg_t.g_lora_cfg_t.dev_addr, buff, 4);
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -648,7 +700,8 @@ int32_t service_nvm_set_dev_eui_to_nvm (uint8_t *buff, uint32_t len) {
     if (len != 8) {
         return -UDRV_WRONG_ARG;
     }
-
+    if(memcmp(g_rui_cfg_t.g_lora_cfg_t.dev_eui,buff,len) == 0)
+        return UDRV_RETURN_OK;
     memcpy(g_rui_cfg_t.g_lora_cfg_t.dev_eui, buff, 8);
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -668,7 +721,8 @@ int32_t service_nvm_set_net_id_to_nvm (uint8_t *buff, uint32_t len) {
     if (len != 4) {
         return -UDRV_WRONG_ARG;
     }
-
+    if(memcmp(g_rui_cfg_t.g_lora_cfg_t.nwk_id,buff,len) == 0)
+        return UDRV_RETURN_OK;
     memcpy(g_rui_cfg_t.g_lora_cfg_t.nwk_id, buff, 4);
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -688,7 +742,8 @@ int32_t service_nvm_set_nwk_skey_to_nvm (uint8_t *buff, uint32_t len) {
     if (len != 16) {
         return -UDRV_WRONG_ARG;
     }
-
+    if(memcmp(g_rui_cfg_t.g_lora_cfg_t.nwk_skey,buff,len) == 0)
+        return UDRV_RETURN_OK;
     memcpy(g_rui_cfg_t.g_lora_cfg_t.nwk_skey, buff, 16);
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -699,6 +754,8 @@ uint8_t service_nvm_get_retry_from_nvm (void) {
 }
 
 int32_t service_nvm_set_retry_to_nvm (uint8_t retry) {
+    if(g_rui_cfg_t.g_lora_cfg_t.retry == retry)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_cfg_t.retry = retry;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -709,6 +766,8 @@ SERVICE_LORA_CONFIRM_MODE service_nvm_get_cfm_from_nvm (void) {
 }
 
 int32_t service_nvm_set_cfm_to_nvm (SERVICE_LORA_CONFIRM_MODE cfm) {
+    if(g_rui_cfg_t.g_lora_cfg_t.confirm == cfm)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_cfg_t.confirm = cfm;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -719,6 +778,8 @@ SERVICE_LORA_WORK_MODE service_nvm_get_nwm_from_nvm (void) {
 }
 
 int32_t service_nvm_set_nwm_to_nvm (SERVICE_LORA_WORK_MODE nwm) {
+    if(g_rui_cfg_t.lora_work_mode == nwm)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.lora_work_mode = nwm;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -729,6 +790,8 @@ SERVICE_LORA_JOIN_MODE service_nvm_get_njm_from_nvm (void) {
 }
 
 int32_t service_nvm_set_njm_to_nvm (SERVICE_LORA_JOIN_MODE njm) {
+    if(g_rui_cfg_t.g_lora_cfg_t.join_mode == njm)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_cfg_t.join_mode = njm;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -739,6 +802,8 @@ bool service_nvm_get_adr_from_nvm (void) {
 }
 
 int32_t service_nvm_set_adr_to_nvm (bool adr) {
+    if(g_rui_cfg_t.g_lora_cfg_t.adr == adr)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_cfg_t.adr = adr;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -749,6 +814,8 @@ SERVICE_LORA_CLASS service_nvm_get_class_from_nvm (void) {
 }
 
 int32_t service_nvm_set_class_to_nvm (SERVICE_LORA_CLASS device_class) {
+    if(g_rui_cfg_t.g_lora_cfg_t.device_class == device_class)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_cfg_t.device_class = device_class;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -759,6 +826,8 @@ SERVICE_LORA_DATA_RATE service_nvm_get_dr_from_nvm (void) {
 }
 
 int32_t service_nvm_set_dr_to_nvm (SERVICE_LORA_DATA_RATE dr) {
+    if(g_rui_cfg_t.g_lora_cfg_t.dr == dr)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_cfg_t.dr = dr;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -769,6 +838,8 @@ SERVICE_LORA_DATA_RATE service_nvm_get_rx2dr_from_nvm (void) {
 }
 
 int32_t service_nvm_set_rx2dr_to_nvm (SERVICE_LORA_DATA_RATE dr) {
+    if(g_rui_cfg_t.g_lora_cfg_t.rx2dr == dr)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_cfg_t.rx2dr = dr;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -780,6 +851,8 @@ uint32_t service_nvm_get_jn1dl_from_nvm (void) {
 }
 
 int32_t service_nvm_set_jn1dl_to_nvm (uint32_t jn1dl) {
+    if(g_rui_cfg_t.g_lora_cfg_t.jn1dl == jn1dl)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_cfg_t.jn1dl = jn1dl;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -790,6 +863,8 @@ uint32_t service_nvm_get_jn2dl_from_nvm (void) {
 }
 
 int32_t service_nvm_set_jn2dl_to_nvm (uint32_t jn2dl) {
+    if(g_rui_cfg_t.g_lora_cfg_t.jn2dl == jn2dl)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_cfg_t.jn2dl = jn2dl;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -797,6 +872,8 @@ int32_t service_nvm_set_jn2dl_to_nvm (uint32_t jn2dl) {
 
 uint32_t service_nvm_set_rx2fq_to_nvm(uint32_t freq)
 {
+    if(g_rui_cfg_t.g_lora_cfg_t.rx2fq == freq)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_cfg_t.rx2fq = freq;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -812,6 +889,8 @@ bool service_nvm_get_pub_nwk_mode_from_nvm (void) {
 }
 
 int32_t service_nvm_set_pub_nwk_mode_to_nvm (bool pnm) {
+    if(g_rui_cfg_t.g_lora_cfg_t.pub_nwk_mode == pnm)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_cfg_t.pub_nwk_mode = pnm;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -822,6 +901,8 @@ uint32_t service_nvm_get_rx1dl_from_nvm (void) {
 }
 
 int32_t service_nvm_set_rx1dl_to_nvm (uint32_t rx1dl) {
+    if(g_rui_cfg_t.g_lora_cfg_t.rx1dl == rx1dl)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_cfg_t.rx1dl = rx1dl;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -832,6 +913,8 @@ uint32_t service_nvm_get_rx2dl_from_nvm (void) {
 }
 
 int32_t service_nvm_set_rx2dl_to_nvm (uint32_t rx2dl) {
+    if(g_rui_cfg_t.g_lora_cfg_t.rx2dl == rx2dl)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_cfg_t.rx2dl = rx2dl;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -842,6 +925,8 @@ uint8_t service_nvm_get_txpower_from_nvm (void) {
 }
 
 int32_t service_nvm_set_txpower_to_nvm (uint8_t txp) {
+    if(g_rui_cfg_t.g_lora_cfg_t.tx_power == txp)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_cfg_t.tx_power = txp;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -852,6 +937,8 @@ uint8_t service_nvm_get_linkcheck_from_nvm (void) {
 }
 
 int32_t service_nvm_set_linkcheck_to_nvm (uint8_t mode) {
+    if(g_rui_cfg_t.g_lora_cfg_t.linkcheck_mode == mode)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_cfg_t.linkcheck_mode = mode;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -862,6 +949,8 @@ uint8_t service_nvm_get_ping_slot_periodicity_from_nvm() {
 }
 
 int32_t service_nvm_set_ping_slot_periodicity_to_nvm(uint8_t periodicity) {
+    if(g_rui_cfg_t.g_lora_cfg_t.ping_slot_periodicity == periodicity)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_cfg_t.ping_slot_periodicity = periodicity;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -872,6 +961,8 @@ bool service_nvm_get_join_start_from_nvm(void) {
 }
 
 int32_t service_nvm_set_join_start_to_nvm(bool join_start) {
+    if(g_rui_cfg_t.g_lora_cfg_t.join_start == join_start)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_cfg_t.join_start = join_start;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -882,6 +973,8 @@ bool service_nvm_get_auto_join_from_nvm(void) {
 }
 
 int32_t service_nvm_set_auto_join_to_nvm(bool auto_join) {
+    if(g_rui_cfg_t.g_lora_cfg_t.auto_join == auto_join)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_cfg_t.auto_join = auto_join;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -892,6 +985,8 @@ uint32_t service_nvm_get_auto_join_period_from_nvm(void) {
 }
 
 int32_t service_nvm_set_auto_join_period_to_nvm(uint32_t auto_join_period) {
+    if(g_rui_cfg_t.g_lora_cfg_t.auto_join_period == auto_join_period)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_cfg_t.auto_join_period = auto_join_period;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -902,6 +997,8 @@ uint32_t service_nvm_get_auto_join_max_cnt_from_nvm(void) {
 }
 
 int32_t service_nvm_set_auto_join_max_cnt_to_nvm(uint32_t auto_join_max_cnt) {
+    if(g_rui_cfg_t.g_lora_cfg_t.auto_join_max_cnt == auto_join_max_cnt)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_cfg_t.auto_join_max_cnt = auto_join_max_cnt;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -912,6 +1009,8 @@ uint32_t service_nvm_get_freq_from_nvm (void) {
 }
 
 int32_t service_nvm_set_freq_to_nvm (uint32_t freq) {
+    if(g_rui_cfg_t.g_lora_p2p_cfg_t.Frequency == freq)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_p2p_cfg_t.Frequency = freq;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -922,6 +1021,8 @@ uint8_t service_nvm_get_sf_from_nvm (void) {
 }
 
 int32_t service_nvm_set_sf_to_nvm (uint8_t spreadfact) {
+    if(g_rui_cfg_t.g_lora_p2p_cfg_t.Spreadfact == spreadfact)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_p2p_cfg_t.Spreadfact = spreadfact;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -942,11 +1043,15 @@ int32_t service_nvm_set_bandwidth_to_nvm (uint32_t bandwidth) {
 
     if( g_rui_cfg_t.lora_work_mode == 0)
     {
+        if(g_rui_cfg_t.g_lora_p2p_cfg_t.Bandwidth == bandwidth)
+            return UDRV_RETURN_OK;
         g_rui_cfg_t.g_lora_p2p_cfg_t.Bandwidth = bandwidth;
     }
     else if ( g_rui_cfg_t.lora_work_mode == 2)
     {
-       g_rui_cfg_t.g_lora_p2p_cfg_t.fsk_rxbw = bandwidth;
+        if(g_rui_cfg_t.g_lora_p2p_cfg_t.fsk_rxbw == bandwidth)
+            return UDRV_RETURN_OK;
+        g_rui_cfg_t.g_lora_p2p_cfg_t.fsk_rxbw = bandwidth;
     }
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -957,6 +1062,8 @@ uint8_t service_nvm_get_codingrate_from_nvm (void) {
 }
 
 int32_t service_nvm_set_codingrate_to_nvm (uint8_t codingrate) {
+    if(g_rui_cfg_t.g_lora_p2p_cfg_t.Codingrate == codingrate)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_p2p_cfg_t.Codingrate = codingrate;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -967,6 +1074,8 @@ uint16_t service_nvm_get_preamlen_from_nvm (void) {
 }
 
 int32_t service_nvm_set_preamlen_to_nvm (uint16_t preamlen) {
+    if(g_rui_cfg_t.g_lora_p2p_cfg_t.Preamlen == preamlen)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_p2p_cfg_t.Preamlen = preamlen;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -977,6 +1086,8 @@ uint8_t service_nvm_get_powerdbm_from_nvm (void) {
 }
 
 int32_t service_nvm_set_powerdbm_to_nvm (uint8_t powerdbm) {
+    if(g_rui_cfg_t.g_lora_p2p_cfg_t.Powerdbm == powerdbm)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_p2p_cfg_t.Powerdbm = powerdbm;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -987,6 +1098,8 @@ bool service_nvm_get_crypt_enable_from_nvm (void) {
 }
 
 int32_t service_nvm_set_crypt_enable_to_nvm (bool crypt_enable) {
+    if(g_rui_cfg_t.g_lora_p2p_cfg_t.crypt_enable == crypt_enable)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_p2p_cfg_t.crypt_enable = crypt_enable;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -1006,7 +1119,8 @@ int32_t service_nvm_set_crypt_key_to_nvm (uint8_t *buff, uint32_t len) {
     if (len != 8) {
         return -UDRV_WRONG_ARG;
     }
-
+    if(memcmp(g_rui_cfg_t.g_lora_p2p_cfg_t.crypt_key,buff,len) == 0)
+        return UDRV_RETURN_OK;
     memcpy(g_rui_cfg_t.g_lora_p2p_cfg_t.crypt_key, buff, 8);
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -1017,6 +1131,8 @@ McSession_t *service_nvm_get_multicast_from_nvm(void) {
 }
 
 int32_t service_nvm_set_multicast_to_nvm(McSession_t *McSession) {
+    if(memcmp(g_rui_cfg_t.g_lora_cfg_t.McSession_group,McSession,4*sizeof(McSession_t)) == 0)
+        return UDRV_RETURN_OK;
     memcpy(g_rui_cfg_t.g_lora_cfg_t.McSession_group, McSession ,4*sizeof(McSession_t));
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -1028,6 +1144,8 @@ uint8_t service_nvm_get_tp_port_from_nvm(SERIAL_PORT port) {
 
 int32_t service_nvm_set_tp_port_to_nvm(SERIAL_PORT port, uint8_t tp_port) {
     if (tp_port >= 1 && tp_port <= 223) {
+        if(g_rui_cfg_t.g_lora_cfg_t.tp_port[port] == tp_port)
+            return UDRV_RETURN_OK;
         g_rui_cfg_t.g_lora_cfg_t.tp_port[port] = tp_port;
     } else {
         return -UDRV_WRONG_ARG;
@@ -1043,6 +1161,8 @@ uint32_t service_nvm_get_chs_from_nvm(void)
 
 uint32_t service_nvm_set_chs_to_nvm(uint32_t frequency) 
 {
+    if(g_rui_cfg_t.g_lora_cfg_t.chs == frequency)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_cfg_t.chs = frequency;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -1051,6 +1171,8 @@ uint32_t service_nvm_set_chs_to_nvm(uint32_t frequency)
 
 uint32_t service_nvm_set_fdev_to_nvm(uint32_t fdev) 
 {
+    if(g_rui_cfg_t.g_lora_p2p_cfg_t.deviation == fdev)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_p2p_cfg_t.deviation = fdev;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -1058,6 +1180,8 @@ uint32_t service_nvm_set_fdev_to_nvm(uint32_t fdev)
 
 uint32_t service_nvm_set_bitrate_to_nvm(uint32_t bitrate) 
 {
+    if(g_rui_cfg_t.g_lora_p2p_cfg_t.bitrate == bitrate)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_p2p_cfg_t.bitrate = bitrate;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -1075,6 +1199,8 @@ uint32_t service_nvm_get_fdev_from_nvm(void)
 
 uint32_t service_nvm_set_dcs_to_nvm(uint8_t dutycycle)
 {
+    if(g_rui_cfg_t.g_lora_cfg_t.DutycycleEnable == dutycycle)
+        return UDRV_RETURN_OK;
     g_rui_cfg_t.g_lora_cfg_t.DutycycleEnable = dutycycle;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
@@ -1087,51 +1213,97 @@ uint8_t service_nvm_get_dcs_from_nvm()
 
 bool service_nvm_get_iqinverted_from_nvm(void)
 {
-    return g_rui_cfg_t.g_lora_cfg_ex.iqinverted;
+    return g_rui_cfg_t.g_rui_cfg_ex.iqinverted;
 }
 
 int32_t service_nvm_set_iqinverted_to_nvm(bool iqinverted)
 {
-
-    g_rui_cfg_t.g_lora_cfg_ex.iqinverted = iqinverted;
+    if(g_rui_cfg_t.g_rui_cfg_ex.iqinverted == iqinverted)
+        return UDRV_RETURN_OK;
+    g_rui_cfg_t.g_rui_cfg_ex.iqinverted = iqinverted;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
 }
 
 uint32_t service_nvm_get_symbol_timeout_from_nvm(void)
 {
-    return g_rui_cfg_t.g_lora_cfg_ex.symbol_timeout;
+    return g_rui_cfg_t.g_rui_cfg_ex.symbol_timeout;
 }
 
 int32_t service_nvm_set_symbol_timeout_to_nvm(uint32_t symbol_timeout)
 {
-
-    g_rui_cfg_t.g_lora_cfg_ex.symbol_timeout = symbol_timeout;
+    if(g_rui_cfg_t.g_rui_cfg_ex.symbol_timeout == symbol_timeout)
+        return UDRV_RETURN_OK;
+    g_rui_cfg_t.g_rui_cfg_ex.symbol_timeout = symbol_timeout;
 
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
 }
 
 bool service_nvm_get_fix_length_payload_from_nvm(void)
 {
-    return g_rui_cfg_t.g_lora_cfg_ex.fix_length_payload;
+    return g_rui_cfg_t.g_rui_cfg_ex.fix_length_payload;
 }
 
 int32_t service_nvm_set_fix_length_payload_to_nvm(bool enable)
 {
-    g_rui_cfg_t.g_lora_cfg_ex.fix_length_payload = enable;
+    if(g_rui_cfg_t.g_rui_cfg_ex.fix_length_payload == enable)
+        return UDRV_RETURN_OK;
+    g_rui_cfg_t.g_rui_cfg_ex.fix_length_payload = enable;
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
 }
 
 uint16_t service_nvm_get_syncword_from_nvm(void)
 {
-    return g_rui_cfg_t.g_lora_cfg_ex.syncword;
+    return g_rui_cfg_t.g_rui_cfg_ex.syncword;
 }
 
 int32_t service_nvm_set_syncword_to_nvm( uint16_t syncword)
 {
-    g_rui_cfg_t.g_lora_cfg_ex.syncword = syncword;
+    if(g_rui_cfg_t.g_rui_cfg_ex.syncword == syncword)
+        return UDRV_RETURN_OK;
+    g_rui_cfg_t.g_rui_cfg_ex.syncword = syncword;
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
 }
+
+int32_t service_nvm_get_lbt_from_nvm()
+{
+    return g_rui_cfg_t.g_rui_cfg_ex.lbt_enable;
+}
+
+int32_t service_nvm_set_lbt_to_nvm(uint8_t enable)
+{
+    if(g_rui_cfg_t.g_rui_cfg_ex.lbt_enable == enable)
+        return UDRV_RETURN_OK;
+    g_rui_cfg_t.g_rui_cfg_ex.lbt_enable = enable;
+    return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
+}
+
+int16_t service_nvm_get_lbt_rssi_from_nvm()
+{
+    return g_rui_cfg_t.g_rui_cfg_ex.lbt_rssi;
+}
+
+int32_t service_nvm_set_lbt_rssi_to_nvm(int16_t rssi)
+{
+    if(g_rui_cfg_t.g_rui_cfg_ex.lbt_rssi == rssi)
+        return UDRV_RETURN_OK;
+    g_rui_cfg_t.g_rui_cfg_ex.lbt_rssi = rssi;
+    return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
+}
+
+uint32_t service_nvm_get_lbt_scantime_from_nvm()
+{
+    return g_rui_cfg_t.g_rui_cfg_ex.lbt_scantime;
+}
+
+int32_t service_nvm_set_lbt_scantime_to_nvm(uint32_t time)
+{
+    if(g_rui_cfg_t.g_rui_cfg_ex.lbt_scantime == time)
+        return UDRV_RETURN_OK;
+    g_rui_cfg_t.g_rui_cfg_ex.lbt_scantime = time;
+    return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
+}
+
 
 #endif
 
@@ -1145,7 +1317,7 @@ static void service_nvm_data_recovery_from_legacy(uint32_t data_flash_addr, PRE_
     udrv_flash_read(data_flash_addr, sizeof(data_legacy), data_legacy );
     if( rui_cfg_cur->magic_num == RUI_CFG_MAGIC_NUM )
         version_code = rui_cfg_cur->version_code;
-    #if defined(rak3172) || defined(rak3172_sip) || defined(rak4630)  //V99 V87 V85 only support 3172 / 3172-sip / 4630
+    #if defined(rak3172) || defined(rak3172_sip) || defined(rak4630) || defined(rak11720) //V99 V87 V85 only support 3172 / 3172-sip / 4630
     //Check legacy version v99
     if( *((uint32_t*)(data_legacy + ELEM_OFS_V99_magic)) == 0xEDD1E)
     {
@@ -1171,7 +1343,7 @@ static void service_nvm_data_recovery_from_legacy(uint32_t data_flash_addr, PRE_
         //The historical version could not be determined
         return;
     }
-    #if defined(rak3172) || defined(rak3172_sip) || defined(rak4630) //V87 and V85 , V99 only support 3172/3172-sip/4630
+    #if defined(rak3172) || defined(rak3172_sip) || defined(rak4630) || defined(rak11720) //V87 and V85 , V99 only support 3172/3172-sip/4630
     else if( version_code == RUI_VERSION_CODE_V85 )
     {
         memcpy(&rui_cfg_cur->lora_work_mode,    DATA_ADDR(ELEM_OFS_V85_lora_work_mode),     sizeof(rui_cfg_cur->lora_work_mode) );
@@ -1194,6 +1366,7 @@ static void service_nvm_data_recovery_from_legacy(uint32_t data_flash_addr, PRE_
         memcpy(rui_cfg_cur->alias,              DATA_ADDR(ELEM_OFS_V85_alias),              sizeof(rui_cfg_cur->alias) );
         //The following does not exist in this historical release
         memset(&rui_cfg_cur->serial_lock_status,0,sizeof(rui_cfg_cur->serial_lock_status));
+        service_nvm_data_add_to_legacy(rui_cfg_cur);
     }
     else if( version_code == RUI_VERSION_CODE_V87 )
     {
@@ -1216,6 +1389,7 @@ static void service_nvm_data_recovery_from_legacy(uint32_t data_flash_addr, PRE_
         memcpy(&rui_cfg_cur->auto_sleep_time,   DATA_ADDR(ELEM_OFS_V87_auto_sleep_time),    sizeof(rui_cfg_cur->auto_sleep_time) );
         memcpy(rui_cfg_cur->sn,                 DATA_ADDR(ELEM_OFS_V87_sn),                 sizeof(rui_cfg_cur->sn) );
         memcpy(rui_cfg_cur->alias,              DATA_ADDR(ELEM_OFS_V87_alias),              sizeof(rui_cfg_cur->alias) );
+        service_nvm_data_add_to_legacy(rui_cfg_cur);
     }
     else if( version_code == RUI_VERSION_CODE_V99 )
     {
@@ -1238,22 +1412,23 @@ static void service_nvm_data_recovery_from_legacy(uint32_t data_flash_addr, PRE_
         memcpy(&rui_cfg_cur->auto_sleep_time,   DATA_ADDR(ELEM_OFS_V99_auto_sleep_time),    sizeof(rui_cfg_cur->auto_sleep_time) );
         memcpy(rui_cfg_cur->sn,                 DATA_ADDR(ELEM_OFS_V99_sn),                 sizeof(rui_cfg_cur->sn) );
         memcpy(rui_cfg_cur->alias,              DATA_ADDR(ELEM_OFS_V99_alias),              sizeof(rui_cfg_cur->alias) );
+        service_nvm_data_add_to_legacy(rui_cfg_cur);
     }
     else if( version_code == RUI_VERSION_CODE_LATEST )
     {
         memcpy(rui_cfg_cur,                     data_legacy,                                sizeof(PRE_rui_cfg_t) );
         //add new config
-        if(*(uint8_t*)&rui_cfg_cur->g_lora_cfg_ex.iqinverted == 0xFF)
-            rui_cfg_cur->g_lora_cfg_ex.iqinverted = false;
-        if(rui_cfg_cur->g_lora_cfg_ex.symbol_timeout > SYMBTIMEOUT_MAX)
-            rui_cfg_cur->g_lora_cfg_ex.symbol_timeout = 0;
-        if(*(uint8_t*)&rui_cfg_cur->g_lora_cfg_ex.syncword_dirty_byte == 0xFF)
+        if(*(uint8_t*)&rui_cfg_cur->g_rui_cfg_ex.iqinverted == 0xFF)
+            rui_cfg_cur->g_rui_cfg_ex.iqinverted = false;
+        if(rui_cfg_cur->g_rui_cfg_ex.symbol_timeout > SYMBTIMEOUT_MAX)
+            rui_cfg_cur->g_rui_cfg_ex.symbol_timeout = 0;
+        if(*(uint8_t*)&rui_cfg_cur->g_rui_cfg_ex.syncword_dirty_byte == 0xFF)
         {
-            rui_cfg_cur->g_lora_cfg_ex.syncword = LORA_MAC_PRIVATE_SYNCWORD;
-            rui_cfg_cur->g_lora_cfg_ex.syncword_dirty_byte =0;
+            rui_cfg_cur->g_rui_cfg_ex.syncword = LORA_MAC_PRIVATE_SYNCWORD;
+            rui_cfg_cur->g_rui_cfg_ex.syncword_dirty_byte =0;
         }
-        if(*(uint8_t*)&rui_cfg_cur->g_lora_cfg_ex.fix_length_payload == 0xFF)
-            rui_cfg_cur->g_lora_cfg_ex.fix_length_payload = false;
+        if(*(uint8_t*)&rui_cfg_cur->g_rui_cfg_ex.fix_length_payload == 0xFF)
+            rui_cfg_cur->g_rui_cfg_ex.fix_length_payload = false;
         if(*(uint8_t*)&rui_cfg_cur->debug_level == 0xFF)
             rui_cfg_cur->debug_level = 0;
 
@@ -1274,7 +1449,14 @@ static void service_nvm_data_recovery_from_legacy(uint32_t data_flash_addr, PRE_
             memset(rui_cfg_cur->cli_ver,'\0',sizeof(rui_cfg_cur->cli_ver));
             memcpy(rui_cfg_cur->cli_ver,cli_version,strlen(cli_version));
         }
-    
+        if(*(uint8_t*)&rui_cfg_cur->g_rui_cfg_ex.lbt_enable == 0xFF)
+            rui_cfg_cur->g_rui_cfg_ex.lbt_enable = 0;
+        if(*(uint8_t*)&rui_cfg_cur->g_rui_cfg_ex.lbt_rssi == 0xFF)
+            rui_cfg_cur->g_rui_cfg_ex.lbt_rssi = -80;
+        if(*(uint8_t*)&rui_cfg_cur->g_rui_cfg_ex.lbt_scantime == 0xFF)
+            rui_cfg_cur->g_rui_cfg_ex.lbt_scantime = 5;
+        if(*(uint8_t*)&rui_cfg_cur->g_rui_cfg_ex.auto_sleep_level == 0xFF)
+            rui_cfg_cur->g_rui_cfg_ex.auto_sleep_level = 1;
     }
     #endif
     else
@@ -1286,5 +1468,28 @@ static void service_nvm_data_recovery_from_legacy(uint32_t data_flash_addr, PRE_
     rui_cfg_cur->magic_num = RUI_CFG_MAGIC_NUM;
     rui_cfg_cur->version_code = RUI_CFG_VERSION_CODE;
 
+}
+void service_nvm_data_add_to_legacy(PRE_rui_cfg_t *rui_cfg_cur)
+{
+#ifdef SUPPORT_LORA
+    rui_cfg_cur->g_rui_cfg_ex.iqinverted = false;
+    rui_cfg_cur->g_rui_cfg_ex.symbol_timeout = 0;
+    rui_cfg_cur->g_rui_cfg_ex.syncword = LORA_MAC_PRIVATE_SYNCWORD;
+    rui_cfg_cur->g_rui_cfg_ex.syncword_dirty_byte =0;
+    rui_cfg_cur->g_rui_cfg_ex.fix_length_payload = false;
+#endif
+    rui_cfg_cur->debug_level = 0;
+    memset(rui_cfg_cur->firmware_ver,'\0',sizeof(rui_cfg_cur->firmware_ver));
+    memcpy(rui_cfg_cur->firmware_ver,sw_version,strlen(sw_version));
+    memset(rui_cfg_cur->hwmodel,'\0',sizeof(rui_cfg_cur->hwmodel));
+    memcpy(rui_cfg_cur->hwmodel,model_id,strlen(model_id));
+    memset(rui_cfg_cur->cli_ver,'\0',sizeof(rui_cfg_cur->cli_ver));
+    memcpy(rui_cfg_cur->cli_ver,cli_version,strlen(cli_version));
+#ifdef SUPPORT_LORA
+    rui_cfg_cur->g_rui_cfg_ex.lbt_enable = 0;
+    rui_cfg_cur->g_rui_cfg_ex.lbt_rssi = -80;
+    rui_cfg_cur->g_rui_cfg_ex.lbt_scantime = 5;
+    rui_cfg_cur->g_rui_cfg_ex.auto_sleep_level = 1;
+#endif
 }
 

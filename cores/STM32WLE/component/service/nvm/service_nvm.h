@@ -130,7 +130,11 @@ typedef struct {
     uint16_t syncword;
     uint8_t syncword_dirty_byte;
     bool fix_length_payload;
+    uint8_t lbt_enable;
+    int16_t lbt_rssi;
+    uint32_t lbt_scantime;
 #endif
+    uint8_t auto_sleep_level;
 }rui_cfg_t_ex; //add new config here in sequence 
 
 typedef struct {
@@ -159,7 +163,7 @@ typedef struct {
     uint8_t firmware_ver[32];
     uint8_t hwmodel[32];
     uint8_t cli_ver[32];
-    rui_cfg_t_ex g_lora_cfg_ex;
+    rui_cfg_t_ex g_rui_cfg_ex;
 } PRE_rui_cfg_t;
 
 void service_nvm_init_config(void);
@@ -441,6 +445,18 @@ int32_t service_nvm_set_fix_length_payload_to_nvm(bool enable);
 uint16_t service_nvm_get_syncword_from_nvm(void);
 
 int32_t service_nvm_set_syncword_to_nvm( uint16_t syncword);
+
+int32_t service_nvm_get_lbt_from_nvm(void);
+
+int32_t service_nvm_set_lbt_to_nvm(uint8_t enable);
+
+int16_t service_nvm_get_lbt_rssi_from_nvm(void);
+
+int32_t service_nvm_set_lbt_rssi_to_nvm(int16_t rssi);
+
+uint32_t service_nvm_get_lbt_scantime_from_nvm();
+
+int32_t service_nvm_set_lbt_scantime_to_nvm(uint32_t time);
 
 #endif
 

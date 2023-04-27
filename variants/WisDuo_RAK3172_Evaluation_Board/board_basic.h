@@ -112,6 +112,9 @@ typedef struct {
     McSession_t McSession_group[4];
     uint32_t chs;
     uint8_t tp_port[SERIAL_MAX];
+    uint8_t lbt_enable;
+    int16_t lbt_rssi;
+    uint32_t lbt_scantime;
 } lora_cfg_t;
 #endif
 
