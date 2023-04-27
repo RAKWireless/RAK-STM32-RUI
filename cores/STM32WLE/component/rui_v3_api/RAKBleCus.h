@@ -78,7 +78,7 @@ class RAKBleCharacteristic
 
      * @par	Syntax
      *		bslc.setProperties(prop)
-     * @param	prop	currently supports (RAK_CHR_PROPS_NOTIFY/RAK_CHR_PROPS_READ)
+     * @param	prop	currently supports (CHR_PROPS_NOTIFY/CHR_PROPS_READ)
      * @return	void
      */
     void setProperties(RAK_CHARS_PROPERTIES prop);

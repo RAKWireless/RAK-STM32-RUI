@@ -44,14 +44,9 @@ void service_battery_get_batt_level(float *bat_lvl) {
         case UDRV_ADC_MODE_DEFAULT:
         default:
         {
-            #ifndef rak11720
             ref_over_gain = 3.6;
-            #else
-            ref_over_gain = 2.0;
-            #endif
             break;
         }
-        #ifndef rak11720
         case UDRV_ADC_MODE_3_3:
         {
             ref_over_gain = 3.3;
@@ -77,13 +72,6 @@ void service_battery_get_batt_level(float *bat_lvl) {
             ref_over_gain = 1.2;
             break;
         }
-        #else
-        case UDRV_ADC_MODE_1_5:
-        {
-            ref_over_gain = 1.5;
-            break;
-        }
-        #endif
     }
 
 #if defined(WISBLOCK_BASE_5005) || defined(WISBLOCK_BASE_5005_O)
@@ -110,10 +98,6 @@ void service_battery_get_batt_level(float *bat_lvl) {
      *******************************************/
 #ifndef RAK3372+RAK5005-O_V1.0
     *bat_lvl = ref_over_gain*(((float)adc_value)/max)*(5.0f)/(3.0f);
-#endif
-
-#ifdef RAK11720+RAK5005-O_V1.0
-    *bat_lvl = ((ref_over_gain*(((float)adc_value)/max)*(5.0f))/(3.0f))*(1.3f);
 #endif
 
 #ifdef RAK5010_EVB
@@ -160,14 +144,9 @@ void service_battery_get_SysVolt_level (float *sys_lvl) {
         case UDRV_ADC_MODE_DEFAULT:
         default:
         {
-            #ifndef rak11720
             ref_over_gain = 3.6;
-            #else
-            ref_over_gain = 2.0;
-            #endif
             break;
         }
-        #ifndef rak11720
         case UDRV_ADC_MODE_3_3:
         {
             ref_over_gain = 3.3;
@@ -193,13 +172,6 @@ void service_battery_get_SysVolt_level (float *sys_lvl) {
             ref_over_gain = 1.2;
             break;
         }
-        #else
-        case UDRV_ADC_MODE_1_5:
-        {
-            ref_over_gain = 1.2;
-            break;
-        }
-        #endif
     }
 
     udrv_adc_read(255, &adc_value);

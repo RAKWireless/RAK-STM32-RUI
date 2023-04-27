@@ -24,14 +24,10 @@ typedef enum{
 
 typedef enum{
     RAK_ADC_MODE_DEFAULT = UDRV_ADC_MODE_DEFAULT,  ///< default range which depends on platform
-    #ifndef rak11720
     RAK_ADC_MODE_3_0 = UDRV_ADC_MODE_3_0,          ///< maximum 3.0V
     RAK_ADC_MODE_2_4 = UDRV_ADC_MODE_2_4,          ///< maximum 2.4V
     RAK_ADC_MODE_1_8 = UDRV_ADC_MODE_1_8,          ///< maximum 1.8V
     RAK_ADC_MODE_1_2 = UDRV_ADC_MODE_1_2,          ///< maximum 1.2V
-    #else
-    RAK_ADC_MODE_1_5 = UDRV_ADC_MODE_1_5,          ///< maximum 1.5V
-    #endif
 } RAK_ADC_MODE;
 
 typedef enum{
@@ -44,15 +40,11 @@ typedef enum{
 typedef enum _eAnalogReference
 {
   AR_DEFAULT = UDRV_ADC_MODE_DEFAULT,
-  #ifndef rak11720
   AR_INTERNAL = UDRV_ADC_MODE_3_3,          // 0.6V Ref * 6 = 0..3.6V
   AR_INTERNAL_3_0 = UDRV_ADC_MODE_3_0,      // 0.6V Ref * 5 = 0..3.0V
   AR_INTERNAL_2_4 = UDRV_ADC_MODE_2_4,      // 0.6V Ref * 4 = 0..2.4V
   AR_INTERNAL_1_8 = UDRV_ADC_MODE_1_8,      // 0.6V Ref * 3 = 0..1.8V
   AR_INTERNAL_1_2 = UDRV_ADC_MODE_1_2,      // 0.6V Ref * 2 = 0..1.6V
-  #else
-  AR_INTERNAL_1_5 = UDRV_ADC_MODE_1_5,      // 0..1.5V
-  #endif
 } eAnalogReference;
 
 /**@}*/

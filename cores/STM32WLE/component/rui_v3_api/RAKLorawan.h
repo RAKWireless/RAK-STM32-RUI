@@ -34,10 +34,7 @@ typedef enum
   RAK_REGION_US915 = 5, ///< US902 ~ 928
   RAK_REGION_AU915 = 6, ///< AU915 ~ 928
   RAK_REGION_KR920 = 7, ///< KR920 ~ 923
-  RAK_REGION_AS923 = 8, ///< AS923-1
-  RAK_REGION_AS923_2 = 9, ///< AS923-2
-  RAK_REGION_AS923_3 = 10, ///< AS923-3
-  RAK_REGION_AS923_4 = 11, ///< AS923-4
+  RAK_REGION_AS923 = 8, ///< AS923
 } RAK_LORA_BAND;
 
 /**@par	Description
@@ -65,7 +62,7 @@ typedef enum
 typedef enum
 {
   RAK_LORA_NO_ACK = 0, ///< The device will not get received data from network
-  RAK_LORA_ACK = 1,    ///< The device will get received data from network
+  RAL_LORA_ACK = 1,    ///< The device will get received data from network
 } RAK_LORA_CONFIRM_MODE;
 
 /**@par	Description
@@ -77,32 +74,6 @@ typedef enum
   RAK_LORA_CLASS_B = 1, ///< The LoRaWan will work in Class B
   RAK_LORA_CLASS_C = 2, ///< The LoRaWan will work in Class C
 } RAK_LORA_CLASS;
-
-/**@par Description
- *  The LoRaMac Event Info
- */
-
-typedef enum RAKLoRaMacEventInfoStatus
-{
-    RAK_LORAMAC_STATUS_OK = 0,                          ///Service performed successfully
-    RAK_LORAMAC_STATUS_ERROR,                           ///An error occurred during the execution of the service
-    RAK_LORAMAC_STATUS_TX_TIMEOUT,                      ///A Tx timeout occurred
-    RAK_LORAMAC_STATUS_RX1_TIMEOUT,                     ///An Rx timeout occurred on receive window 1
-    RAK_LORAMAC_STATUS_RX2_TIMEOUT,                     ///An Rx timeout occurred on receive window 2
-    RAK_LORAMAC_STATUS_RX1_ERROR,                       ///An Rx error occurred on receive window 1
-    RAK_LORAMAC_STATUS_RX2_ERROR,                       ///An Rx error occurred on receive window 2
-    RAK_LORAMAC_STATUS_JOIN_FAIL,                       ///An error occurred in the join procedure
-    RAK_LORAMAC_STATUS_DOWNLINK_REPEATED,               ///A frame with an invalid downlink counter was received. The downlink counter of the frame was equal to the local copy of the downlink counter of the node.
-    RAK_LORAMAC_STATUS_TX_DR_PAYLOAD_SIZE_ERROR,        ///The MAC could not retransmit a frame since the MAC decreased the datarate. The payload size is not applicable for the datarate.
-    RAK_LORAMAC_STATUS_DOWNLINK_TOO_MANY_FRAMES_LOSS,   ///The node has lost MAX_FCNT_GAP or more frames.
-    RAK_LORAMAC_STATUS_ADDRESS_FAIL,                    ///An address error occurred
-    RAK_LORAMAC_STATUS_MIC_FAIL,                        ///Message integrity check failure
-    RAK_LORAMAC_STATUS_MULTICAST_FAIL,                  ///Multicast error occurred
-    RAK_LORAMAC_STATUS_BEACON_LOCKED,                   ///Beacon locked
-    RAK_LORAMAC_STATUS_BEACON_LOST,                     ///Beacon lost
-    RAK_LORAMAC_STATUS_BEACON_NOT_FOUND,                ///Beacon not found
-}RAKLoRaMacEventInfoStatus_t;
-
 
 /**@par	Description
  * 	The structure of a multicast group
@@ -143,12 +114,6 @@ public:
      * @ingroup	Joining_and_Sending
      * @par	Syntax
      *      	api.lorawan.join()
-     *      	api.lorawan.join(join_start, auto_join, auto_join_period, auto_join_cnt)
-     *
-     * @param   join_start          manually join network: 0 means stop to join network; 1 means start to join network.
-     * @param   auto_join           automatically join network: 0 means stop automatically joining network; 1 means start automatically joining network.
-     * @param   auto_join_period    the join attempt period. The acceptance values are 7 to 255 (in seconds).
-     * @param   auto_join_cnt       the maximum number of join attempts. The acceptance values are 0 to 255 (in seconds).
      * @return	bool
      * @retval	TRUE for success
      * @retval	FALSE for join failure
@@ -189,7 +154,6 @@ public:
            @endverbatim
      */
   bool join();
-  bool join(uint8_t join_start, uint8_t auto_join, uint8_t auto_join_period, uint8_t auto_join_cnt);
 
   /**@par	Description
      *          This api provides the way to send data on a dedicated port number
@@ -2715,7 +2679,7 @@ public:
 
        void loop()
        {
-           Serial.printf("The current beacon time = %lu\r\n", api.lorawan.btime.get());
+           Serial.printf("The current beacon time = %l\r\n", api.lorawan.btime.get());
            delay(1000);
        }
            @endverbatim
@@ -3316,7 +3280,7 @@ channel mask
   {
   public:
     /**@par	Description
-	 *     	This api allows to get the P2P frequency  Note:This API will be deleted in the future
+	 *     	This api allows to get the P2P frequency
 	 *
 	 * @par	Syntax
 	 *	api.lorawan.pfreq.get()
@@ -3344,7 +3308,7 @@ channel mask
     uint32_t get();
 
     /**@par	Description
-	 *     	This api allows to set the P2P frequency Note:This API will be deleted in the future
+	 *     	This api allows to set the P2P frequency
 	 *
 	 * @par	Syntax
 	 *	api.lorawan.pfreq.set(value)
@@ -3376,7 +3340,7 @@ channel mask
   };
 
   /**@par	Description
-     *		This api provides a configuration Spreading Factor for the P2P mode Note:This API will be deleted in the future
+     *		This api provides a configuration Spreading Factor for the P2P mode
      * @ingroup		P2P
      */
   class psf
@@ -3411,7 +3375,7 @@ channel mask
     uint8_t get();
 
     /**@par	Description
-	 *     	This api allows to set P2P Spreading Factor (6,7, 8,9, 10, 11, 12) Note:This API will be deleted in the future
+	 *     	This api allows to set P2P Spreading Factor (6,7, 8,9, 10, 11, 12)
 	 *
 	 * @par	Syntax
 	 *	api.lorawan.psf.set(value)
@@ -3450,7 +3414,7 @@ channel mask
   {
   public:
     /**@par	Description
-	 *     	This api allows to get P2P Bandwidth(125,250,500) Note:This API will be deleted in the future
+	 *     	This api allows to get P2P Bandwidth(125,250,500)
 	 *
 	 * @par	Syntax
 	 *	api.lorawan.pbw.get()
@@ -3478,7 +3442,7 @@ channel mask
     uint32_t get();
 
     /**@par	Description
-	 *     	This api allow to set P2P Bandwidth(125,250,500) Note:This API will be deleted in the future
+	 *     	This api allow to set P2P Bandwidth(125,250,500)
 	 *
 	 * @par	Syntax
 	 *	api.lorawan.pbw.set(value)
@@ -3517,7 +3481,7 @@ channel mask
   {
   public:
     /**@par	Description
-	 *     	This api allows to get code rate for the P2P mode Note:This API will be deleted in the future
+	 *     	This api allows to get code rate for the P2P mode
 	 *
 	 * @par	Syntax
 	 *	api.lorawan.pcr.get()
@@ -3545,7 +3509,7 @@ channel mask
     uint8_t get();
 
     /**@par	Description
-	 *     	This api allows to set code rate for the P2P mode Note:This API will be deleted in the future
+	 *     	This api allows to set code rate for the P2P mode
 	 *
 	 * @par	Syntax
 	 *	api.lorawan.pcr.set(value)
@@ -3577,7 +3541,7 @@ channel mask
   };
 
   /**@par	Description
-     *		This api provides configuration Preamble Length for the P2P mode Note:This API will be deleted in the future
+     *		This api provides configuration Preamble Length for the P2P mode
      * @ingroup		P2P
      */
   class ppl
@@ -3612,7 +3576,7 @@ channel mask
     uint16_t get();
 
     /**@par	Description
-	 *     	This api allows to set P2P Preamble Length (2-65535) Note:This API will be deleted in the future
+	 *     	This api allows to set P2P Preamble Length (2-65535)
 	 *
 	 * @par	Syntax
 	 *	api.lorawan.ppl.set(value)
@@ -3651,7 +3615,7 @@ channel mask
   {
   public:
     /**@par	Description
-	 *     	This api allows to get P2P TX Power(5-22) Note:This API will be deleted in the future
+	 *     	This api allows to get P2P TX Power(5-22)
 	 *
 	 * @par	Syntax
 	 *	api.lorawan.ptp.get()
@@ -3679,7 +3643,7 @@ channel mask
     uint8_t get();
 
     /**@par	Description
-	 *     	This api allows to set P2P TX Power(5-22) Note:This API will be deleted in the future
+	 *     	This api allows to set P2P TX Power(5-22)
 	 *
 	 * @par	Syntax
 	 *	api.lorawan.ptp.set(value)

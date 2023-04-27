@@ -12,17 +12,6 @@
 #include "radio.h"
 #include "delay.h"
 #include "udrv_timer.h"
-#include "udrv_rtc.h"
-#include "RegionAS923.h"
-#include "RegionAU915.h"
-#include "RegionCN470.h"
-#include "RegionCN779.h"
-#include "RegionEU433.h"
-#include "RegionEU868.h"
-#include "RegionKR920.h"
-#include "RegionIN865.h"
-#include "RegionUS915.h"
-#include "RegionRU864.h"
 
 #define TX_TEST_TONE (1 << 0)
 #define RX_TEST_RSSI (1 << 1)
@@ -64,7 +53,6 @@ static void OnRxTimeout(void);
 static void OnRxError(void);
 static int32_t Prbs9_generator(uint8_t *payload, uint8_t len);
 static void OnTxTimerEvent(void);
-static void OnTxTimerEventRandom(void);
 static void Recv_Enent(void);
 static RadioEvents_t RadioEvents;
 static uint8_t TestState = 0;
@@ -81,7 +69,7 @@ extern TimerEvent_t CertifiTimer;
  *                                10: 1024, 11: 2048, 12: 4096  chips]
 */
 
-volatile testParameter_t testParam = {MODEM_LORA, LORA_BANDWIDTH, LORA_SPREADING_FACTOR, LORA_CODINGRATE,
+static testParameter_t testParam = {MODEM_LORA, LORA_BANDWIDTH, LORA_SPREADING_FACTOR, LORA_CODINGRATE,
                                     FSK_AFC_BANDWIDTH, LORA_PREAMBLE_LENGTH, LORA_FIX_LENGTH_PAYLOAD_ON, PAYLOAD_LEN,
                                     false, false, 0, 0,
                                     true, LORA_SYMBOL_TIMEOUT, TX_OUTPUT_POWER, FSK_FDEV,
@@ -101,10 +89,9 @@ static uint32_t Rx_count_RxKo;
 static uint32_t Rx_count_RxOk;
 static uint32_t freq_start_back;
 static uint32_t packet_back;
-static uint8_t freq_cnt;
 
 static uint32_t service_lora_test_full_wlock_cnt;
-static volatile uint32_t freq_seq[128] = {0};
+
 static void service_lora_test_full_wake_lock(void) {
     udrv_powersave_wake_lock();
     service_lora_test_full_wlock_cnt++;
@@ -404,148 +391,6 @@ int32_t service_lora_tth(const testParameter_t *param)
   }
 }
 
-int32_t service_lora_trth(const testParameter_t *param)
-{
-  if ((TestState & TX_TEST_LORA) != TX_TEST_LORA)
-  {
-    service_lora_test_full_wake_lock();
-    memset(freq_seq,0,sizeof(freq_seq));
-    int j;
-    int8_t phyDr;
-    uint32_t bandwidth;
-    for (freq_cnt = 0; freq_cnt < sizeof(freq_seq)/sizeof(freq_seq[0]); freq_cnt++)
-    {
-        if(param->freq_start + param->hp_step*freq_cnt > param->freq_stop)
-        {
-            --freq_cnt;
-            break;
-        }
-        else
-            freq_seq[freq_cnt] = param->freq_start + param->hp_step*freq_cnt;
-    }
-    srandom(udrv_rtc_get_timestamp((RtcID_E)SYS_RTC_COUNTER_PORT));
-    for (int i = 0; i < freq_cnt; i++)
-    {
-        j = i + random() / (RAND_MAX / (freq_cnt - i) + 1);
-        if(j == i)
-            j = 0;
-        freq_seq[i] = freq_seq[i] ^ freq_seq[j];
-        freq_seq[j] = freq_seq[i] ^ freq_seq[j];
-        freq_seq[i] = freq_seq[i] ^ freq_seq[j];
-
-        freq_seq[j] = freq_seq[j] ^ freq_seq[freq_cnt];
-        freq_seq[freq_cnt] = freq_seq[j] ^ freq_seq[freq_cnt];
-        freq_seq[j] = freq_seq[j] ^ freq_seq[freq_cnt];
-
-    }
-    //for (int i = 0; i< sizeof(freq_seq) / sizeof(freq_seq[0]);i++)
-    //    udrv_serial_log_printf("freq_seq[%d]:%u \r\n",i,freq_seq[i]);
-    switch (service_lora_get_band())
-    {
-        case SERVICE_LORA_AS923:
-        {
-            phyDr = DataratesAS923[testParam.datarate];
-            bandwidth = RegionCommonGetBandwidth( testParam.datarate, BandwidthsAS923 );
-            break;
-        }
-        case SERVICE_LORA_AU915:
-        {
-            phyDr = DataratesAU915[testParam.datarate];
-            bandwidth = RegionCommonGetBandwidth( testParam.datarate, BandwidthsAU915 );
-            break;
-        }
-        case SERVICE_LORA_CN470:
-        {
-            phyDr = DataratesCN470[testParam.datarate];
-            bandwidth = RegionCommonGetBandwidth( testParam.datarate, BandwidthsCN470 );
-            break;
-        }
-        case SERVICE_LORA_CN779:
-        {
-            phyDr = DataratesCN779[testParam.datarate];
-            bandwidth = RegionCommonGetBandwidth( testParam.datarate, BandwidthsCN779 );
-            break;
-        }
-        case SERVICE_LORA_EU433:
-        {
-            phyDr = DataratesEU433[testParam.datarate];
-            bandwidth = RegionCommonGetBandwidth( testParam.datarate, BandwidthsEU433 );
-            break;
-        }
-        case SERVICE_LORA_EU868:
-        {
-            phyDr = DataratesEU868[testParam.datarate];
-            bandwidth = RegionCommonGetBandwidth( testParam.datarate, BandwidthsEU868 );
-            break;
-        }
-        case SERVICE_LORA_KR920:
-        {
-            phyDr = DataratesKR920[testParam.datarate];
-            bandwidth = RegionCommonGetBandwidth( testParam.datarate, BandwidthsKR920 );
-            break;
-        }
-        case SERVICE_LORA_IN865:
-        {
-            phyDr = DataratesIN865[testParam.datarate];
-            bandwidth = RegionCommonGetBandwidth( testParam.datarate, BandwidthsIN865 );
-            break;
-        }
-        case SERVICE_LORA_US915:
-        {
-            phyDr = DataratesUS915[testParam.datarate];
-            bandwidth = RegionCommonGetBandwidth( testParam.datarate, BandwidthsUS915 );
-            break;
-        }
-        default:
-        {
-            phyDr = LORA_SPREADING_FACTOR;
-            bandwidth = LORA_BANDWIDTH;
-            break;
-        }
-
-    }
-
-    TestState |= TX_TEST_LORA;
-    hop_flag = 1;
-    /* Radio initialization */
-    RadioEvents.TxDone = OnTxDone;
-    RadioEvents.RxDone = OnRxDone;
-    RadioEvents.TxTimeout = OnTxTimeout;
-    RadioEvents.RxTimeout = OnRxTimeout;
-    RadioEvents.RxError = OnRxError;
-    Radio.Init(&RadioEvents);
-
-    //testParam.freq_start = param->freq_start;
-    testParam.freq_start = freq_seq[0];
-    testParam.freq_stop = param->freq_stop;
-    testParam.hp_step = param->hp_step;
-    testParam.nb_tx = param->nb_tx;
-
-    LORA_TEST_DEBUG("RX frequency %d", testParam.freq_start);
-    LORA_TEST_DEBUG("RX frequency %d", testParam.freq_stop);
-    LORA_TEST_DEBUG("RX frequency %d", testParam.hp_step);
-    LORA_TEST_DEBUG("RX frequency %d", testParam.nb_tx);
-
-    /*Fill payload with PRBS9 data*/
-    Prbs9_generator(payload, testParam.payloadLen);
-    freq_start_back = testParam.freq_start;
-    packet_back = testParam.nb_tx;
-    Radio.SetChannel(testParam.freq_start);
-    Radio.SetTxConfig(testParam.modem, testParam.power, testParam.fdev, bandwidth, phyDr, testParam.coderate, testParam.preambleLen,
-                      testParam.fixLen, testParam.crcOn, testParam.FreqHopOn, testParam.HopPeriod, testParam.iqInverted, testParam.txTimeout);
-    TimerInit(&TxTimer, OnTxTimerEventRandom);
-    TimerSetValue(&TxTimer, 500);
-    TimerStart(&TxTimer);
-
-    return UDRV_RETURN_OK;
-  }
-  else
-  {
-    return -UDRV_BUSY;
-  }
-}
-
-
 void OnTxDone(void)
 {
   if (packet==0||testParam.nb_tx==0)
@@ -647,59 +492,6 @@ static void OnTxTimerEvent(void)
   }
   
 }
-
-static void OnTxTimerEventRandom(void)
-{
-  LORA_TEST_DEBUG();
-
-  if (hop_flag)
-  {
-    LORA_TEST_DEBUG("nb_tx %d", testParam.nb_tx);
-
-    testParam.nb_tx--;
-    Radio.Send(payload, testParam.payloadLen);
-    udrv_serial_log_printf("Tx Hop at %d Hz\r\n",testParam.freq_start);
-    udrv_serial_log_printf("Tx Test : Packet %d of %d\r\n",( packet_back-testParam.nb_tx),packet_back);
-    LORA_TEST_DEBUG("freq %d", testParam.freq_start);
-
-    testParam.freq_start = freq_seq[(packet_back-testParam.nb_tx)%freq_cnt];
-    /*testParam.freq_start += testParam.hp_step;
-    if (testParam.freq_start == 0 )
-    {
-        packet_back -= testParam.nb_tx;
-        testParam.freq_start = freq_seq[packet_back-testParam.nb_tx];
-    }*/
-    Radio.SetChannel(testParam.freq_start);
-
-    if (testParam.nb_tx)
-      TimerStart(&TxTimer);
-    else
-    {
-      TestState &= ~TX_TEST_LORA;
-      TimerStop(&TxTimer);
-      hop_flag = 0;
-      //service_lora_test_full_wake_unlock();
-    }
-  }
-  else
-  {
-    LORA_TEST_DEBUG("packet %d", packet);
-    packet--;
-
-    Radio.Send(payload, testParam.payloadLen);
-    udrv_serial_log_printf("Tx Test : Packet %d of %d\r\n",( packet_back-packet),packet_back);
-    if (packet)
-      TimerStart(&TxTimer);
-    else
-    {
-      TestState &= ~TX_TEST_LORA;
-      TimerStop(&TxTimer);
-      //service_lora_test_full_wake_unlock();
-    }
-  }
-  
-}
-
 
 static void Recv_Enent(void)
 {

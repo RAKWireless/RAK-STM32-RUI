@@ -65,10 +65,6 @@ typedef struct _lorap2p_param{
     /* 2*Fdev + BR) < BW */
     uint32_t deviation;
     uint32_t fsk_rxbw;
-    bool iqinverted;
-    uint32_t symbol_timeout;
-    uint16_t syncword;
-    bool fix_length_payload;
 }S_LORAP2P_PARAM;
 
 typedef struct {
@@ -112,9 +108,6 @@ typedef struct {
     McSession_t McSession_group[4];
     uint32_t chs;
     uint8_t tp_port[SERIAL_MAX];
-    uint8_t lbt_enable;
-    int16_t lbt_rssi;
-    uint32_t lbt_scantime;
 } lora_cfg_t;
 #endif
 
@@ -163,12 +156,8 @@ typedef struct {
     uint8_t sn[18];
     uint8_t alias[16];
     uint8_t debug_level;
-    uint8_t firmware_ver[32];
-    uint8_t hwmodel[32];
-    uint8_t cli_ver[32];
 } rui_cfg_t;
 
-uint32_t get_batt_table_size(void);
 
 #define RUI_CFG_V85_SZ                              500
 #define RUI_CFG_V87_SZ                              504
@@ -189,7 +178,7 @@ uint32_t get_batt_table_size(void);
 #define ELEM_OFS_V85_alias                          482
 
 //follows are differences in version 87
-//The content between crc_verify and mode_type has same offset as v85
+//The content between crc_verify and mode_type has same offset as v85 
 #define ELEM_OFS_V87_crc_verify                     ELEM_OFS_V85_crc_verify
 #define ELEM_OFS_V87_lora_work_mode                 ELEM_OFS_V85_lora_work_mode
 #define ELEM_OFS_V87_g_lora_p2p_cfg_t               ELEM_OFS_V85_g_lora_p2p_cfg_t
@@ -222,4 +211,5 @@ uint32_t get_batt_table_size(void);
 #define ELEM_OFS_V99_alias                          ELEM_OFS_V87_alias
 #define ELEM_OFS_V99_magic                          504
 
+uint32_t get_batt_table_size(void);
 #endif

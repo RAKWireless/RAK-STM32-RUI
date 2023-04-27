@@ -44,17 +44,14 @@ int32_t uhal_ps_timer_stop () {
     }
 }
 
-void uhal_mcu_sleep (uint32_t level) {
+void uhal_mcu_sleep (void) {
     CRITICAL_SECTION_BEGIN();
 
     HAL_SuspendTick();
 
     LL_PWR_ClearFlag_C1STOP_C1STB();
- 
-    if(level == 2) 
-        HAL_PWREx_EnterSTOP2Mode(PWR_STOPENTRY_WFI);
-    else
-        HAL_PWREx_EnterSTOP1Mode(PWR_STOPENTRY_WFI);
+  
+    HAL_PWREx_EnterSTOP1Mode(PWR_STOPENTRY_WFI);
 
     HAL_ResumeTick();
 

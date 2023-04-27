@@ -42,18 +42,7 @@ class RAKBle {
      * @return  void
      */
     void stop(void);
-
-
-    /**@par Description
-     *      Set the fallback function for Bluetooth connection and disconnection.
-     * @par Syntax
-     *      api.ble.registerCallback()
-     * @param   event   The event that triggers the callback function, which can be one of the following values (        BLE_CONNECTED  or BLE_DISCONNECTED) 
-     *          callback  userFunc   
-     * @return  void
-     */
-    void registerCallback(Event event,BLE_HANDLER callback);
-    
+    /**@}*/
 };
 #endif
 

@@ -34,48 +34,6 @@ extern "C" {
     
 #define LORA_BUFFER_SIZE                            255  /* Define the payload size here */
     
-/**@par	Description
- *	The default syncword in P2P mode
- */
-typedef enum
-{
-  LORA_MAC_PRIVATE_SYNCWORD = 0x1424, //  Syncword for Private LoRa networks
-  LORA_MAC_PUBLIC_SYNCWORD =  0x3444  // Syncword for Public LoRa networks
-} RAK_LORA_P2P_SYNCWORD;
-
-/**@}*/
-
-#ifdef rak4200
-    #define LORA_CHIP_SX1276
-#elif defined rak4630
-    #define LORA_CHIP_SX126X
-#elif defined rak11720
-    #define LORA_CHIP_SX126X
-#elif defined rak3172 \
-      || defined rak3172-sip
-    #define LORA_CHIP_STM32WLE5XX
-#endif
-
-#ifdef LORA_CHIP_SX1276
-    #define SYMBTIMEOUT_MAX 1023
-#elif defined LORA_CHIP_SX126X
-    #define SYMBTIMEOUT_MAX 248
-#elif defined LORA_CHIP_STM32WLE5XX
-    #define SYMBTIMEOUT_MAX 248
-#else
-    #define SYMBTIMEOUT_MAX 0
-#endif
-
-// #ifdef sx1276
-//     #define SYMBTIMEOUT_MAX 1023
-// #elif defined sx126x
-//     #define SYMBTIMEOUT_MAX 248
-// #elif defined stm32wle5xx
-//     #define SYMBTIMEOUT_MAX 248
-// #else
-//     #define SYMBTIMEOUT_MAX 0
-// #endif
-
 typedef struct {
     bool isRxCancel;
     bool isRadioBusy;
@@ -120,37 +78,25 @@ uint32_t service_lora_p2p_get_freq (void);;
 
 int32_t service_lora_p2p_set_freq (uint32_t freq);
 
-int32_t service_lora_p2p_check_runtime_freq(uint32_t freq);
-
 uint8_t service_lora_p2p_get_sf (void);
 
 int32_t service_lora_p2p_set_sf (uint8_t spreadfact);
-
-int32_t service_lora_p2p_check_runtime_sf(uint8_t spreadfact);
 
 uint32_t service_lora_p2p_get_bandwidth (void);
 
 int32_t service_lora_p2p_set_bandwidth (uint32_t bandwidth);
 
-int32_t service_lora_p2p_check_runtime_bandwidth(uint32_t bandwidth);
-
 uint8_t service_lora_p2p_get_codingrate (void);
 
 int32_t service_lora_p2p_set_codingrate (uint8_t codingrate);
-
-int32_t service_lora_p2p_check_runtime_codingrate(uint8_t codingrate);
 
 uint16_t service_lora_p2p_get_preamlen (void);
 
 int32_t service_lora_p2p_set_preamlen (uint16_t preamlen);
 
-int32_t service_lora_p2p_check_runtime_preamlen(uint16_t preamlen);
-
 uint8_t service_lora_p2p_get_powerdbm (void);
 
 int32_t service_lora_p2p_set_powerdbm (uint8_t powerdbm);
-
-int32_t service_lora_p2p_check_runtime_powerdbm(uint8_t powerdbm);
 
 bool service_lora_p2p_get_crypto_enable(void);
 
@@ -175,26 +121,6 @@ int32_t service_lora_p2p_decrpty(uint8_t *indata,uint16_t inlen ,uint8_t *outdat
 int32_t service_lora_p2p_register_send_cb(service_lora_p2p_send_cb_type callback);
 
 int32_t service_lora_p2p_register_recv_cb(service_lora_p2p_recv_cb_type callback);
-
-bool service_lora_p2p_get_public_network(void);
-
-int32_t service_lora_p2p_set_public_network(bool enable);
-
-uint32_t service_lora_p2p_get_symbol_timeout(void);
-
-int32_t service_lora_p2p_set_symbol_timeout(uint32_t symbol_timeout);
-
-bool service_lora_p2p_get_iqinverted(void);
-
-int32_t service_lora_p2p_set_iqinverted(bool iqinverted);
-
-bool service_lora_p2p_get_fix_length_payload(void);
-
-int32_t service_lora_p2p_set_fix_length_payload(bool enable);
-
-uint16_t service_lora_p2p_get_syncword(void);
-
-int32_t service_lora_p2p_set_syncword( uint16_t syncword );
 
 #ifdef __cplusplus
 }

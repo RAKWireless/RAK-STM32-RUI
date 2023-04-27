@@ -171,42 +171,6 @@
  * | Example<br>AT+TIMEREQ=?| --                 | 1                                                           | OK                 |
  * | Example<br>AT+TIMEREQ= | 1                  | --                                                          | OK                 |
  *
- * @subsection ATCMD_nwk_mng_15 AT+LBT: LoRaWAN LBT
- *
- * This command allows the user to enable or disable LoRaWAN LBT
- *
- * | Command            | Input parameter    | Return value                                                      | Return code        |
- * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
- * | AT+LBT?            | --                 | AT+LBT: get or set the LoRaWAN LBT (support Korea Japan) (0 = disabled, 1 = enabled)                       | OK                 |
- * | AT+LBT=?     | --                 | <0-1>                                                             | OK                 |
- * | AT+LBT=\<Input\>   | <0-1>        | --                                                                | OK / AT_PARAM_ERROR |
- * | Example<br>AT+LBT=?| --                 | 1                                                           | OK                 |
- * | Example<br>AT+LBT= | 1                  | --                                                          | OK                 |
- *
- * @subsection ATCMD_nwk_mng_16 AT+LBTRSSI: LoRaWAN LBT RSSI
- *
- * This command allows the user to set or get LoRaWAN LBT RSSI
- *
- * | Command            | Input parameter    | Return value                                                      | Return code        |
- * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
- * | AT+LBTRSSI?            | --                 | AT+LBT: get or set the LoRaWAN LBT rssi (support Korea Japan)                       | OK                 |
- * | AT+LBTRSSI=?     | --                 | <RSSI>                                                             | OK                 |
- * | AT+LBTRSSI=\<Input\>   | <RSSI>        | --                                                                | OK / AT_PARAM_ERROR |
- * | Example<br>AT+LBT=?| --                 | -80                                                           | OK                 |
- * | Example<br>AT+LBT= | -80                  | --                                                          | OK                 |
- *
- * @subsection ATCMD_nwk_mng_16 AT+LBTSCANTIME: LoRaWAN LBT scantime
- *
- * This command allows the user to set or get LoRaWAN LBT scantime
- *
- * | Command            | Input parameter    | Return value                                                      | Return code        |
- * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
- * | AT+LBTSCANTIME?            | --                 | AT+LBT: get or set the LoRaWAN LBT scantime (support Korea Japan)                       | OK                 |
- * | AT+LBTSCANTIME=?     | --                 | <time>                                                             | OK                 |
- * | AT+LBTSCANTIME=\<Input\>   | <time>        | --                                                                | OK / AT_PARAM_ERROR |
- * | Example<br>AT+LBTSCANTIME=?| --                 | 5                                                           | OK                 |
- * | Example<br>AT+LBTSCANTIME= | 5                  | --                                                          | OK                 |
- *
  */
 #endif 
 
@@ -228,8 +192,5 @@
 #define ATCMD_TXP             "AT+TXP"
 #define ATCMD_LINKCHECK       "AT+LINKCHECK"
 #define ATCMD_TIMEREQ         "AT+TIMEREQ"
-#define ATCMD_LBT             "AT+LBT"
-#define ATCMD_LBTRSSI         "AT+LBTRSSI"
-#define ATCMD_LBTSCANTIME     "AT+LBTSCANTIME"
 
 #endif //_ATCMD_NWK_MNG_DEF_H_

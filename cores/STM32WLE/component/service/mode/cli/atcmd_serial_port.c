@@ -76,10 +76,6 @@ int At_Baud (SERIAL_PORT port, char *cmd, stParam *param)
         }
 
         baud = strtoul(param->argv[0], NULL, 10);
-#ifdef stm32wle5xx
-        if (baud > 115200)
-            return AT_PARAM_ERROR;
-#endif
 
         udrv_serial_init(port, baud, SERIAL_WORD_LEN_8, SERIAL_STOP_BIT_1, SERIAL_PARITY_DISABLE, SERIAL_TWO_WIRE_NORMAL_MODE);
 

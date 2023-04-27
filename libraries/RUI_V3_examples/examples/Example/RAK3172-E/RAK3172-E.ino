@@ -1,16 +1,13 @@
 
 void setup()
 {
-    uint32_t baudrate = Serial.getBaudrate();
-    Serial.begin(baudrate);
-    Serial.println("RAKwireless RAK3172");
-    Serial.println("------------------------------------------------------");
-    Serial.printf("Version: %s\r\n", api.system.firmwareVersion.get().c_str());
+  Serial.println("RAKwireless RAK3172-E Example");
+  Serial.println("------------------------------------------------------");
 }
 
 void loop()
 {
-    /* Destroy this busy loop and use timer to do what you want instead,
-     * so that the system thread can auto enter low power mode by api.system.lpm.set(1); */
-    api.system.scheduler.task.destroy();
+  /* Destroy this busy loop and use timer to do what you want instead,
+   * so that the system thread can auto enter low power mode by api.system.lpm.set(1); */
+  api.system.scheduler.task.destroy();
 }

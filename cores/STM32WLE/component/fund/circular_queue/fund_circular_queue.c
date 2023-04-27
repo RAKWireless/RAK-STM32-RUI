@@ -1,4 +1,3 @@
-#include "string.h"
 #include "fund_circular_queue.h"
 #include "udrv_errno.h"
 #include "udrv_system.h"

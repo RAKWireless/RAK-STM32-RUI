@@ -117,6 +117,30 @@ void HardFault_Handler(void)
   /* USER CODE BEGIN HardFault_IRQn 0 */
 
   /* USER CODE END HardFault_IRQn 0 */
+  __HAL_RCC_APB1_FORCE_RESET();
+  __HAL_RCC_APB1_RELEASE_RESET();
+
+  __HAL_RCC_APB2_FORCE_RESET();
+  __HAL_RCC_APB2_RELEASE_RESET();
+
+  __HAL_RCC_APB3_FORCE_RESET();
+  __HAL_RCC_APB3_RELEASE_RESET();
+
+  __HAL_RCC_AHB1_FORCE_RESET();
+  __HAL_RCC_AHB1_RELEASE_RESET();
+
+  __HAL_RCC_AHB2_FORCE_RESET();
+  __HAL_RCC_AHB2_RELEASE_RESET();
+
+  __HAL_RCC_AHB3_FORCE_RESET();
+  __HAL_RCC_AHB3_RELEASE_RESET();
+
+  __HAL_RCC_SUBGHZ_FORCE_RESET();
+  __HAL_RCC_SUBGHZ_RELEASE_RESET();
+
+  __HAL_RCC_BACKUPRESET_FORCE();
+  __HAL_RCC_BACKUPRESET_RELEASE();
+
   while (1)
   {
     /* USER CODE BEGIN W1_HardFault_IRQn 0 */
@@ -296,6 +320,17 @@ void SUBGHZ_Radio_IRQHandler(void)
   /* USER CODE END SUBGHZ_Radio_IRQn 1 */
 }
 
+
+void TAMP_STAMP_LSECSS_SSRU_IRQHandler(void)
+{
+  /* USER CODE BEGIN TAMP_STAMP_LSECSS_SSRU_IRQn 0 */
+
+  /* USER CODE END TAMP_STAMP_LSECSS_SSRU_IRQn 0 */
+  HAL_RTCEx_SSRUIRQHandler(&hrtc);
+  /* USER CODE BEGIN TAMP_STAMP_LSECSS_SSRU_IRQn 1 */
+
+  /* USER CODE END TAMP_STAMP_LSECSS_SSRU_IRQn 1 */
+}
 
 /******************************************************************************/
 /* STM32WLxx Peripheral Interrupt Handlers                                    */

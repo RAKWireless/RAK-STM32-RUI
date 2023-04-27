@@ -12,7 +12,6 @@
 
 typedef enum
 {
-    RAK_BLE_UART_MODE = 0,	///< Switch to uart advertisement mode
     RAK_BLE_BEACON_MODE = 1	///< Switch to beacon mode
 } RAK_BLE_SERVICE_MODE;
 

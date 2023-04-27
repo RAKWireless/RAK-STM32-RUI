@@ -117,7 +117,6 @@ class HardwareSerial : public Stream
 #else
     /**@par	Description
      *      	Sets the data rate in bits per second (baud) for serial data transmission
-     * @note For RAK3172/RAK3172-SiP/RAK3172LP-SiP, Baudrate is only allow maximum 115200
      *
      * @par	Syntax
      *      	Serial.begin(baud);\n
@@ -355,27 +354,6 @@ class HardwareSerial : public Stream
 
      */
     virtual void flush(void);
-
-    /**@par Description
-     *          Get the baud rate from the system configure
-     *
-     * @par Syntax
-     *          Serial.getBaudrate();
-     * @return  void
-     * @par     Example
-     * @verbatim
-     void setup() {
-	   uint32_t baudrate = Serial.getBaudrate();
-       Serial.begin(baudrate);
-     }
-
-     void loop() {
-     }
-     @endverbatim
-
-     */
-    virtual uint32_t getBaudrate(void);
-
     /**@}*/
 };
 

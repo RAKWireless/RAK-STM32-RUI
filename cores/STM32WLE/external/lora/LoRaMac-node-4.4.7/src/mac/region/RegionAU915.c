@@ -475,6 +475,7 @@
 #define __USES_INITFINI__ 1
 #define stm32wle5xx 1
 #define SUPPORT_LORA 1
+#define LORA_RF_LP 1
 #define LORA_IO_SPI_PORT 2
 #define SYS_RTC_COUNTER_PORT 2
 #define ATCMD_CUST_TABLE_SIZE 64
@@ -10219,13 +10220,13 @@ _Bool
         }
         case PHY_RX_DR:
         {
-
+            if( verify->DatarateParams.UplinkDwellTime == 0 )
             {
                 return RegionCommonValueInRange( verify->DatarateParams.Datarate, 8, 13 );
             }
-
+            else
             {
-
+                return RegionCommonValueInRange( verify->DatarateParams.Datarate, 2, 13 );
             }
         }
         case PHY_DEF_TX_POWER:

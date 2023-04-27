@@ -96,14 +96,6 @@
  * | Example<br>AT+NWKSKEY= | 010203040506070809       | --                                                      | AT_PARAM_ERROR     |
  * | Example<br>AT+NWKSKEY=?|                  | 0102030405060708090A0B0C0D0E0F00                                | OK                 |
  *
- *  * @subsection ATCMD_key_id_8 AT+MCROOTKEY: mc root key
- *
- * This command allows the user to get the mc root key.
- *
- * | Command            | Input parameter    | Return value                                                      | Return code        |
- * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
- * | AT+MCROOTKEY?         | --                 | AT+APPKEY: get  the mc root  key (16 bytes in hex)             | OK                 |
- * | AT+MCROOTKEY=?        | --                 | \<16 hex\>                                                     | OK                 |
 */
 #endif
 
@@ -117,5 +109,5 @@
 #define ATCMD_DEUI             "AT+DEVEUI"
 #define ATCMD_NETID            "AT+NETID"
 #define ATCMD_NWKSKEY          "AT+NWKSKEY"
-#define ATCMD_MCROOTKEY        "AT+MCROOTKEY"
+
 #endif //_ATCMD_KEY_ID_DEF_H_

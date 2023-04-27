@@ -59,12 +59,6 @@ void udrv_system_event_consume(void);
 
 void udrv_system_reboot(void);
 
-#if defined(rak11720) && defined(RUI_BOOTLOADER)
-void udrv_system_critical_section_begin(uint32_t *mask);
-
-void udrv_system_critical_section_end (uint32_t *mask);
-#endif
-
 #ifndef RUI_BOOTLOADER
 void udrv_system_critical_section_begin(uint32_t *mask);
 
