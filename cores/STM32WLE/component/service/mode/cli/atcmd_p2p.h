@@ -30,4 +30,24 @@ int At_Pbr(SERIAL_PORT port, char *cmd, stParam *param);
 
 int At_Pfdev(SERIAL_PORT port, char *cmd, stParam *param);
 
+int At_iqInver(SERIAL_PORT port, char *cmd, stParam *param);
+
+int At_syncword(SERIAL_PORT port, char *cmd, stParam *param);
+
+int At_rfFrequency(SERIAL_PORT port, char *cmd, stParam *param);
+
+int At_txOutputPower(SERIAL_PORT port, char *cmd, stParam *param);
+
+int At_bandwidth(SERIAL_PORT port, char *cmd, stParam *param);
+
+int At_speradingFactor(SERIAL_PORT port, char *cmd, stParam *param);
+
+int At_codingrate(SERIAL_PORT port, char *cmd, stParam *param);
+
+int At_preambleLength(SERIAL_PORT port, char *cmd, stParam *param);
+
+int At_symbolTimeout(SERIAL_PORT port, char *cmd, stParam *param);
+
+int At_fixLengthPayload(SERIAL_PORT port, char *cmd, stParam *param);
+
 #endif //_ATCMD_INFO_H_

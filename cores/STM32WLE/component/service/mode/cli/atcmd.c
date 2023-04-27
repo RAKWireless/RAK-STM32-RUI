@@ -36,6 +36,7 @@
 #include "atcmd_p2p_def.h"
 #include "atcmd_cert.h"
 #include "atcmd_cert_def.h"
+#include "service_lora_p2p.h"
 #endif
 #endif
 #include "udrv_serial.h"
@@ -104,6 +105,7 @@ const char *atcmd_err_tbl[] =
 	"AT_NO_NETWORK_JOINED",
 	"AT_RX_ERROR",
 	"AT_MODE_NO_SUPPORT",
+	"AT_COMMAND_NOT_FOUND",
 };
 
 at_cmd_info atcmd_info_tbl[] =
@@ -125,6 +127,7 @@ at_cmd_info atcmd_info_tbl[] =
     {ATCMD_BUILDTIME,/*5*/          At_GetFwBuildTime,     0, "get the build time of the firmware", AT_BUILDTIME_PERM},
     {ATCMD_REPOINFO, /*6*/          At_GetFwRepoInfo,      0, "get the commit ID of the firmware", AT_REPOINFO_PERM},
     {ATCMD_FWVER,    /*7*/          At_GetFwVersion,       0, "get the version of the firmware", AT_VER_PERM},
+    {ATCMD_CUSFWVER, /*96*/         At_GetCusFwVersion,    0, "get the Customized version of the firmware", AT_FIRMWAREVER_PERM},
     {ATCMD_CLIVER,   /*8*/          At_GetCliVersion,      0, "get the version of the AT command", AT_CLIVER_PERM},
     {ATCMD_APIVER,   /*9*/          At_GetApiVersion,      0, "get the version of the RUI API", AT_APIVER_PERM},
     {ATCMD_HWMODEL,  /*13*/         At_GetHwModel,         0, "get the string of the hardware model", AT_HWMODEL_PERM},
@@ -135,7 +138,7 @@ at_cmd_info atcmd_info_tbl[] =
     {ATCMD_UID,      /*91*/         At_GetUid,             0, "", AT_UID_PERM},
 #endif
 #ifdef SUPPORT_BLE
-    {ATCMD_BLEMAC,   /*94*/         At_BLEMac,          0, "get the BLE Mac address", AT_BLEMAC_PERM},
+    {ATCMD_BLEMAC,   /*94*/         At_BLEMac,             0, "get or set the BLE Mac address", AT_BLEMAC_PERM},
 #endif
 /* Sleep Command */
     {ATCMD_SLEEP,    /*85*/         At_Sleep,              0, "enter sleep mode for a period of time (ms)", AT_SLEEP_PERM},
@@ -204,12 +207,12 @@ at_cmd_info atcmd_info_tbl[] =
     {ATCMD_BAND,     /*54*/         At_Band,               0, "get or set the active region (0 = EU433, 1 = CN470, 2 = RU864, 3 = IN865, 4 = EU868, 5 = US915, 6 = AU915, 7 = KR920, 8 = AS923-1 , 9 = AS923-2 , 10 = AS923-3 , 11 = AS923-4)", AT_BAND_PERM},
 /* LoRaWAN P2P */
     {ATCMD_NWM,      /*55*/         At_NwkWorkMode,        0, "get or set the network working mode (0 = P2P_LORA, 1 = LoRaWAN, 2 = P2P_FSK)", AT_NWM_PERM},
-    {ATCMD_PFREQ,    /*56*/         At_P2pFreq,            0, "configure P2P Frequency", AT_PFREQ_PERM},
-    {ATCMD_PSF,      /*57*/         At_P2pSF,              0, "configure P2P Spreading Factor (5-12)", AT_PSF_PERM},
-    {ATCMD_PBW,      /*58*/         At_P2pBW,              0, "configure P2P Bandwidth(LORA: 0 = 125, 1 = 250, 2 = 500, 3 = 7.8, 4 = 10.4, 5 = 15.63, 6 = 20.83, 7 = 31.25, 8 = 41.67, 9 = 62.5  FSK:4800-467000)", AT_PBW_PERM},
-    {ATCMD_PCR,      /*59*/         At_P2pCR,              0, "configure P2P Code Rate(0=4/5, 1=4/6, 2=4/7, 3=4/8)", AT_PCR_PERM},
-    {ATCMD_PPL,      /*60*/         At_P2pPL,              0, "configure P2P Preamble Length (5-65535)", AT_PPL_PERM},
-    {ATCMD_PTP,      /*61*/         At_P2pTP,              0, "configure P2P TX Power(5-22)", AT_PTP_PERM},
+    {ATCMD_PFREQ,    /*56*/         At_P2pFreq,            0, "configure P2P Frequency (Note:This command will be deleted in the future)", AT_PFREQ_PERM},
+    {ATCMD_PSF,      /*57*/         At_P2pSF,              0, "configure P2P Spreading Factor (5-12)(Note:This command will be deleted in the future)", AT_PSF_PERM},
+    {ATCMD_PBW,      /*58*/         At_P2pBW,              0, "configure P2P Bandwidth(LORA: 0 = 125, 1 = 250, 2 = 500, 3 = 7.8, 4 = 10.4, 5 = 15.63, 6 = 20.83, 7 = 31.25, 8 = 41.67, 9 = 62.5  FSK:4800-467000)(Note:This command will be deleted in the future)", AT_PBW_PERM},
+    {ATCMD_PCR,      /*59*/         At_P2pCR,              0, "configure P2P Code Rate(0=4/5, 1=4/6, 2=4/7, 3=4/8)(Note:This command will be deleted in the future)", AT_PCR_PERM},
+    {ATCMD_PPL,      /*60*/         At_P2pPL,              0, "configure P2P Preamble Length (5-65535)(Note:This command will be deleted in the future)", AT_PPL_PERM},
+    {ATCMD_PTP,      /*61*/         At_P2pTP,              0, "configure P2P TX Power(5-22)(Note:This command will be deleted in the future)", AT_PTP_PERM},
     {ATCMD_PSEND,    /*62*/         At_P2pSend,            0, "send data in P2P mode", AT_PSEND_PERM},
     {ATCMD_PRECV,    /*63*/         At_P2pRecv,            0, "enter P2P RX mode for a period of time (ms)", AT_PRECV_PERM},
     {ATCMD_PCRYPT,   /*64*/         At_P2pCrypt,           0, "get or set the encryption status of P2P mode", AT_ENCRY_PERM},
@@ -217,6 +220,21 @@ at_cmd_info atcmd_info_tbl[] =
     {ATCMD_P2P,      /*66*/         At_P2p,                0, "get or set all P2P parameters", AT_P2P_PERM},
     {ATCMD_PBR,      /*67*/         At_Pbr,                0, "get or set the P2P FSK modem bitrate (600-300000 b/s)", AT_PBR_PERM},
     {ATCMD_PFDEV,    /*68*/         At_Pfdev,              0, "get or set the P2P FSK modem frequency deviation (600-200000 hz)", AT_PFDEV_PERM},
+    {ATCMD_IQINVER,  /*68*/         At_iqInver,            0, "get or set P2P IQ inversion (1 = on, 0 = off)", AT_IQINVER_PERM},
+    {ATCMD_SYNCWORD, /*68*/         At_syncword,           0, "get or set P2P syncword (0x0000 - 0xffff)", AT_SYNCWORD_PERM},
+    {ATCMD_RFFREQUENCY,/*68*/       At_rfFrequency,        0, "get or set P2P Frequency", AT_RFFREQUENCY_PERM},
+    {ATCMD_TXOUTPUTPOWER,/*68*/     At_txOutputPower,      0, "get or set P2P Tx Power(5-22)", AT_TXOUTPUTPOWER_PERM},
+    {ATCMD_BANDWIDTH, /*68*/        At_bandwidth,          0, "get or set P2P Bandwidth(LORA: 0 = 125, 1 = 250, 2 = 500, 3 = 7.8, 4 = 10.4, 5 = 15.63, 6 = 20.83, 7 = 31.25, 8 = 41.67, 9 = 62.5  FSK:4800-467000)", AT_BANDWIDTH_PERM},
+    {ATCMD_SPREADINGFACTOR,/*68*/   At_speradingFactor,    0, "get or set P2P Spreading Factor (5-12)", AT_SPREADINGFACTOR_PERM},
+    {ATCMD_CODINGRATE,/*68*/        At_codingrate,         0, "get or set P2P Code Rate(0=4/5, 1=4/6, 2=4/7, 3=4/8)", AT_CODINGRATE_PERM},
+    {ATCMD_PREAMBLELENGTH,/*68*/    At_preambleLength,     0, "get or set P2P Preamble Length (5-65535)", AT_PREAMBLELENGTH_PERM},
+#ifdef LORA_CHIP_SX1276
+    {ATCMD_SYMBOLTIMEOUT,/*68*/     At_symbolTimeout,      0, "get or set P2P symbolTimeout (0-1023)", AT_SYMBOLTIMEOUT_PERM},
+#elif defined LORA_CHIP_SX126X || defined LORA_CHIP_STM32WLE5XX
+    {ATCMD_SYMBOLTIMEOUT,/*68*/     At_symbolTimeout,      0, "get or set P2P symbolTimeout (0-248)", AT_SYMBOLTIMEOUT_PERM},
+#endif
+    {ATCMD_FIXLENGTHPAYLOAD,/*68*/  At_fixLengthPayload,   0, "get or set P2P fix length payload on/off ( 1 = on, 0 = off)", AT_FIXLENGTHPAYLOAD_PERM},
+
 /* LoRaWAN Multicast Group */
     {ATCMD_ADDMULC,  /*69*/         At_Addmulc,            0, "add a new multicast group", AT_ADDMULC_PERM},
     {ATCMD_RMVMULC,  /*70*/         At_Rmvmulc,            0, "delete a multicast group" , AT_RMVMULC_PERM},
@@ -412,6 +430,11 @@ int At_Parser (SERIAL_PORT port, char *buff, int len)
         //if(strncasecmp(atcmd_info_tbl[i].atCmd, cmd, strlen(atcmd_info_tbl[i].atCmd)) == 0)    
         if(strcasecmp(atcmd_info_tbl[i].atCmd, cmd) == 0)
         {
+            if(operat == '=' && (strlen(cmd)+1) == len)
+            {
+                nRet = AT_PARAM_ERROR;
+                goto exit_rsp;
+            }
             if(operat != 0)
                 parseBuff2Param(buff + strlen(atcmd_info_tbl[i].atCmd) + 1, &param, atcmd_info_tbl[i].maxargu);
 
@@ -518,6 +541,15 @@ int At_Parser (SERIAL_PORT port, char *buff, int len)
 
 exit_rsp:
 #ifdef SUPPORT_AT   
+
+    if (i == sizeof(atcmd_info_tbl)/sizeof(at_cmd_info)
+#ifndef RUI_BOOTLOADER
+		    && j == ATCMD_CUST_TABLE_SIZE
+#endif
+		    ) {
+        nRet = AT_COMMAND_NOT_FOUND;
+    }
+
     if (nRet < sizeof(atcmd_err_tbl)/sizeof(char *)) {
         atcmd_printf("%s", atcmd_err_tbl[nRet]);
 
@@ -525,13 +557,6 @@ exit_rsp:
         atcmd_printf("%s", atcmd_err_tbl[1]);
     }
 
-    if (i == sizeof(atcmd_info_tbl)/sizeof(at_cmd_info)
-#ifndef RUI_BOOTLOADER
-		    && j == ATCMD_CUST_TABLE_SIZE
-#endif
-		    ) {
-        atcmd_printf("\r\n%s: Command not found!!", cmd);
-    }
 #else
     if (nRet == 0) {
         atcmd_printf("%s\r\n", atcmd_err_tbl[nRet]);
@@ -668,8 +693,6 @@ uint8_t at_check_digital_uint32_t(const char *p_str, uint32_t *value)
         }
         else
         {
-            if (str_len != i)
-                return 1;
             break;
         }
     }

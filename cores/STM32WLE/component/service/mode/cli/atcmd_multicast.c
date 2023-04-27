@@ -12,6 +12,7 @@
 //at+rmvmulc=11223344
 int At_Addmulc(SERIAL_PORT port, char *cmd, stParam *param)
 {
+    int32_t ret;
     McSession_t McSession;
 
     if(SERVICE_LORAWAN != service_lora_get_nwm())
@@ -63,7 +64,12 @@ int At_Addmulc(SERIAL_PORT port, char *cmd, stParam *param)
             return AT_PARAM_ERROR;
         McSession.Periodicity = (uint16_t)Periodicity_u32;
     }
-    return service_lora_addmulc(McSession);
+
+    ret = service_lora_addmulc(McSession);
+    
+    if(ret == -UDRV_PARAM_ERR)
+        return AT_PARAM_ERROR;
+    return ret;
 }
 
 int At_Rmvmulc(SERIAL_PORT port, char *cmd, stParam *param)

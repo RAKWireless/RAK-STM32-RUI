@@ -51,6 +51,8 @@ int32_t udrv_system_timer_stop (SysTimerID_E timer_id);
 
 void udrv_system_timer_handler_handler (void *pdata);
 
+unsigned long  udrv_get_microsecond(void);
+
 #ifdef __cplusplus
 }
 #endif

@@ -15,27 +15,8 @@
 #include "udrv_timer.h"
 #include "LmhPackage.h"
 #include "LmhpCompliance.h"
-#define LORAWAN_APP_DATA_MAX_SIZE                           242
+#include "service_lora_certification.h"
 
-#define LORAWAN_ADR_ON                              1
-
-#define LORAWAN_DEFAULT_DATARATE                    DR_0
-
-#define LORAWAN_APP_PORT                            2
-
-#define LORAWAN_CONFIRMED_MSG_ON                    true
-
-static uint8_t AppDataBuffer[LORAWAN_APP_DATA_MAX_SIZE];
-
-static void CertifiTimerEvent( void* context );
-
-uint32_t Certifi_Send(uint8_t port);
-
-static bool SendFrame( void );
-
-static uint8_t AppPort = LORAWAN_APP_PORT;
-
-static uint8_t IsTxConfirmed = LORAWAN_CONFIRMED_MSG_ON;
 
 struct ComplianceTest_s
 {

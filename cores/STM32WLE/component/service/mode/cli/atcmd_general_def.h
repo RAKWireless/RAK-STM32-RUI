@@ -176,7 +176,7 @@
  *
  * | Command            | Input parameter    | Return value                                                      | Return code        |
  * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
- * | AT+BLEMAC?         | --                 | AT+BLEMAC: get the BLE Mac address                                | OK                 |
+ * | AT+BLEMAC?         | --                 | AT+BLEMAC: get or set the BLE Mac address                         | OK                 |
  * | AT+BLEMAC=?        | --                 | <string>:<string>:<string>:<string>:<string>:<string>             | OK                 |
  * | AT+BLEMAC=\<Input\>| <string,12 char>   | <string>                                                          | OK                 |
  * | Example<br>AT+BLEMAC=?| --              | dc:a1:26:1e:e6:84                                                 | OK                 |
@@ -209,6 +209,7 @@
 #define ATCMD_BUILDTIME             "AT+BUILDTIME"
 #define ATCMD_REPOINFO              "AT+REPOINFO"
 #define ATCMD_FWVER                 "AT+VER"
+#define ATCMD_CUSFWVER              "AT+FIRMWAREVER"
 #define ATCMD_CLIVER                "AT+CLIVER"
 #define ATCMD_APIVER                "AT+APIVER"
 #define ATCMD_HWMODEL               "AT+HWMODEL"
