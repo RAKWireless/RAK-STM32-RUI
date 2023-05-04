@@ -120,25 +120,37 @@ uint32_t service_lora_p2p_get_freq (void);;
 
 int32_t service_lora_p2p_set_freq (uint32_t freq);
 
+int32_t service_lora_p2p_check_runtime_freq(uint32_t freq);
+
 uint8_t service_lora_p2p_get_sf (void);
 
 int32_t service_lora_p2p_set_sf (uint8_t spreadfact);
+
+int32_t service_lora_p2p_check_runtime_sf(uint8_t spreadfact);
 
 uint32_t service_lora_p2p_get_bandwidth (void);
 
 int32_t service_lora_p2p_set_bandwidth (uint32_t bandwidth);
 
+int32_t service_lora_p2p_check_runtime_bandwidth(uint32_t bandwidth);
+
 uint8_t service_lora_p2p_get_codingrate (void);
 
 int32_t service_lora_p2p_set_codingrate (uint8_t codingrate);
+
+int32_t service_lora_p2p_check_runtime_codingrate(uint8_t codingrate);
 
 uint16_t service_lora_p2p_get_preamlen (void);
 
 int32_t service_lora_p2p_set_preamlen (uint16_t preamlen);
 
+int32_t service_lora_p2p_check_runtime_preamlen(uint16_t preamlen);
+
 uint8_t service_lora_p2p_get_powerdbm (void);
 
 int32_t service_lora_p2p_set_powerdbm (uint8_t powerdbm);
+
+int32_t service_lora_p2p_check_runtime_powerdbm(uint8_t powerdbm);
 
 bool service_lora_p2p_get_crypto_enable(void);
 

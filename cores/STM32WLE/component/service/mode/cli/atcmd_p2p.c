@@ -8,6 +8,7 @@
 #include "service_lora.h"
 #include "service_lora_test.h"
 #include "service_lora_p2p.h"
+#include "service_runtimeConfig.h"
 #include "board.h"
 
 static void dump_hex2str(uint8_t *buf, uint8_t len)
@@ -400,21 +401,36 @@ int At_P2p(SERIAL_PORT port, char *cmd, stParam *param)
 
     if (param->argc == 1 && !strcmp(param->argv[0], "?"))
     {
-        atcmd_printf("%s=", cmd);
-        atcmd_printf("%u:", service_lora_p2p_get_freq());
-        atcmd_printf("%u:", service_lora_p2p_get_sf());
-        atcmd_printf("%u:", service_lora_p2p_get_bandwidth());  
-        atcmd_printf("%u:", service_lora_p2p_get_codingrate());
-        atcmd_printf("%u:", service_lora_p2p_get_preamlen());
-        atcmd_printf("%u\r\n",service_lora_p2p_get_powerdbm());
+        if (get_useRuntimeConfigP2P())
+        {
+            runtimeConfigP2P_t runtimeConfigP2P;
+            get_runtimeConfigP2P(&runtimeConfigP2P);
+            atcmd_printf("%s=", cmd);
+            atcmd_printf("%u:", runtimeConfigP2P.frequency);
+            atcmd_printf("%u:", runtimeConfigP2P.spreading_factor);
+            atcmd_printf("%u:", runtimeConfigP2P.bandwidth);  
+            atcmd_printf("%u:", runtimeConfigP2P.coding_rate);
+            atcmd_printf("%u:", runtimeConfigP2P.preamble_length);
+            atcmd_printf("%u\r\n", runtimeConfigP2P.txpower);
+        }
+        else
+	   	{
+            atcmd_printf("%s=", cmd);
+            atcmd_printf("%u:", service_lora_p2p_get_freq());
+            atcmd_printf("%u:", service_lora_p2p_get_sf());
+            atcmd_printf("%u:", service_lora_p2p_get_bandwidth());
+            atcmd_printf("%u:", service_lora_p2p_get_codingrate());
+            atcmd_printf("%u:", service_lora_p2p_get_preamlen());
+            atcmd_printf("%u\r\n",service_lora_p2p_get_powerdbm());
+        }
         return AT_OK;
     }
-    else if (param->argc == 6)
+    else if (param->argc == 6 || (param->argc == 7 && !strcmp(param->argv[6],"0")))
     {
         uint32_t frequency,spreading_factor,bandwidth,coding_rate,preamble_length,txpower;
         uint32_t o_frequency,o_spreading_factor,o_bandwidth,o_coding_rate,o_preamble_length,o_txpower;
         uint8_t udrv_code;
-        
+
         // Preserve current p2p parameters
         o_frequency = service_lora_p2p_get_freq();
         o_spreading_factor = service_lora_p2p_get_sf();
@@ -437,6 +453,21 @@ int At_P2p(SERIAL_PORT port, char *cmd, stParam *param)
         if (0 != at_check_digital_uint32_t(param->argv[5], &txpower))
             return AT_PARAM_ERROR;
 
+        if ((frequency < 150e6) || (frequency > 960e6))
+            return AT_PARAM_ERROR;
+
+        if ( spreading_factor < 5 || spreading_factor > 12)
+            return AT_PARAM_ERROR;
+
+        if (coding_rate > 3)
+            return AT_PARAM_ERROR;
+
+        if(preamble_length< 5 || preamble_length > 65535)
+            return AT_PARAM_ERROR;
+
+        if (txpower < 5 || txpower > 22)
+            return AT_PARAM_ERROR;
+
         // Check and save parameters
         udrv_code = service_lora_p2p_set_freq(frequency);
         if( udrv_code != UDRV_RETURN_OK)
@@ -456,6 +487,8 @@ int At_P2p(SERIAL_PORT port, char *cmd, stParam *param)
         udrv_code = service_lora_p2p_set_powerdbm((uint8_t)txpower);
         if( udrv_code != UDRV_RETURN_OK)
             goto STEP_ATP2P_CHECK_ERROR_CODE;
+
+        set_useRuntimeConfigP2P(false);
         return AT_OK;
 
         STEP_ATP2P_CHECK_ERROR_CODE:
@@ -468,8 +501,116 @@ int At_P2p(SERIAL_PORT port, char *cmd, stParam *param)
         service_lora_p2p_set_powerdbm((uint8_t)o_txpower);
         //Check and return error code
         return at_error_code_form_udrv(udrv_code);
-    }else
-    {
+    }
+    else if (param->argc == 7 && !strcmp(param->argv[6],"1")) { //for runtime setting
+        uint32_t frequency,spreading_factor,bandwidth,coding_rate,preamble_length,txpower;
+        uint32_t o_frequency,o_spreading_factor,o_bandwidth,o_coding_rate,o_preamble_length,o_txpower;
+        uint8_t udrv_code;
+        bool o_useRuntimeConfig = get_useRuntimeConfigP2P();
+        runtimeConfigP2P_t runtimeConfigP2P;
+
+        // Preserve current p2p parameters
+        if (o_useRuntimeConfig) {
+            get_runtimeConfigP2P(&runtimeConfigP2P);
+            o_frequency = runtimeConfigP2P.frequency;
+            o_spreading_factor = runtimeConfigP2P.spreading_factor;
+            if (SERVICE_LORA_P2P == service_lora_get_nwm()) {
+                o_bandwidth = runtimeConfigP2P.bandwidth;
+            }
+            else if (SERVICE_LORA_FSK == service_lora_get_nwm()) {
+                o_bandwidth = runtimeConfigP2P.fsk_rxbw;
+            }
+            o_coding_rate = runtimeConfigP2P.coding_rate;
+            o_preamble_length = runtimeConfigP2P.preamble_length;
+            o_txpower = runtimeConfigP2P.txpower;
+        }
+        else {
+            o_frequency = service_lora_p2p_get_freq();
+            o_spreading_factor = service_lora_p2p_get_sf();
+            o_bandwidth = service_lora_p2p_get_bandwidth();
+            o_coding_rate = service_lora_p2p_get_codingrate();
+            o_preamble_length = service_lora_p2p_get_preamlen();
+            o_txpower = service_lora_p2p_get_powerdbm();
+        }
+
+        // Exchange parameters
+        if (0 != at_check_digital_uint32_t(param->argv[0], &frequency))
+            return AT_PARAM_ERROR;
+        if (0 != at_check_digital_uint32_t(param->argv[1], &spreading_factor))
+            return AT_PARAM_ERROR;
+        if (0 != at_check_digital_uint32_t(param->argv[2], &bandwidth))
+            return AT_PARAM_ERROR;
+        if (0 != at_check_digital_uint32_t(param->argv[3], &coding_rate))
+            return AT_PARAM_ERROR;
+        if (0 != at_check_digital_uint32_t(param->argv[4], &preamble_length))
+            return AT_PARAM_ERROR;
+        if (0 != at_check_digital_uint32_t(param->argv[5], &txpower))
+            return AT_PARAM_ERROR;
+
+        // Compatible old SPEC for bandwidth
+        if (SERVICE_LORA_P2P == service_lora_get_nwm()) {
+            if( bandwidth == 125 ) {
+                bandwidth = 0;
+            }
+            else if( bandwidth == 250 ) {
+                bandwidth = 1;
+            }
+            else if( bandwidth == 500 ) {
+                bandwidth = 2;
+            }
+        }
+
+        // Check parameters
+        udrv_code = service_lora_p2p_check_runtime_freq(frequency);
+        if( udrv_code != UDRV_RETURN_OK)
+            goto STEP_ATP2P2_CHECK_ERROR_CODE;
+        udrv_code = service_lora_p2p_check_runtime_sf((uint8_t)spreading_factor);
+        if( udrv_code != UDRV_RETURN_OK)
+            goto STEP_ATP2P2_CHECK_ERROR_CODE;
+        udrv_code = service_lora_p2p_check_runtime_bandwidth(bandwidth);
+        if( udrv_code != UDRV_RETURN_OK)
+            goto STEP_ATP2P2_CHECK_ERROR_CODE;
+        udrv_code = service_lora_p2p_check_runtime_codingrate((uint8_t)coding_rate);
+        if( udrv_code != UDRV_RETURN_OK)
+            goto STEP_ATP2P2_CHECK_ERROR_CODE;
+        udrv_code = service_lora_p2p_check_runtime_preamlen((uint16_t)preamble_length);
+        if( udrv_code != UDRV_RETURN_OK)
+            goto STEP_ATP2P2_CHECK_ERROR_CODE;
+        udrv_code = service_lora_p2p_check_runtime_powerdbm((uint8_t)txpower);
+        if( udrv_code != UDRV_RETURN_OK)
+            goto STEP_ATP2P2_CHECK_ERROR_CODE;
+
+        runtimeConfigP2P.frequency = frequency;
+        runtimeConfigP2P.spreading_factor = (uint8_t)spreading_factor;
+        if (SERVICE_LORA_P2P == service_lora_get_nwm()) {
+            runtimeConfigP2P.bandwidth = bandwidth;
+        }
+        else if (SERVICE_LORA_FSK == service_lora_get_nwm()) {
+            runtimeConfigP2P.fsk_rxbw = bandwidth;
+        }
+        runtimeConfigP2P.coding_rate = (uint8_t)coding_rate;
+        runtimeConfigP2P.preamble_length = (uint16_t)preamble_length;
+        runtimeConfigP2P.txpower = (uint8_t)txpower;
+
+        set_runtimeConfigP2P(&runtimeConfigP2P);
+        set_useRuntimeConfigP2P(true);
+        service_lora_p2p_config();
+        return AT_OK;
+
+        STEP_ATP2P2_CHECK_ERROR_CODE:
+        //Restore the previous parameters
+        if (!o_useRuntimeConfig) {
+            service_lora_p2p_set_freq(o_frequency);
+            service_lora_p2p_set_sf((uint8_t)o_spreading_factor);
+            service_lora_p2p_set_bandwidth(o_bandwidth);
+            service_lora_p2p_set_codingrate((uint8_t)o_coding_rate);
+            service_lora_p2p_set_preamlen((uint16_t)o_preamble_length);
+            service_lora_p2p_set_powerdbm((uint8_t)o_txpower);
+        }
+        //Check and return error code
+        return at_error_code_form_udrv(udrv_code);
+    }
+	else {
         return AT_PARAM_ERROR;
     }
 }

@@ -337,6 +337,7 @@ int At_Parser (SERIAL_PORT port, char *buff, int len)
     int i, j, help = 0;
     int	nRet = AT_ERROR;
     int is_write = 0;
+    char perm[8]={0};
     char cmd[MAX_CMD_LEN], operat = 0; //cmd len 32 should be enough
     stParam param;
 
@@ -453,7 +454,17 @@ int At_Parser (SERIAL_PORT port, char *buff, int len)
                     //followed by the help of all commands:
                     At_CmdList(port, &param);
                 } else {
-                    atcmd_printf("%s: %s\r\n", atcmd_info_tbl[i].atCmd, atcmd_info_tbl[i].CmdUsage);
+                    memset(perm,'\0',sizeof(perm));
+                    if (atcmd_info_tbl[i].permission & ATCMD_PERM_DISABLE)
+                        strcpy(perm,"Disable");
+                    else if (atcmd_info_tbl[i].permission & ATCMD_PERM_WRITEONCEREAD)
+                        strcpy(perm,"R*");
+                    else
+                        if (atcmd_info_tbl[i].permission & ATCMD_PERM_READ)
+                            strcpy(perm+strlen(perm),"R");
+                        if (atcmd_info_tbl[i].permission & ATCMD_PERM_WRITE)
+                            strcpy(perm+strlen(perm),"W");
+                    atcmd_printf("%s,%s: %s\r\n", atcmd_info_tbl[i].atCmd, perm, atcmd_info_tbl[i].CmdUsage);
                 }
                 nRet = AT_OK;
             } else {
@@ -507,7 +518,17 @@ int At_Parser (SERIAL_PORT port, char *buff, int len)
                 sprintf(cust_atcmd_buff, "%s%s", "ATC+", atcmd_cust_tbl[j].atCmd);
 
                 if (help) {
-                    atcmd_printf("%s: %s\r\n", cust_atcmd_buff, atcmd_cust_tbl[j].CmdUsage);
+                    memset(perm,'\0',sizeof(perm));
+                    if (atcmd_cust_tbl[i].permission & ATCMD_PERM_DISABLE)
+                        strcpy(perm,"Disable");
+                    else if (atcmd_cust_tbl[i].permission & ATCMD_PERM_WRITEONCEREAD)
+                        strcpy(perm,"R*");
+                    else
+                        if (atcmd_cust_tbl[i].permission & ATCMD_PERM_READ)
+                            strcpy(perm+strlen(perm),"R");
+                        if (atcmd_cust_tbl[i].permission & ATCMD_PERM_WRITE)
+                            strcpy(perm+strlen(perm),"W");
+                    atcmd_printf("%s,%s: %s\r\n", cust_atcmd_buff, perm, atcmd_cust_tbl[j].CmdUsage);
 	            nRet = AT_OK;
                 } else {
                     if (atcmd_cust_tbl[j].permission & ATCMD_PERM_DISABLE)

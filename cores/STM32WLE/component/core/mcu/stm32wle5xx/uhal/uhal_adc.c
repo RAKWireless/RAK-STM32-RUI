@@ -42,7 +42,13 @@ int32_t uhal_adc_read (uint32_t pin, uint16_t *value) {
         case PA15:
             sConfig.Channel = ADC_CHANNEL_11;
             break;
-        case 255:
+        case UDRV_ADC_CHANNEL_TEMPSENSOR:
+            sConfig.Channel = ADC_CHANNEL_TEMPSENSOR;
+            break;
+        case UDRV_ADC_CHANNEL_VREFINT:
+            sConfig.Channel = ADC_CHANNEL_VREFINT;
+            break;
+        case UDRV_ADC_CHANNEL_VBAT:
             sConfig.Channel = ADC_CHANNEL_VBAT;
             break;
         default:
@@ -102,7 +108,6 @@ int32_t uhal_adc_read (uint32_t pin, uint16_t *value) {
       /* ADC conversion start error */
       Error_Handler();
     }
-
 
     HAL_ADC_PollForConversion(&hadc, 10);
 

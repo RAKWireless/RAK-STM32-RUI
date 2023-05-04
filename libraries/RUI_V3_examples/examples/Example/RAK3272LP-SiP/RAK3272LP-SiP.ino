@@ -1,10 +1,13 @@
 
+extern const char *sw_version;
+
 void setup()
 {
     uint32_t baudrate = Serial.getBaudrate();
     Serial.begin(baudrate);
-    Serial.println("RAKwireless RAK3272LP-SiP Example");
+    Serial.println("RAKwireless RAK3272LP-SiP");
     Serial.println("------------------------------------------------------");
+    Serial.printf("Version: %s\r\n", sw_version);
 }
 
 void loop()

@@ -4,12 +4,25 @@
 #include "service_battery.h"
 #include "udrv_adc.h"
 #include "variant.h"
+#include "udrv_serial.h"
 
 extern batt_level batt_table[];
 
 void service_battery_get_batt_level(float *bat_lvl) {
     uint16_t adc_value;
     float max, ref_over_gain;
+
+#if defined(rak3172_sip)
+    UDRV_ADC_RESOLUTION resolution = udrv_adc_get_resolution();
+    udrv_adc_set_resolution(UDRV_ADC_RESOLUTION_12BIT);
+    udrv_adc_read(UDRV_ADC_CHANNEL_VREFINT, &adc_value);
+    *bat_lvl = (float)adc_value;
+	*bat_lvl = *bat_lvl / 4095;
+	*bat_lvl = 1.27 / *bat_lvl;
+    *bat_lvl = *bat_lvl * 0.974 - 0.065;  //calibrate
+    udrv_adc_set_resolution(resolution);
+    return ;
+#endif
 
     switch (udrv_adc_get_resolution()) {
         case UDRV_ADC_RESOLUTION_6BIT:

@@ -266,9 +266,12 @@ static void McpsConfirm(McpsConfirm_t *mcpsConfirm)
     if( mcpsConfirm->McpsRequest == MCPS_CONFIRMED)
     {
         if(mcpsConfirm->AckReceived)
-        udrv_serial_log_printf("+EVT:SEND_CONFIRMED_OK\r\n");
+            udrv_serial_log_printf("+EVT:SEND_CONFIRMED_OK\r\n");
         else
-        udrv_serial_log_printf("+EVT:SEND_CONFIRMED_FAILED\r\n");
+            udrv_serial_log_printf("+EVT:SEND_CONFIRMED_FAILED(%d)\r\n", mcpsConfirm->Status);
+    }
+    else {
+        udrv_serial_log_printf("+EVT:TX_DONE\r\n");
     }
 
     service_lora_lptp_send_callback(0);

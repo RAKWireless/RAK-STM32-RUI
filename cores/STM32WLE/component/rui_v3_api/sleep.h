@@ -57,6 +57,38 @@ class sleep {
   void cpu(uint32_t ms_time);
   void cpu();
 
+/**@par   Description
+   *        This API is used to register a wakeup callback function, users can be notified after waking up.
+   * @ingroup   Powersave
+   * @par   Syntax
+   *        api.system.sleep.registerWakeupCallback(POWER_SAVE_HANDLER callback);
+   * @param     The callback function.
+   * @return  bool
+   * @retval  TRUE add callback function success.
+   * @retval  FALSE add callback function fail.
+   * @par   Example
+   * @verbatim  
+     void WakeupCallback()
+     {
+         Serial.printf("This is Wakeup Callback\r\n");
+     }
+
+     void setup()
+     {
+         Serial.begin(115200);
+         if ( api.system.sleep.registerWakeupCallback(WakeupCallback) == false )
+         {
+             Serial.println("Create Wakeup Callback failed.");
+         }
+     }
+
+     void loop()
+     {
+       api.system.sleep.cpu(1000); 
+     }
+     @endverbatim   
+   */
+  bool registerWakeupCallback(POWER_SAVE_HANDLER callback);
 #ifdef SUPPORT_LORA
   void lora(uint32_t ms_time);
 
