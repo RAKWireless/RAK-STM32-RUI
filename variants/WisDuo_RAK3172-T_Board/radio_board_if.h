@@ -109,16 +109,16 @@ extern "C" {
 /* In order to use BSP driver, add the correspondent files in the IDE workspace */
 /* and define USE_BSP_DRIVER in the preprocessor definitions  or in platform.h */
 
-#define RF_SW_CTRL1_PIN                          GPIO_PIN_0
-#define RF_SW_CTRL1_GPIO_PORT                    GPIOA
-#define RF_SW_CTRL1_GPIO_CLK_ENABLE()            __HAL_RCC_GPIOA_CLK_ENABLE()
-#define RF_SW_CTRL1_GPIO_CLK_DISABLE()           __HAL_RCC_GPIOA_CLK_DISABLE()
+#define RF_SW_CTRL1_PIN                          GPIO_PIN_8
+#define RF_SW_CTRL1_GPIO_PORT                    GPIOB
+#define RF_SW_CTRL1_GPIO_CLK_ENABLE()            __HAL_RCC_GPIOB_CLK_ENABLE()
+#define RF_SW_CTRL1_GPIO_CLK_DISABLE()           __HAL_RCC_GPIOB_CLK_DISABLE()
 
   /* official version */
-#define RF_SW_CTRL2_PIN                          GPIO_PIN_1
-#define RF_SW_CTRL2_GPIO_PORT                    GPIOA
-#define RF_SW_CTRL2_GPIO_CLK_ENABLE()            __HAL_RCC_GPIOA_CLK_ENABLE()
-#define RF_SW_CTRL2_GPIO_CLK_DISABLE()           __HAL_RCC_GPIOA_CLK_DISABLE()
+#define RF_SW_CTRL2_PIN                          GPIO_PIN_13
+#define RF_SW_CTRL2_GPIO_PORT                    GPIOC
+#define RF_SW_CTRL2_GPIO_CLK_ENABLE()            __HAL_RCC_GPIOC_CLK_ENABLE()
+#define RF_SW_CTRL2_GPIO_CLK_DISABLE()           __HAL_RCC_GPIOC_CLK_DISABLE()
 
 /* USER CODE BEGIN Exported Types */
 /* USER CODE END Exported Types */
