@@ -50,7 +50,7 @@ int32_t service_nvm_set_default_config_to_nvm(void) {
         if( factory_default.magic_num == RUI_CFG_MAGIC_NUM && factory_default.version_code == RUI_CFG_VERSION_CODE )
         {
             //If data recovery from legacy version successfully, store new default data to flash
-            udrv_flash_write(SERVICE_NVM_FACTORY_DEFAULT_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&factory_default);
+            //udrv_flash_write(SERVICE_NVM_FACTORY_DEFAULT_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&factory_default);
             factory_default_exist = true;
         }
     }
@@ -60,7 +60,8 @@ int32_t service_nvm_set_default_config_to_nvm(void) {
     if( factory_default_exist )
     {
         memcpy(&g_rui_cfg_t,&factory_default,sizeof(PRE_rui_cfg_t));
-        return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
+        return UDRV_RETURN_OK;
+        //return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
     }
     g_rui_cfg_t.magic_num = RUI_CFG_MAGIC_NUM;
     g_rui_cfg_t.version_code = RUI_CFG_VERSION_CODE;
@@ -222,8 +223,10 @@ int32_t service_nvm_set_default_config_to_nvm(void) {
     }
     else
         memcpy(g_rui_cfg_t.cli_ver,cli_version,32);
-
-    return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
+    
+    
+    //return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
+    return UDRV_RETURN_OK;
 }
 
 void service_nvm_init_config(void) {
@@ -231,7 +234,10 @@ void service_nvm_init_config(void) {
     //Try to recovery legacy user data
     service_nvm_data_recovery_from_legacy(SERVICE_NVM_RUI_CONFIG_NVM_ADDR,&g_rui_cfg_t);
     if( g_rui_cfg_t.magic_num == RUI_CFG_MAGIC_NUM && g_rui_cfg_t.version_code == RUI_CFG_VERSION_CODE)
-        udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
+    {
+        //udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
+        return UDRV_RETURN_OK;
+    }
     else
         service_nvm_set_default_config_to_nvm();
 }
@@ -1346,8 +1352,8 @@ static void service_nvm_data_recovery_from_legacy(uint32_t data_flash_addr, PRE_
     #if defined(rak3172) || defined(rak3172_sip) || defined(rak4630) || defined(rak11720) //V87 and V85 , V99 only support 3172/3172-sip/4630
     else if( version_code == RUI_VERSION_CODE_V85 )
     {
-        memcpy(&rui_cfg_cur->lora_work_mode,    DATA_ADDR(ELEM_OFS_V85_lora_work_mode),     sizeof(rui_cfg_cur->lora_work_mode) );
         #ifdef SUPPORT_LORA
+        memcpy(&rui_cfg_cur->lora_work_mode,    DATA_ADDR(ELEM_OFS_V85_lora_work_mode),     sizeof(rui_cfg_cur->lora_work_mode) );
         memcpy(&rui_cfg_cur->g_lora_p2p_cfg_t,  DATA_ADDR(ELEM_OFS_V85_g_lora_p2p_cfg_t),   sizeof(rui_cfg_cur->g_lora_p2p_cfg_t) );
         #endif
         #ifdef SUPPORT_BLE
@@ -1370,8 +1376,8 @@ static void service_nvm_data_recovery_from_legacy(uint32_t data_flash_addr, PRE_
     }
     else if( version_code == RUI_VERSION_CODE_V87 )
     {
-        memcpy(&rui_cfg_cur->lora_work_mode,    DATA_ADDR(ELEM_OFS_V87_lora_work_mode),     sizeof(rui_cfg_cur->lora_work_mode) );
         #ifdef SUPPORT_LORA
+        memcpy(&rui_cfg_cur->lora_work_mode,    DATA_ADDR(ELEM_OFS_V87_lora_work_mode),     sizeof(rui_cfg_cur->lora_work_mode) );
         memcpy(&rui_cfg_cur->g_lora_p2p_cfg_t,  DATA_ADDR(ELEM_OFS_V87_g_lora_p2p_cfg_t),   sizeof(rui_cfg_cur->g_lora_p2p_cfg_t) );
         #endif
         #ifdef SUPPORT_BLE
@@ -1393,8 +1399,8 @@ static void service_nvm_data_recovery_from_legacy(uint32_t data_flash_addr, PRE_
     }
     else if( version_code == RUI_VERSION_CODE_V99 )
     {
-        memcpy(&rui_cfg_cur->lora_work_mode,    DATA_ADDR(ELEM_OFS_V99_lora_work_mode),     sizeof(rui_cfg_cur->lora_work_mode) );
         #ifdef SUPPORT_LORA
+        memcpy(&rui_cfg_cur->lora_work_mode,    DATA_ADDR(ELEM_OFS_V99_lora_work_mode),     sizeof(rui_cfg_cur->lora_work_mode) );
         memcpy(&rui_cfg_cur->g_lora_p2p_cfg_t,  DATA_ADDR(ELEM_OFS_V99_g_lora_p2p_cfg_t),   sizeof(rui_cfg_cur->g_lora_p2p_cfg_t) );
         #endif
         #ifdef SUPPORT_BLE
