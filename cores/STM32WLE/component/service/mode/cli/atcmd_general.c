@@ -6,9 +6,9 @@
 #include "udrv_system.h"
 #include "mcu_basic.h"
 #include "service_debug.h"
+#include "service_nvm.h"
 #ifdef RUI_BOOTLOADER
 #include "uhal_flash.h"
-#include "service_nvm.h"
 #endif
 
 #ifdef SUPPORT_BLE
@@ -123,10 +123,14 @@ int At_Restore(SERIAL_PORT port, char *cmd, stParam *param)
     ret = uhal_flash_erase(MCU_SYS_CONFIG_NVM_ADDR, uhal_flash_get_page_size());
 #else
 #ifdef SUPPORT_LORA
-    ret = service_lora_set_lora_default();
+    if(service_lora_set_lora_default() != UDRV_RETURN_OK)
+        return AT_ERROR;
 #else
-    ret = service_nvm_set_default_config_to_nvm();
+    if(service_nvm_set_default_config_to_nvm() != UDRV_RETURN_OK)
+        return AT_ERROR;
+
 #endif
+    ret = service_nvm_set_cfg_to_nvm();
 #endif
     if (ret == UDRV_RETURN_OK)
     {

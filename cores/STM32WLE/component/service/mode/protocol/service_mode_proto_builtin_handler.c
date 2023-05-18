@@ -97,6 +97,7 @@ void service_mode_proto_atcmd_request_handler (SERIAL_PORT port, uint8_t *payloa
 #else
                 ret = service_nvm_set_default_config_to_nvm();
 #endif
+                service_nvm_set_cfg_to_nvm();
                 if (ret == UDRV_RETURN_OK)
                 {
                     nRet = AT_OK;

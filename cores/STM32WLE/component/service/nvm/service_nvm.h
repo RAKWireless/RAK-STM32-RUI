@@ -170,6 +170,7 @@ void service_nvm_init_config(void);
 
 int32_t service_nvm_set_default_config_to_nvm(void);
 
+int32_t service_nvm_set_cfg_to_nvm(void);
 /***********************************************************/
 /* RUI Mode                                                */
 /***********************************************************/

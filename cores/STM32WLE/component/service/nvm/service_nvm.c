@@ -241,7 +241,10 @@ void service_nvm_init_config(void) {
     else
         service_nvm_set_default_config_to_nvm();
 }
-
+int32_t service_nvm_set_cfg_to_nvm()
+{
+    return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
+}
 /***********************************************************/
 /* RUI Mode                                                */
 /***********************************************************/
