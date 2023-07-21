@@ -34,6 +34,8 @@ extern DMA_HandleTypeDef hdma_lpuart1_rx;
 
 extern DMA_HandleTypeDef hdma_usart1_rx;
 
+extern UART_HandleTypeDef huart1;
+
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
 
@@ -116,8 +118,17 @@ void HAL_UART_MspInit(UART_HandleTypeDef* huart)
     PB7     ------> USART1_RX
     PB6     ------> USART1_TX
     */
-    GPIO_InitStruct.Pin = PinToGPIO_Pin(UART1_TXD_PIN) | PinToGPIO_Pin(UART1_RXD_PIN);
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    __HAL_RCC_GPIOB_CLK_ENABLE();
+    if(huart1.AdvancedInit.AdvFeatureInit == UART_ADVFEATURE_SWAP_INIT)
+    {
+        GPIO_InitStruct.Pin = PinToGPIO_Pin(UART1_RXD_PIN);
+        GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
+    }
+    else
+    {
+        GPIO_InitStruct.Pin = PinToGPIO_Pin(UART1_TXD_PIN) | PinToGPIO_Pin(UART1_RXD_PIN);
+        GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    }
     GPIO_InitStruct.Pull = GPIO_PULLUP;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     GPIO_InitStruct.Alternate = GPIO_AF7_USART1;
@@ -501,6 +512,7 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef* hspi)
 
 }
 
+#if 0 //Define in uhal_adc.c
 /**
 * @brief ADC MSP Initialization
 * This function configures the hardware resources used in this example
@@ -624,6 +636,7 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* hadc)
   }
 
 }
+#endif
 
 /**
 * @brief TIM_PWM MSP Initialization

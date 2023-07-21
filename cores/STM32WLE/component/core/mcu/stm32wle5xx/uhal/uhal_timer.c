@@ -223,13 +223,8 @@ static inline uint32_t LL_SYSTICK_IsActiveCounterFlag(void)
 
 uint32_t uhal_get_microsecond(void)
 {
-    LL_SYSTICK_IsActiveCounterFlag();           
     uint32_t m = HAL_GetTick();
-    const uint32_t tms = SysTick->LOAD + 1;
-    __IO uint32_t u = tms - SysTick->VAL;
-    if (LL_SYSTICK_IsActiveCounterFlag()) {
-    m = HAL_GetTick();
-    u = tms - SysTick->VAL;
-     }
-    return (m * 1000 + (u * 1000) / tms);
+    const uint32_t tms = (SysTick->LOAD + 1)/1000;
+    __IO uint32_t u = SysTick->LOAD + 1 - SysTick->VAL;
+    return (uint64_t)(m * 1000 + (u/tms));
 }

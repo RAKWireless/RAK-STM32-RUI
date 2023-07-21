@@ -165,6 +165,7 @@ static int32_t service_lora_start(void)
         return -UDRV_INTERNAL_ERR;
     }
 
+#if 0 //lora still initialize, does not auto join immediately.
     if (service_lora_get_auto_join())
     {
         service_lora_join(1, -1, -1, -1);
@@ -182,6 +183,7 @@ static int32_t service_lora_start(void)
             udrv_serial_log_printf("+EVT:JOIN_FAILED_%d\r\n", __LINE__);
         }
     }
+#endif
 
     return UDRV_RETURN_OK;
 }
@@ -953,9 +955,14 @@ out:
     /* ABP + classC Automatically open Rx_C */
     if((service_lora_get_class()!=SERVICE_LORA_CLASS_C)&&(service_lora_get_njm()!=SERVICE_LORA_ABP))
     {
-        if(!service_lora_get_auto_join())
         service_lora_suspend();
     }
+
+    if ((SERVICE_LORAWAN == service_lora_get_nwm()) && (ret == UDRV_RETURN_OK) && service_lora_get_auto_join())
+    {
+        service_lora_join(service_lora_get_join_start(), service_lora_get_auto_join(), service_lora_get_auto_join_period(), service_lora_get_auto_join_max_cnt());
+    }
+
     return ret;
 }
 
@@ -1327,7 +1334,7 @@ SERVICE_LORA_BAND service_lora_get_band(void)
 int32_t service_lora_set_band(SERVICE_LORA_BAND band)
 {
 
-#ifdef  rak3172
+#if defined(rak3172) || defined(rak3172T)
         /* Only RAK3172 supports hardware high and low frequency detection */
         uint8_t hardware_freq = 0;
         hardware_freq =  BoardGetHardwareFreq();
@@ -2106,11 +2113,16 @@ int32_t service_lora_send(uint8_t *buff, uint32_t len, SERVICE_LORA_SEND_INFO in
         LoRaMacStatus_t status = LoRaMacMlmeRequest(&mlmeReq);
     }
 
-
-    if( LoRaMacQueryTxPossible( len , &txInfo ) != LORAMAC_STATUS_OK )
+    /* Check payload size first before send */
+    status = LoRaMacQueryTxPossible( len , &txInfo );
+    if(service_get_debug_level())
     {
-        LORA_TEST_DEBUG("status %d CurrentPossiblePayloadSize %d MaxPossibleApplicationDataSize %d",
-        status,txInfo.CurrentPossiblePayloadSize,txInfo.MaxPossibleApplicationDataSize);
+        udrv_serial_log_printf("QueryTxPossible: %s, UserDataSize %d PossibleDataSize %d AdditionalFOptsSize %d\r\n", MacStatusStrings[status], len, txInfo.MaxPossibleApplicationDataSize, (txInfo.CurrentPossiblePayloadSize - txInfo.MaxPossibleApplicationDataSize));
+    }
+    if( status != LORAMAC_STATUS_OK ) /* if invalid, still send null packet for respond ack and trigger adr mechaniam */ 
+    {
+        //LORA_TEST_DEBUG("status %d CurrentPossiblePayloadSize %d MaxPossibleApplicationDataSize %d",
+        //status,txInfo.CurrentPossiblePayloadSize,txInfo.MaxPossibleApplicationDataSize);
         // Send empty frame in order to flush MAC commands
         mcpsReq.Type = MCPS_UNCONFIRMED;
         mcpsReq.Req.Unconfirmed.fBuffer = NULL;

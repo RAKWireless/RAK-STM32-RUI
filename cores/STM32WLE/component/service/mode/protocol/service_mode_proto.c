@@ -289,7 +289,7 @@ void service_mode_proto_recv(SERIAL_PORT port, uint8_t ch) {
         proto_wake_unlock_all(port);
     }
 }
-
+#ifdef SUPPORT_BINARY
 void service_mode_proto_send(SERIAL_PORT port, uint8_t flag, uint8_t frame_type, uint8_t *payload, uint16_t length, SERVICE_MODE_PROTOCOL_HANDLER response_handler) {
     proto_packet_header header;
     proto_packet_tailer tailer;
@@ -341,6 +341,7 @@ void service_mode_proto_send(SERIAL_PORT port, uint8_t flag, uint8_t frame_type,
     udrv_serial_write(port, payload, length);
     udrv_serial_write(port, &tailer, sizeof(tailer));
 }
+#endif
 
 int32_t service_mode_proto_register(uint8_t frame_type, SERVICE_MODE_PROTOCOL_HANDLER request_handler) {
     if (proto_upper_layer_table[frame_type].request_handler == NULL) {

@@ -149,11 +149,13 @@ void rui_event_handler_func(void *data, uint16_t size) {
                 }
 #endif
 #endif
+#ifdef SUPPORT_BINARY
                 case SERVICE_MODE_TYPE_PROTOCOL:
                 {
                     service_mode_proto_deinit(port);
                     break;
                 }
+#endif
                 default:
                 {
                     break;
@@ -189,11 +191,13 @@ void rui_event_handler_func(void *data, uint16_t size) {
                         }
 #endif
 #endif
+#ifdef SUPPORT_BINARY
                         case SERVICE_MODE_TYPE_PROTOCOL:
                         {
                             service_mode_proto_recv(SERIAL_UART0, Buf[0]);
                             break;
                         }
+#endif
                         default:
                         {
                             break;
@@ -225,11 +229,13 @@ void rui_event_handler_func(void *data, uint16_t size) {
                         }
 #endif
 #endif
+#ifdef SUPPORT_BINARY
                         case SERVICE_MODE_TYPE_PROTOCOL:
                         {
                             service_mode_proto_recv(SERIAL_UART1, Buf[0]);
                             break;
                         }
+#endif
                         default:
                         {
                             break;
@@ -261,11 +267,13 @@ void rui_event_handler_func(void *data, uint16_t size) {
                         }
 #endif
 #endif
+#ifdef SUPPORT_BINARY
                         case SERVICE_MODE_TYPE_PROTOCOL:
                         {
                             service_mode_proto_recv(SERIAL_UART2, Buf[0]);
                             break;
                         }
+#endif
                         default:
                         {
                             break;
@@ -347,11 +355,13 @@ void rui_init(void)
     }
 #endif
 #endif
+#ifdef SUPPORT_BINARY
     for (int i = 0 ; i < SERIAL_MAX ; i++) {
         if (service_nvm_get_mode_type_from_nvm((SERIAL_PORT)i) == SERVICE_MODE_TYPE_PROTOCOL) {
             service_mode_proto_init((SERIAL_PORT)i);
         }
     }
+#endif
 
 #ifdef SUPPORT_WDT
     is_custom_wdt = false;
@@ -445,17 +455,17 @@ void main(void)
     }
 #endif
 
-#ifdef rak3172
+#ifdef rak3172T
     /* Only RAK3172 supports hardware high and low frequency detection */
     uint8_t hardware_freq = 0;
     hardware_freq =  BoardGetHardwareFreq();
     if(hardware_freq)
     {
-        service_debug("RAK3172-H ");
+        service_debug("RAK3172T-H ");
     }
     else
     {
-        service_debug("RAK3172-L ");
+        service_debug("RAK3172T-L ");
     }
     service_debug("Version:%s %s\r\n",sw_version,build_date);
 #endif

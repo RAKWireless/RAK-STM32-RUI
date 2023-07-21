@@ -50,7 +50,9 @@ using namespace std;
 typedef enum
 {
     RAK_AT_MODE,             ///< AT command mode
+#ifdef SUPPOER_BINARY
     RAK_API_MODE,            ///< API mode
+#endif
 #ifdef SUPPORT_LORA
 #ifdef SUPPORT_PASSTHRU
     RAK_PASS_MODE,           ///< Pass-through mode

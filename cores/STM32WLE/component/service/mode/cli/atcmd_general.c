@@ -397,7 +397,7 @@ int At_Alias (SERIAL_PORT port, char *cmd, stParam *param)
 }
 #endif
 
-#ifdef rak3172
+#if defined(rak3172) || defined(rak3172T)
 int At_GetUid (SERIAL_PORT port, char *cmd, stParam *param)
 {
     if (param->argc == 1 && !strcmp(param->argv[0], "?")) {

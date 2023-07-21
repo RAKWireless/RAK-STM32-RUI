@@ -126,7 +126,12 @@ void service_battery_get_batt_level(float *bat_lvl) {
 #endif
 
 #ifdef RAK11720+RAK5005-O_V1.0
-    *bat_lvl = ((ref_over_gain*(((float)adc_value)/max)*(5.0f))/(3.0f))*(1.3f);
+    /* 
+     * RAK5005-O/RAK19007 Divider Resistor: 2.5 / 1.5
+     * RAK11722 Divider Resistor: 1.3 / 1.0
+     * Calibration: X * 2.02 + 0.21
+    */
+    *bat_lvl = (ref_over_gain*(((float)adc_value)/max)*(1.3f)/(1.0f)*(2.5f)/(1.5f))*2.02f+0.21f;
 #endif
 
 #ifdef RAK5010_EVB
