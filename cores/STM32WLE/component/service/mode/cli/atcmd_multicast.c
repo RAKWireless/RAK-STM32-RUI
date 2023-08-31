@@ -52,9 +52,7 @@ int At_Addmulc(SERIAL_PORT port, char *cmd, stParam *param)
             return AT_PARAM_ERROR;
         if(param->argv[5][0] == '0')
         {
-            if (!strcmp(param->argv[5], "0"))
-                Datarate_u32 = 0;
-            else if( 0 != at_check_digital_uint32_t( param->argv[5] + 1, &Datarate_u32))
+            if( 0 != at_check_digital_uint32_t( param->argv[5] + 1, &Datarate_u32))
                 return AT_PARAM_ERROR;
         }
         else

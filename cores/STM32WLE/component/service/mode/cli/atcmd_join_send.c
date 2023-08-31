@@ -209,11 +209,10 @@ int At_CfMode(SERIAL_PORT port, char *cmd, stParam *param)
 
 int At_CfStatus(SERIAL_PORT port, char *cmd, stParam *param)
 {
-    if (SERVICE_LORAWAN != service_lora_get_nwm())
+    if (SERVICE_LORA_P2P == service_lora_get_nwm())
     {
         return AT_MODE_NO_SUPPORT;
     }
-
     if (param->argc == 1 && !strcmp(param->argv[0], "?"))
     {
         atcmd_printf("%s=%u\r\n", cmd, service_lora_get_cfs());
@@ -491,12 +490,6 @@ int At_Lpsend(SERIAL_PORT port, char *cmd, stParam *param)
     uint16_t lp_port,lp_ack;
     uint16_t lp_len;
     uint8_t lp_buffer[1024];
-    int32_t ret;
-    if (SERVICE_LORAWAN != service_lora_get_nwm())
-    {
-        return AT_MODE_NO_SUPPORT;
-    }
-    
     if (param->argc == 1 && !strcmp(param->argv[0], "?"))
     {
         return  AT_PARAM_ERROR;
@@ -544,35 +537,14 @@ int At_Lpsend(SERIAL_PORT port, char *cmd, stParam *param)
         if (lp_ack > 1)
             return AT_PARAM_ERROR;
 
-        if (lp_port < 1 || lp_port > 223)
-        {
+        if (lp_port > 223)
             return AT_PARAM_ERROR;
-        }
 
         if (0 != at_check_hex_param(param->argv[2], lp_len, lp_buffer))
             return AT_PARAM_ERROR;
     
-        ret = service_lora_lptp_send(lp_port,lp_ack,lp_buffer,lp_len/2);
-        if (ret == UDRV_RETURN_OK)
-        {
-            return AT_OK;
-        }
-        else if (ret == -UDRV_NO_WAN_CONNECTION)
-        {
-            return AT_NO_NETWORK_JOINED;
-        }
-        else if (ret == -UDRV_BUSY)
-        {
-            return AT_BUSY_ERROR;
-        }
-        else if(ret == -UDRV_WRONG_ARG )
-        {
-            return AT_PARAM_ERROR;
-        }
-        else
-        {
-            return AT_ERROR;
-        }
+        service_lora_lptp_send(lp_port,lp_ack,lp_buffer,lp_len/2);
+        return AT_OK;
     }   
 }
 #endif

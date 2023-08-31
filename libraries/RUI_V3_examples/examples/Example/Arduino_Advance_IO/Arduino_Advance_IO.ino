@@ -22,7 +22,6 @@ void setup()
 {
     // initialize serial communication at 115200 bits per second
     Serial.begin(115200);
-    delay(2000);
 
     Serial.println("RAKwireless Arduino Advance IO Example");
     Serial.println("------------------------------------------------------");

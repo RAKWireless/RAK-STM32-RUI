@@ -63,7 +63,6 @@ void sendCallback(int32_t status)
 void setup()
 {
     Serial.begin(115200, RAK_AT_MODE);
-    delay(2000);
   
     Serial.println("RAKwireless Smart Farm Example");
     Serial.println("------------------------------------------------------");

@@ -11180,7 +11180,7 @@ unsigned long udrv_get_microsecond(void);
 #define SEED_LENGTH 4
 
 
-#define EVENT_QUEUE_SIZE (128)
+#define EVENT_QUEUE_SIZE (32)
 #define EVENT_DATA_SIZE (8)
 
 

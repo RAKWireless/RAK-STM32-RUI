@@ -57,7 +57,7 @@ typedef struct {
 
 LP_State_st lp_state;
 
-int32_t lora_send_subcontract(void);
+void lora_send_subcontract(void);
 
 void printf_hex(uint8_t *pdata, uint16_t len)
 {
@@ -100,7 +100,7 @@ void service_lora_lptp_send_callback(int status)
     }
 }
 
-int32_t lora_send_subcontract(void)
+void lora_send_subcontract(void)
 {
     uint32_t data_offset, data_remain_len;
     uint16_t payload_len;
@@ -166,7 +166,7 @@ int32_t lora_send_subcontract(void)
     }
     info.retry_valid = false;
 
-    return service_lora_send(AppData, AppLen, info, false);
+    service_lora_send(AppData, AppLen, info, false);
 
     // udrv_serial_log_printf("(Send data is: ");
     // printf_hex(AppData, AppLen);
@@ -203,7 +203,9 @@ int32_t service_lora_lptp_send(uint8_t port, bool ack, uint8_t *p_data, uint16_t
 
     AppPort = port;
 
-    return lora_send_subcontract();
+    lora_send_subcontract();
+
+    return UDRV_RETURN_OK;
 }
 
 #endif

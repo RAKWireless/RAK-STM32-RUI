@@ -335,23 +335,15 @@
 #endif
 
 #ifndef AT_PRECV_PERM
-#define AT_PRECV_PERM       ATCMD_PERM_READ | ATCMD_PERM_WRITE
+#define AT_PRECV_PERM       ATCMD_PERM_WRITE
 #endif
 
 #ifndef AT_ENCRY_PERM
 #define AT_ENCRY_PERM       ATCMD_PERM_READ | ATCMD_PERM_WRITE
 #endif
 
-#ifndef AT_PCAD_PERM
-#define AT_PCAD_PERM       ATCMD_PERM_READ | ATCMD_PERM_WRITE
-#endif
-
 #ifndef AT_ENCKEY_PERM
 #define AT_ENCKEY_PERM      ATCMD_PERM_READ | ATCMD_PERM_WRITE
-#endif
-
-#ifndef AT_ENCIV_PERM
-#define AT_ENCIV_PERM      ATCMD_PERM_READ | ATCMD_PERM_WRITE
 #endif
 
 #ifndef AT_P2P_PERM

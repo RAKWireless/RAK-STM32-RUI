@@ -13,7 +13,7 @@ extern "C" {
 #define SEED_LENGTH   4
 #endif
 
-#define EVENT_QUEUE_SIZE                     (128)
+#define EVENT_QUEUE_SIZE                     (32)
 #define EVENT_DATA_SIZE                      (8)//(sizeof(udrv_system_event_t))
 
 /**

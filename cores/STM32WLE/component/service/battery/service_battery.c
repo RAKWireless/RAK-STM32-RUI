@@ -4,25 +4,12 @@
 #include "service_battery.h"
 #include "udrv_adc.h"
 #include "variant.h"
-#include "udrv_serial.h"
 
 extern batt_level batt_table[];
 
 void service_battery_get_batt_level(float *bat_lvl) {
     uint16_t adc_value;
     float max, ref_over_gain;
-
-#if defined(rak3172_sip)
-    UDRV_ADC_RESOLUTION resolution = udrv_adc_get_resolution();
-    udrv_adc_set_resolution(UDRV_ADC_RESOLUTION_12BIT);
-    udrv_adc_read(UDRV_ADC_CHANNEL_VREFINT, &adc_value);
-    *bat_lvl = (float)adc_value;
-	*bat_lvl = *bat_lvl / 4095;
-	*bat_lvl = 1.27 / *bat_lvl;
-    *bat_lvl = *bat_lvl * 0.974 - 0.065;  //calibrate
-    udrv_adc_set_resolution(resolution);
-    return ;
-#endif
 
     switch (udrv_adc_get_resolution()) {
         case UDRV_ADC_RESOLUTION_6BIT:
@@ -126,12 +113,7 @@ void service_battery_get_batt_level(float *bat_lvl) {
 #endif
 
 #ifdef RAK11720+RAK5005-O_V1.0
-    /* 
-     * RAK5005-O/RAK19007 Divider Resistor: 2.5 / 1.5
-     * RAK11722 Divider Resistor: 1.3 / 1.0
-     * Calibration: X * 2.02 + 0.21
-    */
-    *bat_lvl = (ref_over_gain*(((float)adc_value)/max)*(1.3f)/(1.0f)*(2.5f)/(1.5f))*2.02f+0.21f;
+    *bat_lvl = ((ref_over_gain*(((float)adc_value)/max)*(5.0f))/(3.0f))*(1.3f);
 #endif
 
 #ifdef RAK5010_EVB

@@ -94,10 +94,14 @@ static inline uint32_t LL_SYSTICK_IsActiveCounterFlag(void)
 }
 
 uint64_t uhal_rtc_get_us_timestamp(RtcID_E timer_id){
-    uint32_t m = HAL_GetTick();
-    const uint32_t tms = (SysTick->LOAD + 1)/1000;
-    __IO uint32_t u = SysTick->LOAD + 1 - SysTick->VAL;
-    return (uint64_t)(m * 1000 + (u/tms));
+    uint16_t SubSeconds;
+    uint32_t m = uhal_rtc_get_timestamp(timer_id);
+    const uint32_t tms = SysTick->LOAD + 1;
+    __IO uint32_t u = tms - SysTick->VAL;
+    if (LL_SYSTICK_IsActiveCounterFlag()) {
+    u = tms - SysTick->VAL;
+     }
+    return (m * 1000 + (u * 1000) / tms);
 }
 
 uint64_t uhal_rtc_get_elapsed_time (RtcID_E timer_id, uint64_t old_ts) {

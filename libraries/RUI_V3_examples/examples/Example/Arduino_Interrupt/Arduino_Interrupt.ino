@@ -32,7 +32,6 @@ void setup()
 {
     // initialize serial communcation at 115200 bits per second
     Serial.begin(115200);
-    delay(2000);
 
     Serial.println("RAKwireless Arduino Interrupt Example");
     Serial.println("------------------------------------------------------");

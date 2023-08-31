@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <math.h>
 
 #include "variant.h"
 #include "atcmd.h"
@@ -40,7 +41,7 @@
 #endif
 #include "udrv_serial.h"
 #include "service_mode_cli.h"
-#if defined(rak3172) || defined(rak3172T)
+#ifdef rak3172
 #include "uhal_system.h"
 #endif
 #ifdef RAK5010_EVB
@@ -133,7 +134,7 @@ at_cmd_info atcmd_info_tbl[] =
     {ATCMD_HWID,     /*14*/         At_GetHwID,            0, "get the string of the hardware id", AT_HWID_PERM},
     {ATCMD_ALIAS,    /*89*/         At_Alias,              0, "add an alias name to the device", AT_ALIAS_PERM},
     {ATCMD_SYSV,     /*92*/         At_GetSysVolt,         0, "get the System Voltage", AT_SYSV_PERM},
-#if defined(rak3172) || defined(rak3172T)
+#ifdef rak3172
     {ATCMD_UID,      /*91*/         At_GetUid,             0, "", AT_UID_PERM},
 #endif
 #ifdef SUPPORT_BLE
@@ -151,9 +152,7 @@ at_cmd_info atcmd_info_tbl[] =
     {ATCMD_PWORD,    /*11*/         At_Pword,              0, "set the serial port locking password (max 8 char)", AT_PWORD_PERM},
     {ATCMD_BAUD,     /*12*/         At_Baud,               0, "get or set the serial port baudrate", AT_BAUD_PERM},
     {ATCMD_ATM,      /*72*/         At_AtCmdMode,          0, "switch to AT command mode", AT_ATM_PERM},
-#ifdef SUPPORT_BINARY
     {ATCMD_APM,      /*73*/         At_ApiMode,            0, "switch to API mode", AT_APM_PERM},
-#endif
 #ifdef SUPPORT_LORA
 #ifdef SUPPORT_PASSTHRU
     {ATCMD_PAM,      /*74*/         At_TransparentMode,    0, "enter data transparent transmission mode", ATD_PERM},
@@ -225,9 +224,7 @@ at_cmd_info atcmd_info_tbl[] =
     {ATCMD_PSEND,    /*62*/         At_P2pSend,            0, "send data in P2P mode", AT_PSEND_PERM},
     {ATCMD_PRECV,    /*63*/         At_P2pRecv,            0, "enter P2P RX mode for a period of time (ms)", AT_PRECV_PERM},
     {ATCMD_PCRYPT,   /*64*/         At_P2pCrypt,           0, "get or set the encryption status of P2P mode", AT_ENCRY_PERM},
-    {ATCMD_PCAD,     /*00*/         At_P2pCAD,             0, "get or set the Channel Activity Detection status of P2P mode", AT_PCAD_PERM},
-    {ATCMD_PKEY,     /*65*/         At_P2pKey,             0, "get or set the encryption key of P2P mode (16 bytes in hex)", AT_ENCKEY_PERM},
-    {ATCMD_PIV,      /*00*/         At_P2pIV,              0, "get or set the encryption IV of P2P mode (16 bytes in hex)", AT_ENCIV_PERM},
+    {ATCMD_PKEY,     /*65*/         At_P2pKey,             0, "get or set the encryption key of P2P mode (8 bytes in hex)", AT_ENCKEY_PERM},
     {ATCMD_P2P,      /*66*/         At_P2p,                0, "get or set all P2P parameters", AT_P2P_PERM},
     {ATCMD_PBR,      /*67*/         At_Pbr,                0, "get or set the P2P FSK modem bitrate (600-300000 b/s)", AT_PBR_PERM},
     {ATCMD_PFDEV,    /*68*/         At_Pfdev,              0, "get or set the P2P FSK modem frequency deviation (600-200000 hz)", AT_PFDEV_PERM},
@@ -340,7 +337,6 @@ int At_Parser (SERIAL_PORT port, char *buff, int len)
     int i, j, help = 0;
     int	nRet = AT_ERROR;
     int is_write = 0;
-    char perm[8]={0};
     char cmd[MAX_CMD_LEN], operat = 0; //cmd len 32 should be enough
     stParam param;
 
@@ -457,17 +453,7 @@ int At_Parser (SERIAL_PORT port, char *buff, int len)
                     //followed by the help of all commands:
                     At_CmdList(port, &param);
                 } else {
-                    memset(perm,'\0',sizeof(perm));
-                    if (atcmd_info_tbl[i].permission & ATCMD_PERM_DISABLE)
-                        strcpy(perm,"Disable");
-                    else if (atcmd_info_tbl[i].permission & ATCMD_PERM_WRITEONCEREAD)
-                        strcpy(perm,"R*");
-                    else
-                        if (atcmd_info_tbl[i].permission & ATCMD_PERM_READ)
-                            strcpy(perm+strlen(perm),"R");
-                        if (atcmd_info_tbl[i].permission & ATCMD_PERM_WRITE)
-                            strcpy(perm+strlen(perm),"W");
-                    atcmd_printf("%s,%s: %s\r\n", atcmd_info_tbl[i].atCmd, perm, atcmd_info_tbl[i].CmdUsage);
+                    atcmd_printf("%s: %s\r\n", atcmd_info_tbl[i].atCmd, atcmd_info_tbl[i].CmdUsage);
                 }
                 nRet = AT_OK;
             } else {
@@ -521,17 +507,7 @@ int At_Parser (SERIAL_PORT port, char *buff, int len)
                 sprintf(cust_atcmd_buff, "%s%s", "ATC+", atcmd_cust_tbl[j].atCmd);
 
                 if (help) {
-                    memset(perm,'\0',sizeof(perm));
-                    if (atcmd_cust_tbl[i].permission & ATCMD_PERM_DISABLE)
-                        strcpy(perm,"Disable");
-                    else if (atcmd_cust_tbl[i].permission & ATCMD_PERM_WRITEONCEREAD)
-                        strcpy(perm,"R*");
-                    else
-                        if (atcmd_cust_tbl[i].permission & ATCMD_PERM_READ)
-                            strcpy(perm+strlen(perm),"R");
-                        if (atcmd_cust_tbl[i].permission & ATCMD_PERM_WRITE)
-                            strcpy(perm+strlen(perm),"W");
-                    atcmd_printf("%s,%s: %s\r\n", cust_atcmd_buff, perm, atcmd_cust_tbl[j].CmdUsage);
+                    atcmd_printf("%s: %s\r\n", cust_atcmd_buff, atcmd_cust_tbl[j].CmdUsage);
 	            nRet = AT_OK;
                 } else {
                     if (atcmd_cust_tbl[j].permission & ATCMD_PERM_DISABLE)
@@ -715,6 +691,19 @@ uint8_t at_check_digital_uint32_t(const char *p_str, uint32_t *value)
         }
         else
             return 1;
+    }
+
+    for (uint8_t i=0; i<MAXIMUM_NB_DIGITS; i++)
+    {
+        uint32_t tmp = digit/pow(10, i);
+        if (tmp != 0)
+        {
+            continue;
+        }
+        else
+        {
+            break;
+        }
     }
 
     if (value != NULL)

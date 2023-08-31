@@ -15,13 +15,12 @@
 #include "service_lora_test.h"
 #include "soft-se/aes.h"
 #include "board.h"
-#include "service_runtimeConfig.h"
 
 #ifdef LORA_CHIP_SX1276
     // #include "sx1276Regs-LoRa.h"
     #define REG_LR_SYNCWORD                             0x39
 #elif defined LORA_CHIP_SX126X
-    // #include "sx126x/sx126x.h"
+    // #include "sx126x.h"
     #define REG_LR_SYNCWORD                             0x0740
 #elif defined LORA_CHIP_STM32WLE5XX
     // #include "radio_driver.h"
@@ -36,7 +35,6 @@ static rui_lora_p2p_recv_t recv_data_pkg;
 
 void radio_set_syncword( uint16_t syncword);
 void (*service_lora_p2p_send_callback)(void);
-void (*service_lora_p2p_send_CAD_callback)(bool);
 void (*service_lora_p2p_recv_callback)(rui_lora_p2p_recv_t recv_data_pkg);
 
 /* Radio events function pointer */
@@ -47,8 +45,7 @@ LORA_P2P_STATUS_ST lora_p2p_status = {
     .isRadioBusy = false,
     .isContinue = false,
     .isContinue_no_exit = false,
-    .isContinue_compatible_tx = false,
-    .isCAD = false
+    .isContinue_compatible_tx = false
 };
 
 static uint8_t lora_p2p_buf[255];
@@ -68,19 +65,12 @@ static void OnTxDone(void)
     lora_p2p_status.isRadioBusy = false;
 
     LORA_P2P_DEBUG("%s\r\n", __func__);
-    if (service_get_debug_level()) {
-        udrv_serial_log_printf("%s\r\n", __func__);
-    }
     LORA_TEST_DEBUG("service_lora_p2p_send_callback %08x",service_lora_p2p_send_callback);
 
     if ((*service_lora_p2p_send_callback)!=NULL)
     {
         (*service_lora_p2p_send_callback)();
     }
-    if (SERVICE_LORA_P2P == service_lora_get_nwm())
-        udrv_serial_log_printf("+EVT:TXP2P DONE\r\n");
-    else
-        udrv_serial_log_printf("+EVT:TXFSK DONE\r\n");
 
 
     udrv_powersave_wake_unlock();   
@@ -107,7 +97,6 @@ static void OnRxDone(uint8_t *payload, uint16_t size, int16_t rssi, int8_t snr)
     {
         LORA_TEST_DEBUG();
         uint8_t outdata[256], cut_length;
-        memset(outdata,'\0',sizeof(outdata));
         if (size % 16)
         {
             /* Normal processing will not be executed here */
@@ -130,7 +119,7 @@ static void OnRxDone(uint8_t *payload, uint16_t size, int16_t rssi, int8_t snr)
     recv_data_pkg.Rssi = rssi;
     recv_data_pkg.Snr = snr;
     recv_data_pkg.BufferSize = size;
-    recv_data_pkg.Buffer = lora_p2p_buf;
+    recv_data_pkg.Buffer = payload;
 
     if((*service_lora_p2p_recv_callback)!=NULL)
     {
@@ -150,9 +139,6 @@ static void OnTxTimeout(void)
 {
     lora_p2p_status.isRadioBusy = false;
     LORA_P2P_DEBUG("%s\r\n", __func__);
-    if (service_get_debug_level()) {
-        udrv_serial_log_printf("%s\r\n", __func__);
-    }
 }
 
 static void OnRxTimeout(void)
@@ -209,80 +195,40 @@ static void OnRxError(void)
     }
 }
 
-static void OnCadDone(bool channelActivityDetected)
-{
-    if ((*service_lora_p2p_send_CAD_callback)!=NULL)
-    {
-        (*service_lora_p2p_send_CAD_callback)(channelActivityDetected);
-    }
-    if(channelActivityDetected == true)
-        lora_p2p_status.isRadioBusy = false;
-    lora_p2p_status.isCAD = false;
-}
-
-
 int32_t service_lora_p2p_config(void)
 {
     uint32_t timeOnAir = 0x00FFFFFF;
 
-    uint32_t bandwidth, codingrate, Frequency;
+    uint32_t bandwidth, codingrate;
     bool rxContinuous = false;
-    uint8_t Powerdbm, Spreadfact;
-    uint16_t  Preamlen;
+    uint32_t Frequency = service_nvm_get_freq_from_nvm();
+    uint8_t Powerdbm = service_nvm_get_powerdbm_from_nvm();
+    uint8_t  Spreadfact = service_nvm_get_sf_from_nvm();
+    uint16_t  Preamlen = service_nvm_get_preamlen_from_nvm();
     bool fix_length_payload = service_nvm_get_fix_length_payload_from_nvm();
     bool iqinverted = service_nvm_get_iqinverted_from_nvm();
     uint32_t symbol_timeout = service_nvm_get_symbol_timeout_from_nvm();
     uint32_t deviation = service_nvm_get_fdev_from_nvm();
     uint32_t bitrate = service_nvm_get_bitrate_from_nvm();
     uint16_t syncword = service_nvm_get_syncword_from_nvm();
-
-    if (get_useRuntimeConfigP2P()) {
-        runtimeConfigP2P_t runtimeConfigP2P;
-        get_runtimeConfigP2P(&runtimeConfigP2P);
-
-        Frequency = runtimeConfigP2P.frequency;
-        Powerdbm = runtimeConfigP2P.txpower;
-        Spreadfact = runtimeConfigP2P.spreading_factor;
-        Preamlen = runtimeConfigP2P.preamble_length;
-
-        if (SERVICE_LORA_P2P == service_lora_get_nwm())
-        {
-            bandwidth = runtimeConfigP2P.bandwidth;
-        }
-        else if (SERVICE_LORA_FSK == service_lora_get_nwm())
-        {
-            //Because RadioGetFskBandwidthRegValue( bandwidth << 1 );
-            // SX126x badwidth is double sided
-            bandwidth = (runtimeConfigP2P.fsk_rxbw >> 1);
-        }
-
-        codingrate = runtimeConfigP2P.coding_rate + 1;
+    if (SERVICE_LORA_P2P == service_lora_get_nwm())
+    {
+        bandwidth = service_lora_p2p_get_bandwidth();
     }
-    else {
-        Frequency = service_nvm_get_freq_from_nvm();
-        Powerdbm = service_nvm_get_powerdbm_from_nvm();
-        Spreadfact = service_nvm_get_sf_from_nvm();
-        Preamlen = service_nvm_get_preamlen_from_nvm();
-
-        if (SERVICE_LORA_P2P == service_lora_get_nwm())
-        {
-            bandwidth = service_lora_p2p_get_bandwidth();
-        }
-        else if (SERVICE_LORA_FSK == service_lora_get_nwm())
-        {
-            //Because RadioGetFskBandwidthRegValue( bandwidth << 1 ); 
-            // SX126x badwidth is double sided
-            bandwidth = (service_lora_p2p_get_bandwidth() >> 1);
-        }
-
-        codingrate = service_nvm_get_codingrate_from_nvm() + 1;
+    else if (SERVICE_LORA_FSK == service_lora_get_nwm())
+    {
+        //Because RadioGetFskBandwidthRegValue( bandwidth << 1 ); 
+        // SX126x badwidth is double sided
+        bandwidth = (service_lora_p2p_get_bandwidth() >> 1);
     }
+
+    codingrate = service_nvm_get_codingrate_from_nvm() + 1;
 
     if (SERVICE_LORA_P2P == service_lora_get_nwm())
     {
+
         if( service_nvm_get_symbol_timeout_from_nvm() == 0)
             rxContinuous = true;
-
         Radio.SetTxConfig(MODEM_LORA, Powerdbm, 0, bandwidth,
                           Spreadfact, codingrate,
                           Preamlen, fix_length_payload,
@@ -316,6 +262,7 @@ int32_t service_lora_p2p_config(void)
     }
 
     Radio.SetChannel(Frequency);
+
     LORA_P2P_DEBUG("Freq %d, SF %d, Bandwidth %d, CodeRate %d, Preamlen %d, TxPower %d\r\n",
                    Frequency, Spreadfact,
                    bandwidth, codingrate,
@@ -333,7 +280,6 @@ int32_t service_lora_p2p_init(void)
     RadioEvents.TxTimeout = OnTxTimeout;
     RadioEvents.RxTimeout = OnRxTimeout;
     RadioEvents.RxError = OnRxError;
-    RadioEvents.CadDone = OnCadDone;
 
     Radio.Init(&RadioEvents);
 
@@ -342,7 +288,7 @@ int32_t service_lora_p2p_init(void)
     return UDRV_RETURN_OK;
 }
 
-int32_t service_lora_p2p_send(uint8_t *p_data, uint8_t len, bool cad_enable)
+int32_t service_lora_p2p_send(uint8_t *p_data, uint8_t len)
 {
     if (lora_p2p_status.isRadioBusy == true && lora_p2p_status.isContinue_compatible_tx == false)
         return -UDRV_BUSY;
@@ -356,45 +302,15 @@ int32_t service_lora_p2p_send(uint8_t *p_data, uint8_t len, bool cad_enable)
 
     udrv_powersave_wake_lock();
     Radio.Standby();
-
-    lora_p2p_status.isRadioBusy = true;
-    if(cad_enable == true)
-    {
-        //SX126xSetCadParams(0x03,20,10,0x01,0x1);  
-        lora_p2p_status.isCAD = true;
-        Radio.StartCad();
-        while(lora_p2p_status.isCAD == true)
-        {
-#if defined(LORA_CHIP_SX126X)
-            if(SX126xGetIrqStatus() == 0x0080)
-            {
-                RadioOnDioIrq();
-                break;
-            }
-#endif
-        }
-            
-        if(lora_p2p_status.isRadioBusy == false)
-            return -UDRV_BUSY;
-    }
     Radio.Send(lora_p2p_buf, len);
 
+    lora_p2p_status.isRadioBusy = true;
 
-    if (service_get_debug_level()) {
-        udrv_serial_log_printf("LoRa P2P send data: (%d) ", len);
-        printf_hex(lora_p2p_buf, len);
-        udrv_serial_log_printf("\r\n");
-    }
+    // udrv_serial_log_printf("LoRa P2P send data len is %d\r\n", len);
+    // printf_hex(lora_p2p_buf, len);
+    // udrv_serial_log_printf("\r\n");
 
     return UDRV_RETURN_OK;
-}
-
-bool service_lora_p2p_get_radio_stat(void)
-{
-    if (lora_p2p_status.isRadioBusy || lora_p2p_status.isContinue || lora_p2p_status.isContinue_no_exit || lora_p2p_status.isContinue_compatible_tx)
-        return true;
-    else
-        return false;
 }
 
 int32_t service_lora_p2p_recv(uint32_t timeout)
@@ -423,7 +339,6 @@ int32_t service_lora_p2p_recv(uint32_t timeout)
     if(timeout != 0 && ( lora_p2p_status.isContinue || lora_p2p_status.isContinue_no_exit
     || lora_p2p_status.isContinue_compatible_tx))
     {
-        udrv_serial_log_printf("P2P_RX_ON already\r\n");
         return -UDRV_BUSY;
     }
 
@@ -485,7 +400,7 @@ int32_t service_lora_p2p_set_freq(uint32_t freq)
     if ((freq < 150e6) || (freq > 960e6))
         return -UDRV_WRONG_ARG;
     
-#if defined(rak3172) || defined(rak3172T)
+#ifdef  rak3172
         /* Only RAK3172 supports hardware high and low frequency detection */
         uint8_t hardware_freq = 0;
         hardware_freq =  BoardGetHardwareFreq();
@@ -511,34 +426,6 @@ int32_t service_lora_p2p_set_freq(uint32_t freq)
     return UDRV_RETURN_OK;
 }
 
-int32_t service_lora_p2p_check_runtime_freq(uint32_t freq)
-{
-    if ((freq < 150e6) || (freq > 960e6))
-        return -UDRV_WRONG_ARG;
-
-#if defined(rak3172) || defined(rak3172T)
-        /* Only RAK3172 supports hardware high and low frequency detection */
-        uint8_t hardware_freq = 0;
-        hardware_freq =  BoardGetHardwareFreq();
-        if(hardware_freq)
-        {
-            if(freq <= 600e6)
-            {
-                return -UDRV_WRONG_ARG;
-            }
-        }
-        else
-        {
-            if(freq > 600e6)
-            {
-                return -UDRV_WRONG_ARG;
-            }
-        }
-#endif
-
-    return UDRV_RETURN_OK;
-}
-
 uint8_t service_lora_p2p_get_sf(void)
 {
     return service_nvm_get_sf_from_nvm();
@@ -551,14 +438,6 @@ int32_t service_lora_p2p_set_sf(uint8_t spreadfact)
 
     service_nvm_set_sf_to_nvm(spreadfact);
     service_lora_p2p_config();
-
-    return UDRV_RETURN_OK;
-}
-
-int32_t service_lora_p2p_check_runtime_sf(uint8_t spreadfact)
-{
-    if ((spreadfact < 5) || (spreadfact > 12))
-        return -UDRV_WRONG_ARG;
 
     return UDRV_RETURN_OK;
 }
@@ -611,39 +490,6 @@ int32_t service_lora_p2p_set_bandwidth(uint32_t bandwidth)
     return ret;
 }
 
-int32_t service_lora_p2p_check_runtime_bandwidth(uint32_t bandwidth)
-{
-    if (SERVICE_LORA_P2P == service_lora_get_nwm())
-    {
-
-        if( bandwidth == 125 )
-        {
-            bandwidth = 0;
-        }
-        else if( bandwidth == 250 )
-        {
-            bandwidth = 1;
-        }
-        else if( bandwidth == 500 )
-        {
-            bandwidth = 2;
-        }
-        else if (bandwidth > 9)
-        {
-            return -UDRV_WRONG_ARG;
-        }
-    }
-    else if (SERVICE_LORA_FSK == service_lora_get_nwm())
-    {
-        if (bandwidth > 467000 || bandwidth < 4800)
-        {
-            return -UDRV_WRONG_ARG;
-        }
-    }
-
-    return UDRV_RETURN_OK;
-}
-
 uint8_t service_lora_p2p_get_codingrate(void)
 {
     return service_nvm_get_codingrate_from_nvm();
@@ -656,14 +502,6 @@ int32_t service_lora_p2p_set_codingrate(uint8_t codingrate)
 
     service_nvm_set_codingrate_to_nvm(codingrate);
     service_lora_p2p_config();
-
-    return UDRV_RETURN_OK;
-}
-
-int32_t service_lora_p2p_check_runtime_codingrate(uint8_t codingrate)
-{
-    if ((codingrate < 0) || (codingrate > 3))
-        return -UDRV_WRONG_ARG;
 
     return UDRV_RETURN_OK;
 }
@@ -684,14 +522,6 @@ int32_t service_lora_p2p_set_preamlen(uint16_t preamlen)
     return UDRV_RETURN_OK;
 }
 
-int32_t service_lora_p2p_check_runtime_preamlen(uint16_t preamlen)
-{
-    if (preamlen < 5)
-        return -UDRV_WRONG_ARG;
-
-    return UDRV_RETURN_OK;
-}
-
 uint8_t service_lora_p2p_get_powerdbm(void)
 {
     return service_nvm_get_powerdbm_from_nvm();
@@ -704,14 +534,6 @@ int32_t service_lora_p2p_set_powerdbm(uint8_t powerdbm)
 
     service_nvm_set_powerdbm_to_nvm(powerdbm);
     service_lora_p2p_config();
-
-    return UDRV_RETURN_OK;
-}
-
-int32_t service_lora_p2p_check_runtime_powerdbm(uint8_t powerdbm)
-{
-    if ((powerdbm < 5) || (powerdbm > 22))
-        return -UDRV_WRONG_ARG;
 
     return UDRV_RETURN_OK;
 }
@@ -736,34 +558,13 @@ int32_t service_lora_p2p_set_crypto_key(uint8_t *buff, uint32_t len)
     return service_nvm_set_crypt_key_to_nvm(buff, len);
 }
 
-int32_t service_lora_p2p_get_crypto_IV(uint8_t *buff, uint32_t len)
-{
-    return service_nvm_get_crypt_IV_from_nvm(buff, len);
-}
-
-int32_t service_lora_p2p_set_crypto_IV(uint8_t *buff, uint32_t len)
-{
-    return service_nvm_set_crypt_IV_to_nvm(buff, len);
-}
-
-bool service_lora_p2p_get_CAD(void)
-{
-    return service_nvm_get_CAD_from_nvm();
-}
-
-int32_t service_lora_p2p_set_CAD(bool enable)
-{
-    return service_nvm_set_CAD_to_nvm(enable);
-}
-
-
 int32_t service_lora_p2p_encrpty(uint8_t *indata, uint16_t inlen,uint8_t *outdata)
 {
     uint8_t buf[255];
     uint8_t key[16];
     uint16_t i;
     aes_context ctx;
-    uint8_t iv[16];
+    uint8_t iv[16] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55};
     uint8_t n_block;
     uint8_t pad_length;
 
@@ -779,9 +580,8 @@ int32_t service_lora_p2p_encrpty(uint8_t *indata, uint16_t inlen,uint8_t *outdat
     for (i = 0; i < pad_length; i++)
         LORA_TEST_DEBUG("%02X", buf[i]);
 
-    service_lora_p2p_get_crypto_IV(iv,16);
-
-    service_lora_p2p_get_crypto_key(key, 16);
+    service_lora_p2p_get_crypto_key(key, 8);
+    memcpy(&key[8], key, 8);
     aes_set_key(key, 16, &ctx);
     crypt_state = aes_cbc_encrypt(buf, outdata, n_block, iv, &ctx);
     LORA_TEST_DEBUG("crypt_state %d", crypt_state);
@@ -796,13 +596,12 @@ int32_t service_lora_p2p_decrpty(uint8_t *indata, uint16_t inlen, uint8_t *outda
     uint8_t key[16];
     uint16_t i;
     aes_context ctx;
-    uint8_t iv[16];
+    uint8_t iv[16] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55};
     uint8_t crypt_state;
     uint8_t cut_length;
 
-    service_lora_p2p_get_crypto_IV(iv,16);
-
-    service_lora_p2p_get_crypto_key(key, 16);
+    service_lora_p2p_get_crypto_key(key, 8);
+    memcpy(&key[8], key, 8);
     aes_set_key(key, 16, &ctx);
     crypt_state = aes_cbc_decrypt(indata, outdata, inlen / 16, iv, &ctx);
 
@@ -1057,14 +856,6 @@ int32_t service_lora_p2p_register_recv_cb(service_lora_p2p_recv_cb_type callback
     service_lora_p2p_recv_callback = callback;
     return UDRV_RETURN_OK;
 }
-
-int32_t service_lora_p2p_register_send_CAD_cb(service_lora_p2p_send_CAD_cb_type callback)
-{
-    service_lora_p2p_send_CAD_callback = callback;
-    return UDRV_RETURN_OK;
-}
-
-
 uint32_t service_lora_p2p_get_symbol_timeout(void)
 {
     return service_nvm_get_symbol_timeout_from_nvm();

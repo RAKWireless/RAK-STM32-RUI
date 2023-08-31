@@ -120,13 +120,11 @@ int At_AtCmdMode(SERIAL_PORT port, char *cmd, stParam *param)
                 }
 #endif
 #endif
-#ifdef SUPPORT_BINARY
                 case SERVICE_MODE_TYPE_PROTOCOL:
                 {
                     service_mode_proto_deinit(port);
                     break;
                 }
-#endif
                 default:
                 {
                     break;
@@ -142,7 +140,7 @@ int At_AtCmdMode(SERIAL_PORT port, char *cmd, stParam *param)
         return AT_PARAM_ERROR;
     }
 }
-#ifdef SUPPORT_BINARY
+
 int At_ApiMode(SERIAL_PORT port, char *cmd, stParam *param)
 {
     int32_t ret;
@@ -188,7 +186,7 @@ int At_ApiMode(SERIAL_PORT port, char *cmd, stParam *param)
         return AT_PARAM_ERROR;
     }
 }
-#endif
+
 #ifdef SUPPORT_PASSTHRU
 int At_TransparentMode(SERIAL_PORT port, char *cmd, stParam *param)
 {
@@ -250,13 +248,11 @@ int At_TransparentMode(SERIAL_PORT port, char *cmd, stParam *param)
                     service_mode_cli_deinit(port);
                     break;
                 }
-#ifdef SUPPORT_BINARY
                 case SERVICE_MODE_TYPE_PROTOCOL:
                 {
                     service_mode_proto_deinit(port);
                     break;
                 }
-#endif
                 default:
                 {
                     break;

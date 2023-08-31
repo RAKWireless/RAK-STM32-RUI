@@ -12,7 +12,6 @@ void handler(void *data)
 void setup()
 {
     Serial.begin(115200);
-    delay(2000);
   
     Serial.println("RAKwireless System Timer Example");
     Serial.println("------------------------------------------------------");

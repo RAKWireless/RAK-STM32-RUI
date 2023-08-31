@@ -1,17 +1,6 @@
-#include "uhal_gpio.h"
 #include "uhal_adc.h"
 #include "variant.h"
 ADC_HandleTypeDef hadc;
-
-typedef enum
-{
-    UHAL_ADC1_ENABLE = 0x01U,   //PB3-->ADC1
-    UHAL_ADC2_ENABLE = 0x02U,   //PB4-->ADC2
-    UHAL_ADC3_ENABLE = 0x04U,   //PB2-->ADC3
-    UHAL_ADC4_ENABLE = 0x08U,   //PA10-->ADC4
-    UHAL_ADC5_ENABLE = 0x10U    //PA15-->ADC5
-} UHAL_ADC_ENABLEPINTypeDef;
-static uint8_t adc_enable_pin = 0x0U;
 
 static uint32_t adc_resolution = ADC_RESOLUTION_10B;
 static uint16_t adc_digital_scale = DIGITAL_SCALE_10BITS; 
@@ -36,35 +25,24 @@ int32_t uhal_adc_read (uint32_t pin, uint16_t *value) {
         //PB3-->ADC1
         case PB3:
             sConfig.Channel = ADC_CHANNEL_2;
-            adc_enable_pin |= UHAL_ADC1_ENABLE;
             break;
         //PB4-->ADC2
         case PB4:
             sConfig.Channel = ADC_CHANNEL_3;
-            adc_enable_pin |= UHAL_ADC2_ENABLE;
             break;
         //PB2-->ADC3
         case PB2:
             sConfig.Channel = ADC_CHANNEL_4;
-            adc_enable_pin |= UHAL_ADC3_ENABLE;
             break;
         //PA10-->ADC4
         case PA10:
             sConfig.Channel = ADC_CHANNEL_6;
-            adc_enable_pin |= UHAL_ADC4_ENABLE;
             break;
         //PA15-->ADC5
         case PA15:
             sConfig.Channel = ADC_CHANNEL_11;
-            adc_enable_pin |= UHAL_ADC5_ENABLE;
             break;
-        case UDRV_ADC_CHANNEL_TEMPSENSOR:
-            sConfig.Channel = ADC_CHANNEL_TEMPSENSOR;
-            break;
-        case UDRV_ADC_CHANNEL_VREFINT:
-            sConfig.Channel = ADC_CHANNEL_VREFINT;
-            break;
-        case UDRV_ADC_CHANNEL_VBAT:
+        case 255:
             sConfig.Channel = ADC_CHANNEL_VBAT;
             break;
         default:
@@ -124,6 +102,7 @@ int32_t uhal_adc_read (uint32_t pin, uint16_t *value) {
       /* ADC conversion start error */
       Error_Handler();
     }
+
 
     HAL_ADC_PollForConversion(&hadc, 10);
 
@@ -197,161 +176,3 @@ void uhal_adc_oversampling(uint32_t oversampling)
 	 //to do
 }
 
-/**
-* @brief ADC MSP Initialization
-* This function configures the hardware resources used in this example
-* @param hadc: ADC handle pointer
-* @retval None
-*/
-void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
-{
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
-  if(hadc->Instance==ADC)
-  {
-  /* USER CODE BEGIN ADC_MspInit 0 */
-
-  /* USER CODE END ADC_MspInit 0 */
-    /* Peripheral clock enable */
-    __HAL_RCC_ADC_CLK_ENABLE();
-
-    //ADC1
-    if (adc_enable_pin & UHAL_ADC1_ENABLE) {
-        if(PinToGPIOx(_ADC1) == GPIOA) {
-            __HAL_RCC_GPIOA_CLK_ENABLE();
-        } else if (PinToGPIOx(_ADC1) == GPIOB) {
-            __HAL_RCC_GPIOB_CLK_ENABLE();
-        }
-    }
-
-    //ADC2
-    if (adc_enable_pin & UHAL_ADC2_ENABLE) {
-        if(PinToGPIOx(_ADC2) == GPIOA) {
-            __HAL_RCC_GPIOA_CLK_ENABLE();
-        } else if (PinToGPIOx(_ADC2) == GPIOB) {
-            __HAL_RCC_GPIOB_CLK_ENABLE();
-        }
-    }
-
-    //ADC3
-    if (adc_enable_pin & UHAL_ADC3_ENABLE) {
-        if(PinToGPIOx(_ADC3) == GPIOA) {
-            __HAL_RCC_GPIOA_CLK_ENABLE();
-        } else if (PinToGPIOx(_ADC3) == GPIOB) {
-            __HAL_RCC_GPIOB_CLK_ENABLE();
-        }
-    }
-
-    //ADC4
-    if (adc_enable_pin & UHAL_ADC4_ENABLE) {
-        if(PinToGPIOx(_ADC4) == GPIOA) {
-            __HAL_RCC_GPIOA_CLK_ENABLE();
-        } else if (PinToGPIOx(_ADC4) == GPIOB) {
-            __HAL_RCC_GPIOB_CLK_ENABLE();
-        }
-    }
-
-    //ADC5
-    if (adc_enable_pin & UHAL_ADC5_ENABLE) {
-        if(PinToGPIOx(_ADC5) == GPIOA) {
-            __HAL_RCC_GPIOA_CLK_ENABLE();
-        } else if (PinToGPIOx(_ADC5) == GPIOB) {
-            __HAL_RCC_GPIOB_CLK_ENABLE();
-        }
-    }
-
-    /**ADC GPIO Configuration
-    PB3     ------> _ADC1
-    PB4     ------> _ADC2
-    PB2     ------> _ADC3
-    PA10    ------> _ADC4
-    PA15    ------> _ADC5
-    */
-    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    //ADC1
-    if (adc_enable_pin & UHAL_ADC1_ENABLE) {
-        GPIO_InitStruct.Pin = PinToGPIO_Pin(_ADC1);
-        HAL_GPIO_Init(PinToGPIOx(_ADC1), &GPIO_InitStruct);
-    }
-
-    //ADC2
-    if (adc_enable_pin & UHAL_ADC2_ENABLE) {
-        GPIO_InitStruct.Pin = PinToGPIO_Pin(_ADC2);
-        HAL_GPIO_Init(PinToGPIOx(_ADC2), &GPIO_InitStruct);
-    }
-
-    //ADC3
-    if (adc_enable_pin & UHAL_ADC3_ENABLE) {
-        GPIO_InitStruct.Pin = PinToGPIO_Pin(_ADC3);
-        HAL_GPIO_Init(PinToGPIOx(_ADC3), &GPIO_InitStruct);
-    }
-
-    //ADC4
-    if (adc_enable_pin & UHAL_ADC4_ENABLE) {
-        GPIO_InitStruct.Pin = PinToGPIO_Pin(_ADC4);
-        HAL_GPIO_Init(PinToGPIOx(_ADC4), &GPIO_InitStruct);
-    }
-
-    //ADC5
-    if (adc_enable_pin & UHAL_ADC5_ENABLE) {
-        GPIO_InitStruct.Pin = PinToGPIO_Pin(_ADC5);
-        HAL_GPIO_Init(PinToGPIOx(_ADC5), &GPIO_InitStruct);
-    }
-
-  /* USER CODE BEGIN ADC_MspInit 1 */
-
-  /* USER CODE END ADC_MspInit 1 */
-  }
-
-}
-
-/**
-* @brief ADC MSP De-Initialization
-* This function freeze the hardware resources used in this example
-* @param hadc: ADC handle pointer
-* @retval None
-*/
-void HAL_ADC_MspDeInit(ADC_HandleTypeDef* hadc)
-{
-  if(hadc->Instance==ADC)
-  {
-  /* USER CODE BEGIN ADC_MspDeInit 0 */
-
-  /* USER CODE END ADC_MspDeInit 0 */
-    /* Peripheral clock disable */
-    __HAL_RCC_ADC_CLK_DISABLE();
-
-    /**ADC GPIO Configuration
-    PB3     ------> _ADC1
-    PB4     ------> _ADC2
-    PB2     ------> _ADC3
-    PA10    ------> _ADC4
-    PA15    ------> _ADC5
-    */
-    if (adc_enable_pin & UHAL_ADC1_ENABLE) {
-        HAL_GPIO_DeInit(PinToGPIOx(_ADC1), PinToGPIO_Pin(_ADC1));
-        adc_enable_pin &= ~UHAL_ADC1_ENABLE;
-    }
-    if (adc_enable_pin & UHAL_ADC2_ENABLE) {
-        HAL_GPIO_DeInit(PinToGPIOx(_ADC2), PinToGPIO_Pin(_ADC2));
-        adc_enable_pin &= ~UHAL_ADC2_ENABLE;
-    }
-    if (adc_enable_pin & UHAL_ADC3_ENABLE) {
-        HAL_GPIO_DeInit(PinToGPIOx(_ADC3), PinToGPIO_Pin(_ADC3));
-        adc_enable_pin &= ~UHAL_ADC3_ENABLE;
-    }
-    if (adc_enable_pin & UHAL_ADC4_ENABLE) {
-        HAL_GPIO_DeInit(PinToGPIOx(_ADC4), PinToGPIO_Pin(_ADC4));
-        adc_enable_pin &= ~UHAL_ADC4_ENABLE;
-    }
-    if (adc_enable_pin & UHAL_ADC5_ENABLE) {
-        HAL_GPIO_DeInit(PinToGPIOx(_ADC5), PinToGPIO_Pin(_ADC5));
-        adc_enable_pin &= ~UHAL_ADC5_ENABLE;
-    }
-
-  /* USER CODE BEGIN ADC_MspDeInit 1 */
-
-  /* USER CODE END ADC_MspDeInit 1 */
-  }
-
-}

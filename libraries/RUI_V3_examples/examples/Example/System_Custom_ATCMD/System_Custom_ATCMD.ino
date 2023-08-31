@@ -36,7 +36,6 @@ int led_handle(SERIAL_PORT port, char *cmd, stParam * param)
 void setup()
 {
     Serial.begin(115200);
-    delay(2000);
     Serial.println("RAKwireless Custom ATCMD Example");
     Serial.println("------------------------------------------------------");
     api.system.atMode.add("LED", "This controls both green and blue LEDs.",

@@ -78,32 +78,6 @@ typedef enum
   RAK_LORA_CLASS_C = 2, ///< The LoRaWan will work in Class C
 } RAK_LORA_CLASS;
 
-/**@par Description
- *  The LoRaMac Event Info
- */
-
-typedef enum RAKLoRaMacEventInfoStatus
-{
-    RAK_LORAMAC_STATUS_OK = 0,                          ///Service performed successfully
-    RAK_LORAMAC_STATUS_ERROR,                           ///An error occurred during the execution of the service
-    RAK_LORAMAC_STATUS_TX_TIMEOUT,                      ///A Tx timeout occurred
-    RAK_LORAMAC_STATUS_RX1_TIMEOUT,                     ///An Rx timeout occurred on receive window 1
-    RAK_LORAMAC_STATUS_RX2_TIMEOUT,                     ///An Rx timeout occurred on receive window 2
-    RAK_LORAMAC_STATUS_RX1_ERROR,                       ///An Rx error occurred on receive window 1
-    RAK_LORAMAC_STATUS_RX2_ERROR,                       ///An Rx error occurred on receive window 2
-    RAK_LORAMAC_STATUS_JOIN_FAIL,                       ///An error occurred in the join procedure
-    RAK_LORAMAC_STATUS_DOWNLINK_REPEATED,               ///A frame with an invalid downlink counter was received. The downlink counter of the frame was equal to the local copy of the downlink counter of the node.
-    RAK_LORAMAC_STATUS_TX_DR_PAYLOAD_SIZE_ERROR,        ///The MAC could not retransmit a frame since the MAC decreased the datarate. The payload size is not applicable for the datarate.
-    RAK_LORAMAC_STATUS_DOWNLINK_TOO_MANY_FRAMES_LOSS,   ///The node has lost MAX_FCNT_GAP or more frames.
-    RAK_LORAMAC_STATUS_ADDRESS_FAIL,                    ///An address error occurred
-    RAK_LORAMAC_STATUS_MIC_FAIL,                        ///Message integrity check failure
-    RAK_LORAMAC_STATUS_MULTICAST_FAIL,                  ///Multicast error occurred
-    RAK_LORAMAC_STATUS_BEACON_LOCKED,                   ///Beacon locked
-    RAK_LORAMAC_STATUS_BEACON_LOST,                     ///Beacon lost
-    RAK_LORAMAC_STATUS_BEACON_NOT_FOUND,                ///Beacon not found
-}RAKLoRaMacEventInfoStatus_t;
-
-
 /**@par	Description
  * 	The structure of a multicast group
  */
@@ -143,12 +117,6 @@ public:
      * @ingroup	Joining_and_Sending
      * @par	Syntax
      *      	api.lorawan.join()
-     *      	api.lorawan.join(join_start, auto_join, auto_join_period, auto_join_cnt)
-     *
-     * @param   join_start          manually join network: 0 means stop to join network; 1 means start to join network.
-     * @param   auto_join           automatically join network: 0 means stop automatically joining network; 1 means start automatically joining network.
-     * @param   auto_join_period    the join attempt period. The acceptance values are 7 to 255 (in seconds).
-     * @param   auto_join_cnt       the maximum number of join attempts. The acceptance values are 0 to 255 (in seconds).
      * @return	bool
      * @retval	TRUE for success
      * @retval	FALSE for join failure
@@ -189,7 +157,6 @@ public:
            @endverbatim
      */
   bool join();
-  bool join(uint8_t join_start, uint8_t auto_join, uint8_t auto_join_period, uint8_t auto_join_cnt);
 
   /**@par	Description
      *          This api provides the way to send data on a dedicated port number
@@ -774,84 +741,6 @@ public:
        @endverbatim
      */
   bool registerPSendCallback(service_lora_p2p_send_cb_type callback);
-  /**@par   Description
-     *          This API is used to register a callback function,
-                so that application can be notified when P2P uplink process is done.
-     *
-     * @ingroup P2P
-     * @par Syntax
-     *          api.lorawan.registerPSendCallback(service_lora_p2p_send_cb_type callback)
-     * @param   The callback function
-     * @return  bool
-     * @retval  TRUE for setting callback function success
-     * @retval  FALSE for setting callback function failure
-     * @par     Example
-     * @verbatim
-       void recv_cb(rui_lora_p2p_recv_t data) {
-         Serial.println("Receive something");
-       }
-
-       void send_cb(void) {
-         Serial.println("I send something");
-       }
-
-       void cad_cb(bool detect) {
-         if(detect)
-           Serial.println("detect Activity");
-         else
-           Serial.println("no Activity");
-
-       }
-
-
-       long startTime;
-
-       void setup()
-       {
-         Serial.begin(115200);
-
-         delay(2000);
-         startTime = millis();
-
-         Serial.println("P2P Start");
-
-         Serial.printf("Set Node device work mode %s\r\n", api.lorawan.nwm.set(0) ? "Success" : "Fail");
-         Serial.printf("Set P2P mode frequency %s\r\n", api.lorawan.pfreq.set(868000000) ? "Success" : "Fail");
-         Serial.printf("Set P2P mode spreading factor %s\r\n", api.lorawan.psf.set(12) ? "Success" : "Fail");
-         Serial.printf("Set P2P mode bandwidth %s\r\n", api.lorawan.pbw.set(125) ? "Success" : "Fail");
-         Serial.printf("Set P2P mode code rate %s\r\n", api.lorawan.pcr.set(0) ? "Success" : "Fail");
-         Serial.printf("Set P2P mode preamble length %s\r\n", api.lorawan.ppl.set(8) ? "Success" : "Fail");
-         Serial.printf("Set P2P mode tx power %s\r\n", api.lorawan.ptp.set(22) ? "Success" : "Fail");
-       
-         api.lorawan.registerPRecvCallback(recv_cb);
-         api.lorawan.registerPSendCallback(send_cb);
-         api.lorawan.registerPSendCADCallback(cad_cb);
-       
-         randomSeed(millis());
-       }
-       
-       void loop()
-       {
-         uint8_t payload[] = "payload";
-       
-         int rxDelay = random(3000, 5000);
-       
-         // Receive P2P data every 10 seconds
-         if(millis() - startTime >= 10*1000) {
-           Serial.printf("P2P Rx start for %d millisSconds\r\n", rxDelay);
-           startTime = millis();
-           Serial.printf("P2P set Rx mode %s\r\n",api.lorawan.precv(rxDelay) ? "Success" : "Fail");
-           delay(rxDelay);
-         } else {
-         
-           Serial.printf("P2P send %s\r\n", api.lorawan.psend(sizeof(payload), payload)? "Success" : "Fail");
-           delay(1000);
-         }
-       
-       }       
-       @endverbatim
-     */
-  bool registerPSendCADCallback(service_lora_p2p_send_CAD_cb_type callback);
 
   /**@par	Description
      *      	view or change the LoRAWAN APPEUI and use it to setup the LoRAWAN connection	
@@ -2793,7 +2682,7 @@ public:
 
        void loop()
        {
-           Serial.printf("The current beacon time = %lu\r\n", api.lorawan.btime.get());
+           Serial.printf("The current beacon time = %l\r\n", api.lorawan.btime.get());
            delay(1000);
        }
            @endverbatim
@@ -3879,11 +3768,9 @@ channel mask
      * @ingroup	P2P
      * @par	Syntax
      *  	api.lorawan.psend(length, payload)
-     *  	api.lorawan.psend(length, payload,cad_enable)
      *
      * @param   length		the length of the payload
      * @param   payload		the data send to the other device
-     * @param   bool		Channel Activity Detection enable
      * @return	bool
      * @retval	TRUE for sending data success
      * @retval	FALSE for sending data failure
@@ -3908,7 +3795,6 @@ channel mask
        {
            uint8_t payload[] = "payload";
            Serial.printf("P2P send %s\r\n", api.lorawan.psend(sizeof(payload), payload)? "Success" : "Fail"); 
-           Serial.printf("P2P send %s\r\n", api.lorawan.psend(sizeof(payload), payload,true)? "Success" : "Fail"); 
 
            delay(5000);
        }
@@ -3916,7 +3802,6 @@ channel mask
            @endverbatim
      */
   bool psend(uint8_t length, uint8_t *payload);
-  bool psend(uint8_t length, uint8_t *payload,bool cad_enable);
 
   /**@par	Description
      *		This api configures P2P mode encryption
@@ -3936,8 +3821,8 @@ channel mask
 	 * @par         Example
          * @verbatim
        long startTime;
-       char * node_encrypt_key = "aaaabbbbccccdddd";
-       uint8_t encrypt_buff[16];
+       uint8_t node_encrypt_key[8] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08};
+       uint8_t encrypt_buff[8];
        
        void setup()
        {
@@ -3954,13 +3839,13 @@ channel mask
            Serial.printf("Set P2P mode preamble length %s\r\n", api.lorawan.ppl.set(8) ? "Success" : "Fail");
            Serial.printf("Set P2P mode tx power %s\r\n", api.lorawan.ptp.set(22) ? "Success" : "Fail");
 	   Serial.printf("Set P2P mode encryption status %s\r\n", api.lorawan.encry.set(1) ? "Success" : "Fail");
-	   Serial.printf("Set P2P mode encryption Key %s\r\n\r\n", api.lorawan.enckey.set((uint8_t *)node_encrypt_key, 16) ? "Success" : "Fail");
+	   Serial.printf("Set P2P mode encryption Key %s\r\n\r\n", api.lorawan.enckey.set(node_encrypt_key, 8) ? "Success" : "Fail");
 	   
            Serial.printf("P2P encryption status = %s\r\n", api.lorawan.encry.get() ? "Enbale" : "Disable");
 
-	   api.lorawan.enckey.get(encrypt_buff, 16);
+	   api.lorawan.enckey.get(encrypt_buff, 8);
 	   Serial.printf("P2P encryption Key = 0x");
-           for (int i = 0 ; i < 16 ; i++) {
+           for (int i = 0 ; i < 8 ; i++) {
                Serial.printf("%02X", encrypt_buff[i]);
            }
 	   Serial.println("");
@@ -4005,8 +3890,8 @@ channel mask
 	 * @par         Example
          * @verbatim
        long startTime;
-       char *  node_encrypt_key = "aaaabbbbccccdddd";
-       uint8_t encrypt_buff[16];
+       uint8_t node_encrypt_key[8] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08};
+       uint8_t encrypt_buff[8];
        
        void setup()
        {
@@ -4023,13 +3908,13 @@ channel mask
            Serial.printf("Set P2P mode preamble length %s\r\n", api.lorawan.ppl.set(8) ? "Success" : "Fail");
            Serial.printf("Set P2P mode tx power %s\r\n", api.lorawan.ptp.set(22) ? "Success" : "Fail");
 	   Serial.printf("Set P2P mode encryption status %s\r\n", api.lorawan.encry.set(1) ? "Success" : "Fail");
-	   Serial.printf("Set P2P mode encryption Key %s\r\n\r\n", api.lorawan.enckey.set((uint8_t *)node_encrypt_key, 16) ? "Success" : "Fail");
+	   Serial.printf("Set P2P mode encryption Key %s\r\n\r\n", api.lorawan.enckey.set(node_encrypt_key, 8) ? "Success" : "Fail");
 	   
            Serial.printf("P2P encryption status = %s\r\n", api.lorawan.encry.get() ? "Enbale" : "Disable");
 
-	   api.lorawan.enckey.get(encrypt_buff, 16);
+	   api.lorawan.enckey.get(encrypt_buff, 8);
 	   Serial.printf("P2P encryption Key = 0x");
-           for (int i = 0 ; i < 16 ; i++) {
+           for (int i = 0 ; i < 8 ; i++) {
                Serial.printf("%02X", encrypt_buff[i]);
            }
 	   Serial.println("");
@@ -4074,15 +3959,15 @@ channel mask
 	 *	api.lorawan.enckey.get(buff, len)
 	 *
          * @param       buff	the buffer to store encryption key
-         * @param       len	the length of encryption key(must be 16 bytes)
+         * @param       len	the length of encryption key(must be 8 bytes)
    * @return	bool
 	 * @retval	TRUE for getting encryption key success
 	 * @retval	FALSE for getting encryption key failure
 	 * @par         Example
          * @verbatim
        long startTime;
-       char * node_encrypt_key = "aaaabbbbccccdddd";
-       uint8_t encrypt_buff[16];
+       uint8_t node_encrypt_key[8] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08};
+       uint8_t encrypt_buff[8];
        
        void setup()
        {
@@ -4099,13 +3984,13 @@ channel mask
            Serial.printf("Set P2P mode preamble length %s\r\n", api.lorawan.ppl.set(8) ? "Success" : "Fail");
            Serial.printf("Set P2P mode tx power %s\r\n", api.lorawan.ptp.set(22) ? "Success" : "Fail");
 	   Serial.printf("Set P2P mode encryption status %s\r\n", api.lorawan.encry.set(1) ? "Success" : "Fail");
-	   Serial.printf("Set P2P mode encryption Key %s\r\n\r\n", api.lorawan.enckey.set((uint8_t *)node_encrypt_key, 16) ? "Success" : "Fail");
+	   Serial.printf("Set P2P mode encryption Key %s\r\n\r\n", api.lorawan.enckey.set(node_encrypt_key, 8) ? "Success" : "Fail");
 	   
            Serial.printf("P2P encryption status = %s\r\n", api.lorawan.encry.get() ? "Enbale" : "Disable");
 
-	   api.lorawan.enckey.get(encrypt_buff, 16);
+	   api.lorawan.enckey.get(encrypt_buff, 8);
 	   Serial.printf("P2P encryption Key = 0x");
-           for (int i = 0 ; i < 16 ; i++) {
+           for (int i = 0 ; i < 8 ; i++) {
                Serial.printf("%02X", encrypt_buff[i]);
            }
 	   Serial.println("");
@@ -4143,15 +4028,15 @@ channel mask
 	 *	api.lorawan.enckey.set(buff, len)
 	 *
          * @param       buff	the buffer to set encryption key
-         * @param       len	the length of encryption key(must be 16 bytes)
+         * @param       len	the length of encryption key(must be 8 bytes)
    * @return	bool
 	 * @retval	TRUE for setting encryption key success
 	 * @retval	FALSE for setting encryption failure
 	 * @par         Example
          * @verbatim
        long startTime;
-       char * node_encrypt_key = "aaaabbbbccccdddd";
-       uint8_t encrypt_buff[16];
+       uint8_t node_encrypt_key[8] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08};
+       uint8_t encrypt_buff[8];
        
        void setup()
        {
@@ -4168,13 +4053,13 @@ channel mask
            Serial.printf("Set P2P mode preamble length %s\r\n", api.lorawan.ppl.set(8) ? "Success" : "Fail");
            Serial.printf("Set P2P mode tx power %s\r\n", api.lorawan.ptp.set(22) ? "Success" : "Fail");
 	   Serial.printf("Set P2P mode encryption status %s\r\n", api.lorawan.encry.set(1) ? "Success" : "Fail");
-	   Serial.printf("Set P2P mode encryption Key %s\r\n\r\n", api.lorawan.enckey.set((uint8_t *)node_encrypt_key, 16) ? "Success" : "Fail");
+	   Serial.printf("Set P2P mode encryption Key %s\r\n\r\n", api.lorawan.enckey.set(node_encrypt_key, 8) ? "Success" : "Fail");
 	   
            Serial.printf("P2P encryption status = %s\r\n", api.lorawan.encry.get() ? "Enbale" : "Disable");
 
-	   api.lorawan.enckey.get(encrypt_buff, 16);
+	   api.lorawan.enckey.get(encrypt_buff, 8);
 	   Serial.printf("P2P encryption Key = 0x");
-           for (int i = 0 ; i < 16 ; i++) {
+           for (int i = 0 ; i < 8 ; i++) {
                Serial.printf("%02X", encrypt_buff[i]);
            }
 	   Serial.println("");
@@ -4205,168 +4090,9 @@ channel mask
 	 */
     bool set(uint8_t *buff, uint32_t len);
   };
-  class enciv
-  {
-    public:
-        /**@par Description
-     *      This api allows to get the IV of P2P mode encryption
-     *
-     * @par Syntax
-     *  api.lorawan.enciv.get(buff, len)
-     *
-         * @param       buff    the buffer to store encryption IV
-         * @param       len the length of encryption IV(must be 16 bytes)
-   * @return    bool
-     * @retval  TRUE for getting encryption IV success
-     * @retval  FALSE for getting encryption IV failure
-     * @par         Example
-         * @verbatim
-       long startTime;
-       char * node_encrypt_key = "aaaabbbbccccdddd";
-       char * node_encrypt_IV = "ddddccccbbbbaaaa";
-       uint8_t encrypt_buff[16];
-
-       void setup()
-       {
-           Serial.begin(115200);
-           startTime = millis();
-
-           Serial.println("P2P Start");
-
-           Serial.printf("Set Node device work mode %s\r\n", api.lorawan.nwm.set(0) ? "Success" : "Fail");
-           Serial.printf("Set P2P mode frequency %s\r\n", api.lorawan.pfreq.set(868000000) ? "Success" : "Fail");
-           Serial.printf("Set P2P mode spreading factor %s\r\n", api.lorawan.psf.set(12) ? "Success" : "Fail");
-           Serial.printf("Set P2P mode bandwidth %s\r\n", api.lorawan.pbw.set(125) ? "Success" : "Fail");
-           Serial.printf("Set P2P mode code rate %s\r\n", api.lorawan.pcr.set(0) ? "Success" : "Fail");
-           Serial.printf("Set P2P mode preamble length %s\r\n", api.lorawan.ppl.set(8) ? "Success" : "Fail");
-           Serial.printf("Set P2P mode tx power %s\r\n", api.lorawan.ptp.set(22) ? "Success" : "Fail");
-           Serial.printf("Set P2P mode encryption status %s\r\n", api.lorawan.encry.set(1) ? "Success" : "Fail");
-           Serial.printf("Set P2P mode encryption Key %s\r\n\r\n", api.lorawan.enckey.set((uint8_t *)node_encrypt_key, 16) ? "Success" : "Fail");
-           Serial.printf("Set P2P mode encryption IV %s\r\n\r\n", api.lorawan.enckey.set((uint8_t *)node_encrypt_IV, 16) ? "Success" : "Fail");
-
-           Serial.printf("P2P encryption status = %s\r\n", api.lorawan.encry.get() ? "Enbale" : "Disable");
-           api.lorawan.enckey.get(encrypt_buff, 16);
-       Serial.printf("P2P encryption Key = 0x");
-           for (int i = 0 ; i < 16 ; i++) {
-               Serial.printf("%02X", encrypt_buff[i]);
-           }
-       Serial.println("");
-            api.lorawan.enciv.get(encrypt_buff, 16);
-       Serial.printf("P2P encryption IV = 0x");
-           for (int i = 0 ; i < 16 ; i++) {
-               Serial.printf("%02X", encrypt_buff[i]);
-           }
-       Serial.println("");
-
-
-           randomSeed(millis());
-       }
-
-       void loop()
-       {
-           uint8_t payload[] = "payload";
-
-           int rxDelay = random(3000, 5000);
-
-           // Receive P2P data every 10 seconds
-           if(millis() - startTime >= 10*1000) {
-             Serial.printf("P2P Rx start for %d millisSconds\r\n", rxDelay);
-             startTime = millis();
-             Serial.printf("P2P set Rx mode %s\r\n",api.lorawan.precv(rxDelay) ? "Success" : "Fail");
-             delay(rxDelay);
-           } else {
-
-             Serial.printf("P2P send %s\r\n", api.lorawan.psend(sizeof(payload), payload)? "Success" : "Fail");
-             delay(1000);
-           }
-
-       }
-         @endverbatim
-     */
-
-      bool get(uint8_t *buff, uint32_t len);
-   /**@par Description
-     *      This api allows to set the IV of P2P mode encryption
-     *
-     * @par Syntax
-     *  api.lorawan.enciv.set(buff, len)
-     *
-         * @param       buff    the buffer to set encryption IV
-         * @param       len the length of encryption IV(must be 16 bytes)
-   * @return    bool
-     * @retval  TRUE for setting encryption IV success
-     * @retval  FALSE for setting encryption failure
-     * @par         Example
-         * @verbatim
-       long startTime;
-       char * node_encrypt_key = "aaaabbbbccccdddd";
-       char * node_encrypt_IV = "ddddccccbbbbaaaa";
-       uint8_t encrypt_buff[16];
-
-       void setup()
-       {
-           Serial.begin(115200);
-           startTime = millis();
-
-           Serial.println("P2P Start");
-
-           Serial.printf("Set Node device work mode %s\r\n", api.lorawan.nwm.set(0) ? "Success" : "Fail");
-           Serial.printf("Set P2P mode frequency %s\r\n", api.lorawan.pfreq.set(868000000) ? "Success" : "Fail");
-           Serial.printf("Set P2P mode spreading factor %s\r\n", api.lorawan.psf.set(12) ? "Success" : "Fail");
-           Serial.printf("Set P2P mode bandwidth %s\r\n", api.lorawan.pbw.set(125) ? "Success" : "Fail");
-           Serial.printf("Set P2P mode code rate %s\r\n", api.lorawan.pcr.set(0) ? "Success" : "Fail");
-           Serial.printf("Set P2P mode preamble length %s\r\n", api.lorawan.ppl.set(8) ? "Success" : "Fail");
-           Serial.printf("Set P2P mode tx power %s\r\n", api.lorawan.ptp.set(22) ? "Success" : "Fail");
-           Serial.printf("Set P2P mode encryption status %s\r\n", api.lorawan.encry.set(1) ? "Success" : "Fail");
-           Serial.printf("Set P2P mode encryption Key %s\r\n\r\n", api.lorawan.enckey.set((uint8_t *)node_encrypt_key, 16) ? "Success" : "Fail");
-           Serial.printf("Set P2P mode encryption IV %s\r\n\r\n", api.lorawan.enckey.set((uint8_t *)node_encrypt_IV, 16) ? "Success" : "Fail");
-
-           Serial.printf("P2P encryption status = %s\r\n", api.lorawan.encry.get() ? "Enbale" : "Disable");
-           api.lorawan.enckey.get(encrypt_buff, 16);
-       Serial.printf("P2P encryption Key = 0x");
-           for (int i = 0 ; i < 16 ; i++) {
-               Serial.printf("%02X", encrypt_buff[i]);
-           }
-       Serial.println("");
-            api.lorawan.enciv.get(encrypt_buff, 16);
-       Serial.printf("P2P encryption IV = 0x");
-           for (int i = 0 ; i < 16 ; i++) {
-               Serial.printf("%02X", encrypt_buff[i]);
-           }
-       Serial.println("");
-
-
-           randomSeed(millis());
-       }
-
-       void loop()
-       {
-           uint8_t payload[] = "payload";
-
-           int rxDelay = random(3000, 5000);
-
-           // Receive P2P data every 10 seconds
-           if(millis() - startTime >= 10*1000) {
-             Serial.printf("P2P Rx start for %d millisSconds\r\n", rxDelay);
-             startTime = millis();
-             Serial.printf("P2P set Rx mode %s\r\n",api.lorawan.precv(rxDelay) ? "Success" : "Fail");
-             delay(rxDelay);
-           } else {
-
-             Serial.printf("P2P send %s\r\n", api.lorawan.psend(sizeof(payload), payload)? "Success" : "Fail");
-             delay(1000);
-           }
-
-       }
-         @endverbatim
-     */
-
-      bool set(uint8_t *buff, uint32_t len);
-  };
 
   encry encry;
   enckey enckey;
-  enciv  enciv;
 
   /**@par	Description
      *		This api configures the P2P FSK modem bitrate (600b/s-307200b/s)

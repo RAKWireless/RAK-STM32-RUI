@@ -37,30 +37,9 @@ void recvCallback(SERVICE_LORA_RECEIVE_T * data)
     }
 }
 
-/*************************************
- * enum type for LoRa Event
-    RAK_LORAMAC_STATUS_OK = 0,
-    RAK_LORAMAC_STATUS_ERROR,
-    RAK_LORAMAC_STATUS_TX_TIMEOUT,
-    RAK_LORAMAC_STATUS_RX1_TIMEOUT,
-    RAK_LORAMAC_STATUS_RX2_TIMEOUT,
-    RAK_LORAMAC_STATUS_RX1_ERROR,
-    RAK_LORAMAC_STATUS_RX2_ERROR,
-    RAK_LORAMAC_STATUS_JOIN_FAIL,
-    RAK_LORAMAC_STATUS_DOWNLINK_REPEATED,
-    RAK_LORAMAC_STATUS_TX_DR_PAYLOAD_SIZE_ERROR,
-    RAK_LORAMAC_STATUS_DOWNLINK_TOO_MANY_FRAMES_LOSS,
-    RAK_LORAMAC_STATUS_ADDRESS_FAIL,
-    RAK_LORAMAC_STATUS_MIC_FAIL,
-    RAK_LORAMAC_STATUS_MULTICAST_FAIL,
-    RAK_LORAMAC_STATUS_BEACON_LOCKED,
-    RAK_LORAMAC_STATUS_BEACON_LOST,
-    RAK_LORAMAC_STATUS_BEACON_NOT_FOUND,
- *************************************/
-
 void sendCallback(int32_t status)
 {
-    if (status == RAK_LORAMAC_STATUS_OK) {
+    if (status == 0) {
         Serial.println("Successfully sent");
     } else {
         Serial.println("Sending failed");
@@ -70,7 +49,6 @@ void sendCallback(int32_t status)
 void setup()
 {
     Serial.begin(115200, RAK_AT_MODE);
-    delay(2000);
   
     Serial.println("RAKwireless LoRaWan ABP Example");
     Serial.println("------------------------------------------------------");
@@ -89,11 +67,6 @@ void setup()
     // ABP Network Session Key
     uint8_t node_nwk_skey[16] = ABP_NWKSKEY;
   
-    if (!api.lorawan.njm.set(RAK_LORA_ABP))	// Set the network join mode to ABP
-    {
-        Serial.printf("LoRaWan ABP - set network join mode is incorrect! \r\n");
-        return;
-    }
     if (!api.lorawan.daddr.set(node_dev_addr, 4)) {
         Serial.printf("LoRaWan ABP - set device addr is incorrect! \r\n");
         return;
@@ -112,6 +85,11 @@ void setup()
     }
     if (!api.lorawan.deviceClass.set(RAK_LORA_CLASS_A)) {
         Serial.printf("LoRaWan ABP - set device class is incorrect! \r\n");
+        return;
+    }
+    if (!api.lorawan.njm.set(RAK_LORA_ABP))	// Set the network join mode to ABP
+    {
+        Serial.printf("LoRaWan ABP - set network join mode is incorrect! \r\n");
         return;
     }
   

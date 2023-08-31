@@ -29,7 +29,6 @@ CHANGE_ATCMD_PERM("AT+ALIAS", RAK_ATCMD_PERM_READ | RAK_ATCMD_PERM_WRITE);
 void setup()
 {
     Serial.begin(115200);
-    delay(2000);
     Serial.println("RAKwireless AT Command Permission Example");
     Serial.println("------------------------------------------------------");
 }

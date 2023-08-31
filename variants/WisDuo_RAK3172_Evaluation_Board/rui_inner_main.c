@@ -77,15 +77,13 @@ void SystemClock_Config(void)
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
   /** Initializes the CPU, AHB and APB busses clocks
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSE | RCC_OSCILLATORTYPE_LSI | RCC_OSCILLATORTYPE_MSI | RCC_OSCILLATORTYPE_HSI;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSE | RCC_OSCILLATORTYPE_MSI | RCC_OSCILLATORTYPE_HSI;
   RCC_OscInitStruct.LSEState = RCC_LSE_ON;
   RCC_OscInitStruct.MSIState = RCC_MSI_ON;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.MSICalibrationValue = 0x02;
+  RCC_OscInitStruct.MSICalibrationValue = RCC_MSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_11;
-  RCC_OscInitStruct.LSIDiv = RCC_LSI_DIV1;
-  RCC_OscInitStruct.LSIState = RCC_LSI_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
@@ -151,13 +149,11 @@ void rui_event_handler_func(void *data, uint16_t size) {
                 }
 #endif
 #endif
-#ifdef SUPPORT_BINARY
                 case SERVICE_MODE_TYPE_PROTOCOL:
                 {
                     service_mode_proto_deinit(port);
                     break;
                 }
-#endif
                 default:
                 {
                     break;
@@ -193,13 +189,11 @@ void rui_event_handler_func(void *data, uint16_t size) {
                         }
 #endif
 #endif
-#ifdef SUPPORT_BINARY
                         case SERVICE_MODE_TYPE_PROTOCOL:
                         {
                             service_mode_proto_recv(SERIAL_UART0, Buf[0]);
                             break;
                         }
-#endif
                         default:
                         {
                             break;
@@ -231,13 +225,11 @@ void rui_event_handler_func(void *data, uint16_t size) {
                         }
 #endif
 #endif
-#ifdef SUPPORT_BINARY
                         case SERVICE_MODE_TYPE_PROTOCOL:
                         {
                             service_mode_proto_recv(SERIAL_UART1, Buf[0]);
                             break;
                         }
-#endif
                         default:
                         {
                             break;
@@ -269,13 +261,11 @@ void rui_event_handler_func(void *data, uint16_t size) {
                         }
 #endif
 #endif
-#ifdef SUPPORT_BINARY
                         case SERVICE_MODE_TYPE_PROTOCOL:
                         {
                             service_mode_proto_recv(SERIAL_UART2, Buf[0]);
                             break;
                         }
-#endif
                         default:
                         {
                             break;
@@ -357,13 +347,12 @@ void rui_init(void)
     }
 #endif
 #endif
-#ifdef SUPPORT_BINARY
     for (int i = 0 ; i < SERIAL_MAX ; i++) {
         if (service_nvm_get_mode_type_from_nvm((SERIAL_PORT)i) == SERVICE_MODE_TYPE_PROTOCOL) {
             service_mode_proto_init((SERIAL_PORT)i);
         }
     }
-#endif
+
 #ifdef SUPPORT_WDT
     is_custom_wdt = false;
 #endif

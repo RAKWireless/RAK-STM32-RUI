@@ -102,7 +102,6 @@
  * | Command            | Input parameter    | Return value                                                      | Return code        |
  * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
  * | AT+PRECV?          | --                 | AT+PRECV: enter P2P RX mode for a period of time (ms)             | OK                 |
- * | AT+PRECV=?         | --                 | P2P_RX_OFF or P2P_RX_ON                                           | OK                 |
  * | AT+PRECV=<integer> | <integer>          | --                                                                | OK                 |
  * | Example<br>AT+PRECV=| 5000              | --                                                                | OK                 |
  *
@@ -138,17 +137,16 @@
  * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
  * | AT+P2P?            | --                 | AT+P2P: get or set all P2P parameters                             | OK                 |
  * | AT+P2P=?           | --                 | \<freq\>,\<sf\>,\<bw\>,\<cr\>,\<preamble length\>,\<txp\>         | OK                 |
- * | AT+P2P=            | \<freq\>,\<sf\>,\<bw\>,\<cr\>,\<preamble length\>,\<txp\>,\<Runtime Setting\>    |                      | OK                 |
- * | Example<br>AT+P2P= | 868500000,12,0,0,10,22<br>868500000,8,250,2,24,20:1       | --                                                 | OK                 |
- * | Example<br>AT+P2P=?| --                 | 868000000,7,0,0,8,14                                            | OK                 |
+ * | AT+P2P=            | \<freq\>,\<sf\>,\<bw\>,\<cr\>,\<preamble length\>,\<txp\>       |                      | OK                 |
+ * | Example<br>AT+P2P= | 868500000,12,125,0,65535,20       | --                                                 | OK                 |
+ * | Example<br>AT+P2P=?| --                 | 868000000,7,125,0,8,14                                            | OK                 |
  *
  * Freq: 150000000-960000000<br>
  * SF: 6,7,8,9,10,11,12<br>
  * Bandwidth: 0 = 125,1 = 250,2 = 500,3 = 7.8,4 = 10.4,5 = 15.63,6 = 20.83,7 = 31.25,8 = 41.67,9 = 62.5<br>
  * CR: 0 = 4/5, 1 = 4/6, 2 = 4/7, 3 = 4/8<br>
- * Preamble Length: 5-65535<br>
+ * Preamble Length: 2-65535<br>
  * TX Power = 5-22<br>
- * Runtime Setting = 0-1. Optional. When Runtime Setting is 1, the configure will not store in Flash memory.<br>
  *
  * @subsection ATCMD_p2p_13 AT+PBR: get or set the P2P FSK modem bitrate (600b/s-300000b/s)
  *
@@ -296,43 +294,15 @@
  *  
  * @subsection ATCMD_p2p_26 AT+ENCKEY: P2P encryption key 
  *
- * This command allows the user to get or set  the encryption key of P2P mode (16 bytes in hex)
+ * This command allows the user to get or set  the encryption key of P2P mode (8 bytes in hex)
  *
  * | Command            | Input parameter    | Return value                                                      | Return code        |
  * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
- * | AT+ENCKEY?              | --                | AT+ENCKEY: get or set  the encryption key of P2P mode (16 bytes in hex)      | OK                 |
- * | AT+ENCKEY=?             | --                | \<16 hex\>                                                     | OK                 |
- * | AT+ENCKEY=\<Param\>     |\<16 hex\>          | --                                                            | OK                 |
+ * | AT+ENCKEY?              | --                | AT+ENCKEY: get or set  the encryption key of P2P mode (8 bytes in hex)      | OK                 |
+ * | AT+ENCKEY=?             | --                | \<8 hex\>                                                     | OK                 |
+ * | AT+ENCKEY=\<Param\>     |\<8 hex\>          | --                                                            | OK                 |
  * | Example<br>AT+ENCKEY=   |  0011223344556677 | --                                                            | OK                 |
  * | Example<br>AT+ENCKEY=?  | --                | 0011223344556677                                              | OK                 |                                              
- *
- *
- * @subsection ATCMD_p2p_27 AT+CRYPIV: P2P encryption IV
- *
- * This command allows the user to get or set  the encryption IV of P2P mode (16 bytes in hex)
- *
- * | Command            | Input parameter    | Return value                                                      | Return code        |
- * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
- * | AT+CRYPIV?              | --                | AT+CRYPIV: get or set  the encryption key of P2P mode (16 bytes in hex)      | OK                 |
- * | AT+CRYPIV=?             | --                | \<16 hex\>                                                     | OK                 |
- * | AT+CRYPIV=\<Param\>     |\<16 hex\>          | --                                                            | OK                 |
- * | Example<br>AT+CRYPIV=   |  0011223344556677 | --                                                            | OK                 |
- * | Example<br>AT+CRYPIV=?  | --                | 0011223344556677                                              | OK                 |
- *
- *
- * @subsection ATCMD_p2p_28 AT+CAD: P2P Channel Activity Detection
- *
- * This command allows the user to get or set  the Channel Activity Detection of P2P mode 
- *
- * | Command            | Input parameter    | Return value                                                      | Return code        |
- * |:------------------:|:------------------:|:------------------------------------------------------------------|:------------------:|
- * | AT+CAD?              | --                | AT+CAD: get or set  the Channel Activity Detection of P2P mode ( 1 = on, 0 = off) | OK                 |
- * | AT+CAD=?             | --                | \<0 or 1\>                                                                | OK                 |
- * | AT+CAD=\<Param\>     |\<16 hex\>         | --                                                                        | OK                 |
- * | Example<br>AT+CAD=   |\<0 or 1\>         | --                                                                        | OK                 |
- * | Example<br>AT+CAD=?  | --                | 0                                                                         | OK                 |
- *
- *
  *
  */
 
@@ -342,22 +312,20 @@
 #define _ATCMD_P2P_DEF_H_
 
 //### following AT CMD, has doc ###
-#define ATCMD_NWM               "AT+NWM"
-#define ATCMD_PFREQ             "AT+PFREQ"
-#define ATCMD_PSF               "AT+PSF"
-#define ATCMD_PBW               "AT+PBW"
-#define ATCMD_PCR               "AT+PCR"
-#define ATCMD_PPL               "AT+PPL"
-#define ATCMD_PTP               "AT+PTP"
-#define ATCMD_PSEND             "AT+PSEND"
-#define ATCMD_PRECV             "AT+PRECV"
-#define ATCMD_PCRYPT            "AT+ENCRY"
-#define ATCMD_PCAD               "AT+CAD"
-#define ATCMD_PKEY              "AT+ENCKEY"
-#define ATCMD_PIV               "AT+CRYPIV"
-#define ATCMD_P2P               "AT+P2P"
-#define ATCMD_PBR               "AT+PBR"
-#define ATCMD_PFDEV             "AT+PFDEV"             
+#define ATCMD_NWM             "AT+NWM"
+#define ATCMD_PFREQ           "AT+PFREQ"
+#define ATCMD_PSF             "AT+PSF"
+#define ATCMD_PBW             "AT+PBW"
+#define ATCMD_PCR             "AT+PCR"
+#define ATCMD_PPL             "AT+PPL"
+#define ATCMD_PTP             "AT+PTP"
+#define ATCMD_PSEND           "AT+PSEND"
+#define ATCMD_PRECV           "AT+PRECV"
+#define ATCMD_PCRYPT          "AT+ENCRY"
+#define ATCMD_PKEY            "AT+ENCKEY"
+#define ATCMD_P2P             "AT+P2P"
+#define ATCMD_PBR             "AT+PBR"
+#define ATCMD_PFDEV           "AT+PFDEV"             
 #define ATCMD_IQINVER           "AT+IQINVER"
 #define ATCMD_SYNCWORD          "AT+SYNCWORD"
 #define ATCMD_RFFREQUENCY       "AT+RFFREQUENCY"

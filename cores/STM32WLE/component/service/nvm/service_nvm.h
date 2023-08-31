@@ -135,11 +135,6 @@ typedef struct {
     uint32_t lbt_scantime;
 #endif
     uint8_t auto_sleep_level;
-#ifdef SUPPORT_LORA
-    uint8_t crypt_key16[16];
-    uint8_t crypt_IV[16];
-    uint8_t CAD;
-#endif
 }rui_cfg_t_ex; //add new config here in sequence 
 
 typedef struct {
@@ -175,7 +170,6 @@ void service_nvm_init_config(void);
 
 int32_t service_nvm_set_default_config_to_nvm(void);
 
-int32_t service_nvm_set_cfg_to_nvm(void);
 /***********************************************************/
 /* RUI Mode                                                */
 /***********************************************************/
@@ -400,10 +394,6 @@ int32_t service_nvm_get_crypt_key_from_nvm (uint8_t *buff, uint32_t len);
 
 int32_t service_nvm_set_crypt_key_to_nvm (uint8_t *buff, uint32_t len);
 
-int32_t service_nvm_get_crypt_IV_from_nvm (uint8_t *buff, uint32_t len);
-
-int32_t service_nvm_set_crypt_IV_to_nvm (uint8_t *buff, uint32_t len);
-
 McSession_t *service_nvm_get_multicast_from_nvm(void);
 
 int32_t service_nvm_set_multicast_to_nvm(McSession_t *McSession);
@@ -467,11 +457,6 @@ int32_t service_nvm_set_lbt_rssi_to_nvm(int16_t rssi);
 uint32_t service_nvm_get_lbt_scantime_from_nvm();
 
 int32_t service_nvm_set_lbt_scantime_to_nvm(uint32_t time);
-
-int32_t service_nvm_get_CAD_from_nvm(void);
-
-int32_t service_nvm_set_CAD_to_nvm(uint8_t enable);
-
 
 #endif
 
