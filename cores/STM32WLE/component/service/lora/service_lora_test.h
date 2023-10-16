@@ -1,7 +1,7 @@
 #ifndef __SERVICE_LORA_TEST_H__
 #define __SERVICE_LORA_TEST_H__
 
-#ifdef SUPPORT_LORA
+#ifndef NO_LORA_SUPPORT
 
 #ifdef __cplusplus
 extern "C" {

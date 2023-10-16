@@ -9,7 +9,7 @@
 #ifndef __SERVICE_LORA_P2P_H__
 #define __SERVICE_LORA_P2P_H__
 
-#ifdef SUPPORT_LORA
+#ifndef NO_LORA_SUPPORT
 
 #ifdef __cplusplus
 extern "C" {
@@ -18,7 +18,7 @@ extern "C" {
 #include <stdint.h>
 #include <stdbool.h>
 #include "pin_define.h"
-
+#include "service_lora.h"
 
 //#define P2P_DEBUG_ENABLE
 #ifdef P2P_DEBUG_ENABLE
@@ -52,7 +52,8 @@ typedef enum
 #elif defined rak11720
     #define LORA_CHIP_SX126X
 #elif defined rak3172 \
-      || defined rak3172-sip
+      || defined rak3172-sip \
+      || defined rak3172T
     #define LORA_CHIP_STM32WLE5XX
 #endif
 
@@ -82,6 +83,7 @@ typedef struct {
     bool isContinue;
     bool isContinue_no_exit;
     bool isContinue_compatible_tx;
+    volatile bool isCAD;
 }LORA_P2P_STATUS_ST;
 
 typedef struct rui_lora_p2p_revc
@@ -107,12 +109,17 @@ typedef struct rui_lora_p2p_revc
 
 typedef void(*service_lora_p2p_send_cb_type)(void);
 typedef void(*service_lora_p2p_recv_cb_type)(rui_lora_p2p_recv_t recv_data_pkg);
+typedef void(*service_lora_p2p_send_CAD_cb_type)(bool);
+
+SERVICE_LORA_WORK_MODE service_lora_p2p_get_nwm(void);
+
+int32_t service_lora_set_nwm(SERVICE_LORA_WORK_MODE nwm);
 
 int32_t service_lora_p2p_init(void);
 
 int32_t service_lora_p2p_config(void);
 
-int32_t service_lora_p2p_send(uint8_t *p_data, uint8_t len);
+int32_t service_lora_p2p_send(uint8_t *p_data, uint8_t len, bool cad_enable);
 
 int32_t service_lora_p2p_recv(uint32_t timeout);
 
@@ -120,25 +127,37 @@ uint32_t service_lora_p2p_get_freq (void);;
 
 int32_t service_lora_p2p_set_freq (uint32_t freq);
 
+int32_t service_lora_p2p_check_runtime_freq(uint32_t freq);
+
 uint8_t service_lora_p2p_get_sf (void);
 
 int32_t service_lora_p2p_set_sf (uint8_t spreadfact);
+
+int32_t service_lora_p2p_check_runtime_sf(uint8_t spreadfact);
 
 uint32_t service_lora_p2p_get_bandwidth (void);
 
 int32_t service_lora_p2p_set_bandwidth (uint32_t bandwidth);
 
+int32_t service_lora_p2p_check_runtime_bandwidth(uint32_t bandwidth);
+
 uint8_t service_lora_p2p_get_codingrate (void);
 
 int32_t service_lora_p2p_set_codingrate (uint8_t codingrate);
+
+int32_t service_lora_p2p_check_runtime_codingrate(uint8_t codingrate);
 
 uint16_t service_lora_p2p_get_preamlen (void);
 
 int32_t service_lora_p2p_set_preamlen (uint16_t preamlen);
 
+int32_t service_lora_p2p_check_runtime_preamlen(uint16_t preamlen);
+
 uint8_t service_lora_p2p_get_powerdbm (void);
 
 int32_t service_lora_p2p_set_powerdbm (uint8_t powerdbm);
+
+int32_t service_lora_p2p_check_runtime_powerdbm(uint8_t powerdbm);
 
 bool service_lora_p2p_get_crypto_enable(void);
 
@@ -147,6 +166,10 @@ int32_t service_lora_p2p_set_crypto_enable(bool enable);
 int32_t service_lora_p2p_get_crypto_key (uint8_t *buff, uint32_t len);
 
 int32_t service_lora_p2p_set_crypto_key (uint8_t *buff, uint32_t len);
+
+int32_t service_lora_p2p_get_crypto_IV (uint8_t *buff, uint32_t len);
+
+int32_t service_lora_p2p_set_crypto_IV (uint8_t *buff, uint32_t len);
 
 uint32_t service_lora_p2p_get_fdev(void);
 
@@ -161,6 +184,8 @@ int32_t service_lora_p2p_encrpty(uint8_t *indata, uint16_t inlen,uint8_t *outdat
 int32_t service_lora_p2p_decrpty(uint8_t *indata,uint16_t inlen ,uint8_t *outdata );
 
 int32_t service_lora_p2p_register_send_cb(service_lora_p2p_send_cb_type callback);
+
+int32_t service_lora_p2p_register_send_CAD_cb(service_lora_p2p_send_CAD_cb_type callback);
 
 int32_t service_lora_p2p_register_recv_cb(service_lora_p2p_recv_cb_type callback);
 
@@ -183,6 +208,13 @@ int32_t service_lora_p2p_set_fix_length_payload(bool enable);
 uint16_t service_lora_p2p_get_syncword(void);
 
 int32_t service_lora_p2p_set_syncword( uint16_t syncword );
+
+bool service_lora_p2p_get_CAD(void);
+
+int32_t service_lora_p2p_set_CAD(bool enable);
+
+bool service_lora_p2p_get_radio_stat(void);
+
 
 #ifdef __cplusplus
 }

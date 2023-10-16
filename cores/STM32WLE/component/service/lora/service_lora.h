@@ -9,7 +9,7 @@
 #ifndef __SERVICE_LORA_H__
 #define __SERVICE_LORA_H__
 
-#ifdef SUPPORT_LORA
+#ifndef NO_LORA_SUPPORT
 
 #ifdef __cplusplus
 extern "C"
@@ -274,6 +274,7 @@ extern "C"
     SERVICE_LORA_US915_HYBRID = LORAMAC_REGION_US915_HYBRID,
 #endif
 
+    SERVICE_LORA_LA915 = LORAMAC_REGION_LA915,
     /*
      * 10 - 19  Reserved for lorawan protocol stack ,after 20 used by RAK 
      */
@@ -296,12 +297,9 @@ extern "C"
 
     int32_t service_lora_set_band(SERVICE_LORA_BAND band);
 
-#if defined(REGION_CN470) || defined(REGION_US915) || \
-    defined(REGION_AU915)
     int32_t service_lora_get_mask(uint16_t *mask);
 
     int32_t service_lora_set_mask(uint16_t *mask, bool commit);
-#endif
 
     int32_t service_lora_get_app_eui(uint8_t *buff, uint32_t len);
 
@@ -489,6 +487,7 @@ extern "C"
     int32_t service_lora_set_lbt_rssi(int16_t rssi);
     uint32_t service_lora_get_lbt_scantime();
     int32_t service_lora_set_lbt_scantime(uint32_t time);
+    bool service_lora_isbusy(void);
 
 #ifdef __cplusplus
 }

@@ -1,7 +1,7 @@
 #ifndef __RAK_LORA_H__
 #define __RAK_LORA_H__
 
-#ifdef SUPPORT_LORA
+#ifdef SUPPORT_LORA_P2P
 
 #include <cstdint>
 #include "WString.h"
@@ -642,7 +642,68 @@ public:
 	 */
     bool set(bool enable);
   };
+  class cad
+  {
+    public:
+        /**@par Description
+     *      This api allows the user to get the Channel Activity Detection status
+     *
+     * @par Syntax
+     *  api.lora.cad.get();
+   * @return    Channel Activity Detection status(Type: bool)
+     * @par         Example
+         * @verbatim
+       void setup()
+       {
+           Serial.begin(115200);
 
+           Serial.printf("Set Node device work mode %s\r\n", api.lorawan.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set P2P mode fix Length payload %s\r\n", api.lora.cad.set(true) ? "Success" : "Fail");
+       }
+
+       void loop()
+       {
+           Serial.printf("P2P mode fix Length payload switch = %s\r\n", api.lora.cad.get()?"true":"false");
+
+           delay(1000);
+       }
+
+           @endverbatim
+
+     */
+    bool get();
+    /**@par Description
+     *      This api allows the user to set the Channel Activity Detection status
+     *
+     * @par Syntax
+     *  api.lora.cad.set();
+     * @param   value   Channel Activity Detection status(bool)
+   * @return    bool
+     * @retval  TRUE for setting P2P Channel Activity Detection success
+     * @retval  FALSE for setting P2P Channel Activity Detection failure
+     * @par         Example
+         * @verbatim
+       void setup()
+       {
+           Serial.begin(115200);
+
+           Serial.printf("Set Node device work mode %s\r\n", api.lorawan.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set P2P mode fix Length payload %s\r\n", api.lora.cad.set(true) ? "Success" : "Fail");
+       }
+
+       void loop()
+       {
+           Serial.printf("P2P mode fix Length payload switch = %s\r\n", api.lora.cad.get()?"true":"false");
+
+           delay(1000);
+       }
+
+           @endverbatim
+
+     */
+
+    bool set(bool enable);
+  };
   iqInver iqInver;
   syncword syncword;
   rfFrequency rfFrequency;
@@ -653,6 +714,7 @@ public:
   preambleLength preambleLength;
   symbolTimeout symbolTimeout;
   fixLengthPayload fixLengthPayload;
+  cad cad;
 
 };
 

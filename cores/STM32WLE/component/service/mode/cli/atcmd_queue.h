@@ -18,20 +18,20 @@ typedef struct
 #define CONCAT_2(p1, p2)      CONCAT(p1, p2)
 #define CONCAT(p1, p2)     p1##p2
 
-#define str_(s) #s
-#define strq(s) str_(s)
+#define STRINGIFY_(s) #s
+#define STRINGIFY(s) STRINGIFY_(s)
 
 #if defined(__CC_ARM)
 #define ATCMD_ITEM(section_name, section_var) \
-    section_var __attribute__ ((section(strq(section_name)))) __attribute__((used))
+    section_var __attribute__ ((section(STRINGIFY(section_name)))) __attribute__((used))
 
 #elif defined(__GNUC__)
 #define ATCMD_ITEM(section_name, section_var) \
-    section_var __attribute__ ((section("." strq(section_name)))) __attribute__((used))
+    section_var __attribute__ ((section("." STRINGIFY(section_name)))) __attribute__((used))
 
 #elif defined(__ICCARM__)
 #define ATCMD_ITEM(section_name, section_var) \
-    __root section_var @ strq(section_name)
+    __root section_var @ STRINGIFY(section_name)
 #endif
 
 #if defined(__CC_ARM)
@@ -50,7 +50,7 @@ typedef struct
 
 #elif defined(__ICCARM__)
 #define ATCMD_SECTION_DEF(section_name, data_type)                \
-    _Pragma(strq(section = strq(section_name)));
+    _Pragma(STRINGIFY(section = STRINGIFY(section_name)));
 
 #endif
 

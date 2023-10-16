@@ -37,7 +37,7 @@ compiler.c.flags=-mcpu={build.mcu} -mthumb -c -g {compiler.warning_flags} {build
 compiler.c.elf.cmd=arm-none-eabi-gcc
 compiler.c.elf.flags={compiler.optimization_flag} -Wl,--gc-sections -save-temps
 compiler.S.cmd=arm-none-eabi-gcc
-compiler.S.flags=-c -g -x assembler-with-cpp
+compiler.S.flags=-c -g -x assembler-with-cpp {compiler.warning_flags}
 compiler.cpp.cmd=arm-none-eabi-g++
 compiler.cpp.flags=-mcpu={build.mcu} -mthumb -c -g {compiler.warning_flags} {build.float_flags} -std=gnu++11 -ffunction-sections -fdata-sections -fno-threadsafe-statics --param max-inline-insns-single=500 -fno-rtti -fno-exceptions -MMD
 compiler.ar.cmd=arm-none-eabi-ar
@@ -58,6 +58,18 @@ build.logger_flags=-DCFG_LOGGER=1
 build.sysview_flags=-DCFG_SYSVIEW=0
 build.support_at_flag=-DSUPPORT_AT
 build.variant_h=variant.h
+build.supportlora=
+build.supportlora_p2p=
+build.regionAS923=
+build.regionAU915=
+build.regionCN470=
+build.regionCN779=
+build.regionEU433=
+build.regionEU868=
+build.regionKR920=
+build.regionIN865=
+build.regionUS915=
+build.regionRU864=
 
 # common compiler for nrf
 #rtos.path={build.core.path}/freertos
@@ -67,7 +79,7 @@ lora.path={runtime.platform.path}/cores/{build.core}/external/lora
 
 # build.logger_flags and build.sysview_flags and intentionally empty,
 # to allow modification via a user's own boards.local.txt or platform.local.txt files.
-build.flags.default= {compiler.optimization_flag} {build.flags.feature} {build.debug_flags} {build.logger_flags} {build.sysview_flags} {build.flags.inc_path} {build.support_at_flag}
+build.flags.default= {compiler.optimization_flag} {build.flags.feature} {build.supportlora} {build.supportlora_p2p} {build.regionAS923} {build.regionAU915} {build.regionCN470} {build.regionCN779} {build.regionEU433} {build.regionEU868} {build.regionKR920} {build.regionIN865} {build.regionUS915} {build.regionRU864} {build.debug_flags} {build.logger_flags} {build.sysview_flags} {build.flags.inc_path} {build.support_at_flag}
 build.info.flags=-DVARIANT_H="{build.variant_h}"
 build.info.flags=-D{build.series}
 
@@ -158,4 +170,4 @@ tools.bootburn.bootloader.pattern={program.burn_pattern}
 tools.bootburn.erase.params.verbose=
 tools.bootburn.erase.params.quiet=
 tools.bootburn.erase.pattern=
-version=4.0.2
+version=4.0.7

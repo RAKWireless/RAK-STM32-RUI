@@ -44,6 +44,8 @@ volatile char LpuartDMAdoing = 0;
 FUND_CIRCULAR_QUEUE_INIT(uint8_t, SERIAL_UART1_rxq, 512);
 FUND_CIRCULAR_QUEUE_INIT(uint8_t, SERIAL_UART2_rxq, 512);
 
+static void (*ONEWIRE_HANDLER) (void *);
+
 #ifndef RUI_BOOTLOADER
 extern bool udrv_powersave_in_sleep;
 static udrv_system_event_t rui_uart_event = {.request = UDRV_SYS_EVT_OP_SERIAL_UART, .p_context = NULL};
@@ -139,10 +141,17 @@ SERIAL_PARITY_E parity, SERIAL_WIRE_MODE_E WireMode)
         huart1.Init.OverSampling = UART_OVERSAMPLING_16;
         huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
         huart1.Init.ClockPrescaler = UART_PRESCALER_DIV1;
-        huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
-        if (HAL_UART_Init(&huart1) != HAL_OK)
+        if(WireMode != SERIAL_TWO_WIRE_NORMAL_MODE)
         {
-            Error_Handler();
+            huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_SWAP_INIT;
+            huart1.AdvancedInit.Swap = UART_ADVFEATURE_SWAP_ENABLE;
+            if (HAL_HalfDuplex_Init(&huart1) != HAL_OK)
+                Error_Handler();
+        }
+        else{
+            huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+            if (HAL_UART_Init(&huart1) != HAL_OK)
+                Error_Handler();
         }
         if (HAL_UARTEx_SetTxFifoThreshold(&huart1, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)
         {
@@ -232,6 +241,11 @@ static void uart_deinit(SERIAL_PORT port)
     }
 }
 
+void uhal_uart_register_onewire_handler (SERIAL_CLI_HANDLER handler)
+{
+    ONEWIRE_HANDLER = handler;
+}
+
 void uhal_uart_register_cli_handler(SERIAL_CLI_HANDLER handler)
 {
     CLI_HANDLER = handler;
@@ -271,7 +285,15 @@ int32_t uhal_uart_write(SERIAL_PORT Port, uint8_t const *Buffer, int32_t NumberO
 {
     uint32_t err_code = HAL_OK;
     if (Port == SERIAL_UART1) {
-        err_code = HAL_UART_Transmit(&huart1, Buffer, NumberOfBytes, Timeout);
+        
+        if(uart_wire_mode[Port] == SERIAL_ONE_WIRE_TX_PIN_MODE || uart_wire_mode[Port] == SERIAL_ONE_WIRE_RX_PIN_MODE)
+        {
+            HAL_HalfDuplex_EnableTransmitter(&huart1);
+            err_code = HAL_UART_Transmit(&huart1, Buffer, NumberOfBytes, Timeout);
+            HAL_HalfDuplex_EnableReceiver(&huart1);
+        }
+        else
+            err_code = HAL_UART_Transmit(&huart1, Buffer, NumberOfBytes, Timeout);
     } else if (Port == SERIAL_UART2)
     {
         err_code = HAL_UART_Transmit(&hlpuart1, Buffer , NumberOfBytes,Timeout);
@@ -312,6 +334,11 @@ int32_t uhal_uart_peek(SERIAL_PORT Port)
 
 void uhal_uart_flush(SERIAL_PORT Port, uint32_t Timeout)
 {
+    if (Port == SERIAL_UART1) {
+        fund_circular_queue_reset(&SERIAL_UART1_rxq);
+    } else if (Port == SERIAL_UART2) {
+        fund_circular_queue_reset(&SERIAL_UART2_rxq);
+    }
 }
 
 int32_t uhal_uart_read_available(SERIAL_PORT Port)
@@ -505,7 +532,6 @@ void UserDataTreatment(UART_HandleTypeDef *huart, uint8_t* pData, uint16_t Size)
   }
 
 }
-
 
 void HAL_UARTEx_WakeupCallback(UART_HandleTypeDef *huart)
 {

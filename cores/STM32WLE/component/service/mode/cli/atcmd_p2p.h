@@ -22,7 +22,11 @@ int At_P2pRecv (SERIAL_PORT port, char *cmd, stParam *param);
 
 int At_P2pCrypt (SERIAL_PORT port, char *cmd, stParam *param);
 
+int At_P2pCAD (SERIAL_PORT port, char *cmd, stParam *param);
+
 int At_P2pKey (SERIAL_PORT port, char *cmd, stParam *param);
+
+int At_P2pIV (SERIAL_PORT port, char *cmd, stParam *param);
 
 int At_P2p(SERIAL_PORT port, char *cmd, stParam *param);
 

@@ -150,7 +150,7 @@ int At_DataRate (SERIAL_PORT port, char *cmd, stParam *param)
     int32_t ret;
 
     if (param->argc == 1 && !strcmp(param->argv[0], "?")) {
-        atcmd_printf("%s=%u\r\n", cmd, service_nvm_get_dr_from_nvm());
+        atcmd_printf("%s=%u\r\n", cmd, service_lora_get_dr());
         return AT_OK;
     } else if (param->argc == 1) {
         uint32_t dr;

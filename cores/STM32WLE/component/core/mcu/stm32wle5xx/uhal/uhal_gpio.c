@@ -1,5 +1,3 @@
-#include <math.h>
-
 #include "uhal_gpio.h"
 #include "pin_define.h"
 #include "udrv_serial.h"
@@ -36,7 +34,14 @@ void uhal_gpio_handler_handler(void *pdata)
 }
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
-    uint8_t pin_number = log2(GPIO_Pin);
+    uint16_t pin = 1;
+    uint8_t pin_number = 0;
+    while(!(pin & GPIO_Pin))
+    {
+        pin <<= 1;
+        pin_number++;
+    }
+    //uint8_t pin_number = log2(GPIO_Pin);
 
     if (pin_number >= M_MAX_GPIO_PIN) {
         return;
@@ -62,7 +67,8 @@ GPIO_TypeDef* PinToGPIOx(uint32_t pin) {
 
 uint16_t PinToGPIO_Pin(uint32_t pin) {
     uint8_t pin_number = pin % GPIO_NUMBER;
-    return pow(2, pin_number);
+    return 1 << pin_number;
+    //return pow(2, pin_number);
 }
 
 void uhal_gpio_init(uint32_t pin, gpio_dir_t dir, gpio_pull_t pull, gpio_logic_t logic) {
@@ -189,16 +195,16 @@ void uhal_gpio_intc_trigger_mode(uint32_t pin, gpio_intc_trigger_mode_t mode) {
     switch (mode) {
         case GPIO_INTC_HIGH_LEVEL:
         case GPIO_INTC_RISING_EDGE:
-            gpio[pin].Pull = GPIO_PULLDOWN;
+            //gpio[pin].Pull = GPIO_PULLDOWN;
             gpio[pin].Mode = GPIO_MODE_IT_RISING;
             break;
         case GPIO_INTC_LOW_LEVEL:
         case GPIO_INTC_FALLING_EDGE:
-            gpio[pin].Pull = GPIO_PULLUP;
+            //gpio[pin].Pull = GPIO_PULLUP;
             gpio[pin].Mode = GPIO_MODE_IT_FALLING;
             break;
         default:
-            gpio[pin].Pull = GPIO_PULLDOWN;
+            //gpio[pin].Pull = GPIO_PULLDOWN;
             gpio[pin].Mode = GPIO_MODE_IT_RISING_FALLING;
             break;
     }
@@ -247,7 +253,8 @@ static void uhal_gpio_wakeup_trigger_mode(uint32_t pin, gpio_intc_trigger_mode_t
 }
 
 int32_t uhal_gpio_register_isr(uint32_t pin, gpio_isr_func handler) {
-    uint8_t pin_number = log2(PinToGPIO_Pin(pin));
+    uint8_t pin_number = pin % GPIO_NUMBER;
+    //uint8_t pin_number = log2(PinToGPIO_Pin(pin));
     if (pin_number >= M_MAX_GPIO_PIN) {
         return -UDRV_WRONG_ARG;
     }
@@ -258,11 +265,12 @@ int32_t uhal_gpio_register_isr(uint32_t pin, gpio_isr_func handler) {
 }
 
 void uhal_gpio_intc_clear(uint32_t pin) {
-    if (pin >= M_MAX_GPIO_PIN) {
+    uint8_t pin_number = pin % GPIO_NUMBER;
+    if (pin_number >= M_MAX_GPIO_PIN) {
         return;
     }
 
-    sg_gpio_isr[pin] = NULL;
+    sg_gpio_isr[pin_number] = NULL;
 }
 
 void uhal_gpio_set_wakeup_enable(uint32_t pin) {

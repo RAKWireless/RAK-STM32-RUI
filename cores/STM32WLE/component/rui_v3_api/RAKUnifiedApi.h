@@ -11,6 +11,9 @@
 
 #ifdef SUPPORT_LORA
 #include "RAKLorawan.h"
+#endif
+
+#ifdef SUPPORT_LORA_P2P
 #include "RAKLoRa.h"
 #endif
 
@@ -32,9 +35,10 @@ class RAKUnifiedApi {
 #endif
 #ifdef SUPPORT_LORA
     class RAKLorawan lorawan;
+#endif
+#ifdef SUPPORT_LORA_P2P
     class RAKLoraP2P lora;
 #endif
-
     RAKProtocol apiMode;
 };
 extern RAKUnifiedApi api;

@@ -475,6 +475,7 @@
 #define __USES_INITFINI__ 1
 #define stm32wle5xx 1
 #define SUPPORT_LORA 1
+#define SUPPORT_LORA_P2P 1
 #define LORA_IO_SPI_PORT 2
 #define SYS_RTC_COUNTER_PORT 2
 #define ATCMD_CUST_TABLE_SIZE 64
@@ -495,6 +496,7 @@
 #define REGION_IN865 1
 #define REGION_US915 1
 #define REGION_RU864 1
+#define REGION_LA915 1
 #define SOFT_SE 1
 #define SECURE_ELEMENT_PRE_PROVISIONED 1
 #define LORAMAC_CLASSB_ENABLED 1
@@ -6380,6 +6382,7 @@ typedef enum eLoRaMacRegion
 
 
     LORAMAC_REGION_RU864,
+    LORAMAC_REGION_LA915,
 }LoRaMacRegion_t;
 
 typedef struct sLoRaMacNvmDataGroup1
@@ -6413,9 +6416,9 @@ typedef struct sLoRaMacNvmDataGroup1
 
 
     
-# 569 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
+# 570 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
    _Bool 
-# 569 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 570 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
         SrvAckRequested;
 
 
@@ -6466,17 +6469,17 @@ typedef struct sLoRaMacNvmDataGroup2
 
 
     
-# 618 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
+# 619 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
    _Bool 
-# 618 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 619 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
         PublicNetwork;
 
 
 
     
-# 622 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
+# 623 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
    _Bool 
-# 622 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 623 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
         AdrCtrlOn;
 
 
@@ -6487,9 +6490,9 @@ typedef struct sLoRaMacNvmDataGroup2
 
 
     
-# 631 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
+# 632 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
    _Bool 
-# 631 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 632 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
         DutyCycleOn;
 
 
@@ -6555,7 +6558,7 @@ typedef struct sLoRaMacNvmData
 
     LoRaMacClassBNvmData_t ClassB;
 }LoRaMacNvmData_t;
-# 720 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 721 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 typedef enum eMcps
 {
 
@@ -6639,7 +6642,7 @@ typedef struct sMcpsReqConfirmed
 
 
     int8_t Datarate;
-# 823 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 824 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
     uint8_t NbTrials;
 }McpsReqConfirmed_t;
 
@@ -6722,9 +6725,9 @@ typedef struct sMcpsConfirm
 
 
     
-# 904 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
+# 905 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
    _Bool 
-# 904 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 905 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
         AckReceived;
 
 
@@ -6785,9 +6788,9 @@ typedef struct sMcpsIndication
 
 
     
-# 963 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
+# 964 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
    _Bool 
-# 963 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 964 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
         RxData;
 
 
@@ -6805,9 +6808,9 @@ typedef struct sMcpsIndication
 
 
     
-# 979 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
+# 980 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
    _Bool 
-# 979 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 980 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
         AckReceived;
 
 
@@ -6821,12 +6824,12 @@ typedef struct sMcpsIndication
 
 
     
-# 991 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
+# 992 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
    _Bool 
-# 991 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 992 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
         DeviceTimeAnsReceived;
 }McpsIndication_t;
-# 1018 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 1019 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 typedef enum eMlme
 {
 
@@ -7095,7 +7098,7 @@ typedef struct sMlmeIndication
 
     BeaconInfo_t BeaconInfo;
 }MlmeIndication_t;
-# 1369 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 1370 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 typedef enum eMib
 {
 
@@ -7403,9 +7406,9 @@ typedef enum eMib
 
 
     MIB_MIN_RX_SYMBOLS,
-# 1686 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 1687 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
     MIB_ANTENNA_GAIN,
-# 1697 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 1698 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
     MIB_DEFAULT_ANTENNA_GAIN,
 
 
@@ -7520,9 +7523,9 @@ typedef union uMibParam
 
 
     
-# 1810 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
+# 1811 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
    _Bool 
-# 1810 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 1811 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
         AdrEnable;
 
 
@@ -7668,9 +7671,9 @@ typedef union uMibParam
 
 
     
-# 1954 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
+# 1955 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
    _Bool 
-# 1954 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 1955 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
         EnablePublicNetwork;
 
 
@@ -7992,7 +7995,7 @@ typedef enum eLoRaMacStatus
 
 
     LORAMAC_STATUS_SKIPPED_APP_DATA,
-# 2288 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2289 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
     LORAMAC_STATUS_DUTYCYCLE_RESTRICTED,
 
 
@@ -8081,7 +8084,7 @@ typedef struct sLoRaMacPrimitives
 
 typedef struct sLoRaMacCallback
 {
-# 2384 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2385 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
     uint8_t ( *GetBatteryLevel )( void );
 
 
@@ -8110,11 +8113,11 @@ typedef struct sLoRaMacCallback
 
 
 static const uint8_t LoRaMacMaxEirpTable[] = { 8, 10, 12, 13, 14, 16, 18, 20, 21, 24, 26, 27, 29, 30, 33, 36 };
-# 2435 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2436 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 LoRaMacStatus_t LoRaMacInitialization( LoRaMacPrimitives_t* primitives, LoRaMacCallback_t* callbacks, LoRaMacRegion_t region );
-# 2444 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2445 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 LoRaMacStatus_t LoRaMacStart( void );
-# 2453 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2454 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 LoRaMacStatus_t LoRaMacStop( void );
 
 
@@ -8123,9 +8126,9 @@ LoRaMacStatus_t LoRaMacStop( void );
 
 
 
-# 2460 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
+# 2461 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h" 3 4
 _Bool 
-# 2460 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2461 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
     LoRaMacIsBusy( void );
 
 
@@ -8134,29 +8137,29 @@ _Bool
 
 
 void LoRaMacProcess( void );
-# 2494 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2495 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 LoRaMacStatus_t LoRaMacQueryTxPossible( uint8_t size, LoRaMacTxInfo_t* txInfo );
-# 2512 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2513 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 LoRaMacStatus_t LoRaMacChannelAdd( uint8_t id, ChannelParams_t params );
-# 2526 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2527 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 LoRaMacStatus_t LoRaMacChannelRemove( uint8_t id );
-# 2541 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2542 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 LoRaMacStatus_t LoRaMacMcChannelSetup( McChannelParams_t *channel );
-# 2555 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2556 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 LoRaMacStatus_t LoRaMacMcChannelDelete( AddressIdentifier_t groupID );
-# 2565 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2566 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 uint8_t LoRaMacMcChannelGetGroupId( uint32_t mcAddress );
-# 2582 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2583 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 LoRaMacStatus_t LoRaMacMcChannelSetupRxParams( AddressIdentifier_t groupID, McRxParams_t *rxParams, uint8_t *status );
-# 2610 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2611 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 LoRaMacStatus_t LoRaMacMibGetRequestConfirm( MibRequestConfirm_t* mibGet );
-# 2641 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2642 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet );
-# 2674 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2675 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 LoRaMacStatus_t LoRaMacMlmeRequest( MlmeReq_t* mlmeRequest );
-# 2708 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2709 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 LoRaMacStatus_t LoRaMacMcpsRequest( McpsReq_t* mcpsRequest );
-# 2720 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
+# 2721 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/LoRaMac.h"
 LoRaMacStatus_t LoRaMacDeInitialization( void );
 # 64 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/Region.h" 2
 
@@ -21149,7 +21152,7 @@ typedef enum
 #define HAL_ADC_MODULE_ENABLED 
 
 
-
+#define HAL_CRYP_MODULE_ENABLED 
 
 
 
@@ -28623,7 +28626,280 @@ void HAL_MPU_ConfigRegion(MPU_Region_InitTypeDef *MPU_Init);
 # 441 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cortex.h"
 #define IS_MPU_SUB_REGION_DISABLE(SUBREGION) ((SUBREGION) < (uint16_t)0x00FFU)
 # 205 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
-# 220 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
+
+
+
+
+
+
+
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define STM32WLxx_HAL_CRYP_H 
+# 52 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+typedef struct
+{
+  uint32_t DataType;
+
+  uint32_t KeySize;
+
+  uint32_t *pKey;
+  uint32_t *pInitVect;
+
+  uint32_t Algorithm;
+
+
+  uint32_t *Header;
+
+
+  uint32_t HeaderSize;
+  uint32_t *B0;
+  uint32_t DataWidthUnit;
+  uint32_t HeaderWidthUnit;
+  uint32_t KeyIVConfigSkip;
+
+
+
+} CRYP_ConfigTypeDef;
+
+
+
+
+
+
+typedef enum
+{
+  HAL_CRYP_STATE_RESET = 0x00U,
+  HAL_CRYP_STATE_READY = 0x01U,
+  HAL_CRYP_STATE_BUSY = 0x02U,
+
+  HAL_CRYP_STATE_SUSPENDED = 0x03U,
+
+} HAL_CRYP_STATETypeDef;
+
+
+
+
+
+typedef enum
+{
+  HAL_CRYP_SUSPEND_NONE = 0x00U,
+  HAL_CRYP_SUSPEND = 0x01U
+}HAL_SuspendTypeDef;
+# 109 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+typedef struct
+
+{
+  AES_TypeDef *Instance;
+
+  CRYP_ConfigTypeDef Init;
+
+  FunctionalState AutoKeyDerivation;
+
+
+  uint32_t *pCrypInBuffPtr;
+
+  uint32_t *pCrypOutBuffPtr;
+
+  volatile uint16_t CrypHeaderCount;
+
+  volatile uint16_t CrypInCount;
+
+  volatile uint16_t CrypOutCount;
+
+  uint16_t Size;
+
+  uint32_t Phase;
+
+  DMA_HandleTypeDef *hdmain;
+
+  DMA_HandleTypeDef *hdmaout;
+
+  HAL_LockTypeDef Lock;
+
+  volatile HAL_CRYP_STATETypeDef State;
+
+  volatile uint32_t ErrorCode;
+
+  uint32_t KeyIVConfig;
+
+
+  uint32_t SizesSum;
+# 162 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+  volatile HAL_SuspendTypeDef SuspendRequest;
+
+  CRYP_ConfigTypeDef Init_saved;
+
+  uint32_t *pCrypInBuffPtr_saved;
+
+  uint32_t *pCrypOutBuffPtr_saved;
+
+  uint32_t CrypInCount_saved;
+
+  uint32_t CrypOutCount_saved;
+
+  uint32_t Phase_saved;
+
+  volatile HAL_CRYP_STATETypeDef State_saved;
+
+  uint32_t IV_saved[4];
+
+  uint32_t SUSPxR_saved[8];
+
+  uint32_t CR_saved;
+
+  uint32_t Key_saved[8];
+
+  uint16_t Size_saved;
+
+  uint16_t CrypHeaderCount_saved;
+
+  uint32_t SizesSum_saved;
+
+  uint32_t ResumingFlag;
+
+  FunctionalState AutoKeyDerivation_saved;
+
+
+
+} CRYP_HandleTypeDef;
+# 242 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define HAL_CRYP_ERROR_NONE 0x00000000U
+#define HAL_CRYP_ERROR_WRITE 0x00000001U
+#define HAL_CRYP_ERROR_READ 0x00000002U
+#define HAL_CRYP_ERROR_DMA 0x00000004U
+#define HAL_CRYP_ERROR_BUSY 0x00000008U
+#define HAL_CRYP_ERROR_TIMEOUT 0x00000010U
+#define HAL_CRYP_ERROR_NOT_SUPPORTED 0x00000020U
+#define HAL_CRYP_ERROR_AUTH_TAG_SEQUENCE 0x00000040U
+# 262 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define CRYP_DATAWIDTHUNIT_WORD 0x00000000U
+#define CRYP_DATAWIDTHUNIT_BYTE 0x00000001U
+# 273 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define CRYP_HEADERWIDTHUNIT_WORD 0x00000000U
+#define CRYP_HEADERWIDTHUNIT_BYTE 0x00000001U
+# 284 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define CRYP_AES_ECB 0x00000000U
+#define CRYP_AES_CBC AES_CR_CHMOD_0
+#define CRYP_AES_CTR AES_CR_CHMOD_1
+#define CRYP_AES_GCM_GMAC (AES_CR_CHMOD_0 | AES_CR_CHMOD_1)
+#define CRYP_AES_CCM AES_CR_CHMOD_2
+# 298 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define CRYP_KEYSIZE_128B 0x00000000U
+#define CRYP_KEYSIZE_256B AES_CR_KEYSIZE
+# 309 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define CRYP_DATATYPE_32B 0x00000000U
+#define CRYP_DATATYPE_16B AES_CR_DATATYPE_0
+#define CRYP_DATATYPE_8B AES_CR_DATATYPE_1
+#define CRYP_DATATYPE_1B AES_CR_DATATYPE
+# 322 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define CRYP_IT_CCFIE AES_CR_CCFIE
+#define CRYP_IT_ERRIE AES_CR_ERRIE
+#define CRYP_IT_WRERR AES_SR_WRERR
+#define CRYP_IT_RDERR AES_SR_RDERR
+#define CRYP_IT_CCF AES_SR_CCF
+# 337 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define CRYP_FLAG_BUSY AES_SR_BUSY
+#define CRYP_FLAG_WRERR AES_SR_WRERR
+#define CRYP_FLAG_RDERR AES_SR_RDERR
+#define CRYP_FLAG_CCF AES_SR_CCF
+
+#define CRYP_CCF_CLEAR AES_CR_CCFC
+#define CRYP_ERR_CLEAR AES_CR_ERRC
+# 353 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define CRYP_KEYIVCONFIG_ALWAYS 0x00000000U
+#define CRYP_KEYIVCONFIG_ONCE 0x00000001U
+# 381 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define __HAL_CRYP_RESET_HANDLE_STATE(__HANDLE__) ( (__HANDLE__)->State = HAL_CRYP_STATE_RESET)
+# 390 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define __HAL_CRYP_ENABLE(__HANDLE__) ((__HANDLE__)->Instance->CR |= AES_CR_EN)
+#define __HAL_CRYP_DISABLE(__HANDLE__) ((__HANDLE__)->Instance->CR &= ~AES_CR_EN)
+# 414 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define CRYP_FLAG_MASK 0x0000001FU
+#define __HAL_CRYP_GET_FLAG(__HANDLE__,__FLAG__) (((__HANDLE__)->Instance->SR & (__FLAG__)) == (__FLAG__))
+# 426 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define __HAL_CRYP_CLEAR_FLAG(__HANDLE__,__FLAG__) SET_BIT((__HANDLE__)->Instance->CR, (__FLAG__))
+# 438 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define __HAL_CRYP_GET_IT_SOURCE(__HANDLE__,__INTERRUPT__) (((__HANDLE__)->Instance->CR & (__INTERRUPT__)) == (__INTERRUPT__))
+# 453 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define __HAL_CRYP_GET_IT(__HANDLE__,__INTERRUPT__) (((__HANDLE__)->Instance->SR & (__INTERRUPT__)) == (__INTERRUPT__))
+# 468 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define __HAL_CRYP_ENABLE_IT(__HANDLE__,__INTERRUPT__) (((__HANDLE__)->Instance->CR) |= (__INTERRUPT__))
+# 483 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define __HAL_CRYP_DISABLE_IT(__HANDLE__,__INTERRUPT__) (((__HANDLE__)->Instance->CR) &= ~(__INTERRUPT__))
+
+
+
+
+
+
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp_ex.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp_ex.h"
+#define STM32WLxx_HAL_CRYP_EX_H 
+# 97 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp_ex.h"
+HAL_StatusTypeDef HAL_CRYPEx_AESGCM_GenerateAuthTAG(CRYP_HandleTypeDef *hcryp, uint32_t *AuthTag, uint32_t Timeout);
+HAL_StatusTypeDef HAL_CRYPEx_AESCCM_GenerateAuthTAG(CRYP_HandleTypeDef *hcryp, uint32_t *AuthTag, uint32_t Timeout);
+# 107 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp_ex.h"
+void HAL_CRYPEx_EnableAutoKeyDerivation(CRYP_HandleTypeDef *hcryp);
+void HAL_CRYPEx_DisableAutoKeyDerivation(CRYP_HandleTypeDef *hcryp);
+# 491 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h" 2
+# 500 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+HAL_StatusTypeDef HAL_CRYP_Init(CRYP_HandleTypeDef *hcryp);
+HAL_StatusTypeDef HAL_CRYP_DeInit(CRYP_HandleTypeDef *hcryp);
+void HAL_CRYP_MspInit(CRYP_HandleTypeDef *hcryp);
+void HAL_CRYP_MspDeInit(CRYP_HandleTypeDef *hcryp);
+HAL_StatusTypeDef HAL_CRYP_SetConfig(CRYP_HandleTypeDef *hcryp, CRYP_ConfigTypeDef *pConf);
+HAL_StatusTypeDef HAL_CRYP_GetConfig(CRYP_HandleTypeDef *hcryp, CRYP_ConfigTypeDef *pConf);
+
+
+
+
+
+void HAL_CRYP_ProcessSuspend(CRYP_HandleTypeDef *hcryp);
+HAL_StatusTypeDef HAL_CRYP_Suspend(CRYP_HandleTypeDef *hcryp);
+HAL_StatusTypeDef HAL_CRYP_Resume(CRYP_HandleTypeDef *hcryp);
+# 524 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+HAL_StatusTypeDef HAL_CRYP_Encrypt(CRYP_HandleTypeDef *hcryp, uint32_t *Input, uint16_t Size, uint32_t *Output, uint32_t Timeout);
+HAL_StatusTypeDef HAL_CRYP_Decrypt(CRYP_HandleTypeDef *hcryp, uint32_t *Input, uint16_t Size, uint32_t *Output, uint32_t Timeout);
+HAL_StatusTypeDef HAL_CRYP_Encrypt_IT(CRYP_HandleTypeDef *hcryp, uint32_t *Input, uint16_t Size, uint32_t *Output);
+HAL_StatusTypeDef HAL_CRYP_Decrypt_IT(CRYP_HandleTypeDef *hcryp, uint32_t *Input, uint16_t Size, uint32_t *Output);
+HAL_StatusTypeDef HAL_CRYP_Encrypt_DMA(CRYP_HandleTypeDef *hcryp, uint32_t *Input, uint16_t Size, uint32_t *Output);
+HAL_StatusTypeDef HAL_CRYP_Decrypt_DMA(CRYP_HandleTypeDef *hcryp, uint32_t *Input, uint16_t Size, uint32_t *Output);
+# 540 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+void HAL_CRYP_IRQHandler(CRYP_HandleTypeDef *hcryp);
+HAL_CRYP_STATETypeDef HAL_CRYP_GetState(CRYP_HandleTypeDef *hcryp);
+void HAL_CRYP_InCpltCallback(CRYP_HandleTypeDef *hcryp);
+void HAL_CRYP_OutCpltCallback(CRYP_HandleTypeDef *hcryp);
+void HAL_CRYP_ErrorCallback(CRYP_HandleTypeDef *hcryp);
+uint32_t HAL_CRYP_GetError(CRYP_HandleTypeDef *hcryp);
+# 564 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define IS_CRYP_ALGORITHM(ALGORITHM) (((ALGORITHM) == CRYP_AES_ECB) || ((ALGORITHM) == CRYP_AES_CBC) || ((ALGORITHM) == CRYP_AES_CTR) || ((ALGORITHM) == CRYP_AES_GCM_GMAC)|| ((ALGORITHM) == CRYP_AES_CCM))
+
+
+
+
+
+
+#define IS_CRYP_KEYSIZE(KEYSIZE) (((KEYSIZE) == CRYP_KEYSIZE_128B) || ((KEYSIZE) == CRYP_KEYSIZE_256B))
+
+
+#define IS_CRYP_DATATYPE(DATATYPE) (((DATATYPE) == CRYP_DATATYPE_32B) || ((DATATYPE) == CRYP_DATATYPE_16B) || ((DATATYPE) == CRYP_DATATYPE_8B) || ((DATATYPE) == CRYP_DATATYPE_1B))
+
+
+
+
+#define IS_CRYP_INIT(CONFIG) (((CONFIG) == CRYP_KEYIVCONFIG_ALWAYS) || ((CONFIG) == CRYP_KEYIVCONFIG_ONCE))
+
+
+#define IS_CRYP_BUFFERSIZE(ALGO,DATAWIDTH,SIZE) (((((ALGO) == CRYP_AES_CTR)) && ((((DATAWIDTH) == CRYP_DATAWIDTHUNIT_WORD) && (((SIZE) % 4U) == 0U)) || (((DATAWIDTH) == CRYP_DATAWIDTHUNIT_BYTE) && (((SIZE) % 16U) == 0U)))) || (((ALGO) == CRYP_AES_ECB) || ((ALGO) == CRYP_AES_CBC) || ((ALGO)== CRYP_AES_GCM_GMAC) || ((ALGO) == CRYP_AES_CCM)))
+# 213 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
+
+
+
+
+
+
+
 # 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_exti.h" 1
 # 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_exti.h"
 #define STM32WLxx_HAL_EXTI_H 
@@ -44449,7 +44725,17 @@ _Bool
 
 
         SERVICE_LORA_RU864 = LORAMAC_REGION_RU864,
-# 280 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+
+
+
+
+
+
+
+    SERVICE_LORA_LA915 = LORAMAC_REGION_LA915,
+
+
+
        SERVICE_LORA_AS923_2 = 20,
 
        SERVICE_LORA_AS923_3 = 21,
@@ -44460,14 +44746,14 @@ _Bool
 
     LmHandlerErrorStatus_t LmHandlerPackageRegister( uint8_t id, void *params );
     
-# 289 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
-   _Bool 
-# 289 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
-        LmHandlerPackageIsInitialized( uint8_t id );
-    
 # 290 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
    _Bool 
 # 290 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+        LmHandlerPackageIsInitialized( uint8_t id );
+    
+# 291 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+   _Bool 
+# 291 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
         LmHandlerPackageIsRunning( uint8_t id );
     void LmHandlerPackagesProcess( void );
 
@@ -44477,16 +44763,13 @@ _Bool
 
     int32_t service_lora_set_band(SERVICE_LORA_BAND band);
 
-
-
     int32_t service_lora_get_mask(uint16_t *mask);
 
     int32_t service_lora_set_mask(uint16_t *mask, 
-# 303 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+# 302 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
                                                  _Bool 
-# 303 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+# 302 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
                                                       commit);
-
 
     int32_t service_lora_get_app_eui(uint8_t *buff, uint32_t len);
 
@@ -44529,9 +44812,9 @@ _Bool
     int32_t service_lora_set_cfm(SERVICE_LORA_CONFIRM_MODE cfm);
 
     
-# 346 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+# 344 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
    _Bool 
-# 346 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+# 344 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
         service_lora_get_cfs(void);
 
     int32_t service_lora_join(int32_t param1, int32_t param2, int32_t param3, int32_t param4);
@@ -44543,37 +44826,37 @@ _Bool
     SERVICE_LORA_JOIN_MODE service_lora_get_njm(void);
 
     int32_t service_lora_set_njm(SERVICE_LORA_JOIN_MODE njm, 
-# 356 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+# 354 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
                                                             _Bool 
-# 356 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+# 354 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
                                                                  commit);
 
     
-# 358 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+# 356 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
    _Bool 
-# 358 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+# 356 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
         service_lora_get_njs(void);
 
     int32_t service_lora_send(uint8_t *buff, uint32_t len, SERVICE_LORA_SEND_INFO info, 
-# 360 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+# 358 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
                                                                                        _Bool 
-# 360 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+# 358 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
                                                                                             blocking);
 
     
-# 362 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+# 360 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
    _Bool 
-# 362 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+# 360 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
         service_lora_get_adr(void);
 
     int32_t service_lora_set_adr(
-# 364 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+# 362 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
                                 _Bool 
-# 364 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+# 362 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
                                      adr, 
-# 364 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+# 362 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
                                           _Bool 
-# 364 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+# 362 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
                                                commit);
 
     SERVICE_LORA_CLASS service_lora_get_class(void);
@@ -44581,85 +44864,85 @@ _Bool
     SERVICE_LORA_CLASS service_lora_get_real_class_from_stack(void);
 
     int32_t service_lora_set_class(SERVICE_LORA_CLASS device_class, 
-# 370 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+# 368 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
                                                                    _Bool 
-# 370 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+# 368 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
                                                                         commit);
 
     
-# 372 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+# 370 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
    _Bool 
-# 372 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+# 370 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
         service_lora_get_dcs(void);
 
     int32_t service_lora_set_dcs(uint8_t dutycycle, 
-# 374 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+# 372 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
                                                    _Bool 
-# 374 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+# 372 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
                                                         commit );
 
     SERVICE_LORA_DATA_RATE service_lora_get_dr(void);
 
     int32_t service_lora_set_dr(SERVICE_LORA_DATA_RATE dr, 
-# 378 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+# 376 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
                                                           _Bool 
-# 378 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+# 376 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
                                                                commit);
 
     uint32_t service_lora_get_jn1dl(void);
 
     int32_t service_lora_set_jn1dl(uint32_t jn1dl, 
-# 382 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+# 380 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
                                                   _Bool 
-# 382 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+# 380 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
                                                        commit);
 
     uint32_t service_lora_get_jn2dl(void);
 
     int32_t service_lora_set_jn2dl(uint32_t jn2dl, 
-# 386 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+# 384 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
                                                   _Bool 
-# 386 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+# 384 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
                                                        commit);
 
     
-# 388 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+# 386 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
    _Bool 
-# 388 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+# 386 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
         service_lora_get_pub_nwk_mode(void);
 
     int32_t service_lora_set_pub_nwk_mode(
-# 390 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+# 388 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
                                          _Bool 
-# 390 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+# 388 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
                                               pnm, 
-# 390 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+# 388 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
                                                    _Bool 
-# 390 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+# 388 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
                                                         commit);
 
     uint32_t service_lora_get_rx1dl(void);
 
     int32_t service_lora_set_rx1dl(uint32_t rx1dl, 
-# 394 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+# 392 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
                                                   _Bool 
-# 394 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+# 392 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
                                                        commit);
 
     uint32_t service_lora_get_rx2dl(void);
 
     int32_t service_lora_set_rx2dl(uint32_t rx2dl, 
-# 398 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+# 396 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
                                                   _Bool 
-# 398 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+# 396 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
                                                        commit);
 
     uint8_t service_lora_get_txpower(void);
 
     int32_t service_lora_set_txpower(uint8_t txp, 
-# 402 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+# 400 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
                                                  _Bool 
-# 402 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+# 400 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
                                                       commit);
 
     uint8_t service_lora_get_ping_slot_periodicity(void);
@@ -44681,15 +44964,15 @@ _Bool
     uint32_t service_lora_get_rx2freq(void);
 
     uint32_t service_lora_set_rx2freq(uint32_t freq,
-# 422 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+# 420 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
                                                    _Bool 
-# 422 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+# 420 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
                                                         commit);
 
     uint32_t service_lora_set_rx2dr(SERVICE_LORA_DATA_RATE datarate, 
-# 424 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+# 422 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
                                                                     _Bool 
-# 424 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+# 422 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
                                                                          commit);
 
     SERVICE_LORA_DATA_RATE service_lora_get_rx2dr(void);
@@ -44701,33 +44984,33 @@ _Bool
     void service_lora_lptp_send_callback(int status);
 
     int32_t service_lora_lptp_send(uint8_t port, 
-# 434 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+# 432 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
                                                 _Bool 
-# 434 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+# 432 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
                                                      ack, uint8_t *p_data, uint16_t len);
 
     
-# 436 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+# 434 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
    _Bool 
-# 436 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+# 434 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
         service_lora_get_join_start(void);
 
     int32_t service_lora_set_join_start(
-# 438 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+# 436 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
                                        _Bool 
-# 438 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+# 436 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
                                             join_start);
 
     
-# 440 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+# 438 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
    _Bool 
-# 440 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+# 438 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
         service_lora_get_auto_join(void);
 
     int32_t service_lora_set_auto_join(
-# 442 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+# 440 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
                                       _Bool 
-# 442 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+# 440 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
                                            auto_join);
 
     uint32_t service_lora_get_auto_join_period(void);
@@ -44778,6 +45061,11 @@ _Bool
     int32_t service_lora_set_lbt_rssi(int16_t rssi);
     uint32_t service_lora_get_lbt_scantime();
     int32_t service_lora_set_lbt_scantime(uint32_t time);
+    
+# 490 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+   _Bool 
+# 490 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+        service_lora_isbusy(void);
 # 36 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionAS923.c" 2
 
 #define CHANNELS_MASK_SIZE 1

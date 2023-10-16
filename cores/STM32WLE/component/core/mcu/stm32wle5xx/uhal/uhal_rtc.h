@@ -21,7 +21,7 @@
 #define RTC_SYNCH_PREDIV   0x00FF
 #endif
 
-#define RTC_N_PREDIV_S 10
+#define RTC_N_PREDIV_S 15
 #define RTC_PREDIV_S ((1<<RTC_N_PREDIV_S)-1)
 #define RTC_PREDIV_A ((1<<(15-RTC_N_PREDIV_S))-1)
 

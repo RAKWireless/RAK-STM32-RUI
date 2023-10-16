@@ -35,7 +35,7 @@ int32_t uhal_rtc_init (RtcID_E timer_id, rtc_handler handler, uint32_t hz) {
     /** Initialize RTC Only
     */
     hrtc.Instance = RTC;
-    hrtc.Init.AsynchPrediv = RTC_PREDIV_A;
+    hrtc.Init.AsynchPrediv = 0;
     hrtc.Init.OutPut = RTC_OUTPUT_DISABLE;
     hrtc.Init.OutPutRemap = RTC_OUTPUT_REMAP_NONE;
     hrtc.Init.OutPutPolarity = RTC_OUTPUT_POLARITY_HIGH;
@@ -94,14 +94,14 @@ static inline uint32_t LL_SYSTICK_IsActiveCounterFlag(void)
 }
 
 uint64_t uhal_rtc_get_us_timestamp(RtcID_E timer_id){
-    uint16_t SubSeconds;
-    uint32_t m = uhal_rtc_get_timestamp(timer_id);
-    const uint32_t tms = SysTick->LOAD + 1;
-    __IO uint32_t u = tms - SysTick->VAL;
-    if (LL_SYSTICK_IsActiveCounterFlag()) {
-    u = tms - SysTick->VAL;
-     }
-    return (m * 1000 + (u * 1000) / tms);
+    uint64_t m = uhal_rtc_get_timestamp(timer_id);
+    uint32_t mseconds = 0;
+    uint32_t ticks;
+    uint32_t timerValueLsb = (UINT32_MAX - LL_RTC_TIME_GetSubSecond(RTC));
+    ticks =  timerValueLsb & RTC_PREDIV_S;
+    mseconds = (ticks & ((1<<5)-1))*31 ;
+    return m*1000 + mseconds;
+
 }
 
 uint64_t uhal_rtc_get_elapsed_time (RtcID_E timer_id, uint64_t old_ts) {

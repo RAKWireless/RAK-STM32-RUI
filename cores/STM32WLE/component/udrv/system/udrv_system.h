@@ -13,7 +13,7 @@ extern "C" {
 #define SEED_LENGTH   4
 #endif
 
-#define EVENT_QUEUE_SIZE                     (32)
+#define EVENT_QUEUE_SIZE                     (128)
 #define EVENT_DATA_SIZE                      (8)//(sizeof(udrv_system_event_t))
 
 /**
@@ -28,7 +28,7 @@ typedef enum
 #ifdef SUPPORT_BLE
     UDRV_SYS_EVT_OP_SERIAL_BLE,                        //operating mode parser - BLE
 #endif
-#ifdef SUPPORT_LORA
+#ifndef NO_LORA_SUPPORT
     UDRV_SYS_EVT_OP_LORAWAN,                           //LoRaWAN RX process
     UDRV_SYS_EVT_OP_LORAWAN_JOIN_CB,                   //Consider join request in join callback
 #endif

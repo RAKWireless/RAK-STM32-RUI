@@ -3,7 +3,7 @@
 #include "atcmd.h"
 
 #if defined( REGION_CN470 ) || defined( REGION_US915 ) || \
-    defined( REGION_AU915 )
+    defined( REGION_AU915 ) || defined( REGION_LA915 )
 int At_Mask (SERIAL_PORT port, char *cmd, stParam *param);
 int At_Chs(SERIAL_PORT port, char *cmd, stParam *param);
 int At_Che(SERIAL_PORT port, char *cmd, stParam *param);

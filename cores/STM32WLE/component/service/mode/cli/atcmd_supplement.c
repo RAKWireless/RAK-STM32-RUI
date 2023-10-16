@@ -10,7 +10,7 @@
 #include "udrv_powersave.h"
 
 #if defined(REGION_CN470) || defined(REGION_US915) || \
-    defined(REGION_AU915)
+    defined(REGION_AU915) || defined(REGION_LA915)
 int At_Mask(SERIAL_PORT port, char *cmd, stParam *param)
 {
     if(SERVICE_LORAWAN != service_lora_get_nwm())
@@ -54,7 +54,7 @@ int At_Mask(SERIAL_PORT port, char *cmd, stParam *param)
         }
         else if( band == SERVICE_LORA_CN470 )
         {
-            if( mask_param > 0x800 && mask_param != 0x10ff)
+            if( mask_param > 0x800 )
                 return AT_PARAM_ERROR;
         }
 
@@ -278,6 +278,9 @@ int At_Band(SERIAL_PORT port, char *cmd, stParam *param)
         case SERVICE_LORA_AS923_4:
             atcmd_printf("11\r\n");
             break;
+        case SERVICE_LORA_LA915:
+            atcmd_printf("12\r\n");
+            break;
 #ifdef LEGACY
         case SERVICE_LORA_US915_HYBRID:
 #endif
@@ -382,6 +385,9 @@ int At_Band(SERIAL_PORT port, char *cmd, stParam *param)
         case 11 :
             band = SERVICE_LORA_AS923_4;
             break;   
+        case 12 :
+            band = SERVICE_LORA_LA915;
+            break;   
         default:
             return AT_PARAM_ERROR;
         }
@@ -389,14 +395,17 @@ int At_Band(SERIAL_PORT port, char *cmd, stParam *param)
         ret = service_lora_set_band(band);
         if (ret == UDRV_RETURN_OK)
         {
+            udrv_serial_log_printf("UDRV_RETURN_OK\r\n");
             return AT_OK;
         }
         else if (ret == -UDRV_BUSY)
         {
+            udrv_serial_log_printf("UDRV_RAT_BUSY_ERROR\r\n");
             return AT_BUSY_ERROR;
         }
         else if (ret == -UDRV_WRONG_ARG)
         {
+            udrv_serial_log_printf("UDRV_RETURNAT_PARAM_ERROR\r\n");
             return AT_PARAM_ERROR;
         }
         else

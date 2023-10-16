@@ -24,7 +24,7 @@ int At_Alias (SERIAL_PORT port, char *cmd, stParam *param);
 int At_GetSysVolt (SERIAL_PORT port, char *cmd, stParam *param);
 int At_Bootver (SERIAL_PORT port, char *cmd, stParam *param);
 #endif
-#ifdef rak3172
+#if defined(rak3172) || defined(rak3172T)
 int At_GetUid (SERIAL_PORT port, char *cmd, stParam *param);
 #endif
 #ifdef SUPPORT_BLE

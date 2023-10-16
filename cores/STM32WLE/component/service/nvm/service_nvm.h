@@ -18,9 +18,10 @@ extern "C" {
 #include "pin_define.h"
 #include "mcu_basic.h"
 #ifndef RUI_BOOTLOADER
-#ifdef SUPPORT_LORA
+#ifndef NO_LORA_SUPPORT
 #include "service_lora.h"
 #include "service_lora_multicast.h"
+#include "service_lora_p2p.h"
 #endif
 #include "service_mode.h"
 #endif
@@ -41,7 +42,7 @@ extern "C" {
 
 #ifndef RUI_BOOTLOADER
 
-#ifdef SUPPORT_LORA
+#ifndef NO_LORA_SUPPORT
 typedef struct {
     uint32_t Frequency;
     uint8_t  Spreadfact;
@@ -70,10 +71,7 @@ typedef struct {
     uint8_t multi_nwks_key[16];
     uint8_t multi_apps_key[16];
     bool MulticastEnable;
-#if defined( REGION_CN470 ) || defined( REGION_US915 ) || \
-    defined( REGION_AU915 )
     uint16_t ch_mask[REGION_NVM_CHANNELS_MASK_SIZE];
-#endif
     SERVICE_LORA_JOIN_MODE join_mode;
     SERVICE_LORA_CLASS device_class;
     uint8_t confirm;
@@ -124,7 +122,7 @@ typedef struct{
 }PRE_rtc_delta_t; //DO NOT CHANGE
 
 typedef struct {
-#ifdef SUPPORT_LORA
+#ifndef NO_LORA_SUPPORT
     bool iqinverted;
     uint32_t symbol_timeout;
     uint16_t syncword;
@@ -135,19 +133,24 @@ typedef struct {
     uint32_t lbt_scantime;
 #endif
     uint8_t auto_sleep_level;
+#ifndef NO_LORA_SUPPORT
+    uint8_t crypt_key16[16];
+    uint8_t crypt_IV[16];
+    uint8_t CAD;
+#endif
 }rui_cfg_t_ex; //add new config here in sequence 
 
 typedef struct {
     uint32_t magic_num;
     uint32_t version_code;
-#ifdef SUPPORT_LORA
+#ifndef NO_LORA_SUPPORT
     uint8_t lora_work_mode;
     PRE_S_LORAP2P_PARAM g_lora_p2p_cfg_t;
 #endif
 #ifdef SUPPORT_BLE
     PRE_ble_central_cfg_t g_ble_cfg_t;
 #endif
-#ifdef SUPPORT_LORA
+#ifndef NO_LORA_SUPPORT
     PRE_lora_cfg_t g_lora_cfg_t;
 #endif
     PRE_rtc_delta_t g_rtc_delta_t;
@@ -170,6 +173,7 @@ void service_nvm_init_config(void);
 
 int32_t service_nvm_set_default_config_to_nvm(void);
 
+int32_t service_nvm_set_cfg_to_nvm(void);
 /***********************************************************/
 /* RUI Mode                                                */
 /***********************************************************/
@@ -185,6 +189,10 @@ int32_t service_nvm_set_lock_status_to_nvm(SERIAL_PORT Port, SERIAL_WLOCK_STATE 
 uint32_t service_nvm_get_baudrate_from_nvm(void);
 
 int32_t service_nvm_set_baudrate_to_nvm(uint32_t baudrate);
+
+int32_t service_nvm_get_sn_from_nvm (uint8_t *buff, uint32_t len);
+
+int32_t service_nvm_set_sn_to_nvm (uint8_t *buff, uint32_t len);
 
 uint8_t service_nvm_get_atcmd_echo_from_nvm(void);
 
@@ -213,6 +221,11 @@ int32_t service_nvm_set_hwmodel_to_nvm(uint8_t *buff, uint32_t len);
 uint8_t service_nvm_get_cli_ver_from_nvm(uint8_t *buff, uint32_t len);
 
 int32_t service_nvm_set_cli_ver_to_nvm(uint8_t *buff, uint32_t len);
+
+uint32_t service_nvm_set_debug_level_to_nvm(uint8_t level);
+
+uint8_t service_nvm_get_debug_level_from_nvm();
+
 
 #ifdef SUPPORT_BLE
 /***********************************************************/
@@ -243,7 +256,7 @@ uint32_t service_nvm_get_delta_subsec_from_nvm (void);
 
 int32_t service_nvm_set_delta_subsec_to_nvm (uint32_t subsec);
 
-#ifdef SUPPORT_LORA
+#if defined(SUPPORT_LORA)
 /***********************************************************/
 /* LoRa                                                    */
 /***********************************************************/
@@ -251,12 +264,9 @@ SERVICE_LORA_BAND service_nvm_get_band_from_nvm (void);
 
 int32_t service_nvm_set_band_to_nvm (SERVICE_LORA_BAND band);
 
-#if defined( REGION_CN470 ) || defined( REGION_US915 ) || \
-    defined( REGION_AU915 )
 int32_t service_nvm_get_mask_from_nvm (uint16_t *mask);
 
 int32_t service_nvm_set_mask_to_nvm (uint16_t *mask);
-#endif
 
 int32_t service_nvm_get_app_eui_from_nvm (uint8_t *buff, uint32_t len);
 
@@ -362,6 +372,42 @@ uint32_t service_nvm_get_auto_join_max_cnt_from_nvm(void);
 
 int32_t service_nvm_set_auto_join_max_cnt_to_nvm(uint32_t auto_join_period);
 
+uint32_t service_nvm_set_dcs_to_nvm(uint8_t dutycycle);
+
+uint8_t service_nvm_get_dcs_from_nvm(void);
+
+int32_t service_nvm_get_lbt_from_nvm(void);
+
+int32_t service_nvm_set_lbt_to_nvm(uint8_t enable);
+
+int16_t service_nvm_get_lbt_rssi_from_nvm(void);
+
+int32_t service_nvm_set_lbt_rssi_to_nvm(int16_t rssi);
+
+uint32_t service_nvm_get_lbt_scantime_from_nvm();
+
+int32_t service_nvm_set_lbt_scantime_to_nvm(uint32_t time);
+
+McSession_t *service_nvm_get_multicast_from_nvm(void);
+
+int32_t service_nvm_set_multicast_to_nvm(McSession_t *McSession);
+
+uint8_t service_nvm_get_tp_port_from_nvm(SERIAL_PORT port);
+
+int32_t service_nvm_set_tp_port_to_nvm(SERIAL_PORT port, uint8_t tp_port);
+
+uint32_t service_nvm_get_chs_from_nvm(void);
+
+uint32_t service_nvm_set_chs_to_nvm(uint32_t frequency);
+
+uint32_t service_nvm_set_rx2fq_to_nvm(uint32_t freq);
+
+uint32_t service_nvm_get_rx2fq_from_nvm(void);
+
+#endif
+
+#if defined(SUPPORT_LORA_P2P)
+
 uint32_t service_nvm_get_freq_from_nvm (void);
 
 int32_t service_nvm_set_freq_to_nvm (uint32_t freq);
@@ -394,41 +440,9 @@ int32_t service_nvm_get_crypt_key_from_nvm (uint8_t *buff, uint32_t len);
 
 int32_t service_nvm_set_crypt_key_to_nvm (uint8_t *buff, uint32_t len);
 
-McSession_t *service_nvm_get_multicast_from_nvm(void);
+int32_t service_nvm_get_crypt_IV_from_nvm (uint8_t *buff, uint32_t len);
 
-int32_t service_nvm_set_multicast_to_nvm(McSession_t *McSession);
-
-uint8_t service_nvm_get_tp_port_from_nvm(SERIAL_PORT port);
-
-int32_t service_nvm_set_tp_port_to_nvm(SERIAL_PORT port, uint8_t tp_port);
-
-uint32_t service_nvm_get_chs_from_nvm(void);
-
-uint32_t service_nvm_set_chs_to_nvm(uint32_t frequency);
-
-uint32_t service_nvm_set_fdev_to_nvm(uint32_t fdev) ;
-
-uint32_t service_nvm_set_bitrate_to_nvm(uint32_t bitrate) ;
-
-uint32_t service_nvm_get_bitrate_from_nvm(void) ;
-
-uint32_t service_nvm_get_fdev_from_nvm(void) ;
-
-uint32_t service_nvm_set_dcs_to_nvm(uint8_t dutycycle);
-
-uint8_t service_nvm_get_dcs_from_nvm(void);
-
-int32_t service_nvm_get_sn_from_nvm (uint8_t *buff, uint32_t len);
-
-int32_t service_nvm_set_sn_to_nvm (uint8_t *buff, uint32_t len);
-
-uint32_t service_nvm_set_rx2fq_to_nvm(uint32_t freq);
-
-uint32_t service_nvm_get_rx2fq_from_nvm(void);
-
-uint32_t service_nvm_set_debug_level_to_nvm(uint8_t level);
-
-uint8_t service_nvm_get_debug_level_from_nvm();
+int32_t service_nvm_set_crypt_IV_to_nvm (uint8_t *buff, uint32_t len);
 
 bool service_nvm_get_iqinverted_from_nvm(void);
 
@@ -446,17 +460,18 @@ uint16_t service_nvm_get_syncword_from_nvm(void);
 
 int32_t service_nvm_set_syncword_to_nvm( uint16_t syncword);
 
-int32_t service_nvm_get_lbt_from_nvm(void);
+int32_t service_nvm_get_CAD_from_nvm(void);
 
-int32_t service_nvm_set_lbt_to_nvm(uint8_t enable);
+int32_t service_nvm_set_CAD_to_nvm(uint8_t enable);
 
-int16_t service_nvm_get_lbt_rssi_from_nvm(void);
+uint32_t service_nvm_set_fdev_to_nvm(uint32_t fdev) ;
 
-int32_t service_nvm_set_lbt_rssi_to_nvm(int16_t rssi);
+uint32_t service_nvm_set_bitrate_to_nvm(uint32_t bitrate) ;
 
-uint32_t service_nvm_get_lbt_scantime_from_nvm();
+uint32_t service_nvm_get_bitrate_from_nvm(void) ;
 
-int32_t service_nvm_set_lbt_scantime_to_nvm(uint32_t time);
+uint32_t service_nvm_get_fdev_from_nvm(void) ;
+
 
 #endif
 

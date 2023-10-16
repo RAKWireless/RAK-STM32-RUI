@@ -88,7 +88,7 @@ extern DMA_HandleTypeDef hdma_spi1_rx;
 extern UART_HandleTypeDef hlpuart1;
 extern DMA_HandleTypeDef hdma_lpuart1_rx;
 extern I2C_HandleTypeDef hi2c2;
-
+extern CRYP_HandleTypeDef hcryp;
 
 
 static void USER_UART_IRQHandler(UART_HandleTypeDef *huart);
@@ -105,7 +105,30 @@ void NMI_Handler(void)
 
   /* USER CODE END NonMaskableInt_IRQn 0 */
   /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
+    __HAL_RCC_APB1_FORCE_RESET();
+  __HAL_RCC_APB1_RELEASE_RESET();
 
+  __HAL_RCC_APB2_FORCE_RESET();
+  __HAL_RCC_APB2_RELEASE_RESET();
+
+  __HAL_RCC_APB3_FORCE_RESET();
+  __HAL_RCC_APB3_RELEASE_RESET();
+
+  __HAL_RCC_AHB1_FORCE_RESET();
+  __HAL_RCC_AHB1_RELEASE_RESET();
+
+  __HAL_RCC_AHB2_FORCE_RESET();
+  __HAL_RCC_AHB2_RELEASE_RESET();
+
+  __HAL_RCC_AHB3_FORCE_RESET();
+  __HAL_RCC_AHB3_RELEASE_RESET();
+
+  __HAL_RCC_SUBGHZ_FORCE_RESET();
+  __HAL_RCC_SUBGHZ_RELEASE_RESET();
+
+  __HAL_RCC_BACKUPRESET_FORCE();
+  __HAL_RCC_BACKUPRESET_RELEASE();
+NVIC_SystemReset();
   /* USER CODE END NonMaskableInt_IRQn 1 */
 }
 
@@ -281,8 +304,8 @@ void SysTick_Handler(void)
 {
   /* USER CODE BEGIN SysTick_IRQn 0 */
   HAL_IncTick();
-  Switch_timer++;
 #ifdef SUPPORT_MULTITASK
+  Switch_timer++;
   if (sched_start == true && Switch_timer % 20 ==0) {
     set_pendsv();
     Switch_timer=1;
@@ -489,6 +512,16 @@ void I2C2_ER_IRQHandler(void)
   HAL_I2C_ER_IRQHandler(&hi2c2);
 }
 
+void AES_IRQHandler(void)
+{
+  /* USER CODE BEGIN AES_IRQn 0 */
+
+  /* USER CODE END AES_IRQn 0 */
+  HAL_CRYP_IRQHandler(&hcryp);
+  /* USER CODE BEGIN AES_IRQn 1 */
+
+  /* USER CODE END AES_IRQn 1 */
+}
 
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

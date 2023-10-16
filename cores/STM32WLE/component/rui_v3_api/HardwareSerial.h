@@ -50,7 +50,9 @@ using namespace std;
 typedef enum
 {
     RAK_AT_MODE,             ///< AT command mode
+#ifdef SUPPOER_BINARY
     RAK_API_MODE,            ///< API mode
+#endif
 #ifdef SUPPORT_LORA
 #ifdef SUPPORT_PASSTHRU
     RAK_PASS_MODE,           ///< Pass-through mode
@@ -355,6 +357,27 @@ class HardwareSerial : public Stream
 
      */
     virtual void flush(void);
+
+    /**@par Description
+     *          Get the baud rate from the system configure
+     *
+     * @par Syntax
+     *          Serial.getBaudrate();
+     * @return  void
+     * @par     Example
+     * @verbatim
+     void setup() {
+	   uint32_t baudrate = Serial.getBaudrate();
+       Serial.begin(baudrate);
+     }
+
+     void loop() {
+     }
+     @endverbatim
+
+     */
+    virtual uint32_t getBaudrate(void);
+
     /**@}*/
 };
 

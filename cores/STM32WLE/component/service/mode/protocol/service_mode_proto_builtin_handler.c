@@ -97,6 +97,7 @@ void service_mode_proto_atcmd_request_handler (SERIAL_PORT port, uint8_t *payloa
 #else
                 ret = service_nvm_set_default_config_to_nvm();
 #endif
+                service_nvm_set_cfg_to_nvm();
                 if (ret == UDRV_RETURN_OK)
                 {
                     nRet = AT_OK;
@@ -529,11 +530,13 @@ void service_mode_proto_atcmd_request_handler (SERIAL_PORT port, uint8_t *payloa
                         }
 #endif
 #endif
+#ifdef SUPPORT_BINARY
                         case SERVICE_MODE_TYPE_PROTOCOL:
                         {
                             service_mode_proto_deinit(port);
                             break;
                         }
+#endif
                         default:
                         {
                             break;
@@ -548,6 +551,7 @@ void service_mode_proto_atcmd_request_handler (SERIAL_PORT port, uint8_t *payloa
             }
             break;
         }
+#ifdef SUPPORT_BINARY
         case SERVICE_MODE_PROTO_ATCMD_APM:
         {
             if (flag & PROTO_ATCMD_FLAG_WR_OR_EXE) {
@@ -596,6 +600,7 @@ void service_mode_proto_atcmd_request_handler (SERIAL_PORT port, uint8_t *payloa
             }
             break;
         }
+#endif
 #ifdef SUPPORT_LORA
 #ifdef SUPPORT_PASSTHRU
         case SERVICE_MODE_PROTO_ATCMD_PAM:
@@ -626,11 +631,13 @@ void service_mode_proto_atcmd_request_handler (SERIAL_PORT port, uint8_t *payloa
                                 service_mode_cli_deinit(port);
                                 break;
                             }
+#ifdef SUPPORT_BINARY
                             case SERVICE_MODE_TYPE_PROTOCOL:
                             {
                                 service_mode_proto_deinit(port);
                                 break;
                             }
+#endif
                             default:
                             {
                                 break;
@@ -2578,8 +2585,8 @@ void service_mode_proto_atcmd_request_handler (SERIAL_PORT port, uint8_t *payloa
                     nRet = AT_PARAM_ERROR;
                     goto out;
                 }
-
-                if (service_lora_p2p_send(arg, payload_len) == UDRV_RETURN_OK) {
+                bool cad_enable = service_lora_p2p_get_CAD();
+                if (service_lora_p2p_send(arg, payload_len,cad_enable) == UDRV_RETURN_OK) {
                     nRet = AT_OK;
                 } else {
                     nRet = AT_ERROR;
@@ -2668,20 +2675,20 @@ void service_mode_proto_atcmd_request_handler (SERIAL_PORT port, uint8_t *payloa
                     nRet = AT_PARAM_ERROR;
                     goto out;
                 }
-                if (service_lora_p2p_set_crypto_key(arg, 8) == UDRV_RETURN_OK) {
+                if (service_lora_p2p_set_crypto_key(arg, 16) == UDRV_RETURN_OK) {
                     nRet = AT_OK;
                 } else {
                     nRet = AT_ERROR;
                 }
             } else {
-                uint8_t rbuff[8];
-                if (service_lora_p2p_get_crypto_key(rbuff, 8) != UDRV_RETURN_OK) {
+                uint8_t rbuff[16];
+                if (service_lora_p2p_get_crypto_key(rbuff, 16) != UDRV_RETURN_OK) {
                     nRet = AT_ERROR;
                     goto out;
                 }
                 memset(buff, 0, 256);
-                reply_len = 8;
-                memcpy(buff+sizeof(header), rbuff, 8);
+                reply_len = 16;
+                memcpy(buff+sizeof(header), rbuff, 16);
                 header.length = __builtin_bswap16(reply_len);
                 header.flag = PROTO_ATCMD_FLAG_RESPONSE;
                 header.atcmd_id = atcmd_id;

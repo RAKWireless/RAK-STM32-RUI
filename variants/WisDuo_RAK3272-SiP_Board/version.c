@@ -1,11 +1,11 @@
-#define FW_REVISION "RUI_4.0.2_RAK3272-SiP"
+#define FW_REVISION "RUI_4.0.7_RAK3272-SiP"
 #define MODEL_ID "rak3172-sip"
 #define CHIP_ID "stm32wle5xx"
-#define BUILD_DATE "20230831"
-#define BUILD_TIME "101952"
-#define REPO_INFO "0a7f555f:53a181da:431cb7ef:40aa6db6:d74cbb50:45914d43:f43a68c0:8cb9ba74:c65bfb8d:6a3d6842:b9d39ab6:d5c6e88d:a29aaa6e:da54579d:d1e75214:1365fb0c:714946eb:602e71c7:c089af6d"
-#define CLI_REVISION "1.5.9"
-#define API_REVISION "3.2.4"
+#define BUILD_DATE "20231013"
+#define BUILD_TIME "073757"
+#define REPO_INFO "a1e8da75:ec0c4fa6:81acd52f:4785713c:d65536ca:9a906d7c:580d5b87:88d6edef:c3bbaa2e:16159358:6a3d6842:b9d39ab6:d5c6e88d:a29aaa6e:da54579d:d1e75214:1365fb0c:714946eb:20ef03f9:dc62b93e"
+#define CLI_REVISION "1.5.12"
+#define API_REVISION "3.2.8"
 const char *sw_version = {FW_REVISION};
 const char *model_id = {MODEL_ID};
 const char *chip_id = {CHIP_ID};

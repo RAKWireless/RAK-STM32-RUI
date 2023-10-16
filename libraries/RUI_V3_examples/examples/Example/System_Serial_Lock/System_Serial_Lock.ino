@@ -8,7 +8,8 @@ bool locked;
 void setup()
 {
     Serial.begin(115200, RAK_AT_MODE);
-    /* Wait 5s for USB to be plugged in, or the log messages will be gone */
+    /* Wait 2s for USB to be plugged in, or the log messages will be gone */
+    delay(2000);
   
     Serial.println("RAKwireless System Serial Lock Example");
     Serial.println("------------------------------------------------------");

@@ -23,6 +23,7 @@
 #include "RegionIN865.h"
 #include "RegionUS915.h"
 #include "RegionRU864.h"
+#include "RegionLA915.h"
 
 #define TX_TEST_TONE (1 << 0)
 #define RX_TEST_RSSI (1 << 1)
@@ -494,6 +495,12 @@ int32_t service_lora_trth(const testParameter_t *param)
         {
             phyDr = DataratesUS915[testParam.datarate];
             bandwidth = RegionCommonGetBandwidth( testParam.datarate, BandwidthsUS915 );
+            break;
+        }
+        case SERVICE_LORA_LA915:
+        {
+            phyDr = DataratesLA915[testParam.datarate];
+            bandwidth = RegionCommonGetBandwidth( testParam.datarate, BandwidthsLA915 );
             break;
         }
         default:

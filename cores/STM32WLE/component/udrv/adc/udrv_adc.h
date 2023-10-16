@@ -39,6 +39,12 @@ typedef enum{
     #endif
 } UDRV_ADC_MODE;
 
+typedef enum {
+    UDRV_ADC_CHANNEL_TEMPSENSOR = 253,
+    UDRV_ADC_CHANNEL_VREFINT    = 254,
+    UDRV_ADC_CHANNEL_VBAT       = 255,
+} UDRV_ADC_CHANNEL;
+
 /**
  *  Set ADC resolutions.
  * @param  resolution              The resolution to be set

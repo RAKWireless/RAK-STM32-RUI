@@ -34,6 +34,8 @@ extern DMA_HandleTypeDef hdma_lpuart1_rx;
 
 extern DMA_HandleTypeDef hdma_usart1_rx;
 
+extern UART_HandleTypeDef huart1;
+
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
 
@@ -116,8 +118,17 @@ void HAL_UART_MspInit(UART_HandleTypeDef* huart)
     PB7     ------> USART1_RX
     PB6     ------> USART1_TX
     */
-    GPIO_InitStruct.Pin = PinToGPIO_Pin(UART1_TXD_PIN) | PinToGPIO_Pin(UART1_RXD_PIN);
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    __HAL_RCC_GPIOB_CLK_ENABLE();
+    if(huart1.AdvancedInit.AdvFeatureInit == UART_ADVFEATURE_SWAP_INIT)
+    {
+        GPIO_InitStruct.Pin = PinToGPIO_Pin(UART1_RXD_PIN);
+        GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
+    }
+    else
+    {
+        GPIO_InitStruct.Pin = PinToGPIO_Pin(UART1_TXD_PIN) | PinToGPIO_Pin(UART1_RXD_PIN);
+        GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    }
     GPIO_InitStruct.Pull = GPIO_PULLUP;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     GPIO_InitStruct.Alternate = GPIO_AF7_USART1;
@@ -501,6 +512,7 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef* hspi)
 
 }
 
+#if 0 //Define in uhal_adc.c
 /**
 * @brief ADC MSP Initialization
 * This function configures the hardware resources used in this example
@@ -624,6 +636,7 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* hadc)
   }
 
 }
+#endif
 
 /**
 * @brief TIM_PWM MSP Initialization
@@ -662,6 +675,44 @@ void HAL_TIM_PWM_MspDeInit(TIM_HandleTypeDef* htim_pwm)
 
 }
 
+
+void HAL_CRYP_MspInit(CRYP_HandleTypeDef* hcryp)
+{
+  if(hcryp->Instance==AES)
+  {
+  /* USER CODE BEGIN AES_MspInit 0 */
+
+  /* USER CODE END AES_MspInit 0 */
+    /* Peripheral clock enable */
+    __HAL_RCC_AES_CLK_ENABLE();
+    /* AES interrupt Init */
+    HAL_NVIC_SetPriority(AES_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(AES_IRQn);
+  /* USER CODE BEGIN AES_MspInit 1 */
+  /* USER CODE END AES_MspInit 1 */
+  }
+
+}
+
+
+void HAL_CRYP_MspDeInit(CRYP_HandleTypeDef* hcryp)
+{
+  if(hcryp->Instance==AES)
+  {
+  /* USER CODE BEGIN AES_MspDeInit 0 */
+
+  /* USER CODE END AES_MspDeInit 0 */
+    /* Peripheral clock disable */
+    __HAL_RCC_AES_CLK_DISABLE();
+
+    /* AES interrupt DeInit */
+    HAL_NVIC_DisableIRQ(AES_IRQn);
+  /* USER CODE BEGIN AES_MspDeInit 1 */
+  /* Disable CRYP Interrupt */
+  /* USER CODE END AES_MspDeInit 1 */
+  }
+
+}
 
 /* USER CODE BEGIN 1 */
 

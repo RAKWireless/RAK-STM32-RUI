@@ -475,6 +475,7 @@
 #define __USES_INITFINI__ 1
 #define stm32wle5xx 1
 #define SUPPORT_LORA 1
+#define SUPPORT_LORA_P2P 1
 #define LORA_IO_SPI_PORT 2
 #define SYS_RTC_COUNTER_PORT 2
 #define ATCMD_CUST_TABLE_SIZE 64
@@ -495,6 +496,7 @@
 #define REGION_IN865 1
 #define REGION_US915 1
 #define REGION_RU864 1
+#define REGION_LA915 1
 #define SOFT_SE 1
 #define SECURE_ELEMENT_PRE_PROVISIONED 1
 #define LORAMAC_CLASSB_ENABLED 1
@@ -5872,7 +5874,7 @@ void SUBGRF_GetCFO( uint32_t BitRate, int32_t * Cfo);
 #define HAL_ADC_MODULE_ENABLED 
 
 
-
+#define HAL_CRYP_MODULE_ENABLED 
 
 
 
@@ -24564,7 +24566,280 @@ void HAL_MPU_ConfigRegion(MPU_Region_InitTypeDef *MPU_Init);
 # 441 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cortex.h"
 #define IS_MPU_SUB_REGION_DISABLE(SUBREGION) ((SUBREGION) < (uint16_t)0x00FFU)
 # 205 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
-# 220 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h"
+
+
+
+
+
+
+
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define STM32WLxx_HAL_CRYP_H 
+# 52 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+typedef struct
+{
+  uint32_t DataType;
+
+  uint32_t KeySize;
+
+  uint32_t *pKey;
+  uint32_t *pInitVect;
+
+  uint32_t Algorithm;
+
+
+  uint32_t *Header;
+
+
+  uint32_t HeaderSize;
+  uint32_t *B0;
+  uint32_t DataWidthUnit;
+  uint32_t HeaderWidthUnit;
+  uint32_t KeyIVConfigSkip;
+
+
+
+} CRYP_ConfigTypeDef;
+
+
+
+
+
+
+typedef enum
+{
+  HAL_CRYP_STATE_RESET = 0x00U,
+  HAL_CRYP_STATE_READY = 0x01U,
+  HAL_CRYP_STATE_BUSY = 0x02U,
+
+  HAL_CRYP_STATE_SUSPENDED = 0x03U,
+
+} HAL_CRYP_STATETypeDef;
+
+
+
+
+
+typedef enum
+{
+  HAL_CRYP_SUSPEND_NONE = 0x00U,
+  HAL_CRYP_SUSPEND = 0x01U
+}HAL_SuspendTypeDef;
+# 109 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+typedef struct
+
+{
+  AES_TypeDef *Instance;
+
+  CRYP_ConfigTypeDef Init;
+
+  FunctionalState AutoKeyDerivation;
+
+
+  uint32_t *pCrypInBuffPtr;
+
+  uint32_t *pCrypOutBuffPtr;
+
+  volatile uint16_t CrypHeaderCount;
+
+  volatile uint16_t CrypInCount;
+
+  volatile uint16_t CrypOutCount;
+
+  uint16_t Size;
+
+  uint32_t Phase;
+
+  DMA_HandleTypeDef *hdmain;
+
+  DMA_HandleTypeDef *hdmaout;
+
+  HAL_LockTypeDef Lock;
+
+  volatile HAL_CRYP_STATETypeDef State;
+
+  volatile uint32_t ErrorCode;
+
+  uint32_t KeyIVConfig;
+
+
+  uint32_t SizesSum;
+# 162 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+  volatile HAL_SuspendTypeDef SuspendRequest;
+
+  CRYP_ConfigTypeDef Init_saved;
+
+  uint32_t *pCrypInBuffPtr_saved;
+
+  uint32_t *pCrypOutBuffPtr_saved;
+
+  uint32_t CrypInCount_saved;
+
+  uint32_t CrypOutCount_saved;
+
+  uint32_t Phase_saved;
+
+  volatile HAL_CRYP_STATETypeDef State_saved;
+
+  uint32_t IV_saved[4];
+
+  uint32_t SUSPxR_saved[8];
+
+  uint32_t CR_saved;
+
+  uint32_t Key_saved[8];
+
+  uint16_t Size_saved;
+
+  uint16_t CrypHeaderCount_saved;
+
+  uint32_t SizesSum_saved;
+
+  uint32_t ResumingFlag;
+
+  FunctionalState AutoKeyDerivation_saved;
+
+
+
+} CRYP_HandleTypeDef;
+# 242 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define HAL_CRYP_ERROR_NONE 0x00000000U
+#define HAL_CRYP_ERROR_WRITE 0x00000001U
+#define HAL_CRYP_ERROR_READ 0x00000002U
+#define HAL_CRYP_ERROR_DMA 0x00000004U
+#define HAL_CRYP_ERROR_BUSY 0x00000008U
+#define HAL_CRYP_ERROR_TIMEOUT 0x00000010U
+#define HAL_CRYP_ERROR_NOT_SUPPORTED 0x00000020U
+#define HAL_CRYP_ERROR_AUTH_TAG_SEQUENCE 0x00000040U
+# 262 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define CRYP_DATAWIDTHUNIT_WORD 0x00000000U
+#define CRYP_DATAWIDTHUNIT_BYTE 0x00000001U
+# 273 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define CRYP_HEADERWIDTHUNIT_WORD 0x00000000U
+#define CRYP_HEADERWIDTHUNIT_BYTE 0x00000001U
+# 284 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define CRYP_AES_ECB 0x00000000U
+#define CRYP_AES_CBC AES_CR_CHMOD_0
+#define CRYP_AES_CTR AES_CR_CHMOD_1
+#define CRYP_AES_GCM_GMAC (AES_CR_CHMOD_0 | AES_CR_CHMOD_1)
+#define CRYP_AES_CCM AES_CR_CHMOD_2
+# 298 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define CRYP_KEYSIZE_128B 0x00000000U
+#define CRYP_KEYSIZE_256B AES_CR_KEYSIZE
+# 309 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define CRYP_DATATYPE_32B 0x00000000U
+#define CRYP_DATATYPE_16B AES_CR_DATATYPE_0
+#define CRYP_DATATYPE_8B AES_CR_DATATYPE_1
+#define CRYP_DATATYPE_1B AES_CR_DATATYPE
+# 322 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define CRYP_IT_CCFIE AES_CR_CCFIE
+#define CRYP_IT_ERRIE AES_CR_ERRIE
+#define CRYP_IT_WRERR AES_SR_WRERR
+#define CRYP_IT_RDERR AES_SR_RDERR
+#define CRYP_IT_CCF AES_SR_CCF
+# 337 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define CRYP_FLAG_BUSY AES_SR_BUSY
+#define CRYP_FLAG_WRERR AES_SR_WRERR
+#define CRYP_FLAG_RDERR AES_SR_RDERR
+#define CRYP_FLAG_CCF AES_SR_CCF
+
+#define CRYP_CCF_CLEAR AES_CR_CCFC
+#define CRYP_ERR_CLEAR AES_CR_ERRC
+# 353 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define CRYP_KEYIVCONFIG_ALWAYS 0x00000000U
+#define CRYP_KEYIVCONFIG_ONCE 0x00000001U
+# 381 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define __HAL_CRYP_RESET_HANDLE_STATE(__HANDLE__) ( (__HANDLE__)->State = HAL_CRYP_STATE_RESET)
+# 390 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define __HAL_CRYP_ENABLE(__HANDLE__) ((__HANDLE__)->Instance->CR |= AES_CR_EN)
+#define __HAL_CRYP_DISABLE(__HANDLE__) ((__HANDLE__)->Instance->CR &= ~AES_CR_EN)
+# 414 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define CRYP_FLAG_MASK 0x0000001FU
+#define __HAL_CRYP_GET_FLAG(__HANDLE__,__FLAG__) (((__HANDLE__)->Instance->SR & (__FLAG__)) == (__FLAG__))
+# 426 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define __HAL_CRYP_CLEAR_FLAG(__HANDLE__,__FLAG__) SET_BIT((__HANDLE__)->Instance->CR, (__FLAG__))
+# 438 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define __HAL_CRYP_GET_IT_SOURCE(__HANDLE__,__INTERRUPT__) (((__HANDLE__)->Instance->CR & (__INTERRUPT__)) == (__INTERRUPT__))
+# 453 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define __HAL_CRYP_GET_IT(__HANDLE__,__INTERRUPT__) (((__HANDLE__)->Instance->SR & (__INTERRUPT__)) == (__INTERRUPT__))
+# 468 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define __HAL_CRYP_ENABLE_IT(__HANDLE__,__INTERRUPT__) (((__HANDLE__)->Instance->CR) |= (__INTERRUPT__))
+# 483 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define __HAL_CRYP_DISABLE_IT(__HANDLE__,__INTERRUPT__) (((__HANDLE__)->Instance->CR) &= ~(__INTERRUPT__))
+
+
+
+
+
+
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp_ex.h" 1
+# 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp_ex.h"
+#define STM32WLxx_HAL_CRYP_EX_H 
+# 97 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp_ex.h"
+HAL_StatusTypeDef HAL_CRYPEx_AESGCM_GenerateAuthTAG(CRYP_HandleTypeDef *hcryp, uint32_t *AuthTag, uint32_t Timeout);
+HAL_StatusTypeDef HAL_CRYPEx_AESCCM_GenerateAuthTAG(CRYP_HandleTypeDef *hcryp, uint32_t *AuthTag, uint32_t Timeout);
+# 107 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp_ex.h"
+void HAL_CRYPEx_EnableAutoKeyDerivation(CRYP_HandleTypeDef *hcryp);
+void HAL_CRYPEx_DisableAutoKeyDerivation(CRYP_HandleTypeDef *hcryp);
+# 491 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h" 2
+# 500 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+HAL_StatusTypeDef HAL_CRYP_Init(CRYP_HandleTypeDef *hcryp);
+HAL_StatusTypeDef HAL_CRYP_DeInit(CRYP_HandleTypeDef *hcryp);
+void HAL_CRYP_MspInit(CRYP_HandleTypeDef *hcryp);
+void HAL_CRYP_MspDeInit(CRYP_HandleTypeDef *hcryp);
+HAL_StatusTypeDef HAL_CRYP_SetConfig(CRYP_HandleTypeDef *hcryp, CRYP_ConfigTypeDef *pConf);
+HAL_StatusTypeDef HAL_CRYP_GetConfig(CRYP_HandleTypeDef *hcryp, CRYP_ConfigTypeDef *pConf);
+
+
+
+
+
+void HAL_CRYP_ProcessSuspend(CRYP_HandleTypeDef *hcryp);
+HAL_StatusTypeDef HAL_CRYP_Suspend(CRYP_HandleTypeDef *hcryp);
+HAL_StatusTypeDef HAL_CRYP_Resume(CRYP_HandleTypeDef *hcryp);
+# 524 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+HAL_StatusTypeDef HAL_CRYP_Encrypt(CRYP_HandleTypeDef *hcryp, uint32_t *Input, uint16_t Size, uint32_t *Output, uint32_t Timeout);
+HAL_StatusTypeDef HAL_CRYP_Decrypt(CRYP_HandleTypeDef *hcryp, uint32_t *Input, uint16_t Size, uint32_t *Output, uint32_t Timeout);
+HAL_StatusTypeDef HAL_CRYP_Encrypt_IT(CRYP_HandleTypeDef *hcryp, uint32_t *Input, uint16_t Size, uint32_t *Output);
+HAL_StatusTypeDef HAL_CRYP_Decrypt_IT(CRYP_HandleTypeDef *hcryp, uint32_t *Input, uint16_t Size, uint32_t *Output);
+HAL_StatusTypeDef HAL_CRYP_Encrypt_DMA(CRYP_HandleTypeDef *hcryp, uint32_t *Input, uint16_t Size, uint32_t *Output);
+HAL_StatusTypeDef HAL_CRYP_Decrypt_DMA(CRYP_HandleTypeDef *hcryp, uint32_t *Input, uint16_t Size, uint32_t *Output);
+# 540 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+void HAL_CRYP_IRQHandler(CRYP_HandleTypeDef *hcryp);
+HAL_CRYP_STATETypeDef HAL_CRYP_GetState(CRYP_HandleTypeDef *hcryp);
+void HAL_CRYP_InCpltCallback(CRYP_HandleTypeDef *hcryp);
+void HAL_CRYP_OutCpltCallback(CRYP_HandleTypeDef *hcryp);
+void HAL_CRYP_ErrorCallback(CRYP_HandleTypeDef *hcryp);
+uint32_t HAL_CRYP_GetError(CRYP_HandleTypeDef *hcryp);
+# 564 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_cryp.h"
+#define IS_CRYP_ALGORITHM(ALGORITHM) (((ALGORITHM) == CRYP_AES_ECB) || ((ALGORITHM) == CRYP_AES_CBC) || ((ALGORITHM) == CRYP_AES_CTR) || ((ALGORITHM) == CRYP_AES_GCM_GMAC)|| ((ALGORITHM) == CRYP_AES_CCM))
+
+
+
+
+
+
+#define IS_CRYP_KEYSIZE(KEYSIZE) (((KEYSIZE) == CRYP_KEYSIZE_128B) || ((KEYSIZE) == CRYP_KEYSIZE_256B))
+
+
+#define IS_CRYP_DATATYPE(DATATYPE) (((DATATYPE) == CRYP_DATATYPE_32B) || ((DATATYPE) == CRYP_DATATYPE_16B) || ((DATATYPE) == CRYP_DATATYPE_8B) || ((DATATYPE) == CRYP_DATATYPE_1B))
+
+
+
+
+#define IS_CRYP_INIT(CONFIG) (((CONFIG) == CRYP_KEYIVCONFIG_ALWAYS) || ((CONFIG) == CRYP_KEYIVCONFIG_ONCE))
+
+
+#define IS_CRYP_BUFFERSIZE(ALGO,DATAWIDTH,SIZE) (((((ALGO) == CRYP_AES_CTR)) && ((((DATAWIDTH) == CRYP_DATAWIDTHUNIT_WORD) && (((SIZE) % 4U) == 0U)) || (((DATAWIDTH) == CRYP_DATAWIDTHUNIT_BYTE) && (((SIZE) % 16U) == 0U)))) || (((ALGO) == CRYP_AES_ECB) || ((ALGO) == CRYP_AES_CBC) || ((ALGO)== CRYP_AES_GCM_GMAC) || ((ALGO) == CRYP_AES_CCM)))
+# 213 "/home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h" 2
+
+
+
+
+
+
+
 # 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_exti.h" 1
 # 22 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_exti.h"
 #define STM32WLxx_HAL_EXTI_H 

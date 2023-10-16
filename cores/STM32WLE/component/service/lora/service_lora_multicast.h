@@ -9,7 +9,7 @@
 #ifndef __SERVICE_LORA_MULTICAST_H__
 #define __SERVICE_LORA_MULTICAST_H__
 
-#ifdef SUPPORT_LORA
+#ifndef NO_LORA_SUPPORT
 
 #ifdef __cplusplus
 extern "C" {

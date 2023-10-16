@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <math.h>
 
 #include "variant.h"
 #include "atcmd.h"
@@ -17,7 +16,7 @@
 #include "atcmd_misc_def.h"
 #include "udrv_errno.h"
 #ifndef RUI_BOOTLOADER
-#ifdef SUPPORT_LORA
+#if defined(SUPPORT_LORA) || defined(SUPPORT_LORA_P2P)
 #include "atcmd_key_id.h"
 #include "atcmd_key_id_def.h"
 #include "atcmd_join_send.h"
@@ -32,16 +31,16 @@
 #include "atcmd_multicast.h"
 #include "atcmd_supplement.h"
 #include "atcmd_supplement_def.h"
-#include "atcmd_p2p.h"
-#include "atcmd_p2p_def.h"
 #include "atcmd_cert.h"
 #include "atcmd_cert_def.h"
+#include "atcmd_p2p.h"
+#include "atcmd_p2p_def.h"
 #include "service_lora_p2p.h"
 #endif
 #endif
 #include "udrv_serial.h"
 #include "service_mode_cli.h"
-#ifdef rak3172
+#if defined(rak3172) || defined(rak3172T)
 #include "uhal_system.h"
 #endif
 #ifdef RAK5010_EVB
@@ -134,7 +133,7 @@ at_cmd_info atcmd_info_tbl[] =
     {ATCMD_HWID,     /*14*/         At_GetHwID,            0, "get the string of the hardware id", AT_HWID_PERM},
     {ATCMD_ALIAS,    /*89*/         At_Alias,              0, "add an alias name to the device", AT_ALIAS_PERM},
     {ATCMD_SYSV,     /*92*/         At_GetSysVolt,         0, "get the System Voltage", AT_SYSV_PERM},
-#ifdef rak3172
+#if defined(rak3172) || defined(rak3172T)
     {ATCMD_UID,      /*91*/         At_GetUid,             0, "", AT_UID_PERM},
 #endif
 #ifdef SUPPORT_BLE
@@ -152,7 +151,9 @@ at_cmd_info atcmd_info_tbl[] =
     {ATCMD_PWORD,    /*11*/         At_Pword,              0, "set the serial port locking password (max 8 char)", AT_PWORD_PERM},
     {ATCMD_BAUD,     /*12*/         At_Baud,               0, "get or set the serial port baudrate", AT_BAUD_PERM},
     {ATCMD_ATM,      /*72*/         At_AtCmdMode,          0, "switch to AT command mode", AT_ATM_PERM},
+#ifdef SUPPORT_BINARY
     {ATCMD_APM,      /*73*/         At_ApiMode,            0, "switch to API mode", AT_APM_PERM},
+#endif
 #ifdef SUPPORT_LORA
 #ifdef SUPPORT_PASSTHRU
     {ATCMD_PAM,      /*74*/         At_TransparentMode,    0, "enter data transparent transmission mode", ATD_PERM},
@@ -207,14 +208,33 @@ at_cmd_info atcmd_info_tbl[] =
     {ATCMD_SNR,      /*50*/         At_Snr,                0, "get the SNR of the last received packet", AT_SNR_PERM},
 /* Supplementary Command */
 #if defined( REGION_CN470 ) || defined( REGION_US915 ) || \
-    defined( REGION_AU915 )
+    defined( REGION_AU915 ) || defined( REGION_LA915 )
     {ATCMD_MASK,     /*51*/         At_Mask,               0, "get or set the channel mask to close or open the channel (only for US915, AU915, CN470)", AT_MASK_PERM},
     {ATCMD_CHE,      /*52*/         At_Che,                0, "get or set eight channels mode (only for US915 AU915 CN470)", AT_CHE_PERM},
     {ATCMD_CHS,      /*53*/         At_Chs,                0, "get or set single channels mode (only for US915 AU915 CN470)", AT_CHS_PERM},
 #endif
-    {ATCMD_BAND,     /*54*/         At_Band,               0, "get or set the active region (0 = EU433, 1 = CN470, 2 = RU864, 3 = IN865, 4 = EU868, 5 = US915, 6 = AU915, 7 = KR920, 8 = AS923-1 , 9 = AS923-2 , 10 = AS923-3 , 11 = AS923-4)", AT_BAND_PERM},
-/* LoRaWAN P2P */
+    {ATCMD_BAND,     /*54*/         At_Band,               0, "get or set the active region (0 = EU433, 1 = CN470, 2 = RU864, 3 = IN865, 4 = EU868, 5 = US915, 6 = AU915, 7 = KR920, 8 = AS923-1 , 9 = AS923-2 , 10 = AS923-3 , 11 = AS923-4 , 12 = LA915)", AT_BAND_PERM},
+/* LoRaWAN Multicast Group */
+    {ATCMD_ADDMULC,  /*69*/         At_Addmulc,            0, "add a new multicast group", AT_ADDMULC_PERM},
+    {ATCMD_RMVMULC,  /*70*/         At_Rmvmulc,            0, "delete a multicast group" , AT_RMVMULC_PERM},
+    {ATCMD_LSTMULC,  /*71*/         At_Lstmulc,            0, "view multicast group information", AT_LSTMULC_PERM},
+/* LoRaWAN Certification */
+    {ATCMD_TRSSI,    /*77*/         At_Trssi,              0, "start RF RSSI tone test", AT_TRSSI_PERM},
+    {ATCMD_TTONE,    /*78*/         At_Ttone,              0, "start RF tone test", AT_TTONE_PERM},
+    {ATCMD_TTX,      /*79*/         At_Ttx,                0, "set number of packets to be sent for PER RF TX test", AT_TTX_PERM},
+    {ATCMD_TRX,      /*80*/         At_Trx,                0, "set number of packets to be received for PER RF RX test", AT_TRX_PERM},
+    {ATCMD_TCONF,    /*81*/         At_Tconf,              0, "configure LoRa RF test", AT_TCONF_PERM},
+    {ATCMD_TTH,      /*82*/         At_Tth,                0, "start RF TX hopping test from Fstart to Fstop, with Fdelta steps", AT_TTH_PERM},
+    {ATCMD_TRTH,      /*98*/        At_Trth,               0, "start RF TX hopping test from Fstart to Fstop, with Fdelta interval in random sequence", AT_TRTH_PERM},
+    {ATCMD_TOFF,     /*92*/         At_Toff,               0, "stop ongoing RF test", AT_TOFF_PERM},
+    {ATCMD_CERTIF,   /*84*/         At_Certif,             0, "set the module in LoraWAN certification mode (0 = normal mode, 1 = certification mode)", AT_CERTIF_PERM},
+    {ATCMD_CW,       /*90*/         At_Cw,                 0, "start continuous wave", AT_CW_PERM},
+#endif
+#if defined(SUPPORT_LORA) || defined(SUPPORT_LORA_P2P)
     {ATCMD_NWM,      /*55*/         At_NwkWorkMode,        0, "get or set the network working mode (0 = P2P_LORA, 1 = LoRaWAN, 2 = P2P_FSK)", AT_NWM_PERM},
+#endif
+#ifdef SUPPORT_LORA_P2P
+/* LoRaWAN P2P */
     {ATCMD_PFREQ,    /*56*/         At_P2pFreq,            0, "configure P2P Frequency (Note:This command will be deleted in the future)", AT_PFREQ_PERM},
     {ATCMD_PSF,      /*57*/         At_P2pSF,              0, "configure P2P Spreading Factor (5-12)(Note:This command will be deleted in the future)", AT_PSF_PERM},
     {ATCMD_PBW,      /*58*/         At_P2pBW,              0, "configure P2P Bandwidth(LORA: 0 = 125, 1 = 250, 2 = 500, 3 = 7.8, 4 = 10.4, 5 = 15.63, 6 = 20.83, 7 = 31.25, 8 = 41.67, 9 = 62.5  FSK:4800-467000)(Note:This command will be deleted in the future)", AT_PBW_PERM},
@@ -224,7 +244,9 @@ at_cmd_info atcmd_info_tbl[] =
     {ATCMD_PSEND,    /*62*/         At_P2pSend,            0, "send data in P2P mode", AT_PSEND_PERM},
     {ATCMD_PRECV,    /*63*/         At_P2pRecv,            0, "enter P2P RX mode for a period of time (ms)", AT_PRECV_PERM},
     {ATCMD_PCRYPT,   /*64*/         At_P2pCrypt,           0, "get or set the encryption status of P2P mode", AT_ENCRY_PERM},
-    {ATCMD_PKEY,     /*65*/         At_P2pKey,             0, "get or set the encryption key of P2P mode (8 bytes in hex)", AT_ENCKEY_PERM},
+    {ATCMD_PCAD,     /*00*/         At_P2pCAD,             0, "get or set the Channel Activity Detection status of P2P mode", AT_PCAD_PERM},
+    {ATCMD_PKEY,     /*65*/         At_P2pKey,             0, "get or set the encryption key of P2P mode (16 bytes in hex)", AT_ENCKEY_PERM},
+    {ATCMD_PIV,      /*00*/         At_P2pIV,              0, "get or set the encryption IV of P2P mode (16 bytes in hex)", AT_ENCIV_PERM},
     {ATCMD_P2P,      /*66*/         At_P2p,                0, "get or set all P2P parameters", AT_P2P_PERM},
     {ATCMD_PBR,      /*67*/         At_Pbr,                0, "get or set the P2P FSK modem bitrate (600-300000 b/s)", AT_PBR_PERM},
     {ATCMD_PFDEV,    /*68*/         At_Pfdev,              0, "get or set the P2P FSK modem frequency deviation (600-200000 hz)", AT_PFDEV_PERM},
@@ -243,21 +265,6 @@ at_cmd_info atcmd_info_tbl[] =
 #endif
     {ATCMD_FIXLENGTHPAYLOAD,/*68*/  At_fixLengthPayload,   0, "get or set P2P fix length payload on/off ( 1 = on, 0 = off)", AT_FIXLENGTHPAYLOAD_PERM},
 
-/* LoRaWAN Multicast Group */
-    {ATCMD_ADDMULC,  /*69*/         At_Addmulc,            0, "add a new multicast group", AT_ADDMULC_PERM},
-    {ATCMD_RMVMULC,  /*70*/         At_Rmvmulc,            0, "delete a multicast group" , AT_RMVMULC_PERM},
-    {ATCMD_LSTMULC,  /*71*/         At_Lstmulc,            0, "view multicast group information", AT_LSTMULC_PERM},
-/* LoRaWAN Certification */
-    {ATCMD_TRSSI,    /*77*/         At_Trssi,              0, "start RF RSSI tone test", AT_TRSSI_PERM},
-    {ATCMD_TTONE,    /*78*/         At_Ttone,              0, "start RF tone test", AT_TTONE_PERM},
-    {ATCMD_TTX,      /*79*/         At_Ttx,                0, "set number of packets to be sent for PER RF TX test", AT_TTX_PERM},
-    {ATCMD_TRX,      /*80*/         At_Trx,                0, "set number of packets to be received for PER RF RX test", AT_TRX_PERM},
-    {ATCMD_TCONF,    /*81*/         At_Tconf,              0, "configure LoRa RF test", AT_TCONF_PERM},
-    {ATCMD_TTH,      /*82*/         At_Tth,                0, "start RF TX hopping test from Fstart to Fstop, with Fdelta steps", AT_TTH_PERM},
-    {ATCMD_TRTH,      /*98*/        At_Trth,               0, "start RF TX hopping test from Fstart to Fstop, with Fdelta interval in random sequence", AT_TRTH_PERM},
-    {ATCMD_TOFF,     /*92*/         At_Toff,               0, "stop ongoing RF test", AT_TOFF_PERM},
-    {ATCMD_CERTIF,   /*84*/         At_Certif,             0, "set the module in LoraWAN certification mode (0 = normal mode, 1 = certification mode)", AT_CERTIF_PERM},
-    {ATCMD_CW,       /*90*/         At_Cw,                 0, "start continuous wave", AT_CW_PERM}
 #endif
 #ifdef RAK5010_EVB
 /* LTE */
@@ -337,6 +344,7 @@ int At_Parser (SERIAL_PORT port, char *buff, int len)
     int i, j, help = 0;
     int	nRet = AT_ERROR;
     int is_write = 0;
+    char perm[8]={0};
     char cmd[MAX_CMD_LEN], operat = 0; //cmd len 32 should be enough
     stParam param;
 
@@ -453,7 +461,17 @@ int At_Parser (SERIAL_PORT port, char *buff, int len)
                     //followed by the help of all commands:
                     At_CmdList(port, &param);
                 } else {
-                    atcmd_printf("%s: %s\r\n", atcmd_info_tbl[i].atCmd, atcmd_info_tbl[i].CmdUsage);
+                    memset(perm,'\0',sizeof(perm));
+                    if (atcmd_info_tbl[i].permission & ATCMD_PERM_DISABLE)
+                        strcpy(perm,"Disable");
+                    else if (atcmd_info_tbl[i].permission & ATCMD_PERM_WRITEONCEREAD)
+                        strcpy(perm,"R*");
+                    else
+                        if (atcmd_info_tbl[i].permission & ATCMD_PERM_READ)
+                            strcpy(perm+strlen(perm),"R");
+                        if (atcmd_info_tbl[i].permission & ATCMD_PERM_WRITE)
+                            strcpy(perm+strlen(perm),"W");
+                    atcmd_printf("%s,%s: %s\r\n", atcmd_info_tbl[i].atCmd, perm, atcmd_info_tbl[i].CmdUsage);
                 }
                 nRet = AT_OK;
             } else {
@@ -507,7 +525,17 @@ int At_Parser (SERIAL_PORT port, char *buff, int len)
                 sprintf(cust_atcmd_buff, "%s%s", "ATC+", atcmd_cust_tbl[j].atCmd);
 
                 if (help) {
-                    atcmd_printf("%s: %s\r\n", cust_atcmd_buff, atcmd_cust_tbl[j].CmdUsage);
+                    memset(perm,'\0',sizeof(perm));
+                    if (atcmd_cust_tbl[i].permission & ATCMD_PERM_DISABLE)
+                        strcpy(perm,"Disable");
+                    else if (atcmd_cust_tbl[i].permission & ATCMD_PERM_WRITEONCEREAD)
+                        strcpy(perm,"R*");
+                    else
+                        if (atcmd_cust_tbl[i].permission & ATCMD_PERM_READ)
+                            strcpy(perm+strlen(perm),"R");
+                        if (atcmd_cust_tbl[i].permission & ATCMD_PERM_WRITE)
+                            strcpy(perm+strlen(perm),"W");
+                    atcmd_printf("%s,%s: %s\r\n", cust_atcmd_buff, perm, atcmd_cust_tbl[j].CmdUsage);
 	            nRet = AT_OK;
                 } else {
                     if (atcmd_cust_tbl[j].permission & ATCMD_PERM_DISABLE)
@@ -691,19 +719,6 @@ uint8_t at_check_digital_uint32_t(const char *p_str, uint32_t *value)
         }
         else
             return 1;
-    }
-
-    for (uint8_t i=0; i<MAXIMUM_NB_DIGITS; i++)
-    {
-        uint32_t tmp = digit/pow(10, i);
-        if (tmp != 0)
-        {
-            continue;
-        }
-        else
-        {
-            break;
-        }
     }
 
     if (value != NULL)

@@ -65,7 +65,7 @@
 
 #define ATCMD_ATE              "ATE"
 #if defined( REGION_CN470 ) || defined( REGION_US915 ) || \
-    defined( REGION_AU915 )
+    defined( REGION_AU915 ) || defined( REGION_LA915 )
 #define ATCMD_MASK             "AT+MASK"
 #define ATCMD_CHS              "AT+CHS"
 #define ATCMD_CHE              "AT+CHE"

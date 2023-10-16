@@ -39,7 +39,7 @@ size_t fund_circular_queue_utilization_get(fund_circular_queue_t const *p_queue)
 size_t fund_circular_queue_available_get(fund_circular_queue_t const *p_queue);
 size_t fund_circular_queue_in(fund_circular_queue_t const *p_queue, void const *p_data, size_t element_count);
 size_t fund_circular_queue_out(fund_circular_queue_t const *p_queue, void *p_data, size_t element_count);
-void fund_circular_queue_reset(fund_circular_queue_t const *p_queue);
+void fund_circular_queue_reset(fund_circular_queue_t *p_queue);
 bool fund_circular_queue_is_empty(fund_circular_queue_t const *p_queue);
 bool fund_circular_queue_is_full(fund_circular_queue_t const *p_queue);
 int32_t fund_circular_queue_peek(fund_circular_queue_t const *p_queue, void *p_element);

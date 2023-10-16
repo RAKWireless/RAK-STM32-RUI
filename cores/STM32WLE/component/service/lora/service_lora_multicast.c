@@ -115,6 +115,10 @@ int32_t service_lora_addmulc(McSession_t McSession)
                         channel.RxParams.ClassC.Frequency = 869100000;
                         channel.RxParams.ClassC.Datarate = 0;
                         break;
+                        case SERVICE_LORA_LA915 :
+                        channel.RxParams.ClassC.Frequency = 923300000;
+                        channel.RxParams.ClassC.Datarate = 8;
+                        break;
                         default:
                         return -UDRV_PARAM_ERR;
                     }
@@ -175,6 +179,10 @@ int32_t service_lora_addmulc(McSession_t McSession)
                         case SERVICE_LORA_RU864 :         //RP002-1.0.3  P84
                         channel.RxParams.ClassB.Frequency = 86890000;
                         channel.RxParams.ClassB.Datarate = 3;
+                        break;
+                        case SERVICE_LORA_LA915 :
+                        channel.RxParams.ClassB.Frequency = 923300000;
+                        channel.RxParams.ClassB.Datarate = 10;
                         break;
                         default:
                         return -UDRV_PARAM_ERR;
