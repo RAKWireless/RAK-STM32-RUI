@@ -5,7 +5,6 @@
 //#include "udrv_serial.h"
 
 static udrv_pwm_port curr_port = UDRV_PWM_MAX;
-static const udrv_pwm_inited;
 static void udrv_pwm_handler(void *p_context) {
     //udrv_serial_log_printf("pwm_port=%u\r\n", *(udrv_pwm_port *)p_context);
     uhal_pwm_disable(*(udrv_pwm_port *)p_context);
@@ -14,7 +13,6 @@ static void udrv_pwm_handler(void *p_context) {
 
 void udrv_pwm_init(udrv_pwm_port port, uint32_t freq_hz, uint8_t is_invert, uint32_t pin) {
     uhal_pwm_init(port, freq_hz, is_invert, pin);
-    static const udrv_pwm_inited = 1;
 }
 
 void udrv_pwm_deinit(udrv_pwm_port port) {
@@ -40,12 +38,10 @@ void udrv_pwm_disable(udrv_pwm_port port) {
 }
 
 void udrv_pwm_suspend(void) {
-    if(udrv_pwm_inited)
     uhal_pwm_suspend();
 }
 
 void udrv_pwm_resume(void) {
-    if(udrv_pwm_inited)
     uhal_pwm_resume();
 }
 

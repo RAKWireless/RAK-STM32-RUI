@@ -105,7 +105,8 @@ static uint8_t is_init = 0;
 static delay_send_t delay_send;
 SERVICE_LORA_CLASS_B_STATE class_b_state = SERVICE_LORA_CLASS_B_S0;//Initial state
 
-static void service_lora_linkcheck_callback(void);
+static service_lora_linkcheck_cb service_lora_linkcheck_callback;
+static SERVICE_LORA_LINKCHECK_T linkcheck_data;
 static int32_t service_lora_delay_send_process(void);
 static service_lora_recv_cb service_lora_recv_callback;
 static SERVICE_LORA_RECEIVE_T recv_data_pkg;
@@ -325,7 +326,24 @@ static void McpsIndication(McpsIndication_t *mcpsIndication)
             service_lora_send_null(SERVICE_LORA_MAC_CMD_NONE);
         }
 
-        service_lora_linkcheck_callback();
+        if (linkcheck_flag)
+        {
+            linkcheck_flag = 0;
+            if (!linkcheck_state)
+            {
+                // Check DemodMargin
+                // Check NbGateways
+                udrv_serial_log_printf("+EVT:LINKCHECK:0:%d:%d:%d:%d\r\n", DemodMargin, NbGateways, rssi, snr);
+                if (service_lora_linkcheck_callback != NULL) {
+                    linkcheck_data.State = linkcheck_state;
+                    linkcheck_data.DemodMargin = DemodMargin;
+                    linkcheck_data.NbGateways = NbGateways;
+                    linkcheck_data.Rssi = rssi;
+                    linkcheck_data.Snr = snr;
+                    service_lora_linkcheck_callback(&linkcheck_data);
+                }
+            }
+        }
 
         if(( mcpsIndication->Port ) !=224)
         {
@@ -435,7 +453,7 @@ static void MlmeConfirm(MlmeConfirm_t *mlmeConfirm)
                 }
                 else
                 {
-                    if (udrv_system_timer_create(SYSTIMER_LORAWAN, service_lora_auto_join, HTMR_PERIODIC) == UDRV_RETURN_OK)
+                    if (udrv_system_timer_create(SYSTIMER_LORAWAN, service_lora_auto_join, HTMR_ONESHOT) == UDRV_RETURN_OK)
                     {
                         udrv_system_timer_start(SYSTIMER_LORAWAN, service_lora_get_auto_join_period() * 1000, NULL);
                     }
@@ -549,6 +567,14 @@ static void MlmeConfirm(MlmeConfirm_t *mlmeConfirm)
         if(linkcheck_state!= LORAMAC_EVENT_INFO_STATUS_OK)
         {
             udrv_serial_log_printf("+EVT:LINKCHECK:1:0:0:0:0\r\n");
+            if (service_lora_linkcheck_callback != NULL) {
+                linkcheck_data.State = linkcheck_state;
+                linkcheck_data.DemodMargin = 0;
+                linkcheck_data.NbGateways = 0;
+                linkcheck_data.Rssi = 0;
+                linkcheck_data.Snr = 0;
+                service_lora_linkcheck_callback(&linkcheck_data);
+            }
         }
         break;
     }
@@ -1755,6 +1781,22 @@ int32_t service_lora_join(int32_t param1, int32_t param2, int32_t param3, int32_
         }
         else if (status == LORAMAC_STATUS_DUTYCYCLE_RESTRICTED)
         {
+            udrv_system_timer_stop(SYSTIMER_LORAWAN);
+            if (++auto_join_retry_cnt > service_lora_get_auto_join_max_cnt())
+            {
+                auto_join_retry_cnt = 0;
+            }
+            else
+            {
+                if (udrv_system_timer_create(SYSTIMER_LORAWAN, service_lora_auto_join, HTMR_ONESHOT) == UDRV_RETURN_OK)
+                {
+                    udrv_system_timer_start(SYSTIMER_LORAWAN, service_lora_get_auto_join_period() * 1000, NULL);
+                }
+                else
+                {
+                    udrv_serial_log_printf("+EVT:JOIN_FAILED_%d\r\n", __LINE__);
+                }
+            }
             udrv_serial_log_printf("Restricted_Wait_%d_ms\r\n", mlmeReq.ReqReturn.DutyCycleWaitTime);
             return -UDRV_BUSY;
         }
@@ -3050,20 +3092,6 @@ int32_t service_lora_get_chs(void)
     return service_nvm_get_chs_from_nvm();
 }
 
-void service_lora_linkcheck_callback(void)
-{
-    if (linkcheck_flag)
-    {
-        linkcheck_flag = 0;
-        if (!linkcheck_state)
-        {
-            // Check DemodMargin
-            // Check NbGateways
-            udrv_serial_log_printf("+EVT:LINKCHECK:0:%d:%d:%d:%d\r\n", DemodMargin, NbGateways, rssi, snr);
-        }
-    }
-}
-
 int32_t service_lora_register_recv_cb(service_lora_recv_cb callback)
 {
     service_lora_recv_callback = callback;
@@ -3079,6 +3107,12 @@ int32_t service_lora_register_join_cb(service_lora_join_cb callback)
 int32_t service_lora_register_send_cb(service_lora_send_cb callback)
 {
     service_lora_send_callback = callback;
+    return UDRV_RETURN_OK;
+}
+
+int32_t service_lora_register_linkcheck_cb(service_lora_linkcheck_cb callback)
+{
+    service_lora_linkcheck_callback = callback;
     return UDRV_RETURN_OK;
 }
 

@@ -3,7 +3,6 @@
 #include "uhal_spimst.h"
 
 static struct udrv_spimst_api *spimst_api[UDRV_SPIMST_MAX];
-static const udrv_spimst_inited ;
 struct udrv_spimst_api spimst_driver =
 {
   uhal_spimst_init,
@@ -25,7 +24,6 @@ void udrv_spimst_init(udrv_spimst_port port) {
 
         spimst_api[port]->SPIMST_INIT(port);
     }
-    static const udrv_spimst_inited = 1;
     return;
 }
 
@@ -84,13 +82,11 @@ int8_t udrv_spimst_trx(udrv_spimst_port port, uint8_t *write_data, uint32_t writ
 }
 
 void udrv_spimst_suspend(void) {
-    if(udrv_spimst_inited)
     uhal_spimst_suspend();
     return;
 }
 
 void udrv_spimst_resume(void) {
-    if(udrv_spimst_inited)
     uhal_spimst_resume();
     return;
 }

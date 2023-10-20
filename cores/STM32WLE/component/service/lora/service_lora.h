@@ -97,9 +97,19 @@ extern "C"
         uint32_t DownLinkCounter;
     } SERVICE_LORA_RECEIVE_T;
 
+    typedef struct SERVICE_LORA_LINKCHECK
+    {
+        uint8_t State;
+        uint8_t DemodMargin;
+        uint8_t NbGateways;
+        int16_t Rssi;
+        int8_t Snr;
+    } SERVICE_LORA_LINKCHECK_T;
+
     typedef void (*service_lora_recv_cb)(SERVICE_LORA_RECEIVE_T *data);
     typedef void (*service_lora_join_cb)(int32_t status);
     typedef void (*service_lora_send_cb)(int32_t status);
+    typedef void (*service_lora_linkcheck_cb)(SERVICE_LORA_LINKCHECK_T *data);
 
     typedef enum _SERVICE_LORA_TX_POWER
     {
@@ -464,6 +474,8 @@ extern "C"
     int32_t service_lora_register_join_cb(service_lora_join_cb callback);
 
     int32_t service_lora_register_send_cb(service_lora_send_cb callback);
+
+    int32_t service_lora_register_linkcheck_cb(service_lora_linkcheck_cb callback);
 
     uint32_t service_lora_get_beacon_dr(void);
 

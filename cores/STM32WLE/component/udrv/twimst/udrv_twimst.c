@@ -3,7 +3,6 @@
 #include "uhal_twimst.h"
 
 static struct udrv_twimst_api *twimst_api[UDRV_TWIMST_MAX];
-static const udrv_twimst_inited;
 struct udrv_twimst_api twimst_driver =
 {
   uhal_twimst_init,
@@ -24,7 +23,6 @@ void udrv_twimst_init (udrv_twimst_port port) {
 
 	twimst_api[port]->TWIMST_INIT(port);
     }
-    static const udrv_twimst_inited =1;
     return;
 }
 
@@ -70,13 +68,11 @@ int32_t udrv_twimst_read (udrv_twimst_port port, uint8_t address, uint8_t *data,
 }
 
 void udrv_twimst_suspend (void) {
-    if(udrv_twimst_inited)
     twimst_driver.TWIMST_SUSPEND();
     return;
 }
 
 void udrv_twimst_resume (void) {
-    if(udrv_twimst_inited)
     twimst_driver.TWIMST_RESUME();
     return;
 }
