@@ -70,6 +70,7 @@ build.regionKR920=
 build.regionIN865=
 build.regionUS915=
 build.regionRU864=
+build.regionLA915=
 
 # common compiler for nrf
 #rtos.path={build.core.path}/freertos
@@ -79,7 +80,7 @@ lora.path={runtime.platform.path}/cores/{build.core}/external/lora
 
 # build.logger_flags and build.sysview_flags and intentionally empty,
 # to allow modification via a user's own boards.local.txt or platform.local.txt files.
-build.flags.default= {compiler.optimization_flag} {build.flags.feature} {build.supportlora} {build.supportlora_p2p} {build.regionAS923} {build.regionAU915} {build.regionCN470} {build.regionCN779} {build.regionEU433} {build.regionEU868} {build.regionKR920} {build.regionIN865} {build.regionUS915} {build.regionRU864} {build.debug_flags} {build.logger_flags} {build.sysview_flags} {build.flags.inc_path} {build.support_at_flag}
+build.flags.default= {compiler.optimization_flag} {build.flags.feature} {build.supportlora} {build.supportlora_p2p} {build.regionAS923} {build.regionAU915} {build.regionCN470} {build.regionCN779} {build.regionEU433} {build.regionEU868} {build.regionKR920} {build.regionIN865} {build.regionUS915} {build.regionRU864} {build.regionLA915} {build.debug_flags} {build.logger_flags} {build.sysview_flags} {build.flags.inc_path} {build.support_at_flag}
 build.info.flags=-DVARIANT_H="{build.variant_h}"
 build.info.flags=-D{build.series}
 

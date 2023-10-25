@@ -71,7 +71,7 @@ typedef struct {
     uint8_t multi_nwks_key[16];
     uint8_t multi_apps_key[16];
     bool MulticastEnable;
-    uint16_t ch_mask[REGION_NVM_CHANNELS_MASK_SIZE];
+    uint16_t ch_mask[6];
     SERVICE_LORA_JOIN_MODE join_mode;
     SERVICE_LORA_CLASS device_class;
     uint8_t confirm;

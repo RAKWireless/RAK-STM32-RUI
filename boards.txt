@@ -31,6 +31,7 @@ menu.supportKR920=Support LoRaWAN Region KR920
 menu.supportIN865=Support LoRaWAN Region IN865
 menu.supportUS915=Support LoRaWAN Region US915
 menu.supportRU864=Support LoRaWAN Region RU864
+menu.supportLA915=Support LoRaWAN Region LA915
 # ----------------------------------
 # WisDuo RAK3172 Evaluation Board
 # ----------------------------------
@@ -143,6 +144,11 @@ WisDuoRAK3172EvaluationBoard.menu.supportRU864.1=On
 WisDuoRAK3172EvaluationBoard.menu.supportRU864.1.build.regionRU864=-DREGION_RU864
 WisDuoRAK3172EvaluationBoard.menu.supportRU864.2=Off
 WisDuoRAK3172EvaluationBoard.menu.supportRU864.2.build.regionRU864= 
+
+WisDuoRAK3172EvaluationBoard.menu.supportLA915.1=On
+WisDuoRAK3172EvaluationBoard.menu.supportLA915.1.build.regionLA915=-DREGION_LA915
+WisDuoRAK3172EvaluationBoard.menu.supportLA915.2=Off
+WisDuoRAK3172EvaluationBoard.menu.supportLA915.2.build.regionLA915= 
 
 # ----------------------------------
 # WisDuo RAK3172-T Board
@@ -257,6 +263,11 @@ WisDuoRAK3172TBoard.menu.supportRU864.1.build.regionRU864=-DREGION_RU864
 WisDuoRAK3172TBoard.menu.supportRU864.2=Off
 WisDuoRAK3172TBoard.menu.supportRU864.2.build.regionRU864= 
 
+WisDuoRAK3172TBoard.menu.supportLA915.1=On
+WisDuoRAK3172TBoard.menu.supportLA915.1.build.regionLA915=-DREGION_LA915
+WisDuoRAK3172TBoard.menu.supportLA915.2=Off
+WisDuoRAK3172TBoard.menu.supportLA915.2.build.regionLA915= 
+
 # ----------------------------------
 # WisDuo RAK3272-SiP Board
 # ----------------------------------
@@ -370,6 +381,11 @@ WisDuoRAK3272SiPBoard.menu.supportRU864.1.build.regionRU864=-DREGION_RU864
 WisDuoRAK3272SiPBoard.menu.supportRU864.2=Off
 WisDuoRAK3272SiPBoard.menu.supportRU864.2.build.regionRU864= 
 
+WisDuoRAK3272SiPBoard.menu.supportLA915.1=On
+WisDuoRAK3272SiPBoard.menu.supportLA915.1.build.regionLA915=-DREGION_LA915
+WisDuoRAK3272SiPBoard.menu.supportLA915.2=Off
+WisDuoRAK3272SiPBoard.menu.supportLA915.2.build.regionLA915= 
+
 # ----------------------------------
 # WisDuo RAK3272LP-SiP Board
 # ----------------------------------
@@ -482,3 +498,8 @@ WisDuoRAK3272LPSiPBoard.menu.supportRU864.1=On
 WisDuoRAK3272LPSiPBoard.menu.supportRU864.1.build.regionRU864=-DREGION_RU864
 WisDuoRAK3272LPSiPBoard.menu.supportRU864.2=Off
 WisDuoRAK3272LPSiPBoard.menu.supportRU864.2.build.regionRU864= 
+
+WisDuoRAK3272LPSiPBoard.menu.supportLA915.1=On
+WisDuoRAK3272LPSiPBoard.menu.supportLA915.1.build.regionLA915=-DREGION_LA915
+WisDuoRAK3272LPSiPBoard.menu.supportLA915.2=Off
+WisDuoRAK3272LPSiPBoard.menu.supportLA915.2.build.regionLA915= 
