@@ -2,7 +2,7 @@
 #include <stdbool.h>
 #include "udrv_powersave.h"
 #include "uhal_powersave.h"
-#ifdef SUPPORT_LORA
+#if defined(SUPPORT_LORA) || defined(SUPPORT_LORA_P2P)
 #include "radio.h"
 #include "service_lora.h"
 #endif
@@ -61,7 +61,7 @@ static void powersave_mcu_sleep_handler(void * p_context)
 
 static void powersave_radio_sleep_handler(void * p_context)
 {
-#ifdef SUPPORT_LORA
+#if defined(SUPPORT_LORA) || defined(SUPPORT_LORA_P2P)
         service_lora_resume();
 #endif
 }
@@ -281,7 +281,7 @@ void udrv_radio_sleep_ms (uint32_t ms_time)
         uhal_ps_timer_start(ms_time, NULL);
     }
 
-#ifdef SUPPORT_LORA
+#if defined(SUPPORT_LORA) || defined(SUPPORT_LORA_P2P)
         service_lora_suspend();
 #endif
 }
@@ -304,11 +304,11 @@ int32_t udrv_sleep_ms (uint32_t ms_time)
         return -UDRV_BUSY;
 #endif
 
-#ifdef SUPPORT_LORA
+#if defined(SUPPORT_LORA) || defined(SUPPORT_LORA_P2P)
     if (service_lora_isbusy()) {
 #endif
         udrv_powersave_in_deep_sleep = true;
-#ifdef SUPPORT_LORA
+#if defined(SUPPORT_LORA) || defined(SUPPORT_LORA_P2P)
     } else {
         udrv_powersave_in_deep_sleep = false;
     }
@@ -321,12 +321,12 @@ int32_t udrv_sleep_ms (uint32_t ms_time)
         uhal_ps_timer_start(ms_time, NULL);
     }
 
-#ifdef SUPPORT_LORA
+#if defined(SUPPORT_LORA) || defined(SUPPORT_LORA_P2P)
         service_lora_suspend();
 #endif
     ret = handle_mcu_sleep(true);
 
-#ifdef SUPPORT_LORA
+#if defined(SUPPORT_LORA) || defined(SUPPORT_LORA_P2P)
         service_lora_resume();
 #endif
     return ret;

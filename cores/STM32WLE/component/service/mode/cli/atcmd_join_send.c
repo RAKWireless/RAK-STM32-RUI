@@ -295,6 +295,10 @@ int At_Join(SERIAL_PORT port, char *cmd, stParam *param)
         {
             return AT_BUSY_ERROR;
         }
+        else if (ret == -UDRV_UNSUPPORTED_BAND)
+        {
+                    return AT_UNSUPPORTED_BAND;
+        }
         else
         {
             return AT_ERROR;

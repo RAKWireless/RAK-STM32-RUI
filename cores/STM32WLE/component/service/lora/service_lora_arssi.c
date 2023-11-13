@@ -14,7 +14,7 @@
 #include "systime.h"
 #include "utilities.h"
 
-static uint8_t last_tx_channel;
+uint8_t last_tx_channel;
 static int8_t arssi[96] = {0};
 static chan_rssi service_lora_chan_arssi = {.chan = UINT32_MAX};
 

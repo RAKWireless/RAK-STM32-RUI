@@ -105,6 +105,7 @@ const char *atcmd_err_tbl[] =
 	"AT_RX_ERROR",
 	"AT_MODE_NO_SUPPORT",
 	"AT_COMMAND_NOT_FOUND",
+	"AT_UNSUPPORTED_BAND",
 };
 
 at_cmd_info atcmd_info_tbl[] =

@@ -4,7 +4,7 @@
 #include "Stream.h"
 #include "udrv_twimst.h"
 
-#define TWI_BUFFER_MAX 32
+#define TWI_BUFFER_MAX 64
 
 class TwoWire : public Stream
 {

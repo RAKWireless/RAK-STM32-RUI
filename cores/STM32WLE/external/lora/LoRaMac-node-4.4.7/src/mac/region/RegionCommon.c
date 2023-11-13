@@ -10418,19 +10418,19 @@ void RegionCommonRxBeaconSetup( RegionCommonRxBeaconSetupParams_t* rxBeaconSetup
 
 
     Radio.SetRxConfig( MODEM_LORA, rxBeaconSetupParams->BeaconChannelBW, datarate,
-                       1, 0, 10, rxBeaconSetupParams->SymbolTimeout, 
+                       1, 0, 10, 0, 
 # 540 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionCommon.c" 3 4
-                                                                    1
+                                   1
 # 540 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionCommon.c"
-                                                                        , rxBeaconSetupParams->BeaconSize, 
+                                       , rxBeaconSetupParams->BeaconSize, 
 # 540 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionCommon.c" 3 4
-                                                                                                           0
+                                                                          0
 # 540 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionCommon.c"
-                                                                                                                , 0, 0, 
+                                                                               , 0, 0, 
 # 540 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionCommon.c" 3 4
-                                                                                                                        0
+                                                                                       0
 # 540 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionCommon.c"
-                                                                                                                             , rxContinuous );
+                                                                                            , rxContinuous );
 
     Radio.Rx( rxBeaconSetupParams->RxTime );
 }

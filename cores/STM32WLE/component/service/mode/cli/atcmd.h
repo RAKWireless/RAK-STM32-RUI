@@ -54,6 +54,7 @@ typedef enum AT_ERRNO_E_{
         AT_RX_ERROR,
         AT_MODE_NO_SUPPORT,
         AT_COMMAND_NOT_FOUND,
+        AT_UNSUPPORTED_BAND,
 }AT_ERRNO_E;
 
 typedef struct _stParam

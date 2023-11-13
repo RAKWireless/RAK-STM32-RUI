@@ -334,6 +334,10 @@ int At_Band(SERIAL_PORT port, char *cmd, stParam *param)
                 {
                     return AT_BUSY_ERROR;
                 }
+                else if (ret == -UDRV_UNSUPPORTED_BAND)
+                {
+                    return AT_UNSUPPORTED_BAND;
+                }
                 else
                 {
                     return AT_ERROR;
@@ -395,17 +399,18 @@ int At_Band(SERIAL_PORT port, char *cmd, stParam *param)
         ret = service_lora_set_band(band);
         if (ret == UDRV_RETURN_OK)
         {
-            udrv_serial_log_printf("UDRV_RETURN_OK\r\n");
             return AT_OK;
         }
         else if (ret == -UDRV_BUSY)
         {
-            udrv_serial_log_printf("UDRV_RAT_BUSY_ERROR\r\n");
             return AT_BUSY_ERROR;
+        }
+        else if (ret == -UDRV_UNSUPPORTED_BAND)
+        {
+           return AT_UNSUPPORTED_BAND;
         }
         else if (ret == -UDRV_WRONG_ARG)
         {
-            udrv_serial_log_printf("UDRV_RETURNAT_PARAM_ERROR\r\n");
             return AT_PARAM_ERROR;
         }
         else
