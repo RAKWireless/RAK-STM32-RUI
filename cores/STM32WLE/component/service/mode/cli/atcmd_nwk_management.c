@@ -9,7 +9,7 @@
 
 int At_ADR (SERIAL_PORT port, char *cmd, stParam *param) {
 
-    UDRV_RETURN_CODE status;
+    int32_t status;
 
     if(SERVICE_LORAWAN != service_lora_get_nwm())
     {
@@ -45,6 +45,10 @@ int At_ADR (SERIAL_PORT port, char *cmd, stParam *param) {
         else if (status == -UDRV_WRONG_ARG)
         {
             return AT_PARAM_ERROR;
+        }
+        else if (status == -UDRV_UNSUPPORTED_BAND)
+        {
+           return AT_UNSUPPORTED_BAND;
         }
         else
         {
@@ -93,24 +97,31 @@ int At_Class (SERIAL_PORT port, char *cmd, stParam *param) {
         }
         return AT_OK;
     } else if (param->argc == 1) {
+        int32_t ret;
         if (!strcasecmp(param->argv[0], "A")) {
-            if (service_lora_set_class(SERVICE_LORA_CLASS_A, true) == UDRV_RETURN_OK) {
+            ret = service_lora_set_class(SERVICE_LORA_CLASS_A, true);
+            if (ret == UDRV_RETURN_OK) {
                 return AT_OK;
             }
         }
 
         if (!strcasecmp(param->argv[0], "B")) {
-            if (service_lora_set_class(SERVICE_LORA_CLASS_B, true) == UDRV_RETURN_OK) {
+            ret = service_lora_set_class(SERVICE_LORA_CLASS_B, true);
+            if (ret == UDRV_RETURN_OK) {
                 return AT_OK;
             }
         }
 
         if (!strcasecmp(param->argv[0], "C")) {
-            if (service_lora_set_class(SERVICE_LORA_CLASS_C, true) == UDRV_RETURN_OK) {
+            ret = service_lora_set_class(SERVICE_LORA_CLASS_C, true);
+            if (ret == UDRV_RETURN_OK) {
                 return AT_OK;
             }
         }
-
+        if (ret == -UDRV_UNSUPPORTED_BAND)
+        {
+           return AT_UNSUPPORTED_BAND;
+        }
         return AT_PARAM_ERROR;
     } else {
         return AT_PARAM_ERROR;
@@ -167,11 +178,20 @@ int At_DataRate (SERIAL_PORT port, char *cmd, stParam *param)
         //}
 
         ret = service_lora_set_dr((SERVICE_LORA_DATA_RATE)dr, true);
-        if (ret == UDRV_RETURN_OK) {
+        if (ret == UDRV_RETURN_OK) 
+        {
             return AT_OK;
-        } else if (ret == -UDRV_WRONG_ARG) {
+        } 
+        else if (ret == -UDRV_WRONG_ARG) 
+        {
             return AT_PARAM_ERROR;
-        } else {
+        } 
+        else if (ret == -UDRV_UNSUPPORTED_BAND)
+        {
+           return AT_UNSUPPORTED_BAND;
+        }
+        else 
+        {
             return AT_ERROR;
         }
     } else {
@@ -205,7 +225,13 @@ int At_RxWin1JoinDelay (SERIAL_PORT port, char *cmd, stParam *param) {
             return AT_PARAM_ERROR;
         }
 
-        if (service_lora_set_jn1dl(jn1dl*1000, true) != UDRV_RETURN_OK) {//change unit from s to ms
+        int32_t ret;
+        ret = service_lora_set_jn1dl(jn1dl*1000, true);
+        if (ret != UDRV_RETURN_OK) {//change unit from s to ms
+            if (ret == -UDRV_UNSUPPORTED_BAND)
+            {
+                return AT_UNSUPPORTED_BAND;
+            }
             return AT_ERROR;
         }
 
@@ -241,7 +267,13 @@ int At_RxWin2JoinDelay (SERIAL_PORT port, char *cmd, stParam *param) {
             return AT_PARAM_ERROR;
         }
 
-        if (service_lora_set_jn2dl(jn2dl*1000, true) != UDRV_RETURN_OK) {//change unit from s to ms
+        int32_t ret;
+        ret = service_lora_set_jn2dl(jn2dl*1000, true);
+        if (ret != UDRV_RETURN_OK) {//change unit from s to ms
+            if (ret == -UDRV_UNSUPPORTED_BAND)
+            {
+                return AT_UNSUPPORTED_BAND;
+            }
             return AT_ERROR;
         }
 
@@ -273,7 +305,13 @@ int At_PubNwkMode (SERIAL_PORT port, char *cmd, stParam *param) {
             return AT_PARAM_ERROR;
         }
 
-        if (service_lora_set_pub_nwk_mode((bool)pnm, true) != UDRV_RETURN_OK) {
+        int32_t ret;
+        ret = service_lora_set_pub_nwk_mode((bool)pnm, true);
+        if (ret != UDRV_RETURN_OK) {
+            if (ret == -UDRV_UNSUPPORTED_BAND)
+            {
+                return AT_UNSUPPORTED_BAND;
+            }
             return AT_ERROR;
         }
 
@@ -305,7 +343,13 @@ int At_RxWin1Delay (SERIAL_PORT port, char *cmd, stParam *param) {
             return AT_PARAM_ERROR;
         }
 
-        if (service_lora_set_rx1dl(rx1dl*1000, true) != UDRV_RETURN_OK) {//change unit from s to ms
+        int32_t ret;
+        ret = service_lora_set_rx1dl(rx1dl*1000, true);
+        if (ret != UDRV_RETURN_OK) {//change unit from s to ms
+            if (ret == -UDRV_UNSUPPORTED_BAND)
+            {
+                return AT_UNSUPPORTED_BAND;
+            }
             return AT_ERROR;
         }
 
@@ -337,7 +381,13 @@ int At_RxWin2Delay (SERIAL_PORT port, char *cmd, stParam *param) {
             return AT_PARAM_ERROR;
         }
 
-        if (service_lora_set_rx2dl(rx2dl*1000, true) != UDRV_RETURN_OK) {//change unit from s to ms
+        int32_t ret;
+        ret = service_lora_set_rx2dl(rx2dl*1000, true);
+        if (ret != UDRV_RETURN_OK) {//change unit from s to ms
+            if (ret == -UDRV_UNSUPPORTED_BAND)
+            {
+                return AT_UNSUPPORTED_BAND;
+            }
             return AT_ERROR;
         }
 
@@ -372,11 +422,20 @@ int At_RxWin2DataRate (SERIAL_PORT port, char *cmd, stParam *param) {
         //}
 
         ret = service_lora_set_rx2dr((SERVICE_LORA_DATA_RATE)dr, true);
-        if (ret == UDRV_RETURN_OK) {
+        if (ret == UDRV_RETURN_OK) 
+        {
             return AT_OK;
-        } else if (ret == -UDRV_WRONG_ARG) {
+        } 
+        else if (ret == -UDRV_WRONG_ARG) 
+        {
             return AT_PARAM_ERROR;
-        } else {
+        } 
+        else if (ret == -UDRV_UNSUPPORTED_BAND)
+        {
+           return AT_UNSUPPORTED_BAND;
+        }
+        else 
+        {
             return AT_ERROR;
         }
     } else {
@@ -413,11 +472,20 @@ int At_RxWin2Freq (SERIAL_PORT port, char *cmd, stParam *param)
 
         ret = service_lora_set_rx2freq(freq, true);
 
-        if (ret == UDRV_RETURN_OK) {
+        if (ret == UDRV_RETURN_OK) 
+        {
             return AT_OK;
-        } else if (ret == -UDRV_WRONG_ARG) {
+        } 
+        else if (ret == -UDRV_WRONG_ARG) 
+        {
             return AT_PARAM_ERROR;
-        } else {
+        } 
+        else if (ret == -UDRV_UNSUPPORTED_BAND)
+        {
+            return AT_UNSUPPORTED_BAND;
+        }
+        else 
+        {
             return AT_ERROR;
         }
     }
@@ -456,9 +524,17 @@ int At_TxPower (SERIAL_PORT port, char *cmd, stParam *param) {
         ret = service_lora_set_txpower(txp, true);
         if (ret == UDRV_RETURN_OK) {
             return AT_OK;
-	} else if (ret == -UDRV_WRONG_ARG) {
+	    } 
+        else if (ret == -UDRV_WRONG_ARG) 
+        {
             return AT_PARAM_ERROR;
-        } else {
+        } 
+        else if (ret == -UDRV_UNSUPPORTED_BAND)
+        {
+           return AT_UNSUPPORTED_BAND;
+        }
+        else 
+        {
             return AT_ERROR;
         }
     } else {

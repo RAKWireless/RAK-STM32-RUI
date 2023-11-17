@@ -501,6 +501,8 @@ extern "C"
     int32_t service_lora_set_lbt_scantime(uint32_t time);
     bool service_lora_isbusy(void);
 
+    bool service_lora_region_isActive(SERVICE_LORA_BAND band);
+
 #ifdef __cplusplus
 }
 #endif

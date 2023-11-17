@@ -810,6 +810,9 @@ uint8_t at_error_code_form_udrv(int8_t udrv_code)
         case -UDRV_NO_WAN_CONNECTION : 
         at_status = AT_NO_NETWORK_JOINED ; 
         break;
+        case -UDRV_UNSUPPORTED_BAND :
+        at_status = AT_UNSUPPORTED_BAND ;
+        break;
         default :             
         at_status = AT_ERROR;
         break;

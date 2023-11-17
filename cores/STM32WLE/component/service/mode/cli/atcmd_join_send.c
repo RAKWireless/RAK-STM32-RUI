@@ -297,7 +297,7 @@ int At_Join(SERIAL_PORT port, char *cmd, stParam *param)
         }
         else if (ret == -UDRV_UNSUPPORTED_BAND)
         {
-                    return AT_UNSUPPORTED_BAND;
+            return AT_UNSUPPORTED_BAND;
         }
         else
         {
@@ -339,9 +339,15 @@ int At_NwkJoinMode(SERIAL_PORT port, char *cmd, stParam *param)
             return AT_PARAM_ERROR;
         }
 
-        if (service_lora_set_njm((SERVICE_LORA_JOIN_MODE)mode, true) == UDRV_RETURN_OK)
+        int32_t ret;
+        ret = service_lora_set_njm((SERVICE_LORA_JOIN_MODE)mode, true);
+        if (ret == UDRV_RETURN_OK)
         {
             return AT_OK;
+        }
+        else if (ret == -UDRV_UNSUPPORTED_BAND)
+        {
+           return AT_UNSUPPORTED_BAND;
         }
         else
         {
@@ -479,6 +485,10 @@ int At_Send(SERIAL_PORT port, char *cmd, stParam *param)
         {
             return AT_PARAM_ERROR;
         }
+        else if (ret == -UDRV_UNSUPPORTED_BAND)
+        {
+           return AT_UNSUPPORTED_BAND;
+        }
         else
         {
             return AT_ERROR;
@@ -572,6 +582,10 @@ int At_Lpsend(SERIAL_PORT port, char *cmd, stParam *param)
         else if(ret == -UDRV_WRONG_ARG )
         {
             return AT_PARAM_ERROR;
+        }
+        else if (ret == -UDRV_UNSUPPORTED_BAND)
+        {
+           return AT_UNSUPPORTED_BAND;
         }
         else
         {

@@ -59,6 +59,10 @@ int At_AppEui (SERIAL_PORT port, char *cmd, stParam *param)
         {
             return AT_BUSY_ERROR;
         }
+        else if (ret == -UDRV_UNSUPPORTED_BAND)
+        {
+           return AT_UNSUPPORTED_BAND;
+        }
         else
         {
             return AT_ERROR;
@@ -111,6 +115,10 @@ int At_AppKey (SERIAL_PORT port, char *cmd, stParam *param)
         {
             return AT_BUSY_ERROR;
         }
+        else if (ret == -UDRV_UNSUPPORTED_BAND)
+        {
+           return AT_UNSUPPORTED_BAND;
+        }
         else
         {
             return AT_ERROR;
@@ -162,6 +170,10 @@ int At_AppSKey (SERIAL_PORT port, char *cmd, stParam *param)
         else if (ret == -UDRV_BUSY)
         {
             return AT_BUSY_ERROR;
+        }
+        else if (ret == -UDRV_UNSUPPORTED_BAND)
+        {
+           return AT_UNSUPPORTED_BAND;
         }
         else
         {
@@ -218,6 +230,10 @@ int At_DevAddr (SERIAL_PORT port, char *cmd, stParam *param)
         {
             return AT_BUSY_ERROR;
         }
+        else if (ret == -UDRV_UNSUPPORTED_BAND)
+        {
+           return AT_UNSUPPORTED_BAND;
+        }
         else
         {
             return AT_ERROR;
@@ -269,6 +285,10 @@ int At_DevEui (SERIAL_PORT port, char *cmd, stParam *param)
         else if (ret == -UDRV_BUSY)
         {
             return AT_BUSY_ERROR;
+        }
+        else if (ret == -UDRV_UNSUPPORTED_BAND)
+        {
+           return AT_UNSUPPORTED_BAND;
         }
         else
         {
@@ -369,6 +389,10 @@ int At_NwkSKey (SERIAL_PORT port, char *cmd, stParam *param)
         else if (ret == -UDRV_BUSY)
         {
             return AT_BUSY_ERROR;
+        }
+        else if (ret == -UDRV_UNSUPPORTED_BAND)
+        {
+           return AT_UNSUPPORTED_BAND;
         }
         else
         {

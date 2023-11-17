@@ -991,6 +991,9 @@ int32_t service_lora_get_app_eui(uint8_t *buff, uint32_t len)
 
 int32_t service_lora_set_app_eui(uint8_t *buff, uint32_t len)
 {
+    SERVICE_LORA_BAND band = service_lora_get_band();
+    if (service_lora_region_isActive(band) == false)
+        return -UDRV_UNSUPPORTED_BAND;
     MibRequestConfirm_t mibReq;
     LoRaMacStatus_t status;
 
@@ -1015,6 +1018,9 @@ int32_t service_lora_get_app_key(uint8_t *buff, uint32_t len)
 
 int32_t service_lora_set_app_key(uint8_t *buff, uint32_t len)
 {
+    SERVICE_LORA_BAND band = service_lora_get_band();
+    if (service_lora_region_isActive(band) == false)
+        return -UDRV_UNSUPPORTED_BAND;
     MibRequestConfirm_t mibReq;
     LoRaMacStatus_t status;
 
@@ -1081,6 +1087,9 @@ int32_t service_lora_get_app_skey(uint8_t *buff, uint32_t len)
 
 int32_t service_lora_set_app_skey(uint8_t *buff, uint32_t len)
 {
+    SERVICE_LORA_BAND band = service_lora_get_band();
+    if (service_lora_region_isActive(band) == false)
+        return -UDRV_UNSUPPORTED_BAND;
     MibRequestConfirm_t mibReq;
     LoRaMacStatus_t status;
 
@@ -1134,6 +1143,9 @@ int32_t service_lora_get_dev_addr(uint8_t *buff, uint32_t len)
 
 int32_t service_lora_set_dev_addr(uint8_t *buff, uint32_t len)
 {
+    SERVICE_LORA_BAND band = service_lora_get_band();
+    if (service_lora_region_isActive(band) == false)
+        return -UDRV_UNSUPPORTED_BAND;
     MibRequestConfirm_t mibReq;
     LoRaMacStatus_t status;
 
@@ -1158,6 +1170,9 @@ int32_t service_lora_get_dev_eui(uint8_t *buff, uint32_t len)
 
 int32_t service_lora_set_dev_eui(uint8_t *buff, uint32_t len)
 {
+    SERVICE_LORA_BAND band = service_lora_get_band();
+    if (service_lora_region_isActive(band) == false)
+        return -UDRV_UNSUPPORTED_BAND;
     /* P2P mode will also set deveui, which is used as a unique ID */
     if(SERVICE_LORAWAN==service_lora_get_nwm())
     {
@@ -1216,6 +1231,9 @@ int32_t service_lora_get_net_id(uint8_t *buff, uint32_t len)
 
 int32_t service_lora_set_nwk_id(uint8_t *buff, uint32_t len)
 {
+    SERVICE_LORA_BAND band = service_lora_get_band();
+    if (service_lora_region_isActive(band) == false)
+        return -UDRV_UNSUPPORTED_BAND;
     MibRequestConfirm_t mibReq;
     LoRaMacStatus_t status;
 
@@ -1271,6 +1289,9 @@ int32_t service_lora_get_nwk_skey(uint8_t *buff, uint32_t len)
 
 int32_t service_lora_set_nwk_skey(uint8_t *buff, uint32_t len)
 {
+    SERVICE_LORA_BAND band = service_lora_get_band();
+    if (service_lora_region_isActive(band) == false)
+        return -UDRV_UNSUPPORTED_BAND;
     MibRequestConfirm_t mibReq;
     LoRaMacStatus_t status;
 
@@ -1360,14 +1381,14 @@ int32_t service_lora_set_band(SERVICE_LORA_BAND band)
         {
             if((band == SERVICE_LORA_CN470) || (band == SERVICE_LORA_EU433))
             {
-                return -UDRV_WRONG_ARG;
+                return -UDRV_UNSUPPORTED_BAND;
             }
         }
         else
         {
             if((band != SERVICE_LORA_CN470 ) && (band != SERVICE_LORA_EU433))
             {
-                return -UDRV_WRONG_ARG;
+                return -UDRV_UNSUPPORTED_BAND;
             }
         }
 #endif 
@@ -1382,10 +1403,8 @@ int32_t service_lora_set_band(SERVICE_LORA_BAND band)
         return UDRV_RETURN_OK;
     }
 
-    if( RegionIsActive( band ) == false )
-    {
+    if (service_lora_region_isActive(band) == false)
         return -UDRV_UNSUPPORTED_BAND;
-    }
 
     /**************************************************************************************
      *
@@ -1760,10 +1779,8 @@ int32_t service_lora_join(int32_t param1, int32_t param2, int32_t param3, int32_
     }
 
     SERVICE_LORA_BAND band = service_lora_get_band();
-    if( RegionIsActive( band ) == false )
-    {
+    if (service_lora_region_isActive(band) == false)
         return -UDRV_UNSUPPORTED_BAND;
-    }
 
 
     if (njm == SERVICE_LORA_OTAA)
@@ -1894,7 +1911,10 @@ int32_t service_lora_set_lora_default(void)
 
     if (SERVICE_LORAWAN == service_lora_get_nwm())
     {
-        if ((ret = service_lora_stop()) != UDRV_RETURN_OK && (RegionIsActive( service_lora_get_band() ) == true))
+        SERVICE_LORA_BAND band = service_lora_get_band();
+        if(band == SERVICE_LORA_AS923_2 || band == SERVICE_LORA_AS923_3 || band == SERVICE_LORA_AS923_4)
+            band = SERVICE_LORA_AS923;
+        if ((ret = service_lora_stop()) != UDRV_RETURN_OK && (RegionIsActive( band ) == true))
         {
             return ret;
         }
@@ -1927,7 +1947,10 @@ int32_t service_lora_set_lora_default(void)
 
     if (SERVICE_LORAWAN == service_lora_get_nwm())
     {
-        if ((ret = service_lora_init(service_lora_get_band())) != UDRV_RETURN_OK && (RegionIsActive( service_lora_get_band() ) == true))
+        SERVICE_LORA_BAND band = service_lora_get_band();
+        if(band == SERVICE_LORA_AS923_2 || band == SERVICE_LORA_AS923_3 || band == SERVICE_LORA_AS923_4)
+            band = SERVICE_LORA_AS923;
+        if ((ret = service_lora_init(service_lora_get_band())) != UDRV_RETURN_OK && (RegionIsActive( band ) == true))
         {
             return ret;
         }
@@ -1966,6 +1989,9 @@ SERVICE_LORA_JOIN_MODE service_lora_get_njm(void)
 
 int32_t service_lora_set_njm(SERVICE_LORA_JOIN_MODE njm, bool commit)
 {
+    SERVICE_LORA_BAND band = service_lora_get_band();
+    if (service_lora_region_isActive(band) == false)
+        return -UDRV_UNSUPPORTED_BAND;
     MibRequestConfirm_t mibReq;
     uint8_t buff[16];
     int32_t ret;
@@ -2336,6 +2362,9 @@ bool service_lora_get_adr(void)
 
 int32_t service_lora_set_adr(bool adr, bool commit)
 {
+    SERVICE_LORA_BAND band = service_lora_get_band();
+    if (service_lora_region_isActive(band) == false)
+        return -UDRV_UNSUPPORTED_BAND;
     LoRaMacStatus_t status;
     MibRequestConfirm_t mibReq;
 
@@ -2392,6 +2421,9 @@ SERVICE_LORA_CLASS service_lora_get_class(void)
 
 int32_t service_lora_set_class(SERVICE_LORA_CLASS device_class, bool commit)
 {
+    SERVICE_LORA_BAND band = service_lora_get_band();
+    if (service_lora_region_isActive(band) == false)
+        return -UDRV_UNSUPPORTED_BAND;
     MibRequestConfirm_t mibReq;
     MlmeReq_t mlmeReq;
     LoRaMacStatus_t status;
@@ -2523,6 +2555,9 @@ SERVICE_LORA_DATA_RATE service_lora_get_dr(void)
 
 int32_t service_lora_set_dr(SERVICE_LORA_DATA_RATE dr, bool commit)
 {
+    SERVICE_LORA_BAND band = service_lora_get_band();
+    if (service_lora_region_isActive(band) == false)
+        return -UDRV_UNSUPPORTED_BAND;
     LoRaMacStatus_t status;
     MibRequestConfirm_t mibReq;
 
@@ -2560,6 +2595,9 @@ uint32_t service_lora_get_jn1dl(void)
 
 int32_t service_lora_set_jn1dl(uint32_t jn1dl, bool commit)
 {
+    SERVICE_LORA_BAND band = service_lora_get_band();
+    if (service_lora_region_isActive(band) == false)
+        return -UDRV_UNSUPPORTED_BAND;
     MibRequestConfirm_t mibReq;
     int32_t ret;
 
@@ -2587,6 +2625,9 @@ uint32_t service_lora_get_jn2dl(void)
 
 int32_t service_lora_set_jn2dl(uint32_t jn2dl, bool commit)
 {
+    SERVICE_LORA_BAND band = service_lora_get_band();
+    if (service_lora_region_isActive(band) == false)
+        return -UDRV_UNSUPPORTED_BAND;
     MibRequestConfirm_t mibReq;
     int32_t ret;
 
@@ -2615,6 +2656,9 @@ bool service_lora_get_pub_nwk_mode(void)
 
 int32_t service_lora_set_pub_nwk_mode(bool pnm, bool commit)
 { 
+    SERVICE_LORA_BAND band = service_lora_get_band();
+    if (service_lora_region_isActive(band) == false)
+        return -UDRV_UNSUPPORTED_BAND;
     MibRequestConfirm_t mibReq;
 
     mibReq.Type = MIB_PUBLIC_NETWORK;
@@ -2654,6 +2698,9 @@ uint32_t service_lora_get_rx1dl(void)
 
 int32_t service_lora_set_rx1dl(uint32_t rx1dl, bool commit)
 {
+    SERVICE_LORA_BAND band = service_lora_get_band();
+    if (service_lora_region_isActive(band) == false)
+        return -UDRV_UNSUPPORTED_BAND;
     MibRequestConfirm_t mibReq;
     int32_t ret;
 
@@ -2692,6 +2739,9 @@ uint32_t service_lora_get_rx2dl(void)
 
 int32_t service_lora_set_rx2dl(uint32_t rx2dl, bool commit)
 {
+    SERVICE_LORA_BAND band = service_lora_get_band();
+    if (service_lora_region_isActive(band) == false)
+        return -UDRV_UNSUPPORTED_BAND;
     MibRequestConfirm_t mibReq;
     int32_t ret;
 
@@ -2730,6 +2780,9 @@ uint8_t service_lora_get_txpower(void)
 
 int32_t service_lora_set_txpower(uint8_t txp, bool commit)
 {
+    SERVICE_LORA_BAND band = service_lora_get_band();
+    if (service_lora_region_isActive(band) == false)
+        return -UDRV_UNSUPPORTED_BAND;
     LoRaMacStatus_t status;
     MibRequestConfirm_t mibReq;
 
@@ -2837,6 +2890,9 @@ uint32_t service_lora_get_rx2freq(void)
 
 uint32_t service_lora_set_rx2freq(uint32_t freq,bool commit)
 {
+    SERVICE_LORA_BAND band = service_lora_get_band();
+    if (service_lora_region_isActive(band) == false)
+        return -UDRV_UNSUPPORTED_BAND;
     MibRequestConfirm_t mibReq;
 
     mibReq.Type = MIB_RX2_CHANNEL;
@@ -2867,6 +2923,9 @@ uint32_t service_lora_set_rx2freq(uint32_t freq,bool commit)
 
 uint32_t service_lora_set_rx2dr(SERVICE_LORA_DATA_RATE datarate, bool commit)
 {
+    SERVICE_LORA_BAND band = service_lora_get_band();
+    if (service_lora_region_isActive(band) == false)
+        return -UDRV_UNSUPPORTED_BAND;
     LoRaMacStatus_t status;
     MibRequestConfirm_t mibReq;
 
@@ -3619,6 +3678,20 @@ int32_t service_lora_set_lbt_scantime(uint32_t time)
     return service_nvm_set_lbt_scantime_to_nvm(time);
 }
 
+bool service_lora_region_isActive(SERVICE_LORA_BAND band)
+{
+    if( RegionIsActive( band ) == false )
+    {
+        if(band == SERVICE_LORA_AS923 || band == SERVICE_LORA_AS923_2 || band == SERVICE_LORA_AS923_3 || band == SERVICE_LORA_AS923_4)
+        {
+            if( RegionIsActive( SERVICE_LORA_AS923 ) == false )
+                return false;
+        }
+        else
+            return false;
+    }
+    return true;
+}
 
 #endif
 #ifndef NO_LORA_SUPPORT

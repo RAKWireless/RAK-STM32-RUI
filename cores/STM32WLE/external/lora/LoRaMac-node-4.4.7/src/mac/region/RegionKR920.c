@@ -44943,6 +44943,12 @@ _Bool
    _Bool 
 # 502 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
         service_lora_isbusy(void);
+
+    
+# 504 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h" 3 4
+   _Bool 
+# 504 "/home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h"
+        service_lora_region_isActive(SERVICE_LORA_BAND band);
 # 35 "/home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/mac/region/RegionKR920.c" 2
 
 #define CHANNELS_MASK_SIZE 1
