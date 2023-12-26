@@ -146,7 +146,7 @@ size_t fund_circular_queue_out(fund_circular_queue_t const *p_queue, void *p_dat
 
 void fund_circular_queue_reset(fund_circular_queue_t *p_queue)
 {
-    memset(p_queue, 0, sizeof(fund_circular_queue_t));
+    //memset(p_queue, 0, sizeof(fund_circular_queue_t));
     p_queue->start = p_queue->end;
 }
 

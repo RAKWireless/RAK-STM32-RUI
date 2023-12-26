@@ -19,7 +19,7 @@ RAKOneWireSerial::RAKOneWireSerial(uint32_t pin, rak_onewire_serial_recv_cb call
 {
   RAKOneWireSerial::pin = pin;
 
-  udrv_serial_register_onewire_handler((SERIAL_CLI_HANDLER)callback);
+  udrv_serial_register_onewire_handler((SERIAL_UART_HANDLER)callback);
 }
 
 void RAKOneWireSerial::begin(uint32_t baud, uint8_t config, RAK_SERIAL_MODE mode)
@@ -289,5 +289,16 @@ int RAKOneWireSerial::read()
     return -1;
   else
     return buf[0];
+}
+
+
+int RAKOneWireSerial::peek()
+{
+    return (int)udrv_serial_peek(serialPort);
+}
+
+void RAKOneWireSerial::flush()
+{
+    udrv_serial_flush(serialPort);
 }
 

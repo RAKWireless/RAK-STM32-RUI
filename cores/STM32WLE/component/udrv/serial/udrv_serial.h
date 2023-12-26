@@ -74,6 +74,12 @@ typedef enum _SERIAL_PARITY_E {
     SERIAL_PARITY_FORCED0             = 0x7   ///< The parity bit is sent as/checked to be 0.
 } SERIAL_PARITY_E;
 
+typedef enum _SERIAL_UART_EVT_E {
+    SERIAL_UART_TX_DONE             = 0,
+    SERIAL_UART_RX_DONE             = 1,
+    SERIAL_UART_ERROR               = 2,
+} SERIAL_UART_EVT;
+
 typedef enum _SERIAL_PORT
 {
     SERIAL_UART0 = 0,       // Use UART0 for I/O
@@ -99,6 +105,7 @@ typedef enum _SERIAL_WLOCK_STATE
 } SERIAL_WLOCK_STATE;
 
 typedef void (*SERIAL_CLI_HANDLER) (SERIAL_PORT, void *);
+typedef void (*SERIAL_UART_HANDLER) (SERIAL_PORT, SERIAL_UART_EVT);
 
 //The structure of serial function 
 struct udrv_serial_api {
@@ -119,7 +126,7 @@ struct udrv_serial_api {
  * @retval      void
  * @param       SERIAL_CLI_HANDLER handler: the handler function to handle the received characters
  */
-void udrv_serial_register_onewire_handler (SERIAL_CLI_HANDLER handler);
+void udrv_serial_register_onewire_handler (SERIAL_UART_HANDLER handler);
 
 /**
  * @brief       This API is used to check if a specified serial port is initialized.

@@ -10,10 +10,10 @@ void setup()
     Serial.println("RAKwireless LoRaWan Multicast Example");
     Serial.println("------------------------------------------------------");
 
-    if(api.lorawan.nwm.get() != 1)
+    if(api.lorawan.mode.get() != 1)
     {
         Serial.printf("Set Node device work mode %s\r\n",
-            api.lorawan.nwm.set(1) ? "Success" : "Fail");
+            api.lorawan.mode.set() ? "Success" : "Fail");
         api.system.reboot();
     }
 

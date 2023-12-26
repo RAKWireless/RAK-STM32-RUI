@@ -80,7 +80,7 @@ void setup()
         return;
     }
   
-    if (!api.lorawan.nwm.set(1)) {
+    if (!api.lorawan.mode.set()) {
         Serial.printf("LoRaWan Smart Farm - set network working mode is incorrect! \r\n");
         return;
     }

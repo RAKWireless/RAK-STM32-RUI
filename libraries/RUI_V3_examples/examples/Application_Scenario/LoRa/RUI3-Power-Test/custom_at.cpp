@@ -147,7 +147,7 @@ int status_handler(SERIAL_PORT port, char *cmd, stParam *param)
 		// Serial.printf("Module: %s\r\n", value_str.c_str());
 		// Serial.printf("Version: %s\r\n", api.system.firmwareVersion.get().c_str());
 		// Serial.printf("Send time: %d s\r\n", g_send_repeat_time / 1000);
-		// nw_mode = api.lorawan.nwm.get();
+		// nw_mode = api.lorawan.mode.get();
 		// Serial.printf("Network mode %s\r\n", nwm_list[nw_mode]);
 		// if (nw_mode == 1)
 		// {
@@ -214,7 +214,7 @@ int status_handler(SERIAL_PORT port, char *cmd, stParam *param)
 		AT_PRINTF("Module: %s", value_str.c_str());
 		AT_PRINTF("Version: %s", api.system.firmwareVersion.get().c_str());
 		AT_PRINTF("Send time: %d s", g_send_repeat_time / 1000);
-		nw_mode = api.lorawan.nwm.get();
+		nw_mode = api.lorawan.mode.get();
 		AT_PRINTF("Network mode %s", nwm_list[nw_mode]);
 		if (nw_mode == 1)
 		{

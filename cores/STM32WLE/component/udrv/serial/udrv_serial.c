@@ -92,7 +92,7 @@ struct udrv_serial_api serial_nfc_driver =
 #endif
 #endif
 
-void udrv_serial_register_onewire_handler (SERIAL_CLI_HANDLER handler)
+void udrv_serial_register_onewire_handler (SERIAL_UART_HANDLER handler)
 {
     uhal_uart_register_onewire_handler(handler);
 }

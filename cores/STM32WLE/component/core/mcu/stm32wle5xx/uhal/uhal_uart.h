@@ -37,7 +37,7 @@ void Error_Handler(void);
 
 #define UHAL_UART_NO_TIMEOUT NRF_SERIAL_MAX_TIMEOUT
 
-void uhal_uart_register_onewire_handler (SERIAL_CLI_HANDLER handler);
+void uhal_uart_register_onewire_handler (SERIAL_UART_HANDLER handler);
 
 void uhal_uart_register_cli_handler (SERIAL_CLI_HANDLER handler);
 

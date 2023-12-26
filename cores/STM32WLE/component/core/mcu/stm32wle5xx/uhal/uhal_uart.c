@@ -44,7 +44,7 @@ volatile char LpuartDMAdoing = 0;
 FUND_CIRCULAR_QUEUE_INIT(uint8_t, SERIAL_UART1_rxq, 512);
 FUND_CIRCULAR_QUEUE_INIT(uint8_t, SERIAL_UART2_rxq, 512);
 
-static void (*ONEWIRE_HANDLER) (void *);
+static void (*ONEWIRE_HANDLER) (SERIAL_PORT, SERIAL_UART_EVT);
 
 #ifndef RUI_BOOTLOADER
 extern bool udrv_powersave_in_sleep;
@@ -143,8 +143,11 @@ SERIAL_PARITY_E parity, SERIAL_WIRE_MODE_E WireMode)
         huart1.Init.ClockPrescaler = UART_PRESCALER_DIV1;
         if(WireMode != SERIAL_TWO_WIRE_NORMAL_MODE)
         {
-            huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_SWAP_INIT;
-            huart1.AdvancedInit.Swap = UART_ADVFEATURE_SWAP_ENABLE;
+            if(WireMode == SERIAL_ONE_WIRE_RX_PIN_MODE)
+            {
+                huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_SWAP_INIT;
+                huart1.AdvancedInit.Swap = UART_ADVFEATURE_SWAP_ENABLE;
+            }
             if (HAL_HalfDuplex_Init(&huart1) != HAL_OK)
                 Error_Handler();
         }
@@ -241,7 +244,7 @@ static void uart_deinit(SERIAL_PORT port)
     }
 }
 
-void uhal_uart_register_onewire_handler (SERIAL_CLI_HANDLER handler)
+void uhal_uart_register_onewire_handler (SERIAL_UART_HANDLER handler)
 {
     ONEWIRE_HANDLER = handler;
 }
@@ -291,6 +294,11 @@ int32_t uhal_uart_write(SERIAL_PORT Port, uint8_t const *Buffer, int32_t NumberO
             HAL_HalfDuplex_EnableTransmitter(&huart1);
             err_code = HAL_UART_Transmit(&huart1, Buffer, NumberOfBytes, Timeout);
             HAL_HalfDuplex_EnableReceiver(&huart1);
+            if(err_code == HAL_OK)
+            {
+                if(ONEWIRE_HANDLER)
+                    ONEWIRE_HANDLER(SERIAL_UART1,SERIAL_UART_TX_DONE);
+            }
         }
         else
             err_code = HAL_UART_Transmit(&huart1, Buffer, NumberOfBytes, Timeout);
@@ -325,9 +333,11 @@ int32_t uhal_uart_peek(SERIAL_PORT Port)
     uint8_t ch;
 
     if (Port == SERIAL_UART1) {
-        return (int32_t)fund_circular_queue_peek(&SERIAL_UART1_rxq, &ch);
+        if(fund_circular_queue_peek(&SERIAL_UART1_rxq, &ch) == UDRV_RETURN_OK)
+            return (int32_t)ch;
     } else if (Port == SERIAL_UART2) {
-        return (int32_t)fund_circular_queue_peek(&SERIAL_UART2_rxq, &ch);
+        if(fund_circular_queue_peek(&SERIAL_UART2_rxq, &ch) == UDRV_RETURN_OK)
+            return (int32_t)ch;
     }
     return -UDRV_INTERNAL_ERR;
 }
@@ -335,9 +345,9 @@ int32_t uhal_uart_peek(SERIAL_PORT Port)
 void uhal_uart_flush(SERIAL_PORT Port, uint32_t Timeout)
 {
     if (Port == SERIAL_UART1) {
-        fund_circular_queue_reset(&SERIAL_UART1_rxq);
+        //fund_circular_queue_reset(&SERIAL_UART1_rxq);
     } else if (Port == SERIAL_UART2) {
-        fund_circular_queue_reset(&SERIAL_UART2_rxq);
+        //fund_circular_queue_reset(&SERIAL_UART2_rxq);
     }
 }
 
@@ -430,6 +440,32 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 #endif
 }
 
+void HAL_UART_RxHalfCpltCallback(UART_HandleTypeDef *huart)
+{
+    udrv_serial_log_printf("HAL_UART_RxHalfCpltCallback\r\n");
+    if (huart->Instance==USART1)
+    {
+        if(ONEWIRE_HANDLER)
+        {
+            ONEWIRE_HANDLER(SERIAL_UART1,SERIAL_UART_RX_DONE);
+        }
+
+    }
+}
+void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
+{
+    udrv_serial_log_printf("HAL_UARTEx_RxEventCallback\r\n");
+}
+void HAL_UART_TxHalfCpltCallback(UART_HandleTypeDef *huart)
+{
+    
+    udrv_serial_log_printf("HAL_UART_TxHalfCpltCallback\r\n");
+    if (huart->Instance==USART1)
+    {
+        if(ONEWIRE_HANDLER)
+            ONEWIRE_HANDLER(SERIAL_UART1,SERIAL_UART_TX_DONE);
+    }
+}
 void uhal_uart_dma_lpuart_init()
 {
      /* DMA controller clock enable */
@@ -498,6 +534,10 @@ void USAR_UART_IDLECallback(UART_HandleTypeDef *huart)
         {
             LpuartDMAdoing = 0;
             udrv_powersave_wake_unlock();
+        }
+        if(ONEWIRE_HANDLER)
+        {
+            ONEWIRE_HANDLER(SERIAL_UART1,SERIAL_UART_RX_DONE);
         }
 
     } 

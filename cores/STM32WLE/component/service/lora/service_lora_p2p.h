@@ -113,7 +113,7 @@ typedef void(*service_lora_p2p_send_CAD_cb_type)(bool);
 
 SERVICE_LORA_WORK_MODE service_lora_p2p_get_nwm(void);
 
-int32_t service_lora_set_nwm(SERVICE_LORA_WORK_MODE nwm);
+int32_t service_lora_p2p_set_nwm(SERVICE_LORA_WORK_MODE nwm);
 
 int32_t service_lora_p2p_init(void);
 
