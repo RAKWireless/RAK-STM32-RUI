@@ -3180,6 +3180,81 @@ channel mask
   };
 
   /**@par	Description
+     *		This api allows the user to verify the status of timereq flag for next uplink
+     * @ingroup		Network
+     */
+  class timereq
+  {
+  public:
+    /**@par	Description
+	 *     	This api allows the user to get the status of timereq flag for next uplink
+	 *
+	 * @par	Syntax
+	 *	api.lorawan.timereq.get()
+	 *
+	 * @return	The status of timereq flag for next uplink
+	 * @retval	0	timereq flag is disable
+	 * @retval	1	timereq flag is enable
+	 * @par         Example
+         * @verbatim
+       void setup()
+       {
+           Serial.begin(115200);
+
+           api.lorawan.join();
+           delay(10000);
+           if (api.lorawan.njs.get() == 1) {
+               Serial.printf("Set timereq flag %s\r\n", api.lorawan.timereq.set(1) ? "Success" : "Fail");
+           }
+       }
+
+       void loop()
+       {
+           Serial.printf("Get timereq flag = %d\r\n", api.lorawan.timereq.get());
+
+           delay(1000);
+       }
+
+           @endverbatim
+	 */
+    uint8_t get();
+
+    /**@par	Description
+	 *     	This api allows the user to set the status of timereq flag for next uplink
+	 *
+	 * @par	Syntax
+	 *	api.lorawan.timereq.set(value)
+	 *
+	 * @param	value	The status of timereq flag for next uplink
+   * @return	bool
+	 * @retval	TRUE for setting timereq flag be enable
+	 * @retval	FALSE for setting timereq flag be disable
+	 * @par         Example
+         * @verbatim
+       void setup()
+       {
+           Serial.begin(115200);
+
+           api.lorawan.join();
+           delay(10000);
+           if (api.lorawan.njs.get() == 1) {
+               Serial.printf("Set timereq flag %s\r\n", api.lorawan.timereq.set(1) ? "Success" : "Fail");
+           }
+       }
+
+       void loop()
+       {
+           Serial.printf("Get timereq flag = %d\r\n", api.lorawan.timereq.get());
+
+           delay(1000);
+       }
+
+           @endverbatim
+	 */
+    bool set(uint8_t value);
+  };
+
+  /**@par	Description
      *		Switch to LoRaWAN mode
      * @ingroup		P2P
      */
@@ -3283,6 +3358,7 @@ channel mask
   mask mask;
   band band;
   linkcheck linkcheck;
+  timereq timereq;
   nwm nwm;
 
   /**@par	Description

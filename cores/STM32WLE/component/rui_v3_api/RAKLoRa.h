@@ -1763,7 +1763,19 @@ public:
      * @par     Example
      * @verbatim
        void recv_cb(rui_lora_p2p_recv_t data) {
-         Serial.println("Receive something");
+         if (data.Status == LORA_P2P_RXDONE) {
+           Serial.printf("P2P receive:");
+           for (int i = 0; i < data.BufferSize; i++) {
+             Serial.printf(" %02X", data.Buffer[i]);
+           }
+           Serial.printf(", RSSI: %d, SNR: %d\r\n", data.Rssi, data.Snr);
+         }
+         else if (data.Status == LORA_P2P_RXTIMEOUT) {
+           Serial.println("P2P receive timeout");
+         }
+         else if (data.Status == LORA_P2P_RXERROR) {
+           Serial.println("P2P receive CRC error");
+         }
        }
 
        void send_cb(void) {
@@ -1831,7 +1843,19 @@ public:
      * @par     Example
      * @verbatim
        void recv_cb(rui_lora_p2p_recv_t data) {
-         Serial.println("Receive something");
+         if (data.Status == LORA_P2P_RXDONE) {
+           Serial.printf("P2P receive:");
+           for (int i=0; i<data.BufferSize; i++) {
+             Serial.printf(" %02X", data.Buffer[i]);
+           }
+           Serial.printf(", RSSI: %d, SNR: %d\r\n", data.Rssi, data.Snr);
+         }
+         else if (data.Status == LORA_P2P_RXTIMEOUT) {
+           Serial.println("P2P receive timeout");
+         }
+         else if (data.Status == LORA_P2P_RXERROR) {
+           Serial.println("P2P receive CRC error");
+         }
        }
 
        void send_cb(void) {

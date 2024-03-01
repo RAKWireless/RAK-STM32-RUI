@@ -911,8 +911,12 @@ int32_t service_lora_init(SERVICE_LORA_BAND band)
         }
 
         /* Single channel register function */
+#ifdef REGION_AU915
         AU915_SingleChannelRegisterCallback(&SingleChannelAU915);
+#endif
+#ifdef REGION_US915
         US915_SingleChannelRegisterCallback(&SingleChannelUS915);
+#endif
         /* Compensate the timer */
         service_lora_systemMaxRxError();
  

@@ -829,6 +829,24 @@ bool RAKLorawan::linkcheck::set(uint8_t value) {
     }
 }
 
+//timereq
+uint8_t RAKLorawan::timereq::get() {
+    return service_lora_get_timereq();
+}
+
+bool RAKLorawan::timereq::set(uint8_t value) {
+    if (SERVICE_LORAWAN != service_lora_get_nwm())
+    {
+        return false;
+    }
+
+    if (service_lora_set_timereq(value) == UDRV_RETURN_OK) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 //nwm
 int RAKLorawan::nwm::get() {
     return (int)service_lora_get_nwm();

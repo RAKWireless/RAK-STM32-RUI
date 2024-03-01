@@ -834,7 +834,7 @@ void noInterrupts(void);
  * @param	pin		the number of the interrupt
  * @param	ISR			the ISR to call when the interrupt occurs; this function must take no parameters and return nothing. 
  * 					This function is sometimes referred to as an interrupt service routine
- * @param	mode			defines when the interrupt should be triggered(LOW,CHANGE,RISING,FALLING)
+ * @param	mode			defines when the interrupt should be triggered(HIGH,LOW,CHANGE,RISING,FALLING)
  *
  * @return	void
  * @par     Example
