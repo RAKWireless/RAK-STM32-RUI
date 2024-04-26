@@ -188,6 +188,14 @@ bool RAKLorawan::registerLinkCheckCallback(service_lora_linkcheck_cb callback) {
     }
 }
 
+bool RAKLorawan::registerTimereqCallback(service_lora_timereq_cb callback) {
+    if (service_lora_register_timereq_cb(callback) == UDRV_RETURN_OK) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 //appeui
 bool RAKLorawan::appeui::get(uint8_t *buf, uint32_t len) {
     if (service_lora_get_app_eui(buf, len) == UDRV_RETURN_OK) {
@@ -665,14 +673,17 @@ int RAKLorawan::snr::get() {
 }
 
 //ltime
-String RAKLorawan::ltime::get() {
-    char value[30] = {0};
+void RAKLorawan::ltime::get(struct tm * localtime) {
+    SysTime_t UnixEpoch = SysTimeGet();
+    UnixEpoch.Seconds -= 18;		  /*removing leap seconds*/
+    SysTimeLocalTime(UnixEpoch.Seconds, localtime);
+}
 
-    if (service_lora_get_local_time(value) == UDRV_RETURN_OK) {
-        return value;
-    } else {
-        return "get local time fail";
-    }
+void RAKLorawan::ltime::get(struct tm * localtime, int32_t offset) {
+    SysTime_t UnixEpoch = SysTimeGet();
+    UnixEpoch.Seconds -= 18;          /*removing leap seconds*/
+    UnixEpoch.Seconds += (offset*60*60);
+    SysTimeLocalTime(UnixEpoch.Seconds, localtime);
 }
 
 //ver

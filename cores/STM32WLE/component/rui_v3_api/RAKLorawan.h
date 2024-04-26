@@ -714,6 +714,86 @@ public:
      */
   bool registerLinkCheckCallback(service_lora_linkcheck_cb callback);
 
+
+  /**@par   Description
+     *          This API is used to register a callback function,
+                so that application can be notified when uplink process is done.
+     *
+     * @ingroup Joining_and_Sending
+     * @par Syntax
+     *          api.lorawan.registerTimereqCallback(service_lora_timereq_cb callback)
+     * @param   The callback function
+     * @return  bool
+     * @retval  TRUE for setting callback function success
+     * @retval  FALSE for setting callback function failure
+     * @par Example
+     * @verbatim
+     bool f_synctime = true;
+
+     void timereq_cb(uint32_t *status) {
+       Serial.println("Timereq_cb");
+       if (status == GET_DEVICE_TIME_OK) {
+         Serial.println("Get device time success");
+         f_synctime = false;
+       }
+       else if (status == GET_DEVICE_TIME_FAIL) {
+         Serial.println("Get device time fail");
+         f_synctime = true;
+       }
+     }
+
+     // OTAA Device EUI MSB
+     uint8_t node_device_eui[8] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08};
+     // OTAA Application EUI MSB
+     uint8_t node_app_eui[8] = {0x0E, 0x0D, 0x0D, 0x01, 0x0E, 0x01, 0x02, 0x03};
+     // OTAA Application Key MSB
+     uint8_t node_app_key[16] = {0x2B, 0x7E, 0x15, 0x16, 0x28, 0xAE, 0xD2, 0xA6, 0xAB, 0xF7, 0x15, 0x88, 0x09, 0xCF, 0x4F, 0x3C};
+
+     void setup()
+     {
+       Serial.begin(115200);
+
+       api.lorawan.appeui.set(node_app_eui, 8);
+       api.lorawan.appkey.set(node_app_key, 16);
+       api.lorawan.deui.set(node_device_eui, 8);
+
+       api.lorawan.band.set(4);
+       api.lorawan.njm.set(1);
+       api.lorawan.join();
+       api.lorawan.registerTimereqCallback(timereq_cb);
+
+       //wait for Join success
+       while (api.lorawan.njs.get() == 0)
+       {
+         Serial.print("Waiting for Lorawan join...");
+         api.lorawan.join();
+         delay(10000);
+       }
+     }
+
+     void loop()
+     {
+       uint8_t payload[] = "example";
+
+       if (f_synctime == true && api.lorawan.timereq.get() == 0) {
+         api.lorawan.timereq.set(1);
+       }
+
+       if (api.lorawan.send(sizeof(payload), payload, 129, true, 1)) {
+         Serial.println("Send Success");
+       } else {
+         Serial.println("Send fail");
+       }
+
+       delay(5000);
+     }
+
+       @endverbatim
+     */
+  bool registerTimereqCallback(service_lora_timereq_cb callback);
+
+
+
   /**@par	Description
      *      	view or change the LoRAWAN APPEUI and use it to setup the LoRAWAN connection	
      * @ingroup		Keys_IDs_and_EUI_Management
@@ -2857,19 +2937,21 @@ public:
   };
 
   /**@par	Description
-     *		This api(a) allows the user to access the local time in a UTC format
+     *		This function fills the provided struct tm with the current local time.
      * @ingroup		Class_B
      */
   class ltime
   {
   public:
     /**@par	Description
-	 *     	This api(a) allows the user to get the local time in a UTC format 
+	 *     	This function fills the provided struct tm with the current local time.
 	 *
 	 * @par	Syntax
-	 *	api.lorawan.ltime.get()
+	 *	api.lorawan.ltime.get(struct tm * localtime)
+     *	api.lorawan.ltime.get(struct tm * localtime, int32_t offset)
 	 *
-	 * @return	the local time in a UTC format (Type: bool)
+     * @param localtime     Pointer to a struct tm where the local time will be stored.
+     * @param offset        Time zone offset, the unit is hour.
 	 * @par         Example
          * @verbatim
        // OTAA Device EUI MSB
@@ -2903,12 +2985,18 @@ public:
 
        void loop()
        {
-           Serial.printf("The local time(UTC) is %s\r\n", api.lorawan.ltime.get().c_str());
+           struct tm localtime;
+           char buf[32]={0};
+
+           api.lorawan.ltime.get(&localtime, -4);
+           sprintf(buf, "%02dh%02dm%02ds on %02d/%02d/%04d", localtime.tm_hour, localtime.tm_min, localtime.tm_sec, localtime.tm_mon + 1, localtime.tm_mday, localtime.tm_year + 1900);
+           Serial.printf("The local time(UTC) is %s\r\n", buf);
            delay(1000);
        }
            @endverbatim
 	 */
-    String get();
+    void get(struct tm * localtime);
+    void get(struct tm * localtime, int32_t offset);
   };
 
   /**@par	Description

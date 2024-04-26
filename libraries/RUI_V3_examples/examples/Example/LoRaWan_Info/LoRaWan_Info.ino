@@ -81,10 +81,10 @@ void setup()
     Serial.println("RAKwireless LoRaWan OTAA Example");
     Serial.println("------------------------------------------------------");
   
-    if(api.lorawan.mode.get() != 1)
+    if(api.lorawan.nwm.get() != 1)
     {
         Serial.printf("Set Node device work mode %s\r\n",
-            api.lorawan.mode.set() ? "Success" : "Fail");
+            api.lorawan.nwm.set() ? "Success" : "Fail");
         api.system.reboot();
     }
 

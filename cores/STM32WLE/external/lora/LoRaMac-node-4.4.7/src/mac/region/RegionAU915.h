@@ -118,7 +118,7 @@ extern "C"
 /*!
  * Default antenna gain
  */
-#define AU915_DEFAULT_ANTENNA_GAIN                  2.15f
+#define AU915_DEFAULT_ANTENNA_GAIN                  0.0f
 
 /*!
  * Enabled or disabled the duty cycle
@@ -166,17 +166,17 @@ extern "C"
 /*!
  * Payload size of a beacon frame
  */
-#define AU915_BEACON_SIZE                           23
+#define AU915_BEACON_SIZE                           19
 
 /*!
  * Size of RFU 1 field
  */
-#define AU915_RFU1_SIZE                             5
+#define AU915_RFU1_SIZE                             3
 
 /*!
  * Size of RFU 2 field
  */
-#define AU915_RFU2_SIZE                             3
+#define AU915_RFU2_SIZE                             1
 
 /*!
  * Datarate of the beacon channel

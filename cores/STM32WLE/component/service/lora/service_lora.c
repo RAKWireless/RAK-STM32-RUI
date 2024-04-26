@@ -113,6 +113,7 @@ static SERVICE_LORA_RECEIVE_T recv_data_pkg;
 service_lora_join_cb service_lora_join_callback;
 static service_lora_send_cb service_lora_send_callback;
 static TIMEREQ_STATE timereq_status = TIMEREQ_DISABLED;
+static service_lora_timereq_cb service_lora_timereq_callback;
 extern bool udrv_powersave_in_sleep;
 extern volatile testParameter_t testParam;
 extern uint8_t last_tx_channel; 
@@ -511,6 +512,9 @@ static void MlmeConfirm(MlmeConfirm_t *mlmeConfirm)
             if(timereq_status == TIMEREQ_ENABLED)
             {
                 udrv_serial_log_printf("+EVT:TIMEREQ_OK\r\n");
+                if (service_lora_timereq_callback != NULL) {
+                    service_lora_timereq_callback(GET_DEVICE_TIME_OK);
+                }
                 timereq_status = TIMEREQ_DISABLED ;
             }
             LORA_TEST_DEBUG("Get Device Time Success\r\n");
@@ -531,6 +535,9 @@ static void MlmeConfirm(MlmeConfirm_t *mlmeConfirm)
             if(timereq_status == TIMEREQ_ENABLED)
             {
                 udrv_serial_log_printf("+EVT:TIMEREQ_FAILED\r\n");
+                if (service_lora_timereq_callback != NULL) {
+                    service_lora_timereq_callback(GET_DEVICE_TIME_FAIL);
+                }
                 timereq_status = TIMEREQ_DISABLED ;
             }
         }
@@ -3234,6 +3241,12 @@ int32_t service_lora_register_send_cb(service_lora_send_cb callback)
 int32_t service_lora_register_linkcheck_cb(service_lora_linkcheck_cb callback)
 {
     service_lora_linkcheck_callback = callback;
+    return UDRV_RETURN_OK;
+}
+
+int32_t service_lora_register_timereq_cb(service_lora_timereq_cb callback)
+{
+    service_lora_timereq_callback = callback;
     return UDRV_RETURN_OK;
 }
 

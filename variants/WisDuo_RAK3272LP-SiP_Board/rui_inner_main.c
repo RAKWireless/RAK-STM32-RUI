@@ -326,6 +326,7 @@ void rui_init(void)
     HAL_Init();
     SystemClock_Config();
     MX_DMA_Init();
+    __HAL_RCC_GPIOC_CLK_ENABLE();
     udrv_timer_init();
     service_nvm_init_config();
     baudrate = service_nvm_get_baudrate_from_nvm();

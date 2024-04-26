@@ -147,7 +147,7 @@ int status_handler(SERIAL_PORT port, char *cmd, stParam *param)
 		// Serial.printf("Module: %s\r\n", value_str.c_str());
 		// Serial.printf("Version: %s\r\n", api.system.firmwareVersion.get().c_str());
 		// Serial.printf("Send time: %d s\r\n", g_send_repeat_time / 1000);
-		// nw_mode = api.lorawan.mode.get();
+		// nw_mode = api.lorawan.nwm.get();
 		// Serial.printf("Network mode %s\r\n", nwm_list[nw_mode]);
 		// if (nw_mode == 1)
 		// {
@@ -195,18 +195,18 @@ int status_handler(SERIAL_PORT port, char *cmd, stParam *param)
 		// }
 		// else if (nw_mode == 0)
 		// {
-		// 	Serial.printf("Frequency = %d\r\n", api.lorawan.pfreq.get());
-		// 	Serial.printf("SF = %d\r\n", api.lorawan.psf.get());
-		// 	Serial.printf("BW = %d\r\n", api.lorawan.pbw.get());
-		// 	Serial.printf("CR = %d\r\n", api.lorawan.pcr.get());
-		// 	Serial.printf("Preamble length = %d\r\n", api.lorawan.ppl.get());
-		// 	Serial.printf("TX power = %d\r\n", api.lorawan.ptp.get());
+		// 	Serial.printf("Frequency = %d\r\n", api.lora.pfreq.get());
+		// 	Serial.printf("SF = %d\r\n", api.lora.psf.get());
+		// 	Serial.printf("BW = %d\r\n", api.lora.pbw.get());
+		// 	Serial.printf("CR = %d\r\n", api.lora.pcr.get());
+		// 	Serial.printf("Preamble length = %d\r\n", api.lora.ppl.get());
+		// 	Serial.printf("TX power = %d\r\n", api.lora.ptp.get());
 		// }
 		// else
 		// {
-		// 	Serial.printf("Frequency = %d\r\n", api.lorawan.pfreq.get());
-		// 	Serial.printf("Bitrate = %d\r\n", api.lorawan.pbr.get());
-		// 	Serial.printf("Deviaton = %d\r\n", api.lorawan.pfdev.get());
+		// 	Serial.printf("Frequency = %d\r\n", api.lora.pfreq.get());
+		// 	Serial.printf("Bitrate = %d\r\n", api.lora.pbr.get());
+		// 	Serial.printf("Deviaton = %d\r\n", api.lora.pfdev.get());
 		// }
 		AT_PRINTF("Device Status:");
 		value_str = api.system.modelId.get();
@@ -214,7 +214,7 @@ int status_handler(SERIAL_PORT port, char *cmd, stParam *param)
 		AT_PRINTF("Module: %s", value_str.c_str());
 		AT_PRINTF("Version: %s", api.system.firmwareVersion.get().c_str());
 		AT_PRINTF("Send time: %d s", g_send_repeat_time / 1000);
-		nw_mode = api.lorawan.mode.get();
+		nw_mode = api.lorawan.nwm.get();
 		AT_PRINTF("Network mode %s", nwm_list[nw_mode]);
 		if (nw_mode == 1)
 		{
@@ -262,18 +262,18 @@ int status_handler(SERIAL_PORT port, char *cmd, stParam *param)
 		}
 		else if (nw_mode == 0)
 		{
-			AT_PRINTF("Frequency = %d\r\n", api.lorawan.pfreq.get());
-			AT_PRINTF("SF = %d", api.lorawan.psf.get());
-			AT_PRINTF("BW = %d", api.lorawan.pbw.get());
-			AT_PRINTF("CR = %d", api.lorawan.pcr.get());
-			AT_PRINTF("Preamble length = %d", api.lorawan.ppl.get());
-			AT_PRINTF("TX power = %d", api.lorawan.ptp.get());
+			AT_PRINTF("Frequency = %d\r\n", api.lora.pfreq.get());
+			AT_PRINTF("SF = %d", api.lora.psf.get());
+			AT_PRINTF("BW = %d", api.lora.pbw.get());
+			AT_PRINTF("CR = %d", api.lora.pcr.get());
+			AT_PRINTF("Preamble length = %d", api.lora.ppl.get());
+			AT_PRINTF("TX power = %d", api.lora.ptp.get());
 		}
 		else
 		{
-			AT_PRINTF("Frequency = %d", api.lorawan.pfreq.get());
-			AT_PRINTF("Bitrate = %d", api.lorawan.pbr.get());
-			AT_PRINTF("Deviaton = %d", api.lorawan.pfdev.get());
+			AT_PRINTF("Frequency = %d", api.lora.pfreq.get());
+			AT_PRINTF("Bitrate = %d", api.lora.pbr.get());
+			AT_PRINTF("Deviaton = %d", api.lora.pfdev.get());
 		}
 	}
 	else
