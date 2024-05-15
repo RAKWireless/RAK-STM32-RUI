@@ -442,7 +442,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 
 void HAL_UART_RxHalfCpltCallback(UART_HandleTypeDef *huart)
 {
-    udrv_serial_log_printf("HAL_UART_RxHalfCpltCallback\r\n");
     if (huart->Instance==USART1)
     {
         if(ONEWIRE_HANDLER)
@@ -454,12 +453,9 @@ void HAL_UART_RxHalfCpltCallback(UART_HandleTypeDef *huart)
 }
 void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 {
-    udrv_serial_log_printf("HAL_UARTEx_RxEventCallback\r\n");
 }
 void HAL_UART_TxHalfCpltCallback(UART_HandleTypeDef *huart)
 {
-    
-    udrv_serial_log_printf("HAL_UART_TxHalfCpltCallback\r\n");
     if (huart->Instance==USART1)
     {
         if(ONEWIRE_HANDLER)

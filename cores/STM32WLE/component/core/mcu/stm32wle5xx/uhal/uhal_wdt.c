@@ -48,31 +48,14 @@ void uhal_wdt_init(uint32_t period)
     hiwdg.Instance = IWDG;
     hiwdg.Init.Prescaler = IWDG_PRESCALER_64;
     hiwdg.Init.Window = IWDG_WINDOW;
-    
-    switch(period){
-    	case 0x00FA:				//250s
-		hiwdg.Init.Reload = 0x007D;
-		break;
-	case 0x01F4:				//500s
-		hiwdg.Init.Reload = 0x00FA;
-		break;
-	case 0x03E8:				//1000s
-		hiwdg.Init.Reload = 0x01F4;
-		break;
-	case 0x07D0:				//2000s
-		hiwdg.Init.Reload = 0x03E8;
-		break;
-	case 0x0FA0:				//4000s
-                hiwdg.Init.Reload = 0x07D0;
-		break;
-	case 0x1F40:				//8000s
-                hiwdg.Init.Reload = 0x0FA0;
-		break;
-	default:
-                hiwdg.Init.Reload = 0x0FA0;
-		break;
 
+    if(period != 15 && period != 30 && period != 60 && period != 120 && period != 250 && period != 500 && period != 1000 && period != 2000 && period != 4000 && period != 8000 )
+    {
+        period = 8000;
     }
+
+    hiwdg.Init.Reload = period/2;
+    
 
     if (HAL_IWDG_Init(&hiwdg) != HAL_OK)
     {

@@ -23,16 +23,16 @@ class wdt {
      *          Initialize the watchdog
      * @par Syntax
      *          api.system.wdt.enable();
-     * @param   reload_value        Setting the reload value, Units:milliseconds
+     * @param   reload_value        Setting the reload value, only accept following values: 15ms, 30ms, 60ms, 120ms, 250ms, 500ms, 1s, 2s, 4s, and 8s, Units:milliseconds
      * @return  void
      * @par     Example
      * @verbatim
        void setup() {
-         api.system.wdt.enable(10000); //10 seconds for watchdog to feed, otherwise reset occurs.
+         api.system.wdt.enable(8000); //8 seconds for watchdog to feed, otherwise reset occurs.
        }
 
        void loop() {
-         api.system.wdt.feed();
+         api.system.wdt.reset();
        }
        @endverbatim
      */
@@ -41,22 +41,22 @@ class wdt {
      * @{
      */
     /**@par Description
-     *          Feed the watchdog
+     *          Reset the watchdog Timer
      * @par Syntax
-     *          api.system.wdt.feed();
+     *          api.system.wdt.reset();
      * @return  void
      * @par     Example
      * @verbatim
        void setup() {
-         api.system.wdt.enable(10000);
+         api.system.wdt.enable(8000);
        }
 
        void loop() {
-         api.system.wdt.feed();
+         api.system.wdt.reset();
        }
        @endverbatim
      */
-    void feed(void);
+    void reset(void);
 
 };
 

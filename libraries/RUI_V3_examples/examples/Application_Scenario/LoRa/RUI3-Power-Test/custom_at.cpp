@@ -13,7 +13,7 @@
 int freq_send_handler(SERIAL_PORT port, char *cmd, stParam *param);
 int status_handler(SERIAL_PORT port, char *cmd, stParam *param);
 
-#ifdef _VARIANT_RAK4630_
+#if defined _VARIANT_RAK4630_ || defined _VARIANT_RAK11720_
 #define AT_PRINTF(...)                                           \
 	do                                                           \
 	{                                                            \

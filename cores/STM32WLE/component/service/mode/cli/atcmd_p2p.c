@@ -321,7 +321,7 @@ int At_P2pSend(SERIAL_PORT port, char *cmd, stParam *param)
         uint8_t lora_data[256];
         
         datalen = strlen(param->argv[0]);
-        if ((datalen % 2) || (datalen > 2 * 256))
+        if ((datalen % 2) || (datalen > 2 * 239)) //the maximum of length is 239 when enable encrypt
             return AT_PARAM_ERROR;
        
         if (0 != at_check_hex_param(param->argv[0], datalen, lora_data))

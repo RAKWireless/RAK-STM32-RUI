@@ -748,6 +748,7 @@ int32_t service_lora_init(SERVICE_LORA_BAND band)
         goto out;
     }
 #endif
+#ifdef REGION_AS923
      /*AS923 sub band selection*/
     if( band == SERVICE_LORA_AS923)
     {
@@ -769,7 +770,7 @@ int32_t service_lora_init(SERVICE_LORA_BAND band)
         RegionAS923SubBandSet(AS923_4);
         band = SERVICE_LORA_AS923;
     }
-
+#endif
     LoRaMacPrimitives.MacMcpsConfirm = McpsConfirm;
     LoRaMacPrimitives.MacMcpsIndication = McpsIndication;
     LoRaMacPrimitives.MacMlmeConfirm = MlmeConfirm;
@@ -1439,6 +1440,7 @@ int32_t service_lora_set_band(SERVICE_LORA_BAND band)
         return ret;
     }
 
+#ifdef REGION_AS923
     /*AS923 sub band selection*/
     if( band == SERVICE_LORA_AS923)
     {
@@ -1464,7 +1466,7 @@ int32_t service_lora_set_band(SERVICE_LORA_BAND band)
         RegionAS923SubBandSet(AS923_4);
         band = SERVICE_LORA_AS923;
     }
-
+#endif
     /**************************************************************************************
      *
      * Step 2. Start to init LoRaWAN stack with built-in config for the selected band.
@@ -1551,12 +1553,13 @@ int32_t service_lora_set_band(SERVICE_LORA_BAND band)
      * Step 4. Save the new band config.
      *
      **************************************************************************************/
+#ifdef REGION_AS923 
         /*AS923 sub band selection*/
         if( AS923_sub_band_bak != NULL )
         {
             band = AS923_sub_band_bak;
         }
-
+#endif
         if ((ret = service_nvm_set_band_to_nvm(band)) != UDRV_RETURN_OK)
         {
             return ret;
