@@ -107,7 +107,7 @@ extern "C"
 /*!
  * Default antenna gain
  */
-#define CN470_DEFAULT_ANTENNA_GAIN                  0.0f
+#define CN470_DEFAULT_ANTENNA_GAIN                  2.15f
 
 /*!
  * Enabled or disabled the duty cycle

@@ -1,894 +1,505 @@
-/**
-  ******************************************************************************
-  * @file    stm32wlxx_ll_rtc.c
-  * @author  MCD Application Team
-  * @brief   RTC LL module driver.
-  ******************************************************************************
-  * @attention
-  *
-  * <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
-  * All rights reserved.</center></h2>
-  *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
-  *
-  ******************************************************************************
-  */
-#if defined(USE_FULL_LL_DRIVER)
-
-/* Includes ------------------------------------------------------------------*/
-#include "stm32wlxx_ll_rtc.h"
-#include "stm32wlxx_ll_cortex.h"
-#ifdef  USE_FULL_ASSERT
-#include "stm32_assert.h"
-#else
-#define assert_param(expr) ((void)0U)
-#endif
-
-/** @addtogroup STM32WLxx_LL_Driver
-  * @{
-  */
-
-#if defined(RTC)
-
-/** @addtogroup RTC_LL
-  * @{
-  */
-
-/* Private types -------------------------------------------------------------*/
-/* Private variables ---------------------------------------------------------*/
-/* Private constants ---------------------------------------------------------*/
-/** @addtogroup RTC_LL_Private_Constants
-  * @{
-  */
-/* Default values used for prescaler */
-#define RTC_ASYNCH_PRESC_DEFAULT     ((uint32_t) 0x0000007FU)
-#define RTC_SYNCH_PRESC_DEFAULT      ((uint32_t) 0x000000FFU)
-
-/* Values used for timeout */
-#define RTC_INITMODE_TIMEOUT         ((uint32_t) 1000U) /* 1s when tick set to 1ms */
-#define RTC_SYNCHRO_TIMEOUT          ((uint32_t) 1000U) /* 1s when tick set to 1ms */
-/**
-  * @}
-  */
-
-/* Private macros ------------------------------------------------------------*/
-/** @addtogroup RTC_LL_Private_Macros
-  * @{
-  */
-
-#define IS_LL_RTC_HOURFORMAT(__VALUE__) (((__VALUE__) == LL_RTC_HOURFORMAT_24HOUR) \
-                                      || ((__VALUE__) == LL_RTC_HOURFORMAT_AMPM))
-
-#define IS_LL_RTC_ASYNCH_PREDIV(__VALUE__)   ((__VALUE__) <= 0x7FU)
-
-#define IS_LL_RTC_SYNCH_PREDIV(__VALUE__)    ((__VALUE__) <= 0x7FFFU)
-
-#define IS_LL_RTC_FORMAT(__VALUE__) (((__VALUE__) == LL_RTC_FORMAT_BIN) \
-                                  || ((__VALUE__) == LL_RTC_FORMAT_BCD))
-
-#define IS_LL_RTC_TIME_FORMAT(__VALUE__) (((__VALUE__) == LL_RTC_TIME_FORMAT_AM_OR_24) \
-                                       || ((__VALUE__) == LL_RTC_TIME_FORMAT_PM))
-
-#define IS_LL_RTC_HOUR12(__HOUR__)            (((__HOUR__) > 0U) && ((__HOUR__) <= 12U))
-#define IS_LL_RTC_HOUR24(__HOUR__)            ((__HOUR__) <= 23U)
-#define IS_LL_RTC_MINUTES(__MINUTES__)        ((__MINUTES__) <= 59U)
-#define IS_LL_RTC_SECONDS(__SECONDS__)        ((__SECONDS__) <= 59U)
-
-#define IS_LL_RTC_WEEKDAY(__VALUE__) (((__VALUE__) == LL_RTC_WEEKDAY_MONDAY) \
-                                   || ((__VALUE__) == LL_RTC_WEEKDAY_TUESDAY) \
-                                   || ((__VALUE__) == LL_RTC_WEEKDAY_WEDNESDAY) \
-                                   || ((__VALUE__) == LL_RTC_WEEKDAY_THURSDAY) \
-                                   || ((__VALUE__) == LL_RTC_WEEKDAY_FRIDAY) \
-                                   || ((__VALUE__) == LL_RTC_WEEKDAY_SATURDAY) \
-                                   || ((__VALUE__) == LL_RTC_WEEKDAY_SUNDAY))
-
-#define IS_LL_RTC_DAY(__DAY__)    (((__DAY__) >= (uint32_t)1U) && ((__DAY__) <= (uint32_t)31U))
-
-#define IS_LL_RTC_MONTH(__VALUE__) (((__VALUE__) == LL_RTC_MONTH_JANUARY) \
-                                 || ((__VALUE__) == LL_RTC_MONTH_FEBRUARY) \
-                                 || ((__VALUE__) == LL_RTC_MONTH_MARCH) \
-                                 || ((__VALUE__) == LL_RTC_MONTH_APRIL) \
-                                 || ((__VALUE__) == LL_RTC_MONTH_MAY) \
-                                 || ((__VALUE__) == LL_RTC_MONTH_JUNE) \
-                                 || ((__VALUE__) == LL_RTC_MONTH_JULY) \
-                                 || ((__VALUE__) == LL_RTC_MONTH_AUGUST) \
-                                 || ((__VALUE__) == LL_RTC_MONTH_SEPTEMBER) \
-                                 || ((__VALUE__) == LL_RTC_MONTH_OCTOBER) \
-                                 || ((__VALUE__) == LL_RTC_MONTH_NOVEMBER) \
-                                 || ((__VALUE__) == LL_RTC_MONTH_DECEMBER))
-
-#define IS_LL_RTC_YEAR(__YEAR__) ((__YEAR__) <= 99U)
-
-#define IS_LL_RTC_ALMA_MASK(__VALUE__) (((__VALUE__) == LL_RTC_ALMA_MASK_NONE) \
-                                     || ((__VALUE__) == LL_RTC_ALMA_MASK_DATEWEEKDAY) \
-                                     || ((__VALUE__) == LL_RTC_ALMA_MASK_HOURS) \
-                                     || ((__VALUE__) == LL_RTC_ALMA_MASK_MINUTES) \
-                                     || ((__VALUE__) == LL_RTC_ALMA_MASK_SECONDS) \
-                                     || ((__VALUE__) == LL_RTC_ALMA_MASK_ALL))
-
-#define IS_LL_RTC_ALMB_MASK(__VALUE__) (((__VALUE__) == LL_RTC_ALMB_MASK_NONE) \
-                                     || ((__VALUE__) == LL_RTC_ALMB_MASK_DATEWEEKDAY) \
-                                     || ((__VALUE__) == LL_RTC_ALMB_MASK_HOURS) \
-                                     || ((__VALUE__) == LL_RTC_ALMB_MASK_MINUTES) \
-                                     || ((__VALUE__) == LL_RTC_ALMB_MASK_SECONDS) \
-                                     || ((__VALUE__) == LL_RTC_ALMB_MASK_ALL))
-
-
-#define IS_LL_RTC_ALMA_DATE_WEEKDAY_SEL(__SEL__) (((__SEL__) == LL_RTC_ALMA_DATEWEEKDAYSEL_DATE) || \
-                                                  ((__SEL__) == LL_RTC_ALMA_DATEWEEKDAYSEL_WEEKDAY))
-
-#define IS_LL_RTC_ALMB_DATE_WEEKDAY_SEL(__SEL__) (((__SEL__) == LL_RTC_ALMB_DATEWEEKDAYSEL_DATE) || \
-                                                  ((__SEL__) == LL_RTC_ALMB_DATEWEEKDAYSEL_WEEKDAY))
-
-
-/**
-  * @}
-  */
-/* Private function prototypes -----------------------------------------------*/
-/* Exported functions --------------------------------------------------------*/
-/** @addtogroup RTC_LL_Exported_Functions
-  * @{
-  */
-
-/** @addtogroup RTC_LL_EF_Init
-  * @{
-  */
-
-/**
-  * @brief  De-Initializes the RTC registers to their default reset values.
-  * @note   This function does not reset the RTC Clock source and RTC Backup Data
-  *         registers.
-  * @param  RTCx RTC Instance
-  * @retval An ErrorStatus enumeration value:
-  *          - SUCCESS: RTC registers are de-initialized
-  *          - ERROR: RTC registers are not de-initialized
-  */
-ErrorStatus LL_RTC_DeInit(RTC_TypeDef *RTCx)
-{
-  ErrorStatus status = ERROR;
-
-  /* Check the parameter */
-  assert_param(IS_RTC_ALL_INSTANCE(RTCx));
-  assert_param(IS_TAMP_ALL_INSTANCE(TAMP));
-
-  /* Disable the write protection for RTC registers */
-  LL_RTC_DisableWriteProtection(RTCx);
-
-  /* Set Initialization mode */
-  if (LL_RTC_EnterInitMode(RTCx) != ERROR)
-  {
-    /* Reset TR, DR and CR registers */
-    WRITE_REG(RTCx->TR,       0x00000000U);
-#if defined(RTC_WAKEUP_SUPPORT)
-    WRITE_REG(RTCx->WUTR,     RTC_WUTR_WUT);
-#endif /* RTC_WAKEUP_SUPPORT */
-    WRITE_REG(RTCx->DR, (RTC_DR_WDU_0 | RTC_DR_MU_0 | RTC_DR_DU_0));
-    /* Reset All CR bits except CR[2:0] */
-#if defined(RTC_WAKEUP_SUPPORT)
-    WRITE_REG(RTCx->CR, (LL_RTC_ReadReg(RTCx, CR) & RTC_CR_WUCKSEL));
-#else
-    WRITE_REG(RTCx->CR, 0x00000000U);
-#endif /* RTC_WAKEUP_SUPPORT */
-    WRITE_REG(RTCx->PRER, (RTC_PRER_PREDIV_A | RTC_SYNCH_PRESC_DEFAULT));
-    WRITE_REG(RTCx->ALRMAR,   0x00000000U);
-    WRITE_REG(RTCx->ALRMBR,   0x00000000U);
-    WRITE_REG(RTCx->SHIFTR,   0x00000000U);
-    WRITE_REG(RTCx->CALR,     0x00000000U);
-    WRITE_REG(RTCx->ALRMASSR, 0x00000000U);
-    WRITE_REG(RTCx->ALRMBSSR, 0x00000000U);
-
-    /* Exit Initialization mode */
-    LL_RTC_DisableInitMode(RTCx);
-
-    /* Wait till the RTC RSF flag is set */
-    status = LL_RTC_WaitForSynchro(RTCx);
-  }
-
-  /* Enable the write protection for RTC registers */
-  LL_RTC_EnableWriteProtection(RTCx);
-
-  /* DeInitialization of the TAMP */
-  /* Reset TAMP CR1 and CR2 registers */
-  WRITE_REG(TAMP->CR1,      0xFFFF0000U);
-  WRITE_REG(TAMP->CR2,     0x00000000U);
-#if defined (RTC_OTHER_SUPPORT)
-  WRITE_REG(TAMP->CR3,     0x00000000U);
-  WRITE_REG(TAMP->SMCR,     0x00000000U);
-  WRITE_REG(TAMP->PRIVCR,   0x00000000U);
-#endif /* RTC_OTHER_SUPPORT */
-  WRITE_REG(TAMP->FLTCR,    0x00000000U);
-#if defined (RTC_ACTIVE_TAMPER_SUPPORT)
-  WRITE_REG(TAMP->ATCR1,    0x00000000U);
-  WRITE_REG(TAMP->ATCR2,    0x00000000U);
-#endif /* RTC_ACTIVE_TAMPER_SUPPORT */
-  WRITE_REG(TAMP->IER,      0x00000000U);
-  WRITE_REG(TAMP->SCR,      0xFFFFFFFFU);
-#if defined (RTC_OPTION_REG_SUPPORT)
-  WRITE_REG(TAMP->OR,       0x00000000U);
-#endif /* RTC_OPTION_REG_SUPPORT */
-
-  return status;
-}
-
-/**
-  * @brief  Initializes the RTC registers according to the specified parameters
-  *         in RTC_InitStruct.
-  * @param  RTCx RTC Instance
-  * @param  RTC_InitStruct pointer to a @ref LL_RTC_InitTypeDef structure that contains
-  *         the configuration information for the RTC peripheral.
-  * @note   The RTC Prescaler register is write protected and can be written in
-  *         initialization mode only.
-  * @retval An ErrorStatus enumeration value:
-  *          - SUCCESS: RTC registers are initialized
-  *          - ERROR: RTC registers are not initialized
-  */
-ErrorStatus LL_RTC_Init(RTC_TypeDef *RTCx, LL_RTC_InitTypeDef *RTC_InitStruct)
-{
-  ErrorStatus status = ERROR;
-
-  /* Check the parameters */
-  assert_param(IS_RTC_ALL_INSTANCE(RTCx));
-  assert_param(IS_LL_RTC_HOURFORMAT(RTC_InitStruct->HourFormat));
-  assert_param(IS_LL_RTC_ASYNCH_PREDIV(RTC_InitStruct->AsynchPrescaler));
-  assert_param(IS_LL_RTC_SYNCH_PREDIV(RTC_InitStruct->SynchPrescaler));
-
-  /* Disable the write protection for RTC registers */
-  LL_RTC_DisableWriteProtection(RTCx);
-
-  /* Set Initialization mode */
-  if (LL_RTC_EnterInitMode(RTCx) != ERROR)
-  {
-    /* Set Hour Format */
-    LL_RTC_SetHourFormat(RTCx, RTC_InitStruct->HourFormat);
-
-    /* Configure Synchronous and Asynchronous prescaler factor */
-    LL_RTC_SetSynchPrescaler(RTCx, RTC_InitStruct->SynchPrescaler);
-    LL_RTC_SetAsynchPrescaler(RTCx, RTC_InitStruct->AsynchPrescaler);
-
-    /* Exit Initialization mode */
-    LL_RTC_DisableInitMode(RTCx);
-
-    status = SUCCESS;
-  }
-  /* Enable the write protection for RTC registers */
-  LL_RTC_EnableWriteProtection(RTCx);
-
-  return status;
-}
-
-/**
-  * @brief  Set each @ref LL_RTC_InitTypeDef field to default value.
-  * @param  RTC_InitStruct pointer to a @ref LL_RTC_InitTypeDef structure which will be initialized.
-  * @retval None
-  */
-void LL_RTC_StructInit(LL_RTC_InitTypeDef *RTC_InitStruct)
-{
-  /* Set RTC_InitStruct fields to default values */
-  RTC_InitStruct->HourFormat      = LL_RTC_HOURFORMAT_24HOUR;
-  RTC_InitStruct->AsynchPrescaler = RTC_ASYNCH_PRESC_DEFAULT;
-  RTC_InitStruct->SynchPrescaler  = RTC_SYNCH_PRESC_DEFAULT;
-}
-
-/**
-  * @brief  Set the RTC current time.
-  * @param  RTCx RTC Instance
-  * @param  RTC_Format This parameter can be one of the following values:
-  *         @arg @ref LL_RTC_FORMAT_BIN
-  *         @arg @ref LL_RTC_FORMAT_BCD
-  * @param  RTC_TimeStruct pointer to a RTC_TimeTypeDef structure that contains
-  *                        the time configuration information for the RTC.
-  * @retval An ErrorStatus enumeration value:
-  *          - SUCCESS: RTC Time register is configured
-  *          - ERROR: RTC Time register is not configured
-  */
-ErrorStatus LL_RTC_TIME_Init(RTC_TypeDef *RTCx, uint32_t RTC_Format, LL_RTC_TimeTypeDef *RTC_TimeStruct)
-{
-  ErrorStatus status = ERROR;
-
-  /* Check the parameters */
-  assert_param(IS_RTC_ALL_INSTANCE(RTCx));
-  assert_param(IS_LL_RTC_FORMAT(RTC_Format));
-
-  if (RTC_Format == LL_RTC_FORMAT_BIN)
-  {
-    if (LL_RTC_GetHourFormat(RTCx) != LL_RTC_HOURFORMAT_24HOUR)
-    {
-      assert_param(IS_LL_RTC_HOUR12(RTC_TimeStruct->Hours));
-      assert_param(IS_LL_RTC_TIME_FORMAT(RTC_TimeStruct->TimeFormat));
-    }
-    else
-    {
-      RTC_TimeStruct->TimeFormat = 0x00U;
-      assert_param(IS_LL_RTC_HOUR24(RTC_TimeStruct->Hours));
-    }
-    assert_param(IS_LL_RTC_MINUTES(RTC_TimeStruct->Minutes));
-    assert_param(IS_LL_RTC_SECONDS(RTC_TimeStruct->Seconds));
-  }
-  else
-  {
-    if (LL_RTC_GetHourFormat(RTCx) != LL_RTC_HOURFORMAT_24HOUR)
-    {
-      assert_param(IS_LL_RTC_HOUR12(__LL_RTC_CONVERT_BCD2BIN(RTC_TimeStruct->Hours)));
-      assert_param(IS_LL_RTC_TIME_FORMAT(RTC_TimeStruct->TimeFormat));
-    }
-    else
-    {
-      RTC_TimeStruct->TimeFormat = 0x00U;
-      assert_param(IS_LL_RTC_HOUR24(__LL_RTC_CONVERT_BCD2BIN(RTC_TimeStruct->Hours)));
-    }
-    assert_param(IS_LL_RTC_MINUTES(__LL_RTC_CONVERT_BCD2BIN(RTC_TimeStruct->Minutes)));
-    assert_param(IS_LL_RTC_SECONDS(__LL_RTC_CONVERT_BCD2BIN(RTC_TimeStruct->Seconds)));
-  }
-
-  /* Disable the write protection for RTC registers */
-  LL_RTC_DisableWriteProtection(RTCx);
-
-  /* Set Initialization mode */
-  if (LL_RTC_EnterInitMode(RTCx) != ERROR)
-  {
-    /* Check the input parameters format */
-    if (RTC_Format != LL_RTC_FORMAT_BIN)
-    {
-      LL_RTC_TIME_Config(RTCx, RTC_TimeStruct->TimeFormat, RTC_TimeStruct->Hours,
-                         RTC_TimeStruct->Minutes, RTC_TimeStruct->Seconds);
-    }
-    else
-    {
-      LL_RTC_TIME_Config(RTCx, RTC_TimeStruct->TimeFormat, __LL_RTC_CONVERT_BIN2BCD(RTC_TimeStruct->Hours),
-                         __LL_RTC_CONVERT_BIN2BCD(RTC_TimeStruct->Minutes),
-                         __LL_RTC_CONVERT_BIN2BCD(RTC_TimeStruct->Seconds));
-    }
-
-    /* Exit Initialization mode */
-    LL_RTC_DisableInitMode(RTCx);
-
-    /* If  RTC_CR_BYPSHAD bit = 0, wait for synchro else this check is not needed */
-    if (LL_RTC_IsShadowRegBypassEnabled(RTCx) == 0U)
-    {
-      status = LL_RTC_WaitForSynchro(RTCx);
-    }
-    else
-    {
-      status = SUCCESS;
-    }
-  }
-  /* Enable the write protection for RTC registers */
-  LL_RTC_EnableWriteProtection(RTCx);
-
-  return status;
-}
-
-/**
-  * @brief  Set each @ref LL_RTC_TimeTypeDef field to default value (Time = 00h:00min:00sec).
-  * @param  RTC_TimeStruct pointer to a @ref LL_RTC_TimeTypeDef structure which will be initialized.
-  * @retval None
-  */
-void LL_RTC_TIME_StructInit(LL_RTC_TimeTypeDef *RTC_TimeStruct)
-{
-  /* Time = 00h:00min:00sec */
-  RTC_TimeStruct->TimeFormat = LL_RTC_TIME_FORMAT_AM_OR_24;
-  RTC_TimeStruct->Hours      = 0U;
-  RTC_TimeStruct->Minutes    = 0U;
-  RTC_TimeStruct->Seconds    = 0U;
-}
-
-/**
-  * @brief  Set the RTC current date.
-  * @param  RTCx RTC Instance
-  * @param  RTC_Format This parameter can be one of the following values:
-  *         @arg @ref LL_RTC_FORMAT_BIN
-  *         @arg @ref LL_RTC_FORMAT_BCD
-  * @param  RTC_DateStruct: pointer to a RTC_DateTypeDef structure that contains
-  *                         the date configuration information for the RTC.
-  * @retval An ErrorStatus enumeration value:
-  *          - SUCCESS: RTC Day register is configured
-  *          - ERROR: RTC Day register is not configured
-  */
-ErrorStatus LL_RTC_DATE_Init(RTC_TypeDef *RTCx, uint32_t RTC_Format, LL_RTC_DateTypeDef *RTC_DateStruct)
-{
-  ErrorStatus status = ERROR;
-
-  /* Check the parameters */
-  assert_param(IS_RTC_ALL_INSTANCE(RTCx));
-  assert_param(IS_LL_RTC_FORMAT(RTC_Format));
-
-  if ((RTC_Format == LL_RTC_FORMAT_BIN) && ((RTC_DateStruct->Month & 0x10U) == 0x10U))
-  {
-    RTC_DateStruct->Month = (uint8_t)(((uint32_t) RTC_DateStruct->Month & (uint32_t)~(0x10U)) + 0x0AU);
-  }
-  if (RTC_Format == LL_RTC_FORMAT_BIN)
-  {
-    assert_param(IS_LL_RTC_YEAR(RTC_DateStruct->Year));
-    assert_param(IS_LL_RTC_MONTH(RTC_DateStruct->Month));
-    assert_param(IS_LL_RTC_DAY(RTC_DateStruct->Day));
-  }
-  else
-  {
-    assert_param(IS_LL_RTC_YEAR(__LL_RTC_CONVERT_BCD2BIN(RTC_DateStruct->Year)));
-    assert_param(IS_LL_RTC_MONTH(__LL_RTC_CONVERT_BCD2BIN(RTC_DateStruct->Month)));
-    assert_param(IS_LL_RTC_DAY(__LL_RTC_CONVERT_BCD2BIN(RTC_DateStruct->Day)));
-  }
-  assert_param(IS_LL_RTC_WEEKDAY(RTC_DateStruct->WeekDay));
-
-  /* Disable the write protection for RTC registers */
-  LL_RTC_DisableWriteProtection(RTCx);
-
-  /* Set Initialization mode */
-  if (LL_RTC_EnterInitMode(RTCx) != ERROR)
-  {
-    /* Check the input parameters format */
-    if (RTC_Format != LL_RTC_FORMAT_BIN)
-    {
-      LL_RTC_DATE_Config(RTCx, RTC_DateStruct->WeekDay, RTC_DateStruct->Day, RTC_DateStruct->Month, RTC_DateStruct->Year);
-    }
-    else
-    {
-      LL_RTC_DATE_Config(RTCx, RTC_DateStruct->WeekDay, __LL_RTC_CONVERT_BIN2BCD(RTC_DateStruct->Day),
-                         __LL_RTC_CONVERT_BIN2BCD(RTC_DateStruct->Month), __LL_RTC_CONVERT_BIN2BCD(RTC_DateStruct->Year));
-    }
-
-    /* Exit Initialization mode */
-    LL_RTC_DisableInitMode(RTCx);
-
-    /* If  RTC_CR_BYPSHAD bit = 0, wait for synchro else this check is not needed */
-    if (LL_RTC_IsShadowRegBypassEnabled(RTCx) == 0U)
-    {
-      status = LL_RTC_WaitForSynchro(RTCx);
-    }
-    else
-    {
-      status = SUCCESS;
-    }
-  }
-  /* Enable the write protection for RTC registers */
-  LL_RTC_EnableWriteProtection(RTCx);
-
-  return status;
-}
-
-/**
-  * @brief  Set each @ref LL_RTC_DateTypeDef field to default value (date = Monday, January 01 xx00)
-  * @param  RTC_DateStruct pointer to a @ref LL_RTC_DateTypeDef structure which will be initialized.
-  * @retval None
-  */
-void LL_RTC_DATE_StructInit(LL_RTC_DateTypeDef *RTC_DateStruct)
-{
-  /* Monday, January 01 xx00 */
-  RTC_DateStruct->WeekDay = LL_RTC_WEEKDAY_MONDAY;
-  RTC_DateStruct->Day     = 1U;
-  RTC_DateStruct->Month   = LL_RTC_MONTH_JANUARY;
-  RTC_DateStruct->Year    = 0U;
-}
-
-/**
-  * @brief  Set the RTC Alarm A.
-  * @note   The Alarm register can only be written when the corresponding Alarm
-  *         is disabled (Use @ref LL_RTC_ALMA_Disable function).
-  * @param  RTCx RTC Instance
-  * @param  RTC_Format This parameter can be one of the following values:
-  *         @arg @ref LL_RTC_FORMAT_BIN
-  *         @arg @ref LL_RTC_FORMAT_BCD
-  * @param  RTC_AlarmStruct pointer to a @ref LL_RTC_AlarmTypeDef structure that
-  *                         contains the alarm configuration parameters.
-  * @retval An ErrorStatus enumeration value:
-  *          - SUCCESS: ALARMA registers are configured
-  *          - ERROR: ALARMA registers are not configured
-  */
-ErrorStatus LL_RTC_ALMA_Init(RTC_TypeDef *RTCx, uint32_t RTC_Format, LL_RTC_AlarmTypeDef *RTC_AlarmStruct)
-{
-  /* Check the parameters */
-  assert_param(IS_RTC_ALL_INSTANCE(RTCx));
-  assert_param(IS_LL_RTC_FORMAT(RTC_Format));
-  assert_param(IS_LL_RTC_ALMA_MASK(RTC_AlarmStruct->AlarmMask));
-  assert_param(IS_LL_RTC_ALMA_DATE_WEEKDAY_SEL(RTC_AlarmStruct->AlarmDateWeekDaySel));
-
-  if (RTC_Format == LL_RTC_FORMAT_BIN)
-  {
-    if (LL_RTC_GetHourFormat(RTCx) != LL_RTC_HOURFORMAT_24HOUR)
-    {
-      assert_param(IS_LL_RTC_HOUR12(RTC_AlarmStruct->AlarmTime.Hours));
-      assert_param(IS_LL_RTC_TIME_FORMAT(RTC_AlarmStruct->AlarmTime.TimeFormat));
-    }
-    else
-    {
-      RTC_AlarmStruct->AlarmTime.TimeFormat = 0x00U;
-      assert_param(IS_LL_RTC_HOUR24(RTC_AlarmStruct->AlarmTime.Hours));
-    }
-    assert_param(IS_LL_RTC_MINUTES(RTC_AlarmStruct->AlarmTime.Minutes));
-    assert_param(IS_LL_RTC_SECONDS(RTC_AlarmStruct->AlarmTime.Seconds));
-
-    if (RTC_AlarmStruct->AlarmDateWeekDaySel == LL_RTC_ALMA_DATEWEEKDAYSEL_DATE)
-    {
-      assert_param(IS_LL_RTC_DAY(RTC_AlarmStruct->AlarmDateWeekDay));
-    }
-    else
-    {
-      assert_param(IS_LL_RTC_WEEKDAY(RTC_AlarmStruct->AlarmDateWeekDay));
-    }
-  }
-  else
-  {
-    if (LL_RTC_GetHourFormat(RTCx) != LL_RTC_HOURFORMAT_24HOUR)
-    {
-      assert_param(IS_LL_RTC_HOUR12(__LL_RTC_CONVERT_BCD2BIN(RTC_AlarmStruct->AlarmTime.Hours)));
-      assert_param(IS_LL_RTC_TIME_FORMAT(RTC_AlarmStruct->AlarmTime.TimeFormat));
-    }
-    else
-    {
-      RTC_AlarmStruct->AlarmTime.TimeFormat = 0x00U;
-      assert_param(IS_LL_RTC_HOUR24(__LL_RTC_CONVERT_BCD2BIN(RTC_AlarmStruct->AlarmTime.Hours)));
-    }
-
-    assert_param(IS_LL_RTC_MINUTES(__LL_RTC_CONVERT_BCD2BIN(RTC_AlarmStruct->AlarmTime.Minutes)));
-    assert_param(IS_LL_RTC_SECONDS(__LL_RTC_CONVERT_BCD2BIN(RTC_AlarmStruct->AlarmTime.Seconds)));
-
-    if (RTC_AlarmStruct->AlarmDateWeekDaySel == LL_RTC_ALMA_DATEWEEKDAYSEL_DATE)
-    {
-      assert_param(IS_LL_RTC_DAY(__LL_RTC_CONVERT_BCD2BIN(RTC_AlarmStruct->AlarmDateWeekDay)));
-    }
-    else
-    {
-      assert_param(IS_LL_RTC_WEEKDAY(__LL_RTC_CONVERT_BCD2BIN(RTC_AlarmStruct->AlarmDateWeekDay)));
-    }
-  }
-
-  /* Disable the write protection for RTC registers */
-  LL_RTC_DisableWriteProtection(RTCx);
-
-  /* Select weekday selection */
-  if (RTC_AlarmStruct->AlarmDateWeekDaySel == LL_RTC_ALMA_DATEWEEKDAYSEL_DATE)
-  {
-    /* Set the date for ALARM */
-    LL_RTC_ALMA_DisableWeekday(RTCx);
-    if (RTC_Format != LL_RTC_FORMAT_BIN)
-    {
-      LL_RTC_ALMA_SetDay(RTCx, RTC_AlarmStruct->AlarmDateWeekDay);
-    }
-    else
-    {
-      LL_RTC_ALMA_SetDay(RTCx, __LL_RTC_CONVERT_BIN2BCD(RTC_AlarmStruct->AlarmDateWeekDay));
-    }
-  }
-  else
-  {
-    /* Set the week day for ALARM */
-    LL_RTC_ALMA_EnableWeekday(RTCx);
-    LL_RTC_ALMA_SetWeekDay(RTCx, RTC_AlarmStruct->AlarmDateWeekDay);
-  }
-
-  /* Configure the Alarm register */
-  if (RTC_Format != LL_RTC_FORMAT_BIN)
-  {
-    LL_RTC_ALMA_ConfigTime(RTCx, RTC_AlarmStruct->AlarmTime.TimeFormat, RTC_AlarmStruct->AlarmTime.Hours,
-                           RTC_AlarmStruct->AlarmTime.Minutes, RTC_AlarmStruct->AlarmTime.Seconds);
-  }
-  else
-  {
-    LL_RTC_ALMA_ConfigTime(RTCx, RTC_AlarmStruct->AlarmTime.TimeFormat,
-                           __LL_RTC_CONVERT_BIN2BCD(RTC_AlarmStruct->AlarmTime.Hours),
-                           __LL_RTC_CONVERT_BIN2BCD(RTC_AlarmStruct->AlarmTime.Minutes),
-                           __LL_RTC_CONVERT_BIN2BCD(RTC_AlarmStruct->AlarmTime.Seconds));
-  }
-  /* Set ALARM mask */
-  LL_RTC_ALMA_SetMask(RTCx, RTC_AlarmStruct->AlarmMask);
-
-  /* Enable the write protection for RTC registers */
-  LL_RTC_EnableWriteProtection(RTCx);
-
-  return SUCCESS;
-}
-
-/**
-  * @brief  Set the RTC Alarm B.
-  * @note   The Alarm register can only be written when the corresponding Alarm
-  *         is disabled (@ref LL_RTC_ALMB_Disable function).
-  * @param  RTCx RTC Instance
-  * @param  RTC_Format This parameter can be one of the following values:
-  *         @arg @ref LL_RTC_FORMAT_BIN
-  *         @arg @ref LL_RTC_FORMAT_BCD
-  * @param  RTC_AlarmStruct pointer to a @ref LL_RTC_AlarmTypeDef structure that
-  *                         contains the alarm configuration parameters.
-  * @retval An ErrorStatus enumeration value:
-  *          - SUCCESS: ALARMB registers are configured
-  *          - ERROR: ALARMB registers are not configured
-  */
-ErrorStatus LL_RTC_ALMB_Init(RTC_TypeDef *RTCx, uint32_t RTC_Format, LL_RTC_AlarmTypeDef *RTC_AlarmStruct)
-{
-  /* Check the parameters */
-  assert_param(IS_RTC_ALL_INSTANCE(RTCx));
-  assert_param(IS_LL_RTC_FORMAT(RTC_Format));
-  assert_param(IS_LL_RTC_ALMB_MASK(RTC_AlarmStruct->AlarmMask));
-  assert_param(IS_LL_RTC_ALMB_DATE_WEEKDAY_SEL(RTC_AlarmStruct->AlarmDateWeekDaySel));
-
-  if (RTC_Format == LL_RTC_FORMAT_BIN)
-  {
-    if (LL_RTC_GetHourFormat(RTCx) != LL_RTC_HOURFORMAT_24HOUR)
-    {
-      assert_param(IS_LL_RTC_HOUR12(RTC_AlarmStruct->AlarmTime.Hours));
-      assert_param(IS_LL_RTC_TIME_FORMAT(RTC_AlarmStruct->AlarmTime.TimeFormat));
-    }
-    else
-    {
-      RTC_AlarmStruct->AlarmTime.TimeFormat = 0x00U;
-      assert_param(IS_LL_RTC_HOUR24(RTC_AlarmStruct->AlarmTime.Hours));
-    }
-    assert_param(IS_LL_RTC_MINUTES(RTC_AlarmStruct->AlarmTime.Minutes));
-    assert_param(IS_LL_RTC_SECONDS(RTC_AlarmStruct->AlarmTime.Seconds));
-
-    if (RTC_AlarmStruct->AlarmDateWeekDaySel == LL_RTC_ALMB_DATEWEEKDAYSEL_DATE)
-    {
-      assert_param(IS_LL_RTC_DAY(RTC_AlarmStruct->AlarmDateWeekDay));
-    }
-    else
-    {
-      assert_param(IS_LL_RTC_WEEKDAY(RTC_AlarmStruct->AlarmDateWeekDay));
-    }
-  }
-  else
-  {
-    if (LL_RTC_GetHourFormat(RTCx) != LL_RTC_HOURFORMAT_24HOUR)
-    {
-      assert_param(IS_LL_RTC_HOUR12(__LL_RTC_CONVERT_BCD2BIN(RTC_AlarmStruct->AlarmTime.Hours)));
-      assert_param(IS_LL_RTC_TIME_FORMAT(RTC_AlarmStruct->AlarmTime.TimeFormat));
-    }
-    else
-    {
-      RTC_AlarmStruct->AlarmTime.TimeFormat = 0x00U;
-      assert_param(IS_LL_RTC_HOUR24(__LL_RTC_CONVERT_BCD2BIN(RTC_AlarmStruct->AlarmTime.Hours)));
-    }
-
-    assert_param(IS_LL_RTC_MINUTES(__LL_RTC_CONVERT_BCD2BIN(RTC_AlarmStruct->AlarmTime.Minutes)));
-    assert_param(IS_LL_RTC_SECONDS(__LL_RTC_CONVERT_BCD2BIN(RTC_AlarmStruct->AlarmTime.Seconds)));
-
-    if (RTC_AlarmStruct->AlarmDateWeekDaySel == LL_RTC_ALMB_DATEWEEKDAYSEL_DATE)
-    {
-      assert_param(IS_LL_RTC_DAY(__LL_RTC_CONVERT_BCD2BIN(RTC_AlarmStruct->AlarmDateWeekDay)));
-    }
-    else
-    {
-      assert_param(IS_LL_RTC_WEEKDAY(__LL_RTC_CONVERT_BCD2BIN(RTC_AlarmStruct->AlarmDateWeekDay)));
-    }
-  }
-
-  /* Disable the write protection for RTC registers */
-  LL_RTC_DisableWriteProtection(RTCx);
-
-  /* Select weekday selection */
-  if (RTC_AlarmStruct->AlarmDateWeekDaySel == LL_RTC_ALMB_DATEWEEKDAYSEL_DATE)
-  {
-    /* Set the date for ALARM */
-    LL_RTC_ALMB_DisableWeekday(RTCx);
-    if (RTC_Format != LL_RTC_FORMAT_BIN)
-    {
-      LL_RTC_ALMB_SetDay(RTCx, RTC_AlarmStruct->AlarmDateWeekDay);
-    }
-    else
-    {
-      LL_RTC_ALMB_SetDay(RTCx, __LL_RTC_CONVERT_BIN2BCD(RTC_AlarmStruct->AlarmDateWeekDay));
-    }
-  }
-  else
-  {
-    /* Set the week day for ALARM */
-    LL_RTC_ALMB_EnableWeekday(RTCx);
-    LL_RTC_ALMB_SetWeekDay(RTCx, RTC_AlarmStruct->AlarmDateWeekDay);
-  }
-
-  /* Configure the Alarm register */
-  if (RTC_Format != LL_RTC_FORMAT_BIN)
-  {
-    LL_RTC_ALMB_ConfigTime(RTCx, RTC_AlarmStruct->AlarmTime.TimeFormat, RTC_AlarmStruct->AlarmTime.Hours,
-                           RTC_AlarmStruct->AlarmTime.Minutes, RTC_AlarmStruct->AlarmTime.Seconds);
-  }
-  else
-  {
-    LL_RTC_ALMB_ConfigTime(RTCx, RTC_AlarmStruct->AlarmTime.TimeFormat,
-                           __LL_RTC_CONVERT_BIN2BCD(RTC_AlarmStruct->AlarmTime.Hours),
-                           __LL_RTC_CONVERT_BIN2BCD(RTC_AlarmStruct->AlarmTime.Minutes),
-                           __LL_RTC_CONVERT_BIN2BCD(RTC_AlarmStruct->AlarmTime.Seconds));
-  }
-  /* Set ALARM mask */
-  LL_RTC_ALMB_SetMask(RTCx, RTC_AlarmStruct->AlarmMask);
-
-  /* Enable the write protection for RTC registers */
-  LL_RTC_EnableWriteProtection(RTCx);
-
-  return SUCCESS;
-}
-
-/**
-  * @brief  Set each @ref LL_RTC_AlarmTypeDef of ALARMA field to default value (Time = 00h:00mn:00sec /
-  *         Day = 1st day of the month/Mask = all fields are masked).
-  * @param  RTC_AlarmStruct pointer to a @ref LL_RTC_AlarmTypeDef structure which will be initialized.
-  * @retval None
-  */
-void LL_RTC_ALMA_StructInit(LL_RTC_AlarmTypeDef *RTC_AlarmStruct)
-{
-  /* Alarm Time Settings : Time = 00h:00mn:00sec */
-  RTC_AlarmStruct->AlarmTime.TimeFormat = LL_RTC_ALMA_TIME_FORMAT_AM;
-  RTC_AlarmStruct->AlarmTime.Hours      = 0U;
-  RTC_AlarmStruct->AlarmTime.Minutes    = 0U;
-  RTC_AlarmStruct->AlarmTime.Seconds    = 0U;
-
-  /* Alarm Day Settings : Day = 1st day of the month */
-  RTC_AlarmStruct->AlarmDateWeekDaySel = LL_RTC_ALMA_DATEWEEKDAYSEL_DATE;
-  RTC_AlarmStruct->AlarmDateWeekDay    = 1U;
-
-  /* Alarm Masks Settings : Mask =  all fields are not masked */
-  RTC_AlarmStruct->AlarmMask           = LL_RTC_ALMA_MASK_NONE;
-}
-
-/**
-  * @brief  Set each @ref LL_RTC_AlarmTypeDef of ALARMA field to default value (Time = 00h:00mn:00sec /
-  *         Day = 1st day of the month/Mask = all fields are masked).
-  * @param  RTC_AlarmStruct pointer to a @ref LL_RTC_AlarmTypeDef structure which will be initialized.
-  * @retval None
-  */
-void LL_RTC_ALMB_StructInit(LL_RTC_AlarmTypeDef *RTC_AlarmStruct)
-{
-  /* Alarm Time Settings : Time = 00h:00mn:00sec */
-  RTC_AlarmStruct->AlarmTime.TimeFormat = LL_RTC_ALMB_TIME_FORMAT_AM;
-  RTC_AlarmStruct->AlarmTime.Hours      = 0U;
-  RTC_AlarmStruct->AlarmTime.Minutes    = 0U;
-  RTC_AlarmStruct->AlarmTime.Seconds    = 0U;
-
-  /* Alarm Day Settings : Day = 1st day of the month */
-  RTC_AlarmStruct->AlarmDateWeekDaySel = LL_RTC_ALMB_DATEWEEKDAYSEL_DATE;
-  RTC_AlarmStruct->AlarmDateWeekDay    = 1U;
-
-  /* Alarm Masks Settings : Mask =  all fields are not masked */
-  RTC_AlarmStruct->AlarmMask           = LL_RTC_ALMB_MASK_NONE;
-}
-
-/**
-  * @brief  Enters the RTC Initialization mode.
-  * @note   The RTC Initialization mode is write protected, use the
-  *         @ref LL_RTC_DisableWriteProtection before calling this function.
-  * @param  RTCx RTC Instance
-  * @retval An ErrorStatus enumeration value:
-  *          - SUCCESS: RTC is in Init mode
-  *          - ERROR: RTC is not in Init mode
-  */
-ErrorStatus LL_RTC_EnterInitMode(RTC_TypeDef *RTCx)
-{
-  __IO uint32_t timeout = RTC_INITMODE_TIMEOUT;
-  ErrorStatus status = SUCCESS;
-  uint32_t tmp;
-
-  /* Check the parameter */
-  assert_param(IS_RTC_ALL_INSTANCE(RTCx));
-
-  /* Check if the Initialization mode is set */
-  if (LL_RTC_IsActiveFlag_INIT(RTCx) == 0U)
-  {
-    /* Set the Initialization mode */
-    LL_RTC_EnableInitMode(RTCx);
-
-    /* Wait till RTC is in INIT state and if Time out is reached exit */
-    tmp = LL_RTC_IsActiveFlag_INIT(RTCx);
-    while ((timeout != 0U) && (tmp != 1U))
-    {
-      if (LL_SYSTICK_IsActiveCounterFlag() == 1U)
-      {
-        timeout --;
-      }
-      tmp = LL_RTC_IsActiveFlag_INIT(RTCx);
-      if (timeout == 0U)
-      {
-        status = ERROR;
-      }
-    }
-  }
-  return status;
-}
-
-/**
-  * @brief  Exit the RTC Initialization mode.
-  * @note   When the initialization sequence is complete, the calendar restarts
-  *         counting after 4 RTCCLK cycles.
-  * @note   The RTC Initialization mode is write protected, use the
-  *         @ref LL_RTC_DisableWriteProtection before calling this function.
-  * @param  RTCx RTC Instance
-  * @retval An ErrorStatus enumeration value:
-  *          - SUCCESS: RTC exited from in Init mode
-  *          - ERROR: Not applicable
-  */
-ErrorStatus LL_RTC_ExitInitMode(RTC_TypeDef *RTCx)
-{
-  /* Check the parameter */
-  assert_param(IS_RTC_ALL_INSTANCE(RTCx));
-
-  /* Disable initialization mode */
-  LL_RTC_DisableInitMode(RTCx);
-
-  return SUCCESS;
-}
-
-/**
-  * @brief  Waits until the RTC Time and Day registers (RTC_TR and RTC_DR) are
-  *         synchronized with RTC APB clock.
-  * @note   The RTC Resynchronization mode is write protected, use the
-  *         @ref LL_RTC_DisableWriteProtection before calling this function.
-  * @note   To read the calendar through the shadow registers after Calendar
-  *         initialization, calendar update or after wakeup from low power modes
-  *         the software must first clear the RSF flag.
-  *         The software must then wait until it is set again before reading
-  *         the calendar, which means that the calendar registers have been
-  *         correctly copied into the RTC_TR and RTC_DR shadow registers.
-  * @param  RTCx RTC Instance
-  * @retval An ErrorStatus enumeration value:
-  *          - SUCCESS: RTC registers are synchronised
-  *          - ERROR: RTC registers are not synchronised
-  */
-ErrorStatus LL_RTC_WaitForSynchro(RTC_TypeDef *RTCx)
-{
-  __IO uint32_t timeout = RTC_SYNCHRO_TIMEOUT;
-  ErrorStatus status = SUCCESS;
-  uint32_t tmp;
-
-  /* Check the parameter */
-  assert_param(IS_RTC_ALL_INSTANCE(RTCx));
-
-  /* Clear RSF flag */
-  LL_RTC_ClearFlag_RS(RTCx);
-
-  /* Wait the registers to be synchronised */
-  tmp = LL_RTC_IsActiveFlag_RS(RTCx);
-  while ((timeout != 0U) && (tmp != 0U))
-  {
-    if (LL_SYSTICK_IsActiveCounterFlag() == 1U)
-    {
-      timeout--;
-    }
-    tmp = LL_RTC_IsActiveFlag_RS(RTCx);
-    if (timeout == 0U)
-    {
-      status = ERROR;
-    }
-  }
-
-  if (status != ERROR)
-  {
-    timeout = RTC_SYNCHRO_TIMEOUT;
-    tmp = LL_RTC_IsActiveFlag_RS(RTCx);
-    while ((timeout != 0U) && (tmp != 1U))
-    {
-      if (LL_SYSTICK_IsActiveCounterFlag() == 1U)
-      {
-        timeout--;
-      }
-      tmp = LL_RTC_IsActiveFlag_RS(RTCx);
-      if (timeout == 0U)
-      {
-        status = ERROR;
-      }
-    }
-  }
-
-  return (status);
-}
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-#endif /* defined(RTC) */
-
-/**
-  * @}
-  */
-
-#endif /* USE_FULL_LL_DRIVER */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_ll_rtc.c"
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3//"
+# 1 "<built-in>"
+#define __STDC__ 1
+#define __STDC_VERSION__ 199901L
+#define __STDC_HOSTED__ 1
+#define __GNUC__ 10
+#define __GNUC_MINOR__ 2
+#define __GNUC_PATCHLEVEL__ 1
+#define __VERSION__ "10.2.1 20201103 (release)"
+#define __ATOMIC_RELAXED 0
+#define __ATOMIC_SEQ_CST 5
+#define __ATOMIC_ACQUIRE 2
+#define __ATOMIC_RELEASE 3
+#define __ATOMIC_ACQ_REL 4
+#define __ATOMIC_CONSUME 1
+#define __OPTIMIZE_SIZE__ 1
+#define __OPTIMIZE__ 1
+#define __FINITE_MATH_ONLY__ 0
+#define __SIZEOF_INT__ 4
+#define __SIZEOF_LONG__ 4
+#define __SIZEOF_LONG_LONG__ 8
+#define __SIZEOF_SHORT__ 2
+#define __SIZEOF_FLOAT__ 4
+#define __SIZEOF_DOUBLE__ 8
+#define __SIZEOF_LONG_DOUBLE__ 8
+#define __SIZEOF_SIZE_T__ 4
+#define __CHAR_BIT__ 8
+#define __BIGGEST_ALIGNMENT__ 8
+#define __ORDER_LITTLE_ENDIAN__ 1234
+#define __ORDER_BIG_ENDIAN__ 4321
+#define __ORDER_PDP_ENDIAN__ 3412
+#define __BYTE_ORDER__ __ORDER_LITTLE_ENDIAN__
+#define __FLOAT_WORD_ORDER__ __ORDER_LITTLE_ENDIAN__
+#define __SIZEOF_POINTER__ 4
+#define __SIZE_TYPE__ unsigned int
+#define __PTRDIFF_TYPE__ int
+#define __WCHAR_TYPE__ unsigned int
+#define __WINT_TYPE__ unsigned int
+#define __INTMAX_TYPE__ long long int
+#define __UINTMAX_TYPE__ long long unsigned int
+#define __CHAR16_TYPE__ short unsigned int
+#define __CHAR32_TYPE__ long unsigned int
+#define __SIG_ATOMIC_TYPE__ int
+#define __INT8_TYPE__ signed char
+#define __INT16_TYPE__ short int
+#define __INT32_TYPE__ long int
+#define __INT64_TYPE__ long long int
+#define __UINT8_TYPE__ unsigned char
+#define __UINT16_TYPE__ short unsigned int
+#define __UINT32_TYPE__ long unsigned int
+#define __UINT64_TYPE__ long long unsigned int
+#define __INT_LEAST8_TYPE__ signed char
+#define __INT_LEAST16_TYPE__ short int
+#define __INT_LEAST32_TYPE__ long int
+#define __INT_LEAST64_TYPE__ long long int
+#define __UINT_LEAST8_TYPE__ unsigned char
+#define __UINT_LEAST16_TYPE__ short unsigned int
+#define __UINT_LEAST32_TYPE__ long unsigned int
+#define __UINT_LEAST64_TYPE__ long long unsigned int
+#define __INT_FAST8_TYPE__ int
+#define __INT_FAST16_TYPE__ int
+#define __INT_FAST32_TYPE__ int
+#define __INT_FAST64_TYPE__ long long int
+#define __UINT_FAST8_TYPE__ unsigned int
+#define __UINT_FAST16_TYPE__ unsigned int
+#define __UINT_FAST32_TYPE__ unsigned int
+#define __UINT_FAST64_TYPE__ long long unsigned int
+#define __INTPTR_TYPE__ int
+#define __UINTPTR_TYPE__ unsigned int
+#define __GXX_ABI_VERSION 1014
+#define __SCHAR_MAX__ 0x7f
+#define __SHRT_MAX__ 0x7fff
+#define __INT_MAX__ 0x7fffffff
+#define __LONG_MAX__ 0x7fffffffL
+#define __LONG_LONG_MAX__ 0x7fffffffffffffffLL
+#define __WCHAR_MAX__ 0xffffffffU
+#define __WCHAR_MIN__ 0U
+#define __WINT_MAX__ 0xffffffffU
+#define __WINT_MIN__ 0U
+#define __PTRDIFF_MAX__ 0x7fffffff
+#define __SIZE_MAX__ 0xffffffffU
+#define __SCHAR_WIDTH__ 8
+#define __SHRT_WIDTH__ 16
+#define __INT_WIDTH__ 32
+#define __LONG_WIDTH__ 32
+#define __LONG_LONG_WIDTH__ 64
+#define __WCHAR_WIDTH__ 32
+#define __WINT_WIDTH__ 32
+#define __PTRDIFF_WIDTH__ 32
+#define __SIZE_WIDTH__ 32
+#define __INTMAX_MAX__ 0x7fffffffffffffffLL
+#define __INTMAX_C(c) c ## LL
+#define __UINTMAX_MAX__ 0xffffffffffffffffULL
+#define __UINTMAX_C(c) c ## ULL
+#define __INTMAX_WIDTH__ 64
+#define __SIG_ATOMIC_MAX__ 0x7fffffff
+#define __SIG_ATOMIC_MIN__ (-__SIG_ATOMIC_MAX__ - 1)
+#define __SIG_ATOMIC_WIDTH__ 32
+#define __INT8_MAX__ 0x7f
+#define __INT16_MAX__ 0x7fff
+#define __INT32_MAX__ 0x7fffffffL
+#define __INT64_MAX__ 0x7fffffffffffffffLL
+#define __UINT8_MAX__ 0xff
+#define __UINT16_MAX__ 0xffff
+#define __UINT32_MAX__ 0xffffffffUL
+#define __UINT64_MAX__ 0xffffffffffffffffULL
+#define __INT_LEAST8_MAX__ 0x7f
+#define __INT8_C(c) c
+#define __INT_LEAST8_WIDTH__ 8
+#define __INT_LEAST16_MAX__ 0x7fff
+#define __INT16_C(c) c
+#define __INT_LEAST16_WIDTH__ 16
+#define __INT_LEAST32_MAX__ 0x7fffffffL
+#define __INT32_C(c) c ## L
+#define __INT_LEAST32_WIDTH__ 32
+#define __INT_LEAST64_MAX__ 0x7fffffffffffffffLL
+#define __INT64_C(c) c ## LL
+#define __INT_LEAST64_WIDTH__ 64
+#define __UINT_LEAST8_MAX__ 0xff
+#define __UINT8_C(c) c
+#define __UINT_LEAST16_MAX__ 0xffff
+#define __UINT16_C(c) c
+#define __UINT_LEAST32_MAX__ 0xffffffffUL
+#define __UINT32_C(c) c ## UL
+#define __UINT_LEAST64_MAX__ 0xffffffffffffffffULL
+#define __UINT64_C(c) c ## ULL
+#define __INT_FAST8_MAX__ 0x7fffffff
+#define __INT_FAST8_WIDTH__ 32
+#define __INT_FAST16_MAX__ 0x7fffffff
+#define __INT_FAST16_WIDTH__ 32
+#define __INT_FAST32_MAX__ 0x7fffffff
+#define __INT_FAST32_WIDTH__ 32
+#define __INT_FAST64_MAX__ 0x7fffffffffffffffLL
+#define __INT_FAST64_WIDTH__ 64
+#define __UINT_FAST8_MAX__ 0xffffffffU
+#define __UINT_FAST16_MAX__ 0xffffffffU
+#define __UINT_FAST32_MAX__ 0xffffffffU
+#define __UINT_FAST64_MAX__ 0xffffffffffffffffULL
+#define __INTPTR_MAX__ 0x7fffffff
+#define __INTPTR_WIDTH__ 32
+#define __UINTPTR_MAX__ 0xffffffffU
+#define __GCC_IEC_559 0
+#define __GCC_IEC_559_COMPLEX 0
+#define __FLT_EVAL_METHOD__ 0
+#define __FLT_EVAL_METHOD_TS_18661_3__ 0
+#define __DEC_EVAL_METHOD__ 2
+#define __FLT_RADIX__ 2
+#define __FLT_MANT_DIG__ 24
+#define __FLT_DIG__ 6
+#define __FLT_MIN_EXP__ (-125)
+#define __FLT_MIN_10_EXP__ (-37)
+#define __FLT_MAX_EXP__ 128
+#define __FLT_MAX_10_EXP__ 38
+#define __FLT_DECIMAL_DIG__ 9
+#define __FLT_MAX__ 3.4028234663852886e+38F
+#define __FLT_NORM_MAX__ 3.4028234663852886e+38F
+#define __FLT_MIN__ 1.1754943508222875e-38F
+#define __FLT_EPSILON__ 1.1920928955078125e-7F
+#define __FLT_DENORM_MIN__ 1.4012984643248171e-45F
+#define __FLT_HAS_DENORM__ 1
+#define __FLT_HAS_INFINITY__ 1
+#define __FLT_HAS_QUIET_NAN__ 1
+#define __DBL_MANT_DIG__ 53
+#define __DBL_DIG__ 15
+#define __DBL_MIN_EXP__ (-1021)
+#define __DBL_MIN_10_EXP__ (-307)
+#define __DBL_MAX_EXP__ 1024
+#define __DBL_MAX_10_EXP__ 308
+#define __DBL_DECIMAL_DIG__ 17
+#define __DBL_MAX__ ((double)1.7976931348623157e+308L)
+#define __DBL_NORM_MAX__ ((double)1.7976931348623157e+308L)
+#define __DBL_MIN__ ((double)2.2250738585072014e-308L)
+#define __DBL_EPSILON__ ((double)2.2204460492503131e-16L)
+#define __DBL_DENORM_MIN__ ((double)4.9406564584124654e-324L)
+#define __DBL_HAS_DENORM__ 1
+#define __DBL_HAS_INFINITY__ 1
+#define __DBL_HAS_QUIET_NAN__ 1
+#define __LDBL_MANT_DIG__ 53
+#define __LDBL_DIG__ 15
+#define __LDBL_MIN_EXP__ (-1021)
+#define __LDBL_MIN_10_EXP__ (-307)
+#define __LDBL_MAX_EXP__ 1024
+#define __LDBL_MAX_10_EXP__ 308
+#define __DECIMAL_DIG__ 17
+#define __LDBL_DECIMAL_DIG__ 17
+#define __LDBL_MAX__ 1.7976931348623157e+308L
+#define __LDBL_NORM_MAX__ 1.7976931348623157e+308L
+#define __LDBL_MIN__ 2.2250738585072014e-308L
+#define __LDBL_EPSILON__ 2.2204460492503131e-16L
+#define __LDBL_DENORM_MIN__ 4.9406564584124654e-324L
+#define __LDBL_HAS_DENORM__ 1
+#define __LDBL_HAS_INFINITY__ 1
+#define __LDBL_HAS_QUIET_NAN__ 1
+#define __FLT32_MANT_DIG__ 24
+#define __FLT32_DIG__ 6
+#define __FLT32_MIN_EXP__ (-125)
+#define __FLT32_MIN_10_EXP__ (-37)
+#define __FLT32_MAX_EXP__ 128
+#define __FLT32_MAX_10_EXP__ 38
+#define __FLT32_DECIMAL_DIG__ 9
+#define __FLT32_MAX__ 3.4028234663852886e+38F32
+#define __FLT32_NORM_MAX__ 3.4028234663852886e+38F32
+#define __FLT32_MIN__ 1.1754943508222875e-38F32
+#define __FLT32_EPSILON__ 1.1920928955078125e-7F32
+#define __FLT32_DENORM_MIN__ 1.4012984643248171e-45F32
+#define __FLT32_HAS_DENORM__ 1
+#define __FLT32_HAS_INFINITY__ 1
+#define __FLT32_HAS_QUIET_NAN__ 1
+#define __FLT64_MANT_DIG__ 53
+#define __FLT64_DIG__ 15
+#define __FLT64_MIN_EXP__ (-1021)
+#define __FLT64_MIN_10_EXP__ (-307)
+#define __FLT64_MAX_EXP__ 1024
+#define __FLT64_MAX_10_EXP__ 308
+#define __FLT64_DECIMAL_DIG__ 17
+#define __FLT64_MAX__ 1.7976931348623157e+308F64
+#define __FLT64_NORM_MAX__ 1.7976931348623157e+308F64
+#define __FLT64_MIN__ 2.2250738585072014e-308F64
+#define __FLT64_EPSILON__ 2.2204460492503131e-16F64
+#define __FLT64_DENORM_MIN__ 4.9406564584124654e-324F64
+#define __FLT64_HAS_DENORM__ 1
+#define __FLT64_HAS_INFINITY__ 1
+#define __FLT64_HAS_QUIET_NAN__ 1
+#define __FLT32X_MANT_DIG__ 53
+#define __FLT32X_DIG__ 15
+#define __FLT32X_MIN_EXP__ (-1021)
+#define __FLT32X_MIN_10_EXP__ (-307)
+#define __FLT32X_MAX_EXP__ 1024
+#define __FLT32X_MAX_10_EXP__ 308
+#define __FLT32X_DECIMAL_DIG__ 17
+#define __FLT32X_MAX__ 1.7976931348623157e+308F32x
+#define __FLT32X_NORM_MAX__ 1.7976931348623157e+308F32x
+#define __FLT32X_MIN__ 2.2250738585072014e-308F32x
+#define __FLT32X_EPSILON__ 2.2204460492503131e-16F32x
+#define __FLT32X_DENORM_MIN__ 4.9406564584124654e-324F32x
+#define __FLT32X_HAS_DENORM__ 1
+#define __FLT32X_HAS_INFINITY__ 1
+#define __FLT32X_HAS_QUIET_NAN__ 1
+#define __SFRACT_FBIT__ 7
+#define __SFRACT_IBIT__ 0
+#define __SFRACT_MIN__ (-0.5HR-0.5HR)
+#define __SFRACT_MAX__ 0X7FP-7HR
+#define __SFRACT_EPSILON__ 0x1P-7HR
+#define __USFRACT_FBIT__ 8
+#define __USFRACT_IBIT__ 0
+#define __USFRACT_MIN__ 0.0UHR
+#define __USFRACT_MAX__ 0XFFP-8UHR
+#define __USFRACT_EPSILON__ 0x1P-8UHR
+#define __FRACT_FBIT__ 15
+#define __FRACT_IBIT__ 0
+#define __FRACT_MIN__ (-0.5R-0.5R)
+#define __FRACT_MAX__ 0X7FFFP-15R
+#define __FRACT_EPSILON__ 0x1P-15R
+#define __UFRACT_FBIT__ 16
+#define __UFRACT_IBIT__ 0
+#define __UFRACT_MIN__ 0.0UR
+#define __UFRACT_MAX__ 0XFFFFP-16UR
+#define __UFRACT_EPSILON__ 0x1P-16UR
+#define __LFRACT_FBIT__ 31
+#define __LFRACT_IBIT__ 0
+#define __LFRACT_MIN__ (-0.5LR-0.5LR)
+#define __LFRACT_MAX__ 0X7FFFFFFFP-31LR
+#define __LFRACT_EPSILON__ 0x1P-31LR
+#define __ULFRACT_FBIT__ 32
+#define __ULFRACT_IBIT__ 0
+#define __ULFRACT_MIN__ 0.0ULR
+#define __ULFRACT_MAX__ 0XFFFFFFFFP-32ULR
+#define __ULFRACT_EPSILON__ 0x1P-32ULR
+#define __LLFRACT_FBIT__ 63
+#define __LLFRACT_IBIT__ 0
+#define __LLFRACT_MIN__ (-0.5LLR-0.5LLR)
+#define __LLFRACT_MAX__ 0X7FFFFFFFFFFFFFFFP-63LLR
+#define __LLFRACT_EPSILON__ 0x1P-63LLR
+#define __ULLFRACT_FBIT__ 64
+#define __ULLFRACT_IBIT__ 0
+#define __ULLFRACT_MIN__ 0.0ULLR
+#define __ULLFRACT_MAX__ 0XFFFFFFFFFFFFFFFFP-64ULLR
+#define __ULLFRACT_EPSILON__ 0x1P-64ULLR
+#define __SACCUM_FBIT__ 7
+#define __SACCUM_IBIT__ 8
+#define __SACCUM_MIN__ (-0X1P7HK-0X1P7HK)
+#define __SACCUM_MAX__ 0X7FFFP-7HK
+#define __SACCUM_EPSILON__ 0x1P-7HK
+#define __USACCUM_FBIT__ 8
+#define __USACCUM_IBIT__ 8
+#define __USACCUM_MIN__ 0.0UHK
+#define __USACCUM_MAX__ 0XFFFFP-8UHK
+#define __USACCUM_EPSILON__ 0x1P-8UHK
+#define __ACCUM_FBIT__ 15
+#define __ACCUM_IBIT__ 16
+#define __ACCUM_MIN__ (-0X1P15K-0X1P15K)
+#define __ACCUM_MAX__ 0X7FFFFFFFP-15K
+#define __ACCUM_EPSILON__ 0x1P-15K
+#define __UACCUM_FBIT__ 16
+#define __UACCUM_IBIT__ 16
+#define __UACCUM_MIN__ 0.0UK
+#define __UACCUM_MAX__ 0XFFFFFFFFP-16UK
+#define __UACCUM_EPSILON__ 0x1P-16UK
+#define __LACCUM_FBIT__ 31
+#define __LACCUM_IBIT__ 32
+#define __LACCUM_MIN__ (-0X1P31LK-0X1P31LK)
+#define __LACCUM_MAX__ 0X7FFFFFFFFFFFFFFFP-31LK
+#define __LACCUM_EPSILON__ 0x1P-31LK
+#define __ULACCUM_FBIT__ 32
+#define __ULACCUM_IBIT__ 32
+#define __ULACCUM_MIN__ 0.0ULK
+#define __ULACCUM_MAX__ 0XFFFFFFFFFFFFFFFFP-32ULK
+#define __ULACCUM_EPSILON__ 0x1P-32ULK
+#define __LLACCUM_FBIT__ 31
+#define __LLACCUM_IBIT__ 32
+#define __LLACCUM_MIN__ (-0X1P31LLK-0X1P31LLK)
+#define __LLACCUM_MAX__ 0X7FFFFFFFFFFFFFFFP-31LLK
+#define __LLACCUM_EPSILON__ 0x1P-31LLK
+#define __ULLACCUM_FBIT__ 32
+#define __ULLACCUM_IBIT__ 32
+#define __ULLACCUM_MIN__ 0.0ULLK
+#define __ULLACCUM_MAX__ 0XFFFFFFFFFFFFFFFFP-32ULLK
+#define __ULLACCUM_EPSILON__ 0x1P-32ULLK
+#define __QQ_FBIT__ 7
+#define __QQ_IBIT__ 0
+#define __HQ_FBIT__ 15
+#define __HQ_IBIT__ 0
+#define __SQ_FBIT__ 31
+#define __SQ_IBIT__ 0
+#define __DQ_FBIT__ 63
+#define __DQ_IBIT__ 0
+#define __TQ_FBIT__ 127
+#define __TQ_IBIT__ 0
+#define __UQQ_FBIT__ 8
+#define __UQQ_IBIT__ 0
+#define __UHQ_FBIT__ 16
+#define __UHQ_IBIT__ 0
+#define __USQ_FBIT__ 32
+#define __USQ_IBIT__ 0
+#define __UDQ_FBIT__ 64
+#define __UDQ_IBIT__ 0
+#define __UTQ_FBIT__ 128
+#define __UTQ_IBIT__ 0
+#define __HA_FBIT__ 7
+#define __HA_IBIT__ 8
+#define __SA_FBIT__ 15
+#define __SA_IBIT__ 16
+#define __DA_FBIT__ 31
+#define __DA_IBIT__ 32
+#define __TA_FBIT__ 63
+#define __TA_IBIT__ 64
+#define __UHA_FBIT__ 8
+#define __UHA_IBIT__ 8
+#define __USA_FBIT__ 16
+#define __USA_IBIT__ 16
+#define __UDA_FBIT__ 32
+#define __UDA_IBIT__ 32
+#define __UTA_FBIT__ 64
+#define __UTA_IBIT__ 64
+#define __REGISTER_PREFIX__ 
+#define __USER_LABEL_PREFIX__ 
+#define __GNUC_STDC_INLINE__ 1
+#define __STRICT_ANSI__ 1
+#define __CHAR_UNSIGNED__ 1
+#define __GCC_HAVE_SYNC_COMPARE_AND_SWAP_1 1
+#define __GCC_HAVE_SYNC_COMPARE_AND_SWAP_2 1
+#define __GCC_HAVE_SYNC_COMPARE_AND_SWAP_4 1
+#define __GCC_ATOMIC_BOOL_LOCK_FREE 2
+#define __GCC_ATOMIC_CHAR_LOCK_FREE 2
+#define __GCC_ATOMIC_CHAR16_T_LOCK_FREE 2
+#define __GCC_ATOMIC_CHAR32_T_LOCK_FREE 2
+#define __GCC_ATOMIC_WCHAR_T_LOCK_FREE 2
+#define __GCC_ATOMIC_SHORT_LOCK_FREE 2
+#define __GCC_ATOMIC_INT_LOCK_FREE 2
+#define __GCC_ATOMIC_LONG_LOCK_FREE 2
+#define __GCC_ATOMIC_LLONG_LOCK_FREE 1
+#define __GCC_ATOMIC_TEST_AND_SET_TRUEVAL 1
+#define __GCC_ATOMIC_POINTER_LOCK_FREE 2
+#define __HAVE_SPECULATION_SAFE_VALUE 1
+#define __GCC_HAVE_DWARF2_CFI_ASM 1
+#define __PRAGMA_REDEFINE_EXTNAME 1
+#define __SIZEOF_WCHAR_T__ 4
+#define __SIZEOF_WINT_T__ 4
+#define __SIZEOF_PTRDIFF_T__ 4
+#define __ARM_FEATURE_DSP 1
+#define __ARM_FEATURE_QBIT 1
+#define __ARM_FEATURE_SAT 1
+#undef __ARM_FEATURE_CRYPTO
+# 1 "<built-in>"
+#define __ARM_FEATURE_UNALIGNED 1
+#undef __ARM_FEATURE_QRDMX
+# 1 "<built-in>"
+#undef __ARM_FEATURE_CRC32
+# 1 "<built-in>"
+#undef __ARM_FEATURE_DOTPROD
+# 1 "<built-in>"
+#undef __ARM_FEATURE_COMPLEX
+# 1 "<built-in>"
+#define __ARM_32BIT_STATE 1
+#undef __ARM_FEATURE_MVE
+# 1 "<built-in>"
+#undef __ARM_FEATURE_CMSE
+# 1 "<built-in>"
+#undef __ARM_FEATURE_LDREX
+# 1 "<built-in>"
+#define __ARM_FEATURE_LDREX 7
+#define __ARM_FEATURE_CLZ 1
+#undef __ARM_FEATURE_NUMERIC_MAXMIN
+# 1 "<built-in>"
+#define __ARM_FEATURE_SIMD32 1
+#define __ARM_SIZEOF_MINIMAL_ENUM 1
+#define __ARM_SIZEOF_WCHAR_T 4
+#undef __ARM_ARCH_PROFILE
+# 1 "<built-in>"
+#define __ARM_ARCH_PROFILE 77
+#define __arm__ 1
+#undef __ARM_ARCH
+# 1 "<built-in>"
+#define __ARM_ARCH 7
+#define __APCS_32__ 1
+#define __GCC_ASM_FLAG_OUTPUTS__ 1
+#define __thumb__ 1
+#define __thumb2__ 1
+#define __THUMBEL__ 1
+#undef __ARM_ARCH_ISA_THUMB
+# 1 "<built-in>"
+#define __ARM_ARCH_ISA_THUMB 2
+#define __ARMEL__ 1
+#define __SOFTFP__ 1
+#define __VFP_FP__ 1
+#undef __ARM_FP
+# 1 "<built-in>"
+#undef __ARM_FP16_FORMAT_IEEE
+# 1 "<built-in>"
+#undef __ARM_FP16_FORMAT_ALTERNATIVE
+# 1 "<built-in>"
+#undef __ARM_FP16_ARGS
+# 1 "<built-in>"
+#undef __ARM_FEATURE_FP16_SCALAR_ARITHMETIC
+# 1 "<built-in>"
+#undef __ARM_FEATURE_FP16_VECTOR_ARITHMETIC
+# 1 "<built-in>"
+#undef __ARM_FEATURE_FP16_FML
+# 1 "<built-in>"
+#define __ARM_FEATURE_FMA 1
+#undef __ARM_NEON__
+# 1 "<built-in>"
+#undef __ARM_NEON
+# 1 "<built-in>"
+#undef __ARM_NEON_FP
+# 1 "<built-in>"
+#define __THUMB_INTERWORK__ 1
+#define __ARM_ARCH_7EM__ 1
+#define __ARM_PCS 1
+#define __ARM_EABI__ 1
+#undef __FDPIC__
+# 1 "<built-in>"
+#define __ARM_ARCH_EXT_IDIV__ 1
+#define __ARM_FEATURE_IDIV 1
+#define __ARM_ASM_SYNTAX_UNIFIED__ 1
+#undef __ARM_FEATURE_COPROC
+# 1 "<built-in>"
+#define __ARM_FEATURE_COPROC 15
+#undef __ARM_FEATURE_CDE
+# 1 "<built-in>"
+#undef __ARM_FEATURE_CDE_COPROC
+# 1 "<built-in>"
+#undef __ARM_FEATURE_MATMUL_INT8
+# 1 "<built-in>"
+#undef __ARM_FEATURE_BF16_SCALAR_ARITHMETIC
+# 1 "<built-in>"
+#undef __ARM_FEATURE_BF16_VECTOR_ARITHMETIC
+# 1 "<built-in>"
+#undef __ARM_BF16_FORMAT_ALTERNATIVE
+# 1 "<built-in>"
+#define __GXX_TYPEINFO_EQUALITY_INLINE 0
+#define __ELF__ 1
+# 1 "<command-line>"
+#define __USES_INITFINI__ 1
+#define stm32wle5xx 1
+#define SUPPORT_LORA 1
+#define SUPPORT_LORA_P2P 1
+#define LORA_IO_SPI_PORT 2
+#define SYS_RTC_COUNTER_PORT 2
+#define ATCMD_CUST_TABLE_SIZE 64
+#define WAN_TYPE 0
+#define RAK3372 +RAK5005-O_V1.0 1
+#define rak3172 1
+#define CORE_CM4 1
+#define USE_HAL_DRIVER 1
+#define STM32WLE5xx 1
+#define REGION_AS923 1
+#define REGION_AU915 1
+#define REGION_CN470 1
+#define REGION_CN779 1
+#define REGION_EU433 1
+#define REGION_EU868 1
+#define REGION_KR920 1
+#define REGION_IN865 1
+#define REGION_US915 1
+#define REGION_RU864 1
+#define REGION_LA915 1
+#define SOFT_SE 1
+#define SECURE_ELEMENT_PRE_PROVISIONED 1
+#define LORAMAC_CLASSB_ENABLED 1
+#define WISBLOCK_BASE_5005_O 1
+#define SUPPORT_SPI 1
+#define SUPPORT_AT 1
+# 1 "/home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_ll_rtc.c"

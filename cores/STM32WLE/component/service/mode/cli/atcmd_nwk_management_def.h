@@ -195,7 +195,7 @@
  * | Example<br>AT+LBT=?| --                 | -80                                                           | OK                 |
  * | Example<br>AT+LBT= | -80                  | --                                                          | OK                 |
  *
- * @subsection ATCMD_nwk_mng_17 AT+LBTSCANTIME: LoRaWAN LBT scantime
+ * @subsection ATCMD_nwk_mng_16 AT+LBTSCANTIME: LoRaWAN LBT scantime
  *
  * This command allows the user to set or get LoRaWAN LBT scantime
  *

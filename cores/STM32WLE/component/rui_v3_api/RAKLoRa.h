@@ -43,7 +43,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode frequency %s\r\n", api.lora.pfreq.set(868000000) ? "Success" : "Fail");
        }
 
@@ -74,7 +74,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode frequency %s\r\n", api.lora.pfreq.set(868000000) ? "Success" : "Fail");
        }
 
@@ -110,7 +110,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode spreading factor %s\r\n", api.lora.psf.set(12) ? "Success" : "Fail");
        }
 
@@ -141,7 +141,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode spreading factor %s\r\n", api.lora.psf.set(12) ? "Success" : "Fail");
        }
 
@@ -177,7 +177,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode bandwidth %s\r\n", api.lora.pbw.set(125) ? "Success" : "Fail");
        }
 
@@ -207,7 +207,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode bandwidth %s\r\n", api.lora.pbw.set(125) ? "Success" : "Fail");
        }
 
@@ -242,7 +242,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode code rate %s\r\n", api.lora.pcr.set(0) ? "Success" : "Fail");
        }
 
@@ -272,7 +272,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode code rate %s\r\n", api.lora.pcr.set(0) ? "Success" : "Fail");
        }
 
@@ -307,7 +307,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode preamble length %s\r\n", api.lora.ppl.set(8) ? "Success" : "Fail");
        }
 
@@ -337,7 +337,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode preamble length %s\r\n", api.lora.ppl.set(8) ? "Success" : "Fail");
        }
 
@@ -372,7 +372,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode tx power %s\r\n", api.lora.ptp.set(22) ? "Success" : "Fail");
        }
 
@@ -401,7 +401,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode tx power %s\r\n", api.lora.ptp.set(22) ? "Success" : "Fail");
        }
 
@@ -444,7 +444,7 @@ public:
            startTime = millis();
 
            Serial.println("P2P Start");
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode frequency %s\r\n", api.lora.pfreq.set(868000000) ? "Success" : "Fail");
            Serial.printf("Set P2P mode spreading factor %s\r\n", api.lora.psf.set(12) ? "Success" : "Fail");
            Serial.printf("Set P2P mode bandwidth %s\r\n", api.lora.pbw.set(125) ? "Success" : "Fail");
@@ -511,7 +511,7 @@ public:
          
            Serial.println("P2P Start");
            
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode frequency %s\r\n", api.lora.pfreq.set(868000000) ? "Success" : "Fail");
            Serial.printf("Set P2P mode spreading factor %s\r\n", api.lora.psf.set(12) ? "Success" : "Fail");
            Serial.printf("Set P2P mode bandwidth %s\r\n", api.lora.pbw.set(125) ? "Success" : "Fail");
@@ -587,7 +587,7 @@ public:
            startTime = millis();
 
            Serial.println("P2P Start");
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode frequency %s\r\n", api.lora.pfreq.set(868000000) ? "Success" : "Fail");
            Serial.printf("Set P2P mode spreading factor %s\r\n", api.lora.psf.set(12) ? "Success" : "Fail");
            Serial.printf("Set P2P mode bandwidth %s\r\n", api.lora.pbw.set(125) ? "Success" : "Fail");
@@ -654,7 +654,7 @@ public:
          
            Serial.println("P2P Start");
            
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode frequency %s\r\n", api.lora.pfreq.set(868000000) ? "Success" : "Fail");
            Serial.printf("Set P2P mode spreading factor %s\r\n", api.lora.psf.set(12) ? "Success" : "Fail");
            Serial.printf("Set P2P mode bandwidth %s\r\n", api.lora.pbw.set(125) ? "Success" : "Fail");
@@ -727,7 +727,7 @@ public:
 
            Serial.println("P2P Start");
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode frequency %s\r\n", api.lora.pfreq.set(868000000) ? "Success" : "Fail");
            Serial.printf("Set P2P mode spreading factor %s\r\n", api.lora.psf.set(12) ? "Success" : "Fail");
            Serial.printf("Set P2P mode bandwidth %s\r\n", api.lora.pbw.set(125) ? "Success" : "Fail");
@@ -804,7 +804,7 @@ public:
 
            Serial.println("P2P Start");
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode frequency %s\r\n", api.lora.pfreq.set(868000000) ? "Success" : "Fail");
            Serial.printf("Set P2P mode spreading factor %s\r\n", api.lora.psf.set(12) ? "Success" : "Fail");
                       Serial.printf("Set P2P mode bandwidth %s\r\n", api.lora.pbw.set(125) ? "Success" : "Fail");
@@ -932,7 +932,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode iqInversion %s\r\n", api.lora.iqInver.set(true) ? "Success" : "Fail");
        }
 
@@ -962,7 +962,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode iqInversion %s\r\n", api.lora.iqInver.set(true) ? "Success" : "Fail");
        }
 
@@ -994,7 +994,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode syncword %s\r\n", api.lora.syncword.set(LORA_MAC_PUBLIC_SYNCWORD) ? "Success" : "Fail");
        }
 
@@ -1024,7 +1024,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode syncword %s\r\n", api.lora.syncword.set(LORA_MAC_PUBLIC_SYNCWORD) ? "Success" : "Fail");
        }
 
@@ -1057,7 +1057,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");   
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");   
            Serial.printf("Set P2P mode frequency %s\r\n", api.lora.rfFrequency.set(868000000) ? "Success" : "Fail");   
        }
 
@@ -1087,7 +1087,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");   
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");   
            Serial.printf("Set P2P mode frequency %s\r\n", api.lora.rfFrequency.set(868000000) ? "Success" : "Fail");   
        }
 
@@ -1119,7 +1119,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode tx power %s\r\n", api.lora.txOutputPower.set(22) ? "Success" : "Fail");
        }
 
@@ -1148,7 +1148,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode tx power %s\r\n", api.lora.txOutputPower.set(22) ? "Success" : "Fail");
        }
 
@@ -1180,7 +1180,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode bandwidth %s\r\n", api.lora.bandwidth.set(125) ? "Success" : "Fail");
        }
 
@@ -1210,7 +1210,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode bandwidth %s\r\n", api.lora.bandwidth.set(125) ? "Success" : "Fail");
        }
 
@@ -1242,7 +1242,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode spreading factor %s\r\n", api.lora.speradingFactor.set(12) ? "Success" : "Fail");
        }
 
@@ -1272,7 +1272,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode spreading factor %s\r\n", api.lora.speradingFactor.set(12) ? "Success" : "Fail");
        }
 
@@ -1304,7 +1304,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode coding rate %s\r\n", api.lora.pcr.set(0) ? "Success" : "Fail");
        }
 
@@ -1334,7 +1334,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode coding rate %s\r\n", api.lora.pcr.set(0) ? "Success" : "Fail");
        }
 
@@ -1366,7 +1366,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode preamble length %s\r\n", api.lora.preambleLength.set(8) ? "Success" : "Fail");
        }
 
@@ -1396,7 +1396,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode preamble length %s\r\n", api.lora.preambleLength.set(8) ? "Success" : "Fail");
        }
 
@@ -1428,7 +1428,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode symbol timeout %s\r\n", api.lora.symbolTimeout.set(0) ? "Success" : "Fail");
        }
 
@@ -1458,7 +1458,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode symbol timeout %s\r\n", api.lora.symbolTimeout.set(0) ? "Success" : "Fail");
        }
 
@@ -1489,7 +1489,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode fix Length payload %s\r\n", api.lora.fixLengthPayload.set(true) ? "Success" : "Fail");
        }
 
@@ -1519,7 +1519,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode fix Length payload %s\r\n", api.lora.fixLengthPayload.set(true) ? "Success" : "Fail");
        }
 
@@ -1550,7 +1550,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode fix Length payload %s\r\n", api.lora.cad.set(true) ? "Success" : "Fail");
        }
 
@@ -1580,7 +1580,7 @@ public:
        {
            Serial.begin(115200);
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode fix Length payload %s\r\n", api.lora.cad.set(true) ? "Success" : "Fail");
        }
 
@@ -1685,7 +1685,7 @@ public:
 
            Serial.println("P2P Start");
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode frequency %s\r\n", api.lora.pfreq.set(868000000) ? "Success" : "Fail");
            Serial.printf("Set P2P mode spreading factor %s\r\n", api.lora.psf.set(12) ? "Success" : "Fail");
            Serial.printf("Set P2P mode bandwidth %s\r\n", api.lora.pbw.set(125) ? "Success" : "Fail");
@@ -1725,7 +1725,7 @@ public:
 
            Serial.println("P2P Start");
 
-           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+           Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
            Serial.printf("Set P2P mode frequency %s\r\n", api.lora.pfreq.set(868000000) ? "Success" : "Fail");
            Serial.printf("Set P2P mode spreading factor %s\r\n", api.lora.psf.set(12) ? "Success" : "Fail");
            Serial.printf("Set P2P mode bandwidth %s\r\n", api.lora.pbw.set(125) ? "Success" : "Fail");
@@ -1793,7 +1793,7 @@ public:
 
          Serial.println("P2P Start");
 
-         Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+         Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
          Serial.printf("Set P2P mode frequency %s\r\n", api.lora.pfreq.set(868000000) ? "Success" : "Fail");
          Serial.printf("Set P2P mode spreading factor %s\r\n", api.lora.psf.set(12) ? "Success" : "Fail");
          Serial.printf("Set P2P mode bandwidth %s\r\n", api.lora.pbw.set(125) ? "Success" : "Fail");
@@ -1873,7 +1873,7 @@ public:
 
          Serial.println("P2P Start");
 
-         Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+         Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
          Serial.printf("Set P2P mode frequency %s\r\n", api.lora.pfreq.set(868000000) ? "Success" : "Fail");
          Serial.printf("Set P2P mode spreading factor %s\r\n", api.lora.psf.set(12) ? "Success" : "Fail");
          Serial.printf("Set P2P mode bandwidth %s\r\n", api.lora.pbw.set(125) ? "Success" : "Fail");
@@ -1950,7 +1950,7 @@ public:
 
          Serial.println("P2P Start");
 
-         Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set(0) ? "Success" : "Fail");
+         Serial.printf("Set Node device work mode %s\r\n", api.lora.nwm.set() ? "Success" : "Fail");
          Serial.printf("Set P2P mode frequency %s\r\n", api.lora.pfreq.set(868000000) ? "Success" : "Fail");
          Serial.printf("Set P2P mode spreading factor %s\r\n", api.lora.psf.set(12) ? "Success" : "Fail");
          Serial.printf("Set P2P mode bandwidth %s\r\n", api.lora.pbw.set(125) ? "Success" : "Fail");

@@ -20,8 +20,10 @@
  */
 #ifndef __LMHP_COMPLIANCE__
 #define __LMHP_COMPLIANCE__
-
 #ifdef SUPPORT_LORA
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #include "LoRaMac.h"
 #include "LmHandlerTypes.h"
@@ -40,35 +42,55 @@
 typedef struct LmhpComplianceParams_s
 {
     /*!
-     * Holds the ADR state
+     * Current firmware version
      */
-    bool AdrEnabled;
+    Version_t FwVersion;
     /*!
-    * LoRaWAN ETSI duty cycle control enable/disable
-    *
-    * \remark Please note that ETSI mandates duty cycled transmissions. Use only for test purposes
-    */
-    bool DutyCycleEnabled;
-    /*!
-     * Stops unnecessary peripherals.
      *
-     * \remark Use for the compliance tests protocol handling in order to
-     *         reduce the power consumption.
      */
-    void ( *StopPeripherals )( void );
+    void ( *OnTxPeriodicityChanged )( uint32_t periodicity );
     /*!
-     * Starts previously stopped peripherals.
      *
-     * \remark Use for the compliance tests protocol handling in order to
-     *         reduce the power consumption.
      */
-    void ( *StartPeripherals )( void );
+    void ( *OnTxFrameCtrlChanged )( LmHandlerMsgTypes_t isTxConfirmed );
+    /*!
+     *
+     */
+    void ( *OnPingSlotPeriodicityChanged )( uint8_t pingSlotPeriodicity );
 }LmhpComplianceParams_t;
 
 LmhPackage_t *LmphCompliancePackageFactory( void );
 
-void OnComplianceTxNextPacketTimerEvent( void *context );
+typedef struct ClassBStatus_s
+{
+    bool         IsBeaconRxOn;
+    uint8_t      PingSlotPeriodicity;
+    uint16_t     BeaconCnt;
+    BeaconInfo_t Info;
+} ClassBStatus_t;
 
+/*!
+ * LoRaWAN compliance tests support data
+ */
+typedef struct ComplianceTestState_s
+{
+    bool                Initialized;
+    bool                IsTxPending;
+    TimerTime_t         TxPendingTimestamp;
+    LmHandlerMsgTypes_t IsTxConfirmed;
+    uint8_t             DataBufferMaxSize;
+    uint8_t             DataBufferSize;
+    uint8_t*            DataBuffer;
+    uint16_t            RxAppCnt;
+    bool                IsBeaconRxStatusIndOn;
+    ClassBStatus_t      ClassBStatus;
+    bool                IsResetCmdPending;
+    bool                IsClassReqCmdPending;
+    DeviceClass_t       NewClass;
+} ComplianceTestState_t;
+
+#ifdef __cplusplus
+}
+#endif
 #endif // end SUPPORT_LORA
-
 #endif // __LMHP_COMPLIANCE__

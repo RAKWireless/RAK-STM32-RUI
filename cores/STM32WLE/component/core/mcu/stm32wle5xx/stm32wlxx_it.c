@@ -499,18 +499,6 @@ void USER_UART_IRQHandler(UART_HandleTypeDef *huart)
     }
 
 }
-void I2C2_EV_IRQHandler(void)
-{
-  HAL_I2C_EV_IRQHandler(&hi2c2);
-}
-
-/**
-  * @brief This function handles I2C1 Error Interrupt.
-  */
-void I2C2_ER_IRQHandler(void)
-{
-  HAL_I2C_ER_IRQHandler(&hi2c2);
-}
 
 void AES_IRQHandler(void)
 {

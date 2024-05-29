@@ -137,6 +137,8 @@ typedef struct {
     uint8_t crypt_key16[16];
     uint8_t crypt_IV[16];
     uint8_t CAD;
+    uint8_t certif;
+    uint8_t IsCertPortOn;
 #endif
 }rui_cfg_t_ex; //add new config here in sequence 
 
@@ -174,6 +176,17 @@ void service_nvm_init_config(void);
 int32_t service_nvm_set_default_config_to_nvm(void);
 
 int32_t service_nvm_set_cfg_to_nvm(void);
+
+#if defined(SUPPORT_LORA)
+typedef struct {
+    LoRaMacCryptoNvmData_t loramac_crypto_nvm;
+    LoRaMacNvmDataGroup1_t loramac_macgroup1;
+    LoRaMacNvmDataGroup2_t loramac_macgroup2;
+    SecureElementNvmData_t loramac_secureelement;
+    ChannelParams_t loramac_channels[REGION_NVM_MAX_NB_CHANNELS];
+}lora_mac_nvm_data_t;
+#endif
+
 /***********************************************************/
 /* RUI Mode                                                */
 /***********************************************************/
@@ -260,6 +273,9 @@ int32_t service_nvm_set_delta_subsec_to_nvm (uint32_t subsec);
 /***********************************************************/
 /* LoRa                                                    */
 /***********************************************************/
+void service_lora_mac_nvm_data_init(void);
+int32_t service_nvm_set_lora_nvm_data_to_nvm(void);
+
 SERVICE_LORA_BAND service_nvm_get_band_from_nvm (void);
 
 int32_t service_nvm_set_band_to_nvm (SERVICE_LORA_BAND band);
@@ -403,6 +419,34 @@ uint32_t service_nvm_set_chs_to_nvm(uint32_t frequency);
 uint32_t service_nvm_set_rx2fq_to_nvm(uint32_t freq);
 
 uint32_t service_nvm_get_rx2fq_from_nvm(void);
+
+int32_t service_nvm_set_DevNonce_to_nvm(uint16_t devnonce);
+
+uint16_t service_nvm_get_DevNonce_from_nvm(void);
+
+int32_t service_nvm_set_IsCertPortOn_to_nvm(uint8_t IsCertPortOn);
+
+uint8_t service_nvm_get_IsCertPortOn_from_nvm(void);
+
+int32_t service_nvm_set_crypto_to_nvm(LoRaMacCryptoNvmData_t * crypto);
+
+LoRaMacCryptoNvmData_t * service_nvm_get_crypto_from_nvm(void);
+
+int32_t service_nvm_set_macgroup1_to_nvm(LoRaMacNvmDataGroup1_t * macgroup1);
+
+LoRaMacNvmDataGroup1_t * service_nvm_get_macgroup1_from_nvm(void);
+
+int32_t service_nvm_set_macgroup2_to_nvm(LoRaMacNvmDataGroup2_t * macgroup2);
+
+LoRaMacNvmDataGroup2_t * service_nvm_get_macgroup2_from_nvm(void);
+
+int32_t service_nvm_set_sec_element_to_nvm(SecureElementNvmData_t * SecureElement);
+
+SecureElementNvmData_t * service_nvm_get_sec_element_from_nvm(void);
+
+int32_t service_nvm_set_regionchannels_to_nvm(ChannelParams_t * Channels);
+
+ChannelParams_t * service_nvm_get_regionchannels_from_nvm(void);
 
 #endif
 
