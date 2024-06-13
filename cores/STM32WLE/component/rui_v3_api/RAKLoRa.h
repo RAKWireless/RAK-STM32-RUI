@@ -14,9 +14,6 @@
 #include "service_battery.h"
 #include "service_lora_arssi.h"
 
-/**@addtogroup	RUI_Lorawan_Data_Type
- * @{
- */
 
 class RAKLoraP2P
 {

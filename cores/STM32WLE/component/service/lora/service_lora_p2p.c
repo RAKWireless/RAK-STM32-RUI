@@ -158,6 +158,7 @@ static void OnRxDone(uint8_t *payload, uint16_t size, int16_t rssi, int8_t snr)
     recv_data_pkg.Snr = snr;
     recv_data_pkg.BufferSize = size;
     recv_data_pkg.Buffer = lora_p2p_buf;
+    recv_data_pkg.Status = LORA_P2P_RXDONE;
 
     if((*service_lora_p2p_recv_callback)!=NULL)
     {
@@ -199,7 +200,8 @@ static void OnRxTimeout(void)
         udrv_serial_log_printf("+EVT:RXP2P RECEIVE TIMEOUT\r\n");
     else
         udrv_serial_log_printf("+EVT:RXFSK RECEIVE TIMEOUT\r\n");
-    
+
+    recv_data_pkg.Status = LORA_P2P_RXTIMEOUT;
     if((*service_lora_p2p_recv_callback)!=NULL)
     {
         (*service_lora_p2p_recv_callback)(recv_data_pkg);
@@ -219,7 +221,8 @@ static void OnRxError(void)
         udrv_serial_log_printf("+EVT:RXFSK RECEIVE ERROR\r\n");
 
     LORA_P2P_DEBUG("%s\r\n", __func__);
-    
+
+    recv_data_pkg.Status = LORA_P2P_RXERROR;
     if((*service_lora_p2p_recv_callback)!=NULL)
     {
         (*service_lora_p2p_recv_callback)(recv_data_pkg);

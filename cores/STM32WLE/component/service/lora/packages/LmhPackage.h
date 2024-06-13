@@ -33,7 +33,11 @@ extern "C" {
 /*!
  * Maximum number of packages
  */
+#ifdef SUPPORT_LORA_104
 #define PKG_MAX_NUMBER                              4
+#else
+#define PKG_MAX_NUMBER                              5
+#endif
 
 typedef struct LmhPackage_s
 {
@@ -59,6 +63,7 @@ typedef struct LmhPackage_s
      *                [true: Initialized, false: Not initialized]
      */
     bool ( *IsInitialized )( void );
+#ifdef SUPPORT_LORA_104
     /*!
      * Returns if a package transmission is pending or not.
      *
@@ -66,6 +71,15 @@ typedef struct LmhPackage_s
      *                [true: pending, false: Not pending]
      */
     bool ( *IsTxPending )( void );
+#else
+    /*!
+     * Returns the package operation status.
+     *
+     * \retval status Package operation status
+     *                [true: Running, false: Not running]
+     */
+    bool ( *IsRunning )( void );
+#endif
     /*!
      * Processes the internal package events.
      */
@@ -126,6 +140,18 @@ typedef struct LmhPackage_s
     * \param [IN] isOtaa Indicates which activation mode must be used
     */
     void ( *OnJoinRequest )( bool isOtaa );
+#ifndef SUPPORT_LORA_104
+    /*!
+     * Instructs the MAC layer to send a ClassA uplink
+     *
+     * \param [IN] appData Data to be sent
+     * \param [IN] isTxConfirmed Indicates if the uplink requires an acknowledgement
+     *
+     * \retval status Returns \ref LORAMAC_HANDLER_SUCCESS if request has been
+     *                processed else \ref LORAMAC_HANDLER_ERROR
+     */
+    LmHandlerErrorStatus_t ( *OnSendRequest )( LmHandlerAppData_t *appData, LmHandlerMsgTypes_t isTxConfirmed );
+#endif
     /*!
     * Requests network server time update
     *

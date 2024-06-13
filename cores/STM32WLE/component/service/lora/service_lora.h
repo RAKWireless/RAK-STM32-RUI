@@ -305,7 +305,12 @@ extern "C"
 
     LmHandlerErrorStatus_t LmHandlerPackageRegister( uint8_t id, void *params );
     bool LmHandlerPackageIsInitialized( uint8_t id );
+#ifdef SUPPORT_LORA_104
     LmHandlerErrorStatus_t LmHandlerRequestClass( DeviceClass_t newClass );
+#else
+    bool LmHandlerPackageIsRunning( uint8_t id );
+    void LmHandlerPackagesProcess( void );
+#endif
 
     int32_t service_lora_init(SERVICE_LORA_BAND band);
 
@@ -507,12 +512,13 @@ extern "C"
     int32_t service_lora_set_lbt_rssi(int16_t rssi);
     uint32_t service_lora_get_lbt_scantime();
     int32_t service_lora_set_lbt_scantime(uint32_t time);
+#ifdef SUPPORT_LORA_104
     uint16_t service_lora_get_DevNonce(void);
     int32_t service_lora_set_DevNonce(uint16_t devnonce);
 
     int32_t service_lora_set_IsCertPortOn(bool IsCertPortOn);
     uint8_t service_lora_get_IsCertPortOn(void);
-
+#endif
 
     bool service_lora_isbusy(void);
 

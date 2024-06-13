@@ -105,7 +105,21 @@ typedef struct rui_lora_p2p_revc
      * Snr of the received packet
      */
     int8_t Snr;
+    /*!
+     * Snr of the received packet
+     */
+    int8_t Status; //0:RxDone; 1:RxTimeout, 2:RxError
 } rui_lora_p2p_recv_t;
+
+/**@par Description
+ *  The last RX status in P2P mode
+ */
+typedef enum
+{
+  LORA_P2P_RXDONE = 0, // Received data complete for LoRa P2P Rx status
+  LORA_P2P_RXTIMEOUT, // Timeout for LoRa P2P Rx status
+  LORA_P2P_RXERROR // Received data has CRC error for LoRa P2P Rx status
+} RAK_LORA_P2P_RX_STATUS;
 
 typedef void(*service_lora_p2p_send_cb_type)(void);
 typedef void(*service_lora_p2p_recv_cb_type)(rui_lora_p2p_recv_t recv_data_pkg);

@@ -105,20 +105,20 @@ WisDuoRAK3172EvaluationBoard.menu.supportAU915.1.build.regionAU915=-DREGION_AU91
 WisDuoRAK3172EvaluationBoard.menu.supportAU915.2=Off
 WisDuoRAK3172EvaluationBoard.menu.supportAU915.2.build.regionAU915= 
 
-WisDuoRAK3172EvaluationBoard.menu.supportCN470.1=On
-WisDuoRAK3172EvaluationBoard.menu.supportCN470.1.build.regionCN470=-DREGION_CN470
 WisDuoRAK3172EvaluationBoard.menu.supportCN470.2=Off
 WisDuoRAK3172EvaluationBoard.menu.supportCN470.2.build.regionCN470= 
+WisDuoRAK3172EvaluationBoard.menu.supportCN470.1=On
+WisDuoRAK3172EvaluationBoard.menu.supportCN470.1.build.regionCN470=-DREGION_CN470
 
-WisDuoRAK3172EvaluationBoard.menu.supportCN779.1=On
-WisDuoRAK3172EvaluationBoard.menu.supportCN779.1.build.regionCN779=-DREGION_CN779
 WisDuoRAK3172EvaluationBoard.menu.supportCN779.2=Off
 WisDuoRAK3172EvaluationBoard.menu.supportCN779.2.build.regionCN779= 
+WisDuoRAK3172EvaluationBoard.menu.supportCN779.1=On
+WisDuoRAK3172EvaluationBoard.menu.supportCN779.1.build.regionCN779=-DREGION_CN779
 
-WisDuoRAK3172EvaluationBoard.menu.supportEU433.1=On
-WisDuoRAK3172EvaluationBoard.menu.supportEU433.1.build.regionEU433=-DREGION_EU433
 WisDuoRAK3172EvaluationBoard.menu.supportEU433.2=Off
 WisDuoRAK3172EvaluationBoard.menu.supportEU433.2.build.regionEU433= 
+WisDuoRAK3172EvaluationBoard.menu.supportEU433.1=On
+WisDuoRAK3172EvaluationBoard.menu.supportEU433.1.build.regionEU433=-DREGION_EU433
 
 WisDuoRAK3172EvaluationBoard.menu.supportEU868.1=On
 WisDuoRAK3172EvaluationBoard.menu.supportEU868.1.build.regionEU868=-DREGION_EU868
@@ -223,20 +223,20 @@ WisDuoRAK3172TBoard.menu.supportAU915.1.build.regionAU915=-DREGION_AU915
 WisDuoRAK3172TBoard.menu.supportAU915.2=Off
 WisDuoRAK3172TBoard.menu.supportAU915.2.build.regionAU915= 
 
-WisDuoRAK3172TBoard.menu.supportCN470.1=On
-WisDuoRAK3172TBoard.menu.supportCN470.1.build.regionCN470=-DREGION_CN470
 WisDuoRAK3172TBoard.menu.supportCN470.2=Off
 WisDuoRAK3172TBoard.menu.supportCN470.2.build.regionCN470= 
+WisDuoRAK3172TBoard.menu.supportCN470.1=On
+WisDuoRAK3172TBoard.menu.supportCN470.1.build.regionCN470=-DREGION_CN470
 
-WisDuoRAK3172TBoard.menu.supportCN779.1=On
-WisDuoRAK3172TBoard.menu.supportCN779.1.build.regionCN779=-DREGION_CN779
 WisDuoRAK3172TBoard.menu.supportCN779.2=Off
 WisDuoRAK3172TBoard.menu.supportCN779.2.build.regionCN779= 
+WisDuoRAK3172TBoard.menu.supportCN779.1=On
+WisDuoRAK3172TBoard.menu.supportCN779.1.build.regionCN779=-DREGION_CN779
 
-WisDuoRAK3172TBoard.menu.supportEU433.1=On
-WisDuoRAK3172TBoard.menu.supportEU433.1.build.regionEU433=-DREGION_EU433
 WisDuoRAK3172TBoard.menu.supportEU433.2=Off
 WisDuoRAK3172TBoard.menu.supportEU433.2.build.regionEU433= 
+WisDuoRAK3172TBoard.menu.supportEU433.1=On
+WisDuoRAK3172TBoard.menu.supportEU433.1.build.regionEU433=-DREGION_EU433
 
 WisDuoRAK3172TBoard.menu.supportEU868.1=On
 WisDuoRAK3172TBoard.menu.supportEU868.1.build.regionEU868=-DREGION_EU868
@@ -341,20 +341,20 @@ WisDuoRAK3272SiPBoard.menu.supportAU915.1.build.regionAU915=-DREGION_AU915
 WisDuoRAK3272SiPBoard.menu.supportAU915.2=Off
 WisDuoRAK3272SiPBoard.menu.supportAU915.2.build.regionAU915= 
 
-WisDuoRAK3272SiPBoard.menu.supportCN470.1=On
-WisDuoRAK3272SiPBoard.menu.supportCN470.1.build.regionCN470=-DREGION_CN470
 WisDuoRAK3272SiPBoard.menu.supportCN470.2=Off
 WisDuoRAK3272SiPBoard.menu.supportCN470.2.build.regionCN470= 
+WisDuoRAK3272SiPBoard.menu.supportCN470.1=On
+WisDuoRAK3272SiPBoard.menu.supportCN470.1.build.regionCN470=-DREGION_CN470
 
-WisDuoRAK3272SiPBoard.menu.supportCN779.1=On
-WisDuoRAK3272SiPBoard.menu.supportCN779.1.build.regionCN779=-DREGION_CN779
 WisDuoRAK3272SiPBoard.menu.supportCN779.2=Off
 WisDuoRAK3272SiPBoard.menu.supportCN779.2.build.regionCN779= 
+WisDuoRAK3272SiPBoard.menu.supportCN779.1=On
+WisDuoRAK3272SiPBoard.menu.supportCN779.1.build.regionCN779=-DREGION_CN779
 
-WisDuoRAK3272SiPBoard.menu.supportEU433.1=On
-WisDuoRAK3272SiPBoard.menu.supportEU433.1.build.regionEU433=-DREGION_EU433
 WisDuoRAK3272SiPBoard.menu.supportEU433.2=Off
 WisDuoRAK3272SiPBoard.menu.supportEU433.2.build.regionEU433= 
+WisDuoRAK3272SiPBoard.menu.supportEU433.1=On
+WisDuoRAK3272SiPBoard.menu.supportEU433.1.build.regionEU433=-DREGION_EU433
 
 WisDuoRAK3272SiPBoard.menu.supportEU868.1=On
 WisDuoRAK3272SiPBoard.menu.supportEU868.1.build.regionEU868=-DREGION_EU868
@@ -459,20 +459,20 @@ WisDuoRAK3272LPSiPBoard.menu.supportAU915.1.build.regionAU915=-DREGION_AU915
 WisDuoRAK3272LPSiPBoard.menu.supportAU915.2=Off
 WisDuoRAK3272LPSiPBoard.menu.supportAU915.2.build.regionAU915= 
 
-WisDuoRAK3272LPSiPBoard.menu.supportCN470.1=On
-WisDuoRAK3272LPSiPBoard.menu.supportCN470.1.build.regionCN470=-DREGION_CN470
 WisDuoRAK3272LPSiPBoard.menu.supportCN470.2=Off
 WisDuoRAK3272LPSiPBoard.menu.supportCN470.2.build.regionCN470= 
+WisDuoRAK3272LPSiPBoard.menu.supportCN470.1=On
+WisDuoRAK3272LPSiPBoard.menu.supportCN470.1.build.regionCN470=-DREGION_CN470
 
-WisDuoRAK3272LPSiPBoard.menu.supportCN779.1=On
-WisDuoRAK3272LPSiPBoard.menu.supportCN779.1.build.regionCN779=-DREGION_CN779
 WisDuoRAK3272LPSiPBoard.menu.supportCN779.2=Off
 WisDuoRAK3272LPSiPBoard.menu.supportCN779.2.build.regionCN779= 
+WisDuoRAK3272LPSiPBoard.menu.supportCN779.1=On
+WisDuoRAK3272LPSiPBoard.menu.supportCN779.1.build.regionCN779=-DREGION_CN779
 
-WisDuoRAK3272LPSiPBoard.menu.supportEU433.1=On
-WisDuoRAK3272LPSiPBoard.menu.supportEU433.1.build.regionEU433=-DREGION_EU433
 WisDuoRAK3272LPSiPBoard.menu.supportEU433.2=Off
 WisDuoRAK3272LPSiPBoard.menu.supportEU433.2.build.regionEU433= 
+WisDuoRAK3272LPSiPBoard.menu.supportEU433.1=On
+WisDuoRAK3272LPSiPBoard.menu.supportEU433.1.build.regionEU433=-DREGION_EU433
 
 WisDuoRAK3272LPSiPBoard.menu.supportEU868.1=On
 WisDuoRAK3272LPSiPBoard.menu.supportEU868.1.build.regionEU868=-DREGION_EU868

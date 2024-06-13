@@ -41,6 +41,7 @@ extern "C" {
  */
 typedef struct LmhpComplianceParams_s
 {
+#ifdef SUPPORT_LORA_104
     /*!
      * Current firmware version
      */
@@ -57,10 +58,37 @@ typedef struct LmhpComplianceParams_s
      *
      */
     void ( *OnPingSlotPeriodicityChanged )( uint8_t pingSlotPeriodicity );
+#else
+    /*!
+     * Holds the ADR state
+     */
+    bool AdrEnabled;
+    /*!
+    * LoRaWAN ETSI duty cycle control enable/disable
+    *
+    * \remark Please note that ETSI mandates duty cycled transmissions. Use only for test purposes
+    */
+    bool DutyCycleEnabled;
+    /*!
+     * Stops unnecessary peripherals.
+     *
+     * \remark Use for the compliance tests protocol handling in order to
+     *         reduce the power consumption.
+     */
+    void ( *StopPeripherals )( void );
+    /*!
+     * Starts previously stopped peripherals.
+     *
+     * \remark Use for the compliance tests protocol handling in order to
+     *         reduce the power consumption.
+     */
+    void ( *StartPeripherals )( void );
+#endif
 }LmhpComplianceParams_t;
 
 LmhPackage_t *LmphCompliancePackageFactory( void );
 
+#ifdef SUPPORT_LORA_104
 typedef struct ClassBStatus_s
 {
     bool         IsBeaconRxOn;
@@ -88,6 +116,9 @@ typedef struct ComplianceTestState_s
     bool                IsClassReqCmdPending;
     DeviceClass_t       NewClass;
 } ComplianceTestState_t;
+#else
+void OnComplianceTxNextPacketTimerEvent( void *context );
+#endif
 
 #ifdef __cplusplus
 }

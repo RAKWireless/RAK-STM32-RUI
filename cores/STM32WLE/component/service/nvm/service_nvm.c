@@ -8,7 +8,9 @@ extern char *cli_version;
 
 PRE_rui_cfg_t g_rui_cfg_t;
 #ifdef SUPPORT_LORA
+#ifdef SUPPORT_LORA_104
 lora_mac_nvm_data_t g_lora_mac_nvm_data;
+#endif
 #endif
 #define SERVICE_RUI_CONFIG_CRC32(x) Crc32(((uint8_t*)x)+sizeof(uint32_t),sizeof(PRE_rui_cfg_t)-sizeof(uint32_t))
 #define SERVICE_STORE_CRC32(x) Crc32(((uint8_t*)x)+sizeof(uint32_t),sizeof(STORE_REOGANIZED)-sizeof(uint32_t))
@@ -167,10 +169,12 @@ int32_t service_nvm_set_default_config_to_nvm(void) {
     g_rui_cfg_t.g_rui_cfg_ex.lbt_enable = 0;
     g_rui_cfg_t.g_rui_cfg_ex.lbt_rssi = -80;
     g_rui_cfg_t.g_rui_cfg_ex.lbt_scantime = 5;
-    g_rui_cfg_t.g_rui_cfg_ex.IsCertPortOn = 1;
     g_rui_cfg_t.g_rui_cfg_ex.auto_sleep_level = 1;
-    memset(g_rui_cfg_t.g_lora_cfg_t.McSession_group,0x00,4*sizeof(McSession_t));
+#ifdef SUPPORT_LORA_104
+    g_rui_cfg_t.g_rui_cfg_ex.IsCertPortOn = 1;
     memset(&g_lora_mac_nvm_data,0,sizeof(lora_mac_nvm_data_t));
+#endif
+    memset(g_rui_cfg_t.g_lora_cfg_t.McSession_group,0x00,4*sizeof(McSession_t));
 
     /* lora p2p configuration */
 #if defined(rak3172) || defined(rak3172T)
@@ -235,6 +239,7 @@ int32_t service_nvm_set_default_config_to_nvm(void) {
 }
 
 #ifdef SUPPORT_LORA
+#ifdef SUPPORT_LORA_104
 void service_lora_mac_nvm_data_init(void) {
     udrv_flash_read(MCU_CERT_CONFIG_NVM_ADDR, sizeof(lora_mac_nvm_data_t), (uint8_t *)&g_lora_mac_nvm_data);
     if (*(uint32_t*)&g_lora_mac_nvm_data.loramac_crypto_nvm.FCntList.FCntUp == 0xFFFFFFFF) {
@@ -242,6 +247,7 @@ void service_lora_mac_nvm_data_init(void) {
     }
     return UDRV_RETURN_OK;
 }
+#endif
 #endif
 
 void service_nvm_init_config(void) {
@@ -275,10 +281,12 @@ int32_t service_nvm_set_cfg_to_nvm()
 }
 
 #ifdef SUPPORT_LORA
+#ifdef SUPPORT_LORA_104
 int32_t service_nvm_set_lora_nvm_data_to_nvm()
 {
     return udrv_flash_write(MCU_CERT_CONFIG_NVM_ADDR, sizeof(lora_mac_nvm_data_t), (uint8_t *)&g_lora_mac_nvm_data);
 }
+#endif
 #endif
 /***********************************************************/
 /* RUI Mode                                                */
@@ -997,6 +1005,7 @@ int32_t service_nvm_set_lbt_scantime_to_nvm(uint32_t time)
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
 }
 
+#ifdef SUPPORT_LORA_104
 uint16_t service_nvm_get_DevNonce_from_nvm()
 {
     return g_lora_mac_nvm_data.loramac_crypto_nvm.DevNonce;
@@ -1075,6 +1084,7 @@ ChannelParams_t * service_nvm_get_regionchannels_from_nvm(void)
 {
     return &g_lora_mac_nvm_data.loramac_channels;
 }
+#endif
 
 McSession_t *service_nvm_get_multicast_from_nvm(void) {
     return g_rui_cfg_t.g_lora_cfg_t.McSession_group;
@@ -1327,6 +1337,7 @@ int32_t service_nvm_set_CAD_to_nvm(uint8_t enable)
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
 }
 
+#ifdef SUPPORT_LORA_104
 int32_t service_nvm_get_certi_from_nvm()
 {
     return g_rui_cfg_t.g_rui_cfg_ex.certif;
@@ -1337,12 +1348,13 @@ int32_t service_nvm_set_certi_to_nvm(uint8_t enable)
     g_rui_cfg_t.g_rui_cfg_ex.certif = enable;
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
 }
+#endif
 
 #endif
 
 static void service_nvm_data_recovery_from_legacy(uint32_t data_flash_addr, PRE_rui_cfg_t *rui_cfg_cur)
 {
-    uint8_t data_legacy[2048];
+    uint8_t data_legacy[800];
     uint32_t version_code = 0;
     #define DATA_ADDR(LegacyOffset) (data_legacy + LegacyOffset)
 
@@ -1493,8 +1505,10 @@ static void service_nvm_data_recovery_from_legacy(uint32_t data_flash_addr, PRE_
             rui_cfg_cur->g_rui_cfg_ex.lbt_rssi = -80;
         if(*(uint8_t*)&rui_cfg_cur->g_rui_cfg_ex.lbt_scantime == 0xFF)
             rui_cfg_cur->g_rui_cfg_ex.lbt_scantime = 5;
+#ifdef SUPPORT_LORA_104
         if(*(uint8_t*)&rui_cfg_cur->g_rui_cfg_ex.IsCertPortOn == 0xFF)
             rui_cfg_cur->g_rui_cfg_ex.IsCertPortOn = 1;
+#endif
 
         
         if(*(uint8_t*)&rui_cfg_cur->g_rui_cfg_ex.crypt_key16 == 0xFF000000)
