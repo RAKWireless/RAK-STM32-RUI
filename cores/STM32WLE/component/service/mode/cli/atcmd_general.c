@@ -127,13 +127,13 @@ int At_Restore(SERIAL_PORT port, char *cmd, stParam *param)
         return AT_ERROR;
 #ifdef SUPPORT_LORA_104
     ret = service_nvm_set_cfg_to_nvm() | service_nvm_set_lora_nvm_data_to_nvm();
+#else
+    ret = service_nvm_set_cfg_to_nvm();
 #endif
 #else
     if(service_nvm_set_default_config_to_nvm() != UDRV_RETURN_OK)
         return AT_ERROR;
-#ifdef SUPPORT_LORA_104
     ret = service_nvm_set_cfg_to_nvm();
-#endif
 #endif
 #endif
     if (ret == UDRV_RETURN_OK)

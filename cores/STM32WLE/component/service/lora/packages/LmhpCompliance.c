@@ -304,12 +304,25 @@ static void LmhpComplianceOnMcpsIndication( McpsIndication_t* mcpsIndication )
     }
     case COMPLIANCE_DUT_JOIN_REQ:
     {
-#if 1
-        if (service_lora_get_band()==SERVICE_LORA_US915) {
-            uint16_t maskBuff = 0x00FF;
+
+        SERVICE_LORA_BAND band = service_lora_get_band();
+        uint16_t maskBuff;
+        if (band == SERVICE_LORA_US915 || band ==SERVICE_LORA_LA915)
+        {
+            maskBuff = 0x00FF;
             service_lora_set_mask(&maskBuff, true);
         }
-#endif
+        if (band == SERVICE_LORA_AU915)
+        {
+            maskBuff = 0x01FF;
+            service_lora_set_mask(&maskBuff, true);
+        }
+        if (band == SERVICE_LORA_CN470)
+        {
+            maskBuff = 0x0FFF;
+            service_lora_set_mask(&maskBuff, true);
+        }
+
         CompliancePackage.OnJoinRequest( true );
         break;
     }

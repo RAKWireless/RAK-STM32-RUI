@@ -199,7 +199,7 @@ int32_t service_lora_addmulc(McSession_t McSession)
                 }
             }
 #else
-                        if (McSession.Devclass == 2)    //classC multicast group
+            if (McSession.Devclass == 2)    //classC multicast group
             {
                 //channel.RxParams.ClassC.Frequency
                 if(McSession.Frequency!=0)

@@ -1950,10 +1950,9 @@ int32_t service_lora_join(int32_t param1, int32_t param2, int32_t param3, int32_
 
 #ifndef SUPPORT_LORA_104
         mibReq.Type = MIB_NETWORK_ACTIVATION;
-        mibReq.Param.NetworkActivation = ACTIVATION_TYPE_OTAA;
+        mibReq.Param.NetworkActivation = ACTIVATION_TYPE_NONE;
         if (LoRaMacMibSetRequestConfirm(&mibReq) != LORAMAC_STATUS_OK)
         {
-            udrv_serial_log_printf("ACTIVATION_TYPE_NONEu\r\n");
             return -UDRV_INTERNAL_ERR;
         }
 #endif
