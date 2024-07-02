@@ -633,3 +633,53 @@ if(huart->Instance==USART1)
         udrv_powersave_wake_lock();
     }
 }
+
+//HAL_UART_ErrorCallback
+void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
+{
+    //char buf[32]={0};
+    if (huart->Instance == LPUART1)
+    {
+        uint32_t error_code = HAL_UART_GetError(huart);
+        //sprintf(buf,"UART_ERR_CB=%d\r\n",error_code);
+        //uhal_uart_write(SERIAL_UART2,buf,strlen(buf),10000);
+
+        if (error_code & HAL_UART_ERROR_PE) //parity error
+        {
+            //sprintf(buf,"%s\r\n","HAL_UART_ERROR_PE");
+            //uhal_uart_write(SERIAL_UART2,buf,strlen(buf),10000);
+        }
+        if (error_code & HAL_UART_ERROR_FE) //frame error
+        {
+            //sprintf(buf,"%s\r\n","HAL_UART_ERROR_FE");
+            //uhal_uart_write(SERIAL_UART2,buf,strlen(buf),10000);
+        }
+        if (error_code & HAL_UART_ERROR_NE) //noise error
+        {
+            //sprintf(buf,"%s\r\n","HAL_UART_ERROR_NE");
+            //uhal_uart_write(SERIAL_UART2,buf,strlen(buf),10000);
+        }
+        if (error_code & HAL_UART_ERROR_ORE) //Over-Run
+        {
+            //sprintf(buf,"%s\r\n","HAL_UART_ERROR_ORE");
+            //uhal_uart_write(SERIAL_UART2,buf,strlen(buf),10000);
+        }
+        if (error_code & HAL_UART_ERROR_RTO) //Receiver Timeout
+        {
+            //sprintf(buf,"%s\r\n","HAL_UART_ERROR_RTO");
+            //uhal_uart_write(SERIAL_UART2,buf,strlen(buf),10000);
+        }
+        if (error_code & HAL_UART_ERROR_DMA) //DMA error
+        {
+            //sprintf(buf,"%s\r\n","HAL_UART_ERROR_DMA");
+            //uhal_uart_write(SERIAL_UART2,buf,strlen(buf),10000);
+        }
+
+        // restart DMA receiver
+        StartReception(SERIAL_UART2);
+
+        // re-init UART2
+        //udrv_serial_deinit(SERIAL_UART2);
+        //udrv_serial_init(SERIAL_UART2, uart_status[SERIAL_UART2].baudrate, uart_status[SERIAL_UART2].dataBits, uart_status[SERIAL_UART2].stopBits, uart_status[SERIAL_UART2].parity, SERIAL_TWO_WIRE_NORMAL_MODE);
+    }
+}

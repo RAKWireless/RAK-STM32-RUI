@@ -27,7 +27,7 @@
 #include "LmhpRemoteMcastSetup.h"
 #include "LmhpFragmentation.h"
 #include "service_lora_fuota.h"
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
 #include "udrv_system.h"
 #endif
 
@@ -47,7 +47,7 @@ static uint8_t AlternateDrAU915Callback(void);
 static uint32_t IsSingleChannelUS915Callback(void);
 static uint8_t AlternateDrUS915Callback(void);
 
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
 LmhPackage_t *LmHandlerPackages[PKG_MAX_NUMBER];
 #else
 static LmhPackage_t *LmHandlerPackages[PKG_MAX_NUMBER];
@@ -55,7 +55,7 @@ static LmhPackage_t *LmHandlerPackages[PKG_MAX_NUMBER];
 
 static LmhpComplianceParams_t LmhpComplianceParams;
 
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
 static TimerTime_t DutyCycleWaitTime = 0;
 
 extern bool udrv_powersave_in_sleep;
@@ -201,7 +201,7 @@ static int32_t service_lora_stop(void)
     return UDRV_RETURN_OK;
 }
 
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
 static void OnNvmDataChange(uint16_t notifyFlags)
 {
     MibRequestConfirm_t  mibReq;
@@ -277,7 +277,7 @@ static void service_lora_send_null(uint8_t m_data)
     info.port = 1;
     info.retry_valid = true;
     info.retry = 3;
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
     info.confirm_valid = false;
 #else
     info.confirm_valid = true;
@@ -385,7 +385,7 @@ static void McpsIndication(McpsIndication_t *mcpsIndication)
         }
 
         //FramePending or Confirmed downlink
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
         if(((mcpsIndication->IsUplinkTxPending == true) && (service_lora_get_class() == SERVICE_LORA_CLASS_A)) || (mcpsIndication->McpsIndication == MCPS_CONFIRMED))
         {
             service_lora_send_null(SERVICE_LORA_MAC_CMD_DEVICE_TIME);
@@ -799,14 +799,14 @@ static void MlmeIndication(MlmeIndication_t *mlmeIndication)
 
 static void OnMacProcessNotify(void)
 {
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
     udrv_system_event_produce(&rui_lora_event);
     udrv_powersave_in_sleep = false;
 #endif
     // Mac notification. Process run function
 }
 
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
 static uint32_t crc_cal(uint8_t * data,uint32_t size)
 {
     uint32_t calculatedCrc32 = Crc32Init();
@@ -894,7 +894,7 @@ int32_t service_lora_init(SERVICE_LORA_BAND band)
     LoRaMacPrimitives.MacMlmeIndication = MlmeIndication;
     LoRaMacCallbacks.GetBatteryLevel = NULL;
     LoRaMacCallbacks.GetTemperatureLevel = NULL; // apply board specific temperature reading
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
     LoRaMacCallbacks.NvmDataChange = OnNvmDataChange;
 #else
     LoRaMacCallbacks.NvmDataChange = NULL;
@@ -1039,7 +1039,7 @@ int32_t service_lora_init(SERVICE_LORA_BAND band)
             goto out;
         }
 
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
         mibReq.Type = MIB_NVM_CTXS;
         LoRaMacMibGetRequestConfirm( &mibReq );
         LoRaMacNvmData_t* nvm = mibReq.Param.Contexts;
@@ -1488,7 +1488,7 @@ int32_t service_lora_set_nwk_skey(uint8_t *buff, uint32_t len)
 
 int32_t service_lora_get_McRoot_key(uint8_t *buff)
 {
-#ifndef SUPPORT_LORA_104
+#ifndef LORA_STACK_104
     return Get_McRoot_Key(buff);
 #endif
 }
@@ -1948,7 +1948,7 @@ int32_t service_lora_join(int32_t param1, int32_t param2, int32_t param3, int32_
         // Setup the request type
         mlmeReq.Type = MLME_JOIN;
 
-#ifndef SUPPORT_LORA_104
+#ifndef LORA_STACK_104
         mibReq.Type = MIB_NETWORK_ACTIVATION;
         mibReq.Param.NetworkActivation = ACTIVATION_TYPE_NONE;
         if (LoRaMacMibSetRequestConfirm(&mibReq) != LORAMAC_STATUS_OK)
@@ -1958,14 +1958,14 @@ int32_t service_lora_join(int32_t param1, int32_t param2, int32_t param3, int32_
 #endif
 
         mlmeReq.Req.Join.Datarate = service_nvm_get_dr_from_nvm();
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
         mlmeReq.Req.Join.NetworkActivation = ACTIVATION_TYPE_OTAA;
 #endif
 
         status = LoRaMacMlmeRequest(&mlmeReq);
         LORA_TEST_DEBUG("status=%d", status);
 
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
         DutyCycleWaitTime = mlmeReq.ReqReturn.DutyCycleWaitTime;
 #endif
         if (status == LORAMAC_STATUS_OK)
@@ -1974,7 +1974,7 @@ int32_t service_lora_join(int32_t param1, int32_t param2, int32_t param3, int32_
             {
                 class_b_state = SERVICE_LORA_CLASS_B_S0;//Initial state
             }
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
             MibRequestConfirm_t mibReq;
             mibReq.Type = MIB_NVM_CTXS;
             LoRaMacMibGetRequestConfirm( &mibReq );
@@ -2059,7 +2059,7 @@ int32_t service_lora_join(int32_t param1, int32_t param2, int32_t param3, int32_
             }
             else
             {
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
                 if (mibReq.Param.Contexts->RegionGroup2.Channels[last_tx_channel].Rx1Frequency == 0) {
                     udrv_serial_log_printf("Rx1Frequency:%u\r\n",mibReq.Param.Contexts->RegionGroup2.Channels[last_tx_channel].Frequency);
                 }
@@ -2425,7 +2425,7 @@ int32_t service_lora_send(uint8_t *buff, uint32_t len, SERVICE_LORA_SEND_INFO in
         mcpsReq.Req.Unconfirmed.fBufferSize = len;
         mcpsReq.Req.Unconfirmed.fBuffer = buff;
 
-#ifndef SUPPORT_LORA_104
+#ifndef LORA_STACK_104
         // Set the retry times
         if (true == info.retry_valid)
         {
@@ -2474,7 +2474,7 @@ int32_t service_lora_send(uint8_t *buff, uint32_t len, SERVICE_LORA_SEND_INFO in
     status = LoRaMacMcpsRequest(&mcpsReq);
     LORA_TEST_DEBUG("status %d",status);
     LORA_TEST_DEBUG("DutyCycleWaitTime  %d",mcpsReq.ReqReturn.DutyCycleWaitTime);
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
     DutyCycleWaitTime = mcpsReq.ReqReturn.DutyCycleWaitTime;
 #endif
     if(service_get_debug_level())
@@ -2499,7 +2499,7 @@ int32_t service_lora_send(uint8_t *buff, uint32_t len, SERVICE_LORA_SEND_INFO in
             }
             else
             {
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
                 if (mibReq.Param.Contexts->RegionGroup2.Channels[last_tx_channel].Rx1Frequency == 0) {
                     udrv_serial_log_printf("Rx1Frequency:%u\r\n",mibReq.Param.Contexts->RegionGroup2.Channels[last_tx_channel].Frequency);
                 }
@@ -3547,7 +3547,7 @@ static void DisplayMacMlmeRequestUpdate( LoRaMacStatus_t status, MlmeReq_t *mlme
             udrv_serial_log_printf( "###### ===================================== ######\n");
             break;
         }
-#ifndef SUPPORT_LORA_104
+#ifndef LORA_STACK_104
         case MLME_TXCW_1:
         {
             udrv_serial_log_printf( "\n###### =========== MLME-Request ============ ######\n" );
@@ -3595,7 +3595,7 @@ static void LmHandlerJoinRequest( bool isOtaa )
     else
     {
         //XXX
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
         service_lora_set_njm(SERVICE_LORA_ABP, true);
 #else
         service_lora_set_njm(SERVICE_LORA_OTAA, true);
@@ -3612,7 +3612,7 @@ LmHandlerErrorStatus_t LmHandlerSend( LmHandlerAppData_t *appData, LmHandlerMsgT
 
     info.port = appData->Port;
 
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
     info.retry_valid = false;
     //info.retry = service_lora_get_retry()+1;
 
@@ -3677,7 +3677,7 @@ LmHandlerErrorStatus_t LmHandlerPackageRegister( uint8_t id, void *params )
         LmHandlerPackages[id]->OnMacMcpsRequest = OnMacMcpsRequest;
         LmHandlerPackages[id]->OnMacMlmeRequest = OnMacMlmeRequest;
         LmHandlerPackages[id]->OnJoinRequest = LmHandlerJoinRequest;
-#ifndef SUPPORT_LORA_104
+#ifndef LORA_STACK_104
         LmHandlerPackages[id]->OnSendRequest = LmHandlerSend;
 #endif
         LmHandlerPackages[id]->OnDeviceTimeRequest = LmHandlerDeviceTimeReq;
@@ -3692,7 +3692,7 @@ LmHandlerErrorStatus_t LmHandlerPackageRegister( uint8_t id, void *params )
     }
 }
 
-#ifndef SUPPORT_LORA_104
+#ifndef LORA_STACK_104
 bool LmHandlerPackageIsInitialized( uint8_t id )
 {
     //LORA_TEST_DEBUG("id=%u\r\n", id);
@@ -3767,7 +3767,7 @@ static void LmHandlerPackagesNotify( PackageNotifyTypes_t notifyType, void *para
     }
 }
 
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
 TimerTime_t LmHandlerGetDutyCycleWaitTime( void )
 {
     return DutyCycleWaitTime;
@@ -3901,7 +3901,7 @@ int32_t service_lora_set_lbt_scantime(uint32_t time)
     return service_nvm_set_lbt_scantime_to_nvm(time);
 }
 
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
 uint16_t service_lora_get_DevNonce()
 {
     return service_nvm_get_DevNonce_from_nvm();

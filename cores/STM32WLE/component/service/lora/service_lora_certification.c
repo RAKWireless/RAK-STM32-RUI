@@ -18,7 +18,7 @@
 #include "service_lora_certification.h"
 
 
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
 #define COMPLIANCE_PORT 224
 extern ComplianceTestState_t ComplianceTestState;
 extern LmhPackage_t *LmHandlerPackages[PKG_MAX_NUMBER];
@@ -47,7 +47,7 @@ uint8_t AppDataSize;
 int32_t service_lora_certification(int32_t mode)
 {
     if (mode != 0) {
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
         if((service_lora_get_njm() == SERVICE_LORA_OTAA) && service_lora_get_njs() != true)
         {
             service_lora_join(1, -1, -1, -1);
@@ -60,7 +60,7 @@ int32_t service_lora_certification(int32_t mode)
 
         if (udrv_system_timer_create(SYSTIMER_LCT, CertifiTimerEvent, HTMR_PERIODIC) == UDRV_RETURN_OK)
         {
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
             udrv_system_timer_start(SYSTIMER_LCT, 5000, NULL);
 #else
             udrv_system_timer_start(SYSTIMER_LCT, 6000, NULL);
@@ -70,7 +70,7 @@ int32_t service_lora_certification(int32_t mode)
         {
             udrv_serial_log_printf("FAILED(%d)\r\n", __LINE__);
         }
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
         MibRequestConfirm_t mibReq;
         mibReq.Type = MIB_IS_CERT_FPORT_ON;
         mibReq.Param.IsCertPortOn = true;
@@ -89,7 +89,7 @@ static void CertifiTimerEvent( void* context )
     LORA_TEST_DEBUG("CertifiTimerEvent");
     uint8_t Port = 2;
 
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
     if((service_lora_get_njm() == SERVICE_LORA_OTAA) && service_lora_get_njs() != true)
     {
         service_lora_join(1, -1, -1, -1);
@@ -125,7 +125,7 @@ uint32_t Certifi_Send(uint8_t port)
     info.retry_valid = false;
     info.confirm_valid = false;
 
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
     for( int8_t i = 0; i < PKG_MAX_NUMBER; i++ )
     {
         if( ( LmHandlerPackages[i] != NULL ) &&
@@ -145,7 +145,7 @@ uint32_t Certifi_Send(uint8_t port)
     if ((ret = service_lora_send(AppDataBuffer, AppDataSize, info, false)) == UDRV_RETURN_OK)
     {
         LORA_TEST_DEBUG("Send Packet Success\r\n");
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
         ComplianceTestState.IsTxPending = false;
 #endif
     }

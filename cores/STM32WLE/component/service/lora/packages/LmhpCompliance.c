@@ -24,7 +24,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
 #include "board.h"
 //#include "NvmDataMgmt.h"
 #include "LoRaMacTest.h"

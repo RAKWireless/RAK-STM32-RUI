@@ -33,7 +33,7 @@ extern "C" {
 /*!
  * Maximum number of packages
  */
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
 #define PKG_MAX_NUMBER                              4
 #else
 #define PKG_MAX_NUMBER                              5
@@ -63,7 +63,7 @@ typedef struct LmhPackage_s
      *                [true: Initialized, false: Not initialized]
      */
     bool ( *IsInitialized )( void );
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
     /*!
      * Returns if a package transmission is pending or not.
      *
@@ -140,7 +140,7 @@ typedef struct LmhPackage_s
     * \param [IN] isOtaa Indicates which activation mode must be used
     */
     void ( *OnJoinRequest )( bool isOtaa );
-#ifndef SUPPORT_LORA_104
+#ifndef LORA_STACK_104
     /*!
      * Instructs the MAC layer to send a ClassA uplink
      *

@@ -53,7 +53,7 @@ int32_t service_lora_addmulc(McSession_t McSession)
             McSession.GroupID = i;
 
             channel.IsRemotelySetup = false;
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
             channel.RxParams.Class = McSession.Devclass;
 #else
             channel.Class = McSession.Devclass;
@@ -66,7 +66,7 @@ int32_t service_lora_addmulc(McSession_t McSession)
             channel.FCountMin = 0;
             channel.FCountMax = 0xFFFF;
 
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
             if (McSession.Devclass == 2)    //classC multicast group
             {
                 //channel.RxParams.ClassC.Frequency

@@ -137,7 +137,7 @@ typedef struct {
     uint8_t crypt_key16[16];
     uint8_t crypt_IV[16];
     uint8_t CAD;
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
     uint8_t certif;
     uint8_t IsCertPortOn;
 #endif
@@ -180,7 +180,7 @@ int32_t service_nvm_set_default_config_to_nvm(void);
 int32_t service_nvm_set_cfg_to_nvm(void);
 
 #if defined(SUPPORT_LORA)
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
 typedef struct {
     LoRaMacCryptoNvmData_t loramac_crypto_nvm;
     LoRaMacNvmDataGroup1_t loramac_macgroup1;
@@ -421,7 +421,7 @@ uint32_t service_nvm_set_rx2fq_to_nvm(uint32_t freq);
 
 uint32_t service_nvm_get_rx2fq_from_nvm(void);
 
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
 void service_lora_mac_nvm_data_init(void);
 
 int32_t service_nvm_set_lora_nvm_data_to_nvm(void);

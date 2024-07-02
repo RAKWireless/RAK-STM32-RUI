@@ -41,7 +41,7 @@ extern "C" {
  */
 typedef struct LmhpComplianceParams_s
 {
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
     /*!
      * Current firmware version
      */
@@ -88,7 +88,7 @@ typedef struct LmhpComplianceParams_s
 
 LmhPackage_t *LmphCompliancePackageFactory( void );
 
-#ifdef SUPPORT_LORA_104
+#ifdef LORA_STACK_104
 typedef struct ClassBStatus_s
 {
     bool         IsBeaconRxOn;
