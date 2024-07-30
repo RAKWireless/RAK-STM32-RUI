@@ -19,7 +19,6 @@ typedef struct uhal_twimst_status {
 } uhal_twimst_status_t;
 
 static uhal_twimst_status_t twimst_status[UDRV_TWIMST_MAX];
-const uhal_twimst_inited;
 
 static void twimst_init(udrv_twimst_port port) {
    // __HAL_RCC_GPIOB_CLK_ENABLE();
@@ -55,7 +54,6 @@ static void twimst_init(udrv_twimst_port port) {
     /** I2C Fast mode Plus enable
     */
     HAL_I2CEx_EnableFastModePlus(I2C_FASTMODEPLUS_I2C2);
-    const uhal_twimst_inited =1;
 }
 
 void uhal_twimst_init(udrv_twimst_port port) {
@@ -172,7 +170,6 @@ void uhal_twimst_resume(void)
 
 void I2C2_EV_IRQHandler(void)
 {
-  if(uhal_twimst_inited)
     HAL_I2C_EV_IRQHandler(&hi2c2);
 }
 
@@ -181,7 +178,6 @@ void I2C2_EV_IRQHandler(void)
   */
 void I2C2_ER_IRQHandler(void)
 {
-  if(uhal_twimst_inited)
     HAL_I2C_ER_IRQHandler(&hi2c2);
 }
 

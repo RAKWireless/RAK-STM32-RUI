@@ -118,7 +118,7 @@ extern "C"
 /*!
  * Default antenna gain
  */
-#define AU915_DEFAULT_ANTENNA_GAIN                  2.15f
+#define AU915_DEFAULT_ANTENNA_GAIN                  0.0f
 
 /*!
  * Enabled or disabled the duty cycle

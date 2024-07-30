@@ -34,6 +34,5 @@ out/external/lora/LoRaMac-node-4.7.0/src/mac/LoRaMac.c: \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.7.0/src/mac/LoRaMacAdr.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.7.0/src/mac/LoRaMacSerializer.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.7.0/src/radio/radio.h \
- /home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_arssi.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/component/udrv/system/udrv_system.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/component/udrv/timer/udrv_timer.h

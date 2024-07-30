@@ -47,7 +47,6 @@
 #include "radio.h"
 
 #include "LoRaMac.h"
-#include "service_lora_arssi.h"
 #include "udrv_system.h"
 
 /*!
@@ -3027,7 +3026,6 @@ static LoRaMacStatus_t ScheduleTx( bool allowDelayedTx )
                     // Allow delayed transmissions. We have to allow it in case
                     // the MAC must retransmit a frame with the frame repetitions
                     MacCtx.MacState |= LORAMAC_TX_DELAYED;
-                    udrv_serial_log_printf("Retransmit_DutyCycleWaitTime:%u\r\n",MacCtx.DutyCycleWaitTime);
                     TimerSetValue( &MacCtx.TxDelayedTimer, MacCtx.DutyCycleWaitTime );
                     TimerStart( &MacCtx.TxDelayedTimer );
                     return LORAMAC_STATUS_OK;
@@ -3053,7 +3051,6 @@ static LoRaMacStatus_t ScheduleTx( bool allowDelayedTx )
     }
 
     // Try to send now
-    service_lora_arssi_tx_callback(MacCtx.Channel);
     return SendFrameOnChannel( MacCtx.Channel );
 }
 
@@ -5820,4 +5817,16 @@ void LoRaMacReset( void )
 
     // Inform application layer
     OnMacProcessNotify( );
+}
+
+void LoRaMacUpdateCallbacks( LoRaMacPrimitives_t* primitives, LoRaMacCallback_t* callbacks)
+{
+    MacCtx.MacPrimitives = primitives;
+    MacCtx.MacCallbacks = callbacks;
+    /*MacCtx.RadioEvents.TxDone = OnRadioTxDone;
+    MacCtx.RadioEvents.RxDone = OnRadioRxDone;
+    MacCtx.RadioEvents.RxError = OnRadioRxError;
+    MacCtx.RadioEvents.TxTimeout = OnRadioTxTimeout;
+    MacCtx.RadioEvents.RxTimeout = OnRadioRxTimeout;
+    Radio.Init( &MacCtx.RadioEvents );*/
 }

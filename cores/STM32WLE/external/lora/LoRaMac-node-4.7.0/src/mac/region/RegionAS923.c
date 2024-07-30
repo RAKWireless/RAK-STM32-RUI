@@ -1093,7 +1093,7 @@ LoRaMacStatus_t RegionAS923NextChannel( NextChanParams_t* nextChanParams, uint8_
 
     if( status == LORAMAC_STATUS_OK )
     {
-        if(SERVICE_LORA_AS923 == service_lora_get_band()&& (true==service_lora_get_lbt())){
+        if(true==service_lora_get_lbt()){
         // Executes the LBT algorithm when operating in Japan
         uint8_t channelNext = 0;
         uint16_t lbt_rssi = service_lora_get_lbt_rssi();
