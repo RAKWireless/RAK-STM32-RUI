@@ -1,9 +1,9 @@
 #define FW_REVISION "RUI_4.2.0_RAK3172-E"
 #define MODEL_ID "rak3172"
 #define CHIP_ID "stm32wle5xx"
-#define BUILD_DATE "20240730"
-#define BUILD_TIME "031955"
-#define REPO_INFO "4e77a6bf:928d521f:f2138ca2:30c599dc:cbc9c9fd:5ccec381:827629a7:e4c13a8f:1de43ba9:c0b3a585:6a3d6842:b9d39ab6:d5c6e88d:a29aaa6e:da54579d:d1e75214:1365fb0c:714946eb:1d26ccfe:bbc25133"
+#define BUILD_DATE "20240801"
+#define BUILD_TIME "103242"
+#define REPO_INFO "3478ad8b:928d521f:f2138ca2:30c599dc:cbc9c9fd:5ccec381:827629a7:e4c13a8f:1de43ba9:c0b3a585:6a3d6842:b9d39ab6:d5c6e88d:a29aaa6e:da54579d:d1e75214:1365fb0c:714946eb:1d26ccfe:bbc25133"
 #define CLI_REVISION "1.5.13"
 #define API_REVISION "3.2.9"
 const char *sw_version = {FW_REVISION};

@@ -247,6 +247,12 @@ void service_lora_mac_nvm_data_init(void) {
     }
     return UDRV_RETURN_OK;
 }
+
+void service_lora_mac_nvm_data_reset(void)
+{
+    memset(&g_lora_mac_nvm_data,0,sizeof(lora_mac_nvm_data_t));
+    return UDRV_RETURN_OK;
+}
 #endif
 #endif
 
