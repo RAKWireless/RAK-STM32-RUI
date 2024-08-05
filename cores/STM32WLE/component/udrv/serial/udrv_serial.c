@@ -287,7 +287,11 @@ int32_t udrv_serial_printf (SERIAL_PORT Port, const char *fmt, ...)
             va_list aptr;
  
             va_start (aptr, fmt);
+#ifdef rak3172
+            tiny_vsnprintf_like(print_buf,512,fmt, aptr);
+#else
             vsprintf (print_buf, fmt, aptr);
+#endif
             va_end (aptr);
  
             return serial_api[Port]->SERIAL_WRITE(Port, print_buf, strlen(print_buf), udrv_serial_timeout);
@@ -315,7 +319,11 @@ int32_t udrv_serial_log_printf (const char *fmt, ...)
                 va_list aptr;
  
                 va_start (aptr, fmt);
-                vsprintf (print_buf, fmt, aptr);
+#ifdef rak3172
+            tiny_vsnprintf_like(print_buf,512,fmt, aptr);
+#else
+            vsprintf (print_buf, fmt, aptr);
+#endif
                 va_end (aptr);
 
                 ret = serial_api[(SERIAL_PORT)i]->SERIAL_WRITE((SERIAL_PORT)i, print_buf, strlen(print_buf), udrv_serial_timeout);

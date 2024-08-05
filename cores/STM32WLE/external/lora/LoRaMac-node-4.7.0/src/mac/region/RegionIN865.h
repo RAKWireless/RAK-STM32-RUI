@@ -117,7 +117,7 @@ extern "C"
 /*!
  * Default antenna gain
  */
-#define IN865_DEFAULT_ANTENNA_GAIN                  0.0f
+#define IN865_DEFAULT_ANTENNA_GAIN                  2.15f
 
 /*!
  * Enabled or disabled the duty cycle

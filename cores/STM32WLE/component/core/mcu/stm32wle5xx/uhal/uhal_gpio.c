@@ -76,6 +76,7 @@ void uhal_gpio_init(uint32_t pin, gpio_dir_t dir, gpio_pull_t pull, gpio_logic_t
         return;
     }
 
+
     gpio[pin].Pin = PinToGPIO_Pin(pin);
     gpio[pin].Speed = GPIO_SPEED_FREQ_HIGH;
 

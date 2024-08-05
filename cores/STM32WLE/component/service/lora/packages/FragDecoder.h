@@ -45,7 +45,7 @@
  *
  * \remark This parameter has an impact on the memory footprint.
  */
-#define FRAG_MAX_SIZE                              100
+#define FRAG_MAX_SIZE                              200
 
 /*!
  * The starting position of the firmware burn
@@ -86,7 +86,7 @@ typedef struct sFragDecoderCallbacks
      * 
      * \retval status Write operation status [0: Success, -1 Fail]
      */
-    int8_t ( *FragDecoderWrite )( uint32_t addr,  uint32_t size , uint8_t *data);
+    int8_t ( *FragDecoderWrite )( uint32_t addr,  uint8_t *data , uint32_t size);
     /*!
      * Reads `data` buffer of `size` starting at address `addr`
      *
@@ -96,9 +96,11 @@ typedef struct sFragDecoderCallbacks
      * 
      * \retval status Read operation status [0: Success, -1 Fail]
      */
-    int8_t ( *FragDecoderRead )( uint32_t addr, uint32_t size, uint8_t *data );
+    int8_t ( *FragDecoderRead )( uint32_t addr, uint8_t *data, uint32_t size );
 }FragDecoderCallbacks_t;
 #endif
+
+void FragDecoderUpdateCallback(void *callbacks);
 
 #if( FRAG_DECODER_FILE_HANDLING_NEW_API == 1 )
 /*!
@@ -108,7 +110,7 @@ typedef struct sFragDecoderCallbacks
  * \param [IN] fragSize   Size of a fragment
  * \param [IN] callbacks  Pointer to the Write/Read functions.
  */
-void FragDecoderInit( uint16_t fragNb, uint8_t fragSize, FragDecoderCallbacks_t *callbacks );
+void FragDecoderInit( uint16_t fragNb, uint8_t fragSize, void *callbacks );
 #else
 /*!
  * \brief Initializes the fragmentation decoder
