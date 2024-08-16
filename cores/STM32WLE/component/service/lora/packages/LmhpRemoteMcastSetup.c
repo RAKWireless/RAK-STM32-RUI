@@ -57,7 +57,7 @@ typedef enum LmhpRemoteMcastSetupSessionStates_e
 typedef struct LmhpRemoteMcastSetupState_s
 {
     bool Initialized;
-    bool IsTxPending;
+    bool IsRunning;
     LmhpRemoteMcastSetupSessionStates_t SessionState;
     uint8_t DataBufferMaxSize;
     uint8_t *DataBuffer;
@@ -106,7 +106,7 @@ static bool LmhpRemoteMcastSetupIsInitialized( void );
  * \retval status Package operation status
  *                [true: Running, false: Not running]
  */
-static bool LmhpRemoteMcastSetupIsTxPending( void );
+static bool LmhpRemoteMcastSetupIsRunning( void );
 
 /*!
  * Processes the internal package events.
@@ -127,7 +127,7 @@ static void OnSessionStopTimer( void *context );
 static LmhpRemoteMcastSetupState_t LmhpRemoteMcastSetupState =
 {
     .Initialized = false,
-    .IsTxPending = false,
+    .IsRunning = false,
     .SessionState = REMOTE_MCAST_SETUP_SESSION_STATE_IDLE,
 };
 
@@ -173,14 +173,14 @@ static TimerEvent_t SessionStartTimer;
 /*!
  * Session start timer
  */
-TimerEvent_t SessionStopTimer;
+static TimerEvent_t SessionStopTimer;
 
 static LmhPackage_t LmhpRemoteMcastSetupPackage =
 {
     .Port = REMOTE_MCAST_SETUP_PORT,
     .Init = LmhpRemoteMcastSetupInit,
     .IsInitialized = LmhpRemoteMcastSetupIsInitialized,
-    .IsTxPending = LmhpRemoteMcastSetupIsTxPending,
+    .IsRunning = LmhpRemoteMcastSetupIsRunning,
     .Process = LmhpRemoteMcastSetupProcess,
     .OnMcpsConfirmProcess = NULL,                              // Not used in this package
     .OnMcpsIndicationProcess = LmhpRemoteMcastSetupOnMcpsIndication,
@@ -189,6 +189,7 @@ static LmhPackage_t LmhpRemoteMcastSetupPackage =
     .OnMacMcpsRequest = NULL,                                  // To be initialized by LmHandler
     .OnMacMlmeRequest = NULL,                                  // To be initialized by LmHandler
     .OnJoinRequest = NULL,                                     // To be initialized by LmHandler
+    .OnSendRequest = NULL,                                     // To be initialized by LmHandler
     .OnDeviceTimeRequest = NULL,                               // To be initialized by LmHandler
     .OnSysTimeUpdate = NULL,                                   // To be initialized by LmHandler
 };
@@ -204,18 +205,16 @@ static void LmhpRemoteMcastSetupInit( void * params, uint8_t *dataBuffer, uint8_
     {
         LmhpRemoteMcastSetupState.DataBuffer = dataBuffer;
         LmhpRemoteMcastSetupState.DataBufferMaxSize = dataBufferMaxSize;
-        if(LmhpRemoteMcastSetupState.Initialized == false)
-        {
-            LmhpRemoteMcastSetupState.Initialized = true;
-            TimerInit( &SessionStartTimer, OnSessionStartTimer );
-            TimerInit( &SessionStopTimer, OnSessionStopTimer );
-        }
+        LmhpRemoteMcastSetupState.Initialized = true;
+        LmhpRemoteMcastSetupState.IsRunning = true;
+        TimerInit( &SessionStartTimer, OnSessionStartTimer );
+        TimerInit( &SessionStopTimer, OnSessionStopTimer );
     }
     else
     {
+        LmhpRemoteMcastSetupState.IsRunning = false;
         LmhpRemoteMcastSetupState.Initialized = false;
     }
-    LmhpRemoteMcastSetupState.IsTxPending = false;
 }
 
 static bool LmhpRemoteMcastSetupIsInitialized( void )
@@ -223,41 +222,61 @@ static bool LmhpRemoteMcastSetupIsInitialized( void )
     return LmhpRemoteMcastSetupState.Initialized;
 }
 
-static bool LmhpRemoteMcastSetupIsTxPending( void )
+static bool LmhpRemoteMcastSetupIsRunning( void )
 {
-    return LmhpRemoteMcastSetupState.IsTxPending;
+    if( LmhpRemoteMcastSetupState.Initialized == false )
+    {
+        return false;
+    }
+
+    return LmhpRemoteMcastSetupState.IsRunning;
 }
 
 static void LmhpRemoteMcastSetupProcess( void )
 {
-    LmhpRemoteMcastSetupSessionStates_t state;
+    // LmhpRemoteMcastSetupSessionStates_t state;
 
-    CRITICAL_SECTION_BEGIN( );
-    state = LmhpRemoteMcastSetupState.SessionState;
-    LmhpRemoteMcastSetupState.SessionState = REMOTE_MCAST_SETUP_SESSION_STATE_IDLE;
-    CRITICAL_SECTION_END( );
+    // CRITICAL_SECTION_BEGIN( );
+    // state = LmhpRemoteMcastSetupState.SessionState;
+    // LmhpRemoteMcastSetupState.SessionState = REMOTE_MCAST_SETUP_SESSION_STATE_IDLE;
+    // CRITICAL_SECTION_END( );
 
-    switch( state )
-    {
-        case REMOTE_MCAST_SETUP_SESSION_STATE_START:
-            // Switch to Class C
-
-            TimerSetValue( &SessionStopTimer, ( 1 << McSessionData[0].SessionTimeout ) * 1000 );
-            TimerStart( &SessionStopTimer );
-            LmHandlerRequestClass( CLASS_C );
-            break;
-        case REMOTE_MCAST_SETUP_SESSION_STATE_STOP:
-            // Switch back to Class A
-            LmHandlerRequestClass( CLASS_A );
-            break;
-        case REMOTE_MCAST_SETUP_SESSION_STATE_IDLE:
-        // Intentional fall through
-        default:
-            // Nothing to do.
-            break;
-    }
-
+    // switch( state )
+    // {
+    //     case REMOTE_MCAST_SETUP_SESSION_STATE_START:
+    //         // Switch to Class C
+    //         if (service_lora_set_class(SERVICE_LORA_CLASS_C, true) == UDRV_RETURN_OK) 
+    //         {
+    //             DBG( "Class C switch success\r\n" );
+    //         } 
+    //         else 
+    //         {
+    //             DBG( "Class C switch failed\r\n" );
+    //             return false;
+    //         }
+    //         TimerSetValue( &SessionStopTimer, ( 1 << McSessionData[0].SessionTimeout ) * 1000 );
+    //         TimerStart( &SessionStopTimer );
+    //         break;
+    //     case REMOTE_MCAST_SETUP_SESSION_STATE_STOP:
+    //         // Switch back to Class A
+    //         if (service_lora_set_class(SERVICE_LORA_CLASS_A, true) == UDRV_RETURN_OK) 
+    //         {
+    //             DBG( "Class A switch success\r\n" );
+    //         } 
+    //         else 
+    //         {
+    //             DBG( "Class A switch failed\r\n" );
+    //             return false;
+    //         }            
+    //         break;
+    //     case REMOTE_MCAST_SETUP_SESSION_STATE_IDLE:
+    //     // Intentional fall through
+    //     default:
+    //         // Nothing to do.
+    //         break;
+    // }
 }
+
 static void LmhpRemoteMcastSetupOnMcpsIndication( McpsIndication_t *mcpsIndication )
 {
     uint8_t cmdIndex = 0;
@@ -277,16 +296,18 @@ static void LmhpRemoteMcastSetupOnMcpsIndication( McpsIndication_t *mcpsIndicati
                 LmhpRemoteMcastSetupState.DataBuffer[dataBufferIndex++] = REMOTE_MCAST_SETUP_PKG_VERSION_ANS;
                 LmhpRemoteMcastSetupState.DataBuffer[dataBufferIndex++] = REMOTE_MCAST_SETUP_ID;
                 LmhpRemoteMcastSetupState.DataBuffer[dataBufferIndex++] = REMOTE_MCAST_SETUP_VERSION;
+                DBG ("PKG_VERSION_REQ\r\n");
                 break;
             }
             case REMOTE_MCAST_SETUP_MC_GROUP_STATUS_REQ:
             {
+                DBG ("MC_GROUP_STATUS_REQ\r\n");
                 // TODO implement command prosessing and handling
                 break;
             }
             case REMOTE_MCAST_SETUP_MC_GROUP_SETUP_REQ:
             {
-                uint8_t idError = 0x01; // One bit value
+                DBG ("MC_GROUP_SETUP_REQ\r\n");
                 uint8_t id = mcpsIndication->Buffer[cmdIndex++];
                 McSessionData[id].McGroupData.IdHeader.Value = id;
 
@@ -313,28 +334,26 @@ static void LmhpRemoteMcastSetupOnMcpsIndication( McpsIndication_t *mcpsIndicati
                 McChannelParams_t channel = 
                 {
                     .IsRemotelySetup = true,
+                    .Class = CLASS_C, // Field not used for multicast channel setup. Must be initialized to something
                     .IsEnabled = true,
                     .GroupID = ( AddressIdentifier_t )McSessionData[id].McGroupData.IdHeader.Fields.McGroupId,
                     .Address = McSessionData[id].McGroupData.McAddr,
                     .McKeys.McKeyE = McSessionData[id].McGroupData.McKeyEncrypted,
                     .FCountMin = McSessionData[id].McGroupData.McFCountMin,
                     .FCountMax = McSessionData[id].McGroupData.McFCountMax,
-                    .RxParams.Params.ClassC = // Field not used for multicast channel setup. Must be initialized to something
+                    .RxParams.ClassC = // Field not used for multicast channel setup. Must be initialized to something
                     {
                         .Frequency = 0,
                         .Datarate = 0
                     }
                 };
-                LoRaMacMcChannelDelete(channel.GroupID);
+                uint8_t idError = 0x01; // One bit value
                 if( LoRaMacMcChannelSetup( &channel ) == LORAMAC_STATUS_OK )
                 {
                     idError = 0x00;
                 }
                 LmhpRemoteMcastSetupState.DataBuffer[dataBufferIndex++] = REMOTE_MCAST_SETUP_MC_GROUP_SETUP_ANS;
                 LmhpRemoteMcastSetupState.DataBuffer[dataBufferIndex++] = ( idError << 2 ) | McSessionData[id].McGroupData.IdHeader.Fields.McGroupId;
-                MlmeReq_t mlmeReq;
-                mlmeReq.Type = MLME_DEVICE_TIME;
-                LoRaMacStatus_t status = LoRaMacMlmeRequest(&mlmeReq);
                 break;
             }
             case REMOTE_MCAST_SETUP_MC_GROUP_DELETE_REQ:
@@ -357,12 +376,8 @@ static void LmhpRemoteMcastSetupOnMcpsIndication( McpsIndication_t *mcpsIndicati
             case REMOTE_MCAST_SETUP_MC_GROUP_CLASS_C_SESSION_REQ:
             {
                 DBG ("MC_GROUP_CLASS_C_SESSION_REQ\r\n");
-                int32_t timeToSessionStart = 0;
-                bool isTimerSet = false;
                 uint8_t status = 0x00;
                 uint8_t id = mcpsIndication->Buffer[cmdIndex++] & 0x03;
-
-                McSessionData[id].RxParams.Class = CLASS_C;
 
                 McSessionData[id].SessionTime =  ( mcpsIndication->Buffer[cmdIndex++] << 0  ) & 0x000000FF;
                 McSessionData[id].SessionTime += ( mcpsIndication->Buffer[cmdIndex++] << 8  ) & 0x0000FF00;
@@ -374,43 +389,44 @@ static void LmhpRemoteMcastSetupOnMcpsIndication( McpsIndication_t *mcpsIndicati
 
                 McSessionData[id].SessionTimeout =  mcpsIndication->Buffer[cmdIndex++] & 0x0F;
 
-                McSessionData[id].RxParams.Params.ClassC.Frequency =  ( mcpsIndication->Buffer[cmdIndex++] << 0  ) & 0x000000FF;
-                McSessionData[id].RxParams.Params.ClassC.Frequency |= ( mcpsIndication->Buffer[cmdIndex++] << 8  ) & 0x0000FF00;
-                McSessionData[id].RxParams.Params.ClassC.Frequency |= ( mcpsIndication->Buffer[cmdIndex++] << 16 ) & 0x00FF0000;
-                McSessionData[id].RxParams.Params.ClassC.Frequency *= 100;
+                McSessionData[id].RxParams.ClassC.Frequency =  ( mcpsIndication->Buffer[cmdIndex++] << 0  ) & 0x000000FF;
+                McSessionData[id].RxParams.ClassC.Frequency |= ( mcpsIndication->Buffer[cmdIndex++] << 8  ) & 0x0000FF00;
+                McSessionData[id].RxParams.ClassC.Frequency |= ( mcpsIndication->Buffer[cmdIndex++] << 16 ) & 0x00FF0000;
+                McSessionData[id].RxParams.ClassC.Frequency *= 100;
 
-                McSessionData[id].RxParams.Params.ClassC.Datarate = mcpsIndication->Buffer[cmdIndex++];
+                McSessionData[id].RxParams.ClassC.Datarate = mcpsIndication->Buffer[cmdIndex++];
 
+                LmhpRemoteMcastSetupState.DataBuffer[dataBufferIndex++] = REMOTE_MCAST_SETUP_MC_GROUP_CLASS_C_SESSION_ANS;
                 if( LoRaMacMcChannelSetupRxParams( ( AddressIdentifier_t )id, &McSessionData[id].RxParams, &status ) == LORAMAC_STATUS_OK )
                 {
                     SysTime_t curTime = { .Seconds = 0, .SubSeconds = 0 };
                     curTime = SysTimeGet( );
-                    timeToSessionStart = McSessionData[id].SessionTime - curTime.Seconds;
+                    DBG ("McSessionData[id].SessionTime: %d   curTime.Seconds:%d\r\n",McSessionData[id].SessionTime ,curTime.Seconds);
+                    int32_t timeToSessionStart = McSessionData[id].SessionTime - curTime.Seconds;
+                    DBG ("timeToSessionStart: %d \r\n",timeToSessionStart);
                     if( timeToSessionStart > 0 )
                     {
                         // Start session start timer
-                        TimerSetValue( &SessionStartTimer, (timeToSessionStart-1) * 1000 );
-
+                        TimerSetValue( &SessionStartTimer, timeToSessionStart * 1000 );
                         TimerStart( &SessionStartTimer );
 
-                        isTimerSet = true;
+                        DBG( "Time2SessionStart: %ld ms\n", timeToSessionStart * 1000 );
 
+                        LmhpRemoteMcastSetupState.DataBuffer[dataBufferIndex++] = status;
+                        LmhpRemoteMcastSetupState.DataBuffer[dataBufferIndex++] = ( timeToSessionStart >> 0  ) & 0xFF;
+                        LmhpRemoteMcastSetupState.DataBuffer[dataBufferIndex++] = ( timeToSessionStart >> 8  ) & 0xFF;
+                        LmhpRemoteMcastSetupState.DataBuffer[dataBufferIndex++] = ( timeToSessionStart >> 16 ) & 0xFF;
+                        break;
                     }
                     else
                     {
+                        DBG ("no\r\n");
                         // Session start time before current device time
                         status |= 0x10;
                     }
                 }
-                LmhpRemoteMcastSetupState.DataBuffer[dataBufferIndex++] = REMOTE_MCAST_SETUP_MC_GROUP_CLASS_C_SESSION_ANS;
                
                 LmhpRemoteMcastSetupState.DataBuffer[dataBufferIndex++] = status;
-                if( isTimerSet == true )
-                {
-                    LmhpRemoteMcastSetupState.DataBuffer[dataBufferIndex++] = ( timeToSessionStart >> 0  ) & 0xFF;
-                    LmhpRemoteMcastSetupState.DataBuffer[dataBufferIndex++] = ( timeToSessionStart >> 8  ) & 0xFF;
-                    LmhpRemoteMcastSetupState.DataBuffer[dataBufferIndex++] = ( timeToSessionStart >> 16 ) & 0xFF;
-                }
                 break;
             }
             case REMOTE_MCAST_SETUP_MC_GROUP_CLASS_B_SESSION_REQ:
@@ -435,24 +451,59 @@ static void LmhpRemoteMcastSetupOnMcpsIndication( McpsIndication_t *mcpsIndicati
             .BufferSize = dataBufferIndex,
             .Port = REMOTE_MCAST_SETUP_PORT
         };
-        LmHandlerSend( &appData, LORAMAC_HANDLER_UNCONFIRMED_MSG );
-    }       
+        LmhpRemoteMcastSetupPackage.OnSendRequest( &appData, LORAMAC_HANDLER_UNCONFIRMED_MSG );
+
+        DBG( "ID          : %d\n", McSessionData[0].McGroupData.IdHeader.Fields.McGroupId );
+        DBG( "McAddr      : %08lX\n", McSessionData[0].McGroupData.McAddr );
+        DBG( "McKey       : %02X", McSessionData[0].McGroupData.McKeyEncrypted[0] );
+        for( int i = 1; i < 16; i++ )
+        {
+            DBG( "-%02X",  McSessionData[0].McGroupData.McKeyEncrypted[i] );
+        }
+        DBG( "\n" );
+        DBG( "McFCountMin : %lu\n",  McSessionData[0].McGroupData.McFCountMin );
+        DBG( "McFCountMax : %lu\n",  McSessionData[0].McGroupData.McFCountMax );
+        DBG( "SessionTime : %lu\n",  McSessionData[0].SessionTime );
+        DBG( "SessionTimeT: %d\n",  McSessionData[0].SessionTimeout );
+        DBG( "Rx Freq     : %lu\n", McSessionData[0].RxParams.ClassC.Frequency );
+        DBG( "Rx DR       : DR_%d\n", McSessionData[0].RxParams.ClassC.Datarate );
+
+    }
 }
 
 static void OnSessionStartTimer( void *context )
 {
     TimerStop( &SessionStartTimer );
 
-    LmhpRemoteMcastSetupState.SessionState = REMOTE_MCAST_SETUP_SESSION_STATE_START;
+   // Switch to Class C
+  mm:  if (service_lora_set_class(SERVICE_LORA_CLASS_C, true) == UDRV_RETURN_OK) 
+    {
+        DBG( "Class C switch success\r\n" );
+    } 
+    else 
+    {
+        goto mm;
+        DBG( "Class C switch failed\r\n" );
+    }
+    TimerSetValue( &SessionStopTimer, ( 1 << McSessionData[0].SessionTimeout ) * 1000 );
+    TimerStart( &SessionStopTimer );
 }
 
 static void OnSessionStopTimer( void *context )
 {
     TimerStop( &SessionStopTimer );
 
-    LmhpRemoteMcastSetupState.SessionState = REMOTE_MCAST_SETUP_SESSION_STATE_STOP;
+    // Switch back to Class A
+    if (service_lora_set_class(SERVICE_LORA_CLASS_A, true) == UDRV_RETURN_OK) 
+    {
+        DBG( "Class A switch success\r\n" );
+    } 
+    else 
+    {
+        DBG( "Class A switch failed\r\n" );
+        return false;
+    }            
 }
-
 
 #endif // FUOTA
 

@@ -38,6 +38,10 @@
 #include "radio_driver.h"
 #include "radio_conf.h"
 #include "mw_log_conf.h"
+#include "udrv_system.h"
+
+extern bool udrv_powersave_in_sleep;
+static udrv_system_event_t rui_lora_event = {.request = UDRV_SYS_EVT_OP_LORAWAN, .p_context = NULL};
 
 /* Private typedef -----------------------------------------------------------*/
 /* ST_WORKAROUND_BEGIN: Replace global variables by typedef struct */
@@ -1546,6 +1550,8 @@ static void RadioOnTxTimeoutProcess( void )
     if( ( RadioEvents != NULL ) && ( RadioEvents->TxTimeout != NULL ) )
     {
         RadioEvents->TxTimeout( );
+        udrv_system_event_produce(&rui_lora_event);
+        udrv_powersave_in_sleep = false;
     }
 }
 
@@ -1558,12 +1564,17 @@ static void RadioOnRxTimeoutProcess( void )
     if( ( RadioEvents != NULL ) && ( RadioEvents->RxTimeout != NULL ) )
     {
         RadioEvents->RxTimeout( );
+        udrv_system_event_produce(&rui_lora_event);
+        udrv_powersave_in_sleep = false;
     }
 }
 
 static void RadioOnDioIrq( RadioIrqMasks_t radioIrq )
 {
     SubgRf.RadioIrq = radioIrq;
+
+    udrv_system_event_produce(&rui_lora_event);
+    udrv_powersave_in_sleep = false;
 
     RADIO_IRQ_PROCESS();
 }

@@ -2014,4 +2014,3 @@ public:
 #endif
 
 #endif //end RAKLoRa.h
-

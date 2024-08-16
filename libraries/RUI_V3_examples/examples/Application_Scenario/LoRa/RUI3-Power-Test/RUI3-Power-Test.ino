@@ -49,7 +49,9 @@ void sendCallback(int32_t status)
 {
 	// gnss_active = false;
 	MYLOG("TX-CB", "TX status %d", status);
+#ifndef _VARIANT_RAK3172_SIP_
 	digitalWrite(LED_BLUE, LOW);
+#endif
 	digitalWrite(WB_IO2, LOW);
 }
 
@@ -73,7 +75,9 @@ void joinCallback(int32_t status)
 		MYLOG("JOIN-CB", "Set the data rate  %s", api.lorawan.dr.set(DR_3) ? "Success" : "Fail");
 		MYLOG("JOIN-CB", "Disable ADR  %s", api.lorawan.adr.set(false) ? "Success" : "Fail");
 		Serial.println("+EVT:JOINED");
+#ifndef _VARIANT_RAK3172_SIP_
 		digitalWrite(LED_BLUE, LOW);
+#endif
 		digitalWrite(WB_IO2, LOW);
 	}
 }
@@ -89,10 +93,12 @@ void setup()
 	api.lorawan.registerSendCallback(sendCallback);
 	api.lorawan.registerJoinCallback(joinCallback);
 
+#ifndef _VARIANT_RAK3172_SIP_
 	pinMode(LED_GREEN, OUTPUT);
 	digitalWrite(LED_GREEN, HIGH);
 	pinMode(LED_BLUE, OUTPUT);
 	digitalWrite(LED_BLUE, HIGH);
+#endif
 
 	pinMode(WB_IO2, OUTPUT);
 	digitalWrite(WB_IO2, HIGH);
@@ -144,8 +150,10 @@ void setup()
 	// Register the custom AT command to set the send frequency
 	MYLOG("SETUP", "Add custom AT command %s", init_frequency_at() ? "Success" : "Fail");
 
+#ifndef _VARIANT_RAK3172_SIP_
 	// digitalWrite(LED_BLUE, LOW);
 	digitalWrite(LED_GREEN, LOW);
+#endif
 }
 
 /**
@@ -158,7 +166,9 @@ void sensor_handler(void *)
 {
 	digitalWrite(WB_IO2, HIGH);
 	// MYLOG("SENS", "Start");
+#ifndef _VARIANT_RAK3172_SIP_
 	digitalWrite(LED_BLUE, HIGH);
+#endif
 
 	// Check if the node has joined the network
 	if (!api.lorawan.njs.get())

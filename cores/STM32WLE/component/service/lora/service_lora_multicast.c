@@ -443,6 +443,7 @@ int32_t service_lora_lstmulc(McSession_t *iterator)
 
 void MulticastMcpsIndication(McpsIndication_t *mcpsIndication)
 {
+    udrv_serial_log_printf("MULTICAST\r\n");
 }
 
 

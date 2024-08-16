@@ -51,6 +51,21 @@ extern bool udrv_powersave_in_sleep;
 static udrv_system_event_t rui_uart_event = {.request = UDRV_SYS_EVT_OP_SERIAL_UART, .p_context = NULL};
 #endif
 
+void Error_Handler(void)
+{
+    /* USER CODE BEGIN Error_Handler_Debug */
+    /* User can add his own implementation to report the HAL error return state */
+    /* Turn LED3 on */
+
+    //BSP_LED_On(LED3);
+    while (1)
+    {
+        NVIC_SystemReset ();
+    }
+
+    /* USER CODE END Error_Handler_Debug */
+}
+
 void StartReception(SERIAL_PORT Port)
 {
     if (Port == SERIAL_UART1) 
@@ -617,175 +632,6 @@ if(huart->Instance==USART1)
         LpuartDMAdoing = 1;
         udrv_powersave_wake_lock();
     }
-}
-
-/**
-* @brief UART MSP Initialization
-* This function configures the hardware resources used in this example
-* @param huart: UART handle pointer
-* @retval None
-*/
-void HAL_UART_MspInit(UART_HandleTypeDef* huart)
-{
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
-  RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
-
-  if (huart->Instance==USART1) {
-  /** Initializes the peripherals clocks
-  */
-    PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_USART1;
-    PeriphClkInitStruct.Usart1ClockSelection = RCC_USART1CLKSOURCE_HSI;
-    if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
-    {
-      Error_Handler();
-    }
-
-    /* Peripheral clock enable */
-    __HAL_RCC_USART1_CLK_ENABLE();
-
-    if(PinToGPIOx(UART1_TXD_PIN) == GPIOA) {
-        __HAL_RCC_GPIOA_CLK_ENABLE();
-    } else if (PinToGPIOx(UART1_TXD_PIN) == GPIOB) {
-        __HAL_RCC_GPIOB_CLK_ENABLE();
-    }
-    /**USART1 GPIO Configuration
-    PB7     ------> USART1_RX
-    PB6     ------> USART1_TX
-    */
-    __HAL_RCC_GPIOB_CLK_ENABLE();
-    if(huart1.AdvancedInit.AdvFeatureInit == UART_ADVFEATURE_SWAP_INIT)
-    {
-        GPIO_InitStruct.Pin = PinToGPIO_Pin(UART1_RXD_PIN);
-        GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
-    }
-    else
-    {
-        GPIO_InitStruct.Pin = PinToGPIO_Pin(UART1_TXD_PIN) | PinToGPIO_Pin(UART1_RXD_PIN);
-        GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    }
-    GPIO_InitStruct.Pull = GPIO_PULLUP;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-    GPIO_InitStruct.Alternate = GPIO_AF7_USART1;
-    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-
-    hdma_usart1_rx.Instance = DMA1_Channel4;
-    hdma_usart1_rx.Init.Request = DMA_REQUEST_USART1_RX;
-    hdma_usart1_rx.Init.Direction = DMA_PERIPH_TO_MEMORY;
-    hdma_usart1_rx.Init.PeriphInc = DMA_PINC_DISABLE;
-    hdma_usart1_rx.Init.MemInc = DMA_MINC_ENABLE;
-    hdma_usart1_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
-    hdma_usart1_rx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
-    hdma_usart1_rx.Init.Mode = DMA_NORMAL;
-    hdma_usart1_rx.Init.Priority = DMA_PRIORITY_LOW;
-    if (HAL_DMA_Init(&hdma_usart1_rx) != HAL_OK)
-    {
-      Error_Handler();
-    }
-
-    __HAL_LINKDMA(huart,hdmarx,hdma_usart1_rx);
-    /* USART1 interrupt Init */
-    HAL_NVIC_SetPriority(USART1_IRQn, 0, 0);
-    HAL_NVIC_EnableIRQ(USART1_IRQn);
-  }
-  else if(huart->Instance==LPUART1)
-  {
-    PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_LPUART1;
-    if(huart->Init.BaudRate <= 2400)
-    {
-      PeriphClkInitStruct.Lpuart1ClockSelection = RCC_LPUART1CLKSOURCE_LSE;
-    }
-    else
-    {
-      PeriphClkInitStruct.Lpuart1ClockSelection = RCC_LPUART1CLKSOURCE_HSI;
-    }
-    if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
-    {
-      Error_Handler();
-    }
-
-    /* Peripheral clock enable */
-    __HAL_RCC_LPUART1_CLK_ENABLE();
-
-    __HAL_RCC_GPIOA_CLK_ENABLE();
-    /**LPUART1 GPIO Configuration
-    PA2     ------> UART2_TX
-    PA3     ------> UART2_RX
-    */
-    GPIO_InitStruct.Pin = PinToGPIO_Pin(UART2_TXD_PIN)|PinToGPIO_Pin(UART2_RXD_PIN);
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_PULLUP;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-    GPIO_InitStruct.Alternate = GPIO_AF8_LPUART1;
-    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-    /* LPUART1 DMA Init */
-    /* LPUART1_RX Init */
-    hdma_lpuart1_rx.Instance = DMA1_Channel1;
-    hdma_lpuart1_rx.Init.Request = DMA_REQUEST_LPUART1_RX;
-    hdma_lpuart1_rx.Init.Direction = DMA_PERIPH_TO_MEMORY;
-    hdma_lpuart1_rx.Init.PeriphInc = DMA_PINC_DISABLE;
-    hdma_lpuart1_rx.Init.MemInc = DMA_MINC_ENABLE;
-    hdma_lpuart1_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
-    hdma_lpuart1_rx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
-    hdma_lpuart1_rx.Init.Mode = DMA_CIRCULAR;
-    hdma_lpuart1_rx.Init.Priority = DMA_PRIORITY_LOW;
-    if (HAL_DMA_Init(&hdma_lpuart1_rx) != HAL_OK)
-    {
-      Error_Handler();
-    }
-
-    __HAL_LINKDMA(huart,hdmarx,hdma_lpuart1_rx);
-
-    // /* LPUART1 interrupt Init */
-    HAL_NVIC_SetPriority(LPUART1_IRQn, 0, 0);
-    HAL_NVIC_EnableIRQ(LPUART1_IRQn);
-  }
-}
-
-/**
-* @brief UART MSP De-Initialization
-* This function freeze the hardware resources used in this example
-* @param huart: UART handle pointer
-* @retval None
-*/
-void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
-{
-  if (huart->Instance==USART1) {
-    /* Peripheral clock disable */
-
-    __HAL_RCC_USART1_CLK_DISABLE();
-
-    /**USART1 GPIO Configuration
-    PB7     ------> USART1_RX
-    PB6     ------> USART1_TX
-    */
-    HAL_GPIO_DeInit(PinToGPIOx(UART1_TXD_PIN), PinToGPIO_Pin(UART1_TXD_PIN) | PinToGPIO_Pin(UART1_RXD_PIN));
-
-    /* USART1 DMA DeInit */
-    HAL_DMA_DeInit(huart->hdmarx);
-
-    /* USART1 interrupt DeInit */
-    HAL_NVIC_DisableIRQ(USART1_IRQn);
-  }
-  else if(huart->Instance==LPUART1)
-  {
-    /* Peripheral clock disable */
-    __HAL_RCC_LPUART1_CLK_DISABLE();
-
-    /**LPUART1 GPIO Configuration
-    PA2     ------> LPUART1_TX
-    PA3     ------> LPUART1_RX
-    */
-    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_2|GPIO_PIN_3);
-
-    /* LPUART1 DMA DeInit */
-    HAL_DMA_DeInit(huart->hdmatx);
-
-    /* LPUART1 interrupt DeInit */
-    HAL_NVIC_DisableIRQ(LPUART1_IRQn);
-  }
-
 }
 
 //HAL_UART_ErrorCallback

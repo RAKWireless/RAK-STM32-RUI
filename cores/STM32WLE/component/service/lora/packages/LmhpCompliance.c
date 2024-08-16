@@ -171,7 +171,7 @@ static void OnTxPeriodicityChanged( uint32_t periodicity );
 static void OnTxFrameCtrlChanged( LmHandlerMsgTypes_t isTxConfirmed );
 static void OnPingSlotPeriodicityChanged( uint8_t pingSlotPeriodicity );
 
-static LmhPackage_t CompliancePackage = {
+LmhPackage_t CompliancePackage = {
     .Port                    = COMPLIANCE_PORT,
     .Init                    = LmhpComplianceInit,
     .IsInitialized           = LmhpComplianceIsInitialized,

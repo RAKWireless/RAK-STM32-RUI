@@ -58,7 +58,7 @@ static CommissioningParams_t CommissioningParams =
     .DevAddr = ( uint32_t )0x00000000,
 };
 
-LmhPackage_t *LmHandlerPackages[PKG_MAX_NUMBER];
+extern LmhPackage_t *LmHandlerPackages[PKG_MAX_NUMBER];
 
 /*!
  * Upper layer LoRaMac parameters
@@ -243,18 +243,12 @@ typedef enum PackageNotifyTypes_e
  * \param[IN] params      Notification parameters. The params type can be
  *                        [McpsConfirm_t, McpsIndication_t, MlmeConfirm_t, MlmeIndication_t]
  */
-void LmHandlerPackagesNotify( PackageNotifyTypes_t notifyType, void *params );
+static void LmHandlerPackagesNotify( PackageNotifyTypes_t notifyType, void *params );
 
 static bool LmHandlerPackageIsTxPending( void );
 
-LmHandlerErrorStatus_t LmHandlerInit( LmHandlerCallbacks_t *handlerCallbacks,
-                                      LmHandlerParams_t *handlerParams )
-{
-    LmHandlerParams = handlerParams;
-    LmHandlerCallbacks = handlerCallbacks;
-}
 
-/*LmHandlerErrorStatus_t LmHandlerInit( LmHandlerCallbacks_t *handlerCallbacks,
+LmHandlerErrorStatus_t LmHandlerInit( LmHandlerCallbacks_t *handlerCallbacks,
                                       LmHandlerParams_t *handlerParams )
 {
     //
@@ -363,7 +357,7 @@ LmHandlerErrorStatus_t LmHandlerInit( LmHandlerCallbacks_t *handlerCallbacks,
         }
     }
     return LORAMAC_HANDLER_SUCCESS;
-}*/
+}
 
 bool LmHandlerIsBusy( void )
 {
@@ -371,12 +365,12 @@ bool LmHandlerIsBusy( void )
     {
         return true;
     }
-    /*if( LmHandlerJoinStatus( ) != LORAMAC_HANDLER_SET )
+    if( LmHandlerJoinStatus( ) != LORAMAC_HANDLER_SET )
     {
         // The network isn't yet joined, try again later.
         LmHandlerJoin( );
         return true;
-    }*/
+    }
 
     if( LmHandlerPackageIsTxPending( ) == true )
     {
@@ -400,12 +394,15 @@ void LmHandlerProcess( void )
     LoRaMacProcess( );
 
     // Store to NVM if required
-    //size = NvmDataMgmtStore( );
+    size = NvmDataMgmtStore( );
 
+    if( size > 0 )
+    {
         if( LmHandlerCallbacks->OnNvmDataChange != NULL )
         {
             LmHandlerCallbacks->OnNvmDataChange( LORAMAC_HANDLER_NVM_STORE, size );
         }
+    }
 
     // Call all packages process functions
     LmHandlerPackagesProcess( );
@@ -806,7 +803,7 @@ static void McpsIndication( McpsIndication_t *mcpsIndication )
 #endif
         }
     }
-    //// Call packages RxProcess function
+    // Call packages RxProcess function
     LmHandlerPackagesNotify( PACKAGE_MCPS_INDICATION, mcpsIndication );
 
     if( mcpsIndication->IsUplinkTxPending != 0 )
@@ -1032,8 +1029,8 @@ bool LmHandlerPackageIsInitialized( uint8_t id )
     }
 }
 
-
-void LmHandlerPackagesNotify( PackageNotifyTypes_t notifyType, void *params )
+/*
+static void LmHandlerPackagesNotify( PackageNotifyTypes_t notifyType, void *params )
 {
     for( int8_t i = 0; i < PKG_MAX_NUMBER; i++ )
     {
@@ -1077,7 +1074,7 @@ void LmHandlerPackagesNotify( PackageNotifyTypes_t notifyType, void *params )
         }
     }
 }
-
+*/
 
 static bool LmHandlerPackageIsTxPending( void )
 {
@@ -1085,7 +1082,7 @@ static bool LmHandlerPackageIsTxPending( void )
     {
         if( LmHandlerPackages[i] != NULL )
         {
-            if( (LmHandlerPackages[i] == LmphClockSyncPackageFactory())&&(LmHandlerPackages[i] == LmhpRemoteMcastSetupPackageFactory())&&(LmHandlerPackages[i] == LmhpFragmentationPackageFactory()) &&(LmHandlerPackages[i]->IsTxPending( ) == true) )
+            if( LmHandlerPackages[i]->IsTxPending( ) == true )
             {
                 return true;
             }
@@ -1103,42 +1100,9 @@ void LmHandlerPackagesProcess( void )
             ( LmHandlerPackageIsInitialized( i ) != false ) )
         {
             uint16_t size = 0;
-            //size = NvmDataMgmtStore( );
+            size = NvmDataMgmtStore( );
             LmHandlerPackages[i]->Process( );
         }
     }
-}
-LmHandlerErrorStatus_t LmHandlerFuotaStackPackageRegister(uint8_t id)
-{
-    LmhPackage_t *package = NULL;
-    switch( id )
-    {
-        case PACKAGE_ID_CLOCK_SYNC:
-        {
-            package = LmphClockSyncPackageFactory( );
-            break;
-        }
-        case PACKAGE_ID_REMOTE_MCAST_SETUP:
-        {
-            package = LmhpRemoteMcastSetupPackageFactory( );
-            break;
-        }
-        case PACKAGE_ID_FRAGMENTATION:
-        {
-            package = LmhpFragmentationPackageFactory( );
-            break;
-        }
-    }
-
-    if( package != NULL )
-    {
-        LmHandlerPackages[id] = package;
-        return LORAMAC_HANDLER_SUCCESS;
-    }
-    else
-    {
-        return LORAMAC_HANDLER_ERROR;
-    }
-
 }
 #endif

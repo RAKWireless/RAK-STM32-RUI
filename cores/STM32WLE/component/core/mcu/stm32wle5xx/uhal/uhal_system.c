@@ -39,10 +39,7 @@ unsigned long uhal_sys_random (unsigned long maxvalue) {
 }
 
 int32_t uhal_sys_user_app_timer_create (timer_handler tmr_handler, TimerMode_E mode) {
-    UTIL_TIMER_Mode_t timer_mode = UTIL_TIMER_PERIODIC;
-    if(mode == HTMR_ONESHOT)
-        timer_mode = UTIL_TIMER_ONESHOT;
-    if (UTIL_TIMER_Create((UTIL_TIMER_Object_t *)&uhal_system_user_app_timer_id, 0xFFFFFFFFU, timer_mode, tmr_handler, NULL) == UTIL_TIMER_OK)
+    if (UTIL_TIMER_Create((UTIL_TIMER_Object_t *)&uhal_system_user_app_timer_id, 0xFFFFFFFFU, get_stm_timer_mode(mode), tmr_handler, NULL) == UTIL_TIMER_OK)
     {
         return UDRV_RETURN_OK;
     }

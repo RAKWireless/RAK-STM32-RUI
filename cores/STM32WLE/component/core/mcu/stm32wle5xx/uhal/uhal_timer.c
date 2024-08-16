@@ -47,6 +47,19 @@ static void uhal_sys_timer_handler_dispatcher(SysTimerID_E timer_id)
     udrv_system_event_produce(&rui_sys_timer_event[timer_id]);
 }
 
+UTIL_TIMER_Mode_t get_stm_timer_mode(TimerMode_E mode)
+{
+    switch (mode)
+    {
+    case HTMR_ONESHOT:
+        return UTIL_TIMER_ONESHOT;
+    case HTMR_PERIODIC:
+        return UTIL_TIMER_PERIODIC;
+    default:
+        return UTIL_TIMER_PERIODIC;
+    }
+}
+
 static UTIL_TIMER_Object_t * get_stm_timer_obj(TimerID_E timer_id)
 {
     switch (timer_id)
@@ -97,10 +110,7 @@ int32_t uhal_timer_create(TimerID_E timer_id, timer_handler tmr_handler, TimerMo
     uhal_timer_pdata[timer_id].timer_func = tmr_handler;
 
     UTIL_TIMER_Object_t *stm_timer_object = get_stm_timer_obj(timer_id);
-    UTIL_TIMER_Mode_t timer_mode = UTIL_TIMER_PERIODIC;
-    if(mode == HTMR_ONESHOT)
-        timer_mode = UTIL_TIMER_ONESHOT;
-    if (UTIL_TIMER_Create(stm_timer_object, 0xFFFFFFFFU, timer_mode, uhal_timer_handler_dispatcher, (void *)timer_id) == UTIL_TIMER_OK)
+    if (UTIL_TIMER_Create(stm_timer_object, 0xFFFFFFFFU, get_stm_timer_mode(mode), uhal_timer_handler_dispatcher, (void *)timer_id) == UTIL_TIMER_OK)
     {
         return UDRV_RETURN_OK;
     }
@@ -156,10 +166,7 @@ int32_t uhal_sys_timer_create(SysTimerID_E timer_id, timer_handler tmr_handler, 
     uhal_sys_timer_pdata[timer_id].timer_func = tmr_handler;
 
     UTIL_TIMER_Object_t *stm_timer_object = get_sys_stm_timer_id(timer_id);
-    UTIL_TIMER_Mode_t timer_mode = UTIL_TIMER_PERIODIC;
-    if(mode == HTMR_ONESHOT)
-        timer_mode = UTIL_TIMER_ONESHOT;
-    if (UTIL_TIMER_Create(stm_timer_object, 0xFFFFFFFFU, timer_mode, uhal_sys_timer_handler_dispatcher, (void *)timer_id) == UTIL_TIMER_OK)
+    if (UTIL_TIMER_Create(stm_timer_object, 0xFFFFFFFFU, get_stm_timer_mode(mode), uhal_sys_timer_handler_dispatcher, (void *)timer_id) == UTIL_TIMER_OK)
     {
         return UDRV_RETURN_OK;
     }

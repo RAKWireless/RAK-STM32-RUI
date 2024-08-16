@@ -47,7 +47,7 @@
 typedef struct LmhpClockSyncState_s
 {
     bool Initialized;
-    bool IsTxPending;
+    bool IsRunning;
     uint8_t DataBufferMaxSize;
     uint8_t *DataBuffer;
     union
@@ -106,7 +106,7 @@ static bool LmhpClockSyncIsInitialized( void );
  * \retval status Package operation status
  *                [true: Running, false: Not running]
  */
-static bool LmhpClockSyncIsTxPending( void );
+static bool LmhpClockSyncIsRunning( void );
 
 /*!
  * Processes the internal package events.
@@ -126,11 +126,27 @@ static void LmhpClockSyncOnMcpsConfirm( McpsConfirm_t *mcpsConfirm );
  * \param [IN] mcpsIndication     MCPS indication primitive data
  */
 static void LmhpClockSyncOnMcpsIndication( McpsIndication_t *mcpsIndication );
+ 
+
+LmHandlerErrorStatus_t LmhpClockSyncAppTimeReq( void );
+
+
+
+bool LmHandlerIsBusy( void )
+{
+    if( LoRaMacIsBusy( ) == true )
+    {
+        return true;
+    }
+  
+    return false;
+}
+
 
 static LmhpClockSyncState_t LmhpClockSyncState =
 {
     .Initialized = false,
-    .IsTxPending = false,
+    .IsRunning = false,
     .TimeReqParam.Value = 0,
     .AppTimeReqPending = false,
     .AdrEnabledPrev = false,
@@ -143,7 +159,7 @@ static LmhPackage_t LmhpClockSyncPackage =
     .Port = CLOCK_SYNC_PORT,
     .Init = LmhpClockSyncInit,
     .IsInitialized = LmhpClockSyncIsInitialized,
-    .IsTxPending = LmhpClockSyncIsTxPending,
+    .IsRunning = LmhpClockSyncIsRunning,
     .Process = LmhpClockSyncProcess,
     .OnMcpsConfirmProcess = LmhpClockSyncOnMcpsConfirm,
     .OnMcpsIndicationProcess = LmhpClockSyncOnMcpsIndication,
@@ -152,8 +168,13 @@ static LmhPackage_t LmhpClockSyncPackage =
     .OnMacMcpsRequest = NULL,                                  // To be initialized by LmHandler
     .OnMacMlmeRequest = NULL,                                  // To be initialized by LmHandler
     .OnJoinRequest = NULL,                                     // To be initialized by LmHandler
+    .OnSendRequest = NULL,                                     // To be initialized by LmHandler
     .OnDeviceTimeRequest = NULL,                               // To be initialized by LmHandler
-    .OnSysTimeUpdate = NULL,                        // To be initialized by LmHandler
+    #ifdef SUPPORT_FUOTA
+    .OnSysTimeUpdate = OnSysTimeUpdate,                        // To be initialized by LmHandler
+    #else
+    .OnSysTimeUpdate = NULL,
+    #endif
 };
 
  
@@ -170,12 +191,13 @@ static void LmhpClockSyncInit( void * params, uint8_t *dataBuffer, uint8_t dataB
         LmhpClockSyncState.DataBuffer = dataBuffer;
         LmhpClockSyncState.DataBufferMaxSize = dataBufferMaxSize;
         LmhpClockSyncState.Initialized = true;
+        LmhpClockSyncState.IsRunning = true;
     }
     else
     {
+        LmhpClockSyncState.IsRunning = false;
         LmhpClockSyncState.Initialized = false;
     }
-    LmhpClockSyncState.IsTxPending = false;
 }
 
 static bool LmhpClockSyncIsInitialized( void )
@@ -183,9 +205,14 @@ static bool LmhpClockSyncIsInitialized( void )
     return LmhpClockSyncState.Initialized;
 }
 
-static bool LmhpClockSyncIsTxPending( void )
+static bool LmhpClockSyncIsRunning( void )
 {
-    return LmhpClockSyncState.IsTxPending;
+    if( LmhpClockSyncState.Initialized == false )
+    {
+        return false;
+    }
+
+    return LmhpClockSyncState.IsRunning;
 }
 
 static void LmhpClockSyncProcess( void )
@@ -194,6 +221,7 @@ static void LmhpClockSyncProcess( void )
     {
         if( LmhpClockSyncAppTimeReq( ) == LORAMAC_HANDLER_SUCCESS )
         {
+             DBG(" CLOCK_SYNC_FORCE_RESYNC_REQ\r\n"); 
             LmhpClockSyncState.NbTransmissions--;
         }
     }
@@ -243,6 +271,7 @@ static void LmhpClockSyncOnMcpsIndication( McpsIndication_t *mcpsIndication )
                 LmhpClockSyncState.DataBuffer[dataBufferIndex++] = CLOCK_SYNC_PKG_VERSION_ANS;
                 LmhpClockSyncState.DataBuffer[dataBufferIndex++] = CLOCK_SYNC_ID;
                 LmhpClockSyncState.DataBuffer[dataBufferIndex++] = CLOCK_SYNC_VERSION;
+                DBG(" CLOCK_SYNC_PKG_VERSION_REQ\r\n"); 
                 break;
             }
             case CLOCK_SYNC_APP_TIME_ANS:
@@ -251,9 +280,10 @@ static void LmhpClockSyncOnMcpsIndication( McpsIndication_t *mcpsIndication )
 
                 // Check if a more precise time correction has been received.
                 // If yes then don't process and ignore this answer.
-                if( mcpsIndication->DeviceTimeAnsReceived == true )
+                if(( mcpsIndication->DeviceTimeAnsReceived == true ))
                 {
-                    cmdIndex += 5;
+                    //cmdIndex += 5;
+                     DBG("isDeviceTimeAnsReceived\r\n"); 
                     break;
                 }
                 int32_t timeCorrection = 0;
@@ -265,11 +295,16 @@ static void LmhpClockSyncOnMcpsIndication( McpsIndication_t *mcpsIndication )
                 {
                     SysTime_t curTime = { .Seconds = 0, .SubSeconds = 0 };
                     curTime = SysTimeGet( );
+                    uint32_t sec = curTime.Seconds;
                     curTime.Seconds += timeCorrection;
                     SysTimeSet( curTime );
+                     SysTime_t cur = { .Seconds = 0, .SubSeconds = 0 };
+                     cur = SysTimeGet();
+                    DBG("timeCorrection: %d, before time: %u corrected time: %u\r\n",  timeCorrection, sec, curTime.Seconds); 
                     LmhpClockSyncState.TimeReqParam.Fields.TokenReq = ( LmhpClockSyncState.TimeReqParam.Fields.TokenReq + 1 ) & 0x0F;
                     if( LmhpClockSyncPackage.OnSysTimeUpdate != NULL )
                     {
+                        LmhpClockSyncPackage.OnSysTimeUpdate( );
                         if( ( timeCorrection >= -1 ) && ( timeCorrection <= 1 ) )
                         {
                             LmhpClockSyncPackage.OnSysTimeUpdate( );
@@ -277,6 +312,7 @@ static void LmhpClockSyncOnMcpsIndication( McpsIndication_t *mcpsIndication )
 
                     }
                 }
+                DBG(" CLOCK_SYNC_APP_TIME_ANS\r\n"); 
                 break;
             }
             case CLOCK_SYNC_APP_TIME_PERIOD_REQ:
@@ -315,7 +351,7 @@ static void LmhpClockSyncOnMcpsIndication( McpsIndication_t *mcpsIndication )
             .BufferSize = dataBufferIndex,
             .Port = CLOCK_SYNC_PORT
         };
-        LmHandlerSend( &appData, LORAMAC_HANDLER_UNCONFIRMED_MSG );
+        LmhpClockSyncPackage.OnSendRequest( &appData, LORAMAC_HANDLER_UNCONFIRMED_MSG );
     }
 }
 
@@ -354,7 +390,6 @@ LmHandlerErrorStatus_t LmhpClockSyncAppTimeReq( void )
         // this package will use DeviceTimeAns answer as clock synchronization
         // mechanism.
         //LmhpClockSyncPackage.OnDeviceTimeRequest( );
-        LmHandlerDeviceTimeReq();
     }
 
     SysTime_t curTime = SysTimeGet( );
@@ -368,7 +403,7 @@ LmHandlerErrorStatus_t LmhpClockSyncAppTimeReq( void )
     LmhpClockSyncState.DataBuffer[dataBufferIndex++] = ( curTime.Seconds >> 8  ) & 0xFF;
     LmhpClockSyncState.DataBuffer[dataBufferIndex++] = ( curTime.Seconds >> 16 ) & 0xFF;
     LmhpClockSyncState.DataBuffer[dataBufferIndex++] = ( curTime.Seconds >> 24 ) & 0xFF;
-    LmhpClockSyncState.TimeReqParam.Fields.AnsRequired = 0;
+    LmhpClockSyncState.TimeReqParam.Fields.AnsRequired = 1;
     LmhpClockSyncState.DataBuffer[dataBufferIndex++] = LmhpClockSyncState.TimeReqParam.Value;
 
     LmHandlerAppData_t appData =
@@ -379,7 +414,8 @@ LmHandlerErrorStatus_t LmhpClockSyncAppTimeReq( void )
     };
     LmhpClockSyncState.AppTimeReqPending = true;
     DBG("send time req"); 
-    return LmHandlerSend( &appData, LORAMAC_HANDLER_UNCONFIRMED_MSG );
+    return LmhpClockSyncPackage.OnSendRequest( &appData, LORAMAC_HANDLER_UNCONFIRMED_MSG );
 }
+
 
 #endif // FUOTA

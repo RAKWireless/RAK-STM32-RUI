@@ -204,21 +204,6 @@
   * @{
   */
 
-void Error_Handler(void)
-{
-    /* USER CODE BEGIN Error_Handler_Debug */
-    /* User can add his own implementation to report the HAL error return state */
-    /* Turn LED3 on */
-
-    //BSP_LED_On(LED3);
-    while (1)
-    {
-        NVIC_SystemReset ();
-    }
-
-    /* USER CODE END Error_Handler_Debug */
-}
-
 /**
   * @brief  Setup the microcontroller system.
   * @param  None

@@ -930,4 +930,3 @@ bool RAKLorawan::arssi(RAK_LORA_chan_rssi *iterator) {
 }
 
 #endif
-

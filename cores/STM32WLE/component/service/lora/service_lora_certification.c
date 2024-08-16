@@ -115,13 +115,8 @@ static void CertifiTimerEvent( void* context )
 uint32_t Certifi_Send(uint8_t port)
 {
     /* No practical significance, just for sending */
-    AppDataSize = 6; 
-    AppDataBuffer[0] = 0x00;
-    AppDataBuffer[1] = 0x00;  
-    AppDataBuffer[2] = 0x01;  
-    AppDataBuffer[3] = 0x02;  
-    AppDataBuffer[4] = 0x00;  
-    AppDataBuffer[5] = 0x00;  
+    AppDataSize = 1; 
+    AppDataBuffer[0] = 0x43;  
     
     int32_t ret = 0;
     SERVICE_LORA_SEND_INFO info;

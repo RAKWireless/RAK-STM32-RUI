@@ -123,7 +123,7 @@
 /*!
  * Default antenna gain
  */
-#define LA915_DEFAULT_ANTENNA_GAIN                  2.15f
+#define LA915_DEFAULT_ANTENNA_GAIN                  0.0f
 
 /*!
  * ADR Ack limit

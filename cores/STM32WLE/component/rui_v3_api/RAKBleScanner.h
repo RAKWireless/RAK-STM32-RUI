@@ -22,6 +22,14 @@ public:
    */
   void start(uint16_t timeout_sec);
 
+  /**@par   Description
+   *        Stop scanning
+   * @par   Syntax
+   *        api.ble.scanner.stop()
+   * @return    void
+   */
+  void stop(void);
+
   /**@par	Description
    *		With BLE scanner , you specify a scan window (how long to scan) and interval (how long to wait between scans).
    * @par	Syntax

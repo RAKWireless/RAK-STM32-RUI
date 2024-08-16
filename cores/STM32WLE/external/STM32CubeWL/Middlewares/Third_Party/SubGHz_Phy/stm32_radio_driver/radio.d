@@ -66,4 +66,6 @@ out/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/r
  /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/mw_log_conf.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/trace/adv_trace/stm32_adv_trace.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/radio_board_if.h \
- /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/mw_log_conf.h
+ /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/mw_log_conf.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/component/udrv/system/udrv_system.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/component/udrv/timer/udrv_timer.h

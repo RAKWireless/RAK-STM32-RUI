@@ -19,7 +19,6 @@ typedef struct uhal_twimst_status {
 } uhal_twimst_status_t;
 
 static uhal_twimst_status_t twimst_status[UDRV_TWIMST_MAX];
-const uhal_twimst_inited;
 
 static void twimst_init(udrv_twimst_port port) {
    // __HAL_RCC_GPIOB_CLK_ENABLE();
@@ -55,7 +54,6 @@ static void twimst_init(udrv_twimst_port port) {
     /** I2C Fast mode Plus enable
     */
     HAL_I2CEx_EnableFastModePlus(I2C_FASTMODEPLUS_I2C2);
-    const uhal_twimst_inited =1;
 }
 
 void uhal_twimst_init(udrv_twimst_port port) {
@@ -172,7 +170,6 @@ void uhal_twimst_resume(void)
 
 void I2C2_EV_IRQHandler(void)
 {
-  if(uhal_twimst_inited)
     HAL_I2C_EV_IRQHandler(&hi2c2);
 }
 
@@ -181,93 +178,6 @@ void I2C2_EV_IRQHandler(void)
   */
 void I2C2_ER_IRQHandler(void)
 {
-  if(uhal_twimst_inited)
     HAL_I2C_ER_IRQHandler(&hi2c2);
-}
-
-/**
-* @brief I2C MSP Initialization
-* This function configures the hardware resources used in this example
-* @param hi2c: I2C handle pointer
-* @retval None
-*/
-void HAL_I2C_MspInit(I2C_HandleTypeDef* hi2c)
-{
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
-  RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
-  if(hi2c->Instance==I2C2)
-  {
-  /* USER CODE BEGIN I2C2_MspInit 0 */
-
-  /* USER CODE END I2C2_MspInit 0 */
-  /** Initializes the peripherals clocks
-  */
-    PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_I2C2;
-    PeriphClkInitStruct.I2c2ClockSelection = RCC_I2C2CLKSOURCE_PCLK1;
-    if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
-    {
-      Error_Handler();
-    }
-
-    if(PinToGPIOx(I2C2_SCL) == GPIOA) {
-        __HAL_RCC_GPIOA_CLK_ENABLE();
-    } else if (PinToGPIOx(I2C2_SCL) == GPIOB) {
-        __HAL_RCC_GPIOB_CLK_ENABLE();
-    }
-
-    /**I2C2 GPIO Configuration
-    PA11     ------> I2C2_SDA
-    PA12     ------> I2C2_SCL
-    */
-    GPIO_InitStruct.Pin = PinToGPIO_Pin(I2C2_SCL) | PinToGPIO_Pin(I2C2_SDA);
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
-    GPIO_InitStruct.Pull = GPIO_PULLUP;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-    GPIO_InitStruct.Alternate = GPIO_AF4_I2C2;
-    HAL_GPIO_Init(PinToGPIOx(I2C2_SCL), &GPIO_InitStruct);
-
-    /* Peripheral clock enable */
-    __HAL_RCC_I2C2_CLK_ENABLE();
-  /* USER CODE BEGIN I2C2_MspInit 1 */
-    HAL_NVIC_SetPriority(I2C2_EV_IRQn, 0, 0);
-    HAL_NVIC_EnableIRQ(I2C2_EV_IRQn);
-    HAL_NVIC_SetPriority(I2C2_ER_IRQn, 0, 0);
-    HAL_NVIC_EnableIRQ(I2C2_ER_IRQn);
-
-  /* USER CODE END I2C2_MspInit 1 */
-  }
-
-}
-/**
-* @brief I2C MSP De-Initialization
-* This function freeze the hardware resources used in this example
-* @param hi2c: I2C handle pointer
-* @retval None
-*/
-void HAL_I2C_MspDeInit(I2C_HandleTypeDef* hi2c)
-{
-  if(hi2c->Instance==I2C2)
-  {
-  /* USER CODE BEGIN I2C2_MspDeInit 0 */
-
-  /* USER CODE END I2C2_MspDeInit 0 */
-    /* Peripheral clock disable */
-    __HAL_RCC_I2C2_CLK_DISABLE();
-
-    /**I2C2 GPIO Configuration
-    PB7     ------> I2C2_SDA
-    PB8     ------> I2C2_SCL
-    */
-    HAL_GPIO_DeInit(PinToGPIOx(I2C2_SCL), PinToGPIO_Pin(I2C2_SCL) | PinToGPIO_Pin(I2C2_SDA));
-
-    /* I2C1 interrupt DeInit */
-    HAL_NVIC_DisableIRQ(I2C2_EV_IRQn);
-    HAL_NVIC_DisableIRQ(I2C2_ER_IRQn);
-    
-  /* USER CODE BEGIN I2C2_MspDeInit 1 */
-  
-  /* USER CODE END I2C2_MspDeInit 1 */
-  }
-  
 }
 

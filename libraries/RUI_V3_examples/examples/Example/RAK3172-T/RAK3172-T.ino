@@ -3,7 +3,8 @@ extern const char *sw_version;
 
 void setup()
 {
-    Serial.begin(115200);
+    uint32_t baudrate = Serial.getBaudrate();
+    Serial.begin(baudrate);
     Serial.println("RAKwireless RAK3172-T");
     Serial.println("------------------------------------------------------");
     Serial.printf("Version: %s\r\n", sw_version);

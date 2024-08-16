@@ -3783,4 +3783,3 @@ channel mask
 #endif
 
 #endif //end lorawan.h
-

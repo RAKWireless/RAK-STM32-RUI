@@ -30,7 +30,7 @@ extern "C" {
 /*!
  * If set to 1 the new API defining \ref OnSysTimeUpdate callback is used.
  */
-#define LMH_SYS_TIME_UPDATE_NEW_API                 0
+#define LMH_SYS_TIME_UPDATE_NEW_API                 1
 
 /*!
  *

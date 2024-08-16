@@ -241,11 +241,7 @@ size_t Print::printf(const char *val, ...)
   va_list ap;
   va_start(ap, val);
 
-#ifdef rak3172
-  len = tiny_vsnprintf_like(buf,256,val, ap);
-#else
   len = vsnprintf(buf, 256, val, ap);
-#endif
   this->write(buf, len);
 
   va_end(ap);
