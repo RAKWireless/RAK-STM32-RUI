@@ -108,20 +108,6 @@ static uint32_t crc32(uint8_t *buffer, uint16_t length)
   return ~crc;
 }
 
-#ifdef SUPPORT_FUOTA  
-LmhpFragmentationParams_t LmhpFragmentationParams =
-{
-  .DecoderCallbacks =
-  {
-        .FragDecoderWrite = udrv_flash_write,
-        .FragDecoderRead = udrv_flash_read,
-  },
-  .OnProgress = OnFragProgress,           // should be OnUpdateAgentFragProgress to use Actility lib handling progress
-  .OnDone = OnFragDone         // the only API hook with Actility lib right now
-};
-#endif   //FUOTA
-
-
 //creat_start_timer
 void creat_start_timer(TimerID_E timer_id, timer_handler tmr_handler,uint32_t count)
 {
@@ -224,14 +210,6 @@ void UplinkProcess( void )
     IsTxFramePending = 0;
 }
   
-
-void OnSysTimeUpdate(void)
-{
-    IsClockSynched = true;
-}
-
-
-
 
 void OnFragProgress(uint16_t fragCounter, uint16_t fragNb, uint8_t fragSize, uint16_t fragNbLost)
 {
