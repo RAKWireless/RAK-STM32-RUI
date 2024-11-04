@@ -7,7 +7,7 @@ out/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/r
  /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/utilities_conf.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_mem.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h \
- /home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.7.0/src/radio/radio.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.4.7/src/radio/radio.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio_fw.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio_driver.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/radio_conf.h \

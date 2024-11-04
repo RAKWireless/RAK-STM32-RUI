@@ -64,40 +64,6 @@ Reset_Handler:
 /* Call the clock system initialization function.*/
   bl  SystemInit
 
-#if defined(SUPPORT_FUOTA) && defined(rak3172)
-/* Copy the data segment initializers from flash to SRAM */
-  ldr r0, =_sdata_lora
-  ldr r1, =_edata_lora
-  ldr r2, =_sidata_lora
-  movs r3, #0
-  b LoopCopyDataInit_lora
-
-CopyDataInit_lora:
-  ldr r4, [r2, r3]
-  str r4, [r0, r3]
-  adds r3, r3, #4
-
-LoopCopyDataInit_lora:
-  adds r4, r0, r3
-  cmp r4, r1
-  bcc CopyDataInit_lora
-
-
-/* Zero fill the bss segment. */
-  ldr r2, =_sbss_lora
-  ldr r4, =_ebss_lora
-  movs r3, #0
-  b LoopFillZerobss_lora
-
-FillZerobss_lora:
-  str  r3, [r2]
-  adds r2, r2, #4
-
-LoopFillZerobss_lora:
-  cmp r2, r4
-  bcc FillZerobss_lora
-#endif
-
 /* Copy the data segment initializers from flash to SRAM */
   ldr r0, =_sdata
   ldr r1, =_edata

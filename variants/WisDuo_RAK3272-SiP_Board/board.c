@@ -19,10 +19,3 @@ void BoardCriticalSectionEnd(uint32_t *mask)
 void BoardInitMcu(void)
 {
 }
-
-void BoardResetMcu( void )
-{
-    //Restart system
-    NVIC_SystemReset( );
-}
-

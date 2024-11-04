@@ -17,7 +17,10 @@ static GPIO_InitTypeDef gpio[M_MAX_GPIO_PIN];
 static gpio_intc_trigger_mode_t uhal_gpio_wakeup_mode = GPIO_INTC_RISING_FALLING_EDGE;
 
 typedef struct uhal_gpio_status {
-    uint8_t is_init;
+    uint32_t Mode;
+    uint32_t Pull;
+    uint32_t Speed;
+    uint32_t Alternate;
     bool wakeup_source;
 } uhal_gpio_status_t;
 
@@ -73,32 +76,30 @@ void uhal_gpio_init(uint32_t pin, gpio_dir_t dir, gpio_pull_t pull, gpio_logic_t
         return;
     }
 
-    GPIO_InitTypeDef gpio;
-    gpio.Pin = PinToGPIO_Pin(pin);
-    gpio.Speed = GPIO_SPEED_FREQ_HIGH;
+    gpio[pin].Pin = PinToGPIO_Pin(pin);
+    gpio[pin].Speed = GPIO_SPEED_FREQ_HIGH;
 
     if (pull == GPIO_PULL_DOWN) {
-        gpio.Pull = GPIO_PULLDOWN;
+        gpio[pin].Pull = GPIO_PULLDOWN;
     } else if (pull == GPIO_PULL_UP) {
-        gpio.Pull = GPIO_PULLUP;
+        gpio[pin].Pull = GPIO_PULLUP;
     } else if (pull == GPIO_PULL_NONE) {
-        gpio.Pull = GPIO_NOPULL;
+        gpio[pin].Pull = GPIO_NOPULL;
     }
 
     if(dir == GPIO_DIR_OUT) {
-        gpio.Mode = GPIO_MODE_OUTPUT_PP;
+        gpio[pin].Mode = GPIO_MODE_OUTPUT_PP;
     } else if (dir == GPIO_DIR_IN) {
-        gpio.Mode = GPIO_MODE_INPUT;
+        gpio[pin].Mode = GPIO_MODE_INPUT;
     }
 
-    HAL_GPIO_Init(PinToGPIOx(pin), &gpio);
+    HAL_GPIO_Init(PinToGPIOx(pin), &gpio[pin]);
 
     if (logic == GPIO_LOGIC_LOW) {
         HAL_GPIO_WritePin(PinToGPIOx(pin), PinToGPIO_Pin(pin), GPIO_PIN_RESET);
     } else if (logic == GPIO_LOGIC_HIGH) {
         HAL_GPIO_WritePin(PinToGPIOx(pin), PinToGPIO_Pin(pin), GPIO_PIN_SET);
     }
-    gpio_status[pin].is_init = 1;
 }
 
 void uhal_gpio_set_dir(uint32_t pin, gpio_dir_t dir) {
@@ -106,18 +107,17 @@ void uhal_gpio_set_dir(uint32_t pin, gpio_dir_t dir) {
         return;
     }
 
-    GPIO_InitTypeDef gpio;
-    gpio.Pin = PinToGPIO_Pin(pin);
-    gpio.Speed = GPIO_SPEED_FREQ_HIGH;
-    gpio.Pull = GPIO_NOPULL;
+    gpio[pin].Pin = PinToGPIO_Pin(pin);
+    gpio[pin].Speed = GPIO_SPEED_FREQ_HIGH;
+    gpio[pin].Pull = GPIO_NOPULL;
 
     if(dir == GPIO_DIR_OUT) {
-        gpio.Mode = GPIO_MODE_OUTPUT_PP;
+        gpio[pin].Mode = GPIO_MODE_OUTPUT_PP;
     } else if (dir == GPIO_DIR_IN) {
-        gpio.Mode = GPIO_MODE_INPUT; 
+        gpio[pin].Mode = GPIO_MODE_INPUT; 
     }
 
-    HAL_GPIO_Init(PinToGPIOx(pin), &gpio);
+    HAL_GPIO_Init(PinToGPIOx(pin), &gpio[pin]);
 
 }
 
@@ -125,40 +125,30 @@ gpio_dir_t uhal_gpio_get_dir(uint32_t pin){
     if (pin >= M_MAX_GPIO_PIN) {
         return;
     }
-    uint32_t ret = LL_GPIO_GetPinMode(PinToGPIOx(pin), PinToGPIO_Pin(pin));
-    if( ret == LL_GPIO_MODE_INPUT)
-        return GPIO_DIR_IN;
-    else if(ret == LL_GPIO_MODE_OUTPUT)
+
+    if(gpio[pin].Mode == GPIO_MODE_OUTPUT_PP) {
         return GPIO_DIR_OUT;
+    } else if (gpio[pin].Mode == GPIO_MODE_INPUT) {
+        return GPIO_DIR_IN;
+    } 
 }
 
 void uhal_gpio_set_pull(uint32_t pin, gpio_pull_t pull) {
     if (pin >= M_MAX_GPIO_PIN) {
         return;
     }
-    GPIO_InitTypeDef gpio;
-
-    gpio_dir_t dir = uhal_gpio_get_dir(pin);
-    if(dir == GPIO_DIR_OUT) {        
-        gpio.Mode = GPIO_MODE_OUTPUT_PP;
-    } else if (dir == GPIO_DIR_IN) {        
-        gpio.Mode = GPIO_MODE_INPUT;
-    }
 
     HAL_GPIO_DeInit(PinToGPIOx(pin), PinToGPIO_Pin(pin));
 
-    gpio.Pin = PinToGPIO_Pin(pin);
-    gpio.Speed = GPIO_SPEED_FREQ_HIGH;
-
     if (pull == GPIO_PULL_DOWN) {
-        gpio.Pull = GPIO_PULLDOWN;
+        gpio[pin].Pull = GPIO_PULLDOWN;
     } else if (pull == GPIO_PULL_UP) {
-        gpio.Pull = GPIO_PULLUP;
+        gpio[pin].Pull = GPIO_PULLUP;
     } else if (pull == GPIO_PULL_NONE) {
-        gpio.Pull = GPIO_NOPULL;
+        gpio[pin].Pull = GPIO_NOPULL;
     }
 
-    HAL_GPIO_Init(PinToGPIOx(pin), &gpio);
+    HAL_GPIO_Init(PinToGPIOx(pin), &gpio[pin]);
 }
 
 void uhal_gpio_set_logic(uint32_t pin, gpio_logic_t logic) {
@@ -199,24 +189,23 @@ void uhal_gpio_intc_trigger_mode(uint32_t pin, gpio_intc_trigger_mode_t mode) {
     }
 
     /*GPIO init*/
-    GPIO_InitTypeDef gpio;
-    gpio.Pin = PinToGPIO_Pin(pin);
-    gpio.Speed = GPIO_SPEED_FREQ_HIGH;
+    gpio[pin].Pin = PinToGPIO_Pin(pin);
+    gpio[pin].Speed = GPIO_SPEED_FREQ_HIGH;
 
     switch (mode) {
         case GPIO_INTC_HIGH_LEVEL:
         case GPIO_INTC_RISING_EDGE:
             //gpio[pin].Pull = GPIO_PULLDOWN;
-            gpio.Mode = GPIO_MODE_IT_RISING;
+            gpio[pin].Mode = GPIO_MODE_IT_RISING;
             break;
         case GPIO_INTC_LOW_LEVEL:
         case GPIO_INTC_FALLING_EDGE:
             //gpio[pin].Pull = GPIO_PULLUP;
-            gpio.Mode = GPIO_MODE_IT_FALLING;
+            gpio[pin].Mode = GPIO_MODE_IT_FALLING;
             break;
         default:
             //gpio[pin].Pull = GPIO_PULLDOWN;
-            gpio.Mode = GPIO_MODE_IT_RISING_FALLING;
+            gpio[pin].Mode = GPIO_MODE_IT_RISING_FALLING;
             break;
     }
 
@@ -224,14 +213,14 @@ void uhal_gpio_intc_trigger_mode(uint32_t pin, gpio_intc_trigger_mode_t mode) {
         case LL_GPIO_PULL_NO:
             break;
         case LL_GPIO_PULL_UP:
-            gpio.Pull = GPIO_PULLUP;
+            gpio[pin].Pull = GPIO_PULLUP;
             break;
         case LL_GPIO_PULL_DOWN:
-            gpio.Pull = GPIO_PULLDOWN;
+            gpio[pin].Pull = GPIO_PULLDOWN;
             break;
     }
 
-    HAL_GPIO_Init(PinToGPIOx(pin), &gpio);
+    HAL_GPIO_Init(PinToGPIOx(pin), &gpio[pin]);
 
     /*NVIC init*/
     uint8_t pin_number = pin % GPIO_NUMBER;
@@ -317,6 +306,11 @@ void uhal_gpio_suspend(void) {
             continue;
         }
 
+        gpio_status[i].Mode = gpio[i].Mode;
+        gpio_status[i].Pull = gpio[i].Pull;
+        gpio_status[i].Speed = gpio[i].Speed;
+        gpio_status[i].Alternate = gpio[i].Alternate;
+
         if (gpio_status[i].wakeup_source == true) 
         {
             uhal_gpio_wakeup_trigger_mode(i, uhal_gpio_wakeup_mode);    
@@ -344,21 +338,13 @@ void uhal_gpio_resume(void) {
         if (sg_gpio_isr[i] != NULL) {
             continue;
         }
-        if (gpio_status[i].is_init == 1)
-        {
-            GPIO_InitTypeDef gpio;
-            gpio.Pin = PinToGPIO_Pin(i);
-            gpio.Speed = GPIO_SPEED_FREQ_HIGH;
-            gpio.Pull = LL_GPIO_GetPinPull(PinToGPIOx(i), PinToGPIO_Pin(i));
-            gpio_dir_t dir = uhal_gpio_get_dir(i);
-            if(dir == GPIO_DIR_OUT) {
-                gpio.Mode = GPIO_MODE_OUTPUT_PP;
-            } else if (dir == GPIO_DIR_IN) {
-                gpio.Mode = GPIO_MODE_INPUT;
-            }
 
-            HAL_GPIO_Init(PinToGPIOx(i), &gpio);
-        }
+        gpio[i].Mode = gpio_status[i].Mode;
+        gpio[i].Pull = gpio_status[i].Pull;
+        gpio[i].Speed = gpio_status[i].Speed;
+        gpio[i].Alternate = gpio_status[i].Alternate;
+
+        HAL_GPIO_Init(PinToGPIOx(i), &gpio[i]);
     }
 }
 

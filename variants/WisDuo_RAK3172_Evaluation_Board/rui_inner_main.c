@@ -316,12 +316,6 @@ void rui_event_handler_func(void *data, uint16_t size) {
         }
         default:
         {
-#ifdef SUPPORT_LORA
-            if( Radio.IrqProcess != NULL )
-            {
-                Radio.IrqProcess( );
-            }
-#endif
             break;
         }
     }
@@ -341,9 +335,6 @@ void rui_init(void)
     udrv_serial_init(SERIAL_UART1, baudrate, SERIAL_WORD_LEN_8, SERIAL_STOP_BIT_1, SERIAL_PARITY_DISABLE, SERIAL_TWO_WIRE_NORMAL_MODE);
     udrv_serial_init(SERIAL_UART2, baudrate, SERIAL_WORD_LEN_8, SERIAL_STOP_BIT_1, SERIAL_PARITY_DISABLE, SERIAL_TWO_WIRE_NORMAL_MODE);
 #if defined(SUPPORT_LORA)
-#ifdef LORA_STACK_104
-    service_lora_mac_nvm_data_init();
-#endif
     service_lora_init(service_nvm_get_band_from_nvm());
 #elif defined(SUPPORT_LORA_P2P)
     BoardInitMcu();
@@ -380,13 +371,6 @@ void rui_init(void)
 #endif
 
     udrv_system_event_init();
-
-#ifdef SUPPORT_LORA
-#ifdef LORA_STACK_104
-    if(service_nvm_get_certi_from_nvm() == 1)
-        service_lora_certification(1);
-#endif
-#endif
 }
 
 void rui_running(void)
@@ -396,7 +380,6 @@ void rui_running(void)
 #endif
 
     udrv_system_event_consume();
-    LmHandlerPackagesProcess();
 }
 
 #ifdef SUPPORT_MULTITASK
@@ -436,6 +419,26 @@ void main(void)
     //SWO clk
     __HAL_RCC_GPIOB_CLK_ENABLE();
 
+#if 1
+    //dirty workaround
+    {
+        extern int _sidata, _sdata, _edata;
+        extern const at_cmd_info atcmd_info_tbl[];
+
+        uint32_t offset = (uint32_t)atcmd_info_tbl - (uint32_t)&_sdata;
+        uint32_t length = sizeof(at_cmd_info)*At_CmdGetTotalNum();
+
+        for (uint32_t i = 0 ; i < length ; i+=4) {
+            uint8_t buff[4];
+            udrv_flash_read((uint32_t)&_sidata+offset+i, 4, buff);
+            for (int j = 0 ; j < 4 ; j++) {
+                if (*(uint8_t *)((uint32_t)&_sdata+offset+i+j) != buff[j]) {
+                    *(uint8_t *)((uint32_t)&_sdata+offset+i+j) = buff[j];
+                }
+            }
+        }
+    }
+#endif
 
 #ifndef SUPPORT_MULTITASK
     //user init

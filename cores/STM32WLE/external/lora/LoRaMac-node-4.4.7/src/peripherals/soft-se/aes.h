@@ -40,7 +40,7 @@ extern "C" {
 #if 1
 #  define AES_ENC_PREKEYED  /* AES encryption with a precomputed key schedule  */
 #endif
-#if 0
+#if 1
 #  define AES_DEC_PREKEYED  /* AES decryption with a precomputed key schedule  */
 #endif
 #if 0

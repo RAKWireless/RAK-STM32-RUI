@@ -152,7 +152,7 @@ extern "C"
 /*!
  * Default antenna gain
  */
-#define AS923_DEFAULT_ANTENNA_GAIN                  2.15f
+#define AS923_DEFAULT_ANTENNA_GAIN                  0.0f
 
 /*!
  * Enabled or disabled the duty cycle
@@ -498,6 +498,10 @@ uint8_t RegionAS923ApplyDrOffset( uint8_t downlinkDwellTime, int8_t dr, int8_t d
  void RegionAS923RxBeaconSetup( RxBeaconSetup_t* rxBeaconSetup, uint8_t* outDr );
 
 /*! \} defgroup REGIONAS923 */
+
+void RegionAS923SubBandSet(uint8_t band);
+
+uint8_t RegionAS923SubBandGet();
 
 #ifdef __cplusplus
 }

@@ -20,10 +20,8 @@
  */
 #ifndef __LMHP_COMPLIANCE__
 #define __LMHP_COMPLIANCE__
+
 #ifdef SUPPORT_LORA
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 #include "LoRaMac.h"
 #include "LmHandlerTypes.h"
@@ -41,24 +39,6 @@ extern "C" {
  */
 typedef struct LmhpComplianceParams_s
 {
-#ifdef LORA_STACK_104
-    /*!
-     * Current firmware version
-     */
-    Version_t FwVersion;
-    /*!
-     *
-     */
-    void ( *OnTxPeriodicityChanged )( uint32_t periodicity );
-    /*!
-     *
-     */
-    void ( *OnTxFrameCtrlChanged )( LmHandlerMsgTypes_t isTxConfirmed );
-    /*!
-     *
-     */
-    void ( *OnPingSlotPeriodicityChanged )( uint8_t pingSlotPeriodicity );
-#else
     /*!
      * Holds the ADR state
      */
@@ -83,45 +63,12 @@ typedef struct LmhpComplianceParams_s
      *         reduce the power consumption.
      */
     void ( *StartPeripherals )( void );
-#endif
 }LmhpComplianceParams_t;
 
 LmhPackage_t *LmphCompliancePackageFactory( void );
 
-#ifdef LORA_STACK_104
-typedef struct ClassBStatus_s
-{
-    bool         IsBeaconRxOn;
-    uint8_t      PingSlotPeriodicity;
-    uint16_t     BeaconCnt;
-    BeaconInfo_t Info;
-} ClassBStatus_t;
-
-/*!
- * LoRaWAN compliance tests support data
- */
-typedef struct ComplianceTestState_s
-{
-    bool                Initialized;
-    bool                IsTxPending;
-    TimerTime_t         TxPendingTimestamp;
-    LmHandlerMsgTypes_t IsTxConfirmed;
-    uint8_t             DataBufferMaxSize;
-    uint8_t             DataBufferSize;
-    uint8_t*            DataBuffer;
-    uint16_t            RxAppCnt;
-    bool                IsBeaconRxStatusIndOn;
-    ClassBStatus_t      ClassBStatus;
-    bool                IsResetCmdPending;
-    bool                IsClassReqCmdPending;
-    DeviceClass_t       NewClass;
-} ComplianceTestState_t;
-#else
 void OnComplianceTxNextPacketTimerEvent( void *context );
-#endif
 
-#ifdef __cplusplus
-}
-#endif
 #endif // end SUPPORT_LORA
+
 #endif // __LMHP_COMPLIANCE__

@@ -613,6 +613,20 @@ uint32_t RegionCommonGetBandwidth( uint32_t drIndex, const uint32_t* bandwidths 
 
 /*! \} defgroup REGIONCOMMON */
 
+typedef uint32_t (*IsSingleChannel_t)(void);
+
+typedef uint8_t (*AlternateDr_t)(void);
+
+typedef struct  SingleChannel_s
+{
+    IsSingleChannel_t IsSingleChannel;
+    AlternateDr_t AlternateDr;
+}SingleChannel_t;
+
+int32_t US915_SingleChannelRegisterCallback(SingleChannel_t* SingleChannel);
+
+int32_t AU915_SingleChannelRegisterCallback(SingleChannel_t* SingleChannel);
+
 #ifdef __cplusplus
 }
 #endif

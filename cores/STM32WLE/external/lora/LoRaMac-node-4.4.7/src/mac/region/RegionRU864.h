@@ -115,7 +115,7 @@ extern "C"
 /*!
  * Default antenna gain
  */
-#define RU864_DEFAULT_ANTENNA_GAIN                  2.15f
+#define RU864_DEFAULT_ANTENNA_GAIN                  0.0f
 
 /*!
  * Enabled or disabled the duty cycle

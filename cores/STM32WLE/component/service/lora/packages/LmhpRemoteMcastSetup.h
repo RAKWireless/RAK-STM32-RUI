@@ -45,7 +45,5 @@
 
 LmhPackage_t *LmhpRemoteMcastSetupPackageFactory( void );
 
-bool FUOTA_StartTime_IsRunning(void);
-
 #endif // __LMHP_REMOTE_MCAST_SETUP_H__
 #endif // FUOTA

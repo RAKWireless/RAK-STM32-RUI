@@ -12,7 +12,7 @@
 #ifndef _MAIN_H_
 #define _MAIN_H_
 
-#ifdef _VARIANT_RAK3172_
+#if defined _VARIANT_RAK3172_ || defined _VARIANT_RAK3172_SIP_
 /****************************************************************/
 /* GNSS Location Tracker with RAK3172                           */
 /* Due to limited memory and flash size, if code is used for    */
@@ -69,7 +69,7 @@ struct s_lorawan_settings
 	uint8_t valid_mark_1 = 0xAA;
 	// Just a marker for the Flash
 	uint8_t valid_mark_2 = LORAWAN_DATA_MARKER;
-#ifdef _VARIANT_RAK3172_
+#if defined _VARIANT_RAK3172_ || defined _VARIANT_RAK3172_SIP_
 #if RUI_DEV == 1
 	// OTAA Device EUI MSB
 	uint8_t node_device_eui[8] = {0xac, 0x1f, 0x09, 0xff, 0xf8, 0x68, 0x31, 0x72};
@@ -82,7 +82,7 @@ struct s_lorawan_settings
 	// OTAA Application Key MSB
 	uint8_t node_app_key[16] = {0xef, 0xad, 0xff, 0x29, 0xc7, 0x7b, 0x48, 0x29, 0xac, 0xf7, 0x1e, 0x1a, 0x6e, 0x76, 0xf7, 0x13};
 #endif
-#ifdef _VARIANT_RAK4630_
+#if defined _VARIANT_RAK4630_ || defined _VARIANT_RAK11720_
 	// OTAA Device EUI MSB
 	uint8_t node_device_eui[8] = {0xAC, 0x1F, 0x09, 0xFF, 0xFE, 0x05, 0x71, 0x10};
 	// OTAA Application EUI MSB
@@ -122,11 +122,11 @@ struct s_lorawan_settings
 	uint8_t app_port = 2;
 	// Flag to enable confirmed messages
 	bool confirmed_msg_enabled = false;
-#ifdef _VARIANT_RAK3172_
+#if defined _VARIANT_RAK3172_ || defined _VARIANT_RAK3172_SIP_
 	// Fixed LoRaWAN lorawan_region
 	uint8_t lora_region = RAK_REGION_AS923_3;
 #endif
-#ifdef _VARIANT_RAK4630_
+#if defined _VARIANT_RAK4630_ || defined _VARIANT_RAK11720_
 	// Fixed LoRaWAN lorawan_region
 	uint8_t lora_region = RAK_REGION_EU868;
 #endif

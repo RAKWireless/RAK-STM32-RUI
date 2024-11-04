@@ -22,11 +22,7 @@ void service_debug(const char *fmt, ...)
     {
         case DEBUG_LEVEL_OPEN:
             va_start (aptr, fmt);
-#ifdef rak3172
-            tiny_vsnprintf_like(debug_buf,512,fmt, aptr);
-#else
             vsprintf (debug_buf, fmt, aptr);
-#endif
             va_end (aptr);
             udrv_serial_log_printf(debug_buf);
             break;
@@ -78,15 +74,4 @@ void service_debug_swo(const char *fmt, ...)
     }
     #endif
 }
-#ifdef rak3172
-int tiny_sprintf(char *str, const char *format, ...)
-{
-  va_list ap;
-  int retval;
 
-  va_start(ap, format);
-  retval = tiny_vsnprintf_like(str,512 ,format, ap);
-  va_end(ap);
-  return retval;
-}
-#endif
