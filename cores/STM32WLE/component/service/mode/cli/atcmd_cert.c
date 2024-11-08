@@ -7,7 +7,6 @@
 #include "service_lora_test.h"
 #include "udrv_errno.h"
 
-static uint32_t lct;
 
 int At_Trssi(SERIAL_PORT port, char *cmd, stParam *param)
 {
@@ -368,10 +367,18 @@ int At_Toff(SERIAL_PORT port, char *cmd, stParam *param)
     }
 }
 
+static uint32_t g_lct;
+
 int At_Certif(SERIAL_PORT port, char *cmd, stParam *param)
 {
+    uint32_t lct;
     if (param->argc == 1 && !strcmp(param->argv[0], "?"))
     {
+#ifdef LORA_STACK_104
+        lct = (uint32_t)service_nvm_get_certi_from_nvm();
+#else
+        lct = g_lct;
+#endif
         atcmd_printf("%s=%u\r\n", cmd, lct);
         return AT_OK;
     }
@@ -385,7 +392,14 @@ int At_Certif(SERIAL_PORT port, char *cmd, stParam *param)
 
         if (service_lora_certification(lct) == UDRV_RETURN_OK)
         {
+#ifdef LORA_STACK_104
+            if(service_nvm_set_certi_to_nvm((uint8_t)lct) == UDRV_RETURN_OK)
+                return AT_OK;
+            return AT_ERROR;
+#else
+            g_lct = lct;
             return AT_OK;
+#endif
         }
         else
         {

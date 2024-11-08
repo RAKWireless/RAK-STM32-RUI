@@ -122,7 +122,7 @@ extern "C"
 /*!
  * Default antenna gain
  */
-#define KR920_DEFAULT_ANTENNA_GAIN                  0.0f
+#define KR920_DEFAULT_ANTENNA_GAIN                  2.15f
 
 /*!
  * Enabled or disabled the duty cycle

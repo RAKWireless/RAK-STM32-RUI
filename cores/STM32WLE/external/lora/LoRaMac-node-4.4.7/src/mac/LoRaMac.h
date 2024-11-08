@@ -534,7 +534,6 @@ typedef enum eLoRaMacRegion
      * Russia band on 864MHz
      */
     LORAMAC_REGION_RU864,
-    LORAMAC_REGION_LA915,
 }LoRaMacRegion_t;
 
 typedef struct sLoRaMacNvmDataGroup1

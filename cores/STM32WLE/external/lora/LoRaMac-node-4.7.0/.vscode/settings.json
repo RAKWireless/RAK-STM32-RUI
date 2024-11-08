@@ -1,0 +1,90 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "cmake.configureSettings": {
+
+        // In case your GNU ARM-Toolchain is not installed under the default
+        // path:
+        //     Windows : No default path. Specify the path where the
+        //               toolchain is installed. i.e:
+        //               "C:/PROGRA~2/GNUTOO~1/92019-~1".
+        //     Linux   : /usr
+        //     OSX     : /usr/local
+        // It is required to uncomment and to fill the following line.
+        //"TOOLCHAIN_PREFIX":"/path/to/toolchain",
+
+        // In case your OpenOCD is not installed under the default path:
+        //     Windows : C:/openocd/bin/openocd.exe
+        //     Linux   : /usr/bin/openocd
+        //     OSX     : /usr/local/bin/openocd
+        // Please uncomment the following line and fill it accordingly.
+        //"OPENOCD_BIN":"C:/openocd/bin/openocd.exe",
+
+        // Specifies the path to the CMAKE toolchain file.
+        "CMAKE_TOOLCHAIN_FILE":"cmake/toolchain-arm-none-eabi.cmake",
+
+        // Determines the application. You can choose between:
+        // LoRaMac (Default), ping-pong, rx-sensi, tx-cw.
+        "APPLICATION":"LoRaMac",
+
+        // Select LoRaMac sub project. You can choose between:
+        // periodic-uplink-lpp, fuota-test-01.
+        "SUB_PROJECT":"periodic-uplink-lpp",
+
+        // Select the default LoRaWAN class for periodic-uplink-lpp sub-project
+        // In case `CLASS_B` or `CLASS_C` is selected the example will try to
+        // switch to the given class as soon as possible
+        "LORAWAN_DEFAULT_CLASS":"CLASS_A",
+
+        // Switch for Class B support of LoRaMac:
+        "CLASSB_ENABLED":"ON",
+
+        // Select the active region for which the stack will be initialized.
+        // You can choose between:
+        // LORAMAC_REGION_EU868, LORAMAC_REGION_US915, ..
+        "ACTIVE_REGION":"LORAMAC_REGION_EU868",
+
+        // Select the type of modulation, applicable to the ping-pong or
+        // rx-sensi applications. You can choose between:
+        // LORA or FSK
+        "MODULATION":"LORA",
+
+        // Target board, the following boards are supported:
+        // NAMote72, NucleoL073 (Default), NucleoL152, NucleoL476, SAMR34, SKiM880B, SKiM980A, SKiM881AXL, B-L072Z-LRWAN1.
+        "BOARD":"NucleoL073",
+
+        // MBED Radio shield selection. (Applies only to Nucleo platforms)
+        // The following shields are supported:
+        // SX1272MB2DAS, SX1276MB1LAS, SX1276MB1MAS, SX1261MBXBAS(Default), SX1262MBXCAS, SX1262MBXDAS, LR1110MB1XXS.
+        "MBED_RADIO_SHIELD":"SX1261MBXBAS",
+
+        // Secure element type selection the following are supported
+        // SOFT_SE(Default), LR1110_SE, ATECC608A_TNGLORA_SE
+        "SECURE_ELEMENT":"SOFT_SE",
+
+        // Secure element is pre-provisioned
+        "SECURE_ELEMENT_PRE_PROVISIONED":"ON",
+
+        // Region support activation, Select the ones you want to support.
+        // By default only REGION_EU868 support is enabled.
+        "REGION_EU868":"ON",
+        "REGION_US915":"OFF",
+        "REGION_CN779":"OFF",
+        "REGION_EU433":"OFF",
+        "REGION_AU915":"OFF",
+        "REGION_CN470":"OFF",
+        "REGION_AS923":"OFF",
+        "REGION_KR920":"OFF",
+        "REGION_IN865":"OFF",
+        "REGION_RU864":"OFF",
+
+        // Default channel plan for region AS923. Possible selections:
+        // CHANNEL_PLAN_GROUP_AS923_1, CHANNEL_PLAN_GROUP_AS923_2, CHANNEL_PLAN_GROUP_AS923_3,
+        // CHANNEL_PLAN_GROUP_AS923_4, CHANNEL_PLAN_GROUP_AS923_1_JP_CH24_CH38_LBT, 
+        // CHANNEL_PLAN_GROUP_AS923_1_JP_CH24_CH38_DC, CHANNEL_PLAN_GROUP_AS923_1_JP_CH37_CH61_LBT_DC
+        "REGION_AS923_DEFAULT_CHANNEL_PLAN":"CHANNEL_PLAN_GROUP_AS923_1",
+
+        // Default channel plan for region CN470. Possible selections:
+        // CHANNEL_PLAN_20MHZ_TYPE_A, CHANNEL_PLAN_20MHZ_TYPE_B, CHANNEL_PLAN_26MHZ_TYPE_A, CHANNEL_PLAN_26MHZ_TYPE_B
+        "REGION_CN470_DEFAULT_CHANNEL_PLAN":"CHANNEL_PLAN_20MHZ_TYPE_A"
+    }
+}

@@ -41,6 +41,14 @@ extern "C"
 #define SERVICE_LORA_CHANNEL_80_87 (1 << 10)
 #define SERVICE_LORA_CHANNEL_88_95 (1 << 11)
 
+    typedef enum PackageNotifyTypes_e
+    {
+        PACKAGE_MCPS_CONFIRM,
+        PACKAGE_MCPS_INDICATION,
+        PACKAGE_MLME_CONFIRM,
+        PACKAGE_MLME_INDICATION,
+    }PackageNotifyTypes_t;
+
     typedef enum _SERVICE_LORA_MAC_CMD
     {
         SERVICE_LORA_MAC_CMD_NONE,
@@ -111,6 +119,7 @@ extern "C"
     typedef void (*service_lora_send_cb)(int32_t status);
     typedef void (*service_lora_linkcheck_cb)(SERVICE_LORA_LINKCHECK_T *data);
     typedef void (*service_lora_timereq_cb)(int32_t status);
+    typedef void (*service_lora_mcastsetup_cb)(void);
 
     typedef enum _GET_DEVICE_TIME_STATUS
     {
@@ -305,8 +314,12 @@ extern "C"
 
     LmHandlerErrorStatus_t LmHandlerPackageRegister( uint8_t id, void *params );
     bool LmHandlerPackageIsInitialized( uint8_t id );
+#ifdef LORA_STACK_104
+    LmHandlerErrorStatus_t LmHandlerRequestClass( DeviceClass_t newClass );
+#else
     bool LmHandlerPackageIsRunning( uint8_t id );
     void LmHandlerPackagesProcess( void );
+#endif
 
     int32_t service_lora_init(SERVICE_LORA_BAND band);
 
@@ -508,6 +521,15 @@ extern "C"
     int32_t service_lora_set_lbt_rssi(int16_t rssi);
     uint32_t service_lora_get_lbt_scantime();
     int32_t service_lora_set_lbt_scantime(uint32_t time);
+#ifdef LORA_STACK_104
+    uint16_t service_lora_get_DevNonce(void);
+    int32_t service_lora_set_DevNonce(uint16_t devnonce);
+
+    int32_t service_lora_set_IsCertPortOn(bool IsCertPortOn);
+    uint8_t service_lora_get_IsCertPortOn(void);
+    void restore_abp_config(void);
+#endif
+
     bool service_lora_isbusy(void);
 
     bool service_lora_region_isActive(SERVICE_LORA_BAND band);

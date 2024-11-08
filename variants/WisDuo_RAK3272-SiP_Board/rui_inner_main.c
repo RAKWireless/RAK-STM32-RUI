@@ -333,6 +333,9 @@ void rui_init(void)
     udrv_serial_init(SERIAL_UART1, baudrate, SERIAL_WORD_LEN_8, SERIAL_STOP_BIT_1, SERIAL_PARITY_DISABLE, SERIAL_TWO_WIRE_NORMAL_MODE);
     udrv_serial_init(SERIAL_UART2, baudrate, SERIAL_WORD_LEN_8, SERIAL_STOP_BIT_1, SERIAL_PARITY_DISABLE, SERIAL_TWO_WIRE_NORMAL_MODE);
 #if defined(SUPPORT_LORA)
+#ifdef LORA_STACK_104
+    service_lora_mac_nvm_data_init();
+#endif
     service_lora_init(service_nvm_get_band_from_nvm());
 #elif defined(SUPPORT_LORA_P2P)
     BoardInitMcu();
@@ -370,6 +373,13 @@ void rui_init(void)
 #endif
 
     udrv_system_event_init();
+
+#ifdef SUPPORT_LORA
+#ifdef LORA_STACK_104
+    if(service_nvm_get_certi_from_nvm() == 1)
+        service_lora_certification(1);
+#endif
+#endif
 }
 
 void rui_running(void)

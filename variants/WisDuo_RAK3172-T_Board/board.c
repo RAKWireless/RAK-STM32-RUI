@@ -20,6 +20,13 @@ void BoardInitMcu(void)
 {
 }
 
+void BoardResetMcu( void )
+{
+    //Restart system
+    NVIC_SystemReset( );
+}
+
+
 /*Example uint8_t BoardGetHardwareFreq(void) 
 
 uint8_t hardwareFreq = BoardGetHardwareFreq();

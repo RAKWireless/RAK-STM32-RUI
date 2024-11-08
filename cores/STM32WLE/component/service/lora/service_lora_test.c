@@ -424,10 +424,11 @@ int32_t service_lora_trth(const testParameter_t *param)
         else
             freq_seq[freq_cnt] = param->freq_start + param->hp_step*freq_cnt;
     }
-    srandom(udrv_rtc_get_timestamp((RtcID_E)SYS_RTC_COUNTER_PORT));
+    //srand1(udrv_rtc_get_timestamp((RtcID_E)SYS_RTC_COUNTER_PORT));
+    //srandom(udrv_rtc_get_timestamp((RtcID_E)SYS_RTC_COUNTER_PORT));
     for (int i = 0; i < freq_cnt; i++)
     {
-        j = i + random() / (RAND_MAX / (freq_cnt - i) + 1);
+        j = i + rand1() / (RAND_MAX / (freq_cnt - i) + 1);
         if(j == i)
             j = 0;
         freq_seq[i] = freq_seq[i] ^ freq_seq[j];
