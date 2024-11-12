@@ -683,7 +683,7 @@ Disassembly of section .text:
  8006950:	2100      	movs	r1, #0
  8006952:	a802      	add	r0, sp, #8
  8006954:	f00d fbea 	bl	801412c <memset>
- 8006958:	f022 fd52 	bl	8029400 <HAL_PWR_EnableBkUpAccess>
+ 8006958:	f021 fd52 	bl	8028400 <HAL_PWR_EnableBkUpAccess>
  800695c:	f04f 42b0 	mov.w	r2, #1476395008	; 0x58000000
  8006960:	2400      	movs	r4, #0
  8006962:	f8d2 3090 	ldr.w	r3, [r2, #144]	; 0x90
@@ -713,18 +713,18 @@ Disassembly of section .text:
  80069a8:	9310      	str	r3, [sp, #64]	; 0x40
  80069aa:	9212      	str	r2, [sp, #72]	; 0x48
  80069ac:	9413      	str	r4, [sp, #76]	; 0x4c
- 80069ae:	f020 f9d9 	bl	8026d64 <HAL_RCC_OscConfig>
+ 80069ae:	f01f f9d9 	bl	8025d64 <HAL_RCC_OscConfig>
  80069b2:	b108      	cbz	r0, 80069b8 <SystemClock_Config+0x78>
- 80069b4:	f01b fe42 	bl	802263c <Error_Handler>
+ 80069b4:	f01a fe42 	bl	802163c <Error_Handler>
  80069b8:	234f      	movs	r3, #79	; 0x4f
  80069ba:	2102      	movs	r1, #2
  80069bc:	a802      	add	r0, sp, #8
  80069be:	e9cd 3402 	strd	r3, r4, [sp, #8]
  80069c2:	e9cd 4404 	strd	r4, r4, [sp, #16]
  80069c6:	e9cd 4406 	strd	r4, r4, [sp, #24]
- 80069ca:	f020 fc6d 	bl	80272a8 <HAL_RCC_ClockConfig>
+ 80069ca:	f01f fc6d 	bl	80262a8 <HAL_RCC_ClockConfig>
  80069ce:	b108      	cbz	r0, 80069d4 <SystemClock_Config+0x94>
- 80069d0:	f01b fe34 	bl	802263c <Error_Handler>
+ 80069d0:	f01a fe34 	bl	802163c <Error_Handler>
  80069d4:	b01a      	add	sp, #104	; 0x68
  80069d6:	bd10      	pop	{r4, pc}
 
@@ -741,20 +741,20 @@ Disassembly of section .text:
  80069ef:	00          	.byte	0x00
  80069f0:	7904      	ldrb	r4, [r0, #4]
  80069f2:	4620      	mov	r0, r4
- 80069f4:	f01b ff6c 	bl	80228d0 <service_nvm_get_mode_type_from_nvm>
+ 80069f4:	f01a ff6c 	bl	80218d0 <service_nvm_get_mode_type_from_nvm>
  80069f8:	4620      	mov	r0, r4
  80069fa:	f005 fb1b 	bl	800c034 <service_mode_cli_init>
  80069fe:	2100      	movs	r1, #0
  8006a00:	4620      	mov	r0, r4
  8006a02:	b002      	add	sp, #8
  8006a04:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
- 8006a08:	f01b bf6a 	b.w	80228e0 <service_nvm_set_mode_type_to_nvm>
+ 8006a08:	f01a bf6a 	b.w	80218e0 <service_nvm_set_mode_type_to_nvm>
  8006a0c:	2000      	movs	r0, #0
- 8006a0e:	f01b ff5f 	bl	80228d0 <service_nvm_get_mode_type_from_nvm>
+ 8006a0e:	f01a ff5f 	bl	80218d0 <service_nvm_get_mode_type_from_nvm>
  8006a12:	2801      	cmp	r0, #1
  8006a14:	d126      	bne.n	8006a64 <rui_event_handler_func+0x8c>
  8006a16:	2001      	movs	r0, #1
- 8006a18:	f01b ff5a 	bl	80228d0 <service_nvm_get_mode_type_from_nvm>
+ 8006a18:	f01a ff5a 	bl	80218d0 <service_nvm_get_mode_type_from_nvm>
  8006a1c:	2801      	cmp	r0, #1
  8006a1e:	d004      	beq.n	8006a2a <rui_event_handler_func+0x52>
  8006a20:	2001      	movs	r0, #1
@@ -762,7 +762,7 @@ Disassembly of section .text:
  8006a26:	2800      	cmp	r0, #0
  8006a28:	dc2a      	bgt.n	8006a80 <rui_event_handler_func+0xa8>
  8006a2a:	2002      	movs	r0, #2
- 8006a2c:	f01b ff50 	bl	80228d0 <service_nvm_get_mode_type_from_nvm>
+ 8006a2c:	f01a ff50 	bl	80218d0 <service_nvm_get_mode_type_from_nvm>
  8006a30:	2801      	cmp	r0, #1
  8006a32:	d004      	beq.n	8006a3e <rui_event_handler_func+0x66>
  8006a34:	2002      	movs	r0, #2
@@ -776,7 +776,7 @@ Disassembly of section .text:
  8006a46:	2000      	movs	r0, #0
  8006a48:	f00a f8d0 	bl	8010bec <udrv_serial_read>
  8006a4c:	2000      	movs	r0, #0
- 8006a4e:	f01b ff3f 	bl	80228d0 <service_nvm_get_mode_type_from_nvm>
+ 8006a4e:	f01a ff3f 	bl	80218d0 <service_nvm_get_mode_type_from_nvm>
  8006a52:	4604      	mov	r4, r0
  8006a54:	b930      	cbnz	r0, 8006a64 <rui_event_handler_func+0x8c>
  8006a56:	f00a f9dd 	bl	8010e14 <udrv_serial_get_lock_state>
@@ -799,7 +799,7 @@ Disassembly of section .text:
  8006a84:	4610      	mov	r0, r2
  8006a86:	f00a f8b1 	bl	8010bec <udrv_serial_read>
  8006a8a:	2001      	movs	r0, #1
- 8006a8c:	f01b ff20 	bl	80228d0 <service_nvm_get_mode_type_from_nvm>
+ 8006a8c:	f01a ff20 	bl	80218d0 <service_nvm_get_mode_type_from_nvm>
  8006a90:	2800      	cmp	r0, #0
  8006a92:	d1c5      	bne.n	8006a20 <rui_event_handler_func+0x48>
  8006a94:	2001      	movs	r0, #1
@@ -819,7 +819,7 @@ Disassembly of section .text:
  8006aba:	2002      	movs	r0, #2
  8006abc:	f00a f896 	bl	8010bec <udrv_serial_read>
  8006ac0:	2002      	movs	r0, #2
- 8006ac2:	f01b ff05 	bl	80228d0 <service_nvm_get_mode_type_from_nvm>
+ 8006ac2:	f01a ff05 	bl	80218d0 <service_nvm_get_mode_type_from_nvm>
  8006ac6:	2800      	cmp	r0, #0
  8006ac8:	d1b4      	bne.n	8006a34 <rui_event_handler_func+0x5c>
  8006aca:	2002      	movs	r0, #2
@@ -835,10 +835,10 @@ Disassembly of section .text:
  8006ae6:	2002      	movs	r0, #2
  8006ae8:	f00a f8ee 	bl	8010cc8 <udrv_serial_wlock_handler>
  8006aec:	e7a2      	b.n	8006a34 <rui_event_handler_func+0x5c>
- 8006aee:	f02a f923 	bl	8030d38 <LoRaMacProcess>
+ 8006aee:	f029 f923 	bl	802fd38 <LoRaMacProcess>
  8006af2:	b002      	add	sp, #8
  8006af4:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
- 8006af8:	f01a bb4e 	b.w	8021198 <LmHandlerPackagesProcess>
+ 8006af8:	f019 bb4e 	b.w	8020198 <LmHandlerPackagesProcess>
  8006afc:	4b0e      	ldr	r3, [pc, #56]	; (8006b38 <rui_event_handler_func+0x160>)
  8006afe:	681b      	ldr	r3, [r3, #0]
  8006b00:	2b00      	cmp	r3, #0
@@ -864,7 +864,7 @@ Disassembly of section .text:
  8006b34:	4718      	bx	r3
  8006b36:	bf00      	nop
  8006b38:	200079ec 	.word	0x200079ec
- 8006b3c:	0803c988 	.word	0x0803c988
+ 8006b3c:	0803b988 	.word	0x0803b988
 
 08006b40 <rui_init>:
  8006b40:	b530      	push	{r4, r5, lr}
@@ -872,7 +872,7 @@ Disassembly of section .text:
  8006b44:	4a2d      	ldr	r2, [pc, #180]	; (8006bfc <rui_init+0xbc>)
  8006b46:	609a      	str	r2, [r3, #8]
  8006b48:	b085      	sub	sp, #20
- 8006b4a:	f01f fe3f 	bl	80267cc <HAL_Init>
+ 8006b4a:	f01e fe3f 	bl	80257cc <HAL_Init>
  8006b4e:	f7ff fef7 	bl	8006940 <SystemClock_Config>
  8006b52:	f04f 43b0 	mov.w	r3, #1476395008	; 0x58000000
  8006b56:	200b      	movs	r0, #11
@@ -892,12 +892,12 @@ Disassembly of section .text:
  8006b7a:	4611      	mov	r1, r2
  8006b7c:	9302      	str	r3, [sp, #8]
  8006b7e:	9b02      	ldr	r3, [sp, #8]
- 8006b80:	f01d f92a 	bl	8023dd8 <HAL_NVIC_SetPriority>
+ 8006b80:	f01c f92a 	bl	8022dd8 <HAL_NVIC_SetPriority>
  8006b84:	200b      	movs	r0, #11
- 8006b86:	f01d f959 	bl	8023e3c <HAL_NVIC_EnableIRQ>
+ 8006b86:	f01c f959 	bl	8022e3c <HAL_NVIC_EnableIRQ>
  8006b8a:	f00a f9f1 	bl	8010f70 <udrv_timer_init>
  8006b8e:	f009 fe55 	bl	801083c <service_nvm_init_config>
- 8006b92:	f01c f815 	bl	8022bc0 <service_nvm_get_baudrate_from_nvm>
+ 8006b92:	f01b f815 	bl	8021bc0 <service_nvm_get_baudrate_from_nvm>
  8006b96:	2400      	movs	r4, #0
  8006b98:	4601      	mov	r1, r0
  8006b9a:	4605      	mov	r5, r0
@@ -912,12 +912,12 @@ Disassembly of section .text:
  8006bb0:	2002      	movs	r0, #2
  8006bb2:	e9cd 4400 	strd	r4, r4, [sp]
  8006bb6:	f009 ff3f 	bl	8010a38 <udrv_serial_init>
- 8006bba:	f01c fdf9 	bl	80237b0 <service_lora_mac_nvm_data_init>
- 8006bbe:	f01c f89d 	bl	8022cfc <service_nvm_get_band_from_nvm>
+ 8006bba:	f01b fdf9 	bl	80227b0 <service_lora_mac_nvm_data_init>
+ 8006bbe:	f01b f89d 	bl	8021cfc <service_nvm_get_band_from_nvm>
  8006bc2:	f002 fd15 	bl	80095f0 <service_lora_init>
  8006bc6:	b2e5      	uxtb	r5, r4
  8006bc8:	4628      	mov	r0, r5
- 8006bca:	f01b fe81 	bl	80228d0 <service_nvm_get_mode_type_from_nvm>
+ 8006bca:	f01a fe81 	bl	80218d0 <service_nvm_get_mode_type_from_nvm>
  8006bce:	b910      	cbnz	r0, 8006bd6 <rui_init+0x96>
  8006bd0:	4628      	mov	r0, r5
  8006bd2:	f005 fa2f 	bl	800c034 <service_mode_cli_init>
@@ -925,7 +925,7 @@ Disassembly of section .text:
  8006bd8:	2c03      	cmp	r4, #3
  8006bda:	d1f4      	bne.n	8006bc6 <rui_init+0x86>
  8006bdc:	f00a f9b0 	bl	8010f40 <udrv_system_event_init>
- 8006be0:	f01c fdd4 	bl	802378c <service_nvm_get_certi_from_nvm>
+ 8006be0:	f01b fdd4 	bl	802278c <service_nvm_get_certi_from_nvm>
  8006be4:	2801      	cmp	r0, #1
  8006be6:	d104      	bne.n	8006bf2 <rui_init+0xb2>
  8006be8:	b005      	add	sp, #20
@@ -941,7 +941,7 @@ Disassembly of section .text:
  8006c00:	b508      	push	{r3, lr}
  8006c02:	f00a f9ab 	bl	8010f5c <udrv_system_event_consume>
  8006c06:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
- 8006c0a:	f01a bac5 	b.w	8021198 <LmHandlerPackagesProcess>
+ 8006c0a:	f019 bac5 	b.w	8020198 <LmHandlerPackagesProcess>
 	...
 
 08006c10 <main>:
@@ -956,7 +956,7 @@ Disassembly of section .text:
  8006c28:	9301      	str	r3, [sp, #4]
  8006c2a:	9b01      	ldr	r3, [sp, #4]
  8006c2c:	f00b fd2a 	bl	8012684 <rui_setup>
- 8006c30:	f019 f986 	bl	801ff40 <BoardGetHardwareFreq>
+ 8006c30:	f018 f986 	bl	801ef40 <BoardGetHardwareFreq>
  8006c34:	b1f0      	cbz	r0, 8006c74 <main+0x64>
  8006c36:	4816      	ldr	r0, [pc, #88]	; (8006c90 <main+0x80>)
  8006c38:	f001 fa8d 	bl	8008156 <service_debug>
@@ -968,7 +968,7 @@ Disassembly of section .text:
  8006c46:	f001 fa86 	bl	8008156 <service_debug>
  8006c4a:	4815      	ldr	r0, [pc, #84]	; (8006ca0 <main+0x90>)
  8006c4c:	f009 ff90 	bl	8010b70 <udrv_serial_log_printf>
- 8006c50:	f019 f9ca 	bl	801ffe8 <service_lora_get_nwm>
+ 8006c50:	f018 f9ca 	bl	801efe8 <service_lora_get_nwm>
  8006c54:	2801      	cmp	r0, #1
  8006c56:	d00f      	beq.n	8006c78 <main+0x68>
  8006c58:	2802      	cmp	r0, #2
@@ -988,7 +988,7 @@ Disassembly of section .text:
  8006c7a:	e7f1      	b.n	8006c60 <main+0x50>
  8006c7c:	480d      	ldr	r0, [pc, #52]	; (8006cb4 <main+0xa4>)
  8006c7e:	e7ef      	b.n	8006c60 <main+0x50>
- 8006c80:	f01b fe6e 	bl	8022960 <service_nvm_get_auto_sleep_time_from_nvm>
+ 8006c80:	f01a fe6e 	bl	8021960 <service_nvm_get_auto_sleep_time_from_nvm>
  8006c84:	2800      	cmp	r0, #0
  8006c86:	d0ee      	beq.n	8006c66 <main+0x56>
  8006c88:	2000      	movs	r0, #0
@@ -1008,7 +1008,7 @@ Disassembly of section .text:
 08006cb8 <Reset_Handler>:
  8006cb8:	4817      	ldr	r0, [pc, #92]	; (8006d18 <LoopForever+0x4>)
  8006cba:	4685      	mov	sp, r0
- 8006cbc:	f01b fcd0 	bl	8022660 <SystemInit>
+ 8006cbc:	f01a fcd0 	bl	8021660 <SystemInit>
  8006cc0:	4816      	ldr	r0, [pc, #88]	; (8006d1c <LoopForever+0x8>)
  8006cc2:	4917      	ldr	r1, [pc, #92]	; (8006d20 <LoopForever+0xc>)
  8006cc4:	4a17      	ldr	r2, [pc, #92]	; (8006d24 <LoopForever+0x10>)
@@ -1072,7 +1072,7 @@ Disassembly of section .text:
  8006d18:	2000fc00 	.word	0x2000fc00
  8006d1c:	20000000 	.word	0x20000000
  8006d20:	200002d0 	.word	0x200002d0
- 8006d24:	0803cfc8 	.word	0x0803cfc8
+ 8006d24:	0803bfc8 	.word	0x0803bfc8
  8006d28:	200002d0 	.word	0x200002d0
  8006d2c:	20005e98 	.word	0x20005e98
  8006d30:	20006000 	.word	0x20006000
@@ -1222,48 +1222,48 @@ Disassembly of section .text:
  8006e70:	4770      	bx	lr
 
 08006e72 <SysTick_Handler>:
- 8006e72:	f01f bcc1 	b.w	80267f8 <HAL_IncTick>
+ 8006e72:	f01e bcc1 	b.w	80257f8 <HAL_IncTick>
 	...
 
 08006e78 <RTC_Alarm_IRQHandler>:
  8006e78:	4801      	ldr	r0, [pc, #4]	; (8006e80 <RTC_Alarm_IRQHandler+0x8>)
- 8006e7a:	f021 b8b3 	b.w	8027fe4 <HAL_RTC_AlarmIRQHandler>
+ 8006e7a:	f020 b8b3 	b.w	8026fe4 <HAL_RTC_AlarmIRQHandler>
  8006e7e:	bf00      	nop
  8006e80:	200044d8 	.word	0x200044d8
 
 08006e84 <SUBGHZ_Radio_IRQHandler>:
  8006e84:	4801      	ldr	r0, [pc, #4]	; (8006e8c <SUBGHZ_Radio_IRQHandler+0x8>)
- 8006e86:	f023 bb92 	b.w	802a5ae <HAL_SUBGHZ_IRQHandler>
+ 8006e86:	f022 bb92 	b.w	80295ae <HAL_SUBGHZ_IRQHandler>
  8006e8a:	bf00      	nop
  8006e8c:	200002d0 	.word	0x200002d0
 
 08006e90 <TAMP_STAMP_LSECSS_SSRU_IRQHandler>:
  8006e90:	4801      	ldr	r0, [pc, #4]	; (8006e98 <TAMP_STAMP_LSECSS_SSRU_IRQHandler+0x8>)
- 8006e92:	f022 b8e1 	b.w	8029058 <HAL_RTCEx_SSRUIRQHandler>
+ 8006e92:	f021 b8e1 	b.w	8028058 <HAL_RTCEx_SSRUIRQHandler>
  8006e96:	bf00      	nop
  8006e98:	200044d8 	.word	0x200044d8
 
 08006e9c <DMA1_Channel1_IRQHandler>:
  8006e9c:	4801      	ldr	r0, [pc, #4]	; (8006ea4 <DMA1_Channel1_IRQHandler+0x8>)
- 8006e9e:	f026 bcbd 	b.w	802d81c <HAL_DMA_IRQHandler>
+ 8006e9e:	f025 bcbd 	b.w	802c81c <HAL_DMA_IRQHandler>
  8006ea2:	bf00      	nop
  8006ea4:	20007340 	.word	0x20007340
 
 08006ea8 <DMA1_Channel2_IRQHandler>:
  8006ea8:	4801      	ldr	r0, [pc, #4]	; (8006eb0 <DMA1_Channel2_IRQHandler+0x8>)
- 8006eaa:	f026 bcb7 	b.w	802d81c <HAL_DMA_IRQHandler>
+ 8006eaa:	f025 bcb7 	b.w	802c81c <HAL_DMA_IRQHandler>
  8006eae:	bf00      	nop
  8006eb0:	20006e74 	.word	0x20006e74
 
 08006eb4 <DMA1_Channel3_IRQHandler>:
  8006eb4:	4801      	ldr	r0, [pc, #4]	; (8006ebc <DMA1_Channel3_IRQHandler+0x8>)
- 8006eb6:	f026 bcb1 	b.w	802d81c <HAL_DMA_IRQHandler>
+ 8006eb6:	f025 bcb1 	b.w	802c81c <HAL_DMA_IRQHandler>
  8006eba:	bf00      	nop
  8006ebc:	20006ed4 	.word	0x20006ed4
 
 08006ec0 <DMA1_Channel4_IRQHandler>:
  8006ec0:	4801      	ldr	r0, [pc, #4]	; (8006ec8 <DMA1_Channel4_IRQHandler+0x8>)
- 8006ec2:	f026 bcab 	b.w	802d81c <HAL_DMA_IRQHandler>
+ 8006ec2:	f025 bcab 	b.w	802c81c <HAL_DMA_IRQHandler>
  8006ec6:	bf00      	nop
  8006ec8:	200073a0 	.word	0x200073a0
 
@@ -1282,23 +1282,23 @@ Disassembly of section .text:
 
 08006ee6 <EXTI0_IRQHandler>:
  8006ee6:	2001      	movs	r0, #1
- 8006ee8:	f023 bd64 	b.w	802a9b4 <HAL_GPIO_EXTI_IRQHandler>
+ 8006ee8:	f022 bd64 	b.w	80299b4 <HAL_GPIO_EXTI_IRQHandler>
 
 08006eec <EXTI1_IRQHandler>:
  8006eec:	2002      	movs	r0, #2
- 8006eee:	f023 bd61 	b.w	802a9b4 <HAL_GPIO_EXTI_IRQHandler>
+ 8006eee:	f022 bd61 	b.w	80299b4 <HAL_GPIO_EXTI_IRQHandler>
 
 08006ef2 <EXTI2_IRQHandler>:
  8006ef2:	2004      	movs	r0, #4
- 8006ef4:	f023 bd5e 	b.w	802a9b4 <HAL_GPIO_EXTI_IRQHandler>
+ 8006ef4:	f022 bd5e 	b.w	80299b4 <HAL_GPIO_EXTI_IRQHandler>
 
 08006ef8 <EXTI3_IRQHandler>:
  8006ef8:	2008      	movs	r0, #8
- 8006efa:	f023 bd5b 	b.w	802a9b4 <HAL_GPIO_EXTI_IRQHandler>
+ 8006efa:	f022 bd5b 	b.w	80299b4 <HAL_GPIO_EXTI_IRQHandler>
 
 08006efe <EXTI4_IRQHandler>:
  8006efe:	2010      	movs	r0, #16
- 8006f00:	f023 bd58 	b.w	802a9b4 <HAL_GPIO_EXTI_IRQHandler>
+ 8006f00:	f022 bd58 	b.w	80299b4 <HAL_GPIO_EXTI_IRQHandler>
 
 08006f04 <EXTI9_5_IRQHandler>:
  8006f04:	4b0e      	ldr	r3, [pc, #56]	; (8006f40 <EXTI9_5_IRQHandler+0x3c>)
@@ -1306,7 +1306,7 @@ Disassembly of section .text:
  8006f08:	0692      	lsls	r2, r2, #26
  8006f0a:	d502      	bpl.n	8006f12 <EXTI9_5_IRQHandler+0xe>
  8006f0c:	2020      	movs	r0, #32
- 8006f0e:	f023 bd51 	b.w	802a9b4 <HAL_GPIO_EXTI_IRQHandler>
+ 8006f0e:	f022 bd51 	b.w	80299b4 <HAL_GPIO_EXTI_IRQHandler>
  8006f12:	68da      	ldr	r2, [r3, #12]
  8006f14:	0650      	lsls	r0, r2, #25
  8006f16:	d501      	bpl.n	8006f1c <EXTI9_5_IRQHandler+0x18>
@@ -1336,7 +1336,7 @@ Disassembly of section .text:
  8006f48:	0551      	lsls	r1, r2, #21
  8006f4a:	d503      	bpl.n	8006f54 <EXTI15_10_IRQHandler+0x10>
  8006f4c:	f44f 6080 	mov.w	r0, #1024	; 0x400
- 8006f50:	f023 bd30 	b.w	802a9b4 <HAL_GPIO_EXTI_IRQHandler>
+ 8006f50:	f022 bd30 	b.w	80299b4 <HAL_GPIO_EXTI_IRQHandler>
  8006f54:	68da      	ldr	r2, [r3, #12]
  8006f56:	0512      	lsls	r2, r2, #20
  8006f58:	d502      	bpl.n	8006f60 <EXTI15_10_IRQHandler+0x1c>
@@ -1378,7 +1378,7 @@ Disassembly of section .text:
 
 08006fb0 <AES_IRQHandler>:
  8006fb0:	4801      	ldr	r0, [pc, #4]	; (8006fb8 <AES_IRQHandler+0x8>)
- 8006fb2:	f025 be09 	b.w	802cbc8 <HAL_CRYP_IRQHandler>
+ 8006fb2:	f024 be09 	b.w	802bbc8 <HAL_CRYP_IRQHandler>
  8006fb6:	bf00      	nop
  8006fb8:	20004510 	.word	0x20004510
 
@@ -1453,22 +1453,22 @@ Disassembly of section .text:
  8007062:	64c3      	str	r3, [r0, #76]	; 0x4c
  8007064:	f009 ff98 	bl	8010f98 <HAL_ADC_Init>
  8007068:	b108      	cbz	r0, 800706e <uhal_adc_read+0x9a>
- 800706a:	f01b fae7 	bl	802263c <Error_Handler>
+ 800706a:	f01a fae7 	bl	802163c <Error_Handler>
  800706e:	482b      	ldr	r0, [pc, #172]	; (800711c <uhal_adc_read+0x148>)
  8007070:	f00a fb5c 	bl	801172c <HAL_ADCEx_Calibration_Start>
  8007074:	b108      	cbz	r0, 800707a <uhal_adc_read+0xa6>
- 8007076:	f01b fae1 	bl	802263c <Error_Handler>
+ 8007076:	f01a fae1 	bl	802163c <Error_Handler>
  800707a:	2300      	movs	r3, #0
  800707c:	4827      	ldr	r0, [pc, #156]	; (800711c <uhal_adc_read+0x148>)
  800707e:	a901      	add	r1, sp, #4
  8007080:	e9cd 3302 	strd	r3, r3, [sp, #8]
  8007084:	f00a f910 	bl	80112a8 <HAL_ADC_ConfigChannel>
  8007088:	b108      	cbz	r0, 800708e <uhal_adc_read+0xba>
- 800708a:	f01b fad7 	bl	802263c <Error_Handler>
+ 800708a:	f01a fad7 	bl	802163c <Error_Handler>
  800708e:	4823      	ldr	r0, [pc, #140]	; (800711c <uhal_adc_read+0x148>)
  8007090:	f00a fa76 	bl	8011580 <HAL_ADC_Start>
  8007094:	b108      	cbz	r0, 800709a <uhal_adc_read+0xc6>
- 8007096:	f01b fad1 	bl	802263c <Error_Handler>
+ 8007096:	f01a fad1 	bl	802163c <Error_Handler>
  800709a:	210a      	movs	r1, #10
  800709c:	481f      	ldr	r0, [pc, #124]	; (800711c <uhal_adc_read+0x148>)
  800709e:	f00a f8a5 	bl	80111ec <HAL_ADC_PollForConversion>
@@ -1632,7 +1632,7 @@ Disassembly of section .text:
  8007222:	2013      	movs	r0, #19
  8007224:	f000 f8f8 	bl	8007418 <PinToGPIOx>
  8007228:	a901      	add	r1, sp, #4
- 800722a:	f023 fa73 	bl	802a714 <HAL_GPIO_Init>
+ 800722a:	f022 fa73 	bl	8029714 <HAL_GPIO_Init>
  800722e:	7823      	ldrb	r3, [r4, #0]
  8007230:	0798      	lsls	r0, r3, #30
  8007232:	d509      	bpl.n	8007248 <HAL_ADC_MspInit+0xe8>
@@ -1642,7 +1642,7 @@ Disassembly of section .text:
  800723c:	2014      	movs	r0, #20
  800723e:	f000 f8eb 	bl	8007418 <PinToGPIOx>
  8007242:	a901      	add	r1, sp, #4
- 8007244:	f023 fa66 	bl	802a714 <HAL_GPIO_Init>
+ 8007244:	f022 fa66 	bl	8029714 <HAL_GPIO_Init>
  8007248:	7823      	ldrb	r3, [r4, #0]
  800724a:	0759      	lsls	r1, r3, #29
  800724c:	d509      	bpl.n	8007262 <HAL_ADC_MspInit+0x102>
@@ -1652,7 +1652,7 @@ Disassembly of section .text:
  8007256:	2012      	movs	r0, #18
  8007258:	f000 f8de 	bl	8007418 <PinToGPIOx>
  800725c:	a901      	add	r1, sp, #4
- 800725e:	f023 fa59 	bl	802a714 <HAL_GPIO_Init>
+ 800725e:	f022 fa59 	bl	8029714 <HAL_GPIO_Init>
  8007262:	7823      	ldrb	r3, [r4, #0]
  8007264:	071a      	lsls	r2, r3, #28
  8007266:	d509      	bpl.n	800727c <HAL_ADC_MspInit+0x11c>
@@ -1662,7 +1662,7 @@ Disassembly of section .text:
  8007270:	200a      	movs	r0, #10
  8007272:	f000 f8d1 	bl	8007418 <PinToGPIOx>
  8007276:	a901      	add	r1, sp, #4
- 8007278:	f023 fa4c 	bl	802a714 <HAL_GPIO_Init>
+ 8007278:	f022 fa4c 	bl	8029714 <HAL_GPIO_Init>
  800727c:	7823      	ldrb	r3, [r4, #0]
  800727e:	06db      	lsls	r3, r3, #27
  8007280:	d509      	bpl.n	8007296 <HAL_ADC_MspInit+0x136>
@@ -1672,7 +1672,7 @@ Disassembly of section .text:
  800728a:	200f      	movs	r0, #15
  800728c:	f000 f8c4 	bl	8007418 <PinToGPIOx>
  8007290:	a901      	add	r1, sp, #4
- 8007292:	f023 fa3f 	bl	802a714 <HAL_GPIO_Init>
+ 8007292:	f022 fa3f 	bl	8029714 <HAL_GPIO_Init>
  8007296:	b006      	add	sp, #24
  8007298:	bd10      	pop	{r4, pc}
  800729a:	2013      	movs	r0, #19
@@ -1736,7 +1736,7 @@ Disassembly of section .text:
  8007320:	f000 f87f 	bl	8007422 <PinToGPIO_Pin>
  8007324:	4601      	mov	r1, r0
  8007326:	4628      	mov	r0, r5
- 8007328:	f023 faa6 	bl	802a878 <HAL_GPIO_DeInit>
+ 8007328:	f022 faa6 	bl	8029878 <HAL_GPIO_DeInit>
  800732c:	7823      	ldrb	r3, [r4, #0]
  800732e:	f023 0301 	bic.w	r3, r3, #1
  8007332:	7023      	strb	r3, [r4, #0]
@@ -1750,7 +1750,7 @@ Disassembly of section .text:
  8007344:	f000 f86d 	bl	8007422 <PinToGPIO_Pin>
  8007348:	4601      	mov	r1, r0
  800734a:	4628      	mov	r0, r5
- 800734c:	f023 fa94 	bl	802a878 <HAL_GPIO_DeInit>
+ 800734c:	f022 fa94 	bl	8029878 <HAL_GPIO_DeInit>
  8007350:	7823      	ldrb	r3, [r4, #0]
  8007352:	f023 0302 	bic.w	r3, r3, #2
  8007356:	7023      	strb	r3, [r4, #0]
@@ -1764,7 +1764,7 @@ Disassembly of section .text:
  8007368:	f000 f85b 	bl	8007422 <PinToGPIO_Pin>
  800736c:	4601      	mov	r1, r0
  800736e:	4628      	mov	r0, r5
- 8007370:	f023 fa82 	bl	802a878 <HAL_GPIO_DeInit>
+ 8007370:	f022 fa82 	bl	8029878 <HAL_GPIO_DeInit>
  8007374:	7823      	ldrb	r3, [r4, #0]
  8007376:	f023 0304 	bic.w	r3, r3, #4
  800737a:	7023      	strb	r3, [r4, #0]
@@ -1778,7 +1778,7 @@ Disassembly of section .text:
  800738c:	f000 f849 	bl	8007422 <PinToGPIO_Pin>
  8007390:	4601      	mov	r1, r0
  8007392:	4628      	mov	r0, r5
- 8007394:	f023 fa70 	bl	802a878 <HAL_GPIO_DeInit>
+ 8007394:	f022 fa70 	bl	8029878 <HAL_GPIO_DeInit>
  8007398:	7823      	ldrb	r3, [r4, #0]
  800739a:	f023 0308 	bic.w	r3, r3, #8
  800739e:	7023      	strb	r3, [r4, #0]
@@ -1792,7 +1792,7 @@ Disassembly of section .text:
  80073b0:	f000 f837 	bl	8007422 <PinToGPIO_Pin>
  80073b4:	4601      	mov	r1, r0
  80073b6:	4628      	mov	r0, r5
- 80073b8:	f023 fa5e 	bl	802a878 <HAL_GPIO_DeInit>
+ 80073b8:	f022 fa5e 	bl	8029878 <HAL_GPIO_DeInit>
  80073bc:	7823      	ldrb	r3, [r4, #0]
  80073be:	f023 0310 	bic.w	r3, r3, #16
  80073c2:	7023      	strb	r3, [r4, #0]
@@ -1903,14 +1903,14 @@ Disassembly of section .text:
  80074a6:	d017      	beq.n	80074d8 <uhal_gpio_intc_trigger_mode+0x68>
  80074a8:	a901      	add	r1, sp, #4
  80074aa:	4628      	mov	r0, r5
- 80074ac:	f023 f932 	bl	802a714 <HAL_GPIO_Init>
+ 80074ac:	f022 f932 	bl	8029714 <HAL_GPIO_Init>
  80074b0:	b9a4      	cbnz	r4, 80074dc <uhal_gpio_intc_trigger_mode+0x6c>
  80074b2:	2006      	movs	r0, #6
  80074b4:	4622      	mov	r2, r4
  80074b6:	2102      	movs	r1, #2
- 80074b8:	f01c fc8e 	bl	8023dd8 <HAL_NVIC_SetPriority>
+ 80074b8:	f01b fc8e 	bl	8022dd8 <HAL_NVIC_SetPriority>
  80074bc:	2006      	movs	r0, #6
- 80074be:	f01c fcbd 	bl	8023e3c <HAL_NVIC_EnableIRQ>
+ 80074be:	f01b fcbd 	bl	8022e3c <HAL_NVIC_EnableIRQ>
  80074c2:	b007      	add	sp, #28
  80074c4:	bd30      	pop	{r4, r5, pc}
  80074c6:	3b04      	subs	r3, #4
@@ -1927,7 +1927,7 @@ Disassembly of section .text:
  80074e0:	2007      	movs	r0, #7
  80074e2:	2200      	movs	r2, #0
  80074e4:	2102      	movs	r1, #2
- 80074e6:	f01c fc77 	bl	8023dd8 <HAL_NVIC_SetPriority>
+ 80074e6:	f01b fc77 	bl	8022dd8 <HAL_NVIC_SetPriority>
  80074ea:	2007      	movs	r0, #7
  80074ec:	e7e7      	b.n	80074be <uhal_gpio_intc_trigger_mode+0x4e>
  80074ee:	2c02      	cmp	r4, #2
@@ -1935,7 +1935,7 @@ Disassembly of section .text:
  80074f2:	2008      	movs	r0, #8
  80074f4:	2200      	movs	r2, #0
  80074f6:	4621      	mov	r1, r4
- 80074f8:	f01c fc6e 	bl	8023dd8 <HAL_NVIC_SetPriority>
+ 80074f8:	f01b fc6e 	bl	8022dd8 <HAL_NVIC_SetPriority>
  80074fc:	2008      	movs	r0, #8
  80074fe:	e7de      	b.n	80074be <uhal_gpio_intc_trigger_mode+0x4e>
  8007500:	2c03      	cmp	r4, #3
@@ -1943,7 +1943,7 @@ Disassembly of section .text:
  8007504:	2009      	movs	r0, #9
  8007506:	2200      	movs	r2, #0
  8007508:	2102      	movs	r1, #2
- 800750a:	f01c fc65 	bl	8023dd8 <HAL_NVIC_SetPriority>
+ 800750a:	f01b fc65 	bl	8022dd8 <HAL_NVIC_SetPriority>
  800750e:	2009      	movs	r0, #9
  8007510:	e7d5      	b.n	80074be <uhal_gpio_intc_trigger_mode+0x4e>
  8007512:	2c04      	cmp	r4, #4
@@ -1951,7 +1951,7 @@ Disassembly of section .text:
  8007516:	200a      	movs	r0, #10
  8007518:	2200      	movs	r2, #0
  800751a:	2102      	movs	r1, #2
- 800751c:	f01c fc5c 	bl	8023dd8 <HAL_NVIC_SetPriority>
+ 800751c:	f01b fc5c 	bl	8022dd8 <HAL_NVIC_SetPriority>
  8007520:	200a      	movs	r0, #10
  8007522:	e7cc      	b.n	80074be <uhal_gpio_intc_trigger_mode+0x4e>
  8007524:	3c05      	subs	r4, #5
@@ -1960,11 +1960,11 @@ Disassembly of section .text:
  800752c:	f04f 0102 	mov.w	r1, #2
  8007530:	d804      	bhi.n	800753c <uhal_gpio_intc_trigger_mode+0xcc>
  8007532:	2016      	movs	r0, #22
- 8007534:	f01c fc50 	bl	8023dd8 <HAL_NVIC_SetPriority>
+ 8007534:	f01b fc50 	bl	8022dd8 <HAL_NVIC_SetPriority>
  8007538:	2016      	movs	r0, #22
  800753a:	e7c0      	b.n	80074be <uhal_gpio_intc_trigger_mode+0x4e>
  800753c:	2029      	movs	r0, #41	; 0x29
- 800753e:	f01c fc4b 	bl	8023dd8 <HAL_NVIC_SetPriority>
+ 800753e:	f01b fc4b 	bl	8022dd8 <HAL_NVIC_SetPriority>
  8007542:	2029      	movs	r0, #41	; 0x29
  8007544:	e7bb      	b.n	80074be <uhal_gpio_intc_trigger_mode+0x4e>
 	...
@@ -2050,7 +2050,7 @@ Disassembly of section .text:
  8007604:	d0fb      	beq.n	80075fe <uhal_gpio_resume+0x4e>
  8007606:	a901      	add	r1, sp, #4
  8007608:	4640      	mov	r0, r8
- 800760a:	f023 f883 	bl	802a714 <HAL_GPIO_Init>
+ 800760a:	f022 f883 	bl	8029714 <HAL_GPIO_Init>
  800760e:	3401      	adds	r4, #1
  8007610:	2c30      	cmp	r4, #48	; 0x30
  8007612:	d1d4      	bne.n	80075be <uhal_gpio_resume+0xe>
@@ -2156,9 +2156,9 @@ Disassembly of section .text:
  80076f2:	2200      	movs	r2, #0
  80076f4:	4611      	mov	r1, r2
  80076f6:	200e      	movs	r0, #14
- 80076f8:	f01c fb6e 	bl	8023dd8 <HAL_NVIC_SetPriority>
+ 80076f8:	f01b fb6e 	bl	8022dd8 <HAL_NVIC_SetPriority>
  80076fc:	200e      	movs	r0, #14
- 80076fe:	f01c fb9d 	bl	8023e3c <HAL_NVIC_EnableIRQ>
+ 80076fe:	f01b fb9d 	bl	8022e3c <HAL_NVIC_EnableIRQ>
  8007702:	4b5e      	ldr	r3, [pc, #376]	; (800787c <uart_init+0x1d0>)
  8007704:	485e      	ldr	r0, [pc, #376]	; (8007880 <uart_init+0x1d4>)
  8007706:	f883 8001 	strb.w	r8, [r3, #1]
@@ -2182,21 +2182,21 @@ Disassembly of section .text:
  800773a:	4851      	ldr	r0, [pc, #324]	; (8007880 <uart_init+0x1d4>)
  800773c:	f00a fde8 	bl	8012310 <HAL_HalfDuplex_Init>
  8007740:	b108      	cbz	r0, 8007746 <uart_init+0x9a>
- 8007742:	f01a ff7b 	bl	802263c <Error_Handler>
+ 8007742:	f019 ff7b 	bl	802163c <Error_Handler>
  8007746:	484e      	ldr	r0, [pc, #312]	; (8007880 <uart_init+0x1d4>)
  8007748:	2100      	movs	r1, #0
  800774a:	f00a ff51 	bl	80125f0 <HAL_UARTEx_SetTxFifoThreshold>
  800774e:	b108      	cbz	r0, 8007754 <uart_init+0xa8>
- 8007750:	f01a ff74 	bl	802263c <Error_Handler>
+ 8007750:	f019 ff74 	bl	802163c <Error_Handler>
  8007754:	484a      	ldr	r0, [pc, #296]	; (8007880 <uart_init+0x1d4>)
  8007756:	2100      	movs	r1, #0
  8007758:	f00a ff6f 	bl	801263a <HAL_UARTEx_SetRxFifoThreshold>
  800775c:	b108      	cbz	r0, 8007762 <uart_init+0xb6>
- 800775e:	f01a ff6d 	bl	802263c <Error_Handler>
+ 800775e:	f019 ff6d 	bl	802163c <Error_Handler>
  8007762:	4847      	ldr	r0, [pc, #284]	; (8007880 <uart_init+0x1d4>)
  8007764:	f00a ff25 	bl	80125b2 <HAL_UARTEx_DisableFifoMode>
  8007768:	b108      	cbz	r0, 800776e <uart_init+0xc2>
- 800776a:	f01a ff67 	bl	802263c <Error_Handler>
+ 800776a:	f019 ff67 	bl	802163c <Error_Handler>
  800776e:	2001      	movs	r0, #1
  8007770:	f7ff ff82 	bl	8007678 <StartReception>
  8007774:	f44f 1340 	mov.w	r3, #3145728	; 0x300000
@@ -2206,7 +2206,7 @@ Disassembly of section .text:
  8007780:	483f      	ldr	r0, [pc, #252]	; (8007880 <uart_init+0x1d4>)
  8007782:	f00a fe9f 	bl	80124c4 <HAL_UARTEx_StopModeWakeUpSourceConfig>
  8007786:	b108      	cbz	r0, 800778c <uart_init+0xe0>
- 8007788:	f01a ff58 	bl	802263c <Error_Handler>
+ 8007788:	f019 ff58 	bl	802163c <Error_Handler>
  800778c:	f04f 42b0 	mov.w	r2, #1476395008	; 0x58000000
  8007790:	6893      	ldr	r3, [r2, #8]
  8007792:	f443 4300 	orr.w	r3, r3, #32768	; 0x8000
@@ -2240,9 +2240,9 @@ Disassembly of section .text:
  80077e0:	2200      	movs	r2, #0
  80077e2:	4611      	mov	r1, r2
  80077e4:	200b      	movs	r0, #11
- 80077e6:	f01c faf7 	bl	8023dd8 <HAL_NVIC_SetPriority>
+ 80077e6:	f01b faf7 	bl	8022dd8 <HAL_NVIC_SetPriority>
  80077ea:	200b      	movs	r0, #11
- 80077ec:	f01c fb26 	bl	8023e3c <HAL_NVIC_EnableIRQ>
+ 80077ec:	f01b fb26 	bl	8022e3c <HAL_NVIC_EnableIRQ>
  80077f0:	4b26      	ldr	r3, [pc, #152]	; (800788c <uart_init+0x1e0>)
  80077f2:	6125      	str	r5, [r4, #16]
  80077f4:	e9c4 3600 	strd	r3, r6, [r4]
@@ -2256,21 +2256,21 @@ Disassembly of section .text:
  800780c:	6663      	str	r3, [r4, #100]	; 0x64
  800780e:	f00a fd4d 	bl	80122ac <HAL_UART_Init>
  8007812:	b108      	cbz	r0, 8007818 <uart_init+0x16c>
- 8007814:	f01a ff12 	bl	802263c <Error_Handler>
+ 8007814:	f019 ff12 	bl	802163c <Error_Handler>
  8007818:	481b      	ldr	r0, [pc, #108]	; (8007888 <uart_init+0x1dc>)
  800781a:	2100      	movs	r1, #0
  800781c:	f00a fee8 	bl	80125f0 <HAL_UARTEx_SetTxFifoThreshold>
  8007820:	b108      	cbz	r0, 8007826 <uart_init+0x17a>
- 8007822:	f01a ff0b 	bl	802263c <Error_Handler>
+ 8007822:	f019 ff0b 	bl	802163c <Error_Handler>
  8007826:	4818      	ldr	r0, [pc, #96]	; (8007888 <uart_init+0x1dc>)
  8007828:	2100      	movs	r1, #0
  800782a:	f00a ff06 	bl	801263a <HAL_UARTEx_SetRxFifoThreshold>
  800782e:	b108      	cbz	r0, 8007834 <uart_init+0x188>
- 8007830:	f01a ff04 	bl	802263c <Error_Handler>
+ 8007830:	f019 ff04 	bl	802163c <Error_Handler>
  8007834:	4814      	ldr	r0, [pc, #80]	; (8007888 <uart_init+0x1dc>)
  8007836:	f00a febc 	bl	80125b2 <HAL_UARTEx_DisableFifoMode>
  800783a:	b108      	cbz	r0, 8007840 <uart_init+0x194>
- 800783c:	f01a fefe 	bl	802263c <Error_Handler>
+ 800783c:	f019 fefe 	bl	802163c <Error_Handler>
  8007840:	f7ff ff08 	bl	8007654 <StartReception.part.0>
  8007844:	f44f 1340 	mov.w	r3, #3145728	; 0x300000
  8007848:	9300      	str	r3, [sp, #0]
@@ -2279,7 +2279,7 @@ Disassembly of section .text:
  8007850:	480d      	ldr	r0, [pc, #52]	; (8007888 <uart_init+0x1dc>)
  8007852:	f00a fe37 	bl	80124c4 <HAL_UARTEx_StopModeWakeUpSourceConfig>
  8007856:	b108      	cbz	r0, 800785c <uart_init+0x1b0>
- 8007858:	f01a fef0 	bl	802263c <Error_Handler>
+ 8007858:	f019 fef0 	bl	802163c <Error_Handler>
  800785c:	4a0c      	ldr	r2, [pc, #48]	; (8007890 <uart_init+0x1e4>)
  800785e:	f8d2 3080 	ldr.w	r3, [r2, #128]	; 0x80
  8007862:	f043 5380 	orr.w	r3, r3, #268435456	; 0x10000000
@@ -2330,7 +2330,7 @@ Disassembly of section .text:
  80078d8:	4807      	ldr	r0, [pc, #28]	; (80078f8 <uhal_uart_deinit+0x28>)
  80078da:	f009 ffb9 	bl	8011850 <HAL_UART_DeInit>
  80078de:	b108      	cbz	r0, 80078e4 <uhal_uart_deinit+0x14>
- 80078e0:	f01a feac 	bl	802263c <Error_Handler>
+ 80078e0:	f019 feac 	bl	802163c <Error_Handler>
  80078e4:	200c      	movs	r0, #12
  80078e6:	4b05      	ldr	r3, [pc, #20]	; (80078fc <uhal_uart_deinit+0x2c>)
  80078e8:	4344      	muls	r4, r0
@@ -2486,7 +2486,7 @@ Disassembly of section .text:
  8007a3a:	601a      	str	r2, [r3, #0]
  8007a3c:	f009 ff29 	bl	8011892 <HAL_UART_DMAStop>
  8007a40:	6ff0      	ldr	r0, [r6, #124]	; 0x7c
- 8007a42:	f025 fd29 	bl	802d498 <HAL_DMA_DeInit>
+ 8007a42:	f024 fd29 	bl	802c498 <HAL_DMA_DeInit>
  8007a46:	3401      	adds	r4, #1
  8007a48:	2c03      	cmp	r4, #3
  8007a4a:	d1dd      	bne.n	8007a08 <uhal_uart_suspend+0x8>
@@ -2738,9 +2738,9 @@ Disassembly of section .text:
  8007caa:	e9c4 6602 	strd	r6, r6, [r4, #8]
  8007cae:	e9c4 3604 	strd	r3, r6, [r4, #16]
  8007cb2:	e9c4 6606 	strd	r6, r6, [r4, #24]
- 8007cb6:	f025 fb7d 	bl	802d3b4 <HAL_DMA_Init>
+ 8007cb6:	f024 fb7d 	bl	802c3b4 <HAL_DMA_Init>
  8007cba:	b108      	cbz	r0, 8007cc0 <HAL_UARTEx_WakeupCallback+0x44>
- 8007cbc:	f01a fcbe 	bl	802263c <Error_Handler>
+ 8007cbc:	f019 fcbe 	bl	802163c <Error_Handler>
  8007cc0:	67ec      	str	r4, [r5, #124]	; 0x7c
  8007cc2:	62a5      	str	r5, [r4, #40]	; 0x28
  8007cc4:	f7ff fcc6 	bl	8007654 <StartReception.part.0>
@@ -2761,9 +2761,9 @@ Disassembly of section .text:
  8007cea:	e9c4 2304 	strd	r2, r3, [r4, #16]
  8007cee:	e9c4 3306 	strd	r3, r3, [r4, #24]
  8007cf2:	6223      	str	r3, [r4, #32]
- 8007cf4:	f025 fb5e 	bl	802d3b4 <HAL_DMA_Init>
+ 8007cf4:	f024 fb5e 	bl	802c3b4 <HAL_DMA_Init>
  8007cf8:	b108      	cbz	r0, 8007cfe <HAL_UARTEx_WakeupCallback+0x82>
- 8007cfa:	f01a fc9f 	bl	802263c <Error_Handler>
+ 8007cfa:	f019 fc9f 	bl	802163c <Error_Handler>
  8007cfe:	67ec      	str	r4, [r5, #124]	; 0x7c
  8007d00:	2001      	movs	r0, #1
  8007d02:	62a5      	str	r5, [r4, #40]	; 0x28
@@ -2825,9 +2825,9 @@ Disassembly of section .text:
  8007d98:	2401      	movs	r4, #1
  8007d9a:	a808      	add	r0, sp, #32
  8007d9c:	e9cd 4308 	strd	r4, r3, [sp, #32]
- 8007da0:	f01f fcca 	bl	8027738 <HAL_RCCEx_PeriphCLKConfig>
+ 8007da0:	f01e fcca 	bl	8026738 <HAL_RCCEx_PeriphCLKConfig>
  8007da4:	b108      	cbz	r0, 8007daa <HAL_UART_MspInit+0x36>
- 8007da6:	f01a fc49 	bl	802263c <Error_Handler>
+ 8007da6:	f019 fc49 	bl	802163c <Error_Handler>
  8007daa:	f04f 43b0 	mov.w	r3, #1476395008	; 0x58000000
  8007dae:	2016      	movs	r0, #22
  8007db0:	6e1a      	ldr	r2, [r3, #96]	; 0x60
@@ -2861,7 +2861,7 @@ Disassembly of section .text:
  8007df8:	2307      	movs	r3, #7
  8007dfa:	a903      	add	r1, sp, #12
  8007dfc:	9307      	str	r3, [sp, #28]
- 8007dfe:	f022 fc89 	bl	802a714 <HAL_GPIO_Init>
+ 8007dfe:	f021 fc89 	bl	8029714 <HAL_GPIO_Init>
  8007e02:	4848      	ldr	r0, [pc, #288]	; (8007f24 <HAL_UART_MspInit+0x1b0>)
  8007e04:	6226      	str	r6, [r4, #32]
  8007e06:	2311      	movs	r3, #17
@@ -2871,17 +2871,17 @@ Disassembly of section .text:
  8007e10:	e9c4 6602 	strd	r6, r6, [r4, #8]
  8007e14:	e9c4 3604 	strd	r3, r6, [r4, #16]
  8007e18:	e9c4 6606 	strd	r6, r6, [r4, #24]
- 8007e1c:	f025 faca 	bl	802d3b4 <HAL_DMA_Init>
+ 8007e1c:	f024 faca 	bl	802c3b4 <HAL_DMA_Init>
  8007e20:	b108      	cbz	r0, 8007e26 <HAL_UART_MspInit+0xb2>
- 8007e22:	f01a fc0b 	bl	802263c <Error_Handler>
+ 8007e22:	f019 fc0b 	bl	802163c <Error_Handler>
  8007e26:	2200      	movs	r2, #0
  8007e28:	2024      	movs	r0, #36	; 0x24
  8007e2a:	67ec      	str	r4, [r5, #124]	; 0x7c
  8007e2c:	4611      	mov	r1, r2
  8007e2e:	62a5      	str	r5, [r4, #40]	; 0x28
- 8007e30:	f01b ffd2 	bl	8023dd8 <HAL_NVIC_SetPriority>
+ 8007e30:	f01a ffd2 	bl	8022dd8 <HAL_NVIC_SetPriority>
  8007e34:	2024      	movs	r0, #36	; 0x24
- 8007e36:	f01c f801 	bl	8023e3c <HAL_NVIC_EnableIRQ>
+ 8007e36:	f01b f801 	bl	8022e3c <HAL_NVIC_EnableIRQ>
  8007e3a:	b016      	add	sp, #88	; 0x58
  8007e3c:	bd70      	pop	{r4, r5, r6, pc}
  8007e3e:	2016      	movs	r0, #22
@@ -2912,9 +2912,9 @@ Disassembly of section .text:
  8007e7a:	f44f 6300 	movhi.w	r3, #2048	; 0x800
  8007e7e:	a808      	add	r0, sp, #32
  8007e80:	930c      	str	r3, [sp, #48]	; 0x30
- 8007e82:	f01f fc59 	bl	8027738 <HAL_RCCEx_PeriphCLKConfig>
+ 8007e82:	f01e fc59 	bl	8026738 <HAL_RCCEx_PeriphCLKConfig>
  8007e86:	b108      	cbz	r0, 8007e8c <HAL_UART_MspInit+0x118>
- 8007e88:	f01a fbd8 	bl	802263c <Error_Handler>
+ 8007e88:	f019 fbd8 	bl	802163c <Error_Handler>
  8007e8c:	f04f 43b0 	mov.w	r3, #1476395008	; 0x58000000
  8007e90:	2001      	movs	r0, #1
  8007e92:	6dda      	ldr	r2, [r3, #92]	; 0x5c
@@ -2940,7 +2940,7 @@ Disassembly of section .text:
  8007ec6:	f04f 4090 	mov.w	r0, #1207959552	; 0x48000000
  8007eca:	e9cd 6306 	strd	r6, r3, [sp, #24]
  8007ece:	9403      	str	r4, [sp, #12]
- 8007ed0:	f022 fc20 	bl	802a714 <HAL_GPIO_Init>
+ 8007ed0:	f021 fc20 	bl	8029714 <HAL_GPIO_Init>
  8007ed4:	4c15      	ldr	r4, [pc, #84]	; (8007f2c <HAL_UART_MspInit+0x1b8>)
  8007ed6:	4916      	ldr	r1, [pc, #88]	; (8007f30 <HAL_UART_MspInit+0x1bc>)
  8007ed8:	61a6      	str	r6, [r4, #24]
@@ -2952,15 +2952,15 @@ Disassembly of section .text:
  8007ee8:	2320      	movs	r3, #32
  8007eea:	e9c4 6602 	strd	r6, r6, [r4, #8]
  8007eee:	e9c4 3607 	strd	r3, r6, [r4, #28]
- 8007ef2:	f025 fa5f 	bl	802d3b4 <HAL_DMA_Init>
+ 8007ef2:	f024 fa5f 	bl	802c3b4 <HAL_DMA_Init>
  8007ef6:	b108      	cbz	r0, 8007efc <HAL_UART_MspInit+0x188>
- 8007ef8:	f01a fba0 	bl	802263c <Error_Handler>
+ 8007ef8:	f019 fba0 	bl	802163c <Error_Handler>
  8007efc:	2200      	movs	r2, #0
  8007efe:	2026      	movs	r0, #38	; 0x26
  8007f00:	67ec      	str	r4, [r5, #124]	; 0x7c
  8007f02:	4611      	mov	r1, r2
  8007f04:	62a5      	str	r5, [r4, #40]	; 0x28
- 8007f06:	f01b ff67 	bl	8023dd8 <HAL_NVIC_SetPriority>
+ 8007f06:	f01a ff67 	bl	8022dd8 <HAL_NVIC_SetPriority>
  8007f0a:	2026      	movs	r0, #38	; 0x26
  8007f0c:	e793      	b.n	8007e36 <HAL_UART_MspInit+0xc2>
  8007f0e:	bf00      	nop
@@ -2995,12 +2995,12 @@ Disassembly of section .text:
  8007f5e:	f7ff fa60 	bl	8007422 <PinToGPIO_Pin>
  8007f62:	ea46 0100 	orr.w	r1, r6, r0
  8007f66:	4628      	mov	r0, r5
- 8007f68:	f022 fc86 	bl	802a878 <HAL_GPIO_DeInit>
+ 8007f68:	f021 fc86 	bl	8029878 <HAL_GPIO_DeInit>
  8007f6c:	6fe0      	ldr	r0, [r4, #124]	; 0x7c
- 8007f6e:	f025 fa93 	bl	802d498 <HAL_DMA_DeInit>
+ 8007f6e:	f024 fa93 	bl	802c498 <HAL_DMA_DeInit>
  8007f72:	2024      	movs	r0, #36	; 0x24
  8007f74:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
- 8007f78:	f01b bf6e 	b.w	8023e58 <HAL_NVIC_DisableIRQ>
+ 8007f78:	f01a bf6e 	b.w	8022e58 <HAL_NVIC_DisableIRQ>
  8007f7c:	4a0a      	ldr	r2, [pc, #40]	; (8007fa8 <HAL_UART_MspDeInit+0x74>)
  8007f7e:	4293      	cmp	r3, r2
  8007f80:	d10f      	bne.n	8007fa2 <HAL_UART_MspDeInit+0x6e>
@@ -3010,9 +3010,9 @@ Disassembly of section .text:
  8007f8a:	f023 0301 	bic.w	r3, r3, #1
  8007f8e:	65d3      	str	r3, [r2, #92]	; 0x5c
  8007f90:	f04f 4090 	mov.w	r0, #1207959552	; 0x48000000
- 8007f94:	f022 fc70 	bl	802a878 <HAL_GPIO_DeInit>
+ 8007f94:	f021 fc70 	bl	8029878 <HAL_GPIO_DeInit>
  8007f98:	6fa0      	ldr	r0, [r4, #120]	; 0x78
- 8007f9a:	f025 fa7d 	bl	802d498 <HAL_DMA_DeInit>
+ 8007f9a:	f024 fa7d 	bl	802c498 <HAL_DMA_DeInit>
  8007f9e:	2026      	movs	r0, #38	; 0x26
  8007fa0:	e7e8      	b.n	8007f74 <HAL_UART_MspDeInit+0x40>
  8007fa2:	bd70      	pop	{r4, r5, r6, pc}
@@ -3209,7 +3209,7 @@ Disassembly of section .text:
  8008156:	b40f      	push	{r0, r1, r2, r3}
  8008158:	b500      	push	{lr}
  800815a:	f5ad 7d03 	sub.w	sp, sp, #524	; 0x20c
- 800815e:	f01a fdc7 	bl	8022cf0 <service_nvm_get_debug_level_from_nvm>
+ 800815e:	f019 fdc7 	bl	8021cf0 <service_nvm_get_debug_level_from_nvm>
  8008162:	b2c0      	uxtb	r0, r0
  8008164:	2801      	cmp	r0, #1
  8008166:	d10a      	bne.n	800817e <service_debug+0x28>
@@ -3218,7 +3218,7 @@ Disassembly of section .text:
  800816c:	9301      	str	r3, [sp, #4]
  800816e:	f44f 7100 	mov.w	r1, #512	; 0x200
  8008172:	a802      	add	r0, sp, #8
- 8008174:	f01d ffd6 	bl	8026124 <tiny_vsnprintf_like>
+ 8008174:	f01c ffd6 	bl	8025124 <tiny_vsnprintf_like>
  8008178:	a802      	add	r0, sp, #8
  800817a:	f008 fcf9 	bl	8010b70 <udrv_serial_log_printf>
  800817e:	f50d 7d03 	add.w	sp, sp, #524	; 0x20c
@@ -3227,11 +3227,11 @@ Disassembly of section .text:
  8008188:	4770      	bx	lr
 
 0800818a <service_set_debug_level>:
- 800818a:	f01a bda5 	b.w	8022cd8 <service_nvm_set_debug_level_to_nvm>
+ 800818a:	f019 bda5 	b.w	8021cd8 <service_nvm_set_debug_level_to_nvm>
 
 0800818e <service_get_debug_level>:
  800818e:	b508      	push	{r3, lr}
- 8008190:	f01a fdae 	bl	8022cf0 <service_nvm_get_debug_level_from_nvm>
+ 8008190:	f019 fdae 	bl	8021cf0 <service_nvm_get_debug_level_from_nvm>
  8008194:	b2c0      	uxtb	r0, r0
  8008196:	bd08      	pop	{r3, pc}
 
@@ -3248,7 +3248,7 @@ Disassembly of section .text:
 
 080081a8 <AlternateDrUS915Callback>:
  80081a8:	b508      	push	{r3, lr}
- 80081aa:	f018 f8dc 	bl	8020366 <service_lora_get_chs>
+ 80081aa:	f017 f8dc 	bl	801f366 <service_lora_get_chs>
  80081ae:	4602      	mov	r2, r0
  80081b0:	b158      	cbz	r0, 80081ca <AlternateDrUS915Callback+0x22>
  80081b2:	4b06      	ldr	r3, [pc, #24]	; (80081cc <AlternateDrUS915Callback+0x24>)
@@ -3267,7 +3267,7 @@ Disassembly of section .text:
 
 080081d4 <AlternateDrAU915Callback>:
  80081d4:	b508      	push	{r3, lr}
- 80081d6:	f018 f8c6 	bl	8020366 <service_lora_get_chs>
+ 80081d6:	f017 f8c6 	bl	801f366 <service_lora_get_chs>
  80081da:	4602      	mov	r2, r0
  80081dc:	b158      	cbz	r0, 80081f6 <AlternateDrAU915Callback+0x22>
  80081de:	4b06      	ldr	r3, [pc, #24]	; (80081f8 <AlternateDrAU915Callback+0x24>)
@@ -3285,7 +3285,7 @@ Disassembly of section .text:
  80081fc:	375ad660 	.word	0x375ad660
 
 08008200 <IsSingleChannelAU915Callback>:
- 8008200:	f018 b8b1 	b.w	8020366 <service_lora_get_chs>
+ 8008200:	f017 b8b1 	b.w	801f366 <service_lora_get_chs>
 
 08008204 <OnSysTimeUpdate>:
  8008204:	4801      	ldr	r0, [pc, #4]	; (800820c <OnSysTimeUpdate+0x8>)
@@ -3311,38 +3311,38 @@ Disassembly of section .text:
  800822e:	2334      	movs	r3, #52	; 0x34
  8008230:	4668      	mov	r0, sp
  8008232:	f88d 3000 	strb.w	r3, [sp]
- 8008236:	f027 fe23 	bl	802fe80 <LoRaMacMibGetRequestConfirm>
+ 8008236:	f026 fe23 	bl	802ee80 <LoRaMacMibGetRequestConfirm>
  800823a:	b314      	cbz	r4, 8008282 <OnNvmDataChange+0x5a>
  800823c:	9d01      	ldr	r5, [sp, #4]
- 800823e:	f027 fda1 	bl	802fd84 <LoRaMacStop>
+ 800823e:	f026 fda1 	bl	802ed84 <LoRaMacStop>
  8008242:	b9f0      	cbnz	r0, 8008282 <OnNvmDataChange+0x5a>
  8008244:	07e3      	lsls	r3, r4, #31
  8008246:	d502      	bpl.n	800824e <OnNvmDataChange+0x26>
  8008248:	4628      	mov	r0, r5
- 800824a:	f01b f873 	bl	8023334 <service_nvm_set_crypto_to_nvm>
+ 800824a:	f01a f873 	bl	8022334 <service_nvm_set_crypto_to_nvm>
  800824e:	07a0      	lsls	r0, r4, #30
  8008250:	d503      	bpl.n	800825a <OnNvmDataChange+0x32>
  8008252:	f105 0038 	add.w	r0, r5, #56	; 0x38
- 8008256:	f01b f885 	bl	8023364 <service_nvm_set_macgroup1_to_nvm>
+ 8008256:	f01a f885 	bl	8022364 <service_nvm_set_macgroup1_to_nvm>
  800825a:	0761      	lsls	r1, r4, #29
  800825c:	d503      	bpl.n	8008266 <OnNvmDataChange+0x3e>
  800825e:	f105 0058 	add.w	r0, r5, #88	; 0x58
- 8008262:	f01b f897 	bl	8023394 <service_nvm_set_macgroup2_to_nvm>
+ 8008262:	f01a f897 	bl	8022394 <service_nvm_set_macgroup2_to_nvm>
  8008266:	0722      	lsls	r2, r4, #28
  8008268:	d503      	bpl.n	8008272 <OnNvmDataChange+0x4a>
  800826a:	f505 70ee 	add.w	r0, r5, #476	; 0x1dc
- 800826e:	f01b f8ab 	bl	80233c8 <service_nvm_set_sec_element_to_nvm>
+ 800826e:	f01a f8ab 	bl	80223c8 <service_nvm_set_sec_element_to_nvm>
  8008272:	06a3      	lsls	r3, r4, #26
  8008274:	d503      	bpl.n	800827e <OnNvmDataChange+0x56>
  8008276:	f505 7064 	add.w	r0, r5, #912	; 0x390
- 800827a:	f01b f8bf 	bl	80233fc <service_nvm_set_regionchannels_to_nvm>
- 800827e:	f027 fd77 	bl	802fd70 <LoRaMacStart>
+ 800827a:	f01a f8bf 	bl	80223fc <service_nvm_set_regionchannels_to_nvm>
+ 800827e:	f026 fd77 	bl	802ed70 <LoRaMacStart>
  8008282:	b00b      	add	sp, #44	; 0x2c
  8008284:	bd30      	pop	{r4, r5, pc}
 
 08008286 <service_lora_stop>:
  8008286:	b510      	push	{r4, lr}
- 8008288:	f027 fd7c 	bl	802fd84 <LoRaMacStop>
+ 8008288:	f026 fd7c 	bl	802ed84 <LoRaMacStop>
  800828c:	2801      	cmp	r0, #1
  800828e:	4604      	mov	r4, r0
  8008290:	d004      	beq.n	800829c <service_lora_stop+0x16>
@@ -3387,7 +3387,7 @@ Disassembly of section .text:
  80082e8:	4621      	mov	r1, r4
  80082ea:	2000      	movs	r0, #0
  80082ec:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
- 80082f0:	f018 bf32 	b.w	8021158 <LmHandlerPackagesNotify>
+ 80082f0:	f017 bf32 	b.w	8020158 <LmHandlerPackagesNotify>
  80082f4:	4804      	ldr	r0, [pc, #16]	; (8008308 <McpsConfirm+0x60>)
  80082f6:	e7e8      	b.n	80082ca <McpsConfirm+0x22>
  80082f8:	200079f8 	.word	0x200079f8
@@ -3414,11 +3414,11 @@ Disassembly of section .text:
  8008334:	2101      	movs	r1, #1
  8008336:	480e      	ldr	r0, [pc, #56]	; (8008370 <OnClassChange+0x64>)
  8008338:	9301      	str	r3, [sp, #4]
- 800833a:	f01a f8df 	bl	80224fc <udrv_flash_write>
+ 800833a:	f019 f8df 	bl	80214fc <udrv_flash_write>
  800833e:	aa01      	add	r2, sp, #4
  8008340:	2104      	movs	r1, #4
  8008342:	480c      	ldr	r0, [pc, #48]	; (8008374 <OnClassChange+0x68>)
- 8008344:	f01a f8da 	bl	80224fc <udrv_flash_write>
+ 8008344:	f019 f8da 	bl	80214fc <udrv_flash_write>
  8008348:	4620      	mov	r0, r4
  800834a:	f008 fb9d 	bl	8010a88 <udrv_serial_deinit>
  800834e:	2001      	movs	r0, #1
@@ -3442,7 +3442,7 @@ Disassembly of section .text:
  800837c:	4601      	mov	r1, r0
  800837e:	b08a      	sub	sp, #40	; 0x28
  8008380:	2003      	movs	r0, #3
- 8008382:	f018 fee9 	bl	8021158 <LmHandlerPackagesNotify>
+ 8008382:	f017 fee9 	bl	8020158 <LmHandlerPackagesNotify>
  8008386:	7823      	ldrb	r3, [r4, #0]
  8008388:	2b0a      	cmp	r3, #10
  800838a:	d010      	beq.n	80083ae <MlmeIndication+0x36>
@@ -3456,7 +3456,7 @@ Disassembly of section .text:
  800839c:	7013      	strb	r3, [r2, #0]
  800839e:	f88d 3000 	strb.w	r3, [sp]
  80083a2:	f88d 3004 	strb.w	r3, [sp, #4]
- 80083a6:	f027 feb9 	bl	803011c <LoRaMacMibSetRequestConfirm>
+ 80083a6:	f026 feb9 	bl	802f11c <LoRaMacMibSetRequestConfirm>
  80083aa:	b00a      	add	sp, #40	; 0x28
  80083ac:	bd70      	pop	{r4, r5, r6, pc}
  80083ae:	7863      	ldrb	r3, [r4, #1]
@@ -3478,7 +3478,7 @@ Disassembly of section .text:
  80083d2:	f008 fdd3 	bl	8010f7c <udrv_system_timer_create>
  80083d6:	4605      	mov	r5, r0
  80083d8:	b9b8      	cbnz	r0, 800840a <MlmeIndication+0x92>
- 80083da:	f025 fad5 	bl	802d988 <rand1>
+ 80083da:	f024 fad5 	bl	802c988 <rand1>
  80083de:	4242      	negs	r2, r0
  80083e0:	f002 021f 	and.w	r2, r2, #31
  80083e4:	f000 001f 	and.w	r0, r0, #31
@@ -3563,12 +3563,12 @@ Disassembly of section .text:
  80084ac:	4770      	bx	lr
 
 080084ae <IsSingleChannelUS915Callback>:
- 80084ae:	f017 bf5a 	b.w	8020366 <service_lora_get_chs>
+ 80084ae:	f016 bf5a 	b.w	801f366 <service_lora_get_chs>
 
 080084b2 <service_lora_get_mask>:
  80084b2:	b57f      	push	{r0, r1, r2, r3, r4, r5, r6, lr}
  80084b4:	4605      	mov	r5, r0
- 80084b6:	f017 ff54 	bl	8020362 <service_lora_get_band>
+ 80084b6:	f016 ff54 	bl	801f362 <service_lora_get_band>
  80084ba:	1e43      	subs	r3, r0, #1
  80084bc:	b2db      	uxtb	r3, r3
  80084be:	2b01      	cmp	r3, #1
@@ -3578,7 +3578,7 @@ Disassembly of section .text:
  80084c8:	2b08      	cmp	r3, #8
  80084ca:	d11d      	bne.n	8008508 <service_lora_get_mask+0x56>
  80084cc:	a801      	add	r0, sp, #4
- 80084ce:	f01a fc27 	bl	8022d20 <service_nvm_get_mask_from_nvm>
+ 80084ce:	f019 fc27 	bl	8021d20 <service_nvm_get_mask_from_nvm>
  80084d2:	2200      	movs	r2, #0
  80084d4:	a901      	add	r1, sp, #4
  80084d6:	4613      	mov	r3, r2
@@ -3610,7 +3610,7 @@ Disassembly of section .text:
  8008510:	b08f      	sub	sp, #60	; 0x3c
  8008512:	4606      	mov	r6, r0
  8008514:	460f      	mov	r7, r1
- 8008516:	f017 ff24 	bl	8020362 <service_lora_get_band>
+ 8008516:	f016 ff24 	bl	801f362 <service_lora_get_band>
  800851a:	23ff      	movs	r3, #255	; 0xff
  800851c:	f8ad 3000 	strh.w	r3, [sp]
  8008520:	f44f 437f 	mov.w	r3, #65280	; 0xff00
@@ -3679,7 +3679,7 @@ Disassembly of section .text:
  80085c6:	a804      	add	r0, sp, #16
  80085c8:	ab01      	add	r3, sp, #4
  80085ca:	9305      	str	r3, [sp, #20]
- 80085cc:	f027 fda6 	bl	803011c <LoRaMacMibSetRequestConfirm>
+ 80085cc:	f026 fda6 	bl	802f11c <LoRaMacMibSetRequestConfirm>
  80085d0:	4605      	mov	r5, r0
  80085d2:	b968      	cbnz	r0, 80085f0 <service_lora_set_mask+0xe2>
  80085d4:	2324      	movs	r3, #36	; 0x24
@@ -3687,10 +3687,10 @@ Disassembly of section .text:
  80085da:	a804      	add	r0, sp, #16
  80085dc:	ab01      	add	r3, sp, #4
  80085de:	9305      	str	r3, [sp, #20]
- 80085e0:	f027 fd9c 	bl	803011c <LoRaMacMibSetRequestConfirm>
- 80085e4:	f01a ff58 	bl	8023498 <service_nvm_get_chs_from_nvm>
+ 80085e0:	f026 fd9c 	bl	802f11c <LoRaMacMibSetRequestConfirm>
+ 80085e4:	f019 ff58 	bl	8022498 <service_nvm_get_chs_from_nvm>
  80085e8:	b9d8      	cbnz	r0, 8008622 <service_lora_set_mask+0x114>
- 80085ea:	f027 fbc1 	bl	802fd70 <LoRaMacStart>
+ 80085ea:	f026 fbc1 	bl	802ed70 <LoRaMacStart>
  80085ee:	b300      	cbz	r0, 8008632 <service_lora_set_mask+0x124>
  80085f0:	f06f 0406 	mvn.w	r4, #6
  80085f4:	e01a      	b.n	800862c <service_lora_set_mask+0x11e>
@@ -3713,7 +3713,7 @@ Disassembly of section .text:
  800861e:	3201      	adds	r2, #1
  8008620:	e7c8      	b.n	80085b4 <service_lora_set_mask+0xa6>
  8008622:	4628      	mov	r0, r5
- 8008624:	f01a ff3e 	bl	80234a4 <service_nvm_set_chs_to_nvm>
+ 8008624:	f019 ff3e 	bl	80224a4 <service_nvm_set_chs_to_nvm>
  8008628:	2800      	cmp	r0, #0
  800862a:	d0de      	beq.n	80085ea <service_lora_set_mask+0xdc>
  800862c:	4620      	mov	r0, r4
@@ -3722,7 +3722,7 @@ Disassembly of section .text:
  8008632:	2f00      	cmp	r7, #0
  8008634:	d0fa      	beq.n	800862c <service_lora_set_mask+0x11e>
  8008636:	a801      	add	r0, sp, #4
- 8008638:	f01a fb7c 	bl	8022d34 <service_nvm_set_mask_to_nvm>
+ 8008638:	f019 fb7c 	bl	8021d34 <service_nvm_set_mask_to_nvm>
  800863c:	4604      	mov	r4, r0
  800863e:	e7f5      	b.n	800862c <service_lora_set_mask+0x11e>
  8008640:	f06f 0402 	mvn.w	r4, #2
@@ -3736,7 +3736,7 @@ Disassembly of section .text:
  8008650:	460d      	mov	r5, r1
  8008652:	4690      	mov	r8, r2
  8008654:	461f      	mov	r7, r3
- 8008656:	f017 fcd6 	bl	8020006 <service_lora_get_njm>
+ 8008656:	f016 fcd6 	bl	801f006 <service_lora_get_njm>
  800865a:	1c61      	adds	r1, r4, #1
  800865c:	4606      	mov	r6, r0
  800865e:	d129      	bne.n	80086b4 <service_lora_join+0x6c>
@@ -3745,27 +3745,27 @@ Disassembly of section .text:
  8008664:	3d00      	subs	r5, #0
  8008666:	bf18      	it	ne
  8008668:	2501      	movne	r5, #1
- 800866a:	f017 fe58 	bl	802031e <service_lora_get_auto_join>
+ 800866a:	f016 fe58 	bl	801f31e <service_lora_get_auto_join>
  800866e:	4285      	cmp	r5, r0
  8008670:	d003      	beq.n	800867a <service_lora_join+0x32>
  8008672:	4628      	mov	r0, r5
- 8008674:	f017 fe55 	bl	8020322 <service_lora_set_auto_join>
+ 8008674:	f016 fe55 	bl	801f322 <service_lora_set_auto_join>
  8008678:	bb50      	cbnz	r0, 80086d0 <service_lora_join+0x88>
  800867a:	f1b8 3fff 	cmp.w	r8, #4294967295	; 0xffffffff
  800867e:	d007      	beq.n	8008690 <service_lora_join+0x48>
- 8008680:	f017 fe51 	bl	8020326 <service_lora_get_auto_join_period>
+ 8008680:	f016 fe51 	bl	801f326 <service_lora_get_auto_join_period>
  8008684:	4540      	cmp	r0, r8
  8008686:	d003      	beq.n	8008690 <service_lora_join+0x48>
  8008688:	4640      	mov	r0, r8
- 800868a:	f017 fe4e 	bl	802032a <service_lora_set_auto_join_period>
+ 800868a:	f016 fe4e 	bl	801f32a <service_lora_set_auto_join_period>
  800868e:	b9f8      	cbnz	r0, 80086d0 <service_lora_join+0x88>
  8008690:	1c7b      	adds	r3, r7, #1
  8008692:	d007      	beq.n	80086a4 <service_lora_join+0x5c>
- 8008694:	f017 fe4b 	bl	802032e <service_lora_get_auto_join_max_cnt>
+ 8008694:	f016 fe4b 	bl	801f32e <service_lora_get_auto_join_max_cnt>
  8008698:	42b8      	cmp	r0, r7
  800869a:	d003      	beq.n	80086a4 <service_lora_join+0x5c>
  800869c:	4638      	mov	r0, r7
- 800869e:	f017 fe48 	bl	8020332 <service_lora_set_auto_join_max_cnt>
+ 800869e:	f016 fe48 	bl	801f332 <service_lora_set_auto_join_max_cnt>
  80086a2:	b9a8      	cbnz	r0, 80086d0 <service_lora_join+0x88>
  80086a4:	b9bc      	cbnz	r4, 80086d6 <service_lora_join+0x8e>
  80086a6:	4620      	mov	r0, r4
@@ -3777,35 +3777,35 @@ Disassembly of section .text:
  80086b4:	f1b4 0900 	subs.w	r9, r4, #0
  80086b8:	bf18      	it	ne
  80086ba:	f04f 0901 	movne.w	r9, #1
- 80086be:	f017 fe2a 	bl	8020316 <service_lora_get_join_start>
+ 80086be:	f016 fe2a 	bl	801f316 <service_lora_get_join_start>
  80086c2:	4581      	cmp	r9, r0
  80086c4:	d0cc      	beq.n	8008660 <service_lora_join+0x18>
  80086c6:	4648      	mov	r0, r9
- 80086c8:	f017 fe27 	bl	802031a <service_lora_set_join_start>
+ 80086c8:	f016 fe27 	bl	801f31a <service_lora_set_join_start>
  80086cc:	2800      	cmp	r0, #0
  80086ce:	d0c7      	beq.n	8008660 <service_lora_join+0x18>
  80086d0:	b015      	add	sp, #84	; 0x54
  80086d2:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
- 80086d6:	f017 fe44 	bl	8020362 <service_lora_get_band>
- 80086da:	f017 fe56 	bl	802038a <service_lora_region_isActive>
+ 80086d6:	f016 fe44 	bl	801f362 <service_lora_get_band>
+ 80086da:	f016 fe56 	bl	801f38a <service_lora_region_isActive>
  80086de:	2800      	cmp	r0, #0
  80086e0:	f000 80cc 	beq.w	800887c <service_lora_join+0x234>
  80086e4:	2e01      	cmp	r6, #1
  80086e6:	f040 8096 	bne.w	8008816 <service_lora_join+0x1ce>
  80086ea:	f88d 6000 	strb.w	r6, [sp]
- 80086ee:	f01a fcb9 	bl	8023064 <service_nvm_get_dr_from_nvm>
+ 80086ee:	f019 fcb9 	bl	8022064 <service_nvm_get_dr_from_nvm>
  80086f2:	2302      	movs	r3, #2
  80086f4:	f88d 0005 	strb.w	r0, [sp, #5]
  80086f8:	4668      	mov	r0, sp
  80086fa:	f88d 3004 	strb.w	r3, [sp, #4]
- 80086fe:	f028 fa07 	bl	8030b10 <LoRaMacMlmeRequest>
+ 80086fe:	f027 fa07 	bl	802fb10 <LoRaMacMlmeRequest>
  8008702:	4b61      	ldr	r3, [pc, #388]	; (8008888 <service_lora_join+0x240>)
  8008704:	9a04      	ldr	r2, [sp, #16]
  8008706:	601a      	str	r2, [r3, #0]
  8008708:	4604      	mov	r4, r0
  800870a:	2800      	cmp	r0, #0
  800870c:	d154      	bne.n	80087b8 <service_lora_join+0x170>
- 800870e:	f017 fd55 	bl	80201bc <service_lora_get_class>
+ 800870e:	f016 fd55 	bl	801f1bc <service_lora_get_class>
  8008712:	2801      	cmp	r0, #1
  8008714:	bf08      	it	eq
  8008716:	4b5d      	ldreq	r3, [pc, #372]	; (800888c <service_lora_join+0x244>)
@@ -3814,19 +3814,19 @@ Disassembly of section .text:
  800871c:	701c      	strbeq	r4, [r3, #0]
  800871e:	2334      	movs	r3, #52	; 0x34
  8008720:	f88d 3028 	strb.w	r3, [sp, #40]	; 0x28
- 8008724:	f027 fbac 	bl	802fe80 <LoRaMacMibGetRequestConfirm>
+ 8008724:	f026 fbac 	bl	802ee80 <LoRaMacMibGetRequestConfirm>
  8008728:	9b0b      	ldr	r3, [sp, #44]	; 0x2c
  800872a:	8898      	ldrh	r0, [r3, #4]
- 800872c:	f017 fe11 	bl	8020352 <service_lora_set_DevNonce>
+ 800872c:	f016 fe11 	bl	801f352 <service_lora_set_DevNonce>
  8008730:	f7ff fd2d 	bl	800818e <service_get_debug_level>
  8008734:	2800      	cmp	r0, #0
  8008736:	d0cb      	beq.n	80086d0 <service_lora_join+0x88>
  8008738:	2334      	movs	r3, #52	; 0x34
  800873a:	a80a      	add	r0, sp, #40	; 0x28
  800873c:	f88d 3028 	strb.w	r3, [sp, #40]	; 0x28
- 8008740:	f027 fb9e 	bl	802fe80 <LoRaMacMibGetRequestConfirm>
+ 8008740:	f026 fb9e 	bl	802ee80 <LoRaMacMibGetRequestConfirm>
  8008744:	a80a      	add	r0, sp, #40	; 0x28
- 8008746:	f027 fb9b 	bl	802fe80 <LoRaMacMibGetRequestConfirm>
+ 8008746:	f026 fb9b 	bl	802ee80 <LoRaMacMibGetRequestConfirm>
  800874a:	2800      	cmp	r0, #0
  800874c:	d1b0      	bne.n	80086b0 <service_lora_join+0x68>
  800874e:	4d50      	ldr	r5, [pc, #320]	; (8008890 <service_lora_join+0x248>)
@@ -3877,7 +3877,7 @@ Disassembly of section .text:
  80087c8:	682c      	ldr	r4, [r5, #0]
  80087ca:	3401      	adds	r4, #1
  80087cc:	602c      	str	r4, [r5, #0]
- 80087ce:	f017 fdae 	bl	802032e <service_lora_get_auto_join_max_cnt>
+ 80087ce:	f016 fdae 	bl	801f32e <service_lora_get_auto_join_max_cnt>
  80087d2:	4284      	cmp	r4, r0
  80087d4:	d908      	bls.n	80087e8 <service_lora_join+0x1a0>
  80087d6:	2300      	movs	r3, #0
@@ -3893,7 +3893,7 @@ Disassembly of section .text:
  80087ee:	f008 fbc5 	bl	8010f7c <udrv_system_timer_create>
  80087f2:	4604      	mov	r4, r0
  80087f4:	b948      	cbnz	r0, 800880a <service_lora_join+0x1c2>
- 80087f6:	f017 fd96 	bl	8020326 <service_lora_get_auto_join_period>
+ 80087f6:	f016 fd96 	bl	801f326 <service_lora_get_auto_join_period>
  80087fa:	f44f 717a 	mov.w	r1, #1000	; 0x3e8
  80087fe:	4341      	muls	r1, r0
  8008800:	4622      	mov	r2, r4
@@ -3911,18 +3911,18 @@ Disassembly of section .text:
  8008820:	4668      	mov	r0, sp
  8008822:	f88d 3000 	strb.w	r3, [sp]
  8008826:	f88d 3004 	strb.w	r3, [sp, #4]
- 800882a:	f027 fc77 	bl	803011c <LoRaMacMibSetRequestConfirm>
+ 800882a:	f026 fc77 	bl	802f11c <LoRaMacMibSetRequestConfirm>
  800882e:	2800      	cmp	r0, #0
  8008830:	d1f2      	bne.n	8008818 <service_lora_join+0x1d0>
- 8008832:	f017 fcc3 	bl	80201bc <service_lora_get_class>
+ 8008832:	f016 fcc3 	bl	801f1bc <service_lora_get_class>
  8008836:	2802      	cmp	r0, #2
  8008838:	d107      	bne.n	800884a <service_lora_join+0x202>
  800883a:	f88d 0004 	strb.w	r0, [sp, #4]
  800883e:	4668      	mov	r0, sp
  8008840:	f88d 6000 	strb.w	r6, [sp]
- 8008844:	f027 fc6a 	bl	803011c <LoRaMacMibSetRequestConfirm>
+ 8008844:	f026 fc6a 	bl	802f11c <LoRaMacMibSetRequestConfirm>
  8008848:	e772      	b.n	8008730 <service_lora_join+0xe8>
- 800884a:	f017 fcb7 	bl	80201bc <service_lora_get_class>
+ 800884a:	f016 fcb7 	bl	801f1bc <service_lora_get_class>
  800884e:	e76f      	b.n	8008730 <service_lora_join+0xe8>
  8008850:	2c02      	cmp	r4, #2
  8008852:	7829      	ldrb	r1, [r5, #0]
@@ -3974,39 +3974,39 @@ Disassembly of section .text:
  80088d8:	a902      	add	r1, sp, #8
  80088da:	e881 000c 	stmia.w	r1, {r2, r3}
  80088de:	4680      	mov	r8, r0
- 80088e0:	f01a fbc0 	bl	8023064 <service_nvm_get_dr_from_nvm>
+ 80088e0:	f019 fbc0 	bl	8022064 <service_nvm_get_dr_from_nvm>
  80088e4:	4607      	mov	r7, r0
- 80088e6:	f017 fb90 	bl	802000a <service_lora_get_njs>
+ 80088e6:	f016 fb90 	bl	801f00a <service_lora_get_njs>
  80088ea:	4606      	mov	r6, r0
  80088ec:	2800      	cmp	r0, #0
  80088ee:	f000 8103 	beq.w	8008af8 <service_lora_send+0x228>
- 80088f2:	f026 fc79 	bl	802f1e8 <LoRaMacIsBusy>
+ 80088f2:	f025 fc79 	bl	802e1e8 <LoRaMacIsBusy>
  80088f6:	b110      	cbz	r0, 80088fe <service_lora_send+0x2e>
  80088f8:	f06f 0005 	mvn.w	r0, #5
  80088fc:	e09b      	b.n	8008a36 <service_lora_send+0x166>
- 80088fe:	f019 f843 	bl	8021988 <FUOTA_StartTime_IsRunning>
+ 80088fe:	f018 f843 	bl	8020988 <FUOTA_StartTime_IsRunning>
  8008902:	4604      	mov	r4, r0
  8008904:	2800      	cmp	r0, #0
  8008906:	d1f7      	bne.n	80088f8 <service_lora_send+0x28>
- 8008908:	f017 fc58 	bl	80201bc <service_lora_get_class>
+ 8008908:	f016 fc58 	bl	801f1bc <service_lora_get_class>
  800890c:	2802      	cmp	r0, #2
  800890e:	f040 8095 	bne.w	8008a3c <service_lora_send+0x16c>
  8008912:	f88d 0044 	strb.w	r0, [sp, #68]	; 0x44
  8008916:	a810      	add	r0, sp, #64	; 0x40
  8008918:	f88d 4040 	strb.w	r4, [sp, #64]	; 0x40
- 800891c:	f027 fbfe 	bl	803011c <LoRaMacMibSetRequestConfirm>
+ 800891c:	f026 fbfe 	bl	802f11c <LoRaMacMibSetRequestConfirm>
  8008920:	f88d 7026 	strb.w	r7, [sp, #38]	; 0x26
- 8008924:	f01a fc40 	bl	80231a8 <service_nvm_get_linkcheck_from_nvm>
+ 8008924:	f019 fc40 	bl	80221a8 <service_nvm_get_linkcheck_from_nvm>
  8008928:	b160      	cbz	r0, 8008944 <service_lora_send+0x74>
- 800892a:	f01a fc3d 	bl	80231a8 <service_nvm_get_linkcheck_from_nvm>
+ 800892a:	f019 fc3d 	bl	80221a8 <service_nvm_get_linkcheck_from_nvm>
  800892e:	2801      	cmp	r0, #1
  8008930:	d102      	bne.n	8008938 <service_lora_send+0x68>
  8008932:	2000      	movs	r0, #0
- 8008934:	f017 fce8 	bl	8020308 <service_lora_set_linkcheck>
+ 8008934:	f016 fce8 	bl	801f308 <service_lora_set_linkcheck>
  8008938:	2305      	movs	r3, #5
  800893a:	a810      	add	r0, sp, #64	; 0x40
  800893c:	f88d 3040 	strb.w	r3, [sp, #64]	; 0x40
- 8008940:	f028 f8e6 	bl	8030b10 <LoRaMacMlmeRequest>
+ 8008940:	f027 f8e6 	bl	802fb10 <LoRaMacMlmeRequest>
  8008944:	4b6f      	ldr	r3, [pc, #444]	; (8008b04 <service_lora_send+0x234>)
  8008946:	781b      	ldrb	r3, [r3, #0]
  8008948:	2b01      	cmp	r3, #1
@@ -4014,10 +4014,10 @@ Disassembly of section .text:
  800894c:	2309      	movs	r3, #9
  800894e:	a810      	add	r0, sp, #64	; 0x40
  8008950:	f88d 3040 	strb.w	r3, [sp, #64]	; 0x40
- 8008954:	f028 f8dc 	bl	8030b10 <LoRaMacMlmeRequest>
+ 8008954:	f027 f8dc 	bl	802fb10 <LoRaMacMlmeRequest>
  8008958:	a905      	add	r1, sp, #20
  800895a:	b2e8      	uxtb	r0, r5
- 800895c:	f027 fa30 	bl	802fdc0 <LoRaMacQueryTxPossible>
+ 800895c:	f026 fa30 	bl	802edc0 <LoRaMacQueryTxPossible>
  8008960:	4607      	mov	r7, r0
  8008962:	f7ff fc14 	bl	800818e <service_get_debug_level>
  8008966:	b160      	cbz	r0, 8008982 <service_lora_send+0xb2>
@@ -4037,7 +4037,7 @@ Disassembly of section .text:
  800898c:	9308      	str	r3, [sp, #32]
  800898e:	f8ad 3024 	strh.w	r3, [sp, #36]	; 0x24
  8008992:	a806      	add	r0, sp, #24
- 8008994:	f028 ff90 	bl	80318b8 <LoRaMacMcpsRequest>
+ 8008994:	f027 ff90 	bl	80308b8 <LoRaMacMcpsRequest>
  8008998:	4b5d      	ldr	r3, [pc, #372]	; (8008b10 <service_lora_send+0x240>)
  800899a:	9a0a      	ldr	r2, [sp, #40]	; 0x28
  800899c:	601a      	str	r2, [r3, #0]
@@ -4048,9 +4048,9 @@ Disassembly of section .text:
  80089a8:	2334      	movs	r3, #52	; 0x34
  80089aa:	a810      	add	r0, sp, #64	; 0x40
  80089ac:	f88d 3040 	strb.w	r3, [sp, #64]	; 0x40
- 80089b0:	f027 fa66 	bl	802fe80 <LoRaMacMibGetRequestConfirm>
+ 80089b0:	f026 fa66 	bl	802ee80 <LoRaMacMibGetRequestConfirm>
  80089b4:	a810      	add	r0, sp, #64	; 0x40
- 80089b6:	f027 fa63 	bl	802fe80 <LoRaMacMibGetRequestConfirm>
+ 80089b6:	f026 fa63 	bl	802ee80 <LoRaMacMibGetRequestConfirm>
  80089ba:	2800      	cmp	r0, #0
  80089bc:	d134      	bne.n	8008a28 <service_lora_send+0x158>
  80089be:	4f55      	ldr	r7, [pc, #340]	; (8008b14 <service_lora_send+0x244>)
@@ -4098,7 +4098,7 @@ Disassembly of section .text:
  8008a34:	2000      	movne	r0, #0
  8008a36:	b01a      	add	sp, #104	; 0x68
  8008a38:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
- 8008a3c:	f017 fbbe 	bl	80201bc <service_lora_get_class>
+ 8008a3c:	f016 fbbe 	bl	801f1bc <service_lora_get_class>
  8008a40:	2801      	cmp	r0, #1
  8008a42:	f47f af6d 	bne.w	8008920 <service_lora_send+0x50>
  8008a46:	4b3b      	ldr	r3, [pc, #236]	; (8008b34 <service_lora_send+0x264>)
@@ -4110,14 +4110,14 @@ Disassembly of section .text:
  8008a54:	f008 fa96 	bl	8010f84 <udrv_system_timer_stop>
  8008a58:	230c      	movs	r3, #12
  8008a5a:	f88d 302c 	strb.w	r3, [sp, #44]	; 0x2c
- 8008a5e:	f017 fbf3 	bl	8020248 <service_lora_get_ping_slot_periodicity>
+ 8008a5e:	f016 fbf3 	bl	801f248 <service_lora_get_ping_slot_periodicity>
  8008a62:	f000 0007 	and.w	r0, r0, #7
  8008a66:	f88d 0030 	strb.w	r0, [sp, #48]	; 0x30
  8008a6a:	e002      	b.n	8008a72 <service_lora_send+0x1a2>
  8008a6c:	2309      	movs	r3, #9
  8008a6e:	f88d 302c 	strb.w	r3, [sp, #44]	; 0x2c
  8008a72:	a80b      	add	r0, sp, #44	; 0x2c
- 8008a74:	f028 f84c 	bl	8030b10 <LoRaMacMlmeRequest>
+ 8008a74:	f027 f84c 	bl	802fb10 <LoRaMacMlmeRequest>
  8008a78:	e752      	b.n	8008920 <service_lora_send+0x50>
  8008a7a:	f89d 3008 	ldrb.w	r3, [sp, #8]
  8008a7e:	f88d 301c 	strb.w	r3, [sp, #28]
@@ -4134,7 +4134,7 @@ Disassembly of section .text:
  8008aa0:	701a      	strb	r2, [r3, #0]
  8008aa2:	4634      	mov	r4, r6
  8008aa4:	e775      	b.n	8008992 <service_lora_send+0xc2>
- 8008aa6:	f017 fb25 	bl	80200f4 <service_lora_get_cfm>
+ 8008aa6:	f016 fb25 	bl	801f0f4 <service_lora_get_cfm>
  8008aaa:	2800      	cmp	r0, #0
  8008aac:	d0f3      	beq.n	8008a96 <service_lora_send+0x1c6>
  8008aae:	2301      	movs	r3, #1
@@ -4243,7 +4243,7 @@ Disassembly of section .text:
  8008bd2:	f04f 0800 	mov.w	r8, #0
  8008bd6:	fa5f fb88 	uxtb.w	fp, r8
  8008bda:	4658      	mov	r0, fp
- 8008bdc:	f019 fe78 	bl	80228d0 <service_nvm_get_mode_type_from_nvm>
+ 8008bdc:	f018 fe78 	bl	80218d0 <service_nvm_get_mode_type_from_nvm>
  8008be0:	4605      	mov	r5, r0
  8008be2:	b940      	cbnz	r0, 8008bf6 <McpsIndication+0x82>
  8008be4:	7b22      	ldrb	r2, [r4, #12]
@@ -4330,7 +4330,7 @@ Disassembly of section .text:
  8008ca4:	4798      	blx	r3
  8008ca6:	4621      	mov	r1, r4
  8008ca8:	2001      	movs	r0, #1
- 8008caa:	f018 fa55 	bl	8021158 <LmHandlerPackagesNotify>
+ 8008caa:	f017 fa55 	bl	8020158 <LmHandlerPackagesNotify>
  8008cae:	4844      	ldr	r0, [pc, #272]	; (8008dc0 <McpsIndication+0x24c>)
  8008cb0:	f890 3102 	ldrb.w	r3, [r0, #258]	; 0x102
  8008cb4:	b16b      	cbz	r3, 8008cd2 <McpsIndication+0x15e>
@@ -4347,9 +4347,9 @@ Disassembly of section .text:
  8008cd8:	2334      	movs	r3, #52	; 0x34
  8008cda:	a802      	add	r0, sp, #8
  8008cdc:	f88d 3008 	strb.w	r3, [sp, #8]
- 8008ce0:	f027 f8ce 	bl	802fe80 <LoRaMacMibGetRequestConfirm>
+ 8008ce0:	f026 f8ce 	bl	802ee80 <LoRaMacMibGetRequestConfirm>
  8008ce4:	a802      	add	r0, sp, #8
- 8008ce6:	f027 f8cb 	bl	802fe80 <LoRaMacMibGetRequestConfirm>
+ 8008ce6:	f026 f8cb 	bl	802ee80 <LoRaMacMibGetRequestConfirm>
  8008cea:	2800      	cmp	r0, #0
  8008cec:	d138      	bne.n	8008d60 <McpsIndication+0x1ec>
  8008cee:	7c63      	ldrb	r3, [r4, #17]
@@ -4384,7 +4384,7 @@ Disassembly of section .text:
  8008d3c:	f007 fee0 	bl	8010b00 <udrv_serial_printf>
  8008d40:	3501      	adds	r5, #1
  8008d42:	e74f      	b.n	8008be4 <McpsIndication+0x70>
- 8008d44:	f017 fa3a 	bl	80201bc <service_lora_get_class>
+ 8008d44:	f016 fa3a 	bl	801f1bc <service_lora_get_class>
  8008d48:	2800      	cmp	r0, #0
  8008d4a:	f47f af68 	bne.w	8008c1e <McpsIndication+0xaa>
  8008d4e:	e769      	b.n	8008c24 <McpsIndication+0xb0>
@@ -4441,7 +4441,7 @@ Disassembly of section .text:
  8008df4:	e9c4 6601 	strd	r6, r6, [r4, #4]
  8008df8:	4605      	mov	r5, r0
  8008dfa:	9603      	str	r6, [sp, #12]
- 8008dfc:	f017 fab1 	bl	8020362 <service_lora_get_band>
+ 8008dfc:	f016 fab1 	bl	801f362 <service_lora_get_band>
  8008e00:	1e43      	subs	r3, r0, #1
  8008e02:	b2db      	uxtb	r3, r3
  8008e04:	2b01      	cmp	r3, #1
@@ -4459,7 +4459,7 @@ Disassembly of section .text:
  8008e1e:	bb15      	cbnz	r5, 8008e66 <service_lora_set_chs+0x7a>
  8008e20:	4620      	mov	r0, r4
  8008e22:	f8ad 5018 	strh.w	r5, [sp, #24]
- 8008e26:	f019 ff7b 	bl	8022d20 <service_nvm_get_mask_from_nvm>
+ 8008e26:	f018 ff7b 	bl	8021d20 <service_nvm_get_mask_from_nvm>
  8008e2a:	2800      	cmp	r0, #0
  8008e2c:	d1f2      	bne.n	8008e14 <service_lora_set_chs+0x28>
  8008e2e:	f8bd 3018 	ldrh.w	r3, [sp, #24]
@@ -4482,18 +4482,18 @@ Disassembly of section .text:
  8008e5a:	4604      	mov	r4, r0
  8008e5c:	2800      	cmp	r0, #0
  8008e5e:	d1d9      	bne.n	8008e14 <service_lora_set_chs+0x28>
- 8008e60:	f01a fb20 	bl	80234a4 <service_nvm_set_chs_to_nvm>
+ 8008e60:	f019 fb20 	bl	80224a4 <service_nvm_set_chs_to_nvm>
  8008e64:	e7d8      	b.n	8008e18 <service_lora_set_chs+0x2c>
  8008e66:	231a      	movs	r3, #26
  8008e68:	a901      	add	r1, sp, #4
  8008e6a:	f88d 3004 	strb.w	r3, [sp, #4]
- 8008e6e:	f02c fc7c 	bl	803576a <RegionGetPhyParam>
+ 8008e6e:	f02b fc7c 	bl	803476a <RegionGetPhyParam>
  8008e72:	231e      	movs	r3, #30
  8008e74:	9000      	str	r0, [sp, #0]
  8008e76:	b2c6      	uxtb	r6, r0
  8008e78:	a806      	add	r0, sp, #24
  8008e7a:	f88d 3018 	strb.w	r3, [sp, #24]
- 8008e7e:	f026 ffff 	bl	802fe80 <LoRaMacMibGetRequestConfirm>
+ 8008e7e:	f025 ffff 	bl	802ee80 <LoRaMacMibGetRequestConfirm>
  8008e82:	9b07      	ldr	r3, [sp, #28]
  8008e84:	2200      	movs	r2, #0
  8008e86:	f1a3 010c 	sub.w	r1, r3, #12
@@ -4520,14 +4520,14 @@ Disassembly of section .text:
  8008ebe:	2323      	movs	r3, #35	; 0x23
  8008ec0:	f88d 3018 	strb.w	r3, [sp, #24]
  8008ec4:	9407      	str	r4, [sp, #28]
- 8008ec6:	f027 f929 	bl	803011c <LoRaMacMibSetRequestConfirm>
+ 8008ec6:	f026 f929 	bl	802f11c <LoRaMacMibSetRequestConfirm>
  8008eca:	2800      	cmp	r0, #0
  8008ecc:	d1a2      	bne.n	8008e14 <service_lora_set_chs+0x28>
  8008ece:	2324      	movs	r3, #36	; 0x24
  8008ed0:	a806      	add	r0, sp, #24
  8008ed2:	9407      	str	r4, [sp, #28]
  8008ed4:	f88d 3018 	strb.w	r3, [sp, #24]
- 8008ed8:	f027 f920 	bl	803011c <LoRaMacMibSetRequestConfirm>
+ 8008ed8:	f026 f920 	bl	802f11c <LoRaMacMibSetRequestConfirm>
  8008edc:	4604      	mov	r4, r0
  8008ede:	2800      	cmp	r0, #0
  8008ee0:	d198      	bne.n	8008e14 <service_lora_set_chs+0x28>
@@ -4540,24 +4540,24 @@ Disassembly of section .text:
  8008ef0:	2323      	movs	r3, #35	; 0x23
  8008ef2:	f88d 3018 	strb.w	r3, [sp, #24]
  8008ef6:	9407      	str	r4, [sp, #28]
- 8008ef8:	f027 f910 	bl	803011c <LoRaMacMibSetRequestConfirm>
+ 8008ef8:	f026 f910 	bl	802f11c <LoRaMacMibSetRequestConfirm>
  8008efc:	2800      	cmp	r0, #0
  8008efe:	d189      	bne.n	8008e14 <service_lora_set_chs+0x28>
  8008f00:	2324      	movs	r3, #36	; 0x24
  8008f02:	a806      	add	r0, sp, #24
  8008f04:	f88d 3018 	strb.w	r3, [sp, #24]
  8008f08:	9407      	str	r4, [sp, #28]
- 8008f0a:	f027 f907 	bl	803011c <LoRaMacMibSetRequestConfirm>
+ 8008f0a:	f026 f907 	bl	802f11c <LoRaMacMibSetRequestConfirm>
  8008f0e:	2800      	cmp	r0, #0
  8008f10:	d180      	bne.n	8008e14 <service_lora_set_chs+0x28>
  8008f12:	4628      	mov	r0, r5
- 8008f14:	f01a fac6 	bl	80234a4 <service_nvm_set_chs_to_nvm>
+ 8008f14:	f019 fac6 	bl	80224a4 <service_nvm_set_chs_to_nvm>
  8008f18:	4604      	mov	r4, r0
  8008f1a:	e77d      	b.n	8008e18 <service_lora_set_chs+0x2c>
  8008f1c:	231e      	movs	r3, #30
  8008f1e:	a806      	add	r0, sp, #24
  8008f20:	f88d 3018 	strb.w	r3, [sp, #24]
- 8008f24:	f026 ffac 	bl	802fe80 <LoRaMacMibGetRequestConfirm>
+ 8008f24:	f025 ffac 	bl	802ee80 <LoRaMacMibGetRequestConfirm>
  8008f28:	9907      	ldr	r1, [sp, #28]
  8008f2a:	4633      	mov	r3, r6
  8008f2c:	200c      	movs	r0, #12
@@ -4630,20 +4630,20 @@ Disassembly of section .text:
  8008fb2:	b08b      	sub	sp, #44	; 0x2c
  8008fb4:	460c      	mov	r4, r1
  8008fb6:	4605      	mov	r5, r0
- 8008fb8:	f017 f9d3 	bl	8020362 <service_lora_get_band>
- 8008fbc:	f017 f9e5 	bl	802038a <service_lora_region_isActive>
+ 8008fb8:	f016 f9d3 	bl	801f362 <service_lora_get_band>
+ 8008fbc:	f016 f9e5 	bl	801f38a <service_lora_region_isActive>
  8008fc0:	b1b8      	cbz	r0, 8008ff2 <service_lora_set_dr+0x42>
  8008fc2:	232d      	movs	r3, #45	; 0x2d
  8008fc4:	4668      	mov	r0, sp
  8008fc6:	f88d 3000 	strb.w	r3, [sp]
  8008fca:	f88d 5004 	strb.w	r5, [sp, #4]
- 8008fce:	f027 f8a5 	bl	803011c <LoRaMacMibSetRequestConfirm>
+ 8008fce:	f026 f8a5 	bl	802f11c <LoRaMacMibSetRequestConfirm>
  8008fd2:	b938      	cbnz	r0, 8008fe4 <service_lora_set_dr+0x34>
  8008fd4:	4b09      	ldr	r3, [pc, #36]	; (8008ffc <service_lora_set_dr+0x4c>)
  8008fd6:	609d      	str	r5, [r3, #8]
  8008fd8:	b174      	cbz	r4, 8008ff8 <service_lora_set_dr+0x48>
  8008fda:	4628      	mov	r0, r5
- 8008fdc:	f01a f848 	bl	8023070 <service_nvm_set_dr_to_nvm>
+ 8008fdc:	f019 f848 	bl	8022070 <service_nvm_set_dr_to_nvm>
  8008fe0:	b00b      	add	sp, #44	; 0x2c
  8008fe2:	bd30      	pop	{r4, r5, pc}
  8008fe4:	2803      	cmp	r0, #3
@@ -4663,7 +4663,7 @@ Disassembly of section .text:
  8009004:	4601      	mov	r1, r0
  8009006:	b08b      	sub	sp, #44	; 0x2c
  8009008:	2002      	movs	r0, #2
- 800900a:	f018 f8a5 	bl	8021158 <LmHandlerPackagesNotify>
+ 800900a:	f017 f8a5 	bl	8020158 <LmHandlerPackagesNotify>
  800900e:	7823      	ldrb	r3, [r4, #0]
  8009010:	3b01      	subs	r3, #1
  8009012:	2b0b      	cmp	r3, #11
@@ -4686,13 +4686,13 @@ Disassembly of section .text:
  8009042:	4628      	mov	r0, r5
  8009044:	f007 ff9e 	bl	8010f84 <udrv_system_timer_stop>
  8009048:	6035      	str	r5, [r6, #0]
- 800904a:	f017 f8b7 	bl	80201bc <service_lora_get_class>
+ 800904a:	f016 f8b7 	bl	801f1bc <service_lora_get_class>
  800904e:	2802      	cmp	r0, #2
  8009050:	d10a      	bne.n	8009068 <MlmeConfirm+0x68>
  8009052:	f88d 0004 	strb.w	r0, [sp, #4]
  8009056:	4668      	mov	r0, sp
  8009058:	f88d 5000 	strb.w	r5, [sp]
- 800905c:	f027 f85e 	bl	803011c <LoRaMacMibSetRequestConfirm>
+ 800905c:	f026 f85e 	bl	802f11c <LoRaMacMibSetRequestConfirm>
  8009060:	b110      	cbz	r0, 8009068 <MlmeConfirm+0x68>
  8009062:	4872      	ldr	r0, [pc, #456]	; (800922c <MlmeConfirm+0x22c>)
  8009064:	f007 fd84 	bl	8010b70 <udrv_serial_log_printf>
@@ -4700,18 +4700,18 @@ Disassembly of section .text:
  800906a:	b10b      	cbz	r3, 8009070 <MlmeConfirm+0x70>
  800906c:	2000      	movs	r0, #0
  800906e:	4798      	blx	r3
- 8009070:	f019 fff8 	bl	8023064 <service_nvm_get_dr_from_nvm>
+ 8009070:	f018 fff8 	bl	8022064 <service_nvm_get_dr_from_nvm>
  8009074:	2100      	movs	r1, #0
  8009076:	f7ff ff9b 	bl	8008fb0 <service_lora_set_dr>
- 800907a:	f017 f89f 	bl	80201bc <service_lora_get_class>
+ 800907a:	f016 f89f 	bl	801f1bc <service_lora_get_class>
  800907e:	f7ff f886 	bl	800818e <service_get_debug_level>
  8009082:	b198      	cbz	r0, 80090ac <MlmeConfirm+0xac>
  8009084:	2334      	movs	r3, #52	; 0x34
  8009086:	4668      	mov	r0, sp
  8009088:	f88d 3000 	strb.w	r3, [sp]
- 800908c:	f026 fef8 	bl	802fe80 <LoRaMacMibGetRequestConfirm>
+ 800908c:	f025 fef8 	bl	802ee80 <LoRaMacMibGetRequestConfirm>
  8009090:	4668      	mov	r0, sp
- 8009092:	f026 fef5 	bl	802fe80 <LoRaMacMibGetRequestConfirm>
+ 8009092:	f025 fef5 	bl	802ee80 <LoRaMacMibGetRequestConfirm>
  8009096:	2800      	cmp	r0, #0
  8009098:	d147      	bne.n	800912a <MlmeConfirm+0x12a>
  800909a:	4865      	ldr	r0, [pc, #404]	; (8009230 <MlmeConfirm+0x230>)
@@ -4734,7 +4734,7 @@ Disassembly of section .text:
  80090c6:	6835      	ldr	r5, [r6, #0]
  80090c8:	3501      	adds	r5, #1
  80090ca:	6035      	str	r5, [r6, #0]
- 80090cc:	f017 f92f 	bl	802032e <service_lora_get_auto_join_max_cnt>
+ 80090cc:	f016 f92f 	bl	801f32e <service_lora_get_auto_join_max_cnt>
  80090d0:	4285      	cmp	r5, r0
  80090d2:	d913      	bls.n	80090fc <MlmeConfirm+0xfc>
  80090d4:	2300      	movs	r3, #0
@@ -4761,7 +4761,7 @@ Disassembly of section .text:
  8009102:	f007 ff3b 	bl	8010f7c <udrv_system_timer_create>
  8009106:	4605      	mov	r5, r0
  8009108:	b948      	cbnz	r0, 800911e <MlmeConfirm+0x11e>
- 800910a:	f017 f90c 	bl	8020326 <service_lora_get_auto_join_period>
+ 800910a:	f016 f90c 	bl	801f326 <service_lora_get_auto_join_period>
  800910e:	f44f 717a 	mov.w	r1, #1000	; 0x3e8
  8009112:	4341      	muls	r1, r0
  8009114:	462a      	mov	r2, r5
@@ -4790,7 +4790,7 @@ Disassembly of section .text:
  800914c:	4798      	blx	r3
  800914e:	2300      	movs	r3, #0
  8009150:	702b      	strb	r3, [r5, #0]
- 8009152:	f017 f833 	bl	80201bc <service_lora_get_class>
+ 8009152:	f016 f833 	bl	801f1bc <service_lora_get_class>
  8009156:	2801      	cmp	r0, #1
  8009158:	d1a8      	bne.n	80090ac <MlmeConfirm+0xac>
  800915a:	4b41      	ldr	r3, [pc, #260]	; (8009260 <MlmeConfirm+0x260>)
@@ -4801,7 +4801,7 @@ Disassembly of section .text:
  8009164:	230b      	movs	r3, #11
  8009166:	4668      	mov	r0, sp
  8009168:	f88d 3000 	strb.w	r3, [sp]
- 800916c:	f027 fcd0 	bl	8030b10 <LoRaMacMlmeRequest>
+ 800916c:	f026 fcd0 	bl	802fb10 <LoRaMacMlmeRequest>
  8009170:	e79c      	b.n	80090ac <MlmeConfirm+0xac>
  8009172:	2e01      	cmp	r6, #1
  8009174:	d19a      	bne.n	80090ac <MlmeConfirm+0xac>
@@ -4825,7 +4825,7 @@ Disassembly of section .text:
  800919c:	4668      	mov	r0, sp
  800919e:	7011      	strb	r1, [r2, #0]
  80091a0:	f88d 3004 	strb.w	r3, [sp, #4]
- 80091a4:	f026 ffba 	bl	803011c <LoRaMacMibSetRequestConfirm>
+ 80091a4:	f025 ffba 	bl	802f11c <LoRaMacMibSetRequestConfirm>
  80091a8:	2800      	cmp	r0, #0
  80091aa:	f47f af7f 	bne.w	80090ac <MlmeConfirm+0xac>
  80091ae:	482e      	ldr	r0, [pc, #184]	; (8009268 <MlmeConfirm+0x268>)
@@ -4885,7 +4885,7 @@ Disassembly of section .text:
  8009234:	08017525 	.word	0x08017525
  8009238:	080174d3 	.word	0x080174d3
  800923c:	20006084 	.word	0x20006084
- 8009240:	0803c988 	.word	0x0803c988
+ 8009240:	0803b988 	.word	0x0803b988
  8009244:	080174f1 	.word	0x080174f1
  8009248:	080172be 	.word	0x080172be
  800924c:	080088c1 	.word	0x080088c1
@@ -4910,21 +4910,21 @@ Disassembly of section .text:
  800928e:	b08a      	sub	sp, #40	; 0x28
  8009290:	460c      	mov	r4, r1
  8009292:	4605      	mov	r5, r0
- 8009294:	f017 f865 	bl	8020362 <service_lora_get_band>
- 8009298:	f017 f877 	bl	802038a <service_lora_region_isActive>
+ 8009294:	f016 f865 	bl	801f362 <service_lora_get_band>
+ 8009298:	f016 f877 	bl	801f38a <service_lora_region_isActive>
  800929c:	b1c8      	cbz	r0, 80092d2 <service_lora_set_txpower+0x46>
  800929e:	232e      	movs	r3, #46	; 0x2e
  80092a0:	b26e      	sxtb	r6, r5
  80092a2:	4668      	mov	r0, sp
  80092a4:	f88d 3000 	strb.w	r3, [sp]
  80092a8:	f88d 6004 	strb.w	r6, [sp, #4]
- 80092ac:	f026 ff36 	bl	803011c <LoRaMacMibSetRequestConfirm>
+ 80092ac:	f025 ff36 	bl	802f11c <LoRaMacMibSetRequestConfirm>
  80092b0:	b940      	cbnz	r0, 80092c4 <service_lora_set_txpower+0x38>
  80092b2:	4b0a      	ldr	r3, [pc, #40]	; (80092dc <service_lora_set_txpower+0x50>)
  80092b4:	f883 6024 	strb.w	r6, [r3, #36]	; 0x24
  80092b8:	b174      	cbz	r4, 80092d8 <service_lora_set_txpower+0x4c>
  80092ba:	4628      	mov	r0, r5
- 80092bc:	f019 ff68 	bl	8023190 <service_nvm_set_txpower_to_nvm>
+ 80092bc:	f018 ff68 	bl	8022190 <service_nvm_set_txpower_to_nvm>
  80092c0:	b00a      	add	sp, #40	; 0x28
  80092c2:	bd70      	pop	{r4, r5, r6, pc}
  80092c4:	2803      	cmp	r0, #3
@@ -4943,16 +4943,16 @@ Disassembly of section .text:
  80092e2:	b08b      	sub	sp, #44	; 0x2c
  80092e4:	460d      	mov	r5, r1
  80092e6:	4604      	mov	r4, r0
- 80092e8:	f017 f83b 	bl	8020362 <service_lora_get_band>
- 80092ec:	f017 f84d 	bl	802038a <service_lora_region_isActive>
+ 80092e8:	f016 f83b 	bl	801f362 <service_lora_get_band>
+ 80092ec:	f016 f84d 	bl	801f38a <service_lora_region_isActive>
  80092f0:	2800      	cmp	r0, #0
  80092f2:	d043      	beq.n	800937c <service_lora_set_class+0x9c>
- 80092f4:	f016 fe89 	bl	802000a <service_lora_get_njs>
+ 80092f4:	f015 fe89 	bl	801f00a <service_lora_get_njs>
  80092f8:	b1b8      	cbz	r0, 800932a <service_lora_set_class+0x4a>
  80092fa:	2300      	movs	r3, #0
  80092fc:	4668      	mov	r0, sp
  80092fe:	f88d 3000 	strb.w	r3, [sp]
- 8009302:	f026 fdbd 	bl	802fe80 <LoRaMacMibGetRequestConfirm>
+ 8009302:	f025 fdbd 	bl	802ee80 <LoRaMacMibGetRequestConfirm>
  8009306:	b110      	cbz	r0, 800930e <service_lora_set_class+0x2e>
  8009308:	f06f 0006 	mvn.w	r0, #6
  800930c:	e011      	b.n	8009332 <service_lora_set_class+0x52>
@@ -4971,7 +4971,7 @@ Disassembly of section .text:
  8009328:	d1ee      	bne.n	8009308 <service_lora_set_class+0x28>
  800932a:	b355      	cbz	r5, 8009382 <service_lora_set_class+0xa2>
  800932c:	4620      	mov	r0, r4
- 800932e:	f019 fe8d 	bl	802304c <service_nvm_set_class_to_nvm>
+ 800932e:	f018 fe8d 	bl	802204c <service_nvm_set_class_to_nvm>
  8009332:	b00b      	add	sp, #44	; 0x2c
  8009334:	bd30      	pop	{r4, r5, pc}
  8009336:	4b14      	ldr	r3, [pc, #80]	; (8009388 <service_lora_set_class+0xa8>)
@@ -4983,7 +4983,7 @@ Disassembly of section .text:
  8009344:	2201      	movs	r2, #1
  8009346:	701a      	strb	r2, [r3, #0]
  8009348:	4668      	mov	r0, sp
- 800934a:	f026 fee7 	bl	803011c <LoRaMacMibSetRequestConfirm>
+ 800934a:	f025 fee7 	bl	802f11c <LoRaMacMibSetRequestConfirm>
  800934e:	2800      	cmp	r0, #0
  8009350:	d0eb      	beq.n	800932a <service_lora_set_class+0x4a>
  8009352:	e7d9      	b.n	8009308 <service_lora_set_class+0x28>
@@ -5018,8 +5018,8 @@ Disassembly of section .text:
  8009392:	b08f      	sub	sp, #60	; 0x3c
  8009394:	460d      	mov	r5, r1
  8009396:	4604      	mov	r4, r0
- 8009398:	f016 ffe3 	bl	8020362 <service_lora_get_band>
- 800939c:	f016 fff5 	bl	802038a <service_lora_region_isActive>
+ 8009398:	f015 ffe3 	bl	801f362 <service_lora_get_band>
+ 800939c:	f015 fff5 	bl	801f38a <service_lora_region_isActive>
  80093a0:	2800      	cmp	r0, #0
  80093a2:	f000 809b 	beq.w	80094dc <service_lora_set_njm+0x14c>
  80093a6:	2301      	movs	r3, #1
@@ -5028,54 +5028,54 @@ Disassembly of section .text:
  80093ae:	d14d      	bne.n	800944c <service_lora_set_njm+0xbc>
  80093b0:	f88d 3014 	strb.w	r3, [sp, #20]
  80093b4:	a804      	add	r0, sp, #16
- 80093b6:	f026 feb1 	bl	803011c <LoRaMacMibSetRequestConfirm>
+ 80093b6:	f025 feb1 	bl	802f11c <LoRaMacMibSetRequestConfirm>
  80093ba:	2800      	cmp	r0, #0
  80093bc:	d14a      	bne.n	8009454 <service_lora_set_njm+0xc4>
  80093be:	2c00      	cmp	r4, #0
  80093c0:	d153      	bne.n	800946a <service_lora_set_njm+0xda>
  80093c2:	2110      	movs	r1, #16
  80093c4:	4668      	mov	r0, sp
- 80093c6:	f019 fd19 	bl	8022dfc <service_nvm_get_app_skey_from_nvm>
+ 80093c6:	f018 fd19 	bl	8021dfc <service_nvm_get_app_skey_from_nvm>
  80093ca:	230f      	movs	r3, #15
  80093cc:	a804      	add	r0, sp, #16
  80093ce:	f88d 3010 	strb.w	r3, [sp, #16]
  80093d2:	f8cd d014 	str.w	sp, [sp, #20]
- 80093d6:	f026 fea1 	bl	803011c <LoRaMacMibSetRequestConfirm>
+ 80093d6:	f025 fea1 	bl	802f11c <LoRaMacMibSetRequestConfirm>
  80093da:	2800      	cmp	r0, #0
  80093dc:	d13a      	bne.n	8009454 <service_lora_set_njm+0xc4>
  80093de:	2104      	movs	r1, #4
  80093e0:	4668      	mov	r0, sp
- 80093e2:	f019 fd33 	bl	8022e4c <service_nvm_get_dev_addr_from_nvm>
+ 80093e2:	f018 fd33 	bl	8021e4c <service_nvm_get_dev_addr_from_nvm>
  80093e6:	2307      	movs	r3, #7
  80093e8:	f88d 3010 	strb.w	r3, [sp, #16]
  80093ec:	9b00      	ldr	r3, [sp, #0]
  80093ee:	a804      	add	r0, sp, #16
  80093f0:	ba1b      	rev	r3, r3
  80093f2:	9305      	str	r3, [sp, #20]
- 80093f4:	f026 fe92 	bl	803011c <LoRaMacMibSetRequestConfirm>
+ 80093f4:	f025 fe92 	bl	802f11c <LoRaMacMibSetRequestConfirm>
  80093f8:	bb60      	cbnz	r0, 8009454 <service_lora_set_njm+0xc4>
  80093fa:	2110      	movs	r1, #16
  80093fc:	4668      	mov	r0, sp
- 80093fe:	f019 fd9d 	bl	8022f3c <service_nvm_get_nwk_skey_from_nvm>
+ 80093fe:	f018 fd9d 	bl	8021f3c <service_nvm_get_nwk_skey_from_nvm>
  8009402:	230c      	movs	r3, #12
  8009404:	a804      	add	r0, sp, #16
  8009406:	f88d 3010 	strb.w	r3, [sp, #16]
  800940a:	f8cd d014 	str.w	sp, [sp, #20]
- 800940e:	f026 fe85 	bl	803011c <LoRaMacMibSetRequestConfirm>
+ 800940e:	f025 fe85 	bl	802f11c <LoRaMacMibSetRequestConfirm>
  8009412:	b9f8      	cbnz	r0, 8009454 <service_lora_set_njm+0xc4>
  8009414:	230d      	movs	r3, #13
  8009416:	a804      	add	r0, sp, #16
  8009418:	f88d 3010 	strb.w	r3, [sp, #16]
  800941c:	f8cd d014 	str.w	sp, [sp, #20]
- 8009420:	f026 fe7c 	bl	803011c <LoRaMacMibSetRequestConfirm>
+ 8009420:	f025 fe7c 	bl	802f11c <LoRaMacMibSetRequestConfirm>
  8009424:	b9b0      	cbnz	r0, 8009454 <service_lora_set_njm+0xc4>
  8009426:	230e      	movs	r3, #14
  8009428:	a804      	add	r0, sp, #16
  800942a:	f88d 3010 	strb.w	r3, [sp, #16]
  800942e:	f8cd d014 	str.w	sp, [sp, #20]
- 8009432:	f026 fe73 	bl	803011c <LoRaMacMibSetRequestConfirm>
+ 8009432:	f025 fe73 	bl	802f11c <LoRaMacMibSetRequestConfirm>
  8009436:	b968      	cbnz	r0, 8009454 <service_lora_set_njm+0xc4>
- 8009438:	f019 fe02 	bl	8023040 <service_nvm_get_class_from_nvm>
+ 8009438:	f018 fe02 	bl	8022040 <service_nvm_get_class_from_nvm>
  800943c:	4621      	mov	r1, r4
  800943e:	f7ff ff4f 	bl	80092e0 <service_lora_set_class>
  8009442:	b948      	cbnz	r0, 8009458 <service_lora_set_njm+0xc8>
@@ -5084,7 +5084,7 @@ Disassembly of section .text:
  8009448:	4628      	mov	r0, r5
  800944a:	e005      	b.n	8009458 <service_lora_set_njm+0xc8>
  800944c:	a804      	add	r0, sp, #16
- 800944e:	f026 fd17 	bl	802fe80 <LoRaMacMibGetRequestConfirm>
+ 800944e:	f025 fd17 	bl	802ee80 <LoRaMacMibGetRequestConfirm>
  8009452:	b118      	cbz	r0, 800945c <service_lora_set_njm+0xcc>
  8009454:	f06f 0006 	mvn.w	r0, #6
  8009458:	b00f      	add	sp, #60	; 0x3c
@@ -5096,44 +5096,44 @@ Disassembly of section .text:
  8009468:	e7a4      	b.n	80093b4 <service_lora_set_njm+0x24>
  800946a:	2108      	movs	r1, #8
  800946c:	4668      	mov	r0, sp
- 800946e:	f019 fd15 	bl	8022e9c <service_nvm_get_dev_eui_from_nvm>
+ 800946e:	f018 fd15 	bl	8021e9c <service_nvm_get_dev_eui_from_nvm>
  8009472:	2302      	movs	r3, #2
  8009474:	a804      	add	r0, sp, #16
  8009476:	f88d 3010 	strb.w	r3, [sp, #16]
  800947a:	f8cd d014 	str.w	sp, [sp, #20]
- 800947e:	f026 fe4d 	bl	803011c <LoRaMacMibSetRequestConfirm>
+ 800947e:	f025 fe4d 	bl	802f11c <LoRaMacMibSetRequestConfirm>
  8009482:	2800      	cmp	r0, #0
  8009484:	d1e6      	bne.n	8009454 <service_lora_set_njm+0xc4>
  8009486:	2108      	movs	r1, #8
  8009488:	4668      	mov	r0, sp
- 800948a:	f019 fc67 	bl	8022d5c <service_nvm_get_app_eui_from_nvm>
+ 800948a:	f018 fc67 	bl	8021d5c <service_nvm_get_app_eui_from_nvm>
  800948e:	2303      	movs	r3, #3
  8009490:	a804      	add	r0, sp, #16
  8009492:	f88d 3010 	strb.w	r3, [sp, #16]
  8009496:	f8cd d014 	str.w	sp, [sp, #20]
- 800949a:	f026 fe3f 	bl	803011c <LoRaMacMibSetRequestConfirm>
+ 800949a:	f025 fe3f 	bl	802f11c <LoRaMacMibSetRequestConfirm>
  800949e:	2800      	cmp	r0, #0
  80094a0:	d1d8      	bne.n	8009454 <service_lora_set_njm+0xc4>
  80094a2:	2110      	movs	r1, #16
  80094a4:	4668      	mov	r0, sp
- 80094a6:	f019 fc81 	bl	8022dac <service_nvm_get_app_key_from_nvm>
+ 80094a6:	f018 fc81 	bl	8021dac <service_nvm_get_app_key_from_nvm>
  80094aa:	2308      	movs	r3, #8
  80094ac:	a804      	add	r0, sp, #16
  80094ae:	f88d 3010 	strb.w	r3, [sp, #16]
  80094b2:	f8cd d014 	str.w	sp, [sp, #20]
- 80094b6:	f026 fe31 	bl	803011c <LoRaMacMibSetRequestConfirm>
+ 80094b6:	f025 fe31 	bl	802f11c <LoRaMacMibSetRequestConfirm>
  80094ba:	2800      	cmp	r0, #0
  80094bc:	d1ca      	bne.n	8009454 <service_lora_set_njm+0xc4>
  80094be:	2309      	movs	r3, #9
  80094c0:	a804      	add	r0, sp, #16
  80094c2:	f88d 3010 	strb.w	r3, [sp, #16]
  80094c6:	f8cd d014 	str.w	sp, [sp, #20]
- 80094ca:	f026 fe27 	bl	803011c <LoRaMacMibSetRequestConfirm>
+ 80094ca:	f025 fe27 	bl	802f11c <LoRaMacMibSetRequestConfirm>
  80094ce:	2800      	cmp	r0, #0
  80094d0:	d0b8      	beq.n	8009444 <service_lora_set_njm+0xb4>
  80094d2:	e7bf      	b.n	8009454 <service_lora_set_njm+0xc4>
  80094d4:	4620      	mov	r0, r4
- 80094d6:	f019 fd95 	bl	8023004 <service_nvm_set_njm_to_nvm>
+ 80094d6:	f018 fd95 	bl	8022004 <service_nvm_set_njm_to_nvm>
  80094da:	e7bd      	b.n	8009458 <service_lora_set_njm+0xc8>
  80094dc:	f06f 0010 	mvn.w	r0, #16
  80094e0:	e7ba      	b.n	8009458 <service_lora_set_njm+0xc8>
@@ -5181,7 +5181,7 @@ Disassembly of section .text:
 08009530 <service_lora_set_timereq>:
  8009530:	b510      	push	{r4, lr}
  8009532:	4604      	mov	r4, r0
- 8009534:	f016 fd69 	bl	802000a <service_lora_get_njs>
+ 8009534:	f015 fd69 	bl	801f00a <service_lora_get_njs>
  8009538:	b128      	cbz	r0, 8009546 <service_lora_set_timereq+0x16>
  800953a:	2c01      	cmp	r4, #1
  800953c:	d806      	bhi.n	800954c <service_lora_set_timereq+0x1c>
@@ -5228,11 +5228,11 @@ Disassembly of section .text:
  800959e:	4798      	blx	r3
  80095a0:	2000      	movs	r0, #0
  80095a2:	bd38      	pop	{r3, r4, r5, pc}
- 80095a4:	f017 ff44 	bl	8021430 <LmphClockSyncPackageFactory>
+ 80095a4:	f016 ff44 	bl	8020430 <LmphClockSyncPackageFactory>
  80095a8:	e7e1      	b.n	800956e <LmHandlerPackageRegister+0x16>
- 80095aa:	f018 f9e9 	bl	8021980 <LmhpRemoteMcastSetupPackageFactory>
+ 80095aa:	f017 f9e9 	bl	8020980 <LmhpRemoteMcastSetupPackageFactory>
  80095ae:	e7de      	b.n	800956e <LmHandlerPackageRegister+0x16>
- 80095b0:	f018 fc0a 	bl	8021dc8 <LmhpFragmentationPackageFactory>
+ 80095b0:	f017 fc0a 	bl	8020dc8 <LmhpFragmentationPackageFactory>
  80095b4:	e7db      	b.n	800956e <LmHandlerPackageRegister+0x16>
  80095b6:	f04f 30ff 	mov.w	r0, #4294967295	; 0xffffffff
  80095ba:	e7f2      	b.n	80095a2 <LmHandlerPackageRegister+0x4a>
@@ -5240,7 +5240,7 @@ Disassembly of section .text:
  80095c0:	080081a5 	.word	0x080081a5
  80095c4:	080084ad 	.word	0x080084ad
  80095c8:	080094e3 	.word	0x080094e3
- 80095cc:	08020ffd 	.word	0x08020ffd
+ 80095cc:	0801fffd 	.word	0x0801fffd
  80095d0:	2000764f 	.word	0x2000764f
 
 080095d4 <service_lora_systemMaxRxError>:
@@ -5251,7 +5251,7 @@ Disassembly of section .text:
  80095de:	4668      	mov	r0, sp
  80095e0:	2319      	movs	r3, #25
  80095e2:	9301      	str	r3, [sp, #4]
- 80095e4:	f026 fd9a 	bl	803011c <LoRaMacMibSetRequestConfirm>
+ 80095e4:	f025 fd9a 	bl	802f11c <LoRaMacMibSetRequestConfirm>
  80095e8:	b00b      	add	sp, #44	; 0x2c
  80095ea:	f85d fb04 	ldr.w	pc, [sp], #4
 	...
@@ -5260,33 +5260,33 @@ Disassembly of section .text:
  80095f0:	b5f0      	push	{r4, r5, r6, r7, lr}
  80095f2:	b08f      	sub	sp, #60	; 0x3c
  80095f4:	4605      	mov	r5, r0
- 80095f6:	f016 fc90 	bl	801ff1a <BoardInitMcu>
- 80095fa:	f016 fcf5 	bl	801ffe8 <service_lora_get_nwm>
+ 80095f6:	f015 fc90 	bl	801ef1a <BoardInitMcu>
+ 80095fa:	f015 fcf5 	bl	801efe8 <service_lora_get_nwm>
  80095fe:	2801      	cmp	r0, #1
  8009600:	d028      	beq.n	8009654 <service_lora_init+0x64>
  8009602:	f001 ffc7 	bl	800b594 <service_lora_p2p_init>
  8009606:	2400      	movs	r4, #0
- 8009608:	f016 fdd8 	bl	80201bc <service_lora_get_class>
+ 8009608:	f015 fdd8 	bl	801f1bc <service_lora_get_class>
  800960c:	2802      	cmp	r0, #2
  800960e:	d005      	beq.n	800961c <service_lora_init+0x2c>
- 8009610:	f016 fcf9 	bl	8020006 <service_lora_get_njm>
+ 8009610:	f015 fcf9 	bl	801f006 <service_lora_get_njm>
  8009614:	b110      	cbz	r0, 800961c <service_lora_init+0x2c>
  8009616:	4bab      	ldr	r3, [pc, #684]	; (80098c4 <service_lora_init+0x2d4>)
  8009618:	6adb      	ldr	r3, [r3, #44]	; 0x2c
  800961a:	4798      	blx	r3
- 800961c:	f016 fce4 	bl	801ffe8 <service_lora_get_nwm>
+ 800961c:	f015 fce4 	bl	801efe8 <service_lora_get_nwm>
  8009620:	2801      	cmp	r0, #1
  8009622:	d114      	bne.n	800964e <service_lora_init+0x5e>
  8009624:	b99c      	cbnz	r4, 800964e <service_lora_init+0x5e>
- 8009626:	f016 fe7a 	bl	802031e <service_lora_get_auto_join>
+ 8009626:	f015 fe7a 	bl	801f31e <service_lora_get_auto_join>
  800962a:	b180      	cbz	r0, 800964e <service_lora_init+0x5e>
- 800962c:	f016 fe73 	bl	8020316 <service_lora_get_join_start>
+ 800962c:	f015 fe73 	bl	801f316 <service_lora_get_join_start>
  8009630:	4605      	mov	r5, r0
- 8009632:	f016 fe74 	bl	802031e <service_lora_get_auto_join>
+ 8009632:	f015 fe74 	bl	801f31e <service_lora_get_auto_join>
  8009636:	4606      	mov	r6, r0
- 8009638:	f016 fe75 	bl	8020326 <service_lora_get_auto_join_period>
+ 8009638:	f015 fe75 	bl	801f326 <service_lora_get_auto_join_period>
  800963c:	4607      	mov	r7, r0
- 800963e:	f016 fe76 	bl	802032e <service_lora_get_auto_join_max_cnt>
+ 800963e:	f015 fe76 	bl	801f32e <service_lora_get_auto_join_max_cnt>
  8009642:	463a      	mov	r2, r7
  8009644:	4603      	mov	r3, r0
  8009646:	4631      	mov	r1, r6
@@ -5296,7 +5296,7 @@ Disassembly of section .text:
  8009650:	b00f      	add	sp, #60	; 0x3c
  8009652:	bdf0      	pop	{r4, r5, r6, r7, pc}
  8009654:	b9cd      	cbnz	r5, 800968a <service_lora_init+0x9a>
- 8009656:	f02a fd81 	bl	803415c <RegionAS923SubBandSet>
+ 8009656:	f029 fd81 	bl	803315c <RegionAS923SubBandSet>
  800965a:	489b      	ldr	r0, [pc, #620]	; (80098c8 <service_lora_init+0x2d8>)
  800965c:	4b9b      	ldr	r3, [pc, #620]	; (80098cc <service_lora_init+0x2dc>)
  800965e:	6003      	str	r3, [r0, #0]
@@ -5314,14 +5314,14 @@ Disassembly of section .text:
  8009678:	462a      	mov	r2, r5
  800967a:	4b9a      	ldr	r3, [pc, #616]	; (80098e4 <service_lora_init+0x2f4>)
  800967c:	60cb      	str	r3, [r1, #12]
- 800967e:	f026 f99b 	bl	802f9b8 <LoRaMacInitialization>
+ 800967e:	f025 f99b 	bl	802e9b8 <LoRaMacInitialization>
  8009682:	b188      	cbz	r0, 80096a8 <service_lora_init+0xb8>
  8009684:	f06f 0406 	mvn.w	r4, #6
  8009688:	e7be      	b.n	8009608 <service_lora_init+0x18>
  800968a:	2d14      	cmp	r5, #20
  800968c:	d104      	bne.n	8009698 <service_lora_init+0xa8>
  800968e:	2002      	movs	r0, #2
- 8009690:	f02a fd64 	bl	803415c <RegionAS923SubBandSet>
+ 8009690:	f029 fd64 	bl	803315c <RegionAS923SubBandSet>
  8009694:	2500      	movs	r5, #0
  8009696:	e7e0      	b.n	800965a <service_lora_init+0x6a>
  8009698:	2d15      	cmp	r5, #21
@@ -5340,7 +5340,7 @@ Disassembly of section .text:
  80096b4:	a804      	add	r0, sp, #16
  80096b6:	4b8d      	ldr	r3, [pc, #564]	; (80098ec <service_lora_init+0x2fc>)
  80096b8:	9305      	str	r3, [sp, #20]
- 80096ba:	f026 fd2f 	bl	803011c <LoRaMacMibSetRequestConfirm>
+ 80096ba:	f025 fd2f 	bl	802f11c <LoRaMacMibSetRequestConfirm>
  80096be:	2800      	cmp	r0, #0
  80096c0:	d1e0      	bne.n	8009684 <service_lora_init+0x94>
  80096c2:	1e6b      	subs	r3, r5, #1
@@ -5352,7 +5352,7 @@ Disassembly of section .text:
  80096d0:	2300      	movs	r3, #0
  80096d2:	a801      	add	r0, sp, #4
  80096d4:	f8ad 3002 	strh.w	r3, [sp, #2]
- 80096d8:	f019 fb22 	bl	8022d20 <service_nvm_get_mask_from_nvm>
+ 80096d8:	f018 fb22 	bl	8021d20 <service_nvm_get_mask_from_nvm>
  80096dc:	4604      	mov	r4, r0
  80096de:	2800      	cmp	r0, #0
  80096e0:	d192      	bne.n	8009608 <service_lora_init+0x18>
@@ -5371,111 +5371,111 @@ Disassembly of section .text:
  8009700:	d1f4      	bne.n	80096ec <service_lora_init+0xfc>
  8009702:	b109      	cbz	r1, 8009708 <service_lora_init+0x118>
  8009704:	f8ad 3002 	strh.w	r3, [sp, #2]
- 8009708:	f016 fe2d 	bl	8020366 <service_lora_get_chs>
+ 8009708:	f015 fe2d 	bl	801f366 <service_lora_get_chs>
  800970c:	4601      	mov	r1, r0
  800970e:	2800      	cmp	r0, #0
  8009710:	f000 80b7 	beq.w	8009882 <service_lora_init+0x292>
- 8009714:	f016 fe27 	bl	8020366 <service_lora_get_chs>
+ 8009714:	f015 fe27 	bl	801f366 <service_lora_get_chs>
  8009718:	f7ff fb68 	bl	8008dec <service_lora_set_chs>
  800971c:	4604      	mov	r4, r0
  800971e:	2800      	cmp	r0, #0
  8009720:	f47f af72 	bne.w	8009608 <service_lora_init+0x18>
  8009724:	2d05      	cmp	r5, #5
  8009726:	f000 80b1 	beq.w	800988c <service_lora_init+0x29c>
- 800972a:	f019 fc65 	bl	8022ff8 <service_nvm_get_njm_from_nvm>
+ 800972a:	f018 fc65 	bl	8021ff8 <service_nvm_get_njm_from_nvm>
  800972e:	2100      	movs	r1, #0
  8009730:	f7ff fe2e 	bl	8009390 <service_lora_set_njm>
  8009734:	4604      	mov	r4, r0
  8009736:	2800      	cmp	r0, #0
  8009738:	f47f af66 	bne.w	8009608 <service_lora_init+0x18>
- 800973c:	f017 fb97 	bl	8020e6e <service_lora_setup_multicast>
+ 800973c:	f016 fb97 	bl	801fe6e <service_lora_setup_multicast>
  8009740:	4604      	mov	r4, r0
  8009742:	2800      	cmp	r0, #0
  8009744:	f47f af60 	bne.w	8009608 <service_lora_init+0x18>
- 8009748:	f019 fc7a 	bl	8023040 <service_nvm_get_class_from_nvm>
+ 8009748:	f018 fc7a 	bl	8022040 <service_nvm_get_class_from_nvm>
  800974c:	4621      	mov	r1, r4
  800974e:	f7ff fdc7 	bl	80092e0 <service_lora_set_class>
  8009752:	4604      	mov	r4, r0
  8009754:	2800      	cmp	r0, #0
  8009756:	f47f af57 	bne.w	8009608 <service_lora_init+0x18>
- 800975a:	f019 fc5f 	bl	802301c <service_nvm_get_adr_from_nvm>
+ 800975a:	f018 fc5f 	bl	802201c <service_nvm_get_adr_from_nvm>
  800975e:	4621      	mov	r1, r4
- 8009760:	f016 ff0c 	bl	802057c <service_lora_set_adr>
+ 8009760:	f015 ff0c 	bl	801f57c <service_lora_set_adr>
  8009764:	4604      	mov	r4, r0
  8009766:	2800      	cmp	r0, #0
  8009768:	f47f af4e 	bne.w	8009608 <service_lora_init+0x18>
- 800976c:	f019 fc7a 	bl	8023064 <service_nvm_get_dr_from_nvm>
+ 800976c:	f018 fc7a 	bl	8022064 <service_nvm_get_dr_from_nvm>
  8009770:	4621      	mov	r1, r4
  8009772:	f7ff fc1d 	bl	8008fb0 <service_lora_set_dr>
  8009776:	4604      	mov	r4, r0
  8009778:	2800      	cmp	r0, #0
  800977a:	f47f af45 	bne.w	8009608 <service_lora_init+0x18>
- 800977e:	f019 fc83 	bl	8023088 <service_nvm_get_rx2dr_from_nvm>
+ 800977e:	f018 fc83 	bl	8022088 <service_nvm_get_rx2dr_from_nvm>
  8009782:	4621      	mov	r1, r4
- 8009784:	f017 f802 	bl	802078c <service_lora_set_rx2dr>
+ 8009784:	f016 f802 	bl	801f78c <service_lora_set_rx2dr>
  8009788:	4604      	mov	r4, r0
  800978a:	2800      	cmp	r0, #0
  800978c:	f47f af3c 	bne.w	8009608 <service_lora_init+0x18>
- 8009790:	f019 fcbc 	bl	802310c <service_nvm_get_rx2fq_from_nvm>
+ 8009790:	f018 fcbc 	bl	802210c <service_nvm_get_rx2fq_from_nvm>
  8009794:	4621      	mov	r1, r4
- 8009796:	f016 ffd3 	bl	8020740 <service_lora_set_rx2freq>
- 800979a:	f019 fc87 	bl	80230ac <service_nvm_get_jn1dl_from_nvm>
+ 8009796:	f015 ffd3 	bl	801f740 <service_lora_set_rx2freq>
+ 800979a:	f018 fc87 	bl	80220ac <service_nvm_get_jn1dl_from_nvm>
  800979e:	4621      	mov	r1, r4
- 80097a0:	f016 ff12 	bl	80205c8 <service_lora_set_jn1dl>
+ 80097a0:	f015 ff12 	bl	801f5c8 <service_lora_set_jn1dl>
  80097a4:	4604      	mov	r4, r0
  80097a6:	2800      	cmp	r0, #0
  80097a8:	f47f af2e 	bne.w	8009608 <service_lora_init+0x18>
- 80097ac:	f019 fcb4 	bl	8023118 <service_nvm_get_pub_nwk_mode_from_nvm>
+ 80097ac:	f018 fcb4 	bl	8022118 <service_nvm_get_pub_nwk_mode_from_nvm>
  80097b0:	4621      	mov	r1, r4
- 80097b2:	f016 ff47 	bl	8020644 <service_lora_set_pub_nwk_mode>
+ 80097b2:	f015 ff47 	bl	801f644 <service_lora_set_pub_nwk_mode>
  80097b6:	4604      	mov	r4, r0
  80097b8:	2800      	cmp	r0, #0
  80097ba:	f47f af25 	bne.w	8009608 <service_lora_init+0x18>
- 80097be:	f019 fcbd 	bl	802313c <service_nvm_get_rx1dl_from_nvm>
+ 80097be:	f018 fcbd 	bl	802213c <service_nvm_get_rx1dl_from_nvm>
  80097c2:	4621      	mov	r1, r4
- 80097c4:	f016 ff5e 	bl	8020684 <service_lora_set_rx1dl>
+ 80097c4:	f015 ff5e 	bl	801f684 <service_lora_set_rx1dl>
  80097c8:	4604      	mov	r4, r0
  80097ca:	2800      	cmp	r0, #0
  80097cc:	f47f af1c 	bne.w	8009608 <service_lora_init+0x18>
- 80097d0:	f019 fcd8 	bl	8023184 <service_nvm_get_txpower_from_nvm>
+ 80097d0:	f018 fcd8 	bl	8022184 <service_nvm_get_txpower_from_nvm>
  80097d4:	4621      	mov	r1, r4
  80097d6:	f7ff fd59 	bl	800928c <service_lora_set_txpower>
  80097da:	4604      	mov	r4, r0
  80097dc:	2800      	cmp	r0, #0
  80097de:	f47f af13 	bne.w	8009608 <service_lora_init+0x18>
- 80097e2:	f019 ff73 	bl	80236cc <service_nvm_get_dcs_from_nvm>
+ 80097e2:	f018 ff73 	bl	80226cc <service_nvm_get_dcs_from_nvm>
  80097e6:	2100      	movs	r1, #0
- 80097e8:	f016 fcf1 	bl	80201ce <service_lora_set_dcs>
+ 80097e8:	f015 fcf1 	bl	801f1ce <service_lora_set_dcs>
  80097ec:	4604      	mov	r4, r0
  80097ee:	2800      	cmp	r0, #0
  80097f0:	f47f af0a 	bne.w	8009608 <service_lora_init+0x18>
  80097f4:	2334      	movs	r3, #52	; 0x34
  80097f6:	a804      	add	r0, sp, #16
  80097f8:	f88d 3010 	strb.w	r3, [sp, #16]
- 80097fc:	f026 fb40 	bl	802fe80 <LoRaMacMibGetRequestConfirm>
+ 80097fc:	f025 fb40 	bl	802ee80 <LoRaMacMibGetRequestConfirm>
  8009800:	9d05      	ldr	r5, [sp, #20]
- 8009802:	f016 fda4 	bl	802034e <service_lora_get_DevNonce>
+ 8009802:	f015 fda4 	bl	801f34e <service_lora_get_DevNonce>
  8009806:	80a8      	strh	r0, [r5, #4]
- 8009808:	f016 fda9 	bl	802035e <service_lora_get_IsCertPortOn>
+ 8009808:	f015 fda9 	bl	801f35e <service_lora_get_IsCertPortOn>
  800980c:	3800      	subs	r0, #0
  800980e:	bf18      	it	ne
  8009810:	2001      	movne	r0, #1
  8009812:	f885 01af 	strb.w	r0, [r5, #431]	; 0x1af
- 8009816:	f016 fbf6 	bl	8020006 <service_lora_get_njm>
+ 8009816:	f015 fbf6 	bl	801f006 <service_lora_get_njm>
  800981a:	2800      	cmp	r0, #0
  800981c:	d043      	beq.n	80098a6 <service_lora_init+0x2b6>
  800981e:	4834      	ldr	r0, [pc, #208]	; (80098f0 <service_lora_init+0x300>)
- 8009820:	f02b ff40 	bl	80356a4 <AU915_SingleChannelRegisterCallback>
+ 8009820:	f02a ff40 	bl	80346a4 <AU915_SingleChannelRegisterCallback>
  8009824:	4833      	ldr	r0, [pc, #204]	; (80098f4 <service_lora_init+0x304>)
- 8009826:	f032 fe35 	bl	803c494 <US915_SingleChannelRegisterCallback>
+ 8009826:	f031 fe35 	bl	803b494 <US915_SingleChannelRegisterCallback>
  800982a:	f7ff fed3 	bl	80095d4 <service_lora_systemMaxRxError>
- 800982e:	f026 fa9f 	bl	802fd70 <LoRaMacStart>
+ 800982e:	f025 fa9f 	bl	802ed70 <LoRaMacStart>
  8009832:	4605      	mov	r5, r0
  8009834:	2800      	cmp	r0, #0
  8009836:	f47f af25 	bne.w	8009684 <service_lora_init+0x94>
  800983a:	492f      	ldr	r1, [pc, #188]	; (80098f8 <service_lora_init+0x308>)
  800983c:	482f      	ldr	r0, [pc, #188]	; (80098fc <service_lora_init+0x30c>)
- 800983e:	f017 fb8d 	bl	8020f5c <LmHandlerInit>
+ 800983e:	f016 fb8d 	bl	801ff5c <LmHandlerInit>
  8009842:	492f      	ldr	r1, [pc, #188]	; (8009900 <service_lora_init+0x310>)
  8009844:	4628      	mov	r0, r5
  8009846:	f7ff fe87 	bl	8009558 <LmHandlerPackageRegister>
@@ -5497,12 +5497,12 @@ Disassembly of section .text:
  8009874:	2800      	cmp	r0, #0
  8009876:	f47f af05 	bne.w	8009684 <service_lora_init+0x94>
  800987a:	4823      	ldr	r0, [pc, #140]	; (8009908 <service_lora_init+0x318>)
- 800987c:	f018 f89e 	bl	80219bc <LmhpRemoteMcastSetupRegisterPowersaveHandler>
+ 800987c:	f017 f89e 	bl	80209bc <LmhpRemoteMcastSetupRegisterPowersaveHandler>
  8009880:	e6c2      	b.n	8009608 <service_lora_init+0x18>
  8009882:	f10d 0002 	add.w	r0, sp, #2
  8009886:	f7fe fe42 	bl	800850e <service_lora_set_mask>
  800988a:	e747      	b.n	800971c <service_lora_init+0x12c>
- 800988c:	f016 fd6b 	bl	8020366 <service_lora_get_chs>
+ 800988c:	f015 fd6b 	bl	801f366 <service_lora_get_chs>
  8009890:	2800      	cmp	r0, #0
  8009892:	f43f af4a 	beq.w	800972a <service_lora_init+0x13a>
  8009896:	2000      	movs	r0, #0
@@ -5511,18 +5511,18 @@ Disassembly of section .text:
  800989e:	2800      	cmp	r0, #0
  80098a0:	f43f af43 	beq.w	800972a <service_lora_init+0x13a>
  80098a4:	e6b0      	b.n	8009608 <service_lora_init+0x18>
- 80098a6:	f016 ffa4 	bl	80207f2 <restore_abp_config>
- 80098aa:	f016 fc85 	bl	80201b8 <service_lora_get_adr>
+ 80098a6:	f015 ffa4 	bl	801f7f2 <restore_abp_config>
+ 80098aa:	f015 fc85 	bl	801f1b8 <service_lora_get_adr>
  80098ae:	2800      	cmp	r0, #0
  80098b0:	d0b5      	beq.n	800981e <service_lora_init+0x22e>
- 80098b2:	f019 fbd7 	bl	8023064 <service_nvm_get_dr_from_nvm>
+ 80098b2:	f018 fbd7 	bl	8022064 <service_nvm_get_dr_from_nvm>
  80098b6:	4621      	mov	r1, r4
  80098b8:	f7ff fb7a 	bl	8008fb0 <service_lora_set_dr>
  80098bc:	2800      	cmp	r0, #0
  80098be:	d0ae      	beq.n	800981e <service_lora_init+0x22e>
  80098c0:	e6a2      	b.n	8009608 <service_lora_init+0x18>
  80098c2:	bf00      	nop
- 80098c4:	0803c988 	.word	0x0803c988
+ 80098c4:	0803b988 	.word	0x0803b988
  80098c8:	2000778c 	.word	0x2000778c
  80098cc:	080082a9 	.word	0x080082a9
  80098d0:	08008b75 	.word	0x08008b75
@@ -5545,7 +5545,7 @@ Disassembly of section .text:
  800990c:	b5f0      	push	{r4, r5, r6, r7, lr}
  800990e:	b08b      	sub	sp, #44	; 0x2c
  8009910:	4606      	mov	r6, r0
- 8009912:	f016 fb15 	bl	801ff40 <BoardGetHardwareFreq>
+ 8009912:	f015 fb15 	bl	801ef40 <BoardGetHardwareFreq>
  8009916:	b2c0      	uxtb	r0, r0
  8009918:	2800      	cmp	r0, #0
  800991a:	f000 8081 	beq.w	8009a20 <service_lora_set_band+0x114>
@@ -5557,11 +5557,11 @@ Disassembly of section .text:
  800992a:	bdf0      	pop	{r4, r5, r6, r7, pc}
  800992c:	2e04      	cmp	r6, #4
  800992e:	d0f8      	beq.n	8009922 <service_lora_set_band+0x16>
- 8009930:	f016 fd17 	bl	8020362 <service_lora_get_band>
+ 8009930:	f015 fd17 	bl	801f362 <service_lora_get_band>
  8009934:	42b0      	cmp	r0, r6
  8009936:	f000 809f 	beq.w	8009a78 <service_lora_set_band+0x16c>
  800993a:	4630      	mov	r0, r6
- 800993c:	f016 fd25 	bl	802038a <service_lora_region_isActive>
+ 800993c:	f015 fd25 	bl	801f38a <service_lora_region_isActive>
  8009940:	2800      	cmp	r0, #0
  8009942:	d0ee      	beq.n	8009922 <service_lora_set_band+0x16>
  8009944:	f7fe fc9f 	bl	8008286 <service_lora_stop>
@@ -5571,64 +5571,64 @@ Disassembly of section .text:
  800994e:	781b      	ldrb	r3, [r3, #0]
  8009950:	2b00      	cmp	r3, #0
  8009952:	d1e8      	bne.n	8009926 <service_lora_set_band+0x1a>
- 8009954:	f017 fabe 	bl	8020ed4 <service_lora_clear_multicast>
+ 8009954:	f016 fabe 	bl	801fed4 <service_lora_clear_multicast>
  8009958:	2800      	cmp	r0, #0
  800995a:	d1e4      	bne.n	8009926 <service_lora_set_band+0x1a>
- 800995c:	f019 fda2 	bl	80234a4 <service_nvm_set_chs_to_nvm>
+ 800995c:	f018 fda2 	bl	80224a4 <service_nvm_set_chs_to_nvm>
  8009960:	4607      	mov	r7, r0
  8009962:	2800      	cmp	r0, #0
  8009964:	d1df      	bne.n	8009926 <service_lora_set_band+0x1a>
  8009966:	2e00      	cmp	r6, #0
  8009968:	d15f      	bne.n	8009a2a <service_lora_set_band+0x11e>
  800996a:	2001      	movs	r0, #1
- 800996c:	f02a fbf6 	bl	803415c <RegionAS923SubBandSet>
+ 800996c:	f029 fbf6 	bl	803315c <RegionAS923SubBandSet>
  8009970:	4635      	mov	r5, r6
  8009972:	4943      	ldr	r1, [pc, #268]	; (8009a80 <service_lora_set_band+0x174>)
  8009974:	4843      	ldr	r0, [pc, #268]	; (8009a84 <service_lora_set_band+0x178>)
  8009976:	462a      	mov	r2, r5
- 8009978:	f026 f81e 	bl	802f9b8 <LoRaMacInitialization>
+ 8009978:	f025 f81e 	bl	802e9b8 <LoRaMacInitialization>
  800997c:	2800      	cmp	r0, #0
  800997e:	d178      	bne.n	8009a72 <service_lora_set_band+0x166>
  8009980:	232c      	movs	r3, #44	; 0x2c
  8009982:	4668      	mov	r0, sp
  8009984:	f88d 3000 	strb.w	r3, [sp]
- 8009988:	f026 fa7a 	bl	802fe80 <LoRaMacMibGetRequestConfirm>
+ 8009988:	f025 fa7a 	bl	802ee80 <LoRaMacMibGetRequestConfirm>
  800998c:	2800      	cmp	r0, #0
  800998e:	d170      	bne.n	8009a72 <service_lora_set_band+0x166>
  8009990:	f89d 0004 	ldrb.w	r0, [sp, #4]
- 8009994:	f019 fb6c 	bl	8023070 <service_nvm_set_dr_to_nvm>
+ 8009994:	f018 fb6c 	bl	8022070 <service_nvm_set_dr_to_nvm>
  8009998:	4604      	mov	r4, r0
  800999a:	2800      	cmp	r0, #0
  800999c:	d1c3      	bne.n	8009926 <service_lora_set_band+0x1a>
  800999e:	2720      	movs	r7, #32
  80099a0:	4668      	mov	r0, sp
  80099a2:	f88d 7000 	strb.w	r7, [sp]
- 80099a6:	f026 fa6b 	bl	802fe80 <LoRaMacMibGetRequestConfirm>
+ 80099a6:	f025 fa6b 	bl	802ee80 <LoRaMacMibGetRequestConfirm>
  80099aa:	2800      	cmp	r0, #0
  80099ac:	d161      	bne.n	8009a72 <service_lora_set_band+0x166>
  80099ae:	f89d 0008 	ldrb.w	r0, [sp, #8]
- 80099b2:	f019 fb6f 	bl	8023094 <service_nvm_set_rx2dr_to_nvm>
+ 80099b2:	f018 fb6f 	bl	8022094 <service_nvm_set_rx2dr_to_nvm>
  80099b6:	4604      	mov	r4, r0
  80099b8:	2800      	cmp	r0, #0
  80099ba:	d1b4      	bne.n	8009926 <service_lora_set_band+0x1a>
  80099bc:	4668      	mov	r0, sp
  80099be:	f88d 7000 	strb.w	r7, [sp]
- 80099c2:	f026 fa5d 	bl	802fe80 <LoRaMacMibGetRequestConfirm>
+ 80099c2:	f025 fa5d 	bl	802ee80 <LoRaMacMibGetRequestConfirm>
  80099c6:	2800      	cmp	r0, #0
  80099c8:	d153      	bne.n	8009a72 <service_lora_set_band+0x166>
  80099ca:	9801      	ldr	r0, [sp, #4]
- 80099cc:	f019 fb92 	bl	80230f4 <service_nvm_set_rx2fq_to_nvm>
+ 80099cc:	f018 fb92 	bl	80220f4 <service_nvm_set_rx2fq_to_nvm>
  80099d0:	4604      	mov	r4, r0
  80099d2:	2800      	cmp	r0, #0
  80099d4:	d1a7      	bne.n	8009926 <service_lora_set_band+0x1a>
  80099d6:	232f      	movs	r3, #47	; 0x2f
  80099d8:	4668      	mov	r0, sp
  80099da:	f88d 3000 	strb.w	r3, [sp]
- 80099de:	f026 fa4f 	bl	802fe80 <LoRaMacMibGetRequestConfirm>
+ 80099de:	f025 fa4f 	bl	802ee80 <LoRaMacMibGetRequestConfirm>
  80099e2:	2800      	cmp	r0, #0
  80099e4:	d145      	bne.n	8009a72 <service_lora_set_band+0x166>
  80099e6:	f89d 0004 	ldrb.w	r0, [sp, #4]
- 80099ea:	f019 fbd1 	bl	8023190 <service_nvm_set_txpower_to_nvm>
+ 80099ea:	f018 fbd1 	bl	8022190 <service_nvm_set_txpower_to_nvm>
  80099ee:	4604      	mov	r4, r0
  80099f0:	2800      	cmp	r0, #0
  80099f2:	d198      	bne.n	8009926 <service_lora_set_band+0x1a>
@@ -5643,7 +5643,7 @@ Disassembly of section .text:
  8009a06:	bf18      	it	ne
  8009a08:	4635      	movne	r5, r6
  8009a0a:	4628      	mov	r0, r5
- 8009a0c:	f019 f97c 	bl	8022d08 <service_nvm_set_band_to_nvm>
+ 8009a0c:	f018 f97c 	bl	8021d08 <service_nvm_set_band_to_nvm>
  8009a10:	4604      	mov	r4, r0
  8009a12:	2800      	cmp	r0, #0
  8009a14:	d187      	bne.n	8009926 <service_lora_set_band+0x1a>
@@ -5659,7 +5659,7 @@ Disassembly of section .text:
  8009a2a:	2e14      	cmp	r6, #20
  8009a2c:	d104      	bne.n	8009a38 <service_lora_set_band+0x12c>
  8009a2e:	2002      	movs	r0, #2
- 8009a30:	f02a fb94 	bl	803415c <RegionAS923SubBandSet>
+ 8009a30:	f029 fb94 	bl	803315c <RegionAS923SubBandSet>
  8009a34:	463d      	mov	r5, r7
  8009a36:	e79c      	b.n	8009972 <service_lora_set_band+0x66>
  8009a38:	2e15      	cmp	r6, #21
@@ -5676,14 +5676,14 @@ Disassembly of section .text:
  8009a4e:	2324      	movs	r3, #36	; 0x24
  8009a50:	4668      	mov	r0, sp
  8009a52:	f88d 3000 	strb.w	r3, [sp]
- 8009a56:	f026 fa13 	bl	802fe80 <LoRaMacMibGetRequestConfirm>
+ 8009a56:	f025 fa13 	bl	802ee80 <LoRaMacMibGetRequestConfirm>
  8009a5a:	b950      	cbnz	r0, 8009a72 <service_lora_set_band+0x166>
  8009a5c:	9801      	ldr	r0, [sp, #4]
- 8009a5e:	f019 f969 	bl	8022d34 <service_nvm_set_mask_to_nvm>
+ 8009a5e:	f018 f969 	bl	8021d34 <service_nvm_set_mask_to_nvm>
  8009a62:	4604      	mov	r4, r0
  8009a64:	2800      	cmp	r0, #0
  8009a66:	f47f af5e 	bne.w	8009926 <service_lora_set_band+0x1a>
- 8009a6a:	f019 fd1b 	bl	80234a4 <service_nvm_set_chs_to_nvm>
+ 8009a6a:	f018 fd1b 	bl	80224a4 <service_nvm_set_chs_to_nvm>
  8009a6e:	2800      	cmp	r0, #0
  8009a70:	d0c8      	beq.n	8009a04 <service_lora_set_band+0xf8>
  8009a72:	f06f 0406 	mvn.w	r4, #6
@@ -5696,7 +5696,7 @@ Disassembly of section .text:
 
 08009a88 <service_lora_set_lora_default>:
  8009a88:	b538      	push	{r3, r4, r5, lr}
- 8009a8a:	f016 faad 	bl	801ffe8 <service_lora_get_nwm>
+ 8009a8a:	f015 faad 	bl	801efe8 <service_lora_get_nwm>
  8009a8e:	2801      	cmp	r0, #1
  8009a90:	d009      	beq.n	8009aa6 <service_lora_set_lora_default+0x1e>
  8009a92:	f006 fd99 	bl	80105c8 <service_nvm_set_default_config_to_nvm>
@@ -5706,7 +5706,7 @@ Disassembly of section .text:
  8009a9c:	f007 f868 	bl	8010b70 <udrv_serial_log_printf>
  8009aa0:	f06f 0406 	mvn.w	r4, #6
  8009aa4:	e012      	b.n	8009acc <service_lora_set_lora_default+0x44>
- 8009aa6:	f016 fc5c 	bl	8020362 <service_lora_get_band>
+ 8009aa6:	f015 fc5c 	bl	801f362 <service_lora_get_band>
  8009aaa:	f1a0 0314 	sub.w	r3, r0, #20
  8009aae:	b2db      	uxtb	r3, r3
  8009ab0:	2b02      	cmp	r3, #2
@@ -5718,33 +5718,33 @@ Disassembly of section .text:
  8009abe:	2800      	cmp	r0, #0
  8009ac0:	d0e7      	beq.n	8009a92 <service_lora_set_lora_default+0xa>
  8009ac2:	4628      	mov	r0, r5
- 8009ac4:	f02b fe4c 	bl	8035760 <RegionIsActive>
+ 8009ac4:	f02a fe4c 	bl	8034760 <RegionIsActive>
  8009ac8:	2800      	cmp	r0, #0
  8009aca:	d0e2      	beq.n	8009a92 <service_lora_set_lora_default+0xa>
  8009acc:	4620      	mov	r0, r4
  8009ace:	bd38      	pop	{r3, r4, r5, pc}
- 8009ad0:	f017 fa00 	bl	8020ed4 <service_lora_clear_multicast>
+ 8009ad0:	f016 fa00 	bl	801fed4 <service_lora_clear_multicast>
  8009ad4:	2800      	cmp	r0, #0
  8009ad6:	d1e3      	bne.n	8009aa0 <service_lora_set_lora_default+0x18>
- 8009ad8:	f016 fa86 	bl	801ffe8 <service_lora_get_nwm>
+ 8009ad8:	f015 fa86 	bl	801efe8 <service_lora_get_nwm>
  8009adc:	2801      	cmp	r0, #1
  8009ade:	d001      	beq.n	8009ae4 <service_lora_set_lora_default+0x5c>
  8009ae0:	2400      	movs	r4, #0
  8009ae2:	e7f3      	b.n	8009acc <service_lora_set_lora_default+0x44>
- 8009ae4:	f016 fc3d 	bl	8020362 <service_lora_get_band>
+ 8009ae4:	f015 fc3d 	bl	801f362 <service_lora_get_band>
  8009ae8:	f1a0 0314 	sub.w	r3, r0, #20
  8009aec:	b2db      	uxtb	r3, r3
  8009aee:	2b02      	cmp	r3, #2
  8009af0:	4605      	mov	r5, r0
  8009af2:	bf98      	it	ls
  8009af4:	2500      	movls	r5, #0
- 8009af6:	f016 fc34 	bl	8020362 <service_lora_get_band>
+ 8009af6:	f015 fc34 	bl	801f362 <service_lora_get_band>
  8009afa:	f7ff fd79 	bl	80095f0 <service_lora_init>
  8009afe:	4604      	mov	r4, r0
  8009b00:	2800      	cmp	r0, #0
  8009b02:	d0ed      	beq.n	8009ae0 <service_lora_set_lora_default+0x58>
  8009b04:	4628      	mov	r0, r5
- 8009b06:	f02b fe2b 	bl	8035760 <RegionIsActive>
+ 8009b06:	f02a fe2b 	bl	8034760 <RegionIsActive>
  8009b0a:	2800      	cmp	r0, #0
  8009b0c:	d0e8      	beq.n	8009ae0 <service_lora_set_lora_default+0x58>
  8009b0e:	e7dd      	b.n	8009acc <service_lora_set_lora_default+0x44>
@@ -5765,14 +5765,14 @@ Disassembly of section .text:
  8009b2e:	b002      	add	sp, #8
  8009b30:	bd10      	pop	{r4, pc}
  8009b32:	bf00      	nop
- 8009b34:	0803c988 	.word	0x0803c988
+ 8009b34:	0803b988 	.word	0x0803b988
 
 08009b38 <service_lora_resume>:
  8009b38:	4b01      	ldr	r3, [pc, #4]	; (8009b40 <service_lora_resume+0x8>)
  8009b3a:	685b      	ldr	r3, [r3, #4]
  8009b3c:	4718      	bx	r3
  8009b3e:	bf00      	nop
- 8009b40:	0803c988 	.word	0x0803c988
+ 8009b40:	0803b988 	.word	0x0803b988
 
 08009b44 <service_lora_isbusy>:
  8009b44:	b508      	push	{r3, lr}
@@ -5783,7 +5783,7 @@ Disassembly of section .text:
  8009b4e:	bf18      	it	ne
  8009b50:	2001      	movne	r0, #1
  8009b52:	bd08      	pop	{r3, pc}
- 8009b54:	0803c988 	.word	0x0803c988
+ 8009b54:	0803b988 	.word	0x0803b988
 
 08009b58 <service_lora_test_full_wake_lock>:
  8009b58:	b508      	push	{r3, lr}
@@ -5841,7 +5841,7 @@ Disassembly of section .text:
  8009bd0:	20007a2c 	.word	0x20007a2c
  8009bd4:	20007c5c 	.word	0x20007c5c
  8009bd8:	080177ec 	.word	0x080177ec
- 8009bdc:	0803c988 	.word	0x0803c988
+ 8009bdc:	0803b988 	.word	0x0803b988
  8009be0:	20007a30 	.word	0x20007a30
 
 08009be4 <OnRxTimeout>:
@@ -5912,16 +5912,16 @@ Disassembly of section .text:
  8009c6c:	b123      	cbz	r3, 8009c78 <OnTxTimerEvent+0x5c>
  8009c6e:	e8bd 40f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, lr}
  8009c72:	4820      	ldr	r0, [pc, #128]	; (8009cf4 <OnTxTimerEvent+0xd8>)
- 8009c74:	f01c b9a8 	b.w	8025fc8 <UTIL_TIMER_Start>
+ 8009c74:	f01b b9a8 	b.w	8024fc8 <UTIL_TIMER_Start>
  8009c78:	4a1f      	ldr	r2, [pc, #124]	; (8009cf8 <OnTxTimerEvent+0xdc>)
  8009c7a:	481e      	ldr	r0, [pc, #120]	; (8009cf4 <OnTxTimerEvent+0xd8>)
  8009c7c:	7813      	ldrb	r3, [r2, #0]
  8009c7e:	f023 0304 	bic.w	r3, r3, #4
  8009c82:	7013      	strb	r3, [r2, #0]
- 8009c84:	f01c f8e0 	bl	8025e48 <UTIL_TIMER_IsRunning>
+ 8009c84:	f01b f8e0 	bl	8024e48 <UTIL_TIMER_IsRunning>
  8009c88:	b110      	cbz	r0, 8009c90 <OnTxTimerEvent+0x74>
  8009c8a:	481a      	ldr	r0, [pc, #104]	; (8009cf4 <OnTxTimerEvent+0xd8>)
- 8009c8c:	f01c f94c 	bl	8025f28 <UTIL_TIMER_Stop>
+ 8009c8c:	f01b f94c 	bl	8024f28 <UTIL_TIMER_Stop>
  8009c90:	2300      	movs	r3, #0
  8009c92:	702b      	strb	r3, [r5, #0]
  8009c94:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
@@ -5945,14 +5945,14 @@ Disassembly of section .text:
  8009cba:	7813      	ldrb	r3, [r2, #0]
  8009cbc:	f023 0304 	bic.w	r3, r3, #4
  8009cc0:	7013      	strb	r3, [r2, #0]
- 8009cc2:	f01c f8c1 	bl	8025e48 <UTIL_TIMER_IsRunning>
+ 8009cc2:	f01b f8c1 	bl	8024e48 <UTIL_TIMER_IsRunning>
  8009cc6:	2800      	cmp	r0, #0
  8009cc8:	d0e4      	beq.n	8009c94 <OnTxTimerEvent+0x78>
  8009cca:	e8bd 40f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, lr}
  8009cce:	4809      	ldr	r0, [pc, #36]	; (8009cf4 <OnTxTimerEvent+0xd8>)
- 8009cd0:	f01c b92a 	b.w	8025f28 <UTIL_TIMER_Stop>
+ 8009cd0:	f01b b92a 	b.w	8024f28 <UTIL_TIMER_Stop>
  8009cd4:	20007c54 	.word	0x20007c54
- 8009cd8:	0803c988 	.word	0x0803c988
+ 8009cd8:	0803b988 	.word	0x0803b988
  8009cdc:	20006098 	.word	0x20006098
  8009ce0:	20007c5c 	.word	0x20007c5c
  8009ce4:	20007c60 	.word	0x20007c60
@@ -6004,16 +6004,16 @@ Disassembly of section .text:
  8009d54:	b123      	cbz	r3, 8009d60 <OnTxTimerEventRandom+0x60>
  8009d56:	e8bd 40f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, lr}
  8009d5a:	4821      	ldr	r0, [pc, #132]	; (8009de0 <OnTxTimerEventRandom+0xe0>)
- 8009d5c:	f01c b934 	b.w	8025fc8 <UTIL_TIMER_Start>
+ 8009d5c:	f01b b934 	b.w	8024fc8 <UTIL_TIMER_Start>
  8009d60:	4a20      	ldr	r2, [pc, #128]	; (8009de4 <OnTxTimerEventRandom+0xe4>)
  8009d62:	481f      	ldr	r0, [pc, #124]	; (8009de0 <OnTxTimerEventRandom+0xe0>)
  8009d64:	7813      	ldrb	r3, [r2, #0]
  8009d66:	f023 0304 	bic.w	r3, r3, #4
  8009d6a:	7013      	strb	r3, [r2, #0]
- 8009d6c:	f01c f86c 	bl	8025e48 <UTIL_TIMER_IsRunning>
+ 8009d6c:	f01b f86c 	bl	8024e48 <UTIL_TIMER_IsRunning>
  8009d70:	b110      	cbz	r0, 8009d78 <OnTxTimerEventRandom+0x78>
  8009d72:	481b      	ldr	r0, [pc, #108]	; (8009de0 <OnTxTimerEventRandom+0xe0>)
- 8009d74:	f01c f8d8 	bl	8025f28 <UTIL_TIMER_Stop>
+ 8009d74:	f01b f8d8 	bl	8024f28 <UTIL_TIMER_Stop>
  8009d78:	2300      	movs	r3, #0
  8009d7a:	702b      	strb	r3, [r5, #0]
  8009d7c:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
@@ -6037,14 +6037,14 @@ Disassembly of section .text:
  8009da2:	7813      	ldrb	r3, [r2, #0]
  8009da4:	f023 0304 	bic.w	r3, r3, #4
  8009da8:	7013      	strb	r3, [r2, #0]
- 8009daa:	f01c f84d 	bl	8025e48 <UTIL_TIMER_IsRunning>
+ 8009daa:	f01b f84d 	bl	8024e48 <UTIL_TIMER_IsRunning>
  8009dae:	2800      	cmp	r0, #0
  8009db0:	d0e4      	beq.n	8009d7c <OnTxTimerEventRandom+0x7c>
  8009db2:	e8bd 40f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, lr}
  8009db6:	480a      	ldr	r0, [pc, #40]	; (8009de0 <OnTxTimerEventRandom+0xe0>)
- 8009db8:	f01c b8b6 	b.w	8025f28 <UTIL_TIMER_Stop>
+ 8009db8:	f01b b8b6 	b.w	8024f28 <UTIL_TIMER_Stop>
  8009dbc:	20007c54 	.word	0x20007c54
- 8009dc0:	0803c988 	.word	0x0803c988
+ 8009dc0:	0803b988 	.word	0x0803b988
  8009dc4:	20006098 	.word	0x20006098
  8009dc8:	20007c5c 	.word	0x20007c5c
  8009dcc:	20007c60 	.word	0x20007c60
@@ -6118,7 +6118,7 @@ Disassembly of section .text:
  8009e76:	6023      	str	r3, [r4, #0]
  8009e78:	bd10      	pop	{r4, pc}
  8009e7a:	bf00      	nop
- 8009e7c:	0803c988 	.word	0x0803c988
+ 8009e7c:	0803b988 	.word	0x0803b988
  8009e80:	20007d60 	.word	0x20007d60
 
 08009e84 <service_lora_ttone>:
@@ -6146,7 +6146,7 @@ Disassembly of section .text:
  8009eba:	bf00      	nop
  8009ebc:	20007a30 	.word	0x20007a30
  8009ec0:	20006098 	.word	0x20006098
- 8009ec4:	0803c988 	.word	0x0803c988
+ 8009ec4:	0803b988 	.word	0x0803b988
 
 08009ec8 <service_lora_toff>:
  8009ec8:	4b0f      	ldr	r3, [pc, #60]	; (8009f08 <service_lora_toff+0x40>)
@@ -6154,15 +6154,15 @@ Disassembly of section .text:
  8009ecc:	b510      	push	{r4, lr}
  8009ece:	2200      	movs	r2, #0
  8009ed0:	701a      	strb	r2, [r3, #0]
- 8009ed2:	f01b ffb9 	bl	8025e48 <UTIL_TIMER_IsRunning>
+ 8009ed2:	f01a ffb9 	bl	8024e48 <UTIL_TIMER_IsRunning>
  8009ed6:	b110      	cbz	r0, 8009ede <service_lora_toff+0x16>
  8009ed8:	480c      	ldr	r0, [pc, #48]	; (8009f0c <service_lora_toff+0x44>)
- 8009eda:	f01c f825 	bl	8025f28 <UTIL_TIMER_Stop>
+ 8009eda:	f01b f825 	bl	8024f28 <UTIL_TIMER_Stop>
  8009ede:	480c      	ldr	r0, [pc, #48]	; (8009f10 <service_lora_toff+0x48>)
- 8009ee0:	f01b ffb2 	bl	8025e48 <UTIL_TIMER_IsRunning>
+ 8009ee0:	f01a ffb2 	bl	8024e48 <UTIL_TIMER_IsRunning>
  8009ee4:	b110      	cbz	r0, 8009eec <service_lora_toff+0x24>
  8009ee6:	480a      	ldr	r0, [pc, #40]	; (8009f10 <service_lora_toff+0x48>)
- 8009ee8:	f01c f81e 	bl	8025f28 <UTIL_TIMER_Stop>
+ 8009ee8:	f01b f81e 	bl	8024f28 <UTIL_TIMER_Stop>
  8009eec:	4b09      	ldr	r3, [pc, #36]	; (8009f14 <service_lora_toff+0x4c>)
  8009eee:	4c0a      	ldr	r4, [pc, #40]	; (8009f18 <service_lora_toff+0x50>)
  8009ef0:	6adb      	ldr	r3, [r3, #44]	; 0x2c
@@ -6179,7 +6179,7 @@ Disassembly of section .text:
  8009f08:	20007a30 	.word	0x20007a30
  8009f0c:	20007a34 	.word	0x20007a34
  8009f10:	20007e58 	.word	0x20007e58
- 8009f14:	0803c988 	.word	0x0803c988
+ 8009f14:	0803b988 	.word	0x0803b988
  8009f18:	20007d60 	.word	0x20007d60
 
 08009f1c <service_lora_trssi>:
@@ -6250,7 +6250,7 @@ Disassembly of section .text:
  8009fc2:	e7f7      	b.n	8009fb4 <service_lora_trssi+0x98>
  8009fc4:	20007a30 	.word	0x20007a30
  8009fc8:	20006098 	.word	0x20006098
- 8009fcc:	0803c988 	.word	0x0803c988
+ 8009fcc:	0803b988 	.word	0x0803b988
 
 08009fd0 <service_lora_set_tconf>:
  8009fd0:	b510      	push	{r4, lr}
@@ -6289,7 +6289,7 @@ Disassembly of section .text:
  800a018:	4807      	ldr	r0, [pc, #28]	; (800a038 <service_lora_set_tconf+0x68>)
  800a01a:	2254      	movs	r2, #84	; 0x54
  800a01c:	4621      	mov	r1, r4
- 800a01e:	f023 fcda 	bl	802d9d6 <memcpy1>
+ 800a01e:	f022 fcda 	bl	802c9d6 <memcpy1>
  800a022:	2000      	movs	r0, #0
  800a024:	bd10      	pop	{r4, pc}
  800a026:	f06f 0002 	mvn.w	r0, #2
@@ -6303,7 +6303,7 @@ Disassembly of section .text:
  800a03c:	b508      	push	{r3, lr}
  800a03e:	4903      	ldr	r1, [pc, #12]	; (800a04c <service_lora_get_tconf+0x10>)
  800a040:	2254      	movs	r2, #84	; 0x54
- 800a042:	f023 fcc8 	bl	802d9d6 <memcpy1>
+ 800a042:	f022 fcc8 	bl	802c9d6 <memcpy1>
  800a046:	2000      	movs	r0, #0
  800a048:	bd08      	pop	{r3, pc}
  800a04a:	bf00      	nop
@@ -6379,12 +6379,12 @@ Disassembly of section .text:
  800a0f8:	4b16      	ldr	r3, [pc, #88]	; (800a154 <service_lora_ttx+0x104>)
  800a0fa:	9500      	str	r5, [sp, #0]
  800a0fc:	462a      	mov	r2, r5
- 800a0fe:	f01b fe83 	bl	8025e08 <UTIL_TIMER_Create>
+ 800a0fe:	f01a fe83 	bl	8024e08 <UTIL_TIMER_Create>
  800a102:	f44f 71fa 	mov.w	r1, #500	; 0x1f4
  800a106:	4812      	ldr	r0, [pc, #72]	; (800a150 <service_lora_ttx+0x100>)
- 800a108:	f01b ffb0 	bl	802606c <UTIL_TIMER_SetPeriod>
+ 800a108:	f01a ffb0 	bl	802506c <UTIL_TIMER_SetPeriod>
  800a10c:	4810      	ldr	r0, [pc, #64]	; (800a150 <service_lora_ttx+0x100>)
- 800a10e:	f01b ff5b 	bl	8025fc8 <UTIL_TIMER_Start>
+ 800a10e:	f01a ff5b 	bl	8024fc8 <UTIL_TIMER_Start>
  800a112:	4628      	mov	r0, r5
  800a114:	b00d      	add	sp, #52	; 0x34
  800a116:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
@@ -6392,7 +6392,7 @@ Disassembly of section .text:
  800a11e:	e7f9      	b.n	800a114 <service_lora_ttx+0xc4>
  800a120:	20007a30 	.word	0x20007a30
  800a124:	08017866 	.word	0x08017866
- 800a128:	0803c988 	.word	0x0803c988
+ 800a128:	0803b988 	.word	0x0803b988
  800a12c:	20007a04 	.word	0x20007a04
  800a130:	08009ded 	.word	0x08009ded
  800a134:	08009bf9 	.word	0x08009bf9
@@ -6484,7 +6484,7 @@ Disassembly of section .text:
  800a218:	08009ded 	.word	0x08009ded
  800a21c:	08009bf9 	.word	0x08009bf9
  800a220:	08009e61 	.word	0x08009e61
- 800a224:	0803c988 	.word	0x0803c988
+ 800a224:	0803b988 	.word	0x0803b988
  800a228:	08009be5 	.word	0x08009be5
  800a22c:	08009bf5 	.word	0x08009bf5
  800a230:	20007c58 	.word	0x20007c58
@@ -6570,12 +6570,12 @@ Disassembly of section .text:
  800a2f2:	9500      	str	r5, [sp, #0]
  800a2f4:	462a      	mov	r2, r5
  800a2f6:	f04f 31ff 	mov.w	r1, #4294967295	; 0xffffffff
- 800a2fa:	f01b fd85 	bl	8025e08 <UTIL_TIMER_Create>
+ 800a2fa:	f01a fd85 	bl	8024e08 <UTIL_TIMER_Create>
  800a2fe:	f44f 71fa 	mov.w	r1, #500	; 0x1f4
  800a302:	4813      	ldr	r0, [pc, #76]	; (800a350 <service_lora_tth+0x114>)
- 800a304:	f01b feb2 	bl	802606c <UTIL_TIMER_SetPeriod>
+ 800a304:	f01a feb2 	bl	802506c <UTIL_TIMER_SetPeriod>
  800a308:	4811      	ldr	r0, [pc, #68]	; (800a350 <service_lora_tth+0x114>)
- 800a30a:	f01b fe5d 	bl	8025fc8 <UTIL_TIMER_Start>
+ 800a30a:	f01a fe5d 	bl	8024fc8 <UTIL_TIMER_Start>
  800a30e:	4628      	mov	r0, r5
  800a310:	b00d      	add	sp, #52	; 0x34
  800a312:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
@@ -6583,7 +6583,7 @@ Disassembly of section .text:
  800a31a:	e7f9      	b.n	800a310 <service_lora_tth+0xd4>
  800a31c:	20007a30 	.word	0x20007a30
  800a320:	20007a04 	.word	0x20007a04
- 800a324:	0803c988 	.word	0x0803c988
+ 800a324:	0803b988 	.word	0x0803b988
  800a328:	20007c54 	.word	0x20007c54
  800a32c:	20006098 	.word	0x20006098
  800a330:	08009ded 	.word	0x08009ded
@@ -6633,7 +6633,7 @@ Disassembly of section .text:
  800a3ae:	f898 3000 	ldrb.w	r3, [r8]
  800a3b2:	42bb      	cmp	r3, r7
  800a3b4:	dc17      	bgt.n	800a3e6 <service_lora_trth+0x92>
- 800a3b6:	f015 ffd4 	bl	8020362 <service_lora_get_band>
+ 800a3b6:	f014 ffd4 	bl	801f362 <service_lora_get_band>
  800a3ba:	4b7f      	ldr	r3, [pc, #508]	; (800a5b8 <service_lora_trth+0x264>)
  800a3bc:	280a      	cmp	r0, #10
  800a3be:	f200 80ee 	bhi.w	800a59e <service_lora_trth+0x24a>
@@ -6648,7 +6648,7 @@ Disassembly of section .text:
  800a3e0:	3101      	adds	r1, #1
  800a3e2:	2301      	movs	r3, #1
  800a3e4:	e7cf      	b.n	800a386 <service_lora_trth+0x32>
- 800a3e6:	f023 facf 	bl	802d988 <rand1>
+ 800a3e6:	f022 facf 	bl	802c988 <rand1>
  800a3ea:	f898 2000 	ldrb.w	r2, [r8]
  800a3ee:	f854 1027 	ldr.w	r1, [r4, r7, lsl #2]
  800a3f2:	1bd3      	subs	r3, r2, r7
@@ -6689,7 +6689,7 @@ Disassembly of section .text:
  800a45e:	6898      	ldr	r0, [r3, #8]
  800a460:	568f      	ldrsb	r7, [r1, r2]
  800a462:	4957      	ldr	r1, [pc, #348]	; (800a5c0 <service_lora_trth+0x26c>)
- 800a464:	f02d fc30 	bl	8037cc8 <RegionCommonGetBandwidth>
+ 800a464:	f02c fc30 	bl	8036cc8 <RegionCommonGetBandwidth>
  800a468:	4604      	mov	r4, r0
  800a46a:	782b      	ldrb	r3, [r5, #0]
  800a46c:	4855      	ldr	r0, [pc, #340]	; (800a5c4 <service_lora_trth+0x270>)
@@ -6760,12 +6760,12 @@ Disassembly of section .text:
  800a50e:	9400      	str	r4, [sp, #0]
  800a510:	4622      	mov	r2, r4
  800a512:	f04f 31ff 	mov.w	r1, #4294967295	; 0xffffffff
- 800a516:	f01b fc77 	bl	8025e08 <UTIL_TIMER_Create>
+ 800a516:	f01a fc77 	bl	8024e08 <UTIL_TIMER_Create>
  800a51a:	f44f 71fa 	mov.w	r1, #500	; 0x1f4
  800a51e:	4834      	ldr	r0, [pc, #208]	; (800a5f0 <service_lora_trth+0x29c>)
- 800a520:	f01b fda4 	bl	802606c <UTIL_TIMER_SetPeriod>
+ 800a520:	f01a fda4 	bl	802506c <UTIL_TIMER_SetPeriod>
  800a524:	4832      	ldr	r0, [pc, #200]	; (800a5f0 <service_lora_trth+0x29c>)
- 800a526:	f01b fd4f 	bl	8025fc8 <UTIL_TIMER_Start>
+ 800a526:	f01a fd4f 	bl	8024fc8 <UTIL_TIMER_Start>
  800a52a:	4620      	mov	r0, r4
  800a52c:	b00b      	add	sp, #44	; 0x2c
  800a52e:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
@@ -6836,7 +6836,7 @@ Disassembly of section .text:
  800a5bc:	08017a08 	.word	0x08017a08
  800a5c0:	08017870 	.word	0x08017870
  800a5c4:	20007a04 	.word	0x20007a04
- 800a5c8:	0803c988 	.word	0x0803c988
+ 800a5c8:	0803b988 	.word	0x0803b988
  800a5cc:	20007c54 	.word	0x20007c54
  800a5d0:	08009ded 	.word	0x08009ded
  800a5d4:	08009bf9 	.word	0x08009bf9
@@ -6870,7 +6870,7 @@ Disassembly of section .text:
  800a63c:	b508      	push	{r3, lr}
  800a63e:	4903      	ldr	r1, [pc, #12]	; (800a64c <service_lora_get_cw+0x10>)
  800a640:	220c      	movs	r2, #12
- 800a642:	f023 f9c8 	bl	802d9d6 <memcpy1>
+ 800a642:	f022 f9c8 	bl	802c9d6 <memcpy1>
  800a646:	2000      	movs	r0, #0
  800a648:	bd08      	pop	{r3, pc}
  800a64a:	bf00      	nop
@@ -6903,18 +6903,18 @@ Disassembly of section .text:
  800a682:	bf00      	nop
  800a684:	2000608c 	.word	0x2000608c
  800a688:	20007a04 	.word	0x20007a04
- 800a68c:	0803c988 	.word	0x0803c988
+ 800a68c:	0803b988 	.word	0x0803b988
  800a690:	08009e61 	.word	0x08009e61
 
 0800a694 <service_lora_certification>:
  800a694:	b510      	push	{r4, lr}
  800a696:	b08a      	sub	sp, #40	; 0x28
  800a698:	b388      	cbz	r0, 800a6fe <service_lora_certification+0x6a>
- 800a69a:	f015 fcb4 	bl	8020006 <service_lora_get_njm>
+ 800a69a:	f014 fcb4 	bl	801f006 <service_lora_get_njm>
  800a69e:	2801      	cmp	r0, #1
  800a6a0:	4604      	mov	r4, r0
  800a6a2:	d109      	bne.n	800a6b8 <service_lora_certification+0x24>
- 800a6a4:	f015 fcb1 	bl	802000a <service_lora_get_njs>
+ 800a6a4:	f014 fcb1 	bl	801f00a <service_lora_get_njs>
  800a6a8:	b930      	cbnz	r0, 800a6b8 <service_lora_certification+0x24>
  800a6aa:	f04f 33ff 	mov.w	r3, #4294967295	; 0xffffffff
  800a6ae:	461a      	mov	r2, r3
@@ -6922,7 +6922,7 @@ Disassembly of section .text:
  800a6b2:	4620      	mov	r0, r4
  800a6b4:	f7fd ffc8 	bl	8008648 <service_lora_join>
  800a6b8:	2000      	movs	r0, #0
- 800a6ba:	f027 f9c1 	bl	8031a40 <LoRaMacTestSetDutyCycleOn>
+ 800a6ba:	f026 f9c1 	bl	8030a40 <LoRaMacTestSetDutyCycleOn>
  800a6be:	2201      	movs	r2, #1
  800a6c0:	4911      	ldr	r1, [pc, #68]	; (800a708 <service_lora_certification+0x74>)
  800a6c2:	2004      	movs	r0, #4
@@ -6937,9 +6937,9 @@ Disassembly of section .text:
  800a6da:	4668      	mov	r0, sp
  800a6dc:	f88d 3000 	strb.w	r3, [sp]
  800a6e0:	f88d 4004 	strb.w	r4, [sp, #4]
- 800a6e4:	f025 fd1a 	bl	803011c <LoRaMacMibSetRequestConfirm>
+ 800a6e4:	f024 fd1a 	bl	802f11c <LoRaMacMibSetRequestConfirm>
  800a6e8:	4620      	mov	r0, r4
- 800a6ea:	f015 fe34 	bl	8020356 <service_lora_set_IsCertPortOn>
+ 800a6ea:	f014 fe34 	bl	801f356 <service_lora_set_IsCertPortOn>
  800a6ee:	2000      	movs	r0, #0
  800a6f0:	b00a      	add	sp, #40	; 0x28
  800a6f2:	bd10      	pop	{r4, pc}
@@ -6982,7 +6982,7 @@ Disassembly of section .text:
  800a74e:	6913      	ldr	r3, [r2, #16]
  800a750:	b1a3      	cbz	r3, 800a77c <Certifi_Send+0x6c>
  800a752:	4620      	mov	r0, r4
- 800a754:	f016 fcf6 	bl	8021144 <LmHandlerPackageIsInitialized>
+ 800a754:	f015 fcf6 	bl	8020144 <LmHandlerPackageIsInitialized>
  800a758:	b180      	cbz	r0, 800a77c <Certifi_Send+0x6c>
  800a75a:	f857 3c04 	ldr.w	r3, [r7, #-4]
  800a75e:	68db      	ldr	r3, [r3, #12]
@@ -7022,11 +7022,11 @@ Disassembly of section .text:
 
 0800a7bc <CertifiTimerEvent>:
  800a7bc:	b510      	push	{r4, lr}
- 800a7be:	f015 fc22 	bl	8020006 <service_lora_get_njm>
+ 800a7be:	f014 fc22 	bl	801f006 <service_lora_get_njm>
  800a7c2:	2801      	cmp	r0, #1
  800a7c4:	4604      	mov	r4, r0
  800a7c6:	d109      	bne.n	800a7dc <CertifiTimerEvent+0x20>
- 800a7c8:	f015 fc1f 	bl	802000a <service_lora_get_njs>
+ 800a7c8:	f014 fc1f 	bl	801f00a <service_lora_get_njs>
  800a7cc:	b930      	cbnz	r0, 800a7dc <CertifiTimerEvent+0x20>
  800a7ce:	f04f 33ff 	mov.w	r3, #4294967295	; 0xffffffff
  800a7d2:	461a      	mov	r2, r3
@@ -7049,7 +7049,7 @@ Disassembly of section .text:
  800a7f8:	f009 fc98 	bl	801412c <memset>
  800a7fc:	2300      	movs	r3, #0
  800a7fe:	702b      	strb	r3, [r5, #0]
- 800a800:	f024 fd0a 	bl	802f218 <GetMaxAppPayloadWithFOptsLength>
+ 800a800:	f023 fd0a 	bl	802e218 <GetMaxAppPayloadWithFOptsLength>
  800a804:	b280      	uxth	r0, r0
  800a806:	28c8      	cmp	r0, #200	; 0xc8
  800a808:	bf84      	itt	hi
@@ -7252,7 +7252,7 @@ Disassembly of section .text:
  800a9d8:	4605      	mov	r5, r0
  800a9da:	4668      	mov	r0, sp
  800a9dc:	f88d 3000 	strb.w	r3, [sp]
- 800a9e0:	f025 fa4e 	bl	802fe80 <LoRaMacMibGetRequestConfirm>
+ 800a9e0:	f024 fa4e 	bl	802ee80 <LoRaMacMibGetRequestConfirm>
  800a9e4:	4602      	mov	r2, r0
  800a9e6:	2800      	cmp	r0, #0
  800a9e8:	d152      	bne.n	800aa90 <service_lora_get_arssi+0xc0>
@@ -7354,7 +7354,7 @@ Disassembly of section .text:
  800aac8:	2300      	movs	r3, #0
  800aaca:	7063      	strb	r3, [r4, #1]
  800aacc:	70a3      	strb	r3, [r4, #2]
- 800aace:	f018 fa81 	bl	8022fd4 <service_nvm_get_nwm_from_nvm>
+ 800aace:	f017 fa81 	bl	8021fd4 <service_nvm_get_nwm_from_nvm>
  800aad2:	b2c0      	uxtb	r0, r0
  800aad4:	b9b0      	cbnz	r0, 800ab04 <OnRxError+0x40>
  800aad6:	480e      	ldr	r0, [pc, #56]	; (800ab10 <OnRxError+0x4c>)
@@ -7384,7 +7384,7 @@ Disassembly of section .text:
  800ab10:	08017a36 	.word	0x08017a36
  800ab14:	20008524 	.word	0x20008524
  800ab18:	20008530 	.word	0x20008530
- 800ab1c:	0803c988 	.word	0x0803c988
+ 800ab1c:	0803b988 	.word	0x0803b988
  800ab20:	08017a51 	.word	0x08017a51
 
 0800ab24 <OnTxDone>:
@@ -7401,7 +7401,7 @@ Disassembly of section .text:
  800ab3c:	681b      	ldr	r3, [r3, #0]
  800ab3e:	b103      	cbz	r3, 800ab42 <OnTxDone+0x1e>
  800ab40:	4798      	blx	r3
- 800ab42:	f018 fa47 	bl	8022fd4 <service_nvm_get_nwm_from_nvm>
+ 800ab42:	f017 fa47 	bl	8021fd4 <service_nvm_get_nwm_from_nvm>
  800ab46:	b2c0      	uxtb	r0, r0
  800ab48:	b990      	cbnz	r0, 800ab70 <OnTxDone+0x4c>
  800ab4a:	480f      	ldr	r0, [pc, #60]	; (800ab88 <OnTxDone+0x64>)
@@ -7429,7 +7429,7 @@ Disassembly of section .text:
  800ab80:	08017b3d 	.word	0x08017b3d
  800ab84:	20008538 	.word	0x20008538
  800ab88:	08017a6c 	.word	0x08017a6c
- 800ab8c:	0803c988 	.word	0x0803c988
+ 800ab8c:	0803b988 	.word	0x0803b988
  800ab90:	08017a7e 	.word	0x08017a7e
 
 0800ab94 <OnTxTimeout>:
@@ -7462,7 +7462,7 @@ Disassembly of section .text:
  800abd0:	2201      	movs	r2, #1
  800abd2:	705a      	strb	r2, [r3, #1]
  800abd4:	bd10      	pop	{r4, pc}
- 800abd6:	f018 f9fd 	bl	8022fd4 <service_nvm_get_nwm_from_nvm>
+ 800abd6:	f017 f9fd 	bl	8021fd4 <service_nvm_get_nwm_from_nvm>
  800abda:	b2c0      	uxtb	r0, r0
  800abdc:	b990      	cbnz	r0, 800ac04 <OnRxTimeout+0x48>
  800abde:	480b      	ldr	r0, [pc, #44]	; (800ac0c <OnRxTimeout+0x50>)
@@ -7486,12 +7486,12 @@ Disassembly of section .text:
  800ac0c:	08017a90 	.word	0x08017a90
  800ac10:	20008524 	.word	0x20008524
  800ac14:	20008530 	.word	0x20008530
- 800ac18:	0803c988 	.word	0x0803c988
+ 800ac18:	0803b988 	.word	0x0803b988
  800ac1c:	08017aad 	.word	0x08017aad
 
 0800ac20 <service_lora_p2p_get_nwm>:
  800ac20:	b508      	push	{r3, lr}
- 800ac22:	f018 f9d7 	bl	8022fd4 <service_nvm_get_nwm_from_nvm>
+ 800ac22:	f017 f9d7 	bl	8021fd4 <service_nvm_get_nwm_from_nvm>
  800ac26:	b2c0      	uxtb	r0, r0
  800ac28:	bd08      	pop	{r3, pc}
 	...
@@ -7510,7 +7510,7 @@ Disassembly of section .text:
  800ac40:	2000851b 	.word	0x2000851b
 
 0800ac44 <service_lora_p2p_get_freq>:
- 800ac44:	f018 bc3a 	b.w	80234bc <service_nvm_get_freq_from_nvm>
+ 800ac44:	f017 bc3a 	b.w	80224bc <service_nvm_get_freq_from_nvm>
 
 0800ac48 <service_lora_p2p_check_runtime_freq>:
  800ac48:	4b0a      	ldr	r3, [pc, #40]	; (800ac74 <service_lora_p2p_check_runtime_freq+0x2c>)
@@ -7520,7 +7520,7 @@ Disassembly of section .text:
  800ac50:	b510      	push	{r4, lr}
  800ac52:	4604      	mov	r4, r0
  800ac54:	d805      	bhi.n	800ac62 <service_lora_p2p_check_runtime_freq+0x1a>
- 800ac56:	f015 f973 	bl	801ff40 <BoardGetHardwareFreq>
+ 800ac56:	f014 f973 	bl	801ef40 <BoardGetHardwareFreq>
  800ac5a:	4b08      	ldr	r3, [pc, #32]	; (800ac7c <service_lora_p2p_check_runtime_freq+0x34>)
  800ac5c:	b120      	cbz	r0, 800ac68 <service_lora_p2p_check_runtime_freq+0x20>
  800ac5e:	429c      	cmp	r4, r3
@@ -7538,7 +7538,7 @@ Disassembly of section .text:
  800ac7c:	23c34600 	.word	0x23c34600
 
 0800ac80 <service_lora_p2p_get_sf>:
- 800ac80:	f018 bc2e 	b.w	80234e0 <service_nvm_get_sf_from_nvm>
+ 800ac80:	f017 bc2e 	b.w	80224e0 <service_nvm_get_sf_from_nvm>
 
 0800ac84 <service_lora_p2p_check_runtime_sf>:
  800ac84:	3805      	subs	r0, #5
@@ -7550,7 +7550,7 @@ Disassembly of section .text:
 
 0800ac92 <service_lora_p2p_get_bandwidth>:
  800ac92:	b508      	push	{r3, lr}
- 800ac94:	f018 fc36 	bl	8023504 <service_nvm_get_bandwidth_from_nvm>
+ 800ac94:	f017 fc36 	bl	8022504 <service_nvm_get_bandwidth_from_nvm>
  800ac98:	287d      	cmp	r0, #125	; 0x7d
  800ac9a:	d006      	beq.n	800acaa <service_lora_p2p_get_bandwidth+0x18>
  800ac9c:	28fa      	cmp	r0, #250	; 0xfa
@@ -7568,7 +7568,7 @@ Disassembly of section .text:
 0800acb4 <service_lora_p2p_check_runtime_bandwidth>:
  800acb4:	b510      	push	{r4, lr}
  800acb6:	4604      	mov	r4, r0
- 800acb8:	f018 f98c 	bl	8022fd4 <service_nvm_get_nwm_from_nvm>
+ 800acb8:	f017 f98c 	bl	8021fd4 <service_nvm_get_nwm_from_nvm>
  800acbc:	b2c0      	uxtb	r0, r0
  800acbe:	b968      	cbnz	r0, 800acdc <service_lora_p2p_check_runtime_bandwidth+0x28>
  800acc0:	2c7d      	cmp	r4, #125	; 0x7d
@@ -7583,7 +7583,7 @@ Disassembly of section .text:
  800acd4:	d9f6      	bls.n	800acc4 <service_lora_p2p_check_runtime_bandwidth+0x10>
  800acd6:	f06f 0002 	mvn.w	r0, #2
  800acda:	e7f4      	b.n	800acc6 <service_lora_p2p_check_runtime_bandwidth+0x12>
- 800acdc:	f018 f97a 	bl	8022fd4 <service_nvm_get_nwm_from_nvm>
+ 800acdc:	f017 f97a 	bl	8021fd4 <service_nvm_get_nwm_from_nvm>
  800ace0:	b2c0      	uxtb	r0, r0
  800ace2:	2802      	cmp	r0, #2
  800ace4:	d1ee      	bne.n	800acc4 <service_lora_p2p_check_runtime_bandwidth+0x10>
@@ -7594,7 +7594,7 @@ Disassembly of section .text:
  800acf0:	00070d78 	.word	0x00070d78
 
 0800acf4 <service_lora_p2p_get_codingrate>:
- 800acf4:	f018 bc22 	b.w	802353c <service_nvm_get_codingrate_from_nvm>
+ 800acf4:	f017 bc22 	b.w	802253c <service_nvm_get_codingrate_from_nvm>
 
 0800acf8 <service_lora_p2p_check_runtime_codingrate>:
  800acf8:	2803      	cmp	r0, #3
@@ -7604,7 +7604,7 @@ Disassembly of section .text:
  800ad02:	4770      	bx	lr
 
 0800ad04 <service_lora_p2p_get_preamlen>:
- 800ad04:	f018 bc2c 	b.w	8023560 <service_nvm_get_preamlen_from_nvm>
+ 800ad04:	f017 bc2c 	b.w	8022560 <service_nvm_get_preamlen_from_nvm>
 
 0800ad08 <service_lora_p2p_check_runtime_preamlen>:
  800ad08:	2804      	cmp	r0, #4
@@ -7614,7 +7614,7 @@ Disassembly of section .text:
  800ad12:	4770      	bx	lr
 
 0800ad14 <service_lora_p2p_get_powerdbm>:
- 800ad14:	f018 bc36 	b.w	8023584 <service_nvm_get_powerdbm_from_nvm>
+ 800ad14:	f017 bc36 	b.w	8022584 <service_nvm_get_powerdbm_from_nvm>
 
 0800ad18 <service_lora_p2p_check_runtime_powerdbm>:
  800ad18:	3805      	subs	r0, #5
@@ -7625,33 +7625,33 @@ Disassembly of section .text:
  800ad24:	4770      	bx	lr
 
 0800ad26 <service_lora_p2p_get_crypto_enable>:
- 800ad26:	f018 bc3f 	b.w	80235a8 <service_nvm_get_crypt_enable_from_nvm>
+ 800ad26:	f017 bc3f 	b.w	80225a8 <service_nvm_get_crypt_enable_from_nvm>
 
 0800ad2a <service_lora_p2p_set_crypto_enable>:
- 800ad2a:	f018 bc43 	b.w	80235b4 <service_nvm_set_crypt_enable_to_nvm>
+ 800ad2a:	f017 bc43 	b.w	80225b4 <service_nvm_set_crypt_enable_to_nvm>
 
 0800ad2e <service_lora_p2p_get_crypto_key>:
- 800ad2e:	f018 bc4d 	b.w	80235cc <service_nvm_get_crypt_key_from_nvm>
+ 800ad2e:	f017 bc4d 	b.w	80225cc <service_nvm_get_crypt_key_from_nvm>
 
 0800ad32 <service_lora_p2p_set_crypto_key>:
- 800ad32:	f018 bc59 	b.w	80235e8 <service_nvm_set_crypt_key_to_nvm>
+ 800ad32:	f017 bc59 	b.w	80225e8 <service_nvm_set_crypt_key_to_nvm>
 
 0800ad36 <service_lora_p2p_get_crypto_IV>:
- 800ad36:	f018 bc71 	b.w	802361c <service_nvm_get_crypt_IV_from_nvm>
+ 800ad36:	f017 bc71 	b.w	802261c <service_nvm_get_crypt_IV_from_nvm>
 
 0800ad3a <service_lora_p2p_set_crypto_IV>:
- 800ad3a:	f018 bc7d 	b.w	8023638 <service_nvm_set_crypt_IV_to_nvm>
+ 800ad3a:	f017 bc7d 	b.w	8022638 <service_nvm_set_crypt_IV_to_nvm>
 
 0800ad3e <service_lora_p2p_get_CAD>:
  800ad3e:	b508      	push	{r3, lr}
- 800ad40:	f018 fd12 	bl	8023768 <service_nvm_get_CAD_from_nvm>
+ 800ad40:	f017 fd12 	bl	8022768 <service_nvm_get_CAD_from_nvm>
  800ad44:	3800      	subs	r0, #0
  800ad46:	bf18      	it	ne
  800ad48:	2001      	movne	r0, #1
  800ad4a:	bd08      	pop	{r3, pc}
 
 0800ad4c <service_lora_p2p_set_CAD>:
- 800ad4c:	f018 bd12 	b.w	8023774 <service_nvm_set_CAD_to_nvm>
+ 800ad4c:	f017 bd12 	b.w	8022774 <service_nvm_set_CAD_to_nvm>
 
 0800ad50 <service_lora_p2p_encrpty>:
  800ad50:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
@@ -7686,14 +7686,14 @@ Disassembly of section .text:
  800ad9a:	4642      	mov	r2, r8
  800ad9c:	2110      	movs	r1, #16
  800ad9e:	a803      	add	r0, sp, #12
- 800ada0:	f018 ffd2 	bl	8023d48 <aes_set_key>
+ 800ada0:	f017 ffd2 	bl	8022d48 <aes_set_key>
  800ada4:	b2e5      	uxtb	r5, r4
  800ada6:	f8cd 8000 	str.w	r8, [sp]
  800adaa:	ab07      	add	r3, sp, #28
  800adac:	f3c4 1203 	ubfx	r2, r4, #4, #4
  800adb0:	4639      	mov	r1, r7
  800adb2:	4630      	mov	r0, r6
- 800adb4:	f018 ffd5 	bl	8023d62 <aes_cbc_encrypt>
+ 800adb4:	f017 ffd5 	bl	8022d62 <aes_cbc_encrypt>
  800adb8:	4628      	mov	r0, r5
  800adba:	f50d 7d08 	add.w	sp, sp, #544	; 0x220
  800adbe:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
@@ -7719,13 +7719,13 @@ Disassembly of section .text:
  800adea:	463a      	mov	r2, r7
  800adec:	2110      	movs	r1, #16
  800adee:	a803      	add	r0, sp, #12
- 800adf0:	f018 ffaa 	bl	8023d48 <aes_set_key>
+ 800adf0:	f017 ffaa 	bl	8022d48 <aes_set_key>
  800adf4:	ab07      	add	r3, sp, #28
  800adf6:	092a      	lsrs	r2, r5, #4
  800adf8:	9700      	str	r7, [sp, #0]
  800adfa:	4621      	mov	r1, r4
  800adfc:	4630      	mov	r0, r6
- 800adfe:	f018 ffc8 	bl	8023d92 <aes_cbc_decrypt>
+ 800adfe:	f017 ffc8 	bl	8022d92 <aes_cbc_decrypt>
  800ae02:	1962      	adds	r2, r4, r5
  800ae04:	4628      	mov	r0, r5
  800ae06:	f812 3c01 	ldrb.w	r3, [r2, #-1]
@@ -8123,7 +8123,7 @@ Disassembly of section .text:
  800b29e:	461f      	mov	r7, r3
  800b2a0:	f886 9001 	strb.w	r9, [r6, #1]
  800b2a4:	f886 9002 	strb.w	r9, [r6, #2]
- 800b2a8:	f018 f97e 	bl	80235a8 <service_nvm_get_crypt_enable_from_nvm>
+ 800b2a8:	f017 f97e 	bl	80225a8 <service_nvm_get_crypt_enable_from_nvm>
  800b2ac:	2800      	cmp	r0, #0
  800b2ae:	d03f      	beq.n	800b330 <OnRxDone+0xa4>
  800b2b0:	f44f 7280 	mov.w	r2, #256	; 0x100
@@ -8144,7 +8144,7 @@ Disassembly of section .text:
  800b2d6:	4669      	mov	r1, sp
  800b2d8:	4821      	ldr	r0, [pc, #132]	; (800b360 <OnRxDone+0xd4>)
  800b2da:	f008 feff 	bl	80140dc <memcpy>
- 800b2de:	f017 fe79 	bl	8022fd4 <service_nvm_get_nwm_from_nvm>
+ 800b2de:	f016 fe79 	bl	8021fd4 <service_nvm_get_nwm_from_nvm>
  800b2e2:	b2c0      	uxtb	r0, r0
  800b2e4:	463a      	mov	r2, r7
  800b2e6:	4641      	mov	r1, r8
@@ -8203,38 +8203,38 @@ Disassembly of section .text:
  800b370:	20008530 	.word	0x20008530
  800b374:	20008524 	.word	0x20008524
  800b378:	08017adc 	.word	0x08017adc
- 800b37c:	0803c988 	.word	0x0803c988
+ 800b37c:	0803b988 	.word	0x0803b988
 
 0800b380 <service_lora_p2p_get_bitrate>:
- 800b380:	f018 b98c 	b.w	802369c <service_nvm_get_bitrate_from_nvm>
+ 800b380:	f017 b98c 	b.w	802269c <service_nvm_get_bitrate_from_nvm>
 
 0800b384 <service_lora_p2p_get_fdev>:
- 800b384:	f018 b990 	b.w	80236a8 <service_nvm_get_fdev_from_nvm>
+ 800b384:	f017 b990 	b.w	80226a8 <service_nvm_get_fdev_from_nvm>
 
 0800b388 <service_lora_p2p_get_symbol_timeout>:
- 800b388:	f018 b9b8 	b.w	80236fc <service_nvm_get_symbol_timeout_from_nvm>
+ 800b388:	f017 b9b8 	b.w	80226fc <service_nvm_get_symbol_timeout_from_nvm>
 
 0800b38c <service_lora_p2p_set_symbol_timeout>:
  800b38c:	28f8      	cmp	r0, #248	; 0xf8
  800b38e:	d801      	bhi.n	800b394 <service_lora_p2p_set_symbol_timeout+0x8>
- 800b390:	f018 b9ba 	b.w	8023708 <service_nvm_set_symbol_timeout_to_nvm>
+ 800b390:	f017 b9ba 	b.w	8022708 <service_nvm_set_symbol_timeout_to_nvm>
  800b394:	f06f 0002 	mvn.w	r0, #2
  800b398:	4770      	bx	lr
 
 0800b39a <service_lora_p2p_get_iqinverted>:
- 800b39a:	f018 b99d 	b.w	80236d8 <service_nvm_get_iqinverted_from_nvm>
+ 800b39a:	f017 b99d 	b.w	80226d8 <service_nvm_get_iqinverted_from_nvm>
 
 0800b39e <service_lora_p2p_set_iqinverted>:
- 800b39e:	f018 b9a1 	b.w	80236e4 <service_nvm_set_iqinverted_to_nvm>
+ 800b39e:	f017 b9a1 	b.w	80226e4 <service_nvm_set_iqinverted_to_nvm>
 
 0800b3a2 <service_lora_p2p_get_fix_length_payload>:
- 800b3a2:	f018 b9bd 	b.w	8023720 <service_nvm_get_fix_length_payload_from_nvm>
+ 800b3a2:	f017 b9bd 	b.w	8022720 <service_nvm_get_fix_length_payload_from_nvm>
 
 0800b3a6 <service_lora_p2p_set_fix_length_payload>:
- 800b3a6:	f018 b9c1 	b.w	802372c <service_nvm_set_fix_length_payload_to_nvm>
+ 800b3a6:	f017 b9c1 	b.w	802272c <service_nvm_set_fix_length_payload_to_nvm>
 
 0800b3aa <service_lora_p2p_get_syncword>:
- 800b3aa:	f018 b9cb 	b.w	8023744 <service_nvm_get_syncword_from_nvm>
+ 800b3aa:	f017 b9cb 	b.w	8022744 <service_nvm_get_syncword_from_nvm>
 	...
 
 0800b3b0 <radio_set_syncword>:
@@ -8251,22 +8251,22 @@ Disassembly of section .text:
  800b3c8:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
  800b3cc:	4718      	bx	r3
  800b3ce:	bf00      	nop
- 800b3d0:	0803c988 	.word	0x0803c988
+ 800b3d0:	0803b988 	.word	0x0803b988
 
 0800b3d4 <service_lora_p2p_config>:
  800b3d4:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
  800b3d8:	b09b      	sub	sp, #108	; 0x6c
- 800b3da:	f018 f9a1 	bl	8023720 <service_nvm_get_fix_length_payload_from_nvm>
+ 800b3da:	f017 f9a1 	bl	8022720 <service_nvm_get_fix_length_payload_from_nvm>
  800b3de:	900b      	str	r0, [sp, #44]	; 0x2c
- 800b3e0:	f018 f97a 	bl	80236d8 <service_nvm_get_iqinverted_from_nvm>
+ 800b3e0:	f017 f97a 	bl	80226d8 <service_nvm_get_iqinverted_from_nvm>
  800b3e4:	900c      	str	r0, [sp, #48]	; 0x30
- 800b3e6:	f018 f989 	bl	80236fc <service_nvm_get_symbol_timeout_from_nvm>
+ 800b3e6:	f017 f989 	bl	80226fc <service_nvm_get_symbol_timeout_from_nvm>
  800b3ea:	900f      	str	r0, [sp, #60]	; 0x3c
- 800b3ec:	f018 f95c 	bl	80236a8 <service_nvm_get_fdev_from_nvm>
+ 800b3ec:	f017 f95c 	bl	80226a8 <service_nvm_get_fdev_from_nvm>
  800b3f0:	9010      	str	r0, [sp, #64]	; 0x40
- 800b3f2:	f018 f953 	bl	802369c <service_nvm_get_bitrate_from_nvm>
+ 800b3f2:	f017 f953 	bl	802269c <service_nvm_get_bitrate_from_nvm>
  800b3f6:	900d      	str	r0, [sp, #52]	; 0x34
- 800b3f8:	f018 f9a4 	bl	8023744 <service_nvm_get_syncword_from_nvm>
+ 800b3f8:	f017 f9a4 	bl	8022744 <service_nvm_get_syncword_from_nvm>
  800b3fc:	9011      	str	r0, [sp, #68]	; 0x44
  800b3fe:	f005 fa3b 	bl	8010878 <get_useRuntimeConfigP2P>
  800b402:	2800      	cmp	r0, #0
@@ -8277,18 +8277,18 @@ Disassembly of section .text:
  800b412:	f89d 8064 	ldrb.w	r8, [sp, #100]	; 0x64
  800b416:	f89d 7054 	ldrb.w	r7, [sp, #84]	; 0x54
  800b41a:	f8bd 5062 	ldrh.w	r5, [sp, #98]	; 0x62
- 800b41e:	f017 fdd9 	bl	8022fd4 <service_nvm_get_nwm_from_nvm>
+ 800b41e:	f016 fdd9 	bl	8021fd4 <service_nvm_get_nwm_from_nvm>
  800b422:	b2c0      	uxtb	r0, r0
  800b424:	2800      	cmp	r0, #0
  800b426:	f040 808a 	bne.w	800b53e <service_lora_p2p_config+0x16a>
  800b42a:	9c16      	ldr	r4, [sp, #88]	; 0x58
  800b42c:	f89d 6060 	ldrb.w	r6, [sp, #96]	; 0x60
  800b430:	3601      	adds	r6, #1
- 800b432:	f017 fdcf 	bl	8022fd4 <service_nvm_get_nwm_from_nvm>
+ 800b432:	f016 fdcf 	bl	8021fd4 <service_nvm_get_nwm_from_nvm>
  800b436:	f010 02ff 	ands.w	r2, r0, #255	; 0xff
  800b43a:	d144      	bne.n	800b4c6 <service_lora_p2p_config+0xf2>
  800b43c:	9212      	str	r2, [sp, #72]	; 0x48
- 800b43e:	f018 f95d 	bl	80236fc <service_nvm_get_symbol_timeout_from_nvm>
+ 800b43e:	f017 f95d 	bl	80226fc <service_nvm_get_symbol_timeout_from_nvm>
  800b442:	f06f 437f 	mvn.w	r3, #4278190080	; 0xff000000
  800b446:	9308      	str	r3, [sp, #32]
  800b448:	9b0c      	ldr	r3, [sp, #48]	; 0x30
@@ -8338,7 +8338,7 @@ Disassembly of section .text:
  800b4be:	4798      	blx	r3
  800b4c0:	9811      	ldr	r0, [sp, #68]	; 0x44
  800b4c2:	f7ff ff75 	bl	800b3b0 <radio_set_syncword>
- 800b4c6:	f017 fd85 	bl	8022fd4 <service_nvm_get_nwm_from_nvm>
+ 800b4c6:	f016 fd85 	bl	8021fd4 <service_nvm_get_nwm_from_nvm>
  800b4ca:	b2c0      	uxtb	r0, r0
  800b4cc:	2802      	cmp	r0, #2
  800b4ce:	4f30      	ldr	r7, [pc, #192]	; (800b590 <service_lora_p2p_config+0x1bc>)
@@ -8383,30 +8383,30 @@ Disassembly of section .text:
  800b536:	2000      	movs	r0, #0
  800b538:	b01b      	add	sp, #108	; 0x6c
  800b53a:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
- 800b53e:	f017 fd49 	bl	8022fd4 <service_nvm_get_nwm_from_nvm>
+ 800b53e:	f016 fd49 	bl	8021fd4 <service_nvm_get_nwm_from_nvm>
  800b542:	b2c0      	uxtb	r0, r0
  800b544:	2802      	cmp	r0, #2
  800b546:	bf04      	itt	eq
  800b548:	9c17      	ldreq	r4, [sp, #92]	; 0x5c
  800b54a:	0864      	lsreq	r4, r4, #1
  800b54c:	e76e      	b.n	800b42c <service_lora_p2p_config+0x58>
- 800b54e:	f017 ffb5 	bl	80234bc <service_nvm_get_freq_from_nvm>
+ 800b54e:	f016 ffb5 	bl	80224bc <service_nvm_get_freq_from_nvm>
  800b552:	4683      	mov	fp, r0
- 800b554:	f018 f816 	bl	8023584 <service_nvm_get_powerdbm_from_nvm>
+ 800b554:	f017 f816 	bl	8022584 <service_nvm_get_powerdbm_from_nvm>
  800b558:	4680      	mov	r8, r0
- 800b55a:	f017 ffc1 	bl	80234e0 <service_nvm_get_sf_from_nvm>
+ 800b55a:	f016 ffc1 	bl	80224e0 <service_nvm_get_sf_from_nvm>
  800b55e:	4607      	mov	r7, r0
- 800b560:	f017 fffe 	bl	8023560 <service_nvm_get_preamlen_from_nvm>
+ 800b560:	f016 fffe 	bl	8022560 <service_nvm_get_preamlen_from_nvm>
  800b564:	4605      	mov	r5, r0
- 800b566:	f017 fd35 	bl	8022fd4 <service_nvm_get_nwm_from_nvm>
+ 800b566:	f016 fd35 	bl	8021fd4 <service_nvm_get_nwm_from_nvm>
  800b56a:	b2c0      	uxtb	r0, r0
  800b56c:	b930      	cbnz	r0, 800b57c <service_lora_p2p_config+0x1a8>
  800b56e:	f7ff fb90 	bl	800ac92 <service_lora_p2p_get_bandwidth>
  800b572:	4604      	mov	r4, r0
- 800b574:	f017 ffe2 	bl	802353c <service_nvm_get_codingrate_from_nvm>
+ 800b574:	f016 ffe2 	bl	802253c <service_nvm_get_codingrate_from_nvm>
  800b578:	1c46      	adds	r6, r0, #1
  800b57a:	e75a      	b.n	800b432 <service_lora_p2p_config+0x5e>
- 800b57c:	f017 fd2a 	bl	8022fd4 <service_nvm_get_nwm_from_nvm>
+ 800b57c:	f016 fd2a 	bl	8021fd4 <service_nvm_get_nwm_from_nvm>
  800b580:	b2c0      	uxtb	r0, r0
  800b582:	2802      	cmp	r0, #2
  800b584:	d1f6      	bne.n	800b574 <service_lora_p2p_config+0x1a0>
@@ -8414,7 +8414,7 @@ Disassembly of section .text:
  800b58a:	0844      	lsrs	r4, r0, #1
  800b58c:	e7f2      	b.n	800b574 <service_lora_p2p_config+0x1a0>
  800b58e:	bf00      	nop
- 800b590:	0803c988 	.word	0x0803c988
+ 800b590:	0803b988 	.word	0x0803b988
 
 0800b594 <service_lora_p2p_init>:
  800b594:	480a      	ldr	r0, [pc, #40]	; (800b5c0 <service_lora_p2p_init+0x2c>)
@@ -8445,7 +8445,7 @@ Disassembly of section .text:
  800b5d0:	0800abbd 	.word	0x0800abbd
  800b5d4:	0800aac5 	.word	0x0800aac5
  800b5d8:	0800aaa1 	.word	0x0800aaa1
- 800b5dc:	0803c988 	.word	0x0803c988
+ 800b5dc:	0803b988 	.word	0x0803b988
 
 0800b5e0 <service_lora_p2p_send>:
  800b5e0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
@@ -8460,7 +8460,7 @@ Disassembly of section .text:
  800b5f2:	f06f 0005 	mvn.w	r0, #5
  800b5f6:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
  800b5f8:	f7ff feec 	bl	800b3d4 <service_lora_p2p_config>
- 800b5fc:	f017 ffd4 	bl	80235a8 <service_nvm_get_crypt_enable_from_nvm>
+ 800b5fc:	f016 ffd4 	bl	80225a8 <service_nvm_get_crypt_enable_from_nvm>
  800b600:	b310      	cbz	r0, 800b648 <service_lora_p2p_send+0x68>
  800b602:	4621      	mov	r1, r4
  800b604:	4a1d      	ldr	r2, [pc, #116]	; (800b67c <service_lora_p2p_send+0x9c>)
@@ -8515,7 +8515,7 @@ Disassembly of section .text:
  800b676:	e7e1      	b.n	800b63c <service_lora_p2p_send+0x5c>
  800b678:	2000851b 	.word	0x2000851b
  800b67c:	2000841c 	.word	0x2000841c
- 800b680:	0803c988 	.word	0x0803c988
+ 800b680:	0803b988 	.word	0x0803b988
  800b684:	08017af3 	.word	0x08017af3
  800b688:	08017aee 	.word	0x08017aee
  800b68c:	0801782a 	.word	0x0801782a
@@ -8587,7 +8587,7 @@ Disassembly of section .text:
  800b724:	20008524 	.word	0x20008524
  800b728:	2000851b 	.word	0x2000851b
  800b72c:	08017b0d 	.word	0x08017b0d
- 800b730:	0803c988 	.word	0x0803c988
+ 800b730:	0803b988 	.word	0x0803b988
 
 0800b734 <service_lora_p2p_set_freq>:
  800b734:	4b0c      	ldr	r3, [pc, #48]	; (800b768 <service_lora_p2p_set_freq+0x34>)
@@ -8599,13 +8599,13 @@ Disassembly of section .text:
  800b740:	d902      	bls.n	800b748 <service_lora_p2p_set_freq+0x14>
  800b742:	f06f 0002 	mvn.w	r0, #2
  800b746:	bd10      	pop	{r4, pc}
- 800b748:	f014 fbfa 	bl	801ff40 <BoardGetHardwareFreq>
+ 800b748:	f013 fbfa 	bl	801ef40 <BoardGetHardwareFreq>
  800b74c:	4b08      	ldr	r3, [pc, #32]	; (800b770 <service_lora_p2p_set_freq+0x3c>)
  800b74e:	b140      	cbz	r0, 800b762 <service_lora_p2p_set_freq+0x2e>
  800b750:	429c      	cmp	r4, r3
  800b752:	d9f6      	bls.n	800b742 <service_lora_p2p_set_freq+0xe>
  800b754:	4620      	mov	r0, r4
- 800b756:	f017 feb7 	bl	80234c8 <service_nvm_set_freq_to_nvm>
+ 800b756:	f016 feb7 	bl	80224c8 <service_nvm_set_freq_to_nvm>
  800b75a:	f7ff fe3b 	bl	800b3d4 <service_lora_p2p_config>
  800b75e:	2000      	movs	r0, #0
  800b760:	e7f1      	b.n	800b746 <service_lora_p2p_set_freq+0x12>
@@ -8621,7 +8621,7 @@ Disassembly of section .text:
  800b776:	1f43      	subs	r3, r0, #5
  800b778:	2b07      	cmp	r3, #7
  800b77a:	d805      	bhi.n	800b788 <service_lora_p2p_set_sf+0x14>
- 800b77c:	f017 feb6 	bl	80234ec <service_nvm_set_sf_to_nvm>
+ 800b77c:	f016 feb6 	bl	80224ec <service_nvm_set_sf_to_nvm>
  800b780:	f7ff fe28 	bl	800b3d4 <service_lora_p2p_config>
  800b784:	2000      	movs	r0, #0
  800b786:	bd08      	pop	{r3, pc}
@@ -8632,7 +8632,7 @@ Disassembly of section .text:
 0800b790 <service_lora_p2p_set_bandwidth>:
  800b790:	b510      	push	{r4, lr}
  800b792:	4604      	mov	r4, r0
- 800b794:	f017 fc1e 	bl	8022fd4 <service_nvm_get_nwm_from_nvm>
+ 800b794:	f016 fc1e 	bl	8021fd4 <service_nvm_get_nwm_from_nvm>
  800b798:	f010 00ff 	ands.w	r0, r0, #255	; 0xff
  800b79c:	d10c      	bne.n	800b7b8 <service_lora_p2p_set_bandwidth+0x28>
  800b79e:	2c7d      	cmp	r4, #125	; 0x7d
@@ -8646,7 +8646,7 @@ Disassembly of section .text:
  800b7b0:	f06f 0402 	mvn.w	r4, #2
  800b7b4:	4620      	mov	r0, r4
  800b7b6:	bd10      	pop	{r4, pc}
- 800b7b8:	f017 fc0c 	bl	8022fd4 <service_nvm_get_nwm_from_nvm>
+ 800b7b8:	f016 fc0c 	bl	8021fd4 <service_nvm_get_nwm_from_nvm>
  800b7bc:	b2c0      	uxtb	r0, r0
  800b7be:	2802      	cmp	r0, #2
  800b7c0:	d105      	bne.n	800b7ce <service_lora_p2p_set_bandwidth+0x3e>
@@ -8656,7 +8656,7 @@ Disassembly of section .text:
  800b7ca:	e7f0      	b.n	800b7ae <service_lora_p2p_set_bandwidth+0x1e>
  800b7cc:	4604      	mov	r4, r0
  800b7ce:	4620      	mov	r0, r4
- 800b7d0:	f017 fea2 	bl	8023518 <service_nvm_set_bandwidth_to_nvm>
+ 800b7d0:	f016 fea2 	bl	8022518 <service_nvm_set_bandwidth_to_nvm>
  800b7d4:	4604      	mov	r4, r0
  800b7d6:	2800      	cmp	r0, #0
  800b7d8:	d1ec      	bne.n	800b7b4 <service_lora_p2p_set_bandwidth+0x24>
@@ -8672,7 +8672,7 @@ Disassembly of section .text:
  800b7ec:	2803      	cmp	r0, #3
  800b7ee:	b508      	push	{r3, lr}
  800b7f0:	d805      	bhi.n	800b7fe <service_lora_p2p_set_codingrate+0x12>
- 800b7f2:	f017 fea9 	bl	8023548 <service_nvm_set_codingrate_to_nvm>
+ 800b7f2:	f016 fea9 	bl	8022548 <service_nvm_set_codingrate_to_nvm>
  800b7f6:	f7ff fded 	bl	800b3d4 <service_lora_p2p_config>
  800b7fa:	2000      	movs	r0, #0
  800b7fc:	bd08      	pop	{r3, pc}
@@ -8683,7 +8683,7 @@ Disassembly of section .text:
  800b804:	2804      	cmp	r0, #4
  800b806:	b508      	push	{r3, lr}
  800b808:	d905      	bls.n	800b816 <service_lora_p2p_set_preamlen+0x12>
- 800b80a:	f017 feaf 	bl	802356c <service_nvm_set_preamlen_to_nvm>
+ 800b80a:	f016 feaf 	bl	802256c <service_nvm_set_preamlen_to_nvm>
  800b80e:	f7ff fde1 	bl	800b3d4 <service_lora_p2p_config>
  800b812:	2000      	movs	r0, #0
  800b814:	bd08      	pop	{r3, pc}
@@ -8695,7 +8695,7 @@ Disassembly of section .text:
  800b81e:	1f43      	subs	r3, r0, #5
  800b820:	2b11      	cmp	r3, #17
  800b822:	d805      	bhi.n	800b830 <service_lora_p2p_set_powerdbm+0x14>
- 800b824:	f017 feb4 	bl	8023590 <service_nvm_set_powerdbm_to_nvm>
+ 800b824:	f016 feb4 	bl	8022590 <service_nvm_set_powerdbm_to_nvm>
  800b828:	f7ff fdd4 	bl	800b3d4 <service_lora_p2p_config>
  800b82c:	2000      	movs	r0, #0
  800b82e:	bd08      	pop	{r3, pc}
@@ -8713,7 +8713,7 @@ Disassembly of section .text:
  800b846:	f7ff fdc5 	bl	800b3d4 <service_lora_p2p_config>
  800b84a:	4620      	mov	r0, r4
  800b84c:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
- 800b850:	f017 bf0c 	b.w	802366c <service_nvm_set_fdev_to_nvm>
+ 800b850:	f016 bf0c 	b.w	802266c <service_nvm_set_fdev_to_nvm>
  800b854:	f06f 0002 	mvn.w	r0, #2
  800b858:	bd10      	pop	{r4, pc}
  800b85a:	bf00      	nop
@@ -8729,7 +8729,7 @@ Disassembly of section .text:
  800b86e:	f7ff fdb1 	bl	800b3d4 <service_lora_p2p_config>
  800b872:	4620      	mov	r0, r4
  800b874:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
- 800b878:	f017 bf04 	b.w	8023684 <service_nvm_set_bitrate_to_nvm>
+ 800b878:	f016 bf04 	b.w	8022684 <service_nvm_set_bitrate_to_nvm>
  800b87c:	f06f 0002 	mvn.w	r0, #2
  800b880:	bd10      	pop	{r4, pc}
  800b882:	bf00      	nop
@@ -8737,9 +8737,9 @@ Disassembly of section .text:
 
 0800b888 <service_lora_p2p_set_syncword>:
  800b888:	b510      	push	{r4, lr}
- 800b88a:	f017 ff61 	bl	8023750 <service_nvm_set_syncword_to_nvm>
+ 800b88a:	f016 ff61 	bl	8022750 <service_nvm_set_syncword_to_nvm>
  800b88e:	4604      	mov	r4, r0
- 800b890:	f014 fb43 	bl	801ff1a <BoardInitMcu>
+ 800b890:	f013 fb43 	bl	801ef1a <BoardInitMcu>
  800b894:	f7ff fd9e 	bl	800b3d4 <service_lora_p2p_config>
  800b898:	4620      	mov	r0, r4
  800b89a:	bd10      	pop	{r4, pc}
@@ -8762,7 +8762,7 @@ Disassembly of section .text:
  800b8b4:	4802      	ldr	r0, [pc, #8]	; (800b8c0 <ClassBStatusReset+0xc>)
  800b8b6:	2220      	movs	r2, #32
  800b8b8:	2100      	movs	r1, #0
- 800b8ba:	f022 b8a0 	b.w	802d9fe <memset1>
+ 800b8ba:	f021 b8a0 	b.w	802c9fe <memset1>
  800b8be:	bf00      	nop
  800b8c0:	20008554 	.word	0x20008554
 
@@ -8815,7 +8815,7 @@ Disassembly of section .text:
  800b92c:	2300      	movs	r3, #0
  800b92e:	f884 3034 	strb.w	r3, [r4, #52]	; 0x34
  800b932:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
- 800b936:	f014 baf1 	b.w	801ff1c <BoardResetMcu>
+ 800b936:	f013 baf1 	b.w	801ef1c <BoardResetMcu>
  800b93a:	bd10      	pop	{r4, pc}
  800b93c:	20008540 	.word	0x20008540
 
@@ -9037,7 +9037,7 @@ Disassembly of section .text:
  800bb48:	2336      	movs	r3, #54	; 0x36
  800bb4a:	a801      	add	r0, sp, #4
  800bb4c:	f88d 3004 	strb.w	r3, [sp, #4]
- 800bb50:	f024 f996 	bl	802fe80 <LoRaMacMibGetRequestConfirm>
+ 800bb50:	f023 f996 	bl	802ee80 <LoRaMacMibGetRequestConfirm>
  800bb54:	f894 900a 	ldrb.w	r9, [r4, #10]
  800bb58:	68e6      	ldr	r6, [r4, #12]
  800bb5a:	f89d 0008 	ldrb.w	r0, [sp, #8]
@@ -9138,7 +9138,7 @@ Disassembly of section .text:
  800bc72:	2301      	movs	r3, #1
  800bc74:	f884 3034 	strb.w	r3, [r4, #52]	; 0x34
  800bc78:	e757      	b.n	800bb2a <LmhpComplianceOnMcpsIndication+0xaa>
- 800bc7a:	f014 fb72 	bl	8020362 <service_lora_get_band>
+ 800bc7a:	f013 fb72 	bl	801f362 <service_lora_get_band>
  800bc7e:	f000 03fd 	and.w	r3, r0, #253	; 0xfd
  800bc82:	2b08      	cmp	r3, #8
  800bc84:	4601      	mov	r1, r0
@@ -9175,15 +9175,15 @@ Disassembly of section .text:
  800bcd2:	2301      	movne	r3, #1
  800bcd4:	a801      	add	r0, sp, #4
  800bcd6:	f88d 3008 	strb.w	r3, [sp, #8]
- 800bcda:	f024 fa1f 	bl	803011c <LoRaMacMibSetRequestConfirm>
+ 800bcda:	f023 fa1f 	bl	802f11c <LoRaMacMibSetRequestConfirm>
  800bcde:	f89d 0008 	ldrb.w	r0, [sp, #8]
- 800bce2:	f017 f9a1 	bl	8023028 <service_nvm_set_adr_to_nvm>
+ 800bce2:	f016 f9a1 	bl	8022028 <service_nvm_set_adr_to_nvm>
  800bce6:	e720      	b.n	800bb2a <LmhpComplianceOnMcpsIndication+0xaa>
  800bce8:	7878      	ldrb	r0, [r7, #1]
  800bcea:	3800      	subs	r0, #0
  800bcec:	bf18      	it	ne
  800bcee:	2001      	movne	r0, #1
- 800bcf0:	f025 fea6 	bl	8031a40 <LoRaMacTestSetDutyCycleOn>
+ 800bcf0:	f024 fea6 	bl	8030a40 <LoRaMacTestSetDutyCycleOn>
  800bcf4:	e719      	b.n	800bb2a <LmhpComplianceOnMcpsIndication+0xaa>
  800bcf6:	4e17      	ldr	r6, [pc, #92]	; (800bd54 <LmhpComplianceOnMcpsIndication+0x2d4>)
  800bcf8:	ce0f      	ldmia	r6!, {r0, r1, r2, r3}
@@ -9270,7 +9270,7 @@ Disassembly of section .text:
  800bdb2:	2305      	movs	r3, #5
  800bdb4:	a801      	add	r0, sp, #4
  800bdb6:	f88d 3004 	strb.w	r3, [sp, #4]
- 800bdba:	f024 fea9 	bl	8030b10 <LoRaMacMlmeRequest>
+ 800bdba:	f023 fea9 	bl	802fb10 <LoRaMacMlmeRequest>
  800bdbe:	4b2f      	ldr	r3, [pc, #188]	; (800be7c <LmhpComplianceOnMcpsIndication+0x3fc>)
  800bdc0:	6a9b      	ldr	r3, [r3, #40]	; 0x28
  800bdc2:	2b00      	cmp	r3, #0
@@ -9330,7 +9330,7 @@ Disassembly of section .text:
  800be3e:	4b0f      	ldr	r3, [pc, #60]	; (800be7c <LmhpComplianceOnMcpsIndication+0x3fc>)
  800be40:	a801      	add	r0, sp, #4
  800be42:	6a9d      	ldr	r5, [r3, #40]	; 0x28
- 800be44:	f024 fe64 	bl	8030b10 <LoRaMacMlmeRequest>
+ 800be44:	f023 fe64 	bl	802fb10 <LoRaMacMlmeRequest>
  800be48:	9a05      	ldr	r2, [sp, #20]
  800be4a:	a901      	add	r1, sp, #4
  800be4c:	47a8      	blx	r5
@@ -9339,16 +9339,16 @@ Disassembly of section .text:
  800be52:	a801      	add	r0, sp, #4
  800be54:	f88d 3004 	strb.w	r3, [sp, #4]
  800be58:	f88d 5008 	strb.w	r5, [sp, #8]
- 800be5c:	f024 f95e 	bl	803011c <LoRaMacMibSetRequestConfirm>
+ 800be5c:	f023 f95e 	bl	802f11c <LoRaMacMibSetRequestConfirm>
  800be60:	f884 5034 	strb.w	r5, [r4, #52]	; 0x34
- 800be64:	f014 f8cf 	bl	8020006 <service_lora_get_njm>
+ 800be64:	f013 f8cf 	bl	801f006 <service_lora_get_njm>
  800be68:	2801      	cmp	r0, #1
  800be6a:	d102      	bne.n	800be72 <LmhpComplianceOnMcpsIndication+0x3f2>
  800be6c:	4b03      	ldr	r3, [pc, #12]	; (800be7c <LmhpComplianceOnMcpsIndication+0x3fc>)
  800be6e:	6adb      	ldr	r3, [r3, #44]	; 0x2c
  800be70:	4798      	blx	r3
  800be72:	2000      	movs	r0, #0
- 800be74:	f014 fa6f 	bl	8020356 <service_lora_set_IsCertPortOn>
+ 800be74:	f013 fa6f 	bl	801f356 <service_lora_set_IsCertPortOn>
  800be78:	e657      	b.n	800bb2a <LmhpComplianceOnMcpsIndication+0xaa>
  800be7a:	bf00      	nop
  800be7c:	200060f4 	.word	0x200060f4
@@ -9356,7 +9356,7 @@ Disassembly of section .text:
 
 0800be84 <OnTxFrameCtrlChanged>:
  800be84:	b908      	cbnz	r0, 800be8a <OnTxFrameCtrlChanged+0x6>
- 800be86:	f014 b937 	b.w	80200f8 <service_lora_set_cfm>
+ 800be86:	f013 b937 	b.w	801f0f8 <service_lora_set_cfm>
  800be8a:	2801      	cmp	r0, #1
  800be8c:	d0fb      	beq.n	800be86 <OnTxFrameCtrlChanged+0x2>
  800be8e:	4770      	bx	lr
@@ -9478,7 +9478,7 @@ Disassembly of section .text:
  800bf8c:	701a      	strb	r2, [r3, #0]
  800bf8e:	f7fa f901 	bl	8006194 <strlen>
  800bf92:	b300      	cbz	r0, 800bfd6 <service_mode_cli_handler+0xca>
- 800bf94:	f016 fe8e 	bl	8022cb4 <service_nvm_get_atcmd_echo_from_nvm>
+ 800bf94:	f015 fe8e 	bl	8021cb4 <service_nvm_get_atcmd_echo_from_nvm>
  800bf98:	b188      	cbz	r0, 800bfbe <service_mode_cli_handler+0xb2>
  800bf9a:	230a      	movs	r3, #10
  800bf9c:	2201      	movs	r2, #1
@@ -9529,7 +9529,7 @@ Disassembly of section .text:
  800c010:	4905      	ldr	r1, [pc, #20]	; (800c028 <service_mode_cli_handler+0x11c>)
  800c012:	54cc      	strb	r4, [r1, r3]
  800c014:	5488      	strb	r0, [r1, r2]
- 800c016:	f016 fe4d 	bl	8022cb4 <service_nvm_get_atcmd_echo_from_nvm>
+ 800c016:	f015 fe4d 	bl	8021cb4 <service_nvm_get_atcmd_echo_from_nvm>
  800c01a:	2800      	cmp	r0, #0
  800c01c:	d0e4      	beq.n	800bfe8 <service_mode_cli_handler+0xdc>
  800c01e:	e7aa      	b.n	800bf76 <service_mode_cli_handler+0x6a>
@@ -10332,7 +10332,7 @@ Disassembly of section .text:
  800c7d2:	b08b      	sub	sp, #44	; 0x2c
  800c7d4:	460e      	mov	r6, r1
  800c7d6:	4615      	mov	r5, r2
- 800c7d8:	f013 fc06 	bl	801ffe8 <service_lora_get_nwm>
+ 800c7d8:	f012 fc06 	bl	801efe8 <service_lora_get_nwm>
  800c7dc:	2801      	cmp	r0, #1
  800c7de:	d159      	bne.n	800c894 <At_AppEui+0xc4>
  800c7e0:	6e6c      	ldr	r4, [r5, #100]	; 0x64
@@ -10346,7 +10346,7 @@ Disassembly of section .text:
  800c7f2:	b998      	cbnz	r0, 800c81c <At_AppEui+0x4c>
  800c7f4:	2108      	movs	r1, #8
  800c7f6:	eb0d 0001 	add.w	r0, sp, r1
- 800c7fa:	f013 fbef 	bl	801ffdc <service_lora_get_app_eui>
+ 800c7fa:	f012 fbef 	bl	801efdc <service_lora_get_app_eui>
  800c7fe:	4605      	mov	r5, r0
  800c800:	b948      	cbnz	r0, 800c816 <At_AppEui+0x46>
  800c802:	4631      	mov	r1, r6
@@ -10397,7 +10397,7 @@ Disassembly of section .text:
  800c870:	d1ef      	bne.n	800c852 <At_AppEui+0x82>
  800c872:	2108      	movs	r1, #8
  800c874:	4638      	mov	r0, r7
- 800c876:	f013 fd97 	bl	80203a8 <service_lora_set_app_eui>
+ 800c876:	f012 fd97 	bl	801f3a8 <service_lora_set_app_eui>
  800c87a:	4604      	mov	r4, r0
  800c87c:	2800      	cmp	r0, #0
  800c87e:	d0ca      	beq.n	800c816 <At_AppEui+0x46>
@@ -10421,7 +10421,7 @@ Disassembly of section .text:
  800c8a6:	b08b      	sub	sp, #44	; 0x2c
  800c8a8:	460e      	mov	r6, r1
  800c8aa:	4615      	mov	r5, r2
- 800c8ac:	f013 fb9c 	bl	801ffe8 <service_lora_get_nwm>
+ 800c8ac:	f012 fb9c 	bl	801efe8 <service_lora_get_nwm>
  800c8b0:	2801      	cmp	r0, #1
  800c8b2:	d157      	bne.n	800c964 <At_AppKey+0xc0>
  800c8b4:	6e6c      	ldr	r4, [r5, #100]	; 0x64
@@ -10435,7 +10435,7 @@ Disassembly of section .text:
  800c8c6:	b988      	cbnz	r0, 800c8ec <At_AppKey+0x48>
  800c8c8:	2110      	movs	r1, #16
  800c8ca:	a802      	add	r0, sp, #8
- 800c8cc:	f013 fb88 	bl	801ffe0 <service_lora_get_app_key>
+ 800c8cc:	f012 fb88 	bl	801efe0 <service_lora_get_app_key>
  800c8d0:	4605      	mov	r5, r0
  800c8d2:	b940      	cbnz	r0, 800c8e6 <At_AppKey+0x42>
  800c8d4:	4631      	mov	r1, r6
@@ -10486,7 +10486,7 @@ Disassembly of section .text:
  800c940:	d1ef      	bne.n	800c922 <At_AppKey+0x7e>
  800c942:	2110      	movs	r1, #16
  800c944:	4638      	mov	r0, r7
- 800c946:	f013 fd50 	bl	80203ea <service_lora_set_app_key>
+ 800c946:	f012 fd50 	bl	801f3ea <service_lora_set_app_key>
  800c94a:	4604      	mov	r4, r0
  800c94c:	2800      	cmp	r0, #0
  800c94e:	d0ca      	beq.n	800c8e6 <At_AppKey+0x42>
@@ -10510,7 +10510,7 @@ Disassembly of section .text:
  800c976:	b08b      	sub	sp, #44	; 0x2c
  800c978:	460e      	mov	r6, r1
  800c97a:	4615      	mov	r5, r2
- 800c97c:	f013 fb34 	bl	801ffe8 <service_lora_get_nwm>
+ 800c97c:	f012 fb34 	bl	801efe8 <service_lora_get_nwm>
  800c980:	2801      	cmp	r0, #1
  800c982:	d157      	bne.n	800ca34 <At_AppSKey+0xc0>
  800c984:	6e6c      	ldr	r4, [r5, #100]	; 0x64
@@ -10524,7 +10524,7 @@ Disassembly of section .text:
  800c996:	b988      	cbnz	r0, 800c9bc <At_AppSKey+0x48>
  800c998:	2110      	movs	r1, #16
  800c99a:	a802      	add	r0, sp, #8
- 800c99c:	f013 fb48 	bl	8020030 <service_lora_get_app_skey>
+ 800c99c:	f012 fb48 	bl	801f030 <service_lora_get_app_skey>
  800c9a0:	4605      	mov	r5, r0
  800c9a2:	b940      	cbnz	r0, 800c9b6 <At_AppSKey+0x42>
  800c9a4:	4631      	mov	r1, r6
@@ -10575,7 +10575,7 @@ Disassembly of section .text:
  800ca10:	d1ef      	bne.n	800c9f2 <At_AppSKey+0x7e>
  800ca12:	2110      	movs	r1, #16
  800ca14:	4638      	mov	r0, r7
- 800ca16:	f013 fd12 	bl	802043e <service_lora_set_app_skey>
+ 800ca16:	f012 fd12 	bl	801f43e <service_lora_set_app_skey>
  800ca1a:	4604      	mov	r4, r0
  800ca1c:	2800      	cmp	r0, #0
  800ca1e:	d0ca      	beq.n	800c9b6 <At_AppSKey+0x42>
@@ -10598,7 +10598,7 @@ Disassembly of section .text:
  800ca44:	b5f7      	push	{r0, r1, r2, r4, r5, r6, r7, lr}
  800ca46:	460e      	mov	r6, r1
  800ca48:	4615      	mov	r5, r2
- 800ca4a:	f013 facd 	bl	801ffe8 <service_lora_get_nwm>
+ 800ca4a:	f012 facd 	bl	801efe8 <service_lora_get_nwm>
  800ca4e:	2801      	cmp	r0, #1
  800ca50:	d162      	bne.n	800cb18 <At_DevAddr+0xd4>
  800ca52:	6e6c      	ldr	r4, [r5, #100]	; 0x64
@@ -10612,7 +10612,7 @@ Disassembly of section .text:
  800ca64:	b9e0      	cbnz	r0, 800caa0 <At_DevAddr+0x5c>
  800ca66:	2104      	movs	r1, #4
  800ca68:	eb0d 0001 	add.w	r0, sp, r1
- 800ca6c:	f013 fb0e 	bl	802008c <service_lora_get_dev_addr>
+ 800ca6c:	f012 fb0e 	bl	801f08c <service_lora_get_dev_addr>
  800ca70:	4605      	mov	r5, r0
  800ca72:	b990      	cbnz	r0, 800ca9a <At_DevAddr+0x56>
  800ca74:	4631      	mov	r1, r6
@@ -10671,7 +10671,7 @@ Disassembly of section .text:
  800caf4:	d1ef      	bne.n	800cad6 <At_DevAddr+0x92>
  800caf6:	2104      	movs	r1, #4
  800caf8:	4638      	mov	r0, r7
- 800cafa:	f013 fcc1 	bl	8020480 <service_lora_set_dev_addr>
+ 800cafa:	f012 fcc1 	bl	801f480 <service_lora_set_dev_addr>
  800cafe:	4604      	mov	r4, r0
  800cb00:	2800      	cmp	r0, #0
  800cb02:	d0ca      	beq.n	800ca9a <At_DevAddr+0x56>
@@ -10697,7 +10697,7 @@ Disassembly of section .text:
  800cb32:	b08b      	sub	sp, #44	; 0x2c
  800cb34:	460e      	mov	r6, r1
  800cb36:	4615      	mov	r5, r2
- 800cb38:	f013 fa56 	bl	801ffe8 <service_lora_get_nwm>
+ 800cb38:	f012 fa56 	bl	801efe8 <service_lora_get_nwm>
  800cb3c:	2801      	cmp	r0, #1
  800cb3e:	d159      	bne.n	800cbf4 <At_DevEui+0xc4>
  800cb40:	6e6c      	ldr	r4, [r5, #100]	; 0x64
@@ -10711,7 +10711,7 @@ Disassembly of section .text:
  800cb52:	b998      	cbnz	r0, 800cb7c <At_DevEui+0x4c>
  800cb54:	2108      	movs	r1, #8
  800cb56:	eb0d 0001 	add.w	r0, sp, r1
- 800cb5a:	f013 fa43 	bl	801ffe4 <service_lora_get_dev_eui>
+ 800cb5a:	f012 fa43 	bl	801efe4 <service_lora_get_dev_eui>
  800cb5e:	4605      	mov	r5, r0
  800cb60:	b948      	cbnz	r0, 800cb76 <At_DevEui+0x46>
  800cb62:	4631      	mov	r1, r6
@@ -10762,7 +10762,7 @@ Disassembly of section .text:
  800cbd0:	d1ef      	bne.n	800cbb2 <At_DevEui+0x82>
  800cbd2:	2108      	movs	r1, #8
  800cbd4:	4638      	mov	r0, r7
- 800cbd6:	f013 fc76 	bl	80204c6 <service_lora_set_dev_eui>
+ 800cbd6:	f012 fc76 	bl	801f4c6 <service_lora_set_dev_eui>
  800cbda:	4604      	mov	r4, r0
  800cbdc:	2800      	cmp	r0, #0
  800cbde:	d0ca      	beq.n	800cb76 <At_DevEui+0x46>
@@ -10785,7 +10785,7 @@ Disassembly of section .text:
  800cc04:	b573      	push	{r0, r1, r4, r5, r6, lr}
  800cc06:	460e      	mov	r6, r1
  800cc08:	4615      	mov	r5, r2
- 800cc0a:	f013 f9ed 	bl	801ffe8 <service_lora_get_nwm>
+ 800cc0a:	f012 f9ed 	bl	801efe8 <service_lora_get_nwm>
  800cc0e:	2801      	cmp	r0, #1
  800cc10:	d12c      	bne.n	800cc6c <At_NetId+0x68>
  800cc12:	6e6c      	ldr	r4, [r5, #100]	; 0x64
@@ -10802,7 +10802,7 @@ Disassembly of section .text:
  800cc2a:	d1f5      	bne.n	800cc18 <At_NetId+0x14>
  800cc2c:	2104      	movs	r1, #4
  800cc2e:	eb0d 0001 	add.w	r0, sp, r1
- 800cc32:	f013 fa91 	bl	8020158 <service_lora_get_net_id>
+ 800cc32:	f012 fa91 	bl	801f158 <service_lora_get_net_id>
  800cc36:	4605      	mov	r5, r0
  800cc38:	2800      	cmp	r0, #0
  800cc3a:	d1ee      	bne.n	800cc1a <At_NetId+0x16>
@@ -10834,7 +10834,7 @@ Disassembly of section .text:
  800cc82:	b08b      	sub	sp, #44	; 0x2c
  800cc84:	460e      	mov	r6, r1
  800cc86:	4615      	mov	r5, r2
- 800cc88:	f013 f9ae 	bl	801ffe8 <service_lora_get_nwm>
+ 800cc88:	f012 f9ae 	bl	801efe8 <service_lora_get_nwm>
  800cc8c:	2801      	cmp	r0, #1
  800cc8e:	d157      	bne.n	800cd40 <At_NwkSKey+0xc0>
  800cc90:	6e6c      	ldr	r4, [r5, #100]	; 0x64
@@ -10848,7 +10848,7 @@ Disassembly of section .text:
  800cca2:	b988      	cbnz	r0, 800ccc8 <At_NwkSKey+0x48>
  800cca4:	2110      	movs	r1, #16
  800cca6:	a802      	add	r0, sp, #8
- 800cca8:	f013 fa28 	bl	80200fc <service_lora_get_nwk_skey>
+ 800cca8:	f012 fa28 	bl	801f0fc <service_lora_get_nwk_skey>
  800ccac:	4605      	mov	r5, r0
  800ccae:	b940      	cbnz	r0, 800ccc2 <At_NwkSKey+0x42>
  800ccb0:	4631      	mov	r1, r6
@@ -10899,7 +10899,7 @@ Disassembly of section .text:
  800cd1c:	d1ef      	bne.n	800ccfe <At_NwkSKey+0x7e>
  800cd1e:	2110      	movs	r1, #16
  800cd20:	4638      	mov	r0, r7
- 800cd22:	f013 fbf8 	bl	8020516 <service_lora_set_nwk_skey>
+ 800cd22:	f012 fbf8 	bl	801f516 <service_lora_set_nwk_skey>
  800cd26:	4604      	mov	r4, r0
  800cd28:	2800      	cmp	r0, #0
  800cd2a:	d0ca      	beq.n	800ccc2 <At_NwkSKey+0x42>
@@ -10932,7 +10932,7 @@ Disassembly of section .text:
  800cd66:	4606      	mov	r6, r0
  800cd68:	b980      	cbnz	r0, 800cd8c <At_McRootkey+0x3c>
  800cd6a:	4668      	mov	r0, sp
- 800cd6c:	f013 fa23 	bl	80201b6 <service_lora_get_McRoot_key>
+ 800cd6c:	f012 fa23 	bl	801f1b6 <service_lora_get_McRoot_key>
  800cd70:	2801      	cmp	r0, #1
  800cd72:	d108      	bne.n	800cd86 <At_McRootkey+0x36>
  800cd74:	4639      	mov	r1, r7
@@ -10961,7 +10961,7 @@ Disassembly of section .text:
  800cda8:	b573      	push	{r0, r1, r4, r5, r6, lr}
  800cdaa:	460e      	mov	r6, r1
  800cdac:	4615      	mov	r5, r2
- 800cdae:	f013 f91b 	bl	801ffe8 <service_lora_get_nwm>
+ 800cdae:	f012 f91b 	bl	801efe8 <service_lora_get_nwm>
  800cdb2:	2801      	cmp	r0, #1
  800cdb4:	d126      	bne.n	800ce04 <At_Retry+0x5c>
  800cdb6:	6e6b      	ldr	r3, [r5, #100]	; 0x64
@@ -10974,7 +10974,7 @@ Disassembly of section .text:
  800cdc4:	f7f9 f9dc 	bl	8006180 <strcmp>
  800cdc8:	4604      	mov	r4, r0
  800cdca:	b948      	cbnz	r0, 800cde0 <At_Retry+0x38>
- 800cdcc:	f013 f989 	bl	80200e2 <service_lora_get_retry>
+ 800cdcc:	f012 f989 	bl	801f0e2 <service_lora_get_retry>
  800cdd0:	4631      	mov	r1, r6
  800cdd2:	4602      	mov	r2, r0
  800cdd4:	480d      	ldr	r0, [pc, #52]	; (800ce0c <At_Retry+0x64>)
@@ -10993,7 +10993,7 @@ Disassembly of section .text:
  800cdf4:	f89d 0007 	ldrb.w	r0, [sp, #7]
  800cdf8:	2807      	cmp	r0, #7
  800cdfa:	d8df      	bhi.n	800cdbc <At_Retry+0x14>
- 800cdfc:	f013 f973 	bl	80200e6 <service_lora_set_retry>
+ 800cdfc:	f012 f973 	bl	801f0e6 <service_lora_set_retry>
  800ce00:	4604      	mov	r4, r0
  800ce02:	e7ea      	b.n	800cdda <At_Retry+0x32>
  800ce04:	2408      	movs	r4, #8
@@ -11005,7 +11005,7 @@ Disassembly of section .text:
  800ce10:	b570      	push	{r4, r5, r6, lr}
  800ce12:	460e      	mov	r6, r1
  800ce14:	4615      	mov	r5, r2
- 800ce16:	f013 f8e7 	bl	801ffe8 <service_lora_get_nwm>
+ 800ce16:	f012 f8e7 	bl	801efe8 <service_lora_get_nwm>
  800ce1a:	2801      	cmp	r0, #1
  800ce1c:	d132      	bne.n	800ce84 <At_CfMode+0x74>
  800ce1e:	6e6b      	ldr	r3, [r5, #100]	; 0x64
@@ -11019,7 +11019,7 @@ Disassembly of section .text:
  800ce2e:	f7f9 f9a7 	bl	8006180 <strcmp>
  800ce32:	4604      	mov	r4, r0
  800ce34:	b938      	cbnz	r0, 800ce46 <At_CfMode+0x36>
- 800ce36:	f013 f95d 	bl	80200f4 <service_lora_get_cfm>
+ 800ce36:	f012 f95d 	bl	801f0f4 <service_lora_get_cfm>
  800ce3a:	4631      	mov	r1, r6
  800ce3c:	4602      	mov	r2, r0
  800ce3e:	4813      	ldr	r0, [pc, #76]	; (800ce8c <At_CfMode+0x7c>)
@@ -11047,7 +11047,7 @@ Disassembly of section .text:
  800ce72:	2801      	cmp	r0, #1
  800ce74:	d8d6      	bhi.n	800ce24 <At_CfMode+0x14>
  800ce76:	b2c0      	uxtb	r0, r0
- 800ce78:	f013 f93e 	bl	80200f8 <service_lora_set_cfm>
+ 800ce78:	f012 f93e 	bl	801f0f8 <service_lora_set_cfm>
  800ce7c:	1e04      	subs	r4, r0, #0
  800ce7e:	bf18      	it	ne
  800ce80:	2401      	movne	r4, #1
@@ -11061,7 +11061,7 @@ Disassembly of section .text:
  800ce90:	b538      	push	{r3, r4, r5, lr}
  800ce92:	460d      	mov	r5, r1
  800ce94:	4614      	mov	r4, r2
- 800ce96:	f013 f8a7 	bl	801ffe8 <service_lora_get_nwm>
+ 800ce96:	f012 f8a7 	bl	801efe8 <service_lora_get_nwm>
  800ce9a:	2801      	cmp	r0, #1
  800ce9c:	d114      	bne.n	800cec8 <At_CfStatus+0x38>
  800ce9e:	6e63      	ldr	r3, [r4, #100]	; 0x64
@@ -11092,7 +11092,7 @@ Disassembly of section .text:
  800ced8:	b086      	sub	sp, #24
  800ceda:	460f      	mov	r7, r1
  800cedc:	4615      	mov	r5, r2
- 800cede:	f013 f883 	bl	801ffe8 <service_lora_get_nwm>
+ 800cede:	f012 f883 	bl	801efe8 <service_lora_get_nwm>
  800cee2:	2801      	cmp	r0, #1
  800cee4:	d177      	bne.n	800cfd6 <At_Join+0x102>
  800cee6:	4b3e      	ldr	r3, [pc, #248]	; (800cfe0 <At_Join+0x10c>)
@@ -11107,13 +11107,13 @@ Disassembly of section .text:
  800cefa:	f7f9 f941 	bl	8006180 <strcmp>
  800cefe:	4604      	mov	r4, r0
  800cf00:	b9b0      	cbnz	r0, 800cf30 <At_Join+0x5c>
- 800cf02:	f013 fa08 	bl	8020316 <service_lora_get_join_start>
+ 800cf02:	f012 fa08 	bl	801f316 <service_lora_get_join_start>
  800cf06:	4605      	mov	r5, r0
- 800cf08:	f013 fa09 	bl	802031e <service_lora_get_auto_join>
+ 800cf08:	f012 fa09 	bl	801f31e <service_lora_get_auto_join>
  800cf0c:	4606      	mov	r6, r0
- 800cf0e:	f013 fa0a 	bl	8020326 <service_lora_get_auto_join_period>
+ 800cf0e:	f012 fa0a 	bl	801f326 <service_lora_get_auto_join_period>
  800cf12:	4680      	mov	r8, r0
- 800cf14:	f013 fa0b 	bl	802032e <service_lora_get_auto_join_max_cnt>
+ 800cf14:	f012 fa0b 	bl	801f32e <service_lora_get_auto_join_max_cnt>
  800cf18:	4633      	mov	r3, r6
  800cf1a:	e9cd 8000 	strd	r8, r0, [sp]
  800cf1e:	462a      	mov	r2, r5
@@ -11208,7 +11208,7 @@ Disassembly of section .text:
  800cfec:	b570      	push	{r4, r5, r6, lr}
  800cfee:	460e      	mov	r6, r1
  800cff0:	4615      	mov	r5, r2
- 800cff2:	f012 fff9 	bl	801ffe8 <service_lora_get_nwm>
+ 800cff2:	f011 fff9 	bl	801efe8 <service_lora_get_nwm>
  800cff6:	2801      	cmp	r0, #1
  800cff8:	d138      	bne.n	800d06c <At_NwkJoinMode+0x80>
  800cffa:	6e6b      	ldr	r3, [r5, #100]	; 0x64
@@ -11222,7 +11222,7 @@ Disassembly of section .text:
  800d00a:	f7f9 f8b9 	bl	8006180 <strcmp>
  800d00e:	4604      	mov	r4, r0
  800d010:	b938      	cbnz	r0, 800d022 <At_NwkJoinMode+0x36>
- 800d012:	f012 fff8 	bl	8020006 <service_lora_get_njm>
+ 800d012:	f011 fff8 	bl	801f006 <service_lora_get_njm>
  800d016:	4631      	mov	r1, r6
  800d018:	4602      	mov	r2, r0
  800d01a:	4816      	ldr	r0, [pc, #88]	; (800d074 <At_NwkJoinMode+0x88>)
@@ -11269,7 +11269,7 @@ Disassembly of section .text:
  800d078:	b538      	push	{r3, r4, r5, lr}
  800d07a:	460d      	mov	r5, r1
  800d07c:	4614      	mov	r4, r2
- 800d07e:	f012 ffb3 	bl	801ffe8 <service_lora_get_nwm>
+ 800d07e:	f011 ffb3 	bl	801efe8 <service_lora_get_nwm>
  800d082:	2801      	cmp	r0, #1
  800d084:	d114      	bne.n	800d0b0 <At_NwkJoinStatus+0x38>
  800d086:	6e63      	ldr	r3, [r4, #100]	; 0x64
@@ -11284,7 +11284,7 @@ Disassembly of section .text:
  800d09a:	4604      	mov	r4, r0
  800d09c:	2800      	cmp	r0, #0
  800d09e:	d1f5      	bne.n	800d08c <At_NwkJoinStatus+0x14>
- 800d0a0:	f012 ffb3 	bl	802000a <service_lora_get_njs>
+ 800d0a0:	f011 ffb3 	bl	801f00a <service_lora_get_njs>
  800d0a4:	4629      	mov	r1, r5
  800d0a6:	4602      	mov	r2, r0
  800d0a8:	4803      	ldr	r0, [pc, #12]	; (800d0b8 <At_NwkJoinStatus+0x40>)
@@ -11300,7 +11300,7 @@ Disassembly of section .text:
  800d0c0:	b0c2      	sub	sp, #264	; 0x108
  800d0c2:	460e      	mov	r6, r1
  800d0c4:	4614      	mov	r4, r2
- 800d0c6:	f012 ff8f 	bl	801ffe8 <service_lora_get_nwm>
+ 800d0c6:	f011 ff8f 	bl	801efe8 <service_lora_get_nwm>
  800d0ca:	2801      	cmp	r0, #1
  800d0cc:	d12f      	bne.n	800d12e <At_Recv+0x72>
  800d0ce:	6e63      	ldr	r3, [r4, #100]	; 0x64
@@ -11352,7 +11352,7 @@ Disassembly of section .text:
  800d144:	e92d 43f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
  800d148:	f6ad 0d1c 	subw	sp, sp, #2076	; 0x81c
  800d14c:	4615      	mov	r5, r2
- 800d14e:	f012 ff4b 	bl	801ffe8 <service_lora_get_nwm>
+ 800d14e:	f011 ff4b 	bl	801efe8 <service_lora_get_nwm>
  800d152:	2801      	cmp	r0, #1
  800d154:	d170      	bne.n	800d238 <At_Send+0xf4>
  800d156:	6e6b      	ldr	r3, [r5, #100]	; 0x64
@@ -11454,7 +11454,7 @@ Disassembly of section .text:
  800d240:	b5f0      	push	{r4, r5, r6, r7, lr}
  800d242:	f2ad 4d04 	subw	sp, sp, #1028	; 0x404
  800d246:	4614      	mov	r4, r2
- 800d248:	f012 fece 	bl	801ffe8 <service_lora_get_nwm>
+ 800d248:	f011 fece 	bl	801efe8 <service_lora_get_nwm>
  800d24c:	2801      	cmp	r0, #1
  800d24e:	d17a      	bne.n	800d346 <At_Lpsend+0x106>
  800d250:	6e63      	ldr	r3, [r4, #100]	; 0x64
@@ -11574,7 +11574,7 @@ Disassembly of section .text:
  800d358:	b570      	push	{r4, r5, r6, lr}
  800d35a:	460e      	mov	r6, r1
  800d35c:	4615      	mov	r5, r2
- 800d35e:	f012 fe43 	bl	801ffe8 <service_lora_get_nwm>
+ 800d35e:	f011 fe43 	bl	801efe8 <service_lora_get_nwm>
  800d362:	2801      	cmp	r0, #1
  800d364:	d13c      	bne.n	800d3e0 <At_ADR+0x88>
  800d366:	6e6b      	ldr	r3, [r5, #100]	; 0x64
@@ -11588,7 +11588,7 @@ Disassembly of section .text:
  800d376:	f7f8 ff03 	bl	8006180 <strcmp>
  800d37a:	4604      	mov	r4, r0
  800d37c:	b938      	cbnz	r0, 800d38e <At_ADR+0x36>
- 800d37e:	f012 ff1b 	bl	80201b8 <service_lora_get_adr>
+ 800d37e:	f011 ff1b 	bl	801f1b8 <service_lora_get_adr>
  800d382:	4631      	mov	r1, r6
  800d384:	4602      	mov	r2, r0
  800d386:	4819      	ldr	r0, [pc, #100]	; (800d3ec <At_ADR+0x94>)
@@ -11617,7 +11617,7 @@ Disassembly of section .text:
  800d3bc:	d8d6      	bhi.n	800d36c <At_ADR+0x14>
  800d3be:	2101      	movs	r1, #1
  800d3c0:	4008      	ands	r0, r1
- 800d3c2:	f013 f8db 	bl	802057c <service_lora_set_adr>
+ 800d3c2:	f012 f8db 	bl	801f57c <service_lora_set_adr>
  800d3c6:	4604      	mov	r4, r0
  800d3c8:	2800      	cmp	r0, #0
  800d3ca:	d0d0      	beq.n	800d36e <At_ADR+0x16>
@@ -11641,7 +11641,7 @@ Disassembly of section .text:
  800d3f0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
  800d3f4:	460e      	mov	r6, r1
  800d3f6:	4690      	mov	r8, r2
- 800d3f8:	f012 fdf6 	bl	801ffe8 <service_lora_get_nwm>
+ 800d3f8:	f011 fdf6 	bl	801efe8 <service_lora_get_nwm>
  800d3fc:	2801      	cmp	r0, #1
  800d3fe:	d15e      	bne.n	800d4be <At_Class+0xce>
  800d400:	f8d8 7064 	ldr.w	r7, [r8, #100]	; 0x64
@@ -11652,7 +11652,7 @@ Disassembly of section .text:
  800d40e:	f7f8 feb7 	bl	8006180 <strcmp>
  800d412:	4605      	mov	r5, r0
  800d414:	bb20      	cbnz	r0, 800d460 <At_Class+0x70>
- 800d416:	f012 fed1 	bl	80201bc <service_lora_get_class>
+ 800d416:	f011 fed1 	bl	801f1bc <service_lora_get_class>
  800d41a:	2801      	cmp	r0, #1
  800d41c:	d00a      	beq.n	800d434 <At_Class+0x44>
  800d41e:	2802      	cmp	r0, #2
@@ -11744,7 +11744,7 @@ Disassembly of section .text:
  800d4f8:	b570      	push	{r4, r5, r6, lr}
  800d4fa:	460e      	mov	r6, r1
  800d4fc:	4614      	mov	r4, r2
- 800d4fe:	f012 fd73 	bl	801ffe8 <service_lora_get_nwm>
+ 800d4fe:	f011 fd73 	bl	801efe8 <service_lora_get_nwm>
  800d502:	2801      	cmp	r0, #1
  800d504:	d12e      	bne.n	800d564 <At_DCS+0x6c>
  800d506:	6e63      	ldr	r3, [r4, #100]	; 0x64
@@ -11764,14 +11764,14 @@ Disassembly of section .text:
  800d526:	d819      	bhi.n	800d55c <At_DCS+0x64>
  800d528:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
  800d52c:	2101      	movs	r1, #1
- 800d52e:	f012 be4e 	b.w	80201ce <service_lora_set_dcs>
+ 800d52e:	f011 be4e 	b.w	801f1ce <service_lora_set_dcs>
  800d532:	490d      	ldr	r1, [pc, #52]	; (800d568 <At_DCS+0x70>)
  800d534:	6820      	ldr	r0, [r4, #0]
  800d536:	f7f8 fe23 	bl	8006180 <strcmp>
  800d53a:	4605      	mov	r5, r0
  800d53c:	2800      	cmp	r0, #0
  800d53e:	d1e5      	bne.n	800d50c <At_DCS+0x14>
- 800d540:	f012 fe3e 	bl	80201c0 <service_lora_get_dcs>
+ 800d540:	f011 fe3e 	bl	801f1c0 <service_lora_get_dcs>
  800d544:	4631      	mov	r1, r6
  800d546:	4602      	mov	r2, r0
  800d548:	4808      	ldr	r0, [pc, #32]	; (800d56c <At_DCS+0x74>)
@@ -11795,7 +11795,7 @@ Disassembly of section .text:
  800d570:	b570      	push	{r4, r5, r6, lr}
  800d572:	460e      	mov	r6, r1
  800d574:	4615      	mov	r5, r2
- 800d576:	f012 fd37 	bl	801ffe8 <service_lora_get_nwm>
+ 800d576:	f011 fd37 	bl	801efe8 <service_lora_get_nwm>
  800d57a:	2801      	cmp	r0, #1
  800d57c:	d138      	bne.n	800d5f0 <At_DataRate+0x80>
  800d57e:	6e6b      	ldr	r3, [r5, #100]	; 0x64
@@ -11809,7 +11809,7 @@ Disassembly of section .text:
  800d58e:	f7f8 fdf7 	bl	8006180 <strcmp>
  800d592:	4604      	mov	r4, r0
  800d594:	b938      	cbnz	r0, 800d5a6 <At_DataRate+0x36>
- 800d596:	f012 fe27 	bl	80201e8 <service_lora_get_dr>
+ 800d596:	f011 fe27 	bl	801f1e8 <service_lora_get_dr>
  800d59a:	4631      	mov	r1, r6
  800d59c:	4602      	mov	r2, r0
  800d59e:	4816      	ldr	r0, [pc, #88]	; (800d5f8 <At_DataRate+0x88>)
@@ -11856,7 +11856,7 @@ Disassembly of section .text:
  800d5fc:	b570      	push	{r4, r5, r6, lr}
  800d5fe:	460e      	mov	r6, r1
  800d600:	4615      	mov	r5, r2
- 800d602:	f012 fcf1 	bl	801ffe8 <service_lora_get_nwm>
+ 800d602:	f011 fcf1 	bl	801efe8 <service_lora_get_nwm>
  800d606:	2801      	cmp	r0, #1
  800d608:	d146      	bne.n	800d698 <At_RxWin1JoinDelay+0x9c>
  800d60a:	6e6b      	ldr	r3, [r5, #100]	; 0x64
@@ -11870,7 +11870,7 @@ Disassembly of section .text:
  800d61a:	f7f8 fdb1 	bl	8006180 <strcmp>
  800d61e:	4604      	mov	r4, r0
  800d620:	b950      	cbnz	r0, 800d638 <At_RxWin1JoinDelay+0x3c>
- 800d622:	f012 fdee 	bl	8020202 <service_lora_get_jn1dl>
+ 800d622:	f011 fdee 	bl	801f202 <service_lora_get_jn1dl>
  800d626:	f44f 727a 	mov.w	r2, #1000	; 0x3e8
  800d62a:	4631      	mov	r1, r6
  800d62c:	fbb0 f2f2 	udiv	r2, r0, r2
@@ -11900,14 +11900,14 @@ Disassembly of section .text:
  800d666:	2b0d      	cmp	r3, #13
  800d668:	4604      	mov	r4, r0
  800d66a:	d8d1      	bhi.n	800d610 <At_RxWin1JoinDelay+0x14>
- 800d66c:	f012 fdcb 	bl	8020206 <service_lora_get_jn2dl>
+ 800d66c:	f011 fdcb 	bl	801f206 <service_lora_get_jn2dl>
  800d670:	f44f 727a 	mov.w	r2, #1000	; 0x3e8
  800d674:	fbb0 f3f2 	udiv	r3, r0, r2
  800d678:	42a3      	cmp	r3, r4
  800d67a:	d9c9      	bls.n	800d610 <At_RxWin1JoinDelay+0x14>
  800d67c:	fb02 f004 	mul.w	r0, r2, r4
  800d680:	2101      	movs	r1, #1
- 800d682:	f012 ffa1 	bl	80205c8 <service_lora_set_jn1dl>
+ 800d682:	f011 ffa1 	bl	801f5c8 <service_lora_set_jn1dl>
  800d686:	4604      	mov	r4, r0
  800d688:	2800      	cmp	r0, #0
  800d68a:	d0c2      	beq.n	800d612 <At_RxWin1JoinDelay+0x16>
@@ -11925,7 +11925,7 @@ Disassembly of section .text:
  800d6a4:	b570      	push	{r4, r5, r6, lr}
  800d6a6:	460e      	mov	r6, r1
  800d6a8:	4615      	mov	r5, r2
- 800d6aa:	f012 fc9d 	bl	801ffe8 <service_lora_get_nwm>
+ 800d6aa:	f011 fc9d 	bl	801efe8 <service_lora_get_nwm>
  800d6ae:	2801      	cmp	r0, #1
  800d6b0:	d146      	bne.n	800d740 <At_RxWin2JoinDelay+0x9c>
  800d6b2:	6e6b      	ldr	r3, [r5, #100]	; 0x64
@@ -11939,7 +11939,7 @@ Disassembly of section .text:
  800d6c2:	f7f8 fd5d 	bl	8006180 <strcmp>
  800d6c6:	4604      	mov	r4, r0
  800d6c8:	b950      	cbnz	r0, 800d6e0 <At_RxWin2JoinDelay+0x3c>
- 800d6ca:	f012 fd9c 	bl	8020206 <service_lora_get_jn2dl>
+ 800d6ca:	f011 fd9c 	bl	801f206 <service_lora_get_jn2dl>
  800d6ce:	f44f 727a 	mov.w	r2, #1000	; 0x3e8
  800d6d2:	4631      	mov	r1, r6
  800d6d4:	fbb0 f2f2 	udiv	r2, r0, r2
@@ -11969,14 +11969,14 @@ Disassembly of section .text:
  800d70e:	2b0d      	cmp	r3, #13
  800d710:	4604      	mov	r4, r0
  800d712:	d8d1      	bhi.n	800d6b8 <At_RxWin2JoinDelay+0x14>
- 800d714:	f012 fd75 	bl	8020202 <service_lora_get_jn1dl>
+ 800d714:	f011 fd75 	bl	801f202 <service_lora_get_jn1dl>
  800d718:	f44f 727a 	mov.w	r2, #1000	; 0x3e8
  800d71c:	fbb0 f3f2 	udiv	r3, r0, r2
  800d720:	42a3      	cmp	r3, r4
  800d722:	d2c9      	bcs.n	800d6b8 <At_RxWin2JoinDelay+0x14>
  800d724:	fb02 f004 	mul.w	r0, r2, r4
  800d728:	2101      	movs	r1, #1
- 800d72a:	f012 ff6c 	bl	8020606 <service_lora_set_jn2dl>
+ 800d72a:	f011 ff6c 	bl	801f606 <service_lora_set_jn2dl>
  800d72e:	4604      	mov	r4, r0
  800d730:	2800      	cmp	r0, #0
  800d732:	d0c2      	beq.n	800d6ba <At_RxWin2JoinDelay+0x16>
@@ -11994,7 +11994,7 @@ Disassembly of section .text:
  800d74c:	b570      	push	{r4, r5, r6, lr}
  800d74e:	460e      	mov	r6, r1
  800d750:	4615      	mov	r5, r2
- 800d752:	f012 fc49 	bl	801ffe8 <service_lora_get_nwm>
+ 800d752:	f011 fc49 	bl	801efe8 <service_lora_get_nwm>
  800d756:	2801      	cmp	r0, #1
  800d758:	d138      	bne.n	800d7cc <At_PubNwkMode+0x80>
  800d75a:	6e6b      	ldr	r3, [r5, #100]	; 0x64
@@ -12008,7 +12008,7 @@ Disassembly of section .text:
  800d76a:	f7f8 fd09 	bl	8006180 <strcmp>
  800d76e:	4604      	mov	r4, r0
  800d770:	b938      	cbnz	r0, 800d782 <At_PubNwkMode+0x36>
- 800d772:	f012 fd4a 	bl	802020a <service_lora_get_pub_nwk_mode>
+ 800d772:	f011 fd4a 	bl	801f20a <service_lora_get_pub_nwk_mode>
  800d776:	4631      	mov	r1, r6
  800d778:	4602      	mov	r2, r0
  800d77a:	4816      	ldr	r0, [pc, #88]	; (800d7d4 <At_PubNwkMode+0x88>)
@@ -12037,7 +12037,7 @@ Disassembly of section .text:
  800d7b0:	d8d6      	bhi.n	800d760 <At_PubNwkMode+0x14>
  800d7b2:	2101      	movs	r1, #1
  800d7b4:	4008      	ands	r0, r1
- 800d7b6:	f012 ff45 	bl	8020644 <service_lora_set_pub_nwk_mode>
+ 800d7b6:	f011 ff45 	bl	801f644 <service_lora_set_pub_nwk_mode>
  800d7ba:	4604      	mov	r4, r0
  800d7bc:	2800      	cmp	r0, #0
  800d7be:	d0d0      	beq.n	800d762 <At_PubNwkMode+0x16>
@@ -12055,7 +12055,7 @@ Disassembly of section .text:
  800d7d8:	b570      	push	{r4, r5, r6, lr}
  800d7da:	460e      	mov	r6, r1
  800d7dc:	4615      	mov	r5, r2
- 800d7de:	f012 fc03 	bl	801ffe8 <service_lora_get_nwm>
+ 800d7de:	f011 fc03 	bl	801efe8 <service_lora_get_nwm>
  800d7e2:	2801      	cmp	r0, #1
  800d7e4:	d13e      	bne.n	800d864 <At_RxWin1Delay+0x8c>
  800d7e6:	6e6b      	ldr	r3, [r5, #100]	; 0x64
@@ -12069,7 +12069,7 @@ Disassembly of section .text:
  800d7f6:	f7f8 fcc3 	bl	8006180 <strcmp>
  800d7fa:	4604      	mov	r4, r0
  800d7fc:	b950      	cbnz	r0, 800d814 <At_RxWin1Delay+0x3c>
- 800d7fe:	f012 fd06 	bl	802020e <service_lora_get_rx1dl>
+ 800d7fe:	f011 fd06 	bl	801f20e <service_lora_get_rx1dl>
  800d802:	f44f 727a 	mov.w	r2, #1000	; 0x3e8
  800d806:	4631      	mov	r1, r6
  800d808:	fbb0 f2f2 	udiv	r2, r0, r2
@@ -12101,7 +12101,7 @@ Disassembly of section .text:
  800d846:	f44f 737a 	mov.w	r3, #1000	; 0x3e8
  800d84a:	2101      	movs	r1, #1
  800d84c:	4358      	muls	r0, r3
- 800d84e:	f012 ff19 	bl	8020684 <service_lora_set_rx1dl>
+ 800d84e:	f011 ff19 	bl	801f684 <service_lora_set_rx1dl>
  800d852:	4604      	mov	r4, r0
  800d854:	2800      	cmp	r0, #0
  800d856:	d0ca      	beq.n	800d7ee <At_RxWin1Delay+0x16>
@@ -12119,7 +12119,7 @@ Disassembly of section .text:
  800d870:	b570      	push	{r4, r5, r6, lr}
  800d872:	460e      	mov	r6, r1
  800d874:	4615      	mov	r5, r2
- 800d876:	f012 fbb7 	bl	801ffe8 <service_lora_get_nwm>
+ 800d876:	f011 fbb7 	bl	801efe8 <service_lora_get_nwm>
  800d87a:	2801      	cmp	r0, #1
  800d87c:	d13e      	bne.n	800d8fc <At_RxWin2Delay+0x8c>
  800d87e:	6e6b      	ldr	r3, [r5, #100]	; 0x64
@@ -12133,7 +12133,7 @@ Disassembly of section .text:
  800d88e:	f7f8 fc77 	bl	8006180 <strcmp>
  800d892:	4604      	mov	r4, r0
  800d894:	b950      	cbnz	r0, 800d8ac <At_RxWin2Delay+0x3c>
- 800d896:	f012 fcd3 	bl	8020240 <service_lora_get_rx2dl>
+ 800d896:	f011 fcd3 	bl	801f240 <service_lora_get_rx2dl>
  800d89a:	f44f 727a 	mov.w	r2, #1000	; 0x3e8
  800d89e:	4631      	mov	r1, r6
  800d8a0:	fbb0 f2f2 	udiv	r2, r0, r2
@@ -12165,7 +12165,7 @@ Disassembly of section .text:
  800d8de:	f44f 737a 	mov.w	r3, #1000	; 0x3e8
  800d8e2:	2101      	movs	r1, #1
  800d8e4:	4358      	muls	r0, r3
- 800d8e6:	f012 fefc 	bl	80206e2 <service_lora_set_rx2dl>
+ 800d8e6:	f011 fefc 	bl	801f6e2 <service_lora_set_rx2dl>
  800d8ea:	4604      	mov	r4, r0
  800d8ec:	2800      	cmp	r0, #0
  800d8ee:	d0ca      	beq.n	800d886 <At_RxWin2Delay+0x16>
@@ -12183,7 +12183,7 @@ Disassembly of section .text:
  800d908:	b570      	push	{r4, r5, r6, lr}
  800d90a:	460e      	mov	r6, r1
  800d90c:	4615      	mov	r5, r2
- 800d90e:	f012 fb6b 	bl	801ffe8 <service_lora_get_nwm>
+ 800d90e:	f011 fb6b 	bl	801efe8 <service_lora_get_nwm>
  800d912:	2801      	cmp	r0, #1
  800d914:	d138      	bne.n	800d988 <At_RxWin2DataRate+0x80>
  800d916:	6e6b      	ldr	r3, [r5, #100]	; 0x64
@@ -12197,7 +12197,7 @@ Disassembly of section .text:
  800d926:	f7f8 fc2b 	bl	8006180 <strcmp>
  800d92a:	4604      	mov	r4, r0
  800d92c:	b938      	cbnz	r0, 800d93e <At_RxWin2DataRate+0x36>
- 800d92e:	f012 fcd9 	bl	80202e4 <service_lora_get_rx2dr>
+ 800d92e:	f011 fcd9 	bl	801f2e4 <service_lora_get_rx2dr>
  800d932:	4631      	mov	r1, r6
  800d934:	4602      	mov	r2, r0
  800d936:	4816      	ldr	r0, [pc, #88]	; (800d990 <At_RxWin2DataRate+0x88>)
@@ -12224,7 +12224,7 @@ Disassembly of section .text:
  800d966:	f007 fa6d 	bl	8014e44 <strtoul>
  800d96a:	2101      	movs	r1, #1
  800d96c:	b2c0      	uxtb	r0, r0
- 800d96e:	f012 ff0d 	bl	802078c <service_lora_set_rx2dr>
+ 800d96e:	f011 ff0d 	bl	801f78c <service_lora_set_rx2dr>
  800d972:	4604      	mov	r4, r0
  800d974:	2800      	cmp	r0, #0
  800d976:	d0d2      	beq.n	800d91e <At_RxWin2DataRate+0x16>
@@ -12244,7 +12244,7 @@ Disassembly of section .text:
  800d994:	b570      	push	{r4, r5, r6, lr}
  800d996:	460e      	mov	r6, r1
  800d998:	4615      	mov	r5, r2
- 800d99a:	f012 fb25 	bl	801ffe8 <service_lora_get_nwm>
+ 800d99a:	f011 fb25 	bl	801efe8 <service_lora_get_nwm>
  800d99e:	2801      	cmp	r0, #1
  800d9a0:	d137      	bne.n	800da12 <At_RxWin2Freq+0x7e>
  800d9a2:	6e6b      	ldr	r3, [r5, #100]	; 0x64
@@ -12258,7 +12258,7 @@ Disassembly of section .text:
  800d9b2:	f7f8 fbe5 	bl	8006180 <strcmp>
  800d9b6:	4604      	mov	r4, r0
  800d9b8:	b938      	cbnz	r0, 800d9ca <At_RxWin2Freq+0x36>
- 800d9ba:	f012 fc83 	bl	80202c4 <service_lora_get_rx2freq>
+ 800d9ba:	f011 fc83 	bl	801f2c4 <service_lora_get_rx2freq>
  800d9be:	4631      	mov	r1, r6
  800d9c0:	4602      	mov	r2, r0
  800d9c2:	4816      	ldr	r0, [pc, #88]	; (800da1c <At_RxWin2Freq+0x88>)
@@ -12284,7 +12284,7 @@ Disassembly of section .text:
  800d9f0:	6828      	ldr	r0, [r5, #0]
  800d9f2:	f007 fa27 	bl	8014e44 <strtoul>
  800d9f6:	2101      	movs	r1, #1
- 800d9f8:	f012 fea2 	bl	8020740 <service_lora_set_rx2freq>
+ 800d9f8:	f011 fea2 	bl	801f740 <service_lora_set_rx2freq>
  800d9fc:	4604      	mov	r4, r0
  800d9fe:	2800      	cmp	r0, #0
  800da00:	d0d3      	beq.n	800d9aa <At_RxWin2Freq+0x16>
@@ -12305,7 +12305,7 @@ Disassembly of section .text:
  800da20:	b570      	push	{r4, r5, r6, lr}
  800da22:	460e      	mov	r6, r1
  800da24:	4615      	mov	r5, r2
- 800da26:	f012 fadf 	bl	801ffe8 <service_lora_get_nwm>
+ 800da26:	f011 fadf 	bl	801efe8 <service_lora_get_nwm>
  800da2a:	2801      	cmp	r0, #1
  800da2c:	d13a      	bne.n	800daa4 <At_TxPower+0x84>
  800da2e:	6e6b      	ldr	r3, [r5, #100]	; 0x64
@@ -12319,7 +12319,7 @@ Disassembly of section .text:
  800da3e:	f7f8 fb9f 	bl	8006180 <strcmp>
  800da42:	4604      	mov	r4, r0
  800da44:	b938      	cbnz	r0, 800da56 <At_TxPower+0x36>
- 800da46:	f012 fbfd 	bl	8020244 <service_lora_get_txpower>
+ 800da46:	f011 fbfd 	bl	801f244 <service_lora_get_txpower>
  800da4a:	4631      	mov	r1, r6
  800da4c:	4602      	mov	r2, r0
  800da4e:	4817      	ldr	r0, [pc, #92]	; (800daac <At_TxPower+0x8c>)
@@ -12368,7 +12368,7 @@ Disassembly of section .text:
  800dab0:	b573      	push	{r0, r1, r4, r5, r6, lr}
  800dab2:	460e      	mov	r6, r1
  800dab4:	4615      	mov	r5, r2
- 800dab6:	f012 fa97 	bl	801ffe8 <service_lora_get_nwm>
+ 800dab6:	f011 fa97 	bl	801efe8 <service_lora_get_nwm>
  800daba:	2801      	cmp	r0, #1
  800dabc:	d122      	bne.n	800db04 <At_LinkCheck+0x54>
  800dabe:	6e6b      	ldr	r3, [r5, #100]	; 0x64
@@ -12379,7 +12379,7 @@ Disassembly of section .text:
  800dac8:	f7f8 fb5a 	bl	8006180 <strcmp>
  800dacc:	4604      	mov	r4, r0
  800dace:	b948      	cbnz	r0, 800dae4 <At_LinkCheck+0x34>
- 800dad0:	f012 fc18 	bl	8020304 <service_lora_get_linkcheck>
+ 800dad0:	f011 fc18 	bl	801f304 <service_lora_get_linkcheck>
  800dad4:	4631      	mov	r1, r6
  800dad6:	4602      	mov	r2, r0
  800dad8:	480c      	ldr	r0, [pc, #48]	; (800db0c <At_LinkCheck+0x5c>)
@@ -12394,7 +12394,7 @@ Disassembly of section .text:
  800daf0:	f89d 0007 	ldrb.w	r0, [sp, #7]
  800daf4:	2802      	cmp	r0, #2
  800daf6:	d803      	bhi.n	800db00 <At_LinkCheck+0x50>
- 800daf8:	f012 fc06 	bl	8020308 <service_lora_set_linkcheck>
+ 800daf8:	f011 fc06 	bl	801f308 <service_lora_set_linkcheck>
  800dafc:	4604      	mov	r4, r0
  800dafe:	e7ee      	b.n	800dade <At_LinkCheck+0x2e>
  800db00:	2402      	movs	r4, #2
@@ -12408,7 +12408,7 @@ Disassembly of section .text:
  800db10:	b573      	push	{r0, r1, r4, r5, r6, lr}
  800db12:	460e      	mov	r6, r1
  800db14:	4615      	mov	r5, r2
- 800db16:	f012 fa67 	bl	801ffe8 <service_lora_get_nwm>
+ 800db16:	f011 fa67 	bl	801efe8 <service_lora_get_nwm>
  800db1a:	2801      	cmp	r0, #1
  800db1c:	d125      	bne.n	800db6a <At_Timereq+0x5a>
  800db1e:	6e6b      	ldr	r3, [r5, #100]	; 0x64
@@ -12451,7 +12451,7 @@ Disassembly of section .text:
  800db78:	b573      	push	{r0, r1, r4, r5, r6, lr}
  800db7a:	460e      	mov	r6, r1
  800db7c:	4615      	mov	r5, r2
- 800db7e:	f012 fa33 	bl	801ffe8 <service_lora_get_nwm>
+ 800db7e:	f011 fa33 	bl	801efe8 <service_lora_get_nwm>
  800db82:	2801      	cmp	r0, #1
  800db84:	d125      	bne.n	800dbd2 <At_Lbt+0x5a>
  800db86:	6e6b      	ldr	r3, [r5, #100]	; 0x64
@@ -12462,7 +12462,7 @@ Disassembly of section .text:
  800db90:	f7f8 faf6 	bl	8006180 <strcmp>
  800db94:	4604      	mov	r4, r0
  800db96:	b948      	cbnz	r0, 800dbac <At_Lbt+0x34>
- 800db98:	f012 fbcd 	bl	8020336 <service_lora_get_lbt>
+ 800db98:	f011 fbcd 	bl	801f336 <service_lora_get_lbt>
  800db9c:	4631      	mov	r1, r6
  800db9e:	4602      	mov	r2, r0
  800dba0:	480e      	ldr	r0, [pc, #56]	; (800dbdc <At_Lbt+0x64>)
@@ -12477,7 +12477,7 @@ Disassembly of section .text:
  800dbb8:	f89d 0007 	ldrb.w	r0, [sp, #7]
  800dbbc:	2801      	cmp	r0, #1
  800dbbe:	d806      	bhi.n	800dbce <At_Lbt+0x56>
- 800dbc0:	f012 fbbb 	bl	802033a <service_lora_set_lbt>
+ 800dbc0:	f011 fbbb 	bl	801f33a <service_lora_set_lbt>
  800dbc4:	b240      	sxtb	r0, r0
  800dbc6:	f7fe fdbb 	bl	800c740 <at_error_code_form_udrv>
  800dbca:	4604      	mov	r4, r0
@@ -12494,7 +12494,7 @@ Disassembly of section .text:
  800dbe0:	b570      	push	{r4, r5, r6, lr}
  800dbe2:	460e      	mov	r6, r1
  800dbe4:	4615      	mov	r5, r2
- 800dbe6:	f012 f9ff 	bl	801ffe8 <service_lora_get_nwm>
+ 800dbe6:	f011 f9ff 	bl	801efe8 <service_lora_get_nwm>
  800dbea:	2801      	cmp	r0, #1
  800dbec:	d11c      	bne.n	800dc28 <At_LbtRssi+0x48>
  800dbee:	6e6b      	ldr	r3, [r5, #100]	; 0x64
@@ -12505,7 +12505,7 @@ Disassembly of section .text:
  800dbf8:	f7f8 fac2 	bl	8006180 <strcmp>
  800dbfc:	4604      	mov	r4, r0
  800dbfe:	b940      	cbnz	r0, 800dc12 <At_LbtRssi+0x32>
- 800dc00:	f012 fb9d 	bl	802033e <service_lora_get_lbt_rssi>
+ 800dc00:	f011 fb9d 	bl	801f33e <service_lora_get_lbt_rssi>
  800dc04:	4631      	mov	r1, r6
  800dc06:	4602      	mov	r2, r0
  800dc08:	4809      	ldr	r0, [pc, #36]	; (800dc30 <At_LbtRssi+0x50>)
@@ -12515,7 +12515,7 @@ Disassembly of section .text:
  800dc12:	6828      	ldr	r0, [r5, #0]
  800dc14:	f006 f9fc 	bl	8014010 <atoi>
  800dc18:	b200      	sxth	r0, r0
- 800dc1a:	f012 fb92 	bl	8020342 <service_lora_set_lbt_rssi>
+ 800dc1a:	f011 fb92 	bl	801f342 <service_lora_set_lbt_rssi>
  800dc1e:	b240      	sxtb	r0, r0
  800dc20:	f7fe fd8e 	bl	800c740 <at_error_code_form_udrv>
  800dc24:	4604      	mov	r4, r0
@@ -12529,7 +12529,7 @@ Disassembly of section .text:
  800dc34:	b573      	push	{r0, r1, r4, r5, r6, lr}
  800dc36:	460e      	mov	r6, r1
  800dc38:	4615      	mov	r5, r2
- 800dc3a:	f012 f9d5 	bl	801ffe8 <service_lora_get_nwm>
+ 800dc3a:	f011 f9d5 	bl	801efe8 <service_lora_get_nwm>
  800dc3e:	2801      	cmp	r0, #1
  800dc40:	d121      	bne.n	800dc86 <At_LbtScantime+0x52>
  800dc42:	6e6b      	ldr	r3, [r5, #100]	; 0x64
@@ -12540,7 +12540,7 @@ Disassembly of section .text:
  800dc4c:	f7f8 fa98 	bl	8006180 <strcmp>
  800dc50:	4604      	mov	r4, r0
  800dc52:	b948      	cbnz	r0, 800dc68 <At_LbtScantime+0x34>
- 800dc54:	f012 fb77 	bl	8020346 <service_lora_get_lbt_scantime>
+ 800dc54:	f011 fb77 	bl	801f346 <service_lora_get_lbt_scantime>
  800dc58:	4631      	mov	r1, r6
  800dc5a:	4602      	mov	r2, r0
  800dc5c:	480c      	ldr	r0, [pc, #48]	; (800dc90 <At_LbtScantime+0x5c>)
@@ -12555,7 +12555,7 @@ Disassembly of section .text:
  800dc72:	2402      	movs	r4, #2
  800dc74:	e7f5      	b.n	800dc62 <At_LbtScantime+0x2e>
  800dc76:	9801      	ldr	r0, [sp, #4]
- 800dc78:	f012 fb67 	bl	802034a <service_lora_set_lbt_scantime>
+ 800dc78:	f011 fb67 	bl	801f34a <service_lora_set_lbt_scantime>
  800dc7c:	b240      	sxtb	r0, r0
  800dc7e:	f7fe fd5f 	bl	800c740 <at_error_code_form_udrv>
  800dc82:	4604      	mov	r4, r0
@@ -12570,7 +12570,7 @@ Disassembly of section .text:
  800dc94:	b570      	push	{r4, r5, r6, lr}
  800dc96:	460e      	mov	r6, r1
  800dc98:	4614      	mov	r4, r2
- 800dc9a:	f012 f9a5 	bl	801ffe8 <service_lora_get_nwm>
+ 800dc9a:	f011 f9a5 	bl	801efe8 <service_lora_get_nwm>
  800dc9e:	2801      	cmp	r0, #1
  800dca0:	d130      	bne.n	800dd04 <At_PingSlot+0x70>
  800dca2:	6e63      	ldr	r3, [r4, #100]	; 0x64
@@ -12584,7 +12584,7 @@ Disassembly of section .text:
  800dcb2:	f7f8 fa65 	bl	8006180 <strcmp>
  800dcb6:	4605      	mov	r5, r0
  800dcb8:	b938      	cbnz	r0, 800dcca <At_PingSlot+0x36>
- 800dcba:	f012 fac5 	bl	8020248 <service_lora_get_ping_slot_periodicity>
+ 800dcba:	f011 fac5 	bl	801f248 <service_lora_get_ping_slot_periodicity>
  800dcbe:	4631      	mov	r1, r6
  800dcc0:	4602      	mov	r2, r0
  800dcc2:	4812      	ldr	r0, [pc, #72]	; (800dd0c <At_PingSlot+0x78>)
@@ -12612,7 +12612,7 @@ Disassembly of section .text:
  800dcf6:	b2c0      	uxtb	r0, r0
  800dcf8:	2807      	cmp	r0, #7
  800dcfa:	d8d5      	bhi.n	800dca8 <At_PingSlot+0x14>
- 800dcfc:	f012 faa6 	bl	802024c <service_lora_set_ping_slot_periodicity>
+ 800dcfc:	f011 faa6 	bl	801f24c <service_lora_set_ping_slot_periodicity>
  800dd00:	2500      	movs	r5, #0
  800dd02:	e7d2      	b.n	800dcaa <At_PingSlot+0x16>
  800dd04:	2508      	movs	r5, #8
@@ -12624,16 +12624,16 @@ Disassembly of section .text:
  800dd10:	b5f7      	push	{r0, r1, r2, r4, r5, r6, r7, lr}
  800dd12:	460e      	mov	r6, r1
  800dd14:	4615      	mov	r5, r2
- 800dd16:	f012 f967 	bl	801ffe8 <service_lora_get_nwm>
+ 800dd16:	f011 f967 	bl	801efe8 <service_lora_get_nwm>
  800dd1a:	2801      	cmp	r0, #1
  800dd1c:	d127      	bne.n	800dd6e <At_BeaconFreq+0x5e>
  800dd1e:	4b16      	ldr	r3, [pc, #88]	; (800dd78 <At_BeaconFreq+0x68>)
  800dd20:	781b      	ldrb	r3, [r3, #0]
  800dd22:	2b04      	cmp	r3, #4
  800dd24:	d125      	bne.n	800dd72 <At_BeaconFreq+0x62>
- 800dd26:	f012 fa9f 	bl	8020268 <service_lora_get_beacon_dr>
+ 800dd26:	f011 fa9f 	bl	801f268 <service_lora_get_beacon_dr>
  800dd2a:	4607      	mov	r7, r0
- 800dd2c:	f012 fa90 	bl	8020250 <service_lora_get_beacon_freq>
+ 800dd2c:	f011 fa90 	bl	801f250 <service_lora_get_beacon_freq>
  800dd30:	6e6b      	ldr	r3, [r5, #100]	; 0x64
  800dd32:	2b01      	cmp	r3, #1
  800dd34:	4604      	mov	r4, r0
@@ -12673,7 +12673,7 @@ Disassembly of section .text:
  800dd88:	b538      	push	{r3, r4, r5, lr}
  800dd8a:	460d      	mov	r5, r1
  800dd8c:	4614      	mov	r4, r2
- 800dd8e:	f012 f92b 	bl	801ffe8 <service_lora_get_nwm>
+ 800dd8e:	f011 f92b 	bl	801efe8 <service_lora_get_nwm>
  800dd92:	2801      	cmp	r0, #1
  800dd94:	d118      	bne.n	800ddc8 <At_BeaconTime+0x40>
  800dd96:	4b0e      	ldr	r3, [pc, #56]	; (800ddd0 <At_BeaconTime+0x48>)
@@ -12711,7 +12711,7 @@ Disassembly of section .text:
  800ddde:	b08b      	sub	sp, #44	; 0x2c
  800dde0:	460d      	mov	r5, r1
  800dde2:	4614      	mov	r4, r2
- 800dde4:	f012 f900 	bl	801ffe8 <service_lora_get_nwm>
+ 800dde4:	f011 f900 	bl	801efe8 <service_lora_get_nwm>
  800dde8:	2801      	cmp	r0, #1
  800ddea:	d122      	bne.n	800de32 <At_BGW+0x56>
  800ddec:	4b13      	ldr	r3, [pc, #76]	; (800de3c <At_BGW+0x60>)
@@ -12759,7 +12759,7 @@ Disassembly of section .text:
  800de4a:	b089      	sub	sp, #36	; 0x24
  800de4c:	460d      	mov	r5, r1
  800de4e:	4614      	mov	r4, r2
- 800de50:	f012 f8ca 	bl	801ffe8 <service_lora_get_nwm>
+ 800de50:	f011 f8ca 	bl	801efe8 <service_lora_get_nwm>
  800de54:	2801      	cmp	r0, #1
  800de56:	d11c      	bne.n	800de92 <At_LocalTime+0x4a>
  800de58:	6e63      	ldr	r3, [r4, #100]	; 0x64
@@ -12781,7 +12781,7 @@ Disassembly of section .text:
  800de7a:	a801      	add	r0, sp, #4
  800de7c:	f006 f956 	bl	801412c <memset>
  800de80:	4668      	mov	r0, sp
- 800de82:	f012 f9fd 	bl	8020280 <service_lora_get_local_time>
+ 800de82:	f011 f9fd 	bl	801f280 <service_lora_get_local_time>
  800de86:	466a      	mov	r2, sp
  800de88:	4629      	mov	r1, r5
  800de8a:	4804      	ldr	r0, [pc, #16]	; (800de9c <At_LocalTime+0x54>)
@@ -12797,7 +12797,7 @@ Disassembly of section .text:
  800dea0:	b538      	push	{r3, r4, r5, lr}
  800dea2:	460d      	mov	r5, r1
  800dea4:	4614      	mov	r4, r2
- 800dea6:	f012 f89f 	bl	801ffe8 <service_lora_get_nwm>
+ 800dea6:	f011 f89f 	bl	801efe8 <service_lora_get_nwm>
  800deaa:	b1a0      	cbz	r0, 800ded6 <At_Rssi+0x36>
  800deac:	6e63      	ldr	r3, [r4, #100]	; 0x64
  800deae:	2b01      	cmp	r3, #1
@@ -12827,7 +12827,7 @@ Disassembly of section .text:
  800dee4:	b5f7      	push	{r0, r1, r2, r4, r5, r6, r7, lr}
  800dee6:	460d      	mov	r5, r1
  800dee8:	4614      	mov	r4, r2
- 800deea:	f012 f87d 	bl	801ffe8 <service_lora_get_nwm>
+ 800deea:	f011 f87d 	bl	801efe8 <service_lora_get_nwm>
  800deee:	2801      	cmp	r0, #1
  800def0:	d12d      	bne.n	800df4e <At_Arssi+0x6a>
  800def2:	6e63      	ldr	r3, [r4, #100]	; 0x64
@@ -12881,7 +12881,7 @@ Disassembly of section .text:
  800df68:	b538      	push	{r3, r4, r5, lr}
  800df6a:	460d      	mov	r5, r1
  800df6c:	4614      	mov	r4, r2
- 800df6e:	f012 f83b 	bl	801ffe8 <service_lora_get_nwm>
+ 800df6e:	f011 f83b 	bl	801efe8 <service_lora_get_nwm>
  800df72:	b1a0      	cbz	r0, 800df9e <At_Snr+0x36>
  800df74:	6e63      	ldr	r3, [r4, #100]	; 0x64
  800df76:	2b01      	cmp	r3, #1
@@ -12911,7 +12911,7 @@ Disassembly of section .text:
  800dfac:	b530      	push	{r4, r5, lr}
  800dfae:	b099      	sub	sp, #100	; 0x64
  800dfb0:	4614      	mov	r4, r2
- 800dfb2:	f012 f819 	bl	801ffe8 <service_lora_get_nwm>
+ 800dfb2:	f011 f819 	bl	801efe8 <service_lora_get_nwm>
  800dfb6:	2801      	cmp	r0, #1
  800dfb8:	f040 8085 	bne.w	800e0c6 <At_Addmulc+0x11a>
  800dfbc:	6e63      	ldr	r3, [r4, #100]	; 0x64
@@ -12993,7 +12993,7 @@ Disassembly of section .text:
  800e06e:	6023      	str	r3, [r4, #0]
  800e070:	ab0b      	add	r3, sp, #44	; 0x2c
  800e072:	cb0f      	ldmia	r3, {r0, r1, r2, r3}
- 800e074:	f012 fda2 	bl	8020bbc <service_lora_addmulc>
+ 800e074:	f011 fda2 	bl	801fbbc <service_lora_addmulc>
  800e078:	b240      	sxtb	r0, r0
  800e07a:	f7fe fb61 	bl	800c740 <at_error_code_form_udrv>
  800e07e:	e7a2      	b.n	800dfc6 <At_Addmulc+0x1a>
@@ -13040,7 +13040,7 @@ Disassembly of section .text:
 0800e0e0 <At_Rmvmulc>:
  800e0e0:	b513      	push	{r0, r1, r4, lr}
  800e0e2:	4614      	mov	r4, r2
- 800e0e4:	f011 ff80 	bl	801ffe8 <service_lora_get_nwm>
+ 800e0e4:	f010 ff80 	bl	801efe8 <service_lora_get_nwm>
  800e0e8:	2801      	cmp	r0, #1
  800e0ea:	d10e      	bne.n	800e10a <At_Rmvmulc+0x2a>
  800e0ec:	6e63      	ldr	r3, [r4, #100]	; 0x64
@@ -13051,7 +13051,7 @@ Disassembly of section .text:
  800e0f6:	f7fe faba 	bl	800c66e <at_check_hex_uint32>
  800e0fa:	b918      	cbnz	r0, 800e104 <At_Rmvmulc+0x24>
  800e0fc:	9801      	ldr	r0, [sp, #4]
- 800e0fe:	f012 fe55 	bl	8020dac <service_lora_rmvmulc>
+ 800e0fe:	f011 fe55 	bl	801fdac <service_lora_rmvmulc>
  800e102:	b100      	cbz	r0, 800e106 <At_Rmvmulc+0x26>
  800e104:	2002      	movs	r0, #2
  800e106:	b002      	add	sp, #8
@@ -13064,7 +13064,7 @@ Disassembly of section .text:
  800e110:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
  800e114:	b08f      	sub	sp, #60	; 0x3c
  800e116:	4615      	mov	r5, r2
- 800e118:	f011 ff66 	bl	801ffe8 <service_lora_get_nwm>
+ 800e118:	f010 ff66 	bl	801efe8 <service_lora_get_nwm>
  800e11c:	2801      	cmp	r0, #1
  800e11e:	4604      	mov	r4, r0
  800e120:	d162      	bne.n	800e1e8 <At_Lstmulc+0xd8>
@@ -13085,7 +13085,7 @@ Disassembly of section .text:
  800e144:	f8df 90ac 	ldr.w	r9, [pc, #172]	; 800e1f4 <At_Lstmulc+0xe4>
  800e148:	f8df a0ac 	ldr.w	sl, [pc, #172]	; 800e1f8 <At_Lstmulc+0xe8>
  800e14c:	a801      	add	r0, sp, #4
- 800e14e:	f012 fe51 	bl	8020df4 <service_lora_lstmulc>
+ 800e14e:	f011 fe51 	bl	801fdf4 <service_lora_lstmulc>
  800e152:	300e      	adds	r0, #14
  800e154:	d003      	beq.n	800e15e <At_Lstmulc+0x4e>
  800e156:	4829      	ldr	r0, [pc, #164]	; (800e1fc <At_Lstmulc+0xec>)
@@ -13162,10 +13162,10 @@ Disassembly of section .text:
  800e21c:	b5f7      	push	{r0, r1, r2, r4, r5, r6, r7, lr}
  800e21e:	460f      	mov	r7, r1
  800e220:	4616      	mov	r6, r2
- 800e222:	f011 fee1 	bl	801ffe8 <service_lora_get_nwm>
+ 800e222:	f010 fee1 	bl	801efe8 <service_lora_get_nwm>
  800e226:	2801      	cmp	r0, #1
  800e228:	d149      	bne.n	800e2be <At_Mask+0xa2>
- 800e22a:	f012 f89a 	bl	8020362 <service_lora_get_band>
+ 800e22a:	f011 f89a 	bl	801f362 <service_lora_get_band>
  800e22e:	6e74      	ldr	r4, [r6, #100]	; 0x64
  800e230:	2c01      	cmp	r4, #1
  800e232:	4605      	mov	r5, r0
@@ -13183,7 +13183,7 @@ Disassembly of section .text:
  800e250:	f8bd 2006 	ldrh.w	r2, [sp, #6]
  800e254:	481c      	ldr	r0, [pc, #112]	; (800e2c8 <At_Mask+0xac>)
  800e256:	f002 fc8b 	bl	8010b70 <udrv_serial_log_printf>
- 800e25a:	f012 f884 	bl	8020366 <service_lora_get_chs>
+ 800e25a:	f011 f884 	bl	801f366 <service_lora_get_chs>
  800e25e:	1e01      	subs	r1, r0, #0
  800e260:	dd02      	ble.n	800e268 <At_Mask+0x4c>
  800e262:	481a      	ldr	r0, [pc, #104]	; (800e2cc <At_Mask+0xb0>)
@@ -13233,7 +13233,7 @@ Disassembly of section .text:
  800e2d4:	e92d 41f3 	stmdb	sp!, {r0, r1, r4, r5, r6, r7, r8, lr}
  800e2d8:	460f      	mov	r7, r1
  800e2da:	4615      	mov	r5, r2
- 800e2dc:	f011 fe84 	bl	801ffe8 <service_lora_get_nwm>
+ 800e2dc:	f010 fe84 	bl	801efe8 <service_lora_get_nwm>
  800e2e0:	2801      	cmp	r0, #1
  800e2e2:	f040 80ba 	bne.w	800e45a <At_Che+0x186>
  800e2e6:	6e6e      	ldr	r6, [r5, #100]	; 0x64
@@ -13271,7 +13271,7 @@ Disassembly of section .text:
  800e33a:	f8ad 3006 	strh.w	r3, [sp, #6]
  800e33e:	2b00      	cmp	r3, #0
  800e340:	d1e9      	bne.n	800e316 <At_Che+0x42>
- 800e342:	f012 f810 	bl	8020366 <service_lora_get_chs>
+ 800e342:	f011 f810 	bl	801f366 <service_lora_get_chs>
  800e346:	1e01      	subs	r1, r0, #0
  800e348:	dd02      	ble.n	800e350 <At_Che+0x7c>
  800e34a:	4849      	ldr	r0, [pc, #292]	; (800e470 <At_Che+0x19c>)
@@ -13307,7 +13307,7 @@ Disassembly of section .text:
  800e39a:	280c      	cmp	r0, #12
  800e39c:	4606      	mov	r6, r0
  800e39e:	d8ed      	bhi.n	800e37c <At_Che+0xa8>
- 800e3a0:	f011 ffdf 	bl	8020362 <service_lora_get_band>
+ 800e3a0:	f010 ffdf 	bl	801f362 <service_lora_get_band>
  800e3a4:	2808      	cmp	r0, #8
  800e3a6:	d001      	beq.n	800e3ac <At_Che+0xd8>
  800e3a8:	2801      	cmp	r0, #1
@@ -13383,7 +13383,7 @@ Disassembly of section .text:
  800e478:	b570      	push	{r4, r5, r6, lr}
  800e47a:	460e      	mov	r6, r1
  800e47c:	4615      	mov	r5, r2
- 800e47e:	f011 fdb3 	bl	801ffe8 <service_lora_get_nwm>
+ 800e47e:	f010 fdb3 	bl	801efe8 <service_lora_get_nwm>
  800e482:	2801      	cmp	r0, #1
  800e484:	f040 808c 	bne.w	800e5a0 <At_Band+0x128>
  800e488:	6e6b      	ldr	r3, [r5, #100]	; 0x64
@@ -13401,7 +13401,7 @@ Disassembly of section .text:
  800e4a2:	4631      	mov	r1, r6
  800e4a4:	4841      	ldr	r0, [pc, #260]	; (800e5ac <At_Band+0x134>)
  800e4a6:	f002 fb63 	bl	8010b70 <udrv_serial_log_printf>
- 800e4aa:	f011 ff5a 	bl	8020362 <service_lora_get_band>
+ 800e4aa:	f010 ff5a 	bl	801f362 <service_lora_get_band>
  800e4ae:	2816      	cmp	r0, #22
  800e4b0:	d878      	bhi.n	800e5a4 <At_Band+0x12c>
  800e4b2:	e8df f000 	tbb	[pc, r0]
@@ -13535,7 +13535,7 @@ Disassembly of section .text:
  800e5f8:	b570      	push	{r4, r5, r6, lr}
  800e5fa:	460e      	mov	r6, r1
  800e5fc:	4615      	mov	r5, r2
- 800e5fe:	f011 fcf3 	bl	801ffe8 <service_lora_get_nwm>
+ 800e5fe:	f010 fcf3 	bl	801efe8 <service_lora_get_nwm>
  800e602:	2801      	cmp	r0, #1
  800e604:	d002      	beq.n	800e60c <At_Chs+0x14>
  800e606:	2408      	movs	r4, #8
@@ -13551,10 +13551,10 @@ Disassembly of section .text:
  800e61a:	f7f7 fdb1 	bl	8006180 <strcmp>
  800e61e:	4604      	mov	r4, r0
  800e620:	b958      	cbnz	r0, 800e63a <At_Chs+0x42>
- 800e622:	f011 fea0 	bl	8020366 <service_lora_get_chs>
+ 800e622:	f010 fea0 	bl	801f366 <service_lora_get_chs>
  800e626:	2800      	cmp	r0, #0
  800e628:	dbed      	blt.n	800e606 <At_Chs+0xe>
- 800e62a:	f011 fe9c 	bl	8020366 <service_lora_get_chs>
+ 800e62a:	f010 fe9c 	bl	801f366 <service_lora_get_chs>
  800e62e:	4631      	mov	r1, r6
  800e630:	4602      	mov	r2, r0
  800e632:	4811      	ldr	r0, [pc, #68]	; (800e678 <At_Chs+0x80>)
@@ -13961,7 +13961,7 @@ Disassembly of section .text:
  800e9ba:	f7f7 fbe1 	bl	8006180 <strcmp>
  800e9be:	4604      	mov	r4, r0
  800e9c0:	b938      	cbnz	r0, 800e9d2 <At_Certif+0x2e>
- 800e9c2:	f014 fee3 	bl	802378c <service_nvm_get_certi_from_nvm>
+ 800e9c2:	f013 fee3 	bl	802278c <service_nvm_get_certi_from_nvm>
  800e9c6:	4631      	mov	r1, r6
  800e9c8:	4602      	mov	r2, r0
  800e9ca:	480e      	ldr	r0, [pc, #56]	; (800ea04 <At_Certif+0x60>)
@@ -13981,7 +13981,7 @@ Disassembly of section .text:
  800e9ec:	2800      	cmp	r0, #0
  800e9ee:	d1e0      	bne.n	800e9b2 <At_Certif+0xe>
  800e9f0:	4628      	mov	r0, r5
- 800e9f2:	f014 fed1 	bl	8023798 <service_nvm_set_certi_to_nvm>
+ 800e9f2:	f013 fed1 	bl	8022798 <service_nvm_set_certi_to_nvm>
  800e9f6:	1e04      	subs	r4, r0, #0
  800e9f8:	bf18      	it	ne
  800e9fa:	2401      	movne	r4, #1
@@ -14080,7 +14080,7 @@ Disassembly of section .text:
  800eace:	f7f7 fb57 	bl	8006180 <strcmp>
  800ead2:	4604      	mov	r4, r0
  800ead4:	b938      	cbnz	r0, 800eae6 <At_NwkWorkMode+0x2e>
- 800ead6:	f011 fa87 	bl	801ffe8 <service_lora_get_nwm>
+ 800ead6:	f010 fa87 	bl	801efe8 <service_lora_get_nwm>
  800eada:	4631      	mov	r1, r6
  800eadc:	4602      	mov	r2, r0
  800eade:	4815      	ldr	r0, [pc, #84]	; (800eb34 <At_NwkWorkMode+0x7c>)
@@ -14106,7 +14106,7 @@ Disassembly of section .text:
  800eb0e:	d8d9      	bhi.n	800eac4 <At_NwkWorkMode+0xc>
  800eb10:	f005 fa7e 	bl	8014010 <atoi>
  800eb14:	b2c0      	uxtb	r0, r0
- 800eb16:	f011 fa6c 	bl	801fff2 <service_lora_set_nwm>
+ 800eb16:	f010 fa6c 	bl	801eff2 <service_lora_set_nwm>
  800eb1a:	4605      	mov	r5, r0
  800eb1c:	2800      	cmp	r0, #0
  800eb1e:	d1d2      	bne.n	800eac6 <At_NwkWorkMode+0xe>
@@ -15873,9 +15873,9 @@ Disassembly of section .text:
  800fc02:	b98b      	cbnz	r3, 800fc28 <At_Restore+0x2a>
  800fc04:	f7f9 ff40 	bl	8009a88 <service_lora_set_lora_default>
  800fc08:	b960      	cbnz	r0, 800fc24 <At_Restore+0x26>
- 800fc0a:	f012 fe4d 	bl	80228a8 <service_nvm_set_cfg_to_nvm>
+ 800fc0a:	f011 fe4d 	bl	80218a8 <service_nvm_set_cfg_to_nvm>
  800fc0e:	4604      	mov	r4, r0
- 800fc10:	f012 fe54 	bl	80228bc <service_nvm_set_lora_nvm_data_to_nvm>
+ 800fc10:	f011 fe54 	bl	80218bc <service_nvm_set_lora_nvm_data_to_nvm>
  800fc14:	4304      	orrs	r4, r0
  800fc16:	d103      	bne.n	800fc20 <At_Restore+0x22>
  800fc18:	f001 f9a2 	bl	8010f60 <udrv_system_reboot>
@@ -15894,10 +15894,10 @@ Disassembly of section .text:
  800fc30:	b510      	push	{r4, lr}
  800fc32:	6e54      	ldr	r4, [r2, #100]	; 0x64
  800fc34:	b94c      	cbnz	r4, 800fc4a <At_Echo+0x1a>
- 800fc36:	f013 f83d 	bl	8022cb4 <service_nvm_get_atcmd_echo_from_nvm>
+ 800fc36:	f012 f83d 	bl	8021cb4 <service_nvm_get_atcmd_echo_from_nvm>
  800fc3a:	b920      	cbnz	r0, 800fc46 <At_Echo+0x16>
  800fc3c:	2001      	movs	r0, #1
- 800fc3e:	f013 f83f 	bl	8022cc0 <service_nvm_set_atcmd_echo_to_nvm>
+ 800fc3e:	f012 f83f 	bl	8021cc0 <service_nvm_set_atcmd_echo_to_nvm>
  800fc42:	4620      	mov	r0, r4
  800fc44:	bd10      	pop	{r4, pc}
  800fc46:	4620      	mov	r0, r4
@@ -15924,7 +15924,7 @@ Disassembly of section .text:
  800fc6e:	b9c8      	cbnz	r0, 800fca4 <At_FSn+0x54>
  800fc70:	2112      	movs	r1, #18
  800fc72:	a801      	add	r0, sp, #4
- 800fc74:	f012 ffee 	bl	8022c54 <service_nvm_get_sn_from_nvm>
+ 800fc74:	f011 ffee 	bl	8021c54 <service_nvm_get_sn_from_nvm>
  800fc78:	4604      	mov	r4, r0
  800fc7a:	2800      	cmp	r0, #0
  800fc7c:	d1f0      	bne.n	800fc60 <At_FSn+0x10>
@@ -15956,7 +15956,7 @@ Disassembly of section .text:
  800fcbc:	d8cf      	bhi.n	800fc5e <At_FSn+0xe>
  800fcbe:	2112      	movs	r1, #18
  800fcc0:	a801      	add	r0, sp, #4
- 800fcc2:	f012 ffc7 	bl	8022c54 <service_nvm_get_sn_from_nvm>
+ 800fcc2:	f011 ffc7 	bl	8021c54 <service_nvm_get_sn_from_nvm>
  800fcc6:	4605      	mov	r5, r0
  800fcc8:	2800      	cmp	r0, #0
  800fcca:	d1c9      	bne.n	800fc60 <At_FSn+0x10>
@@ -15977,7 +15977,7 @@ Disassembly of section .text:
  800fcec:	f7f6 fa52 	bl	8006194 <strlen>
  800fcf0:	4601      	mov	r1, r0
  800fcf2:	4630      	mov	r0, r6
- 800fcf4:	f012 ffbc 	bl	8022c70 <service_nvm_set_sn_to_nvm>
+ 800fcf4:	f011 ffbc 	bl	8021c70 <service_nvm_set_sn_to_nvm>
  800fcf8:	1e06      	subs	r6, r0, #0
  800fcfa:	bf18      	it	ne
  800fcfc:	2601      	movne	r6, #1
@@ -16015,7 +16015,7 @@ Disassembly of section .text:
  800fd46:	d1f5      	bne.n	800fd34 <At_Sn+0xc>
  800fd48:	2112      	movs	r1, #18
  800fd4a:	a801      	add	r0, sp, #4
- 800fd4c:	f012 ff82 	bl	8022c54 <service_nvm_get_sn_from_nvm>
+ 800fd4c:	f011 ff82 	bl	8021c54 <service_nvm_get_sn_from_nvm>
  800fd50:	4604      	mov	r4, r0
  800fd52:	2800      	cmp	r0, #0
  800fd54:	d1ef      	bne.n	800fd36 <At_Sn+0xe>
@@ -16058,7 +16058,7 @@ Disassembly of section .text:
  800fdac:	a801      	add	r0, sp, #4
  800fdae:	f003 fa5b 	bl	8013268 <service_battery_get_batt_level>
  800fdb2:	9801      	ldr	r0, [sp, #4]
- 800fdb4:	f00f fa90 	bl	801f2d8 <__aeabi_f2d>
+ 800fdb4:	f00e fa90 	bl	801e2d8 <__aeabi_f2d>
  800fdb8:	4602      	mov	r2, r0
  800fdba:	460b      	mov	r3, r1
  800fdbc:	4803      	ldr	r0, [pc, #12]	; (800fdcc <At_GetBat+0x40>)
@@ -16088,7 +16088,7 @@ Disassembly of section .text:
  800fdf0:	a801      	add	r0, sp, #4
  800fdf2:	f003 fa59 	bl	80132a8 <service_battery_get_SysVolt_level>
  800fdf6:	9801      	ldr	r0, [sp, #4]
- 800fdf8:	f00f fa6e 	bl	801f2d8 <__aeabi_f2d>
+ 800fdf8:	f00e fa6e 	bl	801e2d8 <__aeabi_f2d>
  800fdfc:	4602      	mov	r2, r0
  800fdfe:	460b      	mov	r3, r1
  800fe00:	4803      	ldr	r0, [pc, #12]	; (800fe10 <At_GetSysVolt+0x40>)
@@ -16197,7 +16197,7 @@ Disassembly of section .text:
  800fee6:	f88d 0024 	strb.w	r0, [sp, #36]	; 0x24
  800feea:	2120      	movs	r1, #32
  800feec:	a801      	add	r0, sp, #4
- 800feee:	f012 fd5f 	bl	80229b0 <service_nvm_get_firmware_ver_from_nvm>
+ 800feee:	f011 fd5f 	bl	80219b0 <service_nvm_get_firmware_ver_from_nvm>
  800fef2:	aa01      	add	r2, sp, #4
  800fef4:	4629      	mov	r1, r5
  800fef6:	4803      	ldr	r0, [pc, #12]	; (800ff04 <At_GetCusFwVersion+0x40>)
@@ -16227,7 +16227,7 @@ Disassembly of section .text:
  800ff2a:	f88d 0024 	strb.w	r0, [sp, #36]	; 0x24
  800ff2e:	2120      	movs	r1, #32
  800ff30:	a801      	add	r0, sp, #4
- 800ff32:	f012 fdad 	bl	8022a90 <service_nvm_get_cli_ver_from_nvm>
+ 800ff32:	f011 fdad 	bl	8021a90 <service_nvm_get_cli_ver_from_nvm>
  800ff36:	aa01      	add	r2, sp, #4
  800ff38:	4629      	mov	r1, r5
  800ff3a:	4803      	ldr	r0, [pc, #12]	; (800ff48 <At_GetCliVersion+0x40>)
@@ -16282,7 +16282,7 @@ Disassembly of section .text:
  800ffa6:	f88d 0024 	strb.w	r0, [sp, #36]	; 0x24
  800ffaa:	2120      	movs	r1, #32
  800ffac:	a801      	add	r0, sp, #4
- 800ffae:	f012 fd37 	bl	8022a20 <service_nvm_get_hwmodel_from_nvm>
+ 800ffae:	f011 fd37 	bl	8021a20 <service_nvm_get_hwmodel_from_nvm>
  800ffb2:	aa01      	add	r2, sp, #4
  800ffb4:	4629      	mov	r1, r5
  800ffb6:	4803      	ldr	r0, [pc, #12]	; (800ffc4 <At_GetHwModel+0x40>)
@@ -16334,7 +16334,7 @@ Disassembly of section .text:
  801001c:	b9c8      	cbnz	r0, 8010052 <At_Alias+0x52>
  801001e:	2110      	movs	r1, #16
  8010020:	4668      	mov	r0, sp
- 8010022:	f012 fddf 	bl	8022be4 <service_nvm_get_atcmd_alias_from_nvm>
+ 8010022:	f011 fddf 	bl	8021be4 <service_nvm_get_atcmd_alias_from_nvm>
  8010026:	4604      	mov	r4, r0
  8010028:	2800      	cmp	r0, #0
  801002a:	d1f0      	bne.n	801000e <At_Alias+0xe>
@@ -16366,7 +16366,7 @@ Disassembly of section .text:
  801006a:	d8cf      	bhi.n	801000c <At_Alias+0xc>
  801006c:	2110      	movs	r1, #16
  801006e:	4668      	mov	r0, sp
- 8010070:	f012 fdb8 	bl	8022be4 <service_nvm_get_atcmd_alias_from_nvm>
+ 8010070:	f011 fdb8 	bl	8021be4 <service_nvm_get_atcmd_alias_from_nvm>
  8010074:	4606      	mov	r6, r0
  8010076:	2800      	cmp	r0, #0
  8010078:	d1c9      	bne.n	801000e <At_Alias+0xe>
@@ -16379,7 +16379,7 @@ Disassembly of section .text:
  8010088:	f7f6 f884 	bl	8006194 <strlen>
  801008c:	4601      	mov	r1, r0
  801008e:	4628      	mov	r0, r5
- 8010090:	f012 fdb6 	bl	8022c00 <service_nvm_set_atcmd_alias_to_nvm>
+ 8010090:	f011 fdb6 	bl	8021c00 <service_nvm_set_atcmd_alias_to_nvm>
  8010094:	1e05      	subs	r5, r0, #0
  8010096:	bf18      	it	ne
  8010098:	2501      	movne	r5, #1
@@ -16415,7 +16415,7 @@ Disassembly of section .text:
  80100da:	aa05      	add	r2, sp, #20
  80100dc:	a904      	add	r1, sp, #16
  80100de:	a803      	add	r0, sp, #12
- 80100e0:	f013 fbd9 	bl	8023896 <uhal_sys_get_uid>
+ 80100e0:	f012 fbd9 	bl	8022896 <uhal_sys_get_uid>
  80100e4:	9b03      	ldr	r3, [sp, #12]
  80100e6:	9300      	str	r3, [sp, #0]
  80100e8:	4629      	mov	r1, r5
@@ -16489,7 +16489,7 @@ Disassembly of section .text:
  801017e:	f7f5 ffff 	bl	8006180 <strcmp>
  8010182:	4604      	mov	r4, r0
  8010184:	b938      	cbnz	r0, 8010196 <At_AutoSleep+0x2e>
- 8010186:	f012 fbeb 	bl	8022960 <service_nvm_get_auto_sleep_time_from_nvm>
+ 8010186:	f011 fbeb 	bl	8021960 <service_nvm_get_auto_sleep_time_from_nvm>
  801018a:	4631      	mov	r1, r6
  801018c:	4602      	mov	r2, r0
  801018e:	4812      	ldr	r0, [pc, #72]	; (80101d8 <At_AutoSleep+0x70>)
@@ -16516,7 +16516,7 @@ Disassembly of section .text:
  80101be:	f004 fe41 	bl	8014e44 <strtoul>
  80101c2:	2801      	cmp	r0, #1
  80101c4:	d8d6      	bhi.n	8010174 <At_AutoSleep+0xc>
- 80101c6:	f012 fbd1 	bl	802296c <service_nvm_set_auto_sleep_time_to_nvm>
+ 80101c6:	f011 fbd1 	bl	802196c <service_nvm_set_auto_sleep_time_to_nvm>
  80101ca:	1e04      	subs	r4, r0, #0
  80101cc:	bf18      	it	ne
  80101ce:	2401      	movne	r4, #1
@@ -16540,7 +16540,7 @@ Disassembly of section .text:
  80101f2:	f7f5 ffc5 	bl	8006180 <strcmp>
  80101f6:	4604      	mov	r4, r0
  80101f8:	b938      	cbnz	r0, 801020a <At_AutoSleepLevel+0x2e>
- 80101fa:	f012 fbc3 	bl	8022984 <service_nvm_get_auto_sleep_level_from_nvm>
+ 80101fa:	f011 fbc3 	bl	8021984 <service_nvm_get_auto_sleep_level_from_nvm>
  80101fe:	4631      	mov	r1, r6
  8010200:	4602      	mov	r2, r0
  8010202:	4812      	ldr	r0, [pc, #72]	; (801024c <At_AutoSleepLevel+0x70>)
@@ -16568,7 +16568,7 @@ Disassembly of section .text:
  8010236:	1e43      	subs	r3, r0, #1
  8010238:	2b01      	cmp	r3, #1
  801023a:	d8d5      	bhi.n	80101e8 <At_AutoSleepLevel+0xc>
- 801023c:	f012 fba8 	bl	8022990 <service_nvm_set_auto_sleep_level_to_nvm>
+ 801023c:	f011 fba8 	bl	8021990 <service_nvm_set_auto_sleep_level_to_nvm>
  8010240:	1e04      	subs	r4, r0, #0
  8010242:	bf18      	it	ne
  8010244:	2401      	movne	r4, #1
@@ -16689,7 +16689,7 @@ Disassembly of section .text:
  801034a:	f7f5 ff19 	bl	8006180 <strcmp>
  801034e:	4604      	mov	r4, r0
  8010350:	b938      	cbnz	r0, 8010362 <At_Baud+0x32>
- 8010352:	f012 fc35 	bl	8022bc0 <service_nvm_get_baudrate_from_nvm>
+ 8010352:	f011 fc35 	bl	8021bc0 <service_nvm_get_baudrate_from_nvm>
  8010356:	4639      	mov	r1, r7
  8010358:	4602      	mov	r2, r0
  801035a:	4817      	ldr	r0, [pc, #92]	; (80103b8 <At_Baud+0x88>)
@@ -16724,7 +16724,7 @@ Disassembly of section .text:
  80103a0:	4630      	mov	r0, r6
  80103a2:	f000 fb49 	bl	8010a38 <udrv_serial_init>
  80103a6:	4620      	mov	r0, r4
- 80103a8:	f012 fc10 	bl	8022bcc <service_nvm_set_baudrate_to_nvm>
+ 80103a8:	f011 fc10 	bl	8021bcc <service_nvm_set_baudrate_to_nvm>
  80103ac:	1e04      	subs	r4, r0, #0
  80103ae:	bf18      	it	ne
  80103b0:	2401      	movne	r4, #1
@@ -16737,14 +16737,14 @@ Disassembly of section .text:
  80103be:	6e54      	ldr	r4, [r2, #100]	; 0x64
  80103c0:	4605      	mov	r5, r0
  80103c2:	b98c      	cbnz	r4, 80103e8 <At_AtCmdMode+0x2c>
- 80103c4:	f012 fa84 	bl	80228d0 <service_nvm_get_mode_type_from_nvm>
+ 80103c4:	f011 fa84 	bl	80218d0 <service_nvm_get_mode_type_from_nvm>
  80103c8:	b2c0      	uxtb	r0, r0
  80103ca:	b158      	cbz	r0, 80103e4 <At_AtCmdMode+0x28>
  80103cc:	4808      	ldr	r0, [pc, #32]	; (80103f0 <At_AtCmdMode+0x34>)
  80103ce:	f000 fbcf 	bl	8010b70 <udrv_serial_log_printf>
  80103d2:	4621      	mov	r1, r4
  80103d4:	4628      	mov	r0, r5
- 80103d6:	f012 fa83 	bl	80228e0 <service_nvm_set_mode_type_to_nvm>
+ 80103d6:	f011 fa83 	bl	80218e0 <service_nvm_set_mode_type_to_nvm>
  80103da:	4604      	mov	r4, r0
  80103dc:	b930      	cbnz	r0, 80103ec <At_AtCmdMode+0x30>
  80103de:	4628      	mov	r0, r5
@@ -16767,14 +16767,14 @@ Disassembly of section .text:
  8010402:	466a      	mov	r2, sp
  8010404:	f44f 6100 	mov.w	r1, #2048	; 0x800
  8010408:	4809      	ldr	r0, [pc, #36]	; (8010430 <At_Factory+0x3c>)
- 801040a:	f011 ffcd 	bl	80223a8 <udrv_flash_read>
+ 801040a:	f010 ffcd 	bl	80213a8 <udrv_flash_read>
  801040e:	f44f 6100 	mov.w	r1, #2048	; 0x800
  8010412:	4808      	ldr	r0, [pc, #32]	; (8010434 <At_Factory+0x40>)
- 8010414:	f012 f8f4 	bl	8022600 <udrv_flash_erase>
+ 8010414:	f011 f8f4 	bl	8021600 <udrv_flash_erase>
  8010418:	466a      	mov	r2, sp
  801041a:	4806      	ldr	r0, [pc, #24]	; (8010434 <At_Factory+0x40>)
  801041c:	f44f 6100 	mov.w	r1, #2048	; 0x800
- 8010420:	f012 f86c 	bl	80224fc <udrv_flash_write>
+ 8010420:	f011 f86c 	bl	80214fc <udrv_flash_write>
  8010424:	46ad      	mov	sp, r5
  8010426:	4620      	mov	r0, r4
  8010428:	46bd      	mov	sp, r7
@@ -16790,7 +16790,7 @@ Disassembly of section .text:
  801043c:	f5ad 7d49 	sub.w	sp, sp, #804	; 0x324
  8010440:	466a      	mov	r2, sp
  8010442:	f44f 7148 	mov.w	r1, #800	; 0x320
- 8010446:	f011 ffaf 	bl	80223a8 <udrv_flash_read>
+ 8010446:	f010 ffaf 	bl	80213a8 <udrv_flash_read>
  801044a:	4e5b      	ldr	r6, [pc, #364]	; (80105b8 <service_nvm_data_recovery_from_legacy+0x180>)
  801044c:	6823      	ldr	r3, [r4, #0]
  801044e:	42b3      	cmp	r3, r6
@@ -16942,7 +16942,7 @@ Disassembly of section .text:
  80105da:	4889      	ldr	r0, [pc, #548]	; (8010800 <service_nvm_set_default_config_to_nvm+0x238>)
  80105dc:	461a      	mov	r2, r3
  80105de:	f44f 7125 	mov.w	r1, #660	; 0x294
- 80105e2:	f011 fee1 	bl	80223a8 <udrv_flash_read>
+ 80105e2:	f010 fee1 	bl	80213a8 <udrv_flash_read>
  80105e6:	9b03      	ldr	r3, [sp, #12]
  80105e8:	42b3      	cmp	r3, r6
  80105ea:	d102      	bne.n	80105f2 <service_nvm_set_default_config_to_nvm+0x2a>
@@ -16993,7 +16993,7 @@ Disassembly of section .text:
  8010660:	f884 51c8 	strb.w	r5, [r4, #456]	; 0x1c8
  8010664:	f884 51fa 	strb.w	r5, [r4, #506]	; 0x1fa
  8010668:	7223      	strb	r3, [r4, #8]
- 801066a:	f00f fc69 	bl	801ff40 <BoardGetHardwareFreq>
+ 801066a:	f00e fc69 	bl	801ef40 <BoardGetHardwareFreq>
  801066e:	b2c0      	uxtb	r0, r0
  8010670:	2800      	cmp	r0, #0
  8010672:	f000 80ad 	beq.w	80107d0 <service_nvm_set_default_config_to_nvm+0x208>
@@ -17032,7 +17032,7 @@ Disassembly of section .text:
  80106e6:	4629      	mov	r1, r5
  80106e8:	4848      	ldr	r0, [pc, #288]	; (801080c <service_nvm_set_default_config_to_nvm+0x244>)
  80106ea:	f003 fd1f 	bl	801412c <memset>
- 80106ee:	f00f fc27 	bl	801ff40 <BoardGetHardwareFreq>
+ 80106ee:	f00e fc27 	bl	801ef40 <BoardGetHardwareFreq>
  80106f2:	4a47      	ldr	r2, [pc, #284]	; (8010810 <service_nvm_set_default_config_to_nvm+0x248>)
  80106f4:	4b47      	ldr	r3, [pc, #284]	; (8010814 <service_nvm_set_default_config_to_nvm+0x24c>)
  80106f6:	8265      	strh	r5, [r4, #18]
@@ -17156,7 +17156,7 @@ Disassembly of section .text:
  8010840:	480b      	ldr	r0, [pc, #44]	; (8010870 <service_nvm_init_config+0x34>)
  8010842:	4622      	mov	r2, r4
  8010844:	f44f 7125 	mov.w	r1, #660	; 0x294
- 8010848:	f011 fdae 	bl	80223a8 <udrv_flash_read>
+ 8010848:	f010 fdae 	bl	80213a8 <udrv_flash_read>
  801084c:	4808      	ldr	r0, [pc, #32]	; (8010870 <service_nvm_init_config+0x34>)
  801084e:	4621      	mov	r1, r4
  8010850:	f7ff fdf2 	bl	8010438 <service_nvm_data_recovery_from_legacy>
@@ -17241,7 +17241,7 @@ Disassembly of section .text:
  80108f6:	f002 fa91 	bl	8012e1c <fund_event_queue_space_get>
  80108fa:	2880      	cmp	r0, #128	; 0x80
  80108fc:	d1f7      	bne.n	80108ee <handle_mcu_sleep.constprop.0+0x22>
- 80108fe:	f012 f841 	bl	8022984 <service_nvm_get_auto_sleep_level_from_nvm>
+ 80108fe:	f011 f841 	bl	8021984 <service_nvm_get_auto_sleep_level_from_nvm>
  8010902:	4e23      	ldr	r6, [pc, #140]	; (8010990 <handle_mcu_sleep.constprop.0+0xc4>)
  8010904:	4607      	mov	r7, r0
  8010906:	2400      	movs	r4, #0
@@ -17362,13 +17362,13 @@ Disassembly of section .text:
  8010a28:	f002 b814 	b.w	8012a54 <uhal_pwm_resume>
 
 08010a2c <udrv_rtc_get_timestamp>:
- 8010a2c:	f012 bff6 	b.w	8023a1c <uhal_rtc_get_timestamp>
+ 8010a2c:	f011 bff6 	b.w	8022a1c <uhal_rtc_get_timestamp>
 
 08010a30 <udrv_rtc_suspend>:
- 8010a30:	f013 b82c 	b.w	8023a8c <uhal_rtc_suspend>
+ 8010a30:	f012 b82c 	b.w	8022a8c <uhal_rtc_suspend>
 
 08010a34 <udrv_rtc_resume>:
- 8010a34:	f013 b82b 	b.w	8023a8e <uhal_rtc_resume>
+ 8010a34:	f012 b82b 	b.w	8022a8e <uhal_rtc_resume>
 
 08010a38 <udrv_serial_init>:
  8010a38:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
@@ -17427,7 +17427,7 @@ Disassembly of section .text:
  8010abc:	460d      	mov	r5, r1
  8010abe:	4616      	mov	r6, r2
  8010ac0:	d810      	bhi.n	8010ae4 <udrv_serial_write+0x30>
- 8010ac2:	f012 f867 	bl	8022b94 <service_nvm_get_lock_status_from_nvm>
+ 8010ac2:	f011 f867 	bl	8021b94 <service_nvm_get_lock_status_from_nvm>
  8010ac6:	b988      	cbnz	r0, 8010aec <udrv_serial_write+0x38>
  8010ac8:	4b0b      	ldr	r3, [pc, #44]	; (8010af8 <udrv_serial_write+0x44>)
  8010aca:	f853 3024 	ldr.w	r3, [r3, r4, lsl #2]
@@ -17455,11 +17455,11 @@ Disassembly of section .text:
  8010b02:	b530      	push	{r4, r5, lr}
  8010b04:	4604      	mov	r4, r0
  8010b06:	f5ad 7d02 	sub.w	sp, sp, #520	; 0x208
- 8010b0a:	f011 fee1 	bl	80228d0 <service_nvm_get_mode_type_from_nvm>
+ 8010b0a:	f010 fee1 	bl	80218d0 <service_nvm_get_mode_type_from_nvm>
  8010b0e:	2c02      	cmp	r4, #2
  8010b10:	d821      	bhi.n	8010b56 <udrv_serial_printf+0x56>
  8010b12:	4620      	mov	r0, r4
- 8010b14:	f012 f83e 	bl	8022b94 <service_nvm_get_lock_status_from_nvm>
+ 8010b14:	f011 f83e 	bl	8021b94 <service_nvm_get_lock_status_from_nvm>
  8010b18:	bb00      	cbnz	r0, 8010b5c <udrv_serial_printf+0x5c>
  8010b1a:	4d13      	ldr	r5, [pc, #76]	; (8010b68 <udrv_serial_printf+0x68>)
  8010b1c:	f855 3024 	ldr.w	r3, [r5, r4, lsl #2]
@@ -17469,7 +17469,7 @@ Disassembly of section .text:
  8010b26:	f44f 7100 	mov.w	r1, #512	; 0x200
  8010b2a:	a802      	add	r0, sp, #8
  8010b2c:	9301      	str	r3, [sp, #4]
- 8010b2e:	f015 faf9 	bl	8026124 <tiny_vsnprintf_like>
+ 8010b2e:	f014 faf9 	bl	8025124 <tiny_vsnprintf_like>
  8010b32:	f855 3024 	ldr.w	r3, [r5, r4, lsl #2]
  8010b36:	a802      	add	r0, sp, #8
  8010b38:	689d      	ldr	r5, [r3, #8]
@@ -17505,10 +17505,10 @@ Disassembly of section .text:
  8010b88:	4625      	mov	r5, r4
  8010b8a:	fa5f f884 	uxtb.w	r8, r4
  8010b8e:	4640      	mov	r0, r8
- 8010b90:	f011 fe9e 	bl	80228d0 <service_nvm_get_mode_type_from_nvm>
+ 8010b90:	f010 fe9e 	bl	80218d0 <service_nvm_get_mode_type_from_nvm>
  8010b94:	b9c8      	cbnz	r0, 8010bca <udrv_serial_log_printf+0x5a>
  8010b96:	4640      	mov	r0, r8
- 8010b98:	f011 fffc 	bl	8022b94 <service_nvm_get_lock_status_from_nvm>
+ 8010b98:	f010 fffc 	bl	8021b94 <service_nvm_get_lock_status_from_nvm>
  8010b9c:	b9a8      	cbnz	r0, 8010bca <udrv_serial_log_printf+0x5a>
  8010b9e:	6833      	ldr	r3, [r6, #0]
  8010ba0:	b19b      	cbz	r3, 8010bca <udrv_serial_log_printf+0x5a>
@@ -17517,7 +17517,7 @@ Disassembly of section .text:
  8010ba8:	463b      	mov	r3, r7
  8010baa:	a802      	add	r0, sp, #8
  8010bac:	9701      	str	r7, [sp, #4]
- 8010bae:	f015 fab9 	bl	8026124 <tiny_vsnprintf_like>
+ 8010bae:	f014 fab9 	bl	8025124 <tiny_vsnprintf_like>
  8010bb2:	6833      	ldr	r3, [r6, #0]
  8010bb4:	a802      	add	r0, sp, #8
  8010bb6:	689d      	ldr	r5, [r3, #8]
@@ -17599,12 +17599,12 @@ Disassembly of section .text:
  8010c6a:	2500      	movs	r5, #0
  8010c6c:	b2ee      	uxtb	r6, r5
  8010c6e:	4630      	mov	r0, r6
- 8010c70:	f011 ff90 	bl	8022b94 <service_nvm_get_lock_status_from_nvm>
+ 8010c70:	f010 ff90 	bl	8021b94 <service_nvm_get_lock_status_from_nvm>
  8010c74:	4604      	mov	r4, r0
  8010c76:	b958      	cbnz	r0, 8010c90 <udrv_serial_lock+0x34>
  8010c78:	2101      	movs	r1, #1
  8010c7a:	4630      	mov	r0, r6
- 8010c7c:	f011 ff92 	bl	8022ba4 <service_nvm_set_lock_status_to_nvm>
+ 8010c7c:	f010 ff92 	bl	8021ba4 <service_nvm_set_lock_status_to_nvm>
  8010c80:	2209      	movs	r2, #9
  8010c82:	4621      	mov	r1, r4
  8010c84:	4648      	mov	r0, r9
@@ -17625,12 +17625,12 @@ Disassembly of section .text:
  8010caa:	2400      	movs	r4, #0
  8010cac:	b2e5      	uxtb	r5, r4
  8010cae:	4628      	mov	r0, r5
- 8010cb0:	f011 ff70 	bl	8022b94 <service_nvm_get_lock_status_from_nvm>
+ 8010cb0:	f010 ff70 	bl	8021b94 <service_nvm_get_lock_status_from_nvm>
  8010cb4:	2801      	cmp	r0, #1
  8010cb6:	d103      	bne.n	8010cc0 <udrv_serial_unlock+0x18>
  8010cb8:	2100      	movs	r1, #0
  8010cba:	4628      	mov	r0, r5
- 8010cbc:	f011 ff72 	bl	8022ba4 <service_nvm_set_lock_status_to_nvm>
+ 8010cbc:	f010 ff72 	bl	8021ba4 <service_nvm_set_lock_status_to_nvm>
  8010cc0:	3401      	adds	r4, #1
  8010cc2:	2c03      	cmp	r4, #3
  8010cc4:	d1f2      	bne.n	8010cac <udrv_serial_unlock+0x4>
@@ -17643,7 +17643,7 @@ Disassembly of section .text:
  8010cd0:	f88d 1007 	strb.w	r1, [sp, #7]
  8010cd4:	a803      	add	r0, sp, #12
  8010cd6:	2109      	movs	r1, #9
- 8010cd8:	f011 fe10 	bl	80228fc <service_nvm_get_serial_passwd_from_nvm>
+ 8010cd8:	f010 fe10 	bl	80218fc <service_nvm_get_serial_passwd_from_nvm>
  8010cdc:	f89d 3007 	ldrb.w	r3, [sp, #7]
  8010ce0:	4d36      	ldr	r5, [pc, #216]	; (8010dbc <udrv_serial_wlock_handler+0xf4>)
  8010ce2:	2b0d      	cmp	r3, #13
@@ -17752,7 +17752,7 @@ Disassembly of section .text:
 08010de0 <udrv_serial_get_passwd>:
  8010de0:	2908      	cmp	r1, #8
  8010de2:	d901      	bls.n	8010de8 <udrv_serial_get_passwd+0x8>
- 8010de4:	f011 bd8a 	b.w	80228fc <service_nvm_get_serial_passwd_from_nvm>
+ 8010de4:	f010 bd8a 	b.w	80218fc <service_nvm_get_serial_passwd_from_nvm>
  8010de8:	f06f 0002 	mvn.w	r0, #2
  8010dec:	4770      	bx	lr
 
@@ -17765,7 +17765,7 @@ Disassembly of section .text:
  8010df8:	42a3      	cmp	r3, r4
  8010dfa:	d102      	bne.n	8010e02 <udrv_serial_set_passwd+0x14>
  8010dfc:	bc10      	pop	{r4}
- 8010dfe:	f011 bd8f 	b.w	8022920 <service_nvm_set_serial_passwd_to_nvm>
+ 8010dfe:	f010 bd8f 	b.w	8021920 <service_nvm_set_serial_passwd_to_nvm>
  8010e02:	f813 2b01 	ldrb.w	r2, [r3], #1
  8010e06:	3a20      	subs	r2, #32
  8010e08:	2a5e      	cmp	r2, #94	; 0x5e
@@ -17777,7 +17777,7 @@ Disassembly of section .text:
 08010e14 <udrv_serial_get_lock_state>:
  8010e14:	2802      	cmp	r0, #2
  8010e16:	d801      	bhi.n	8010e1c <udrv_serial_get_lock_state+0x8>
- 8010e18:	f011 bebc 	b.w	8022b94 <service_nvm_get_lock_status_from_nvm>
+ 8010e18:	f010 bebc 	b.w	8021b94 <service_nvm_get_lock_status_from_nvm>
  8010e1c:	2000      	movs	r0, #0
  8010e1e:	4770      	bx	lr
 
@@ -17786,12 +17786,12 @@ Disassembly of section .text:
  8010e22:	b510      	push	{r4, lr}
  8010e24:	4604      	mov	r4, r0
  8010e26:	d812      	bhi.n	8010e4e <udrv_serial_enable+0x2e>
- 8010e28:	f011 feb4 	bl	8022b94 <service_nvm_get_lock_status_from_nvm>
+ 8010e28:	f010 feb4 	bl	8021b94 <service_nvm_get_lock_status_from_nvm>
  8010e2c:	2801      	cmp	r0, #1
  8010e2e:	d003      	beq.n	8010e38 <udrv_serial_enable+0x18>
  8010e30:	2100      	movs	r1, #0
  8010e32:	4620      	mov	r0, r4
- 8010e34:	f011 feb6 	bl	8022ba4 <service_nvm_set_lock_status_to_nvm>
+ 8010e34:	f010 feb6 	bl	8021ba4 <service_nvm_set_lock_status_to_nvm>
  8010e38:	4b05      	ldr	r3, [pc, #20]	; (8010e50 <udrv_serial_enable+0x30>)
  8010e3a:	4806      	ldr	r0, [pc, #24]	; (8010e54 <udrv_serial_enable+0x34>)
  8010e3c:	2100      	movs	r1, #0
@@ -17832,7 +17832,7 @@ Disassembly of section .text:
  8010e88:	4605      	mov	r5, r0
  8010e8a:	5c37      	ldrb	r7, [r6, r0]
  8010e8c:	460c      	mov	r4, r1
- 8010e8e:	f011 fd1f 	bl	80228d0 <service_nvm_get_mode_type_from_nvm>
+ 8010e8e:	f010 fd1f 	bl	80218d0 <service_nvm_get_mode_type_from_nvm>
  8010e92:	2800      	cmp	r0, #0
  8010e94:	d04a      	beq.n	8010f2c <serial_fallback_handler+0xa8>
  8010e96:	2c4f      	cmp	r4, #79	; 0x4f
@@ -17935,16 +17935,16 @@ Disassembly of section .text:
  8010f5c:	f001 becc 	b.w	8012cf8 <fund_event_queue_execute>
 
 08010f60 <udrv_system_reboot>:
- 8010f60:	f012 bca8 	b.w	80238b4 <uhal_sys_reboot>
+ 8010f60:	f011 bca8 	b.w	80228b4 <uhal_sys_reboot>
 
 08010f64 <udrv_system_critical_section_begin>:
- 8010f64:	f012 bcb8 	b.w	80238d8 <uhal_sys_board_critical_section_begin>
+ 8010f64:	f011 bcb8 	b.w	80228d8 <uhal_sys_board_critical_section_begin>
 
 08010f68 <udrv_system_critical_section_end>:
- 8010f68:	f012 bcbb 	b.w	80238e2 <uhal_sys_board_critical_section_end>
+ 8010f68:	f011 bcbb 	b.w	80228e2 <uhal_sys_board_critical_section_end>
 
 08010f6c <udrv_system_random>:
- 8010f6c:	f012 bcbf 	b.w	80238ee <uhal_sys_random>
+ 8010f6c:	f011 bcbf 	b.w	80228ee <uhal_sys_random>
 
 08010f70 <udrv_timer_init>:
  8010f70:	4b01      	ldr	r3, [pc, #4]	; (8010f78 <udrv_timer_init+0x8>)
@@ -18225,7 +18225,7 @@ Disassembly of section .text:
  8011208:	2001      	movs	r0, #1
  801120a:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
  801120c:	2504      	movs	r5, #4
- 801120e:	f015 faff 	bl	8026810 <HAL_GetTick>
+ 801120e:	f014 faff 	bl	8025810 <HAL_GetTick>
  8011212:	4607      	mov	r7, r0
  8011214:	6820      	ldr	r0, [r4, #0]
  8011216:	6803      	ldr	r3, [r0, #0]
@@ -18261,7 +18261,7 @@ Disassembly of section .text:
  8011260:	e7d3      	b.n	801120a <HAL_ADC_PollForConversion+0x1e>
  8011262:	1c72      	adds	r2, r6, #1
  8011264:	d0d7      	beq.n	8011216 <HAL_ADC_PollForConversion+0x2a>
- 8011266:	f015 fad3 	bl	8026810 <HAL_GetTick>
+ 8011266:	f014 fad3 	bl	8025810 <HAL_GetTick>
  801126a:	1bc0      	subs	r0, r0, r7
  801126c:	42b0      	cmp	r0, r6
  801126e:	d801      	bhi.n	8011274 <HAL_ADC_PollForConversion+0x88>
@@ -18478,13 +18478,13 @@ Disassembly of section .text:
  801148e:	f023 0317 	bic.w	r3, r3, #23
  8011492:	f043 0310 	orr.w	r3, r3, #16
  8011496:	6093      	str	r3, [r2, #8]
- 8011498:	f015 f9ba 	bl	8026810 <HAL_GetTick>
+ 8011498:	f014 f9ba 	bl	8025810 <HAL_GetTick>
  801149c:	4605      	mov	r5, r0
  801149e:	6823      	ldr	r3, [r4, #0]
  80114a0:	689b      	ldr	r3, [r3, #8]
  80114a2:	075b      	lsls	r3, r3, #29
  80114a4:	d5ea      	bpl.n	801147c <ADC_ConversionStop+0xc>
- 80114a6:	f015 f9b3 	bl	8026810 <HAL_GetTick>
+ 80114a6:	f014 f9b3 	bl	8025810 <HAL_GetTick>
  80114aa:	1b40      	subs	r0, r0, r5
  80114ac:	2802      	cmp	r0, #2
  80114ae:	d9f6      	bls.n	801149e <ADC_ConversionStop+0x2e>
@@ -18537,7 +18537,7 @@ Disassembly of section .text:
  8011518:	7e63      	ldrb	r3, [r4, #25]
  801151a:	2b01      	cmp	r3, #1
  801151c:	d0de      	beq.n	80114dc <ADC_Enable+0x10>
- 801151e:	f015 f977 	bl	8026810 <HAL_GetTick>
+ 801151e:	f014 f977 	bl	8025810 <HAL_GetTick>
  8011522:	4e14      	ldr	r6, [pc, #80]	; (8011574 <ADC_Enable+0xa8>)
  8011524:	4605      	mov	r5, r0
  8011526:	6822      	ldr	r2, [r4, #0]
@@ -18551,7 +18551,7 @@ Disassembly of section .text:
  8011536:	4033      	andpl	r3, r6
  8011538:	f043 0301 	orrpl.w	r3, r3, #1
  801153c:	6093      	strpl	r3, [r2, #8]
- 801153e:	f015 f967 	bl	8026810 <HAL_GetTick>
+ 801153e:	f014 f967 	bl	8025810 <HAL_GetTick>
  8011542:	1b40      	subs	r0, r0, r5
  8011544:	2802      	cmp	r0, #2
  8011546:	d9ee      	bls.n	8011526 <ADC_Enable+0x5a>
@@ -18639,13 +18639,13 @@ Disassembly of section .text:
  801160e:	6823      	ldr	r3, [r4, #0]
  8011610:	2203      	movs	r2, #3
  8011612:	601a      	str	r2, [r3, #0]
- 8011614:	f015 f8fc 	bl	8026810 <HAL_GetTick>
+ 8011614:	f014 f8fc 	bl	8025810 <HAL_GetTick>
  8011618:	4605      	mov	r5, r0
  801161a:	6823      	ldr	r3, [r4, #0]
  801161c:	689b      	ldr	r3, [r3, #8]
  801161e:	07db      	lsls	r3, r3, #31
  8011620:	d5e4      	bpl.n	80115ec <ADC_Disable+0xe>
- 8011622:	f015 f8f5 	bl	8026810 <HAL_GetTick>
+ 8011622:	f014 f8f5 	bl	8025810 <HAL_GetTick>
  8011626:	1b40      	subs	r0, r0, r5
  8011628:	2802      	cmp	r0, #2
  801162a:	d9f6      	bls.n	801161a <ADC_Disable+0x3c>
@@ -18919,10 +18919,10 @@ Disassembly of section .text:
  80118c0:	d1f3      	bne.n	80118aa <HAL_UART_DMAStop+0x18>
  80118c2:	6fa0      	ldr	r0, [r4, #120]	; 0x78
  80118c4:	b160      	cbz	r0, 80118e0 <HAL_UART_DMAStop+0x4e>
- 80118c6:	f01b feb3 	bl	802d630 <HAL_DMA_Abort>
+ 80118c6:	f01a feb3 	bl	802c630 <HAL_DMA_Abort>
  80118ca:	b148      	cbz	r0, 80118e0 <HAL_UART_DMAStop+0x4e>
  80118cc:	6fa0      	ldr	r0, [r4, #120]	; 0x78
- 80118ce:	f01c f858 	bl	802d982 <HAL_DMA_GetError>
+ 80118ce:	f01b f858 	bl	802c982 <HAL_DMA_GetError>
  80118d2:	2820      	cmp	r0, #32
  80118d4:	d104      	bne.n	80118e0 <HAL_UART_DMAStop+0x4e>
  80118d6:	2310      	movs	r3, #16
@@ -18947,10 +18947,10 @@ Disassembly of section .text:
  801190a:	d1f3      	bne.n	80118f4 <HAL_UART_DMAStop+0x62>
  801190c:	6fe0      	ldr	r0, [r4, #124]	; 0x7c
  801190e:	b138      	cbz	r0, 8011920 <HAL_UART_DMAStop+0x8e>
- 8011910:	f01b fe8e 	bl	802d630 <HAL_DMA_Abort>
+ 8011910:	f01a fe8e 	bl	802c630 <HAL_DMA_Abort>
  8011914:	b120      	cbz	r0, 8011920 <HAL_UART_DMAStop+0x8e>
  8011916:	6fe0      	ldr	r0, [r4, #124]	; 0x7c
- 8011918:	f01c f833 	bl	802d982 <HAL_DMA_GetError>
+ 8011918:	f01b f833 	bl	802c982 <HAL_DMA_GetError>
  801191c:	2820      	cmp	r0, #32
  801191e:	d0da      	beq.n	80118d6 <HAL_UART_DMAStop+0x44>
  8011920:	4620      	mov	r0, r4
@@ -19116,7 +19116,7 @@ Disassembly of section .text:
  8011ab6:	4a69      	ldr	r2, [pc, #420]	; (8011c5c <HAL_UART_IRQHandler+0x2d0>)
  8011ab8:	639a      	str	r2, [r3, #56]	; 0x38
  8011aba:	6fe0      	ldr	r0, [r4, #124]	; 0x7c
- 8011abc:	f01b fdee 	bl	802d69c <HAL_DMA_Abort_IT>
+ 8011abc:	f01a fdee 	bl	802c69c <HAL_DMA_Abort_IT>
  8011ac0:	b128      	cbz	r0, 8011ace <HAL_UART_IRQHandler+0x142>
  8011ac2:	6fe0      	ldr	r0, [r4, #124]	; 0x7c
  8011ac4:	6b83      	ldr	r3, [r0, #56]	; 0x38
@@ -19186,7 +19186,7 @@ Disassembly of section .text:
  8011b74:	2900      	cmp	r1, #0
  8011b76:	d1f6      	bne.n	8011b66 <HAL_UART_IRQHandler+0x1da>
  8011b78:	6fe0      	ldr	r0, [r4, #124]	; 0x7c
- 8011b7a:	f01b fd59 	bl	802d630 <HAL_DMA_Abort>
+ 8011b7a:	f01a fd59 	bl	802c630 <HAL_DMA_Abort>
  8011b7e:	f8b4 305e 	ldrh.w	r3, [r4, #94]	; 0x5e
  8011b82:	f8b4 105c 	ldrh.w	r1, [r4, #92]	; 0x5c
  8011b86:	1ac9      	subs	r1, r1, r3
@@ -19502,7 +19502,7 @@ Disassembly of section .text:
  8011ea8:	d1fa      	bne.n	8011ea0 <UART_SetConfig+0xd4>
  8011eaa:	f44f 4000 	mov.w	r0, #32768	; 0x8000
  8011eae:	e00e      	b.n	8011ece <UART_SetConfig+0x102>
- 8011eb0:	f015 faea 	bl	8027488 <HAL_RCC_GetPCLK1Freq>
+ 8011eb0:	f014 faea 	bl	8026488 <HAL_RCC_GetPCLK1Freq>
  8011eb4:	b958      	cbnz	r0, 8011ece <UART_SetConfig+0x102>
  8011eb6:	2000      	movs	r0, #0
  8011eb8:	f04f 1301 	mov.w	r3, #65537	; 0x10001
@@ -19510,7 +19510,7 @@ Disassembly of section .text:
  8011ebe:	2300      	movs	r3, #0
  8011ec0:	e9c4 331c 	strd	r3, r3, [r4, #112]	; 0x70
  8011ec4:	bd38      	pop	{r3, r4, r5, pc}
- 8011ec6:	f014 fecf 	bl	8026c68 <HAL_RCC_GetSysClockFreq>
+ 8011ec6:	f013 fecf 	bl	8025c68 <HAL_RCC_GetSysClockFreq>
  8011eca:	e7f3      	b.n	8011eb4 <UART_SetConfig+0xe8>
  8011ecc:	484c      	ldr	r0, [pc, #304]	; (8012000 <UART_SetConfig+0x234>)
  8011ece:	6865      	ldr	r5, [r4, #4]
@@ -19525,7 +19525,7 @@ Disassembly of section .text:
  8011ee8:	d8da      	bhi.n	8011ea0 <UART_SetConfig+0xd4>
  8011eea:	2300      	movs	r3, #0
  8011eec:	4619      	mov	r1, r3
- 8011eee:	f00d fccf 	bl	801f890 <__aeabi_uldivmod>
+ 8011eee:	f00c fccf 	bl	801e890 <__aeabi_uldivmod>
  8011ef2:	0209      	lsls	r1, r1, #8
  8011ef4:	ea41 6110 	orr.w	r1, r1, r0, lsr #24
  8011ef8:	086b      	lsrs	r3, r5, #1
@@ -19534,7 +19534,7 @@ Disassembly of section .text:
  8011efe:	462a      	mov	r2, r5
  8011f00:	f04f 0300 	mov.w	r3, #0
  8011f04:	f141 0100 	adc.w	r1, r1, #0
- 8011f08:	f00d fcc2 	bl	801f890 <__aeabi_uldivmod>
+ 8011f08:	f00c fcc2 	bl	801e890 <__aeabi_uldivmod>
  8011f0c:	4b3e      	ldr	r3, [pc, #248]	; (8012008 <UART_SetConfig+0x23c>)
  8011f0e:	f5a0 7240 	sub.w	r2, r0, #768	; 0x300
  8011f12:	429a      	cmp	r2, r3
@@ -19546,7 +19546,7 @@ Disassembly of section .text:
  8011f1e:	e793      	b.n	8011e48 <UART_SetConfig+0x7c>
  8011f20:	2310      	movs	r3, #16
  8011f22:	e791      	b.n	8011e48 <UART_SetConfig+0x7c>
- 8011f24:	f015 fab0 	bl	8027488 <HAL_RCC_GetPCLK1Freq>
+ 8011f24:	f014 fab0 	bl	8026488 <HAL_RCC_GetPCLK1Freq>
  8011f28:	2800      	cmp	r0, #0
  8011f2a:	d0c4      	beq.n	8011eb6 <UART_SetConfig+0xea>
  8011f2c:	6862      	ldr	r2, [r4, #4]
@@ -19569,9 +19569,9 @@ Disassembly of section .text:
  8011f5e:	4318      	orrs	r0, r3
  8011f60:	60d0      	str	r0, [r2, #12]
  8011f62:	e7a8      	b.n	8011eb6 <UART_SetConfig+0xea>
- 8011f64:	f015 faa0 	bl	80274a8 <HAL_RCC_GetPCLK2Freq>
+ 8011f64:	f014 faa0 	bl	80264a8 <HAL_RCC_GetPCLK2Freq>
  8011f68:	e7de      	b.n	8011f28 <UART_SetConfig+0x15c>
- 8011f6a:	f014 fe7d 	bl	8026c68 <HAL_RCC_GetSysClockFreq>
+ 8011f6a:	f013 fe7d 	bl	8025c68 <HAL_RCC_GetSysClockFreq>
  8011f6e:	e7db      	b.n	8011f28 <UART_SetConfig+0x15c>
  8011f70:	4823      	ldr	r0, [pc, #140]	; (8012000 <UART_SetConfig+0x234>)
  8011f72:	e7db      	b.n	8011f2c <UART_SetConfig+0x160>
@@ -19601,13 +19601,13 @@ Disassembly of section .text:
  8011fc0:	f1a0 0210 	sub.w	r2, r0, #16
  8011fc4:	f64f 73ef 	movw	r3, #65519	; 0xffef
  8011fc8:	e7a3      	b.n	8011f12 <UART_SetConfig+0x146>
- 8011fca:	f015 fa5d 	bl	8027488 <HAL_RCC_GetPCLK1Freq>
+ 8011fca:	f014 fa5d 	bl	8026488 <HAL_RCC_GetPCLK1Freq>
  8011fce:	2800      	cmp	r0, #0
  8011fd0:	f43f af71 	beq.w	8011eb6 <UART_SetConfig+0xea>
  8011fd4:	e7e8      	b.n	8011fa8 <UART_SetConfig+0x1dc>
- 8011fd6:	f015 fa67 	bl	80274a8 <HAL_RCC_GetPCLK2Freq>
+ 8011fd6:	f014 fa67 	bl	80264a8 <HAL_RCC_GetPCLK2Freq>
  8011fda:	e7f8      	b.n	8011fce <UART_SetConfig+0x202>
- 8011fdc:	f014 fe44 	bl	8026c68 <HAL_RCC_GetSysClockFreq>
+ 8011fdc:	f013 fe44 	bl	8025c68 <HAL_RCC_GetSysClockFreq>
  8011fe0:	e7f5      	b.n	8011fce <UART_SetConfig+0x202>
  8011fe2:	4807      	ldr	r0, [pc, #28]	; (8012000 <UART_SetConfig+0x234>)
  8011fe4:	e7e0      	b.n	8011fa8 <UART_SetConfig+0x1dc>
@@ -19725,7 +19725,7 @@ Disassembly of section .text:
  80120e8:	e028      	b.n	801213c <UART_WaitOnFlagUntilTimeout+0x78>
  80120ea:	f1b8 3fff 	cmp.w	r8, #4294967295	; 0xffffffff
  80120ee:	d0f2      	beq.n	80120d6 <UART_WaitOnFlagUntilTimeout+0x12>
- 80120f0:	f014 fb8e 	bl	8026810 <HAL_GetTick>
+ 80120f0:	f013 fb8e 	bl	8025810 <HAL_GetTick>
  80120f4:	1bc0      	subs	r0, r0, r7
  80120f6:	4540      	cmp	r0, r8
  80120f8:	d803      	bhi.n	8012102 <UART_WaitOnFlagUntilTimeout+0x3e>
@@ -19802,7 +19802,7 @@ Disassembly of section .text:
  80121b8:	2321      	movs	r3, #33	; 0x21
  80121ba:	f8c0 508c 	str.w	r5, [r0, #140]	; 0x8c
  80121be:	f8c0 3084 	str.w	r3, [r0, #132]	; 0x84
- 80121c2:	f014 fb25 	bl	8026810 <HAL_GetTick>
+ 80121c2:	f013 fb25 	bl	8025810 <HAL_GetTick>
  80121c6:	68a3      	ldr	r3, [r4, #8]
  80121c8:	f8a4 7054 	strh.w	r7, [r4, #84]	; 0x54
  80121cc:	f5b3 5f80 	cmp.w	r3, #4096	; 0x1000
@@ -19857,7 +19857,7 @@ Disassembly of section .text:
  8012246:	4604      	mov	r4, r0
  8012248:	2600      	movs	r6, #0
  801224a:	f8c0 608c 	str.w	r6, [r0, #140]	; 0x8c
- 801224e:	f014 fadf 	bl	8026810 <HAL_GetTick>
+ 801224e:	f013 fadf 	bl	8025810 <HAL_GetTick>
  8012252:	6823      	ldr	r3, [r4, #0]
  8012254:	681b      	ldr	r3, [r3, #0]
  8012256:	071a      	lsls	r2, r3, #28
@@ -20006,7 +20006,7 @@ Disassembly of section .text:
  80123b2:	6d82      	ldr	r2, [r0, #88]	; 0x58
  80123b4:	6fc0      	ldr	r0, [r0, #124]	; 0x7c
  80123b6:	3124      	adds	r1, #36	; 0x24
- 80123b8:	f01b f8f2 	bl	802d5a0 <HAL_DMA_Start_IT>
+ 80123b8:	f01a f8f2 	bl	802c5a0 <HAL_DMA_Start_IT>
  80123bc:	b148      	cbz	r0, 80123d2 <UART_Start_Receive_DMA+0x52>
  80123be:	2310      	movs	r3, #16
  80123c0:	f8c4 308c 	str.w	r3, [r4, #140]	; 0x8c
@@ -20153,7 +20153,7 @@ Disassembly of section .text:
  8012520:	6813      	ldr	r3, [r2, #0]
  8012522:	f043 0301 	orr.w	r3, r3, #1
  8012526:	6013      	str	r3, [r2, #0]
- 8012528:	f014 f972 	bl	8026810 <HAL_GetTick>
+ 8012528:	f013 f972 	bl	8025810 <HAL_GetTick>
  801252c:	f06f 427e 	mvn.w	r2, #4261412864	; 0xfe000000
  8012530:	4603      	mov	r3, r0
  8012532:	9200      	str	r2, [sp, #0]
@@ -20339,7 +20339,7 @@ Disassembly of section .text:
  80126e0:	080199bb 	.word	0x080199bb
 
 080126e4 <uhal_delay_ms>:
- 80126e4:	f014 b8ba 	b.w	802685c <HAL_Delay>
+ 80126e4:	f013 b8ba 	b.w	802585c <HAL_Delay>
 
 080126e8 <uhal_enter_dfu>:
  80126e8:	b507      	push	{r0, r1, r2, lr}
@@ -20348,7 +20348,7 @@ Disassembly of section .text:
  80126f0:	2101      	movs	r1, #1
  80126f2:	4809      	ldr	r0, [pc, #36]	; (8012718 <uhal_enter_dfu+0x30>)
  80126f4:	f88d 3007 	strb.w	r3, [sp, #7]
- 80126f8:	f00f ff00 	bl	80224fc <udrv_flash_write>
+ 80126f8:	f00e ff00 	bl	80214fc <udrv_flash_write>
  80126fc:	f3bf 8f4f 	dsb	sy
  8012700:	4906      	ldr	r1, [pc, #24]	; (801271c <uhal_enter_dfu+0x34>)
  8012702:	4b07      	ldr	r3, [pc, #28]	; (8012720 <uhal_enter_dfu+0x38>)
@@ -20371,7 +20371,7 @@ Disassembly of section .text:
  801272a:	9200      	str	r2, [sp, #0]
  801272c:	f04f 31ff 	mov.w	r1, #4294967295	; 0xffffffff
  8012730:	4805      	ldr	r0, [pc, #20]	; (8012748 <uhal_ps_timer_create+0x24>)
- 8012732:	f013 fb69 	bl	8025e08 <UTIL_TIMER_Create>
+ 8012732:	f012 fb69 	bl	8024e08 <UTIL_TIMER_Create>
  8012736:	2800      	cmp	r0, #0
  8012738:	bf14      	ite	ne
  801273a:	f06f 0006 	mvnne.w	r0, #6
@@ -20385,10 +20385,10 @@ Disassembly of section .text:
  801274c:	b508      	push	{r3, lr}
  801274e:	4601      	mov	r1, r0
  8012750:	4805      	ldr	r0, [pc, #20]	; (8012768 <uhal_ps_timer_start+0x1c>)
- 8012752:	f013 fc8b 	bl	802606c <UTIL_TIMER_SetPeriod>
+ 8012752:	f012 fc8b 	bl	802506c <UTIL_TIMER_SetPeriod>
  8012756:	b918      	cbnz	r0, 8012760 <uhal_ps_timer_start+0x14>
  8012758:	4803      	ldr	r0, [pc, #12]	; (8012768 <uhal_ps_timer_start+0x1c>)
- 801275a:	f013 fc35 	bl	8025fc8 <UTIL_TIMER_Start>
+ 801275a:	f012 fc35 	bl	8024fc8 <UTIL_TIMER_Start>
  801275e:	b108      	cbz	r0, 8012764 <uhal_ps_timer_start+0x18>
  8012760:	f06f 0006 	mvn.w	r0, #6
  8012764:	bd08      	pop	{r3, pc}
@@ -20398,7 +20398,7 @@ Disassembly of section .text:
 0801276c <uhal_ps_timer_stop>:
  801276c:	b508      	push	{r3, lr}
  801276e:	4804      	ldr	r0, [pc, #16]	; (8012780 <uhal_ps_timer_stop+0x14>)
- 8012770:	f013 fbda 	bl	8025f28 <UTIL_TIMER_Stop>
+ 8012770:	f012 fbda 	bl	8024f28 <UTIL_TIMER_Stop>
  8012774:	2800      	cmp	r0, #0
  8012776:	bf14      	ite	ne
  8012778:	f06f 0006 	mvnne.w	r0, #6
@@ -20411,17 +20411,17 @@ Disassembly of section .text:
  8012786:	4604      	mov	r4, r0
  8012788:	f3ef 8510 	mrs	r5, PRIMASK
  801278c:	b672      	cpsid	i
- 801278e:	f014 f879 	bl	8026884 <HAL_SuspendTick>
+ 801278e:	f013 f879 	bl	8025884 <HAL_SuspendTick>
  8012792:	4b08      	ldr	r3, [pc, #32]	; (80127b4 <uhal_mcu_sleep+0x30>)
  8012794:	2001      	movs	r0, #1
  8012796:	2c02      	cmp	r4, #2
  8012798:	f8c3 0088 	str.w	r0, [r3, #136]	; 0x88
  801279c:	d106      	bne.n	80127ac <uhal_mcu_sleep+0x28>
- 801279e:	f017 f95b 	bl	8029a58 <HAL_PWREx_EnterSTOP2Mode>
- 80127a2:	f014 f876 	bl	8026892 <HAL_ResumeTick>
+ 801279e:	f016 f95b 	bl	8028a58 <HAL_PWREx_EnterSTOP2Mode>
+ 80127a2:	f013 f876 	bl	8025892 <HAL_ResumeTick>
  80127a6:	f385 8810 	msr	PRIMASK, r5
  80127aa:	bd38      	pop	{r3, r4, r5, pc}
- 80127ac:	f017 f938 	bl	8029a20 <HAL_PWREx_EnterSTOP1Mode>
+ 80127ac:	f016 f938 	bl	8028a20 <HAL_PWREx_EnterSTOP1Mode>
  80127b0:	e7f7      	b.n	80127a2 <uhal_mcu_sleep+0x1e>
  80127b2:	bf00      	nop
  80127b4:	58000400 	.word	0x58000400
@@ -20453,7 +20453,7 @@ Disassembly of section .text:
  80127e8:	f001 f870 	bl	80138cc <HAL_TIM_PWM_Start>
  80127ec:	b148      	cbz	r0, 8012802 <pwm_enable+0x42>
  80127ee:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
- 80127f2:	f00f bf23 	b.w	802263c <Error_Handler>
+ 80127f2:	f00e bf23 	b.w	802163c <Error_Handler>
  80127f6:	2104      	movs	r1, #4
  80127f8:	e7f5      	b.n	80127e6 <pwm_enable+0x26>
  80127fa:	2108      	movs	r1, #8
@@ -20482,7 +20482,7 @@ Disassembly of section .text:
  8012834:	f001 f89a 	bl	801396c <HAL_TIM_PWM_Stop>
  8012838:	b148      	cbz	r0, 801284e <pwm_disable+0x42>
  801283a:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
- 801283e:	f00f befd 	b.w	802263c <Error_Handler>
+ 801283e:	f00e befd 	b.w	802163c <Error_Handler>
  8012842:	2104      	movs	r1, #4
  8012844:	e7f5      	b.n	8012832 <pwm_disable+0x26>
  8012846:	2108      	movs	r1, #8
@@ -20521,14 +20521,14 @@ Disassembly of section .text:
  8012892:	6085      	str	r5, [r0, #8]
  8012894:	f000 fea8 	bl	80135e8 <HAL_TIM_PWM_Init>
  8012898:	b108      	cbz	r0, 801289e <pwm_init.constprop.0+0x46>
- 801289a:	f00f fecf 	bl	802263c <Error_Handler>
+ 801289a:	f00e fecf 	bl	802163c <Error_Handler>
  801289e:	493d      	ldr	r1, [pc, #244]	; (8012994 <pwm_init.constprop.0+0x13c>)
  80128a0:	4839      	ldr	r0, [pc, #228]	; (8012988 <pwm_init.constprop.0+0x130>)
  80128a2:	608d      	str	r5, [r1, #8]
  80128a4:	e9c1 5500 	strd	r5, r5, [r1]
  80128a8:	f001 f862 	bl	8013970 <HAL_TIMEx_MasterConfigSynchronization>
  80128ac:	b108      	cbz	r0, 80128b2 <pwm_init.constprop.0+0x5a>
- 80128ae:	f00f fec5 	bl	802263c <Error_Handler>
+ 80128ae:	f00e fec5 	bl	802163c <Error_Handler>
  80128b2:	4b39      	ldr	r3, [pc, #228]	; (8012998 <pwm_init.constprop.0+0x140>)
  80128b4:	2260      	movs	r2, #96	; 0x60
  80128b6:	601a      	str	r2, [r3, #0]
@@ -20550,7 +20550,7 @@ Disassembly of section .text:
  80128e6:	4828      	ldr	r0, [pc, #160]	; (8012988 <pwm_init.constprop.0+0x130>)
  80128e8:	f000 fee6 	bl	80136b8 <HAL_TIM_PWM_ConfigChannel>
  80128ec:	b108      	cbz	r0, 80128f2 <pwm_init.constprop.0+0x9a>
- 80128ee:	f00f fea5 	bl	802263c <Error_Handler>
+ 80128ee:	f00e fea5 	bl	802163c <Error_Handler>
  80128f2:	492a      	ldr	r1, [pc, #168]	; (801299c <pwm_init.constprop.0+0x144>)
  80128f4:	4824      	ldr	r0, [pc, #144]	; (8012988 <pwm_init.constprop.0+0x130>)
  80128f6:	2300      	movs	r3, #0
@@ -20565,7 +20565,7 @@ Disassembly of section .text:
  8012918:	610b      	str	r3, [r1, #16]
  801291a:	f001 f85b 	bl	80139d4 <HAL_TIMEx_ConfigBreakDeadTime>
  801291e:	b108      	cbz	r0, 8012924 <pwm_init.constprop.0+0xcc>
- 8012920:	f00f fe8c 	bl	802263c <Error_Handler>
+ 8012920:	f00e fe8c 	bl	802163c <Error_Handler>
  8012924:	2c0f      	cmp	r4, #15
  8012926:	d825      	bhi.n	8012974 <pwm_init.constprop.0+0x11c>
  8012928:	f248 7103 	movw	r1, #34563	; 0x8703
@@ -20595,7 +20595,7 @@ Disassembly of section .text:
  8012968:	9001      	str	r0, [sp, #4]
  801296a:	f04f 4090 	mov.w	r0, #1207959552	; 0x48000000
  801296e:	9505      	str	r5, [sp, #20]
- 8012970:	f017 fed0 	bl	802a714 <HAL_GPIO_Init>
+ 8012970:	f016 fed0 	bl	8029714 <HAL_GPIO_Init>
  8012974:	b007      	add	sp, #28
  8012976:	bd30      	pop	{r4, r5, pc}
  8012978:	2204      	movs	r2, #4
@@ -20753,7 +20753,7 @@ Disassembly of section .text:
  8012af4:	4770      	bx	lr
 
 08012af6 <uhal_timer_init>:
- 8012af6:	f013 b977 	b.w	8025de8 <UTIL_TIMER_Init>
+ 8012af6:	f012 b977 	b.w	8024de8 <UTIL_TIMER_Init>
 	...
 
 08012afc <uhal_timer_create>:
@@ -20778,7 +20778,7 @@ Disassembly of section .text:
  8012b22:	2201      	movne	r2, #1
  8012b24:	4b07      	ldr	r3, [pc, #28]	; (8012b44 <uhal_timer_create+0x48>)
  8012b26:	f04f 31ff 	mov.w	r1, #4294967295	; 0xffffffff
- 8012b2a:	f013 f96d 	bl	8025e08 <UTIL_TIMER_Create>
+ 8012b2a:	f012 f96d 	bl	8024e08 <UTIL_TIMER_Create>
  8012b2e:	2800      	cmp	r0, #0
  8012b30:	bf14      	ite	ne
  8012b32:	f06f 0006 	mvnne.w	r0, #6
@@ -20805,10 +20805,10 @@ Disassembly of section .text:
  8012b68:	54e8      	strb	r0, [r5, r3]
  8012b6a:	6072      	str	r2, [r6, #4]
  8012b6c:	4620      	mov	r0, r4
- 8012b6e:	f013 fa7d 	bl	802606c <UTIL_TIMER_SetPeriod>
+ 8012b6e:	f012 fa7d 	bl	802506c <UTIL_TIMER_SetPeriod>
  8012b72:	b918      	cbnz	r0, 8012b7c <uhal_timer_start+0x34>
  8012b74:	4620      	mov	r0, r4
- 8012b76:	f013 fa27 	bl	8025fc8 <UTIL_TIMER_Start>
+ 8012b76:	f012 fa27 	bl	8024fc8 <UTIL_TIMER_Start>
  8012b7a:	b108      	cbz	r0, 8012b80 <uhal_timer_start+0x38>
  8012b7c:	f06f 0006 	mvn.w	r0, #6
  8012b80:	bd70      	pop	{r4, r5, r6, pc}
@@ -20831,7 +20831,7 @@ Disassembly of section .text:
  8012baa:	bf88      	it	hi
  8012bac:	2000      	movhi	r0, #0
  8012bae:	605a      	str	r2, [r3, #4]
- 8012bb0:	f013 f9ba 	bl	8025f28 <UTIL_TIMER_Stop>
+ 8012bb0:	f012 f9ba 	bl	8024f28 <UTIL_TIMER_Stop>
  8012bb4:	2800      	cmp	r0, #0
  8012bb6:	bf14      	ite	ne
  8012bb8:	f06f 0006 	mvnne.w	r0, #6
@@ -20862,7 +20862,7 @@ Disassembly of section .text:
  8012bee:	2201      	movne	r2, #1
  8012bf0:	4b07      	ldr	r3, [pc, #28]	; (8012c10 <uhal_sys_timer_create+0x48>)
  8012bf2:	f04f 31ff 	mov.w	r1, #4294967295	; 0xffffffff
- 8012bf6:	f013 f907 	bl	8025e08 <UTIL_TIMER_Create>
+ 8012bf6:	f012 f907 	bl	8024e08 <UTIL_TIMER_Create>
  8012bfa:	2800      	cmp	r0, #0
  8012bfc:	bf14      	ite	ne
  8012bfe:	f06f 0006 	mvnne.w	r0, #6
@@ -20889,10 +20889,10 @@ Disassembly of section .text:
  8012c34:	54e8      	strb	r0, [r5, r3]
  8012c36:	6072      	str	r2, [r6, #4]
  8012c38:	4620      	mov	r0, r4
- 8012c3a:	f013 fa17 	bl	802606c <UTIL_TIMER_SetPeriod>
+ 8012c3a:	f012 fa17 	bl	802506c <UTIL_TIMER_SetPeriod>
  8012c3e:	b918      	cbnz	r0, 8012c48 <uhal_sys_timer_start+0x34>
  8012c40:	4620      	mov	r0, r4
- 8012c42:	f013 f9c1 	bl	8025fc8 <UTIL_TIMER_Start>
+ 8012c42:	f012 f9c1 	bl	8024fc8 <UTIL_TIMER_Start>
  8012c46:	b108      	cbz	r0, 8012c4c <uhal_sys_timer_start+0x38>
  8012c48:	f06f 0006 	mvn.w	r0, #6
  8012c4c:	bd70      	pop	{r4, r5, r6, pc}
@@ -20915,7 +20915,7 @@ Disassembly of section .text:
  8012c76:	bf88      	it	hi
  8012c78:	2000      	movhi	r0, #0
  8012c7a:	605a      	str	r2, [r3, #4]
- 8012c7c:	f013 f954 	bl	8025f28 <UTIL_TIMER_Stop>
+ 8012c7c:	f012 f954 	bl	8024f28 <UTIL_TIMER_Stop>
  8012c80:	2800      	cmp	r0, #0
  8012c82:	bf14      	ite	ne
  8012c84:	f06f 0006 	mvnne.w	r0, #6
@@ -21146,7 +21146,7 @@ Disassembly of section .text:
  8012e92:	f7fd bed3 	b.w	8010c3c <udrv_serial_flush>
 
 08012e96 <_ZN14HardwareSerial11getBaudrateEv>:
- 8012e96:	f00f be93 	b.w	8022bc0 <service_nvm_get_baudrate_from_nvm>
+ 8012e96:	f00e be93 	b.w	8021bc0 <service_nvm_get_baudrate_from_nvm>
 	...
 
 08012e9c <_ZN14HardwareSerial5beginEmh15RAK_SERIAL_MODE>:
@@ -21156,7 +21156,7 @@ Disassembly of section .text:
  8012ea2:	4616      	mov	r6, r2
  8012ea4:	460f      	mov	r7, r1
  8012ea6:	461c      	mov	r4, r3
- 8012ea8:	f00f fe90 	bl	8022bcc <service_nvm_set_baudrate_to_nvm>
+ 8012ea8:	f00e fe90 	bl	8021bcc <service_nvm_set_baudrate_to_nvm>
  8012eac:	7c28      	ldrb	r0, [r5, #16]
  8012eae:	f7fd ffb7 	bl	8010e20 <udrv_serial_enable>
  8012eb2:	2e3e      	cmp	r6, #62	; 0x3e
@@ -21178,12 +21178,12 @@ Disassembly of section .text:
  8012ed6:	d015      	beq.n	8012f04 <_ZN14HardwareSerial5beginEmh15RAK_SERIAL_MODE+0x68>
  8012ed8:	b9ec      	cbnz	r4, 8012f16 <_ZN14HardwareSerial5beginEmh15RAK_SERIAL_MODE+0x7a>
  8012eda:	7c28      	ldrb	r0, [r5, #16]
- 8012edc:	f00f fcf8 	bl	80228d0 <service_nvm_get_mode_type_from_nvm>
+ 8012edc:	f00e fcf8 	bl	80218d0 <service_nvm_get_mode_type_from_nvm>
  8012ee0:	4284      	cmp	r4, r0
  8012ee2:	d018      	beq.n	8012f16 <_ZN14HardwareSerial5beginEmh15RAK_SERIAL_MODE+0x7a>
  8012ee4:	7c28      	ldrb	r0, [r5, #16]
  8012ee6:	4621      	mov	r1, r4
- 8012ee8:	f00f fcfa 	bl	80228e0 <service_nvm_set_mode_type_to_nvm>
+ 8012ee8:	f00e fcfa 	bl	80218e0 <service_nvm_set_mode_type_to_nvm>
  8012eec:	b998      	cbnz	r0, 8012f16 <_ZN14HardwareSerial5beginEmh15RAK_SERIAL_MODE+0x7a>
  8012eee:	b994      	cbnz	r4, 8012f16 <_ZN14HardwareSerial5beginEmh15RAK_SERIAL_MODE+0x7a>
  8012ef0:	7c28      	ldrb	r0, [r5, #16]
@@ -21244,7 +21244,7 @@ Disassembly of section .text:
  8012f70:	f000 f90f 	bl	8013192 <_ZN6StringC1EPKc>
  8012f74:	2120      	movs	r1, #32
  8012f76:	a801      	add	r0, sp, #4
- 8012f78:	f00f fd1a 	bl	80229b0 <service_nvm_get_firmware_ver_from_nvm>
+ 8012f78:	f00e fd1a 	bl	80219b0 <service_nvm_get_firmware_ver_from_nvm>
  8012f7c:	2300      	movs	r3, #0
  8012f7e:	a901      	add	r1, sp, #4
  8012f80:	4620      	mov	r0, r4
@@ -21263,7 +21263,7 @@ Disassembly of section .text:
  8012f9c:	f000 f8f9 	bl	8013192 <_ZN6StringC1EPKc>
  8012fa0:	2120      	movs	r1, #32
  8012fa2:	a801      	add	r0, sp, #4
- 8012fa4:	f00f fd74 	bl	8022a90 <service_nvm_get_cli_ver_from_nvm>
+ 8012fa4:	f00e fd74 	bl	8021a90 <service_nvm_get_cli_ver_from_nvm>
  8012fa8:	2300      	movs	r3, #0
  8012faa:	a901      	add	r1, sp, #4
  8012fac:	4620      	mov	r0, r4
@@ -21296,7 +21296,7 @@ Disassembly of section .text:
  8012fe8:	f000 f8d3 	bl	8013192 <_ZN6StringC1EPKc>
  8012fec:	2120      	movs	r1, #32
  8012fee:	a801      	add	r0, sp, #4
- 8012ff0:	f00f fd16 	bl	8022a20 <service_nvm_get_hwmodel_from_nvm>
+ 8012ff0:	f00e fd16 	bl	8021a20 <service_nvm_get_hwmodel_from_nvm>
  8012ff4:	2300      	movs	r3, #0
  8012ff6:	a901      	add	r1, sp, #4
  8012ff8:	4620      	mov	r0, r4
@@ -21552,7 +21552,7 @@ Disassembly of section .text:
  8013236:	9301      	str	r3, [sp, #4]
  8013238:	f44f 7180 	mov.w	r1, #256	; 0x100
  801323c:	a802      	add	r0, sp, #8
- 801323e:	f012 ff71 	bl	8026124 <tiny_vsnprintf_like>
+ 801323e:	f011 ff71 	bl	8025124 <tiny_vsnprintf_like>
  8013242:	682b      	ldr	r3, [r5, #0]
  8013244:	4604      	mov	r4, r0
  8013246:	4602      	mov	r2, r0
@@ -21628,7 +21628,7 @@ Disassembly of section .text:
  80132d6:	20ff      	movs	r0, #255	; 0xff
  80132d8:	f000 f818 	bl	801330c <udrv_adc_read>
  80132dc:	f8bd 0006 	ldrh.w	r0, [sp, #6]
- 80132e0:	f00c f9b8 	bl	801f654 <__aeabi_ui2f>
+ 80132e0:	f00b f9b8 	bl	801e654 <__aeabi_ui2f>
  80132e4:	4631      	mov	r1, r6
  80132e6:	f7f3 f9db 	bl	80066a0 <__aeabi_fmul>
  80132ea:	4629      	mov	r1, r5
@@ -21875,7 +21875,7 @@ Disassembly of section .text:
  801352e:	f022 0201 	biceq.w	r2, r2, #1
  8013532:	601a      	streq	r2, [r3, #0]
  8013534:	4620      	mov	r0, r4
- 8013536:	f00f f96f 	bl	8022818 <HAL_TIM_PWM_MspDeInit>
+ 8013536:	f00e f96f 	bl	8021818 <HAL_TIM_PWM_MspDeInit>
  801353a:	2000      	movs	r0, #0
  801353c:	f884 0048 	strb.w	r0, [r4, #72]	; 0x48
  8013540:	f884 003c 	strb.w	r0, [r4, #60]	; 0x3c
@@ -21950,7 +21950,7 @@ Disassembly of section .text:
  80135f2:	f003 02ff 	and.w	r2, r3, #255	; 0xff
  80135f6:	b91b      	cbnz	r3, 8013600 <HAL_TIM_PWM_Init+0x18>
  80135f8:	f880 203c 	strb.w	r2, [r0, #60]	; 0x3c
- 80135fc:	f00f f8e8 	bl	80227d0 <HAL_TIM_PWM_MspInit>
+ 80135fc:	f00e f8e8 	bl	80217d0 <HAL_TIM_PWM_MspInit>
  8013600:	2302      	movs	r3, #2
  8013602:	6820      	ldr	r0, [r4, #0]
  8013604:	f884 303d 	strb.w	r3, [r4, #61]	; 0x3d
@@ -22669,7 +22669,7 @@ Disassembly of section .text:
  8013caa:	f422 4280 	bicmi.w	r2, r2, #16384	; 0x4000
  8013cae:	601a      	strmi	r2, [r3, #0]
  8013cb0:	6ba0      	ldr	r0, [r4, #56]	; 0x38
- 8013cb2:	f019 fe63 	bl	802d97c <HAL_DMA_GetState>
+ 8013cb2:	f018 fe63 	bl	802c97c <HAL_DMA_GetState>
  8013cb6:	2801      	cmp	r0, #1
  8013cb8:	d01c      	beq.n	8013cf4 <I2C_ITError+0x94>
  8013cba:	6ba3      	ldr	r3, [r4, #56]	; 0x38
@@ -22678,7 +22678,7 @@ Disassembly of section .text:
  8013cc0:	2300      	movs	r3, #0
  8013cc2:	6ba0      	ldr	r0, [r4, #56]	; 0x38
  8013cc4:	f884 3040 	strb.w	r3, [r4, #64]	; 0x40
- 8013cc8:	f019 fce8 	bl	802d69c <HAL_DMA_Abort_IT>
+ 8013cc8:	f018 fce8 	bl	802c69c <HAL_DMA_Abort_IT>
  8013ccc:	2800      	cmp	r0, #0
  8013cce:	d036      	beq.n	8013d3e <I2C_ITError+0xde>
  8013cd0:	6ba0      	ldr	r0, [r4, #56]	; 0x38
@@ -22712,7 +22712,7 @@ Disassembly of section .text:
  8013d16:	f422 4200 	bicmi.w	r2, r2, #32768	; 0x8000
  8013d1a:	601a      	strmi	r2, [r3, #0]
  8013d1c:	6be0      	ldr	r0, [r4, #60]	; 0x3c
- 8013d1e:	f019 fe2d 	bl	802d97c <HAL_DMA_GetState>
+ 8013d1e:	f018 fe2d 	bl	802c97c <HAL_DMA_GetState>
  8013d22:	2801      	cmp	r0, #1
  8013d24:	d0e6      	beq.n	8013cf4 <I2C_ITError+0x94>
  8013d26:	6be3      	ldr	r3, [r4, #60]	; 0x3c
@@ -22721,7 +22721,7 @@ Disassembly of section .text:
  8013d2c:	2300      	movs	r3, #0
  8013d2e:	6be0      	ldr	r0, [r4, #60]	; 0x3c
  8013d30:	f884 3040 	strb.w	r3, [r4, #64]	; 0x40
- 8013d34:	f019 fcb2 	bl	802d69c <HAL_DMA_Abort_IT>
+ 8013d34:	f018 fcb2 	bl	802c69c <HAL_DMA_Abort_IT>
  8013d38:	b108      	cbz	r0, 8013d3e <I2C_ITError+0xde>
  8013d3a:	6be0      	ldr	r0, [r4, #60]	; 0x3c
  8013d3c:	e7c9      	b.n	8013cd2 <I2C_ITError+0x72>
@@ -23381,7 +23381,7 @@ Disassembly of section .text:
  80142f8:	2300      	movs	r3, #0
  80142fa:	4620      	mov	r0, r4
  80142fc:	4639      	mov	r1, r7
- 80142fe:	f00b f899 	bl	801f434 <__aeabi_dcmpeq>
+ 80142fe:	f00a f899 	bl	801e434 <__aeabi_dcmpeq>
  8014302:	b918      	cbnz	r0, 801430c <__cvt+0x88>
  8014304:	f1c5 0501 	rsb	r5, r5, #1
  8014308:	f8ca 5000 	str.w	r5, [sl]
@@ -23391,7 +23391,7 @@ Disassembly of section .text:
  8014314:	2300      	movs	r3, #0
  8014316:	4620      	mov	r0, r4
  8014318:	4639      	mov	r1, r7
- 801431a:	f00b f88b 	bl	801f434 <__aeabi_dcmpeq>
+ 801431a:	f00a f88b 	bl	801e434 <__aeabi_dcmpeq>
  801431e:	b108      	cbz	r0, 8014324 <__cvt+0xa0>
  8014320:	f8cd 901c 	str.w	r9, [sp, #28]
  8014324:	2230      	movs	r2, #48	; 0x30
@@ -23500,13 +23500,13 @@ Disassembly of section .text:
  8014424:	990b      	ldr	r1, [sp, #44]	; 0x2c
  8014426:	f04f 32ff 	mov.w	r2, #4294967295	; 0xffffffff
  801442a:	4640      	mov	r0, r8
- 801442c:	f00b f816 	bl	801f45c <__aeabi_dcmple>
+ 801442c:	f00a f816 	bl	801e45c <__aeabi_dcmple>
  8014430:	bb30      	cbnz	r0, 8014480 <_printf_float+0xc0>
  8014432:	2200      	movs	r2, #0
  8014434:	2300      	movs	r3, #0
  8014436:	4640      	mov	r0, r8
  8014438:	4651      	mov	r1, sl
- 801443a:	f00b f805 	bl	801f448 <__aeabi_dcmplt>
+ 801443a:	f00a f805 	bl	801e448 <__aeabi_dcmplt>
  801443e:	b110      	cbz	r0, 8014446 <_printf_float+0x86>
  8014440:	232d      	movs	r3, #45	; 0x2d
  8014442:	f884 3043 	strb.w	r3, [r4, #67]	; 0x43
@@ -23666,7 +23666,7 @@ Disassembly of section .text:
  80145b2:	e9d4 0112 	ldrd	r0, r1, [r4, #72]	; 0x48
  80145b6:	2200      	movs	r2, #0
  80145b8:	2300      	movs	r3, #0
- 80145ba:	f00a ff3b 	bl	801f434 <__aeabi_dcmpeq>
+ 80145ba:	f009 ff3b 	bl	801e434 <__aeabi_dcmpeq>
  80145be:	2800      	cmp	r0, #0
  80145c0:	d033      	beq.n	801462a <_printf_float+0x26a>
  80145c2:	4a36      	ldr	r2, [pc, #216]	; (801469c <_printf_float+0x2dc>)
@@ -23858,7 +23858,7 @@ Disassembly of section .text:
  8014794:	e9d4 0112 	ldrd	r0, r1, [r4, #72]	; 0x48
  8014798:	2200      	movs	r2, #0
  801479a:	2300      	movs	r3, #0
- 801479c:	f00a fe4a 	bl	801f434 <__aeabi_dcmpeq>
+ 801479c:	f009 fe4a 	bl	801e434 <__aeabi_dcmpeq>
  80147a0:	b9d8      	cbnz	r0, 80147da <_printf_float+0x41a>
  80147a2:	9b0e      	ldr	r3, [sp, #56]	; 0x38
  80147a4:	f108 0201 	add.w	r2, r8, #1
@@ -24782,7 +24782,7 @@ Disassembly of section .text:
  8015032:	e9dd 010c 	ldrd	r0, r1, [sp, #48]	; 0x30
  8015036:	2200      	movs	r2, #0
  8015038:	2300      	movs	r3, #0
- 801503a:	f00a f9fb 	bl	801f434 <__aeabi_dcmpeq>
+ 801503a:	f009 f9fb 	bl	801e434 <__aeabi_dcmpeq>
  801503e:	4680      	mov	r8, r0
  8015040:	b158      	cbz	r0, 801505a <_dtoa_r+0xda>
  8015042:	9a24      	ldr	r2, [sp, #144]	; 0x90
@@ -24816,17 +24816,17 @@ Disassembly of section .text:
  801508c:	f2a4 34ff 	subw	r4, r4, #1023	; 0x3ff
  8015090:	4b73      	ldr	r3, [pc, #460]	; (8015260 <_dtoa_r+0x2e0>)
  8015092:	2200      	movs	r2, #0
- 8015094:	f009 ffc0 	bl	801f018 <__aeabi_dsub>
+ 8015094:	f008 ffc0 	bl	801e018 <__aeabi_dsub>
  8015098:	a365      	add	r3, pc, #404	; (adr r3, 8015230 <_dtoa_r+0x2b0>)
  801509a:	e9d3 2300 	ldrd	r2, r3, [r3]
  801509e:	f7f1 f8d7 	bl	8006250 <__aeabi_dmul>
  80150a2:	a365      	add	r3, pc, #404	; (adr r3, 8015238 <_dtoa_r+0x2b8>)
  80150a4:	e9d3 2300 	ldrd	r2, r3, [r3]
- 80150a8:	f009 ffb8 	bl	801f01c <__adddf3>
+ 80150a8:	f008 ffb8 	bl	801e01c <__adddf3>
  80150ac:	4606      	mov	r6, r0
  80150ae:	4620      	mov	r0, r4
  80150b0:	460f      	mov	r7, r1
- 80150b2:	f00a f8ff 	bl	801f2b4 <__aeabi_i2d>
+ 80150b2:	f009 f8ff 	bl	801e2b4 <__aeabi_i2d>
  80150b6:	a362      	add	r3, pc, #392	; (adr r3, 8015240 <_dtoa_r+0x2c0>)
  80150b8:	e9d3 2300 	ldrd	r2, r3, [r3]
  80150bc:	f7f1 f8c8 	bl	8006250 <__aeabi_dmul>
@@ -24834,22 +24834,22 @@ Disassembly of section .text:
  80150c2:	460b      	mov	r3, r1
  80150c4:	4630      	mov	r0, r6
  80150c6:	4639      	mov	r1, r7
- 80150c8:	f009 ffa8 	bl	801f01c <__adddf3>
+ 80150c8:	f008 ffa8 	bl	801e01c <__adddf3>
  80150cc:	4606      	mov	r6, r0
  80150ce:	460f      	mov	r7, r1
- 80150d0:	f00a f9e2 	bl	801f498 <__aeabi_d2iz>
+ 80150d0:	f009 f9e2 	bl	801e498 <__aeabi_d2iz>
  80150d4:	2200      	movs	r2, #0
  80150d6:	4682      	mov	sl, r0
  80150d8:	2300      	movs	r3, #0
  80150da:	4630      	mov	r0, r6
  80150dc:	4639      	mov	r1, r7
- 80150de:	f00a f9b3 	bl	801f448 <__aeabi_dcmplt>
+ 80150de:	f009 f9b3 	bl	801e448 <__aeabi_dcmplt>
  80150e2:	b148      	cbz	r0, 80150f8 <_dtoa_r+0x178>
  80150e4:	4650      	mov	r0, sl
- 80150e6:	f00a f8e5 	bl	801f2b4 <__aeabi_i2d>
+ 80150e6:	f009 f8e5 	bl	801e2b4 <__aeabi_i2d>
  80150ea:	4632      	mov	r2, r6
  80150ec:	463b      	mov	r3, r7
- 80150ee:	f00a f9a1 	bl	801f434 <__aeabi_dcmpeq>
+ 80150ee:	f009 f9a1 	bl	801e434 <__aeabi_dcmpeq>
  80150f2:	b908      	cbnz	r0, 80150f8 <_dtoa_r+0x178>
  80150f4:	f10a 3aff 	add.w	sl, sl, #4294967295	; 0xffffffff
  80150f8:	f1ba 0f16 	cmp.w	sl, #22
@@ -24858,7 +24858,7 @@ Disassembly of section .text:
  8015100:	eb03 03ca 	add.w	r3, r3, sl, lsl #3
  8015104:	e9d3 2300 	ldrd	r2, r3, [r3]
  8015108:	e9dd 010c 	ldrd	r0, r1, [sp, #48]	; 0x30
- 801510c:	f00a f99c 	bl	801f448 <__aeabi_dcmplt>
+ 801510c:	f009 f99c 	bl	801e448 <__aeabi_dcmplt>
  8015110:	2800      	cmp	r0, #0
  8015112:	d04e      	beq.n	80151b2 <_dtoa_r+0x232>
  8015114:	f10a 3aff 	add.w	sl, sl, #4294967295	; 0xffffffff
@@ -24913,7 +24913,7 @@ Disassembly of section .text:
  8015194:	fa26 f000 	lsrgt.w	r0, r6, r0
  8015198:	4318      	orrgt	r0, r3
  801519a:	fa06 f003 	lslle.w	r0, r6, r3
- 801519e:	f00a f879 	bl	801f294 <__aeabi_ui2d>
+ 801519e:	f009 f879 	bl	801e294 <__aeabi_ui2d>
  80151a2:	2301      	movs	r3, #1
  80151a4:	f1a1 71f8 	sub.w	r1, r1, #32505856	; 0x1f00000
  80151a8:	3c01      	subs	r4, #1
@@ -25078,7 +25078,7 @@ Disassembly of section .text:
  8015366:	e9dd 0110 	ldrd	r0, r1, [sp, #64]	; 0x40
  801536a:	4b70      	ldr	r3, [pc, #448]	; (801552c <_dtoa_r+0x5ac>)
  801536c:	2200      	movs	r2, #0
- 801536e:	f00a f86b 	bl	801f448 <__aeabi_dcmplt>
+ 801536e:	f009 f86b 	bl	801e448 <__aeabi_dcmplt>
  8015372:	2800      	cmp	r0, #0
  8015374:	d07e      	beq.n	8015474 <_dtoa_r+0x4f4>
  8015376:	9b08      	ldr	r3, [sp, #32]
@@ -25095,12 +25095,12 @@ Disassembly of section .text:
  8015396:	3701      	adds	r7, #1
  8015398:	464c      	mov	r4, r9
  801539a:	4638      	mov	r0, r7
- 801539c:	f009 ff8a 	bl	801f2b4 <__aeabi_i2d>
+ 801539c:	f008 ff8a 	bl	801e2b4 <__aeabi_i2d>
  80153a0:	e9dd 2304 	ldrd	r2, r3, [sp, #16]
  80153a4:	f7f0 ff54 	bl	8006250 <__aeabi_dmul>
  80153a8:	4b62      	ldr	r3, [pc, #392]	; (8015534 <_dtoa_r+0x5b4>)
  80153aa:	2200      	movs	r2, #0
- 80153ac:	f009 fe36 	bl	801f01c <__adddf3>
+ 80153ac:	f008 fe36 	bl	801e01c <__adddf3>
  80153b0:	f1a1 7650 	sub.w	r6, r1, #54525952	; 0x3400000
  80153b4:	e9cd 0110 	strd	r0, r1, [sp, #64]	; 0x40
  80153b8:	9611      	str	r6, [sp, #68]	; 0x44
@@ -25109,19 +25109,19 @@ Disassembly of section .text:
  80153be:	e9dd 0104 	ldrd	r0, r1, [sp, #16]
  80153c2:	4b5d      	ldr	r3, [pc, #372]	; (8015538 <_dtoa_r+0x5b8>)
  80153c4:	2200      	movs	r2, #0
- 80153c6:	f009 fe27 	bl	801f018 <__aeabi_dsub>
+ 80153c6:	f008 fe27 	bl	801e018 <__aeabi_dsub>
  80153ca:	4602      	mov	r2, r0
  80153cc:	460b      	mov	r3, r1
  80153ce:	e9cd 2304 	strd	r2, r3, [sp, #16]
  80153d2:	9a10      	ldr	r2, [sp, #64]	; 0x40
  80153d4:	4633      	mov	r3, r6
- 80153d6:	f00a f855 	bl	801f484 <__aeabi_dcmpgt>
+ 80153d6:	f009 f855 	bl	801e484 <__aeabi_dcmpgt>
  80153da:	2800      	cmp	r0, #0
  80153dc:	f040 829c 	bne.w	8015918 <_dtoa_r+0x998>
  80153e0:	e9dd 0104 	ldrd	r0, r1, [sp, #16]
  80153e4:	9a10      	ldr	r2, [sp, #64]	; 0x40
  80153e6:	f106 4300 	add.w	r3, r6, #2147483648	; 0x80000000
- 80153ea:	f00a f82d 	bl	801f448 <__aeabi_dcmplt>
+ 80153ea:	f009 f82d 	bl	801e448 <__aeabi_dcmplt>
  80153ee:	2800      	cmp	r0, #0
  80153f0:	f040 8290 	bne.w	8015914 <_dtoa_r+0x994>
  80153f4:	e9dd 340c 	ldrd	r3, r4, [sp, #48]	; 0x30
@@ -25147,7 +25147,7 @@ Disassembly of section .text:
  8015432:	e9dd 0106 	ldrd	r0, r1, [sp, #24]
  8015436:	f7f0 ff0b 	bl	8006250 <__aeabi_dmul>
  801543a:	e9dd 2304 	ldrd	r2, r3, [sp, #16]
- 801543e:	f00a f817 	bl	801f470 <__aeabi_dcmpge>
+ 801543e:	f009 f817 	bl	801e470 <__aeabi_dcmpge>
  8015442:	9c08      	ldr	r4, [sp, #32]
  8015444:	4626      	mov	r6, r4
  8015446:	2800      	cmp	r0, #0
@@ -25186,32 +25186,32 @@ Disassembly of section .text:
  8015498:	f7f1 f804 	bl	80064a4 <__aeabi_ddiv>
  801549c:	463b      	mov	r3, r7
  801549e:	4632      	mov	r2, r6
- 80154a0:	f009 fdba 	bl	801f018 <__aeabi_dsub>
+ 80154a0:	f008 fdba 	bl	801e018 <__aeabi_dsub>
  80154a4:	e9cd 0110 	strd	r0, r1, [sp, #64]	; 0x40
  80154a8:	9f03      	ldr	r7, [sp, #12]
  80154aa:	e9dd 0104 	ldrd	r0, r1, [sp, #16]
- 80154ae:	f009 fff3 	bl	801f498 <__aeabi_d2iz>
+ 80154ae:	f008 fff3 	bl	801e498 <__aeabi_d2iz>
  80154b2:	4604      	mov	r4, r0
- 80154b4:	f009 fefe 	bl	801f2b4 <__aeabi_i2d>
+ 80154b4:	f008 fefe 	bl	801e2b4 <__aeabi_i2d>
  80154b8:	4602      	mov	r2, r0
  80154ba:	460b      	mov	r3, r1
  80154bc:	e9dd 0104 	ldrd	r0, r1, [sp, #16]
- 80154c0:	f009 fdaa 	bl	801f018 <__aeabi_dsub>
+ 80154c0:	f008 fdaa 	bl	801e018 <__aeabi_dsub>
  80154c4:	3430      	adds	r4, #48	; 0x30
  80154c6:	4602      	mov	r2, r0
  80154c8:	460b      	mov	r3, r1
  80154ca:	e9cd 2304 	strd	r2, r3, [sp, #16]
  80154ce:	f807 4b01 	strb.w	r4, [r7], #1
  80154d2:	e9dd 2310 	ldrd	r2, r3, [sp, #64]	; 0x40
- 80154d6:	f009 ffb7 	bl	801f448 <__aeabi_dcmplt>
+ 80154d6:	f008 ffb7 	bl	801e448 <__aeabi_dcmplt>
  80154da:	2800      	cmp	r0, #0
  80154dc:	d174      	bne.n	80155c8 <_dtoa_r+0x648>
  80154de:	e9dd 2304 	ldrd	r2, r3, [sp, #16]
  80154e2:	4912      	ldr	r1, [pc, #72]	; (801552c <_dtoa_r+0x5ac>)
  80154e4:	2000      	movs	r0, #0
- 80154e6:	f009 fd97 	bl	801f018 <__aeabi_dsub>
+ 80154e6:	f008 fd97 	bl	801e018 <__aeabi_dsub>
  80154ea:	e9dd 2310 	ldrd	r2, r3, [sp, #64]	; 0x40
- 80154ee:	f009 ffab 	bl	801f448 <__aeabi_dcmplt>
+ 80154ee:	f008 ffab 	bl	801e448 <__aeabi_dcmplt>
  80154f2:	2800      	cmp	r0, #0
  80154f4:	f040 80b7 	bne.w	8015666 <_dtoa_r+0x6e6>
  80154f8:	9b12      	ldr	r3, [sp, #72]	; 0x48
@@ -25244,13 +25244,13 @@ Disassembly of section .text:
  801554e:	9c03      	ldr	r4, [sp, #12]
  8015550:	9314      	str	r3, [sp, #80]	; 0x50
  8015552:	e9dd 0104 	ldrd	r0, r1, [sp, #16]
- 8015556:	f009 ff9f 	bl	801f498 <__aeabi_d2iz>
+ 8015556:	f008 ff9f 	bl	801e498 <__aeabi_d2iz>
  801555a:	9015      	str	r0, [sp, #84]	; 0x54
- 801555c:	f009 feaa 	bl	801f2b4 <__aeabi_i2d>
+ 801555c:	f008 feaa 	bl	801e2b4 <__aeabi_i2d>
  8015560:	4602      	mov	r2, r0
  8015562:	460b      	mov	r3, r1
  8015564:	e9dd 0104 	ldrd	r0, r1, [sp, #16]
- 8015568:	f009 fd56 	bl	801f018 <__aeabi_dsub>
+ 8015568:	f008 fd56 	bl	801e018 <__aeabi_dsub>
  801556c:	9b15      	ldr	r3, [sp, #84]	; 0x54
  801556e:	3330      	adds	r3, #48	; 0x30
  8015570:	f804 3b01 	strb.w	r3, [r4], #1
@@ -25262,23 +25262,23 @@ Disassembly of section .text:
  8015580:	d124      	bne.n	80155cc <_dtoa_r+0x64c>
  8015582:	4ba4      	ldr	r3, [pc, #656]	; (8015814 <_dtoa_r+0x894>)
  8015584:	e9dd 0110 	ldrd	r0, r1, [sp, #64]	; 0x40
- 8015588:	f009 fd48 	bl	801f01c <__adddf3>
+ 8015588:	f008 fd48 	bl	801e01c <__adddf3>
  801558c:	4602      	mov	r2, r0
  801558e:	460b      	mov	r3, r1
  8015590:	4630      	mov	r0, r6
  8015592:	4639      	mov	r1, r7
- 8015594:	f009 ff76 	bl	801f484 <__aeabi_dcmpgt>
+ 8015594:	f008 ff76 	bl	801e484 <__aeabi_dcmpgt>
  8015598:	2800      	cmp	r0, #0
  801559a:	d163      	bne.n	8015664 <_dtoa_r+0x6e4>
  801559c:	e9dd 2310 	ldrd	r2, r3, [sp, #64]	; 0x40
  80155a0:	499c      	ldr	r1, [pc, #624]	; (8015814 <_dtoa_r+0x894>)
  80155a2:	2000      	movs	r0, #0
- 80155a4:	f009 fd38 	bl	801f018 <__aeabi_dsub>
+ 80155a4:	f008 fd38 	bl	801e018 <__aeabi_dsub>
  80155a8:	4602      	mov	r2, r0
  80155aa:	460b      	mov	r3, r1
  80155ac:	4630      	mov	r0, r6
  80155ae:	4639      	mov	r1, r7
- 80155b0:	f009 ff4a 	bl	801f448 <__aeabi_dcmplt>
+ 80155b0:	f008 ff4a 	bl	801e448 <__aeabi_dcmplt>
  80155b4:	2800      	cmp	r0, #0
  80155b6:	f43f af1d 	beq.w	80153f4 <_dtoa_r+0x474>
  80155ba:	9f14      	ldr	r7, [sp, #80]	; 0x50
@@ -25299,9 +25299,9 @@ Disassembly of section .text:
  80155e2:	4640      	mov	r0, r8
  80155e4:	4649      	mov	r1, r9
  80155e6:	f7f0 ff5d 	bl	80064a4 <__aeabi_ddiv>
- 80155ea:	f009 ff55 	bl	801f498 <__aeabi_d2iz>
+ 80155ea:	f008 ff55 	bl	801e498 <__aeabi_d2iz>
  80155ee:	4604      	mov	r4, r0
- 80155f0:	f009 fe60 	bl	801f2b4 <__aeabi_i2d>
+ 80155f0:	f008 fe60 	bl	801e2b4 <__aeabi_i2d>
  80155f4:	e9dd 2306 	ldrd	r2, r3, [sp, #24]
  80155f8:	f7f0 fe2a 	bl	8006250 <__aeabi_dmul>
  80155fc:	f104 0630 	add.w	r6, r4, #48	; 0x30
@@ -25309,7 +25309,7 @@ Disassembly of section .text:
  8015602:	460b      	mov	r3, r1
  8015604:	4640      	mov	r0, r8
  8015606:	4649      	mov	r1, r9
- 8015608:	f009 fd06 	bl	801f018 <__aeabi_dsub>
+ 8015608:	f008 fd06 	bl	801e018 <__aeabi_dsub>
  801560c:	f807 6b01 	strb.w	r6, [r7], #1
  8015610:	9e03      	ldr	r6, [sp, #12]
  8015612:	f8dd c020 	ldr.w	ip, [sp, #32]
@@ -25318,16 +25318,16 @@ Disassembly of section .text:
  801561a:	4602      	mov	r2, r0
  801561c:	460b      	mov	r3, r1
  801561e:	d136      	bne.n	801568e <_dtoa_r+0x70e>
- 8015620:	f009 fcfc 	bl	801f01c <__adddf3>
+ 8015620:	f008 fcfc 	bl	801e01c <__adddf3>
  8015624:	e9dd 2306 	ldrd	r2, r3, [sp, #24]
  8015628:	4680      	mov	r8, r0
  801562a:	4689      	mov	r9, r1
- 801562c:	f009 ff2a 	bl	801f484 <__aeabi_dcmpgt>
+ 801562c:	f008 ff2a 	bl	801e484 <__aeabi_dcmpgt>
  8015630:	bb58      	cbnz	r0, 801568a <_dtoa_r+0x70a>
  8015632:	e9dd 2306 	ldrd	r2, r3, [sp, #24]
  8015636:	4640      	mov	r0, r8
  8015638:	4649      	mov	r1, r9
- 801563a:	f009 fefb 	bl	801f434 <__aeabi_dcmpeq>
+ 801563a:	f008 fefb 	bl	801e434 <__aeabi_dcmpeq>
  801563e:	b108      	cbz	r0, 8015644 <_dtoa_r+0x6c4>
  8015640:	07e1      	lsls	r1, r4, #31
  8015642:	d422      	bmi.n	801568a <_dtoa_r+0x70a>
@@ -25370,7 +25370,7 @@ Disassembly of section .text:
  8015698:	2300      	movs	r3, #0
  801569a:	4680      	mov	r8, r0
  801569c:	4689      	mov	r9, r1
- 801569e:	f009 fec9 	bl	801f434 <__aeabi_dcmpeq>
+ 801569e:	f008 fec9 	bl	801e434 <__aeabi_dcmpeq>
  80156a2:	2800      	cmp	r0, #0
  80156a4:	d09b      	beq.n	80155de <_dtoa_r+0x65e>
  80156a6:	e7cd      	b.n	8015644 <_dtoa_r+0x6c4>
