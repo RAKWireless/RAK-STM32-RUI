@@ -139,7 +139,7 @@ at_cmd_info atcmd_info_tbl[] =
 #endif
 #ifdef SUPPORT_BLE
     {ATCMD_BLEMAC,   /*94*/         At_BLEMac,             0, "get or set the BLE Mac address", AT_BLEMAC_PERM},
-#ifdef rak11720
+#if defined(rak11720) || defined(rak4630)
     {ATCMD_BLEDTM,   /*97*/         At_BLEDTM,             0, "BLE DTM", AT_BLEDTM_PERM},
 #endif
 #endif

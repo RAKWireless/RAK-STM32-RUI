@@ -389,7 +389,7 @@ static void McpsIndication(McpsIndication_t *mcpsIndication)
 #ifdef LORA_STACK_104
         if(((mcpsIndication->IsUplinkTxPending == true) && (service_lora_get_class() == SERVICE_LORA_CLASS_A)) || (mcpsIndication->McpsIndication == MCPS_CONFIRMED))
         {
-            //service_lora_send_null(SERVICE_LORA_MAC_CMD_DEVICE_TIME);
+            service_lora_send_null(SERVICE_LORA_MAC_CMD_NONE);
             IsUplinkTxPending = true;
         }
 #else

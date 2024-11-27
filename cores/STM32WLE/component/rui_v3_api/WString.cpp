@@ -156,8 +156,7 @@ String::String(double value, unsigned char decimalPlaces)
 
 String::~String()
 {
-	//if (buffer) free(buffer);
-    buffer = NULL;
+	if (buffer) free(buffer);
 }
 
 /*********************************************/

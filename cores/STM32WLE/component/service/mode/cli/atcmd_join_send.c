@@ -10,6 +10,7 @@
 #include "udrv_spimst.h"
 #include "udrv_gpio.h"
 
+static uint8_t data[CLI_BUFFER_SIZE];
 static void dump_hex2str(uint8_t *buf, uint8_t len)
 {
     for (uint8_t i = 0; i < len; i++)
@@ -411,7 +412,7 @@ int At_Send(SERIAL_PORT port, char *cmd, stParam *param)
     {
         SERVICE_LORA_SEND_INFO info;
         uint32_t digit;
-        uint8_t buff[4], port, data[CLI_BUFFER_SIZE];
+        uint8_t buff[4], port;
         char hex_num[3] = {0};
 
         digit = strlen(param->argv[0]);

@@ -9,6 +9,11 @@ void RAKBleScanner::start(uint16_t timeout_sec)
     udrv_ble_scan_start(timeout_sec);
 }
 
+void RAKBleScanner::stop()
+{
+    udrv_ble_scan_stop();
+}
+
 bool RAKBleScanner::setInterval(uint16_t scan_interval, uint16_t scan_window)
 {
     if (udrv_ble_set_scan_interval_window(scan_interval, scan_window) == 0)

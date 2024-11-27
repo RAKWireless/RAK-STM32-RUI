@@ -66,7 +66,9 @@ void sendCallback(int32_t status)
 {
 	gnss_active = false;
 	MYLOG("TX-CB", "TX status %d", status);
+#ifndef _VARIANT_RAK3172_SIP_
 	digitalWrite(LED_BLUE, LOW);
+#endif
 }
 
 /**
@@ -89,7 +91,9 @@ void joinCallback(int32_t status)
 		MYLOG("JOIN-CB", "Set the data rate  %s", api.lorawan.dr.set(g_lorawan_settings.data_rate) ? "Success" : "Fail");
 		MYLOG("JOIN-CB", "Disable ADR  %s", api.lorawan.adr.set(g_lorawan_settings.adr_enabled ? 1 : 0) ? "Success" : "Fail");
 		Serial.println("+EVT:JOINED");
+#ifndef _VARIANT_RAK3172_SIP_
 		digitalWrite(LED_BLUE, LOW);
+#endif
 	}
 }
 
@@ -139,10 +143,12 @@ void gnss_handler(void *)
  */
 void setup()
 {
+#ifndef _VARIANT_RAK3172_SIP_
 	pinMode(LED_GREEN, OUTPUT);
 	digitalWrite(LED_GREEN, HIGH);
 	pinMode(LED_BLUE, OUTPUT);
 	digitalWrite(LED_BLUE, HIGH);
+#endif
 
 	pinMode(WB_IO2, OUTPUT);
 	digitalWrite(WB_IO2, HIGH);
@@ -316,7 +322,9 @@ RAK_REGION_AS923-4	11
 		MYLOG("SETUP", "LoRaWan OTAA - join fail! \r\n");
 		return;
 	}
+#ifndef _VARIANT_RAK3172_SIP_
 	digitalWrite(LED_GREEN, LOW);
+#endif
 
 	// Setup the callbacks for joined and send finished
 	api.lorawan.registerRecvCallback(receiveCallback);
@@ -347,7 +355,9 @@ RAK_REGION_AS923-4	11
 
 	// Show found modules
 	announce_modules();
+#ifndef _VARIANT_RAK3172_SIP_
 	digitalWrite(LED_BLUE, LOW);
+#endif
 }
 
 /**
@@ -359,7 +369,9 @@ RAK_REGION_AS923-4	11
 void sensor_handler(void *)
 {
 	// MYLOG("SENS", "Start");
+#ifndef _VARIANT_RAK3172_SIP_
 	digitalWrite(LED_BLUE, HIGH);
+#endif
 
 	// Check if the node has joined the network
 	if (!api.lorawan.njs.get())

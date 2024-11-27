@@ -516,6 +516,10 @@ int At_BLEDTM (SERIAL_PORT port, char *cmd, stParam *param)
                     memset(serial_buf,'\0',sizeof(serial_buf));
                 }
             }
+#ifdef rak4630
+            if(uhal_ble_dtm_is_inited() == 1)
+                dtm_wait();
+#endif
         }
         service_mode_cli_init(DEFAULT_SERIAL_CONSOLE);
         return AT_OK;
@@ -530,7 +534,7 @@ int At_BLEDTM (SERIAL_PORT port, char *cmd, stParam *param)
         uint32_t hci_recv_bytes;
 
         sscanf(param->argv[1],"%d",&power);
-#ifdef rak11720
+#if defined(rak11720) || defined(rak4630)
         uhal_ble_set_dtm_txpower(power);
 #else
         uhal_ble_set_txpower(power);

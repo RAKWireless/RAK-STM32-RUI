@@ -80,10 +80,10 @@ void setup()
     delay(2000);
     startTime = millis();
     
-    if(api.lora.mode.get() != 0)
+    if(api.lora.nwm.get() != 0)
     {
         Serial.printf("Set Node device work mode %s\r\n",
-            api.lora.mode.set() ? "Success" : "Fail");
+            api.lora.nwm.set() ? "Success" : "Fail");
         api.system.reboot();
     }
 

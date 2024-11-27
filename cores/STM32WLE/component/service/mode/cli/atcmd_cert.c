@@ -441,6 +441,24 @@ int At_Cw(SERIAL_PORT port, char *cmd, stParam *param)
             LORA_TEST_DEBUG();
             return AT_PARAM_ERROR;
         }
+#ifdef rak3172
+        if(BoardGetHardwareFreq())
+        {
+            if(Param.frequency > 960000000 || Param.frequency < 600000000)
+                return AT_PARAM_ERROR;
+        }
+        else
+        {
+            if(Param.frequency > 600000000 || Param.frequency < 150000000)
+                return AT_PARAM_ERROR;
+        }
+#endif
+
+        if(Param.txpower > 22 || Param.txpower < 5)
+            return AT_PARAM_ERROR;
+
+        if(Param.txTimeout > 65535)
+            return AT_PARAM_ERROR;
 
         if ((ret = service_lora_set_cw(&Param)) == UDRV_RETURN_OK)
         {
