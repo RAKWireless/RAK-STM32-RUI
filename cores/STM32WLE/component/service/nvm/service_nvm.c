@@ -382,3 +382,13 @@ void service_nvm_data_add_to_legacy(PRE_rui_cfg_t *rui_cfg_cur)
 #endif
 }
 
+#ifdef SUPPORT_LORA
+#ifdef LORA_STACK_104
+void service_lora_mac_nvm_data_reset(void)
+{
+    memset(&g_lora_mac_nvm_data,0,sizeof(lora_mac_nvm_data_t));
+    return UDRV_RETURN_OK;
+}
+#endif
+#endif
+

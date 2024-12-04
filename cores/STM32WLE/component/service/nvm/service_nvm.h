@@ -424,6 +424,8 @@ uint32_t service_nvm_get_rx2fq_from_nvm(void);
 #ifdef LORA_STACK_104
 void service_lora_mac_nvm_data_init(void);
 
+void service_lora_mac_nvm_data_reset(void);
+
 int32_t service_nvm_set_lora_nvm_data_to_nvm(void);
 
 int32_t service_nvm_set_DevNonce_to_nvm(uint16_t devnonce);

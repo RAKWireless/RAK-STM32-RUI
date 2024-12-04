@@ -2200,6 +2200,7 @@ int32_t service_lora_set_njm(SERVICE_LORA_JOIN_MODE njm, bool commit)
     SERVICE_LORA_BAND band = service_lora_get_band();
     if (service_lora_region_isActive(band) == false)
         return -UDRV_UNSUPPORTED_BAND;
+
     MibRequestConfirm_t mibReq;
     uint8_t buff[16];
     int32_t ret;
@@ -2314,6 +2315,12 @@ int32_t service_lora_set_njm(SERVICE_LORA_JOIN_MODE njm, bool commit)
 
     if (commit)
     {
+        if (service_nvm_get_njm_from_nvm() != njm)
+        {
+            service_lora_mac_nvm_data_reset();
+            service_nvm_set_lora_nvm_data_to_nvm();
+            restore_abp_config();
+        }
         return service_nvm_set_njm_to_nvm(njm);
     }
     else
