@@ -17,6 +17,12 @@ int32_t service_nvm_set_lora_nvm_data_to_nvm()
 {
     return udrv_flash_write(MCU_CERT_CONFIG_NVM_ADDR, sizeof(lora_mac_nvm_data_t), (uint8_t *)&g_lora_mac_nvm_data);
 }
+
+void service_lora_mac_nvm_data_reset(void)
+{
+    memset(&g_lora_mac_nvm_data,0,sizeof(lora_mac_nvm_data_t));
+    return UDRV_RETURN_OK;
+}
 #endif
 #endif
 /***********************************************************/

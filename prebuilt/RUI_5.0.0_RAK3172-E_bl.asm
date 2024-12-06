@@ -130,20 +130,20 @@ Disassembly of section .text:
  800024a:	2203      	movs	r2, #3
  800024c:	494e      	ldr	r1, [pc, #312]	; (8000388 <at_process+0x1b8>)
  800024e:	a802      	add	r0, sp, #8
- 8000250:	f03b f928 	bl	803b4a4 <memcmp>
+ 8000250:	f03b f942 	bl	803b4d8 <memcmp>
  8000254:	2800      	cmp	r0, #0
  8000256:	d0d0      	beq.n	80001fa <at_process+0x2a>
  8000258:	2203      	movs	r2, #3
  800025a:	494c      	ldr	r1, [pc, #304]	; (800038c <at_process+0x1bc>)
  800025c:	a802      	add	r0, sp, #8
- 800025e:	f03b f921 	bl	803b4a4 <memcmp>
+ 800025e:	f03b f93b 	bl	803b4d8 <memcmp>
  8000262:	b908      	cbnz	r0, 8000268 <at_process+0x98>
  8000264:	2501      	movs	r5, #1
  8000266:	e7c9      	b.n	80001fc <at_process+0x2c>
  8000268:	2400      	movs	r4, #0
  800026a:	e7c7      	b.n	80001fc <at_process+0x2c>
- 800026c:	f02f fd64 	bl	802fd38 <LoRaMacProcess>
- 8000270:	f01f ff92 	bl	8020198 <LmHandlerPackagesProcess>
+ 800026c:	f02f fd7e 	bl	802fd6c <LoRaMacProcess>
+ 8000270:	f01f ffa4 	bl	80201bc <LmHandlerPackagesProcess>
  8000274:	e7c9      	b.n	800020a <at_process+0x3a>
  8000276:	3c01      	subs	r4, #1
  8000278:	ab12      	add	r3, sp, #72	; 0x48
@@ -199,7 +199,7 @@ Disassembly of section .text:
  80002f4:	f002 faac 	bl	8002850 <strcasecmp>
  80002f8:	2800      	cmp	r0, #0
  80002fa:	d134      	bne.n	8000366 <at_process+0x196>
- 80002fc:	f01f fb04 	bl	801f908 <service_lora_fuota_join>
+ 80002fc:	f01f fb16 	bl	801f92c <service_lora_fuota_join>
  8000300:	e7d4      	b.n	80002ac <at_process+0xdc>
  8000302:	4b2e      	ldr	r3, [pc, #184]	; (80003bc <at_process+0x1ec>)
  8000304:	2201      	movs	r2, #1
@@ -302,7 +302,7 @@ Disassembly of section .text:
  800041a:	9405      	str	r4, [sp, #20]
  800041c:	9406      	str	r4, [sp, #24]
  800041e:	9407      	str	r4, [sp, #28]
- 8000420:	f027 ffee 	bl	8028400 <HAL_PWR_EnableBkUpAccess>
+ 8000420:	f028 f808 	bl	8028434 <HAL_PWR_EnableBkUpAccess>
  8000424:	f04f 42b0 	mov.w	r2, #1476395008	; 0x58000000
  8000428:	f8d2 3090 	ldr.w	r3, [r2, #144]	; 0x90
  800042c:	f023 0318 	bic.w	r3, r3, #24
@@ -333,7 +333,7 @@ Disassembly of section .text:
  800046c:	940f      	str	r4, [sp, #60]	; 0x3c
  800046e:	930e      	str	r3, [sp, #56]	; 0x38
  8000470:	a808      	add	r0, sp, #32
- 8000472:	f025 fc77 	bl	8025d64 <HAL_RCC_OscConfig>
+ 8000472:	f025 fc91 	bl	8025d98 <HAL_RCC_OscConfig>
  8000476:	b970      	cbnz	r0, 8000496 <SystemClock_Config+0x92>
  8000478:	234f      	movs	r3, #79	; 0x4f
  800047a:	9302      	str	r3, [sp, #8]
@@ -345,12 +345,12 @@ Disassembly of section .text:
  8000486:	9307      	str	r3, [sp, #28]
  8000488:	2102      	movs	r1, #2
  800048a:	a802      	add	r0, sp, #8
- 800048c:	f025 ff0c 	bl	80262a8 <HAL_RCC_ClockConfig>
+ 800048c:	f025 ff26 	bl	80262dc <HAL_RCC_ClockConfig>
  8000490:	b918      	cbnz	r0, 800049a <SystemClock_Config+0x96>
  8000492:	b01a      	add	sp, #104	; 0x68
  8000494:	bd10      	pop	{r4, pc}
- 8000496:	f021 f8d1 	bl	802163c <Error_Handler>
- 800049a:	f021 f8cf 	bl	802163c <Error_Handler>
+ 8000496:	f021 f8e3 	bl	8021660 <Error_Handler>
+ 800049a:	f021 f8e1 	bl	8021660 <Error_Handler>
 	...
 
 080004a0 <main>:
@@ -386,7 +386,7 @@ Disassembly of section .text:
  80004e8:	f7ff ff7c 	bl	80003e4 <IAP_Task>
  80004ec:	e7fc      	b.n	80004e8 <main+0x48>
  80004ee:	f000 fdc9 	bl	8001084 <bootloader_fuota_stack_init>
- 80004f2:	f025 f96b 	bl	80257cc <HAL_Init>
+ 80004f2:	f025 f985 	bl	8025800 <HAL_Init>
  80004f6:	f7ff ff85 	bl	8000404 <SystemClock_Config>
  80004fa:	e7e1      	b.n	80004c0 <main+0x20>
  80004fc:	4b11      	ldr	r3, [pc, #68]	; (8000544 <main+0xa4>)
@@ -565,7 +565,7 @@ Disassembly of section .text:
  800069e:	9301      	str	r3, [sp, #4]
  80006a0:	f44f 7100 	mov.w	r1, #512	; 0x200
  80006a4:	a802      	add	r0, sp, #8
- 80006a6:	f024 fd3d 	bl	8025124 <tiny_vsnprintf_like>
+ 80006a6:	f024 fd57 	bl	8025158 <tiny_vsnprintf_like>
  80006aa:	a802      	add	r0, sp, #8
  80006ac:	f01d fca8 	bl	801e000 <strlen>
  80006b0:	2364      	movs	r3, #100	; 0x64
@@ -590,7 +590,7 @@ Disassembly of section .text:
  80006d8:	4604      	mov	r4, r0
  80006da:	2300      	movs	r3, #0
  80006dc:	9303      	str	r3, [sp, #12]
- 80006de:	f028 fa69 	bl	8028bb4 <HAL_FLASH_Unlock>
+ 80006de:	f028 fa83 	bl	8028be8 <HAL_FLASH_Unlock>
  80006e2:	4b0e      	ldr	r3, [pc, #56]	; (800071c <FLASH_If_Erase+0x48>)
  80006e4:	f44f 4200 	mov.w	r2, #32768	; 0x8000
  80006e8:	611a      	str	r2, [r3, #16]
@@ -605,10 +605,10 @@ Disassembly of section .text:
  8000700:	9302      	str	r3, [sp, #8]
  8000702:	a903      	add	r1, sp, #12
  8000704:	4668      	mov	r0, sp
- 8000706:	f028 fc69 	bl	8028fdc <HAL_FLASHEx_Erase>
+ 8000706:	f028 fc83 	bl	8029010 <HAL_FLASHEx_Erase>
  800070a:	b928      	cbnz	r0, 8000718 <FLASH_If_Erase+0x44>
  800070c:	2400      	movs	r4, #0
- 800070e:	f028 fa63 	bl	8028bd8 <HAL_FLASH_Lock>
+ 800070e:	f028 fa7d 	bl	8028c0c <HAL_FLASH_Lock>
  8000712:	4620      	mov	r0, r4
  8000714:	b004      	add	sp, #16
  8000716:	bd10      	pop	{r4, pc}
@@ -622,7 +622,7 @@ Disassembly of section .text:
  8000724:	4605      	mov	r5, r0
  8000726:	460c      	mov	r4, r1
  8000728:	4617      	mov	r7, r2
- 800072a:	f028 fa43 	bl	8028bb4 <HAL_FLASH_Unlock>
+ 800072a:	f028 fa5d 	bl	8028be8 <HAL_FLASH_Unlock>
  800072e:	2600      	movs	r6, #0
  8000730:	e002      	b.n	8000738 <FLASH_If_Write+0x18>
  8000732:	3508      	adds	r5, #8
@@ -637,7 +637,7 @@ Disassembly of section .text:
  8000744:	e9dd 2300 	ldrd	r2, r3, [sp]
  8000748:	4629      	mov	r1, r5
  800074a:	2001      	movs	r0, #1
- 800074c:	f028 fab0 	bl	8028cb0 <HAL_FLASH_Program>
+ 800074c:	f028 faca 	bl	8028ce4 <HAL_FLASH_Program>
  8000750:	2800      	cmp	r0, #0
  8000752:	d1f0      	bne.n	8000736 <FLASH_If_Write+0x16>
  8000754:	6828      	ldr	r0, [r5, #0]
@@ -651,7 +651,7 @@ Disassembly of section .text:
  8000764:	2403      	movs	r4, #3
  8000766:	e000      	b.n	800076a <FLASH_If_Write+0x4a>
  8000768:	2400      	movs	r4, #0
- 800076a:	f028 fa35 	bl	8028bd8 <HAL_FLASH_Lock>
+ 800076a:	f028 fa4f 	bl	8028c0c <HAL_FLASH_Lock>
  800076e:	4620      	mov	r0, r4
  8000770:	b003      	add	sp, #12
  8000772:	bdf0      	pop	{r4, r5, r6, r7, pc}
@@ -660,7 +660,7 @@ Disassembly of section .text:
  8000774:	b508      	push	{r3, lr}
  8000776:	4803      	ldr	r0, [pc, #12]	; (8000784 <PreJump+0x10>)
  8000778:	f000 fe9d 	bl	80014b6 <HAL_UART_DeInit>
- 800077c:	f024 ffda 	bl	8025734 <HAL_DeInit>
+ 800077c:	f024 fff4 	bl	8025768 <HAL_DeInit>
  8000780:	bd08      	pop	{r3, pc}
  8000782:	bf00      	nop
  8000784:	200060d4 	.word	0x200060d4
@@ -691,7 +691,7 @@ Disassembly of section .text:
  80007b8:	4e13      	ldr	r6, [pc, #76]	; (8000808 <HAL_FLASH_Program_Flag+0x5c>)
  80007ba:	e9d6 2300 	ldrd	r2, r3, [r6]
  80007be:	e9cd 2304 	strd	r2, r3, [sp, #16]
- 80007c2:	f028 f9f7 	bl	8028bb4 <HAL_FLASH_Unlock>
+ 80007c2:	f028 fa11 	bl	8028be8 <HAL_FLASH_Unlock>
  80007c6:	4b11      	ldr	r3, [pc, #68]	; (800080c <HAL_FLASH_Program_Flag+0x60>)
  80007c8:	f44f 4200 	mov.w	r2, #32768	; 0x8000
  80007cc:	611a      	str	r2, [r3, #16]
@@ -704,7 +704,7 @@ Disassembly of section .text:
  80007dc:	9303      	str	r3, [sp, #12]
  80007de:	a907      	add	r1, sp, #28
  80007e0:	a801      	add	r0, sp, #4
- 80007e2:	f028 fbfb 	bl	8028fdc <HAL_FLASHEx_Erase>
+ 80007e2:	f028 fc15 	bl	8029010 <HAL_FLASHEx_Erase>
  80007e6:	b950      	cbnz	r0, 80007fe <HAL_FLASH_Program_Flag+0x52>
  80007e8:	42b4      	cmp	r4, r6
  80007ea:	d00a      	beq.n	8000802 <HAL_FLASH_Program_Flag+0x56>
@@ -712,8 +712,8 @@ Disassembly of section .text:
  80007ee:	e9dd 2304 	ldrd	r2, r3, [sp, #16]
  80007f2:	4905      	ldr	r1, [pc, #20]	; (8000808 <HAL_FLASH_Program_Flag+0x5c>)
  80007f4:	2001      	movs	r0, #1
- 80007f6:	f028 fa5b 	bl	8028cb0 <HAL_FLASH_Program>
- 80007fa:	f028 f9ed 	bl	8028bd8 <HAL_FLASH_Lock>
+ 80007f6:	f028 fa75 	bl	8028ce4 <HAL_FLASH_Program>
+ 80007fa:	f028 fa07 	bl	8028c0c <HAL_FLASH_Lock>
  80007fe:	b008      	add	sp, #32
  8000800:	bd70      	pop	{r4, r5, r6, pc}
  8000802:	9504      	str	r5, [sp, #16]
@@ -856,8 +856,8 @@ Disassembly of section .text:
 
 0800093a <SysTick_Handler>:
  800093a:	b508      	push	{r3, lr}
- 800093c:	f024 ff5c 	bl	80257f8 <HAL_IncTick>
- 8000940:	f024 ff66 	bl	8025810 <HAL_GetTick>
+ 800093c:	f024 ff76 	bl	802582c <HAL_IncTick>
+ 8000940:	f024 ff80 	bl	8025844 <HAL_GetTick>
  8000944:	f000 fa78 	bl	8000e38 <upgrade_process_callback>
  8000948:	bd08      	pop	{r3, pc}
 	...
@@ -865,7 +865,7 @@ Disassembly of section .text:
 0800094c <RTC_Alarm_IRQHandler>:
  800094c:	b508      	push	{r3, lr}
  800094e:	4802      	ldr	r0, [pc, #8]	; (8000958 <RTC_Alarm_IRQHandler+0xc>)
- 8000950:	f026 fb48 	bl	8026fe4 <HAL_RTC_AlarmIRQHandler>
+ 8000950:	f026 fb62 	bl	8027018 <HAL_RTC_AlarmIRQHandler>
  8000954:	bd08      	pop	{r3, pc}
  8000956:	bf00      	nop
  8000958:	200044d8 	.word	0x200044d8
@@ -873,7 +873,7 @@ Disassembly of section .text:
 0800095c <SUBGHZ_Radio_IRQHandler>:
  800095c:	b508      	push	{r3, lr}
  800095e:	4802      	ldr	r0, [pc, #8]	; (8000968 <SUBGHZ_Radio_IRQHandler+0xc>)
- 8000960:	f028 fe25 	bl	80295ae <HAL_SUBGHZ_IRQHandler>
+ 8000960:	f028 fe3f 	bl	80295e2 <HAL_SUBGHZ_IRQHandler>
  8000964:	bd08      	pop	{r3, pc}
  8000966:	bf00      	nop
  8000968:	200002d0 	.word	0x200002d0
@@ -881,7 +881,7 @@ Disassembly of section .text:
 0800096c <TAMP_STAMP_LSECSS_SSRU_IRQHandler>:
  800096c:	b508      	push	{r3, lr}
  800096e:	4802      	ldr	r0, [pc, #8]	; (8000978 <TAMP_STAMP_LSECSS_SSRU_IRQHandler+0xc>)
- 8000970:	f027 fb72 	bl	8028058 <HAL_RTCEx_SSRUIRQHandler>
+ 8000970:	f027 fb8c 	bl	802808c <HAL_RTCEx_SSRUIRQHandler>
  8000974:	bd08      	pop	{r3, pc}
  8000976:	bf00      	nop
  8000978:	200044d8 	.word	0x200044d8
@@ -926,13 +926,13 @@ Disassembly of section .text:
  80009cc:	f001 fead 	bl	800272a <HAL_UARTEx_DisableFifoMode>
  80009d0:	b948      	cbnz	r0, 80009e6 <MX_USART2_UART_Init+0x5a>
  80009d2:	bd08      	pop	{r3, pc}
- 80009d4:	f020 fe32 	bl	802163c <Error_Handler>
+ 80009d4:	f020 fe44 	bl	8021660 <Error_Handler>
  80009d8:	e7ed      	b.n	80009b6 <MX_USART2_UART_Init+0x2a>
- 80009da:	f020 fe2f 	bl	802163c <Error_Handler>
+ 80009da:	f020 fe41 	bl	8021660 <Error_Handler>
  80009de:	e7ef      	b.n	80009c0 <MX_USART2_UART_Init+0x34>
- 80009e0:	f020 fe2c 	bl	802163c <Error_Handler>
+ 80009e0:	f020 fe3e 	bl	8021660 <Error_Handler>
  80009e4:	e7f1      	b.n	80009ca <MX_USART2_UART_Init+0x3e>
- 80009e6:	f020 fe29 	bl	802163c <Error_Handler>
+ 80009e6:	f020 fe3b 	bl	8021660 <Error_Handler>
  80009ea:	e7f2      	b.n	80009d2 <MX_USART2_UART_Init+0x46>
  80009ec:	200060d4 	.word	0x200060d4
  80009f0:	40004400 	.word	0x40004400
@@ -982,7 +982,7 @@ Disassembly of section .text:
  8000a4e:	f44f 2340 	mov.w	r3, #786432	; 0xc0000
  8000a52:	9305      	str	r3, [sp, #20]
  8000a54:	a803      	add	r0, sp, #12
- 8000a56:	f025 fe6f 	bl	8026738 <HAL_RCCEx_PeriphCLKConfig>
+ 8000a56:	f025 fe89 	bl	802676c <HAL_RCCEx_PeriphCLKConfig>
  8000a5a:	bb58      	cbnz	r0, 8000ab4 <HAL_UART_MspInit+0x90>
  8000a5c:	f04f 43b0 	mov.w	r3, #1476395008	; 0x58000000
  8000a60:	6d9a      	ldr	r2, [r3, #88]	; 0x58
@@ -1011,15 +1011,15 @@ Disassembly of section .text:
  8000a96:	9315      	str	r3, [sp, #84]	; 0x54
  8000a98:	a911      	add	r1, sp, #68	; 0x44
  8000a9a:	f04f 4090 	mov.w	r0, #1207959552	; 0x48000000
- 8000a9e:	f028 fe39 	bl	8029714 <HAL_GPIO_Init>
+ 8000a9e:	f028 fe53 	bl	8029748 <HAL_GPIO_Init>
  8000aa2:	4622      	mov	r2, r4
  8000aa4:	4621      	mov	r1, r4
  8000aa6:	2025      	movs	r0, #37	; 0x25
- 8000aa8:	f022 f996 	bl	8022dd8 <HAL_NVIC_SetPriority>
+ 8000aa8:	f022 f9b0 	bl	8022e0c <HAL_NVIC_SetPriority>
  8000aac:	2025      	movs	r0, #37	; 0x25
- 8000aae:	f022 f9c5 	bl	8022e3c <HAL_NVIC_EnableIRQ>
+ 8000aae:	f022 f9df 	bl	8022e70 <HAL_NVIC_EnableIRQ>
  8000ab2:	e7c8      	b.n	8000a46 <HAL_UART_MspInit+0x22>
- 8000ab4:	f020 fdc2 	bl	802163c <Error_Handler>
+ 8000ab4:	f020 fdd4 	bl	8021660 <Error_Handler>
  8000ab8:	e7d0      	b.n	8000a5c <HAL_UART_MspInit+0x38>
  8000aba:	bf00      	nop
  8000abc:	40004400 	.word	0x40004400
@@ -1037,9 +1037,9 @@ Disassembly of section .text:
  8000ad6:	6593      	str	r3, [r2, #88]	; 0x58
  8000ad8:	210c      	movs	r1, #12
  8000ada:	f04f 4090 	mov.w	r0, #1207959552	; 0x48000000
- 8000ade:	f028 fecb 	bl	8029878 <HAL_GPIO_DeInit>
+ 8000ade:	f028 fee5 	bl	80298ac <HAL_GPIO_DeInit>
  8000ae2:	2025      	movs	r0, #37	; 0x25
- 8000ae4:	f022 f9b8 	bl	8022e58 <HAL_NVIC_DisableIRQ>
+ 8000ae4:	f022 f9d2 	bl	8022e8c <HAL_NVIC_DisableIRQ>
  8000ae8:	e7ef      	b.n	8000aca <HAL_UART_MspDeInit+0xa>
  8000aea:	bf00      	nop
  8000aec:	40004400 	.word	0x40004400
@@ -1576,7 +1576,7 @@ Disassembly of section .text:
  8000fae:	4619      	mov	r1, r3
  8000fb0:	f100 6000 	add.w	r0, r0, #134217728	; 0x8000000
  8000fb4:	f500 40c0 	add.w	r0, r0, #24576	; 0x6000
- 8000fb8:	f020 f9f6 	bl	80213a8 <udrv_flash_read>
+ 8000fb8:	f020 fa08 	bl	80213cc <udrv_flash_read>
  8000fbc:	2000      	movs	r0, #0
  8000fbe:	bd08      	pop	{r3, pc}
 
@@ -1587,7 +1587,7 @@ Disassembly of section .text:
  8000fc6:	4619      	mov	r1, r3
  8000fc8:	f100 6000 	add.w	r0, r0, #134217728	; 0x8000000
  8000fcc:	f500 40c0 	add.w	r0, r0, #24576	; 0x6000
- 8000fd0:	f020 fa94 	bl	80214fc <udrv_flash_write>
+ 8000fd0:	f020 faa6 	bl	8021520 <udrv_flash_write>
  8000fd4:	2000      	movs	r0, #0
  8000fd6:	bd08      	pop	{r3, pc}
 
@@ -1595,7 +1595,7 @@ Disassembly of section .text:
  8000fd8:	b538      	push	{r3, r4, r5, lr}
  8000fda:	4604      	mov	r4, r0
  8000fdc:	4814      	ldr	r0, [pc, #80]	; (8001030 <MlmeConfirm_fuota+0x58>)
- 8000fde:	f023 ff33 	bl	8024e48 <UTIL_TIMER_IsRunning>
+ 8000fde:	f023 ff4d 	bl	8024e7c <UTIL_TIMER_IsRunning>
  8000fe2:	b938      	cbnz	r0, 8000ff4 <MlmeConfirm_fuota+0x1c>
  8000fe4:	7823      	ldrb	r3, [r4, #0]
  8000fe6:	2b01      	cmp	r3, #1
@@ -1606,12 +1606,12 @@ Disassembly of section .text:
  8000ff2:	bd38      	pop	{r3, r4, r5, pc}
  8000ff4:	4d0e      	ldr	r5, [pc, #56]	; (8001030 <MlmeConfirm_fuota+0x58>)
  8000ff6:	4628      	mov	r0, r5
- 8000ff8:	f023 ff96 	bl	8024f28 <UTIL_TIMER_Stop>
+ 8000ff8:	f023 ffb0 	bl	8024f5c <UTIL_TIMER_Stop>
  8000ffc:	f644 6120 	movw	r1, #20000	; 0x4e20
  8001000:	4628      	mov	r0, r5
- 8001002:	f024 f833 	bl	802506c <UTIL_TIMER_SetPeriod>
+ 8001002:	f024 f84d 	bl	80250a0 <UTIL_TIMER_SetPeriod>
  8001006:	4628      	mov	r0, r5
- 8001008:	f023 ffde 	bl	8024fc8 <UTIL_TIMER_Start>
+ 8001008:	f023 fff8 	bl	8024ffc <UTIL_TIMER_Start>
  800100c:	e7ea      	b.n	8000fe4 <MlmeConfirm_fuota+0xc>
  800100e:	7863      	ldrb	r3, [r4, #1]
  8001010:	b933      	cbnz	r3, 8001020 <MlmeConfirm_fuota+0x48>
@@ -1637,7 +1637,7 @@ Disassembly of section .text:
  8001040:	b538      	push	{r3, r4, r5, lr}
  8001042:	4604      	mov	r4, r0
  8001044:	480d      	ldr	r0, [pc, #52]	; (800107c <McpsIndication_fuota+0x3c>)
- 8001046:	f023 feff 	bl	8024e48 <UTIL_TIMER_IsRunning>
+ 8001046:	f023 ff19 	bl	8024e7c <UTIL_TIMER_IsRunning>
  800104a:	b950      	cbnz	r0, 8001062 <McpsIndication_fuota+0x22>
  800104c:	7f23      	ldrb	r3, [r4, #28]
  800104e:	b11b      	cbz	r3, 8001058 <McpsIndication_fuota+0x18>
@@ -1651,12 +1651,12 @@ Disassembly of section .text:
  8001060:	bd38      	pop	{r3, r4, r5, pc}
  8001062:	4d06      	ldr	r5, [pc, #24]	; (800107c <McpsIndication_fuota+0x3c>)
  8001064:	4628      	mov	r0, r5
- 8001066:	f023 ff5f 	bl	8024f28 <UTIL_TIMER_Stop>
+ 8001066:	f023 ff79 	bl	8024f5c <UTIL_TIMER_Stop>
  800106a:	f644 6120 	movw	r1, #20000	; 0x4e20
  800106e:	4628      	mov	r0, r5
- 8001070:	f023 fffc 	bl	802506c <UTIL_TIMER_SetPeriod>
+ 8001070:	f024 f816 	bl	80250a0 <UTIL_TIMER_SetPeriod>
  8001074:	4628      	mov	r0, r5
- 8001076:	f023 ffa7 	bl	8024fc8 <UTIL_TIMER_Start>
+ 8001076:	f023 ffc1 	bl	8024ffc <UTIL_TIMER_Start>
  800107a:	e7e7      	b.n	800104c <McpsIndication_fuota+0xc>
  800107c:	20006678 	.word	0x20006678
  8001080:	20006000 	.word	0x20006000
@@ -1667,7 +1667,7 @@ Disassembly of section .text:
  8001088:	4a06      	ldr	r2, [pc, #24]	; (80010a4 <bootloader_fuota_stack_init+0x20>)
  800108a:	1a12      	subs	r2, r2, r0
  800108c:	4906      	ldr	r1, [pc, #24]	; (80010a8 <bootloader_fuota_stack_init+0x24>)
- 800108e:	f03a fa19 	bl	803b4c4 <memcpy>
+ 800108e:	f03a fa33 	bl	803b4f8 <memcpy>
  8001092:	4806      	ldr	r0, [pc, #24]	; (80010ac <bootloader_fuota_stack_init+0x28>)
  8001094:	4a06      	ldr	r2, [pc, #24]	; (80010b0 <bootloader_fuota_stack_init+0x2c>)
  8001096:	1a12      	subs	r2, r2, r0
@@ -1676,7 +1676,7 @@ Disassembly of section .text:
  800109e:	bd08      	pop	{r3, pc}
  80010a0:	20000000 	.word	0x20000000
  80010a4:	200002d0 	.word	0x200002d0
- 80010a8:	0803bfc8 	.word	0x0803bfc8
+ 80010a8:	0803c000 	.word	0x0803c000
  80010ac:	200002d0 	.word	0x200002d0
  80010b0:	20005e98 	.word	0x20005e98
 
@@ -1717,30 +1717,30 @@ Disassembly of section .text:
  8001104:	08000e99 	.word	0x08000e99
  8001108:	08000e9b 	.word	0x08000e9b
  800110c:	08000e9d 	.word	0x08000e9d
- 8001110:	0801fffd 	.word	0x0801fffd
+ 8001110:	08020021 	.word	0x08020021
  8001114:	2000656c 	.word	0x2000656c
  8001118:	20006038 	.word	0x20006038
 
 0800111c <fuota_LmHandlerRegister>:
  800111c:	b510      	push	{r4, lr}
- 800111e:	f01f f987 	bl	8020430 <LmphClockSyncPackageFactory>
+ 800111e:	f01f f999 	bl	8020454 <LmphClockSyncPackageFactory>
  8001122:	4604      	mov	r4, r0
  8001124:	2001      	movs	r0, #1
- 8001126:	f01f f87d 	bl	8020224 <LmHandlerFuotaStackPackageRegister>
+ 8001126:	f01f f88f 	bl	8020248 <LmHandlerFuotaStackPackageRegister>
  800112a:	4621      	mov	r1, r4
  800112c:	2001      	movs	r0, #1
  800112e:	f7ff ffc1 	bl	80010b4 <fuota_LmHandlerPackageRegister>
- 8001132:	f01f fc25 	bl	8020980 <LmhpRemoteMcastSetupPackageFactory>
+ 8001132:	f01f fc37 	bl	80209a4 <LmhpRemoteMcastSetupPackageFactory>
  8001136:	4604      	mov	r4, r0
  8001138:	2002      	movs	r0, #2
- 800113a:	f01f f873 	bl	8020224 <LmHandlerFuotaStackPackageRegister>
+ 800113a:	f01f f885 	bl	8020248 <LmHandlerFuotaStackPackageRegister>
  800113e:	4621      	mov	r1, r4
  8001140:	2002      	movs	r0, #2
  8001142:	f7ff ffb7 	bl	80010b4 <fuota_LmHandlerPackageRegister>
- 8001146:	f01f fe3f 	bl	8020dc8 <LmhpFragmentationPackageFactory>
+ 8001146:	f01f fe51 	bl	8020dec <LmhpFragmentationPackageFactory>
  800114a:	4604      	mov	r4, r0
  800114c:	2003      	movs	r0, #3
- 800114e:	f01f f869 	bl	8020224 <LmHandlerFuotaStackPackageRegister>
+ 800114e:	f01f f87b 	bl	8020248 <LmHandlerFuotaStackPackageRegister>
  8001152:	4621      	mov	r1, r4
  8001154:	2003      	movs	r0, #3
  8001156:	f7ff ffad 	bl	80010b4 <fuota_LmHandlerPackageRegister>
@@ -1752,22 +1752,22 @@ Disassembly of section .text:
  8001160:	b538      	push	{r3, r4, r5, lr}
  8001162:	4916      	ldr	r1, [pc, #88]	; (80011bc <bootloader_fuota_init+0x5c>)
  8001164:	4816      	ldr	r0, [pc, #88]	; (80011c0 <bootloader_fuota_init+0x60>)
- 8001166:	f02f fceb 	bl	8030b40 <LoRaMacUpdateCallbacks>
- 800116a:	f01e fbec 	bl	801f946 <service_lora_fuota_get_band>
+ 8001166:	f02f fd05 	bl	8030b74 <LoRaMacUpdateCallbacks>
+ 800116a:	f01e fbfe 	bl	801f96a <service_lora_fuota_get_band>
  800116e:	4c15      	ldr	r4, [pc, #84]	; (80011c4 <bootloader_fuota_init+0x64>)
  8001170:	7020      	strb	r0, [r4, #0]
- 8001172:	f020 ff53 	bl	802201c <service_nvm_get_adr_from_nvm>
+ 8001172:	f020 ff6d 	bl	8022050 <service_nvm_get_adr_from_nvm>
  8001176:	3800      	subs	r0, #0
  8001178:	bf18      	it	ne
  800117a:	2001      	movne	r0, #1
  800117c:	7060      	strb	r0, [r4, #1]
- 800117e:	f020 ff17 	bl	8021fb0 <service_nvm_get_cfm_from_nvm>
+ 800117e:	f020 ff31 	bl	8021fe4 <service_nvm_get_cfm_from_nvm>
  8001182:	70a0      	strb	r0, [r4, #2]
- 8001184:	f020 ff6e 	bl	8022064 <service_nvm_get_dr_from_nvm>
+ 8001184:	f020 ff88 	bl	8022098 <service_nvm_get_dr_from_nvm>
  8001188:	70e0      	strb	r0, [r4, #3]
  800118a:	2501      	movs	r5, #1
  800118c:	7125      	strb	r5, [r4, #4]
- 800118e:	f021 fa9d 	bl	80226cc <service_nvm_get_dcs_from_nvm>
+ 800118e:	f021 fab7 	bl	8022700 <service_nvm_get_dcs_from_nvm>
  8001192:	3800      	subs	r0, #0
  8001194:	bf18      	it	ne
  8001196:	2001      	movne	r0, #1
@@ -1778,10 +1778,10 @@ Disassembly of section .text:
  80011a0:	60a3      	str	r3, [r4, #8]
  80011a2:	4621      	mov	r1, r4
  80011a4:	4809      	ldr	r0, [pc, #36]	; (80011cc <bootloader_fuota_init+0x6c>)
- 80011a6:	f01e fed9 	bl	801ff5c <LmHandlerInit>
+ 80011a6:	f01e feeb 	bl	801ff80 <LmHandlerInit>
  80011aa:	f7ff ffb7 	bl	800111c <fuota_LmHandlerRegister>
  80011ae:	4808      	ldr	r0, [pc, #32]	; (80011d0 <bootloader_fuota_init+0x70>)
- 80011b0:	f01f fefc 	bl	8020fac <FragDecoderUpdateCallback>
+ 80011b0:	f01f ff0e 	bl	8020fd0 <FragDecoderUpdateCallback>
  80011b4:	4b07      	ldr	r3, [pc, #28]	; (80011d4 <bootloader_fuota_init+0x74>)
  80011b6:	701d      	strb	r5, [r3, #0]
  80011b8:	bd38      	pop	{r3, r4, r5, pc}
@@ -1797,8 +1797,8 @@ Disassembly of section .text:
 080011d8 <fuota_init>:
  80011d8:	b510      	push	{r4, lr}
  80011da:	f01d fe9e 	bl	801ef1a <BoardInitMcu>
- 80011de:	f01e fb89 	bl	801f8f4 <service_fuota_nvm_init>
- 80011e2:	f020 fd8b 	bl	8021cfc <service_nvm_get_band_from_nvm>
+ 80011de:	f01e fb9b 	bl	801f918 <service_fuota_nvm_init>
+ 80011e2:	f020 fda5 	bl	8021d30 <service_nvm_get_band_from_nvm>
  80011e6:	f010 04ff 	ands.w	r4, r0, #255	; 0xff
  80011ea:	d035      	beq.n	8001258 <fuota_init+0x80>
  80011ec:	2c14      	cmp	r4, #20
@@ -1807,27 +1807,27 @@ Disassembly of section .text:
  80011f2:	d039      	beq.n	8001268 <fuota_init+0x90>
  80011f4:	2c16      	cmp	r4, #22
  80011f6:	d03b      	beq.n	8001270 <fuota_init+0x98>
- 80011f8:	f01e fba5 	bl	801f946 <service_lora_fuota_get_band>
+ 80011f8:	f01e fbb7 	bl	801f96a <service_lora_fuota_get_band>
  80011fc:	b2c2      	uxtb	r2, r0
  80011fe:	4921      	ldr	r1, [pc, #132]	; (8001284 <fuota_init+0xac>)
  8001200:	4821      	ldr	r0, [pc, #132]	; (8001288 <fuota_init+0xb0>)
- 8001202:	f02d fbd9 	bl	802e9b8 <LoRaMacInitialization>
+ 8001202:	f02d fbf3 	bl	802e9ec <LoRaMacInitialization>
  8001206:	bbb8      	cbnz	r0, 8001278 <fuota_init+0xa0>
- 8001208:	f01e fb9d 	bl	801f946 <service_lora_fuota_get_band>
+ 8001208:	f01e fbaf 	bl	801f96a <service_lora_fuota_get_band>
  800120c:	4c1f      	ldr	r4, [pc, #124]	; (800128c <fuota_init+0xb4>)
  800120e:	7020      	strb	r0, [r4, #0]
- 8001210:	f020 ff04 	bl	802201c <service_nvm_get_adr_from_nvm>
+ 8001210:	f020 ff1e 	bl	8022050 <service_nvm_get_adr_from_nvm>
  8001214:	3800      	subs	r0, #0
  8001216:	bf18      	it	ne
  8001218:	2001      	movne	r0, #1
  800121a:	7060      	strb	r0, [r4, #1]
- 800121c:	f020 fec8 	bl	8021fb0 <service_nvm_get_cfm_from_nvm>
+ 800121c:	f020 fee2 	bl	8021fe4 <service_nvm_get_cfm_from_nvm>
  8001220:	70a0      	strb	r0, [r4, #2]
- 8001222:	f020 ff1f 	bl	8022064 <service_nvm_get_dr_from_nvm>
+ 8001222:	f020 ff39 	bl	8022098 <service_nvm_get_dr_from_nvm>
  8001226:	70e0      	strb	r0, [r4, #3]
  8001228:	2301      	movs	r3, #1
  800122a:	7123      	strb	r3, [r4, #4]
- 800122c:	f021 fa4e 	bl	80226cc <service_nvm_get_dcs_from_nvm>
+ 800122c:	f021 fa68 	bl	8022700 <service_nvm_get_dcs_from_nvm>
  8001230:	3800      	subs	r0, #0
  8001232:	bf18      	it	ne
  8001234:	2001      	movne	r0, #1
@@ -1838,23 +1838,23 @@ Disassembly of section .text:
  800123e:	60a3      	str	r3, [r4, #8]
  8001240:	4621      	mov	r1, r4
  8001242:	4814      	ldr	r0, [pc, #80]	; (8001294 <fuota_init+0xbc>)
- 8001244:	f01e fe8a 	bl	801ff5c <LmHandlerInit>
+ 8001244:	f01e fe9c 	bl	801ff80 <LmHandlerInit>
  8001248:	f7ff ff68 	bl	800111c <fuota_LmHandlerRegister>
- 800124c:	f01e fb86 	bl	801f95c <service_fuota_lora_config>
- 8001250:	f02d fd8e 	bl	802ed70 <LoRaMacStart>
+ 800124c:	f01e fb98 	bl	801f980 <service_fuota_lora_config>
+ 8001250:	f02d fda8 	bl	802eda4 <LoRaMacStart>
  8001254:	2000      	movs	r0, #0
  8001256:	bd10      	pop	{r4, pc}
  8001258:	2001      	movs	r0, #1
- 800125a:	f031 ff7f 	bl	803315c <RegionAS923SubBandSet>
+ 800125a:	f031 ff99 	bl	8033190 <RegionAS923SubBandSet>
  800125e:	e7c5      	b.n	80011ec <fuota_init+0x14>
  8001260:	2002      	movs	r0, #2
- 8001262:	f031 ff7b 	bl	803315c <RegionAS923SubBandSet>
+ 8001262:	f031 ff95 	bl	8033190 <RegionAS923SubBandSet>
  8001266:	e7c3      	b.n	80011f0 <fuota_init+0x18>
  8001268:	2003      	movs	r0, #3
- 800126a:	f031 ff77 	bl	803315c <RegionAS923SubBandSet>
+ 800126a:	f031 ff91 	bl	8033190 <RegionAS923SubBandSet>
  800126e:	e7c1      	b.n	80011f4 <fuota_init+0x1c>
  8001270:	2004      	movs	r0, #4
- 8001272:	f031 ff73 	bl	803315c <RegionAS923SubBandSet>
+ 8001272:	f031 ff8d 	bl	8033190 <RegionAS923SubBandSet>
  8001276:	e7bf      	b.n	80011f8 <fuota_init+0x20>
  8001278:	4807      	ldr	r0, [pc, #28]	; (8001298 <fuota_init+0xc0>)
  800127a:	f7ff f9df 	bl	800063c <Serial_PutString>
@@ -1888,12 +1888,12 @@ Disassembly of section .text:
  80012c8:	2200      	movs	r2, #0
  80012ca:	4611      	mov	r1, r2
  80012cc:	200b      	movs	r0, #11
- 80012ce:	f021 fd83 	bl	8022dd8 <HAL_NVIC_SetPriority>
+ 80012ce:	f021 fd9d 	bl	8022e0c <HAL_NVIC_SetPriority>
  80012d2:	200b      	movs	r0, #11
- 80012d4:	f021 fdb2 	bl	8022e3c <HAL_NVIC_EnableIRQ>
- 80012d8:	f023 fd86 	bl	8024de8 <UTIL_TIMER_Init>
+ 80012d4:	f021 fdcc 	bl	8022e70 <HAL_NVIC_EnableIRQ>
+ 80012d8:	f023 fda0 	bl	8024e1c <UTIL_TIMER_Init>
  80012dc:	f7ff ff7c 	bl	80011d8 <fuota_init>
- 80012e0:	f01e fb12 	bl	801f908 <service_lora_fuota_join>
+ 80012e0:	f01e fb24 	bl	801f92c <service_lora_fuota_join>
  80012e4:	4c09      	ldr	r4, [pc, #36]	; (800130c <bootloader_fuota_start+0x70>)
  80012e6:	2300      	movs	r3, #0
  80012e8:	9300      	str	r3, [sp, #0]
@@ -1901,12 +1901,12 @@ Disassembly of section .text:
  80012ec:	2201      	movs	r2, #1
  80012ee:	f04f 31ff 	mov.w	r1, #4294967295	; 0xffffffff
  80012f2:	4620      	mov	r0, r4
- 80012f4:	f023 fd88 	bl	8024e08 <UTIL_TIMER_Create>
+ 80012f4:	f023 fda2 	bl	8024e3c <UTIL_TIMER_Create>
  80012f8:	f644 6120 	movw	r1, #20000	; 0x4e20
  80012fc:	4620      	mov	r0, r4
- 80012fe:	f023 feb5 	bl	802506c <UTIL_TIMER_SetPeriod>
+ 80012fe:	f023 fecf 	bl	80250a0 <UTIL_TIMER_SetPeriod>
  8001302:	4620      	mov	r0, r4
- 8001304:	f023 fe60 	bl	8024fc8 <UTIL_TIMER_Start>
+ 8001304:	f023 fe7a 	bl	8024ffc <UTIL_TIMER_Start>
  8001308:	b004      	add	sp, #16
  800130a:	bd10      	pop	{r4, pc}
  800130c:	20006678 	.word	0x20006678
@@ -1939,7 +1939,7 @@ Disassembly of section .text:
  800134a:	f88d 1001 	strb.w	r1, [sp, #1]
  800134e:	9101      	str	r1, [sp, #4]
  8001350:	4668      	mov	r0, sp
- 8001352:	f01e fc03 	bl	801fb5c <LmHandlerSend>
+ 8001352:	f01e fc15 	bl	801fb80 <LmHandlerSend>
  8001356:	4b08      	ldr	r3, [pc, #32]	; (8001378 <OnClassChange+0x64>)
  8001358:	2201      	movs	r2, #1
  800135a:	701a      	strb	r2, [r3, #0]
@@ -1965,7 +1965,7 @@ Disassembly of section .text:
 08001394 <UplinkProcess>:
  8001394:	b500      	push	{lr}
  8001396:	b083      	sub	sp, #12
- 8001398:	f01e fdea 	bl	801ff70 <LmHandlerIsBusy>
+ 8001398:	f01e fdfc 	bl	801ff94 <LmHandlerIsBusy>
  800139c:	b930      	cbnz	r0, 80013ac <UplinkProcess+0x18>
  800139e:	4a18      	ldr	r2, [pc, #96]	; (8001400 <UplinkProcess+0x6c>)
  80013a0:	7813      	ldrb	r3, [r2, #0]
@@ -1986,11 +1986,11 @@ Disassembly of section .text:
  80013c0:	4b12      	ldr	r3, [pc, #72]	; (800140c <UplinkProcess+0x78>)
  80013c2:	781b      	ldrb	r3, [r3, #0]
  80013c4:	b913      	cbnz	r3, 80013cc <UplinkProcess+0x38>
- 80013c6:	f01f f837 	bl	8020438 <LmhpClockSyncAppTimeReq>
+ 80013c6:	f01f f849 	bl	802045c <LmhpClockSyncAppTimeReq>
  80013ca:	e7ef      	b.n	80013ac <UplinkProcess+0x18>
  80013cc:	21ff      	movs	r1, #255	; 0xff
  80013ce:	2000      	movs	r0, #0
- 80013d0:	f02b faf4 	bl	802c9bc <randr>
+ 80013d0:	f02b fb0e 	bl	802c9f0 <randr>
  80013d4:	4b0e      	ldr	r3, [pc, #56]	; (8001410 <UplinkProcess+0x7c>)
  80013d6:	7018      	strb	r0, [r3, #0]
  80013d8:	480e      	ldr	r0, [pc, #56]	; (8001414 <UplinkProcess+0x80>)
@@ -2001,7 +2001,7 @@ Disassembly of section .text:
  80013e6:	e883 0003 	stmia.w	r3, {r0, r1}
  80013ea:	2100      	movs	r1, #0
  80013ec:	4618      	mov	r0, r3
- 80013ee:	f01e fbb5 	bl	801fb5c <LmHandlerSend>
+ 80013ee:	f01e fbc7 	bl	801fb80 <LmHandlerSend>
  80013f2:	e7db      	b.n	80013ac <UplinkProcess+0x18>
  80013f4:	4809      	ldr	r0, [pc, #36]	; (800141c <UplinkProcess+0x88>)
  80013f6:	f7ff f921 	bl	800063c <Serial_PutString>
@@ -2018,7 +2018,7 @@ Disassembly of section .text:
 
 08001420 <timer_callback>:
  8001420:	b508      	push	{r3, lr}
- 8001422:	f02c fee1 	bl	802e1e8 <LoRaMacIsBusy>
+ 8001422:	f02c fefb 	bl	802e21c <LoRaMacIsBusy>
  8001426:	b988      	cbnz	r0, 800144c <timer_callback+0x2c>
  8001428:	4b09      	ldr	r3, [pc, #36]	; (8001450 <timer_callback+0x30>)
  800142a:	781b      	ldrb	r3, [r3, #0]
@@ -2034,7 +2034,7 @@ Disassembly of section .text:
  8001440:	e004      	b.n	800144c <timer_callback+0x2c>
  8001442:	4806      	ldr	r0, [pc, #24]	; (800145c <timer_callback+0x3c>)
  8001444:	f7ff f8fa 	bl	800063c <Serial_PutString>
- 8001448:	f01e fa5e 	bl	801f908 <service_lora_fuota_join>
+ 8001448:	f01e fa70 	bl	801f92c <service_lora_fuota_join>
  800144c:	bd08      	pop	{r3, pc}
  800144e:	bf00      	nop
  8001450:	20006674 	.word	0x20006674
@@ -2175,7 +2175,7 @@ Disassembly of section .text:
  8001596:	4a1b      	ldr	r2, [pc, #108]	; (8001604 <HAL_UART_AbortReceive_IT+0xcc>)
  8001598:	639a      	str	r2, [r3, #56]	; 0x38
  800159a:	6fe0      	ldr	r0, [r4, #124]	; 0x7c
- 800159c:	f02b f87e 	bl	802c69c <HAL_DMA_Abort_IT>
+ 800159c:	f02b f898 	bl	802c6d0 <HAL_DMA_Abort_IT>
  80015a0:	b370      	cbz	r0, 8001600 <HAL_UART_AbortReceive_IT+0xc8>
  80015a2:	6fe0      	ldr	r0, [r4, #124]	; 0x7c
  80015a4:	6b83      	ldr	r3, [r0, #56]	; 0x38
@@ -2384,7 +2384,7 @@ Disassembly of section .text:
  80017c0:	4a3e      	ldr	r2, [pc, #248]	; (80018bc <HAL_UART_IRQHandler+0x288>)
  80017c2:	639a      	str	r2, [r3, #56]	; 0x38
  80017c4:	6fe0      	ldr	r0, [r4, #124]	; 0x7c
- 80017c6:	f02a ff69 	bl	802c69c <HAL_DMA_Abort_IT>
+ 80017c6:	f02a ff83 	bl	802c6d0 <HAL_DMA_Abort_IT>
  80017ca:	2800      	cmp	r0, #0
  80017cc:	f43f af76 	beq.w	80016bc <HAL_UART_IRQHandler+0x88>
  80017d0:	6fe0      	ldr	r0, [r4, #124]	; 0x7c
@@ -2459,7 +2459,7 @@ Disassembly of section .text:
  8001894:	2900      	cmp	r1, #0
  8001896:	d1f6      	bne.n	8001886 <HAL_UART_IRQHandler+0x252>
  8001898:	6fe0      	ldr	r0, [r4, #124]	; 0x7c
- 800189a:	f02a fec9 	bl	802c630 <HAL_DMA_Abort>
+ 800189a:	f02a fee3 	bl	802c664 <HAL_DMA_Abort>
  800189e:	f8b4 105c 	ldrh.w	r1, [r4, #92]	; 0x5c
  80018a2:	f8b4 305e 	ldrh.w	r3, [r4, #94]	; 0x5e
  80018a6:	b29b      	uxth	r3, r3
@@ -3112,7 +3112,7 @@ Disassembly of section .text:
  8001f63:	00          	.byte	0x00
  8001f64:	f44f 4000 	mov.w	r0, #32768	; 0x8000
  8001f68:	e004      	b.n	8001f74 <UART_SetConfig+0x168>
- 8001f6a:	f024 fa8d 	bl	8026488 <HAL_RCC_GetPCLK1Freq>
+ 8001f6a:	f024 faa7 	bl	80264bc <HAL_RCC_GetPCLK1Freq>
  8001f6e:	2800      	cmp	r0, #0
  8001f70:	f000 808f 	beq.w	8002092 <UART_SetConfig+0x286>
  8001f74:	6a62      	ldr	r2, [r4, #36]	; 0x24
@@ -3146,7 +3146,7 @@ Disassembly of section .text:
  8001fc2:	60d8      	str	r0, [r3, #12]
  8001fc4:	4630      	mov	r0, r6
  8001fc6:	e050      	b.n	800206a <UART_SetConfig+0x25e>
- 8001fc8:	f023 fe4e 	bl	8025c68 <HAL_RCC_GetSysClockFreq>
+ 8001fc8:	f023 fe68 	bl	8025c9c <HAL_RCC_GetSysClockFreq>
  8001fcc:	e7cf      	b.n	8001f6e <UART_SetConfig+0x162>
  8001fce:	4838      	ldr	r0, [pc, #224]	; (80020b0 <UART_SetConfig+0x2a4>)
  8001fd0:	e7d0      	b.n	8001f74 <UART_SetConfig+0x168>
@@ -3160,7 +3160,7 @@ Disassembly of section .text:
  8001fe3:	00          	.byte	0x00
  8001fe4:	4832      	ldr	r0, [pc, #200]	; (80020b0 <UART_SetConfig+0x2a4>)
  8001fe6:	e003      	b.n	8001ff0 <UART_SetConfig+0x1e4>
- 8001fe8:	f024 fa4e 	bl	8026488 <HAL_RCC_GetPCLK1Freq>
+ 8001fe8:	f024 fa68 	bl	80264bc <HAL_RCC_GetPCLK1Freq>
  8001fec:	2800      	cmp	r0, #0
  8001fee:	d069      	beq.n	80020c4 <UART_SetConfig+0x2b8>
  8001ff0:	6a62      	ldr	r2, [r4, #36]	; 0x24
@@ -3183,13 +3183,13 @@ Disassembly of section .text:
  8002022:	60d8      	str	r0, [r3, #12]
  8002024:	2000      	movs	r0, #0
  8002026:	e020      	b.n	800206a <UART_SetConfig+0x25e>
- 8002028:	f024 fa3e 	bl	80264a8 <HAL_RCC_GetPCLK2Freq>
+ 8002028:	f024 fa58 	bl	80264dc <HAL_RCC_GetPCLK2Freq>
  800202c:	e7de      	b.n	8001fec <UART_SetConfig+0x1e0>
- 800202e:	f023 fe1b 	bl	8025c68 <HAL_RCC_GetSysClockFreq>
+ 800202e:	f023 fe35 	bl	8025c9c <HAL_RCC_GetSysClockFreq>
  8002032:	e7db      	b.n	8001fec <UART_SetConfig+0x1e0>
  8002034:	481e      	ldr	r0, [pc, #120]	; (80020b0 <UART_SetConfig+0x2a4>)
  8002036:	e003      	b.n	8002040 <UART_SetConfig+0x234>
- 8002038:	f024 fa26 	bl	8026488 <HAL_RCC_GetPCLK1Freq>
+ 8002038:	f024 fa40 	bl	80264bc <HAL_RCC_GetPCLK1Freq>
  800203c:	2800      	cmp	r0, #0
  800203e:	d047      	beq.n	80020d0 <UART_SetConfig+0x2c4>
  8002040:	6a62      	ldr	r2, [r4, #36]	; 0x24
@@ -3214,9 +3214,9 @@ Disassembly of section .text:
  8002076:	6723      	str	r3, [r4, #112]	; 0x70
  8002078:	6763      	str	r3, [r4, #116]	; 0x74
  800207a:	bd70      	pop	{r4, r5, r6, pc}
- 800207c:	f024 fa14 	bl	80264a8 <HAL_RCC_GetPCLK2Freq>
+ 800207c:	f024 fa2e 	bl	80264dc <HAL_RCC_GetPCLK2Freq>
  8002080:	e7dc      	b.n	800203c <UART_SetConfig+0x230>
- 8002082:	f023 fdf1 	bl	8025c68 <HAL_RCC_GetSysClockFreq>
+ 8002082:	f023 fe0b 	bl	8025c9c <HAL_RCC_GetSysClockFreq>
  8002086:	e7d9      	b.n	800203c <UART_SetConfig+0x230>
  8002088:	f44f 4000 	mov.w	r0, #32768	; 0x8000
  800208c:	e7d8      	b.n	8002040 <UART_SetConfig+0x234>
@@ -3353,7 +3353,7 @@ Disassembly of section .text:
  80021c6:	d157      	bne.n	8002278 <UART_WaitOnFlagUntilTimeout+0xd6>
  80021c8:	f1b8 3fff 	cmp.w	r8, #4294967295	; 0xffffffff
  80021cc:	d0f1      	beq.n	80021b2 <UART_WaitOnFlagUntilTimeout+0x10>
- 80021ce:	f023 fb1f 	bl	8025810 <HAL_GetTick>
+ 80021ce:	f023 fb39 	bl	8025844 <HAL_GetTick>
  80021d2:	eba0 0009 	sub.w	r0, r0, r9
  80021d6:	4540      	cmp	r0, r8
  80021d8:	d82f      	bhi.n	800223a <UART_WaitOnFlagUntilTimeout+0x98>
@@ -3437,7 +3437,7 @@ Disassembly of section .text:
  80022ac:	f8c0 308c 	str.w	r3, [r0, #140]	; 0x8c
  80022b0:	2321      	movs	r3, #33	; 0x21
  80022b2:	f8c0 3084 	str.w	r3, [r0, #132]	; 0x84
- 80022b6:	f023 faab 	bl	8025810 <HAL_GetTick>
+ 80022b6:	f023 fac5 	bl	8025844 <HAL_GetTick>
  80022ba:	4607      	mov	r7, r0
  80022bc:	f8a4 8054 	strh.w	r8, [r4, #84]	; 0x54
  80022c0:	f8a4 8056 	strh.w	r8, [r4, #86]	; 0x56
@@ -3528,7 +3528,7 @@ Disassembly of section .text:
  8002390:	2222      	movs	r2, #34	; 0x22
  8002392:	f8c0 2088 	str.w	r2, [r0, #136]	; 0x88
  8002396:	66c3      	str	r3, [r0, #108]	; 0x6c
- 8002398:	f023 fa3a 	bl	8025810 <HAL_GetTick>
+ 8002398:	f023 fa54 	bl	8025844 <HAL_GetTick>
  800239c:	4607      	mov	r7, r0
  800239e:	f8a4 805c 	strh.w	r8, [r4, #92]	; 0x5c
  80023a2:	f8a4 805e 	strh.w	r8, [r4, #94]	; 0x5e
@@ -3627,7 +3627,7 @@ Disassembly of section .text:
  800248c:	4604      	mov	r4, r0
  800248e:	2300      	movs	r3, #0
  8002490:	f8c0 308c 	str.w	r3, [r0, #140]	; 0x8c
- 8002494:	f023 f9bc 	bl	8025810 <HAL_GetTick>
+ 8002494:	f023 f9d6 	bl	8025844 <HAL_GetTick>
  8002498:	4605      	mov	r5, r0
  800249a:	6822      	ldr	r2, [r4, #0]
  800249c:	6812      	ldr	r2, [r2, #0]
@@ -3987,7 +3987,7 @@ Disassembly of section .text:
 080027fc <Reset_Handler>:
  80027fc:	480d      	ldr	r0, [pc, #52]	; (8002834 <LoopForever+0x2>)
  80027fe:	4685      	mov	sp, r0
- 8002800:	f01e ff2e 	bl	8021660 <SystemInit>
+ 8002800:	f01e ff40 	bl	8021684 <SystemInit>
  8002804:	480c      	ldr	r0, [pc, #48]	; (8002838 <LoopForever+0x6>)
  8002806:	490d      	ldr	r1, [pc, #52]	; (800283c <LoopForever+0xa>)
  8002808:	4a0d      	ldr	r2, [pc, #52]	; (8002840 <LoopForever+0xe>)
