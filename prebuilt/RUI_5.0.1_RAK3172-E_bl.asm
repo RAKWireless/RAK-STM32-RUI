@@ -1,5 +1,5 @@
 
-/home/jenkins/workspace/RUI_Release/rui-v3/image/RUI_5.0.0_RAK3172-E_bl:     file format elf32-littlearm
+/home/jenkins/workspace/RUI_Release/rui-v3/image/RUI_5.0.1_RAK3172-E_bl:     file format elf32-littlearm
 
 
 Disassembly of section .text:

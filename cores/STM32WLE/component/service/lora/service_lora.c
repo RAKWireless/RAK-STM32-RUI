@@ -28,6 +28,7 @@
 #include "LmhpRemoteMcastSetup.h"
 #include "LmhpFragmentation.h"
 #include "service_lora_fuota.h"
+#include "mcu_basic.h"
 #ifdef LORA_STACK_104
 #include "udrv_system.h"
 #endif
@@ -116,16 +117,6 @@ extern bool udrv_powersave_in_sleep;
 extern uint8_t last_tx_channel; 
 static udrv_system_event_t rui_lora_join_cb_event = {.request = UDRV_SYS_EVT_OP_LORAWAN_JOIN_CB, .p_context = NULL};
 
-static LmhpFragmentationParams_t LmhpFragmentationParam1 =
-{
-    /*.DecoderCallbacks =
-    {
-        .FragDecoderWrite = fuota_FragDecoderWrite,
-        .FragDecoderRead = fuota_FragDecoderRead,
-    },
-    .OnProgress = fuota_OnFragProgress,
-    .OnDone = fuota_OnFragDone,*/
-};
 
 static SingleChannel_t SingleChannelAU915 =
 {
@@ -137,6 +128,46 @@ static SingleChannel_t SingleChannelUS915 =
 {
     .IsSingleChannel = IsSingleChannelUS915Callback,
     .AlternateDr = AlternateDrUS915Callback
+};
+#ifndef STM32WLE5xx
+static uint32_t flash_base_size;
+static int8_t fuota_FragDecoderWrite( uint32_t addr, uint8_t *data, uint32_t size )
+{
+    udrv_flash_write(MCU_FLASH_OTA_ADDRESS + addr, size, data);
+    return 0;
+}
+static int8_t fuota_FragDecoderRead( uint32_t addr, uint8_t *data , uint32_t size )
+{
+    udrv_flash_read(MCU_FLASH_OTA_ADDRESS + addr, size, data);
+    return 0;
+}
+static void fuota_OnFragProgress( uint16_t fragCounter, uint16_t fragNb, uint8_t fragSize, uint16_t fragNbLost )
+{
+    udrv_serial_log_printf("RECEIVED    : %5d / %5d Fragments\r\n",fragCounter, fragNb);
+    udrv_serial_log_printf("              %5d / %5d Bytes\r\n",fragCounter * fragSize, fragNb * fragSize);
+    udrv_serial_log_printf("LOST        :       %7d Fragments\r\n",fragNbLost);
+    flash_base_size = fragNb * fragSize;
+}
+static void fuota_OnFragDone( int32_t status, uint32_t size )
+{
+    udrv_serial_log_printf("FUOTA Completed\r\n");
+    uint8_t flash_base_flag = 0xaa;
+    udrv_flash_write(MCU_BOOTLOADER_FLAG_LOCATION+4, 1, &flash_base_flag);
+    udrv_flash_write(MCU_BOOTLOADER_FLAG_LOCATION+8, sizeof(flash_base_size), &flash_base_size);
+    NVIC_SystemReset();
+}
+#endif
+static LmhpFragmentationParams_t LmhpFragmentationParam1 =
+{
+#ifndef STM32WLE5xx
+    .DecoderCallbacks =
+    {
+        .FragDecoderWrite = fuota_FragDecoderWrite,
+        .FragDecoderRead = fuota_FragDecoderRead,
+    },
+    .OnProgress = fuota_OnFragProgress,
+    .OnDone = fuota_OnFragDone,
+#endif
 };
 
 static void service_lora_powersave_wakeup(void)
@@ -819,13 +850,15 @@ static void OnClassChange( DeviceClass_t deviceClass )
         default:
         case CLASS_A:
         {
-            udrv_serial_log_printf("switch class a\r\n");
+            udrv_serial_log_printf("app switch class a\r\n");
+            service_lora_set_class(SERVICE_LORA_CLASS_A,false);
             break;
         }
         case CLASS_C:
         {
-            extern TimerEvent_t SessionStopTimer;
             udrv_serial_log_printf("app switch class c\r\n");
+#ifdef rak3172
+            extern TimerEvent_t SessionStopTimer;
             uint8_t buff = 0xFF;
             uint32_t buf = 0x04040404;
 
@@ -834,14 +867,13 @@ static void OnClassChange( DeviceClass_t deviceClass )
 
             udrv_serial_deinit(SERIAL_UART2);
             udrv_serial_deinit(SERIAL_UART1);
-            //void *ptr = (void *)0x08003800;
-            //goto *ptr;
-            //void (*foo)(void) = (void (*)())0x08003800;
-            //foo();
             uint32_t JumpAddress = *(__IO uint32_t*) (0x08000004);
             pFunction JumpToApplication = (pFunction) JumpAddress;
             __set_MSP(*(__IO uint32_t*) 0x08000000);
             JumpToApplication();
+#else
+            service_lora_set_class(SERVICE_LORA_CLASS_C,false);
+#endif
             break;
         }
     }
@@ -2430,9 +2462,6 @@ int32_t service_lora_set_class(SERVICE_LORA_CLASS device_class, bool commit)
                     goto skip_class_setting;
                 case SERVICE_LORA_CLASS_C:
                     mibReq.Param.Class = CLASS_C;
-#ifdef SUPPORT_FUOTA
-                    IsMcSessionStarted = true;
-#endif
                     break;
                 default:
                     return -UDRV_INTERNAL_ERR;
@@ -2450,9 +2479,6 @@ int32_t service_lora_set_class(SERVICE_LORA_CLASS device_class, bool commit)
                     goto skip_class_setting;
                 case SERVICE_LORA_CLASS_C:
                     mibReq.Param.Class = CLASS_C;
-#ifdef SUPPORT_FUOTA
-                    IsMcSessionStarted = true;
-#endif
                     break;
                 default:
                     return -UDRV_INTERNAL_ERR;
