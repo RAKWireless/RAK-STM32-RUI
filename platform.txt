@@ -171,4 +171,4 @@ tools.bootburn.bootloader.pattern={program.burn_pattern}
 tools.bootburn.erase.params.verbose=
 tools.bootburn.erase.params.quiet=
 tools.bootburn.erase.pattern=
-version=RUI_5.0.1
+version=RUI_5.0.0
