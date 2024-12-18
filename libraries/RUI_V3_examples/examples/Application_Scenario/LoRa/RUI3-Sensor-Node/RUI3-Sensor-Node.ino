@@ -11,6 +11,13 @@
  * @copyright Copyright (c) 2022
  *
  */
+/*************************************
+ * To use this example with RUI3 V5.0.0 and RAK3172 
+ * you need to disable LoRa P2P of limit the number
+ * of regions to one region.
+ * Otherwise the example is too large for
+ * the flash memory of the RAK3172
+ *************************************/
 #include "main.h"
 #include "udrv_timer.h"
 
