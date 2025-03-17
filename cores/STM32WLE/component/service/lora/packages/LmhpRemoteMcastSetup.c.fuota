@@ -350,7 +350,7 @@ static void LmhpRemoteMcastSetupOnMcpsIndication( McpsIndication_t *mcpsIndicati
 
                 LmhpRemoteMcastSetupState.DataBuffer[dataBufferIndex++] = REMOTE_MCAST_SETUP_MC_GROUP_DELETE_ANS;
 
-                if( LoRaMacMcChannelDelete( ( AddressIdentifier_t )id ) != LORAMAC_STATUS_OK )
+                if( LoRaMacMcChannelDelete( ( AddressIdentifier_t )id ) != LORAMAC_STATUS_OK  && LoRaMacMcChannelDelete( ( AddressIdentifier_t )id ) != LORAMAC_STATUS_MC_GROUP_UNDEFINED)
                 {
                     status |= 0x04; // McGroupUndefined bit set
                 }
@@ -468,7 +468,11 @@ bool FUOTA_StartTime_IsRunning( void )
     else
         return false;
 #else
-    return TimerIsStarted( &SessionStartTimer );
+    if(TimerIsStarted( &SessionStartTimer ) && TimerGetElapsedTime(SessionStartTimer.Timestamp) < 10000)
+        return true;
+    return false;
+    //return TimerIsStarted( &SessionStartTimer );
+    //return false;
 #endif
 }
 
