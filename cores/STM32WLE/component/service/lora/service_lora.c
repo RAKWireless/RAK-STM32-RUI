@@ -221,6 +221,10 @@ static void OnNvmDataChange(uint16_t notifyFlags)
     {
         return;
     }
+    if (service_lora_get_njm() != SERVICE_LORA_ABP)
+    {
+        return;
+    }
 
     if( ( notifyFlags & LORAMAC_NVM_NOTIFY_FLAG_CRYPTO ) ==
         LORAMAC_NVM_NOTIFY_FLAG_CRYPTO )
@@ -346,6 +350,7 @@ static void McpsConfirm(McpsConfirm_t *mcpsConfirm)
     }
     else 
     {
+        AckTimeoutRetriesCounter = 0;
         if (service_lora_send_callback != NULL) {
             service_lora_send_callback(mcpsConfirm->Status);
         }

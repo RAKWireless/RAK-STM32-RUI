@@ -367,7 +367,11 @@ int32_t service_lora_addmulc(McSession_t McSession)
 
 int32_t service_lora_rmvmulc(uint32_t devaddr)
 {
-    uint8_t i;
+    uint8_t i, count=0;
+    McChannelParams_t channel;
+    LoRaMacStatus_t lorastatus;
+    uint8_t status = 0x00;
+
     for(i=0;i<4;i++)
     {
         if((McSession_group[i].Address) == devaddr)
@@ -387,6 +391,18 @@ int32_t service_lora_rmvmulc(uint32_t devaddr)
     if(i==4)
     {
         return -UDRV_INTERNAL_ERR;
+    }
+    for (i=0;i<4;i++)
+    {
+        if (McSession_group[i].Address != 0)
+            count++;
+    }
+    if (count==0)
+    {
+        SERVICE_LORA_CLASS class = service_lora_get_class();
+
+        //reset rxc parameters
+        service_lora_set_class(class, false);
     }
     return UDRV_RETURN_OK;
 }
