@@ -217,11 +217,11 @@ static void OnNvmDataChange(uint16_t notifyFlags)
     {
         return;
     }
-    if( LoRaMacStop( ) != LORAMAC_STATUS_OK )
+    if (service_lora_get_njm() != SERVICE_LORA_ABP)
     {
         return;
     }
-    if (service_lora_get_njm() != SERVICE_LORA_ABP)
+    if( LoRaMacStop( ) != LORAMAC_STATUS_OK )
     {
         return;
     }
@@ -229,6 +229,7 @@ static void OnNvmDataChange(uint16_t notifyFlags)
     if( ( notifyFlags & LORAMAC_NVM_NOTIFY_FLAG_CRYPTO ) ==
         LORAMAC_NVM_NOTIFY_FLAG_CRYPTO )
     {
+        //udrv_serial_log_printf("LORAMAC_NVM_NOTIFY_FLAG_CRYPTO\r\n");
         service_nvm_set_crypto_to_nvm(&nvm->Crypto);
     }
 
@@ -236,23 +237,27 @@ static void OnNvmDataChange(uint16_t notifyFlags)
         LORAMAC_NVM_NOTIFY_FLAG_MAC_GROUP1 )
     {
         service_nvm_set_macgroup1_to_nvm(&nvm->MacGroup1);
+        //udrv_serial_log_printf("LORAMAC_NVM_NOTIFY_FLAG_MAC_GROUP1\r\n");
     }
     if( ( notifyFlags & LORAMAC_NVM_NOTIFY_FLAG_MAC_GROUP2 ) ==
         LORAMAC_NVM_NOTIFY_FLAG_MAC_GROUP2 )
     {
         service_nvm_set_macgroup2_to_nvm(&nvm->MacGroup2);
+        //udrv_serial_log_printf("LORAMAC_NVM_NOTIFY_FLAG_MAC_GROUP2\r\n");
     }
 
     if( ( notifyFlags & LORAMAC_NVM_NOTIFY_FLAG_SECURE_ELEMENT ) ==
         LORAMAC_NVM_NOTIFY_FLAG_SECURE_ELEMENT )
     {
         service_nvm_set_sec_element_to_nvm(&nvm->SecureElement);
+        //udrv_serial_log_printf("LORAMAC_NVM_NOTIFY_FLAG_SECURE_ELEMENT\r\n");
     }
 
     if( ( notifyFlags & LORAMAC_NVM_NOTIFY_FLAG_REGION_GROUP2 ) ==
         LORAMAC_NVM_NOTIFY_FLAG_REGION_GROUP2 )
     {
         service_nvm_set_regionchannels_to_nvm(&nvm->RegionGroup2.Channels);
+        //udrv_serial_log_printf("LORAMAC_NVM_NOTIFY_FLAG_REGION_GROUP2\r\n");
     }
 
     LoRaMacStart();
@@ -1076,6 +1081,7 @@ int32_t service_lora_init(SERVICE_LORA_BAND band)
         LoRaMacMibGetRequestConfirm( &mibReq );
         LoRaMacNvmData_t* nvm = mibReq.Param.Contexts;
         nvm->Crypto.DevNonce = service_lora_get_DevNonce();
+        //udrv_serial_log_printf("lora init with DevNonce %d\r\n",nvm->Crypto.DevNonce);
 
         nvm->MacGroup2.IsCertPortOn = service_lora_get_IsCertPortOn();
 
@@ -1616,6 +1622,12 @@ int32_t service_lora_set_band(SERVICE_LORA_BAND band)
         return ret;
     }
 
+#ifdef LORA_STACK_104
+    //clear lora nvm data
+    service_lora_mac_nvm_data_reset();
+    service_nvm_set_lora_nvm_data_to_nvm();
+#endif
+
 #ifdef REGION_AS923
     /*AS923 sub band selection*/
     if( band == SERVICE_LORA_AS923)
@@ -2011,6 +2023,7 @@ int32_t service_lora_join(int32_t param1, int32_t param2, int32_t param3, int32_
             mibReq.Type = MIB_NVM_CTXS;
             LoRaMacMibGetRequestConfirm( &mibReq );
             LoRaMacNvmData_t* nvm = mibReq.Param.Contexts;
+            //udrv_serial_log_printf("before join,set DevNonce %d to %d\r\n",service_lora_get_DevNonce(),nvm->Crypto.DevNonce);
             service_lora_set_DevNonce(nvm->Crypto.DevNonce);
 #endif
         }
@@ -2139,6 +2152,12 @@ int32_t service_lora_set_lora_default(void)
      *
      **************************************************************************************/
 
+#ifdef LORA_STACK_104
+    //clear lora nvm
+    service_lora_mac_nvm_data_reset();
+    service_nvm_set_lora_nvm_data_to_nvm();
+#endif
+
     if (service_nvm_set_default_config_to_nvm() != UDRV_RETURN_OK)
     {
         udrv_serial_log_printf("%s():Fail\r\n", __func__);
@@ -2205,14 +2224,6 @@ int32_t service_lora_set_njm(SERVICE_LORA_JOIN_MODE njm, bool commit)
     SERVICE_LORA_BAND band = service_lora_get_band();
     if (service_lora_region_isActive(band) == false)
         return -UDRV_UNSUPPORTED_BAND;
-
-#ifdef LORA_STACK_104
-    if (service_nvm_get_njm_from_nvm() != njm && njm == SERVICE_LORA_ABP)
-    {
-        service_lora_mac_nvm_data_reset();
-        restore_abp_config();
-    }
-#endif
 
     MibRequestConfirm_t mibReq;
     uint8_t buff[16];
