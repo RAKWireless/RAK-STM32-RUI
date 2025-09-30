@@ -2118,7 +2118,7 @@ int32_t service_lora_join(int32_t param1, int32_t param2, int32_t param3, int32_
             udrv_serial_log_printf("RxCFrequency:%u\r\n",mibReq.Param.Contexts->MacGroup2.MacParamsDefaults.RxCChannel.Frequency);
             udrv_serial_log_printf("ChannelsDatarate:%d\r\n",mibReq.Param.Contexts->MacGroup1.ChannelsDatarate);
             udrv_serial_log_printf("ChannelsTxPower:%d\r\n",mibReq.Param.Contexts->MacGroup1.ChannelsTxPower);
-            udrv_serial_log_printf("FCntUp:%u\r\n",mibReq.Param.Contexts->Crypto.FCntList.FCntUp);
+            //udrv_serial_log_printf("FCntUp:%u\r\n",mibReq.Param.Contexts->Crypto.FCntList.FCntUp);
         }
     }
     return UDRV_RETURN_OK;
@@ -2585,7 +2585,7 @@ int32_t service_lora_send(uint8_t *buff, uint32_t len, SERVICE_LORA_SEND_INFO in
             udrv_serial_log_printf("RxCFrequency:%u\r\n",mibReq.Param.Contexts->MacGroup2.MacParamsDefaults.RxCChannel.Frequency);
             udrv_serial_log_printf("ChannelsDatarate:%d\r\n",mibReq.Param.Contexts->MacGroup1.ChannelsDatarate);
             udrv_serial_log_printf("ChannelsTxPower:%d\r\n",mibReq.Param.Contexts->MacGroup1.ChannelsTxPower);
-            udrv_serial_log_printf("FCntUp:%u\r\n",mibReq.Param.Contexts->Crypto.FCntList.FCntUp);
+            udrv_serial_log_printf("FCntUp:%u\r\n",mibReq.Param.Contexts->Crypto.FCntList.FCntUp-1);
         }
     }
 

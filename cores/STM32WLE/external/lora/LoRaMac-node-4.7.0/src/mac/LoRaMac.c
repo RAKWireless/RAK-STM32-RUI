@@ -3303,6 +3303,7 @@ LoRaMacStatus_t PrepareFrame( LoRaMacHeader_t* macHdr, LoRaMacFrameCtrl_t* fCtrl
     MacCtx.PktBufferLen = 0;
     MacCtx.NodeAckRequested = false;
     uint32_t fCntUp = 0;
+    uint16_t fCntUpData;
     size_t macCmdsSize = 0;
     uint8_t availableSize = 0;
 
@@ -3335,7 +3336,8 @@ LoRaMacStatus_t PrepareFrame( LoRaMacHeader_t* macHdr, LoRaMacFrameCtrl_t* fCtrl
             {
                 return LORAMAC_STATUS_FCNT_HANDLER_ERROR;
             }
-            MacCtx.TxMsg.Message.Data.FHDR.FCnt = ( uint16_t )fCntUp;
+            fCntUpData = ( uint16_t )fCntUp - 1;
+            MacCtx.TxMsg.Message.Data.FHDR.FCnt = fCntUpData;
 
             // Reset confirm parameters
             MacCtx.McpsConfirm.NbTrans = 0;

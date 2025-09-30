@@ -195,6 +195,10 @@ SERIAL_PARITY_E parity, SERIAL_WIRE_MODE_E WireMode)
         hlpuart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
         hlpuart1.Init.ClockPrescaler = UART_PRESCALER_DIV1;
         hlpuart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+#ifdef SUPPORT_246X_UART
+        hlpuart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_SWAP_INIT|UART_ADVFEATURE_AUTOBAUDRATE_INIT;
+        hlpuart1.AdvancedInit.Swap = UART_ADVFEATURE_SWAP_ENABLE;
+#endif
         hlpuart1.FifoMode = UART_FIFOMODE_DISABLE;
         if (HAL_UART_Init(&hlpuart1) != HAL_OK)
         {
