@@ -337,12 +337,14 @@ static void McpsConfirm(McpsConfirm_t *mcpsConfirm)
         else
         {
             udrv_serial_log_printf("+EVT:SEND_CONFIRMED_FAILED(%d)\r\n", mcpsConfirm->Status);
-            if(AckTimeoutRetriesCounter <= AckTimeoutRetries)
+            if(AckTimeoutRetries != 0 && AckTimeoutRetriesCounter <= AckTimeoutRetries)
             {
                 uint8_t counter = AckTimeoutRetriesCounter + 1;
                 AckTimeoutRetriesCounter = 0;
-                service_lora_send(AckTimeoutRetries_buff,AckTimeoutRetries_len,AckTimeoutRetries_info,false);
-                AckTimeoutRetriesCounter = counter;
+                if (service_lora_send(AckTimeoutRetries_buff,AckTimeoutRetries_len,AckTimeoutRetries_info,false)==LORAMAC_STATUS_OK)
+                    AckTimeoutRetriesCounter = counter;
+                else
+                    AckTimeoutRetriesCounter = 0;
             }
             else
             {
