@@ -340,11 +340,13 @@ static void McpsConfirm(McpsConfirm_t *mcpsConfirm)
             if(AckTimeoutRetries != 0 && AckTimeoutRetriesCounter <= AckTimeoutRetries)
             {
                 uint8_t counter = AckTimeoutRetriesCounter + 1;
+
                 AckTimeoutRetriesCounter = 0;
                 if (service_lora_send(AckTimeoutRetries_buff,AckTimeoutRetries_len,AckTimeoutRetries_info,false)==LORAMAC_STATUS_OK)
                     AckTimeoutRetriesCounter = counter;
                 else
                     AckTimeoutRetriesCounter = 0;
+
             }
             else
             {
@@ -2383,7 +2385,6 @@ int32_t service_lora_send(uint8_t *buff, uint32_t len, SERVICE_LORA_SEND_INFO in
     SERVICE_LORA_DATA_RATE dr = service_nvm_get_dr_from_nvm();
     bool tx_possible = true;
     MlmeReq_t mlmeReq;
-
     if (service_lora_get_njs() == false)
     {
         return -UDRV_NO_WAN_CONNECTION;
@@ -2393,7 +2394,7 @@ int32_t service_lora_send(uint8_t *buff, uint32_t len, SERVICE_LORA_SEND_INFO in
     {
         return -UDRV_BUSY;
     }
-    if(AckTimeoutRetriesCounter != 0 && service_lora_get_cfm() == SERVICE_LORA_ACK)
+    if(AckTimeoutRetriesCounter != 0 && (service_lora_get_cfm() == SERVICE_LORA_ACK || AckTimeoutRetries_info.confirm_valid == true ))
         return -UDRV_BUSY;
 
     if (service_lora_get_class() == SERVICE_LORA_CLASS_C)
@@ -2518,9 +2519,13 @@ int32_t service_lora_send(uint8_t *buff, uint32_t len, SERVICE_LORA_SEND_INFO in
         if (true == info.confirm_valid)
         {
             if (info.confirm == SERVICE_LORA_NO_ACK)
+            {
                 mcpsReq.Type = MCPS_UNCONFIRMED;
+            }
             else
+            {
                 mcpsReq.Type = MCPS_CONFIRMED;
+            }
         }
         else
         {
@@ -2543,8 +2548,9 @@ int32_t service_lora_send(uint8_t *buff, uint32_t len, SERVICE_LORA_SEND_INFO in
         AckTimeoutRetries_info.port = info.port;
         AckTimeoutRetries_info.confirm_valid = info.confirm_valid;
         AckTimeoutRetries_info.retry_valid = info.retry_valid;
+        AckTimeoutRetries_info.confirm = info.confirm;
+        AckTimeoutRetries_info.retry = info.retry;
     }
-
     status = LoRaMacMcpsRequest(&mcpsReq);
     LORA_TEST_DEBUG("status %d",status);
     LORA_TEST_DEBUG("DutyCycleWaitTime  %d",mcpsReq.ReqReturn.DutyCycleWaitTime);
@@ -2604,8 +2610,10 @@ int32_t service_lora_send(uint8_t *buff, uint32_t len, SERVICE_LORA_SEND_INFO in
             udrv_app_delay_ms(service_lora_get_rx2dl());
 #endif
         }
-        if(AckTimeoutRetries != 0 && service_lora_get_cfm() == SERVICE_LORA_ACK)
+        if(AckTimeoutRetries != 0 && (service_lora_get_cfm() == SERVICE_LORA_ACK || AckTimeoutRetries_info.confirm_valid == true ))
+        {
             AckTimeoutRetriesCounter = 1;
+        }
         return UDRV_RETURN_OK;
     }
     else if (status == LORAMAC_STATUS_BUSY_PING_SLOT_WINDOW_TIME)

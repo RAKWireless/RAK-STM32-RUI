@@ -52,6 +52,8 @@ void hexDump(uint8_t * buf, uint16_t len)
   int8_t Snr;
   } rui_lora_p2p_recv_t;
 */
+#define SUPPORT_RECV_STAT   // support after RUI_4.0.6
+#ifndef SUPPORT_RECV_STAT
 void recv_cb(rui_lora_p2p_recv_t data)
 {
     rx_done = true;
@@ -65,6 +67,24 @@ void recv_cb(rui_lora_p2p_recv_t data)
     Serial.println(buff);
     hexDump(data.Buffer, data.BufferSize);
 }
+#else
+void recv_cb(rui_lora_p2p_recv_t data)
+{
+    if (data.Status == LORA_P2P_RXDONE) {
+        Serial.printf("P2P receive:");
+        for (int i = 0; i < data.BufferSize; i++) {
+            Serial.printf(" %02X", data.Buffer[i]);
+        }
+        Serial.printf(", RSSI: %d, SNR: %d\r\n", data.Rssi, data.Snr);
+    }
+    else if (data.Status == LORA_P2P_RXTIMEOUT) {
+        Serial.println("P2P receive timeout");
+    }
+    else if (data.Status == LORA_P2P_RXERROR) {
+        Serial.println("P2P receive CRC error");
+    }
+}
+#endif
 
 void send_cb(void)
 {

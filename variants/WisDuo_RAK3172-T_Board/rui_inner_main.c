@@ -451,6 +451,10 @@ void main(void)
             }
         }
     }
+
+    // Apply queued permission overrides AFTER the workaround for CHANGE_ATCMD_PERM()
+    extern void update_permission(void);
+    update_permission();
 #endif
 
 #ifndef SUPPORT_MULTITASK

@@ -137,7 +137,7 @@ typedef struct {
     uint8_t crypt_key16[16];
     uint8_t crypt_IV[16];
     uint8_t CAD;
-#ifdef LORA_STACK_104
+#if defined(SUPPORT_LORA) && defined(LORA_STACK_104)
     uint8_t certif;
     uint8_t IsCertPortOn;
 #endif

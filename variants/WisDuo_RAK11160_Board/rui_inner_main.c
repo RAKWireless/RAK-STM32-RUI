@@ -175,6 +175,15 @@ void rui_event_handler_func(void *data, uint16_t size)
                         cmd_buffer[cmd_index++] = Buf[0];
                         cmd_buffer[cmd_index] = '\0'; // Ensure null termination
 
+                        // Immediately forward escape sequence without waiting for CRLF
+                        if (cmd_index == 3 && strncmp(cmd_buffer, "+++", 3) == 0)
+                        {
+                            udrv_serial_write(SERIAL_ESP32C2, (uint8_t *)cmd_buffer, cmd_index);
+                            cmd_index = 0;
+                            memset(cmd_buffer, 0, MAX_CMD_LEN + 1);
+                            continue;
+                        }
+
                         // Check for the command end marker \r\n
                         if (Buf[0] == '\n' && cmd_index > 1 && cmd_buffer[cmd_index - 2] == '\r')
                         {
@@ -426,6 +435,10 @@ void main(void)
             }
         }
     }
+
+    // Apply queued permission overrides AFTER the workaround for CHANGE_ATCMD_PERM()
+    extern void update_permission(void);
+    update_permission();
 #endif
 
 #ifndef SUPPORT_MULTITASK

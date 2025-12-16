@@ -170,7 +170,7 @@ int32_t service_nvm_set_default_config_to_nvm(void) {
     g_rui_cfg_t.g_rui_cfg_ex.lbt_rssi = -80;
     g_rui_cfg_t.g_rui_cfg_ex.lbt_scantime = 5;
     g_rui_cfg_t.g_rui_cfg_ex.auto_sleep_level = 1;
-#ifdef LORA_STACK_104
+#if defined(SUPPORT_LORA) && defined(LORA_STACK_104)
     g_rui_cfg_t.g_rui_cfg_ex.IsCertPortOn = 1;
     memset(&g_lora_mac_nvm_data,0,sizeof(lora_mac_nvm_data_t));
 #endif
@@ -1011,7 +1011,7 @@ int32_t service_nvm_set_lbt_scantime_to_nvm(uint32_t time)
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
 }
 
-#ifdef LORA_STACK_104
+#if defined(SUPPORT_LORA) && defined(LORA_STACK_104)
 uint16_t service_nvm_get_DevNonce_from_nvm()
 {
     return g_lora_mac_nvm_data.loramac_crypto_nvm.DevNonce;
@@ -1343,7 +1343,7 @@ int32_t service_nvm_set_CAD_to_nvm(uint8_t enable)
     return udrv_flash_write(SERVICE_NVM_RUI_CONFIG_NVM_ADDR, sizeof(PRE_rui_cfg_t), (uint8_t *)&g_rui_cfg_t);
 }
 
-#ifdef LORA_STACK_104
+#if defined(SUPPORT_LORA) && defined(LORA_STACK_104)
 int32_t service_nvm_get_certi_from_nvm()
 {
     return g_rui_cfg_t.g_rui_cfg_ex.certif;
@@ -1511,7 +1511,7 @@ static void service_nvm_data_recovery_from_legacy(uint32_t data_flash_addr, PRE_
             rui_cfg_cur->g_rui_cfg_ex.lbt_rssi = -80;
         if(*(uint8_t*)&rui_cfg_cur->g_rui_cfg_ex.lbt_scantime == 0xFF)
             rui_cfg_cur->g_rui_cfg_ex.lbt_scantime = 5;
-#ifdef LORA_STACK_104
+#if defined(SUPPORT_LORA) && defined(LORA_STACK_104)
         if(*(uint8_t*)&rui_cfg_cur->g_rui_cfg_ex.IsCertPortOn == 0xFF)
             rui_cfg_cur->g_rui_cfg_ex.IsCertPortOn = 1;
 #endif
