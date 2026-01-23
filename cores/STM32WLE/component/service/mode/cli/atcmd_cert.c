@@ -441,7 +441,7 @@ int At_Cw(SERIAL_PORT port, char *cmd, stParam *param)
             LORA_TEST_DEBUG();
             return AT_PARAM_ERROR;
         }
-#ifdef rak3172
+#if defined(rak3172) || defined(rak3172T) || defined(rak3172F)
         if(BoardGetHardwareFreq())
         {
             if(Param.frequency > 960000000 || Param.frequency < 600000000)

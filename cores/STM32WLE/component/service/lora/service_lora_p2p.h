@@ -53,7 +53,8 @@ typedef enum
     #define LORA_CHIP_SX126X
 #elif defined rak3172 \
       || defined rak3172-sip \
-      || defined rak3172T
+      || defined rak3172T \
+      || defined rak3172F
     #define LORA_CHIP_STM32WLE5XX
 #endif
 

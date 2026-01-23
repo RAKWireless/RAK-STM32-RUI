@@ -1,20 +1,20 @@
 out/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio_fw.c: \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio_fw.c \
- /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/timer.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172F/timer.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_compiler.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h \
- /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/utilities_conf.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172F/utilities_conf.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_mem.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.7.0/src/radio/radio.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio_fw.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio_driver.h \
- /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/radio_conf.h \
- /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/subghz.h \
- /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/main.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172F/radio_conf.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172F/subghz.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172F/main.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h \
- /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172F/stm32wlxx_hal_conf.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_def.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h \
@@ -61,7 +61,7 @@ out/external/STM32CubeWL/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/r
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h \
- /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/mw_log_conf.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172F/mw_log_conf.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/trace/adv_trace/stm32_adv_trace.h \
- /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/radio_board_if.h \
- /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/mw_log_conf.h
+ /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172F/radio_board_if.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172F/mw_log_conf.h

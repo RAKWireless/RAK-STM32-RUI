@@ -40,7 +40,7 @@
 #endif
 #include "udrv_serial.h"
 #include "service_mode_cli.h"
-#if defined(rak3172) || defined(rak3172T)
+#if defined(rak3172) || defined(rak3172T) || defined(rak3172F)
 #include "uhal_system.h"
 #endif
 #ifdef RAK5010_EVB
@@ -137,7 +137,7 @@ at_cmd_info atcmd_info_tbl[] =
     {ATCMD_HWID,     /*14*/         At_GetHwID,            0, "get the string of the hardware id", AT_HWID_PERM},
     {ATCMD_ALIAS,    /*89*/         At_Alias,              0, "add an alias name to the device", AT_ALIAS_PERM},
     {ATCMD_SYSV,     /*92*/         At_GetSysVolt,         0, "get the System Voltage", AT_SYSV_PERM},
-#if defined(rak3172) || defined(rak3172T)
+#if defined(rak3172) || defined(rak3172T) || defined(rak3172F)
     {ATCMD_UID,      /*91*/         At_GetUid,             0, "", AT_UID_PERM},
 #endif
 #ifdef SUPPORT_BLE

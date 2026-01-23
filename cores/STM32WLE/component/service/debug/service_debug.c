@@ -1,7 +1,7 @@
 #include "service_debug.h"
 #include "udrv_serial.h"
 #include "stdarg.h"
-#ifdef rak3172
+#if defined(rak3172) || defined(rak3172T) || defined(rak3172F)
 #include "main.h"
 #endif
 
@@ -46,7 +46,7 @@ uint8_t service_get_debug_level(void)
 
 void service_debug_swo(const char *fmt, ...)
 {
-    #ifdef rak3172
+    #if defined(rak3172) || defined(rak3172T) || defined(rak3172F)
     uint8_t debug_level ;
     uint8_t i = 0; 
     char debug_buf[512];

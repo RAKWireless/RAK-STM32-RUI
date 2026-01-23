@@ -544,7 +544,7 @@ int32_t service_lora_p2p_set_freq(uint32_t freq)
     if ((freq < 150e6) || (freq > 960e6))
         return -UDRV_WRONG_ARG;
     
-#if defined(rak3172) || defined(rak3172T)
+#if defined(rak3172) || defined(rak3172T) || defined(ra3172F)
         /* Only RAK3172 supports hardware high and low frequency detection */
         uint8_t hardware_freq = 0;
         hardware_freq =  BoardGetHardwareFreq();
@@ -575,7 +575,7 @@ int32_t service_lora_p2p_check_runtime_freq(uint32_t freq)
     if ((freq < 150e6) || (freq > 960e6))
         return -UDRV_WRONG_ARG;
 
-#if defined(rak3172) || defined(rak3172T)
+#if defined(rak3172) || defined(rak3172T) || defined(ra3172F)
         /* Only RAK3172 supports hardware high and low frequency detection */
         uint8_t hardware_freq = 0;
         hardware_freq =  BoardGetHardwareFreq();

@@ -216,7 +216,7 @@
 #define ATCMD_HWID                  "AT+HWID"
 #define ATCMD_ALIAS                 "AT+ALIAS"
 #define ATCMD_SYSV                  "AT+SYSV"
-#if defined(rak3172) || defined(rak3172T)
+#if defined(rak3172) || defined(rak3172T) || defined(rak3172F)
 #define ATCMD_UID                   "AT+UID"
 #endif
 #ifdef SUPPORT_BLE

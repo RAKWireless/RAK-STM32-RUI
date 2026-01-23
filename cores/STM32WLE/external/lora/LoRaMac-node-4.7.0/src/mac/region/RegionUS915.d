@@ -3,14 +3,14 @@ out/external/lora/LoRaMac-node-4.7.0/src/mac/region/RegionUS915.c: \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.7.0/src/radio/radio.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.7.0/src/mac/region/RegionCommon.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.7.0/src/mac/LoRaMacTypes.h \
- /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/timer.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172F/timer.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/timer/stm32_timer.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_compiler.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/cmsis_gcc.h \
- /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/utilities_conf.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172F/utilities_conf.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_mem.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_tiny_vsnprintf.h \
- /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/systime.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172F/systime.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Utilities/misc/stm32_systime.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.7.0/src/mac/LoRaMacHeaderTypes.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.7.0/src/mac/region/Region.h \
@@ -24,11 +24,11 @@ out/external/lora/LoRaMac-node-4.7.0/src/mac/region/RegionUS915.c: \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.7.0/src/mac/region/RegionUS915.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.7.0/src/mac/region/RegionBaseUS.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora_test.h \
- /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pin_define.h \
- /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/variant.h \
- /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/PinNames.h \
- /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/PinNamesTypes.h \
- /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/PortNames.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172F/pin_define.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172F/variant.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172F/PinNames.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172F/PinNamesTypes.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172F/PortNames.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/core_cm4.h \
@@ -37,7 +37,7 @@ out/external/lora/LoRaMac-node-4.7.0/src/mac/region/RegionUS915.c: \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Include/mpu_armv7.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/system_stm32wlxx.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h \
- /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172F/stm32wlxx_hal_conf.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_def.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h \
@@ -77,8 +77,8 @@ out/external/lora/LoRaMac-node-4.7.0/src/mac/region/RegionUS915.c: \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_uart_ex.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_system.h \
- /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/PinNamesVar.h \
- /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino.h \
- /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino_analog.h \
- /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/pins_arduino_digital.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172F/PinNamesVar.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172F/pins_arduino.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172F/pins_arduino_analog.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172F/pins_arduino_digital.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h

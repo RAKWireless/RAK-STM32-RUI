@@ -13,6 +13,9 @@
 #include "udrv_adc.h"
 #include "udrv_rtc.h"
 #include "udrv_system.h"
+#ifdef SUPPORT_EXTFLASH
+#include "udrv_extflash.h"
+#endif
 #include "udrv_errno.h"
 
 #ifdef  RAK5010_EVB
@@ -123,6 +126,10 @@ static int32_t handle_mcu_sleep(bool all) {
     uhal_usb_suspend();
 #endif
 
+#ifdef SUPPORT_EXTFLASH
+    udrv_extflash_pm_suspend();
+#endif
+
 #ifdef SUPPORT_SPI
     udrv_spimst_suspend();
 #endif
@@ -186,6 +193,9 @@ static int32_t handle_mcu_sleep(bool all) {
     udrv_gpio_resume();
 #ifdef SUPPORT_SPI
     udrv_spimst_resume();
+#endif
+#ifdef SUPPORT_EXTFLASH
+    udrv_extflash_pm_resume();
 #endif
     udrv_twimst_resume();
     udrv_serial_resume();

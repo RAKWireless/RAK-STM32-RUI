@@ -1,7 +1,7 @@
 out/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_uart.c: \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Src/stm32wlxx_hal_uart.c \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal.h \
- /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172/stm32wlxx_hal_conf.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172F/stm32wlxx_hal_conf.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_dma.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_hal_def.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h \

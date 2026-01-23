@@ -1571,7 +1571,7 @@ SERVICE_LORA_BAND service_lora_get_band(void)
 int32_t service_lora_set_band(SERVICE_LORA_BAND band)
 {
 
-#if defined(rak3172) || defined(rak3172T)
+#if defined(rak3172) || defined(rak3172T) || defined(rak3172F)
         /* Only RAK3172 supports hardware high and low frequency detection */
         uint8_t hardware_freq = 0;
         hardware_freq =  BoardGetHardwareFreq();

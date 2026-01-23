@@ -132,7 +132,7 @@ int32_t service_nvm_set_default_config_to_nvm(void) {
     g_rui_cfg_t.lora_work_mode = SERVICE_LORA_P2P;
 #endif
     /* lorawan configuration */
-    #if defined(rak3172) || defined(rak3172T)
+    #if defined(rak3172) || defined(rak3172T) || defined(rak3172F)
     /* Only RAK3172 supports hardware high and low frequency detection */
     uint8_t hardware_freq = 0;
     hardware_freq =  BoardGetHardwareFreq();
@@ -177,7 +177,7 @@ int32_t service_nvm_set_default_config_to_nvm(void) {
     memset(g_rui_cfg_t.g_lora_cfg_t.McSession_group,0x00,4*sizeof(McSession_t));
 
     /* lora p2p configuration */
-#if defined(rak3172) || defined(rak3172T)
+#if defined(rak3172) || defined(rak3172T)  || defined(rak3172F)
     /* Only RAK3172 supports hardware high and low frequency detection */
     hardware_freq =  BoardGetHardwareFreq();
     if(hardware_freq)
@@ -1368,7 +1368,7 @@ static void service_nvm_data_recovery_from_legacy(uint32_t data_flash_addr, PRE_
     udrv_flash_read(data_flash_addr, sizeof(data_legacy), data_legacy );
     if( rui_cfg_cur->magic_num == RUI_CFG_MAGIC_NUM )
         version_code = rui_cfg_cur->version_code;
-    #if defined(rak3172) || defined(rak3172T) || defined(rak3172_sip) || defined(rak4630) || defined(rak11720) //V99 V87 V85 only support 3172 / 3172-sip / 4630
+    #if defined(rak3172) || defined(rak3172T) || defined(rak3172F) || defined(rak3172_sip) || defined(rak4630) || defined(rak11720) //V99 V87 V85 only support 3172 / 3172-sip / 4630
     //Check legacy version v99
     if( *((uint32_t*)(data_legacy + ELEM_OFS_V99_magic)) == 0xEDD1E)
     {
@@ -1394,7 +1394,7 @@ static void service_nvm_data_recovery_from_legacy(uint32_t data_flash_addr, PRE_
         //The historical version could not be determined
         return;
     }
-    #if defined(rak3172) || defined(rak3172T) || defined(rak3172_sip) || defined(rak4630) || defined(rak11720) //V87 and V85 , V99 only support 3172/3172-sip/4630
+    #if defined(rak3172) || defined(rak3172T) || defined(rak3172F) || defined(rak3172_sip) || defined(rak4630) || defined(rak11720) //V87 and V85 , V99 only support 3172/3172-sip/4630
     else if( version_code == RUI_VERSION_CODE_V85 )
     {
         #if defined(SUPPORT_LORA) || defined(SUPPORT_LORA_P2P)
