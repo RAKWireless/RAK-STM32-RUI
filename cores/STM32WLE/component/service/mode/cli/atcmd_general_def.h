@@ -191,6 +191,16 @@
  * | AT+BOOTVER?        | --                 | AT+BOOTVER: get the version of RUI Bootloader                     | OK                 |
  * | AT+BOOTVER=?       | --                 | <string>                                                          | OK                 |
  * | Example<br>AT+BOOTVER=?| --             | RUI STM32WLE5CC Bootloader v0.5                                   | OK                 |
+ *
+ * @subsection ATCMD_general_20 AT+EXTFLASH: get the ID of external flash
+ *
+ * This command allows the user to get the ID of external flash
+ *
+ * | Command            | Input parameter    | Return value                                                      | Return code        |
+ * |:------------------:|:------------------:|:-----------------------------------------------------|:--------:|
+ * | AT+EXTFLASH?       | --                 | AT+EXTFLASH: get the ID of external flash            | OK       |
+ * | AT+EXTFLASH=?      | --                 | <string>                                             | OK       |
+ * | Example<br>AT+EXTFLASH=?| --            | C22313                                               | OK       |
  */
 
 #ifndef _ATCMD_GENERAL_DEF_H_
@@ -222,6 +232,9 @@
 #ifdef SUPPORT_BLE
 #define ATCMD_BLEMAC                "AT+BLEMAC"
 #define ATCMD_BLEDTM                "AT+BLEDTM"
+#endif
+#ifdef SUPPORT_EXTFLASH
+#define ATCMD_EXTFLASH              "AT+EXTFLASH"
 #endif
 
 #endif //_ATCMD_GENERAL_DEF_H_

@@ -16,6 +16,9 @@
 #ifdef SUPPORT_FS
 #include "service_fs.h"
 #endif
+#ifdef SUPPORT_EXTFLASH
+#include "extflash.h"
+#endif
 
 using namespace std;
 
@@ -161,6 +164,9 @@ class RAKSystem {
     class lpm lpm;
     class lpmlvl lpmlvl;
     class wdt wdt;
+#ifdef SUPPORT_EXTFLASH
+    class extflash extflash;
+#endif
 
     class firmwareVersion {
       private:

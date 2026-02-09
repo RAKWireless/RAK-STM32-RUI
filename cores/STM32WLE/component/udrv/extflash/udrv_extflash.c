@@ -3,6 +3,8 @@
  * @brief   uDRV external flash interface (platform-independent API)
  */
 
+#ifdef SUPPORT_EXTFLASH
+
 #include "udrv_extflash.h"
 #include "uhal_extflash.h"
 #include "udrv_errno.h"
@@ -198,4 +200,6 @@ int32_t udrv_extflash_pm_resume(void)
     }
     return _map_uhal_to_udrv(uhal_extflash_pm_resume());
 }
+
+#endif //SUPPORT_EXTFLASH
 

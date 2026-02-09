@@ -468,7 +468,7 @@ void EXTI15_10_IRQHandler(void)
 
 void ADCx_IRQHandler(void)
 {
-  HAL_ADC_IRQHanlder(&hadc);
+  HAL_ADC_IRQHandler(&hadc);
 }
 
 void LPUART1_IRQHandler(void)

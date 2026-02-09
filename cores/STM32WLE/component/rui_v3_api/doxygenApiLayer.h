@@ -96,6 +96,12 @@
 	 */
 #endif
 
+#ifdef SUPPORT_EXTFLASH
+	/**@defgroup	ExtFlash	External Flash
+	 * @ingroup	System
+	 */
+#endif
+
 	/**@defgroup	Powersave	Powersave
 	 * @ingroup	System
 	 */

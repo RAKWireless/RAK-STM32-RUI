@@ -3,6 +3,8 @@
  * @brief   External SPI NOR Flash uHAL driver (STM32WLE5xx, SPI2)
  */
 
+#ifdef SUPPORT_EXTFLASH
+
 #include "uhal_extflash.h"
 #include "stm32wlxx_hal.h"
 
@@ -582,4 +584,6 @@ EXTFLASH_STATUS_t uhal_extflash_pm_resume(void)
     s_state = EXTFLASH_STATE_ACTIVE;
     return EXTFLASH_OK;
 }
+
+#endif //SUPPORT_EXTFLASH
 

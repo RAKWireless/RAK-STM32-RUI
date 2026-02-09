@@ -31,5 +31,8 @@ int At_GetUid (SERIAL_PORT port, char *cmd, stParam *param);
 int At_BLEMac (SERIAL_PORT port, char *cmd, stParam *param);
 int At_BLEDTM (SERIAL_PORT port, char *cmd, stParam *param);
 #endif
+#ifdef SUPPORT_EXTFLASH
+int At_ExtFlash (SERIAL_PORT port, char *cmd, stParam *param);
+#endif
 
 #endif //_ATCMD_GENERAL_H_

@@ -466,6 +466,11 @@
 #define AT_MCROOTKEY_PERM   ATCMD_PERM_READ | ATCMD_PERM_WRITE 
 #endif
 
+#ifdef SUPPORT_EXTFLASH
+#ifndef AT_EXTFLASH_PERM
+#define AT_EXTFLASH_PERM   ATCMD_PERM_READ
+#endif
+#endif
 
 
 #endif

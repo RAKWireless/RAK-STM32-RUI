@@ -19,6 +19,11 @@
 #endif
 #endif
 #include "board_basic.h"
+
+#ifdef SUPPORT_EXTFLASH
+#include "udrv_extflash.h"
+#endif
+
 #ifndef RUI_BOOTLOADER
 extern const char *sw_version;
 extern const char *model_id;
@@ -550,4 +555,28 @@ int At_BLEDTM (SERIAL_PORT port, char *cmd, stParam *param)
 }
 
 #endif
+
+#ifdef SUPPORT_EXTFLASH
+int At_ExtFlash (SERIAL_PORT port, char *cmd, stParam *param)
+{
+    if (param->argc == 1 && !strcmp(param->argv[0], "?")) {
+        EXTFLASH_INFO_t info;
+        int32_t ret = UDRV_RETURN_OK;
+        ret = udrv_extflash_get_info(&info);
+        if (ret != UDRV_RETURN_OK)
+            return ret;
+
+        atcmd_printf("%s=", cmd);
+        for (uint8_t i=0;i<3;i++)
+        {
+            atcmd_printf("%02X",info.jedec_id[i]);
+        }
+        atcmd_printf("\r\n");
+        return AT_OK;
+    } 
+    else 
+        return AT_PARAM_ERROR;
+}
+#endif
+
 #endif

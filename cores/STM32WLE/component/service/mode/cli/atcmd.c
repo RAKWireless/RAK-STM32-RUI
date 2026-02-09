@@ -270,6 +270,9 @@ at_cmd_info atcmd_info_tbl[] =
     {ATCMD_FIXLENGTHPAYLOAD,/*68*/  At_fixLengthPayload,   0, "get or set P2P fix length payload on/off ( 1 = on, 0 = off)", AT_FIXLENGTHPAYLOAD_PERM},
 
 #endif
+#ifdef SUPPORT_EXTFLASH
+    {ATCMD_EXTFLASH,                At_ExtFlash,           0, "get the external Flash ID", AT_EXTFLASH_PERM},
+#endif
 #ifdef RAK11160
     {ATCMD_ESP,                     At_Esp,                0, "Switch the ESP32 AT mode ( 0 = off, 1 = on )", ATCMD_PERM_READ | ATCMD_PERM_WRITE},
     {ATCMD_ESPPOWER,                At_EspPower,           0, "Control ESP32-C2 power via CHIP_EN pin (0 = off, 1 = on)", ATCMD_PERM_READ | ATCMD_PERM_WRITE},

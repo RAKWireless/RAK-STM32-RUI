@@ -8,11 +8,10 @@
  *  - uhal_extflash_init() is expected to be called once at boot.
  */
 
-#pragma once
+#ifndef _UHAL_EXTFLASH_H_
+#define _UHAL_EXTFLASH_H_
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#pragma once
 
 #include <stdint.h>
 #include <stdbool.h>
@@ -127,7 +126,4 @@ EXTFLASH_STATUS_t uhal_extflash_pm_suspend(void);
  */
 EXTFLASH_STATUS_t uhal_extflash_pm_resume(void);
 
-#ifdef __cplusplus
-}
-#endif
-
+#endif  // #ifndef _UHAL_EXTFLASH_H_

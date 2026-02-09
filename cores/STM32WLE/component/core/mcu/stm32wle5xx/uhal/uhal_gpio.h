@@ -5,6 +5,7 @@
 
 #include "udrv_gpio.h"
 #include "stm32wlxx_hal.h"
+#include "stm32wlxx_ll_gpio.h"
 
 #define M_MAX_GPIO_PIN          (48)
 

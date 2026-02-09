@@ -3,7 +3,6 @@
 #include "udrv_serial.h"
 #include "udrv_system.h"
 #include "udrv_errno.h"
-#include "stm32wlxx_ll_gpio.h"
 
 #define GPIO_BASE_ADDR 0x48000000UL
 #define GPIO_BASE_OFFSET 0x00000400UL
