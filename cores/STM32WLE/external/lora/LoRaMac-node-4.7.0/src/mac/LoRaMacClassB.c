@@ -1378,6 +1378,19 @@ bool LoRaMacClassBRxBeacon( uint8_t *payload, uint16_t size )
 
                 LoRaMacClassBBeaconTimerEvent( NULL );
             }
+            else // one of the crc is invalid
+            {
+                // Set beacon state to BEACON_STATE_TIMEOUT for restart timer
+                Ctx.BeaconState = BEACON_STATE_TIMEOUT;
+                LoRaMacClassBBeaconTimerEvent( NULL );
+            }
+
+        }
+        else // beacon size is wrong
+        {
+            // Set beacon state to BEACON_STATE_TIMEOUT for restart timer
+            Ctx.BeaconState = BEACON_STATE_TIMEOUT;
+            LoRaMacClassBBeaconTimerEvent( NULL );
         }
 
         if( Ctx.BeaconState == BEACON_STATE_RX )
@@ -1478,7 +1491,7 @@ void LoRaMacClassBSetPingSlotInfo( uint8_t periodicity )
 void LoRaMacClassBHaltBeaconing( void )
 {
 #ifdef LORAMAC_CLASSB_ENABLED
-    if( Ctx.BeaconCtx.Ctrl.BeaconMode == 1 )
+    if( (Ctx.BeaconCtx.Ctrl.BeaconMode == 1) || (Ctx.BeaconCtx.Ctrl.AcquisitionPending == 1) )
     {
         if( ( Ctx.BeaconState == BEACON_STATE_TIMEOUT ) ||
             ( Ctx.BeaconState == BEACON_STATE_LOST ) )
@@ -1500,6 +1513,16 @@ void LoRaMacClassBHaltBeaconing( void )
         // Halt ping and multicast slot state machines
         LoRaMacClassBStopRxSlots( );
     }
+#endif // LORAMAC_CLASSB_ENABLED
+}
+
+void LoRaMacClassBForceStop(void)
+{
+#ifdef LORAMAC_CLASSB_ENABLED
+    // stop timer and set beacon state to BEACON_STATE_HALT
+    LoRaMacClassBHaltBeaconing( );
+    // reset beacon state
+    InitClassBDefaults( );
 #endif // LORAMAC_CLASSB_ENABLED
 }
 
@@ -1540,7 +1563,6 @@ LoRaMacStatus_t LoRaMacClassBSwitchClass( DeviceClass_t nextClass )
 
         // Initialize default state for class b
         InitClassBDefaults( );
-
         return LORAMAC_STATUS_OK;
     }
     return LORAMAC_STATUS_SERVICE_UNKNOWN;

@@ -130,7 +130,7 @@ static service_lora_send_cb service_lora_send_callback;
 static TIMEREQ_STATE timereq_status = TIMEREQ_DISABLED;
 static service_lora_timereq_cb service_lora_timereq_callback;
 extern bool udrv_powersave_in_sleep;
-extern volatile testParameter_t testParam;
+//extern volatile testParameter_t testParam;
 extern uint8_t last_tx_channel; 
 static udrv_system_event_t rui_lora_join_cb_event = {.request = UDRV_SYS_EVT_OP_LORAWAN_JOIN_CB, .p_context = NULL};
 
@@ -659,7 +659,6 @@ static void MlmeConfirm(MlmeConfirm_t *mlmeConfirm)
         if (mlmeConfirm->Status == LORAMAC_EVENT_INFO_STATUS_OK)
         {
             class_b_state = SERVICE_LORA_CLASS_B_COMPLETED;//Class B enabled
-
             
             LoRaMacStatus_t status;
             MibRequestConfirm_t mibReq;
@@ -707,24 +706,24 @@ static void MlmeConfirm(MlmeConfirm_t *mlmeConfirm)
     {
         if (mlmeConfirm->Status == LORAMAC_EVENT_INFO_STATUS_OK)
         {
-            
         }
         else
         {
             //LORAMAC_EVENT_INFO_STATUS_BEACON_NOT_FOUND
             udrv_serial_log_printf("+BC:FAILED\r\n");
-            
+            udrv_serial_log_printf("+BC:STOP ACQUISITION\r\n");
+
             if (class_b_state != SERVICE_LORA_CLASS_B_COMPLETED) 
             {
                 class_b_state = SERVICE_LORA_CLASS_B_S3;//Beacon failed
             }
+
             // First Beacon not acquired
             // Request Device Time again.  
-            
             LoRaMacStatus_t status;
             MlmeReq_t mlmeReq;
             mlmeReq.Type = MLME_DEVICE_TIME;
-            status = LoRaMacMlmeRequest( &mlmeReq );     
+            status = LoRaMacMlmeRequest( &mlmeReq );
         }
         break;
     }
@@ -757,7 +756,7 @@ static void MlmeIndication(MlmeIndication_t *mlmeIndication)
     case MLME_BEACON:
     {
         if (mlmeIndication->Status == LORAMAC_EVENT_INFO_STATUS_BEACON_LOCKED)
-       {
+        {
             udrv_serial_log_printf("+BC:LOCKED\r\n");
 
             LORA_TEST_DEBUG("Lock Beacon Success\r\n");
@@ -791,7 +790,7 @@ static void MlmeIndication(MlmeIndication_t *mlmeIndication)
                 beacon_bgw.longitude = (mlmeIndication->BeaconInfo.GwSpecific.Info[5] << 16) |
                                       (mlmeIndication->BeaconInfo.GwSpecific.Info[4] << 8) |
                                       (mlmeIndication->BeaconInfo.GwSpecific.Info[3]);
-		break;
+                break;
             case 1:
                 beacon_bgw.GPS_coordinate = 1;
 		
@@ -801,7 +800,7 @@ static void MlmeIndication(MlmeIndication_t *mlmeIndication)
                 beacon_bgw.longitude = (mlmeIndication->BeaconInfo.GwSpecific.Info[5] << 16) |
                                       (mlmeIndication->BeaconInfo.GwSpecific.Info[4] << 8) |
                                       (mlmeIndication->BeaconInfo.GwSpecific.Info[3]);
-		break;
+                break;
             case 2:
                 beacon_bgw.GPS_coordinate = 2;
 
@@ -2377,6 +2376,35 @@ bool service_lora_get_njs(void)
     }
 }
 
+int32_t service_lora_classb_force_stop(void)
+{
+    LoRaMacStatus_t status;
+    SERVICE_LORA_CLASS real_class_before;
+    SERVICE_LORA_CLASS real_class_after;
+
+    real_class_before = service_lora_get_real_class_from_stack();
+    LORA_TEST_DEBUG("+BC:FORCE_STOP_REQ real=%d state=%d", real_class_before, class_b_state);
+
+    status = LoRaMacStopClassB();
+    if (status == LORAMAC_STATUS_BUSY)
+    {
+        LORA_TEST_DEBUG("+BC:FORCE_STOP_BUSY");
+        return -UDRV_BUSY;
+    }
+    else if (status != LORAMAC_STATUS_OK)
+    {
+        LORA_TEST_DEBUG("+BC:FORCE_STOP_FAIL:%d", status);
+        return -UDRV_INTERNAL_ERR;
+    }
+
+    class_b_state = SERVICE_LORA_CLASS_B_S0;
+
+    real_class_after = service_lora_get_real_class_from_stack();
+    LORA_TEST_DEBUG("+BC:FORCE_STOP_DONE real=%d state=%d", real_class_after, class_b_state);
+
+    return UDRV_RETURN_OK;
+}
+
 int32_t service_lora_send(uint8_t *buff, uint32_t len, SERVICE_LORA_SEND_INFO info, bool blocking)
 {
     LoRaMacStatus_t status;
@@ -2385,6 +2413,8 @@ int32_t service_lora_send(uint8_t *buff, uint32_t len, SERVICE_LORA_SEND_INFO in
     SERVICE_LORA_DATA_RATE dr = service_nvm_get_dr_from_nvm();
     bool tx_possible = true;
     MlmeReq_t mlmeReq;
+    int32_t ret;
+
     if (service_lora_get_njs() == false)
     {
         return -UDRV_NO_WAN_CONNECTION;
@@ -2417,7 +2447,22 @@ int32_t service_lora_send(uint8_t *buff, uint32_t len, SERVICE_LORA_SEND_INFO in
             }
             case SERVICE_LORA_CLASS_B_S1:
             {
-                //Nothing to do
+                /*
+                 * TX-priority policy:
+                 * If user is in Class B flow and beacon acquisition/reacquisition is active,
+                 * force stop Class B first, then send uplink, and resume acquisition after TX done.
+                 */
+                LORA_TEST_DEBUG("+BC:STOP_FOR_TX_REQ state=%d", class_b_state);
+                ret = service_lora_classb_force_stop();
+                if (ret != UDRV_RETURN_OK)
+                {
+                    LORA_TEST_DEBUG("+BC:STOP_FOR_TX_FAIL:%d", ret);
+                    return ret;
+                }
+                LORA_TEST_DEBUG("+BC:STOP_FOR_TX_DONE");
+
+                mlmeReq.Type = MLME_DEVICE_TIME;
+                status = LoRaMacMlmeRequest(&mlmeReq);
                 break;
             }
             case SERVICE_LORA_CLASS_B_S2:
@@ -2848,7 +2893,8 @@ int32_t service_lora_set_dr(SERVICE_LORA_DATA_RATE dr, bool commit)
 
     if (status == LORAMAC_STATUS_OK)
     {
-        testParam.datarate = dr;
+        //testParam.datarate = dr;
+        service_lora_set_dr_for_trth(dr);
         if (commit)
         {
             return service_nvm_set_dr_to_nvm(dr);
@@ -3072,7 +3118,8 @@ int32_t service_lora_set_txpower(uint8_t txp, bool commit)
     status = LoRaMacMibSetRequestConfirm(&mibReq);
     if (status == LORAMAC_STATUS_OK)
     {
-        testParam.power = txp;
+        //testParam.power = txp;
+        service_lora_set_txp_for_trth(txp);
         if (commit)
         {
             return service_nvm_set_txpower_to_nvm(txp);

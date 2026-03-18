@@ -2023,7 +2023,6 @@ static LoRaMacCryptoStatus_t GetFCntDown( AddressIdentifier_t addrID, FType_t fT
 static LoRaMacStatus_t SwitchClass( DeviceClass_t deviceClass )
 {
     LoRaMacStatus_t status = LORAMAC_STATUS_PARAMETER_INVALID;
-
     switch( Nvm.MacGroup2.DeviceClass )
     {
         case CLASS_A:
@@ -5099,6 +5098,34 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet )
     return status;
 }
 
+LoRaMacStatus_t LoRaMacStopClassB( void )
+{
+    if( ( MacCtx.MacState & LORAMAC_TX_RUNNING ) == LORAMAC_TX_RUNNING )
+    {
+        return LORAMAC_STATUS_BUSY;
+    }
+
+#ifdef LORAMAC_CLASSB_ENABLED
+    /*
+     * Force stop Class B internal beacon state machine regardless of whether
+     * current real class is already CLASS_A or not.
+     */
+    LoRaMacClassBForceStop();
+
+    /*
+     * Keep stack real class in CLASS_A after stop.
+     * This is important because acquisition/reacquisition may run while real
+     * class is still CLASS_A, and application expects uplink behavior to go
+     * back to Class A semantics after force stop.
+     */
+    Nvm.MacGroup2.DeviceClass = CLASS_A;
+
+    return LORAMAC_STATUS_OK;
+#else
+    return LORAMAC_STATUS_SERVICE_UNKNOWN;
+#endif
+}
+
 LoRaMacStatus_t LoRaMacChannelAdd( uint8_t id, ChannelParams_t params )
 {
     ChannelAddParams_t channelAdd;
@@ -5599,7 +5626,13 @@ LoRaMacStatus_t LoRaMacMcpsRequest( McpsReq_t* mcpsRequest )
         ( Nvm.MacGroup2.DownlinkReceived == false ) &&
         ( request.Type == MCPS_UNCONFIRMED ) )
     {
-        request.Type = MCPS_CONFIRMED;
+        MlmeReq_t mlmeReq;
+        mlmeReq.Type = MLME_DEVICE_TIME;
+
+        if ( LoRaMacMlmeRequest( &mlmeReq ) != LORAMAC_STATUS_OK )
+        {
+            request.Type = MCPS_CONFIRMED;
+        }
     }
 
     switch( request.Type )

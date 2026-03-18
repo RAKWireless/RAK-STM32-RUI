@@ -402,6 +402,11 @@ bool LoRaMacClassBIsBeaconModeActive( void );
 void LoRaMacClassBHaltBeaconing( void );
 
 /*!
+ * \brief Force stop the beacon acquisition / tracking flow.
+ */
+void LoRaMacClassBForceStop(void);
+
+/*!
  * \brief Resumes the beacon and ping slot operation
  */
 void LoRaMacClassBResumeBeaconing( void );

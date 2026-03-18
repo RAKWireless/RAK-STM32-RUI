@@ -81,4 +81,10 @@ out/external/lora/LoRaMac-node-4.7.0/src/mac/region/RegionUS915.c: \
  /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172F/pins_arduino.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172F/pins_arduino_analog.h \
  /home/jenkins/workspace/RUI_Release/rui-v3/component/core/board/rak3172F/pins_arduino_digital.h \
- /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h
+ /home/jenkins/workspace/RUI_Release/rui-v3/external/STM32CubeWL/Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_gpio.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/service_lora.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/component/service/lora/LmHandler/LmHandlerTypes.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.7.0/src/mac/secure-element.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.7.0/src/mac/LoRaMacCrypto.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.7.0/src/mac/LoRaMacMessageTypes.h \
+ /home/jenkins/workspace/RUI_Release/rui-v3/external/lora/LoRaMac-node-4.7.0/src/mac/LoRaMacHeaderTypes.h

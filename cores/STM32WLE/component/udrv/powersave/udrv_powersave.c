@@ -332,12 +332,16 @@ int32_t udrv_sleep_ms (uint32_t ms_time)
     }
 
 #if defined(SUPPORT_LORA) || defined(SUPPORT_LORA_P2P)
+    #ifndef rak11720 //#BUG RUI_1050
         service_lora_suspend();
+    #endif
 #endif
     ret = handle_mcu_sleep(true);
 
 #if defined(SUPPORT_LORA) || defined(SUPPORT_LORA_P2P)
+    #ifndef rak11720 //#BUG RUI_1050
         service_lora_resume();
+    #endif
 #endif
     return ret;
 }

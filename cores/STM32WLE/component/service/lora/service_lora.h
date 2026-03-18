@@ -524,6 +524,7 @@ extern "C"
 
     bool service_lora_region_isActive(SERVICE_LORA_BAND band);
 
+    int32_t service_lora_classb_force_stop(void);
 #ifdef __cplusplus
 }
 #endif

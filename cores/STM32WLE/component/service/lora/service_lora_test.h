@@ -10,6 +10,7 @@ extern "C" {
 #include <stdint.h>
 #include <stdbool.h>
 #include "pin_define.h"
+#include "service_lora.h"
 
 //#define _TEST_DEBUG_ENABLE
 #ifdef  _TEST_DEBUG_ENABLE
@@ -121,6 +122,9 @@ int32_t service_lora_tth(const testParameter_t *param);
 
 int32_t service_lora_get_cw(testCwParameter_t *param);
 int32_t service_lora_set_cw(testCwParameter_t *param);
+
+void service_lora_set_dr_for_trth(SERVICE_LORA_DATA_RATE dr);
+void service_lora_set_txp_for_trth(int8_t txp);
 
 #ifdef __cplusplus
 }

@@ -27,6 +27,8 @@ typedef enum
 typedef enum
 {
     RAK_CHR_PROPS_READ = 2,	///< Set the charactristic property to be Read
+    RAK_CHR_PROPS_WRITE_WO_RESP = 4,
+    RAK_CHR_PROPS_WRITE = 8,
     RAK_CHR_PROPS_NOTIFY = 16,	///< Set the charactristic property to be Notify
 } RAK_CHARS_PROPERTIES;
 

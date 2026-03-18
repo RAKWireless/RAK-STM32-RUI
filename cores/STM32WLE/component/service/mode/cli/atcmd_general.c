@@ -109,6 +109,8 @@ int At_Reboot (SERIAL_PORT port, char *cmd, stParam *param)
 #ifdef RUI_BOOTLOADER
         uhal_sys_reboot();
 #else
+        service_nvm_set_delta_sec_to_nvm(0);
+        service_nvm_set_delta_subsec_to_nvm(0);
         udrv_system_reboot();
 #endif
         return AT_OK;

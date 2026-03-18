@@ -2844,6 +2844,18 @@ LoRaMacStatus_t LoRaMacMibGetRequestConfirm( MibRequestConfirm_t* mibGet );
 LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t* mibSet );
 
 /*!
+ * \brief Force stop Class B beacon acquisition / tracking flow.
+ *
+ * \remark This API is intended to stop Class B internal state machine even if
+ *         the current real device class is still CLASS_A during acquisition.
+ *
+ * \retval LORAMAC_STATUS_OK          Stop succeeded
+ * \retval LORAMAC_STATUS_BUSY        MAC is busy with TX
+ * \retval LORAMAC_STATUS_SERVICE_UNKNOWN  Class B not enabled / unsupported
+ */
+LoRaMacStatus_t LoRaMacStopClassB( void );
+
+/*!
  * \brief   LoRaMAC MLME-Request
  *
  * \details The Mac layer management entity handles management services. The

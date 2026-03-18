@@ -155,15 +155,28 @@ int At_Tconf(SERIAL_PORT port, char *cmd, stParam *param)
     }
     else if (param->argc == 12)
     {
+        service_lora_get_tconf(&Param); //need read struct before setting
+
         if (0 != at_check_digital_uint32_t(param->argv[0], &Param.frequency))
         {
             LORA_TEST_DEBUG();
             return AT_PARAM_ERROR;
         }
-        if (0 != at_check_digital_uint32_t(param->argv[1],&Param.power))
+        /*for support setting power range -9 ~ 22*/
+        uint32_t tmp;
+        if (0 != at_check_digital_uint32_t(param->argv[1],&tmp))
         {
             LORA_TEST_DEBUG();
             return AT_PARAM_ERROR;
+        }
+        else if (tmp > 255)
+        {
+            LORA_TEST_DEBUG();
+            return AT_PARAM_ERROR;
+        }
+        else
+        {
+            Param.power = (int8_t)(uint8_t)tmp;
         }
 
         if (0 != at_check_digital_uint32_t(param->argv[2], &Param.bandwidth))
