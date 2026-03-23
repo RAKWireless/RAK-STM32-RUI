@@ -175,6 +175,7 @@ static void OnTxTimeout(void)
     if (service_get_debug_level()) {
         udrv_serial_log_printf("%s\r\n", __func__);
     }
+    udrv_powersave_wake_unlock();
 }
 
 static void OnRxTimeout(void)
@@ -428,7 +429,11 @@ int32_t service_lora_p2p_send(uint8_t *p_data, uint8_t len, bool cad_enable)
         }
             
         if(lora_p2p_status.isRadioBusy == false)
+        {
+            LORA_P2P_DEBUG("CAD: udrv_powersave_wake_unlock\r\n");
+            udrv_powersave_wake_unlock();
             return -UDRV_BUSY;
+        }
     }
     Radio.Send(lora_p2p_buf, len);
 
