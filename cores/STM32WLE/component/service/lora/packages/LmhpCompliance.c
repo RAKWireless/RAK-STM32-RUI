@@ -28,10 +28,19 @@
 #include "board.h"
 //#include "NvmDataMgmt.h"
 #include "LoRaMacTest.h"
+#include "LoRaMac.h"
 #include "LmHandler.h"
 #include "LmhpCompliance.h"
 #include "service_lora.h"
 #include "udrv_errno.h"
+#include "udrv_timer.h"
+#include "udrv_system.h"
+#include "service_lora_certification.h"
+
+#define COMPLIANCE_CLASS_SWITCH_DELAY_MS 500
+
+extern bool udrv_powersave_in_sleep;
+static udrv_system_event_t rui_lora_event = {.request = UDRV_SYS_EVT_OP_LORAWAN, .p_context = NULL};
 
 /*!
  * LoRaWAN compliance certification protocol port number.
@@ -100,6 +109,7 @@ ComplianceTestState_t ComplianceTestState = {
  * LoRaWAN compliance tests protocol handler parameters
  */
 static LmhpComplianceParams_t* ComplianceParams;
+static TimerEvent_t ComplianceClassSwitchTimer;
 
 /*!
  * Reset Beacon status structure
@@ -170,6 +180,8 @@ static void SendBeaconRxStatusInd( bool isBeaconRxStatusIndOn );
 static void OnTxPeriodicityChanged( uint32_t periodicity );
 static void OnTxFrameCtrlChanged( LmHandlerMsgTypes_t isTxConfirmed );
 static void OnPingSlotPeriodicityChanged( uint8_t pingSlotPeriodicity );
+static void OnClassSwitchTimerEvent( void *context );
+static void ScheduleClassSwitch( void );
 
 LmhPackage_t CompliancePackage = {
     .Port                    = COMPLIANCE_PORT,
@@ -195,6 +207,8 @@ LmhPackage_t* LmphCompliancePackageFactory( void )
 
 static void LmhpComplianceInit( void* params, uint8_t* dataBuffer, uint8_t dataBufferMaxSize )
 {
+    TimerInit( &ComplianceClassSwitchTimer, OnClassSwitchTimerEvent );
+
     if( ( params != NULL ) && ( dataBuffer != NULL ) )
     {
         ComplianceParams                      = ( LmhpComplianceParams_t* ) params;
@@ -202,6 +216,7 @@ static void LmhpComplianceInit( void* params, uint8_t* dataBuffer, uint8_t dataB
         ComplianceTestState.DataBufferMaxSize = dataBufferMaxSize;
         ComplianceTestState.Initialized       = true;
         ComplianceParams->OnTxFrameCtrlChanged = OnTxFrameCtrlChanged;
+        ComplianceParams->OnTxPeriodicityChanged = OnTxPeriodicityChanged;
     }
     else
     {
@@ -224,6 +239,27 @@ static void OnTxFrameCtrlChanged( LmHandlerMsgTypes_t isTxConfirmed )
         service_lora_set_cfm(SERVICE_LORA_ACK);
 }
 
+static volatile uint32_t TxPeriodicity = 0;
+
+#define APP_TX_DUTYCYCLE                            5000
+#define APP_TX_DUTYCYCLE_RND                        1000
+
+static void OnTxPeriodicityChanged( uint32_t periodicity )
+{
+    TxPeriodicity = periodicity;
+
+    if( TxPeriodicity == 0 )
+    { // Revert to application default periodicity
+        TxPeriodicity = APP_TX_DUTYCYCLE + randr( -APP_TX_DUTYCYCLE_RND, APP_TX_DUTYCYCLE_RND );
+    }
+
+    // Update timer periodicity
+    udrv_system_timer_stop(SYSTIMER_LCT);
+    if (udrv_system_timer_create(SYSTIMER_LCT, CertifiTimerEvent, HTMR_PERIODIC) == UDRV_RETURN_OK)
+    {
+        udrv_system_timer_start(SYSTIMER_LCT, periodicity, NULL);
+    }
+}
 
 static bool LmhpComplianceIsInitialized( void )
 {
@@ -239,15 +275,27 @@ static void LmhpComplianceProcess( void )
 {
     if( ComplianceTestState.IsClassReqCmdPending == true )
         {
+            int32_t ret = UDRV_RETURN_OK;
             ComplianceTestState.IsClassReqCmdPending = false;
-            //LmHandlerRequestClass( ComplianceTestState.NewClass );
-            if(ComplianceTestState.NewClass == CLASS_A)
-                service_lora_set_class(SERVICE_LORA_CLASS_A,false);
-            else if(ComplianceTestState.NewClass == CLASS_B)
-                service_lora_set_class(SERVICE_LORA_CLASS_B,false);
-            else if(ComplianceTestState.NewClass == CLASS_C)
-                service_lora_set_class(SERVICE_LORA_CLASS_C,false);
 
+            if( LoRaMacIsBusy( ) == true )
+            {
+                ScheduleClassSwitch( );
+            }
+            else
+            {
+                if(ComplianceTestState.NewClass == CLASS_A)
+                    ret = service_lora_set_class(SERVICE_LORA_CLASS_A,true);
+                else if(ComplianceTestState.NewClass == CLASS_B)
+                    ret = service_lora_set_class(SERVICE_LORA_CLASS_B,true);
+                else if(ComplianceTestState.NewClass == CLASS_C)
+                    ret = service_lora_set_class(SERVICE_LORA_CLASS_C,true);
+
+                if( ret == -UDRV_BUSY )
+                {
+                    ScheduleClassSwitch( );
+                }
+            }
         }
 
     if( ComplianceTestState.IsResetCmdPending == true )
@@ -330,7 +378,7 @@ static void LmhpComplianceOnMcpsIndication( McpsIndication_t* mcpsIndication )
     {
         // CLASS_A = 0, CLASS_B = 1, CLASS_C = 2
         ComplianceTestState.NewClass = ( DeviceClass_t ) mcpsIndication->Buffer[cmdIndex++];
-        ComplianceTestState.IsClassReqCmdPending = true;
+        ScheduleClassSwitch( );
         break;
     }
     case COMPLIANCE_ADR_BIT_CHANGE_REQ:
@@ -514,6 +562,21 @@ static void LmhpComplianceOnMcpsIndication( McpsIndication_t* mcpsIndication )
         // Abort any pending Tx as a new command has been processed
         ComplianceTestState.IsTxPending = false;
     }
+}
+
+static void ScheduleClassSwitch( void )
+{
+    TimerStop( &ComplianceClassSwitchTimer );
+    TimerSetValue( &ComplianceClassSwitchTimer, COMPLIANCE_CLASS_SWITCH_DELAY_MS );
+    TimerStart( &ComplianceClassSwitchTimer );
+}
+
+static void OnClassSwitchTimerEvent( void *context )
+{
+    TimerStop( &ComplianceClassSwitchTimer );
+    ComplianceTestState.IsClassReqCmdPending = true;
+    udrv_system_event_produce( &rui_lora_event );
+    udrv_powersave_in_sleep = false;
 }
 
 static void LmhpComplianceOnMlmeConfirm( MlmeConfirm_t *mlmeConfirm )

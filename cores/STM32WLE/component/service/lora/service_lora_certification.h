@@ -19,7 +19,7 @@ extern "C" {
 
 static uint8_t AppDataBuffer[LORAWAN_APP_DATA_MAX_SIZE];
 
-static void CertifiTimerEvent( void* context );
+void CertifiTimerEvent( void* context );
 
 uint32_t Certifi_Send(uint8_t port);
 

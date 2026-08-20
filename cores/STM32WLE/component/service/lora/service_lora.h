@@ -314,6 +314,8 @@ extern "C"
 
     int32_t service_lora_init(SERVICE_LORA_BAND band);
 
+    int32_t service_lora_schedule_auto_join(void);
+
     SERVICE_LORA_BAND service_lora_get_band(void);
 
     int32_t service_lora_set_band(SERVICE_LORA_BAND band);

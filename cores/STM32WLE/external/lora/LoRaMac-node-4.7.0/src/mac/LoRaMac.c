@@ -3469,7 +3469,23 @@ LoRaMacStatus_t SendFrameOnChannel( uint8_t channel )
 
 LoRaMacStatus_t SetTxContinuousWave( uint16_t timeout, uint32_t frequency, uint8_t power )
 {
-    Radio.SetTxContinuousWave( frequency, power, timeout );
+    ContinuousWaveParams_t continuousWave;
+    switch (Nvm.MacGroup2.Region)
+    {
+        case LORAMAC_REGION_CN470:
+            continuousWave.Channel = MacCtx.Channel;
+            continuousWave.Datarate = Nvm.MacGroup1.ChannelsDatarate;
+            continuousWave.TxPower = Nvm.MacGroup1.ChannelsTxPower;
+            continuousWave.MaxEirp = Nvm.MacGroup2.MacParams.MaxEirp;
+            continuousWave.AntennaGain = Nvm.MacGroup2.MacParams.AntennaGain;
+            continuousWave.Timeout = timeout;
+
+            RegionSetContinuousWave( Nvm.MacGroup2.Region, &continuousWave );
+            break;
+        default:
+            Radio.SetTxContinuousWave( frequency, power, timeout );
+            break;
+    }
 
     MacCtx.MacState |= LORAMAC_TX_RUNNING;
 

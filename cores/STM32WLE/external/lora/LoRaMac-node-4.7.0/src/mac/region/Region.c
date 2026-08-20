@@ -56,6 +56,7 @@
 #define AS923_CHANNEL_REMOVE( )                    AS923_CASE { return RegionAS923ChannelsRemove( channelRemove ); }
 #define AS923_APPLY_DR_OFFSET( )                   AS923_CASE { return RegionAS923ApplyDrOffset( downlinkDwellTime, dr, drOffset ); }
 #define AS923_RX_BEACON_SETUP( )                   AS923_CASE { RegionAS923RxBeaconSetup( rxBeaconSetup, outDr ); break; }
+#define AS923_SET_CONTINUOUS_WAVE( )
 #else
 #define AS923_IS_ACTIVE( )
 #define AS923_GET_PHY_PARAM( )
@@ -105,6 +106,7 @@
 #define AU915_CHANNEL_REMOVE( )                    AU915_CASE { return RegionAU915ChannelsRemove( channelRemove ); }
 #define AU915_APPLY_DR_OFFSET( )                   AU915_CASE { return RegionAU915ApplyDrOffset( downlinkDwellTime, dr, drOffset ); }
 #define AU915_RX_BEACON_SETUP( )                   AU915_CASE { RegionAU915RxBeaconSetup( rxBeaconSetup, outDr ); break; }
+#define AU915_SET_CONTINUOUS_WAVE( )
 #else
 #define AU915_IS_ACTIVE( )
 #define AU915_GET_PHY_PARAM( )
@@ -128,6 +130,7 @@
 #define AU915_CHANNEL_REMOVE( )
 #define AU915_APPLY_DR_OFFSET( )
 #define AU915_RX_BEACON_SETUP( )
+#define AU915_SET_CONTINUOUS_WAVE( )
 #endif
 
 #ifdef REGION_CN470
@@ -154,6 +157,7 @@
 #define CN470_CHANNEL_REMOVE( )                    CN470_CASE { return RegionCN470ChannelsRemove( channelRemove ); }
 #define CN470_APPLY_DR_OFFSET( )                   CN470_CASE { return RegionCN470ApplyDrOffset( downlinkDwellTime, dr, drOffset ); }
 #define CN470_RX_BEACON_SETUP( )                   CN470_CASE { RegionCN470RxBeaconSetup( rxBeaconSetup, outDr ); break; }
+#define CN470_SET_CONTINUOUS_WAVE( )               CN470_CASE { RegionCN470SetContinuousWave( continuousWave ); break; }
 #else
 #define CN470_IS_ACTIVE( )
 #define CN470_GET_PHY_PARAM( )
@@ -177,6 +181,7 @@
 #define CN470_CHANNEL_REMOVE( )
 #define CN470_APPLY_DR_OFFSET( )
 #define CN470_RX_BEACON_SETUP( )
+#define CN470_SET_CONTINUOUS_WAVE( )
 #endif
 
 #ifdef REGION_CN779
@@ -203,6 +208,7 @@
 #define CN779_CHANNEL_REMOVE( )                    CN779_CASE { return RegionCN779ChannelsRemove( channelRemove ); }
 #define CN779_APPLY_DR_OFFSET( )                   CN779_CASE { return RegionCN779ApplyDrOffset( downlinkDwellTime, dr, drOffset ); }
 #define CN779_RX_BEACON_SETUP( )                   CN779_CASE { RegionCN779RxBeaconSetup( rxBeaconSetup, outDr ); break; }
+#define CN779_SET_CONTINUOUS_WAVE( )
 #else
 #define CN779_IS_ACTIVE( )
 #define CN779_GET_PHY_PARAM( )
@@ -226,6 +232,7 @@
 #define CN779_CHANNEL_REMOVE( )
 #define CN779_APPLY_DR_OFFSET( )
 #define CN779_RX_BEACON_SETUP( )
+#define CN779_SET_CONTINUOUS_WAVE( )
 #endif
 
 #ifdef REGION_EU433
@@ -252,6 +259,7 @@
 #define EU433_CHANNEL_REMOVE( )                    EU433_CASE { return RegionEU433ChannelsRemove( channelRemove ); }
 #define EU433_APPLY_DR_OFFSET( )                   EU433_CASE { return RegionEU433ApplyDrOffset( downlinkDwellTime, dr, drOffset ); }
 #define EU433_RX_BEACON_SETUP( )                   EU433_CASE { RegionEU433RxBeaconSetup( rxBeaconSetup, outDr ); break; }
+#define EU433_SET_CONTINUOUS_WAVE( )
 #else
 #define EU433_IS_ACTIVE( )
 #define EU433_GET_PHY_PARAM( )
@@ -275,6 +283,7 @@
 #define EU433_CHANNEL_REMOVE( )
 #define EU433_APPLY_DR_OFFSET( )
 #define EU433_RX_BEACON_SETUP( )
+#define EU433_SET_CONTINUOUS_WAVE( )
 #endif
 
 #ifdef REGION_EU868
@@ -301,6 +310,7 @@
 #define EU868_CHANNEL_REMOVE( )                    EU868_CASE { return RegionEU868ChannelsRemove( channelRemove ); }
 #define EU868_APPLY_DR_OFFSET( )                   EU868_CASE { return RegionEU868ApplyDrOffset( downlinkDwellTime, dr, drOffset ); }
 #define EU868_RX_BEACON_SETUP( )                   EU868_CASE { RegionEU868RxBeaconSetup( rxBeaconSetup, outDr ); break; }
+#define EU868_SET_CONTINUOUS_WAVE( )
 #else
 #define EU868_IS_ACTIVE( )
 #define EU868_GET_PHY_PARAM( )
@@ -324,6 +334,7 @@
 #define EU868_CHANNEL_REMOVE( )
 #define EU868_APPLY_DR_OFFSET( )
 #define EU868_RX_BEACON_SETUP( )
+#define EU868_SET_CONTINUOUS_WAVE( )
 #endif
 
 #ifdef REGION_KR920
@@ -350,6 +361,7 @@
 #define KR920_CHANNEL_REMOVE( )                    KR920_CASE { return RegionKR920ChannelsRemove( channelRemove ); }
 #define KR920_APPLY_DR_OFFSET( )                   KR920_CASE { return RegionKR920ApplyDrOffset( downlinkDwellTime, dr, drOffset ); }
 #define KR920_RX_BEACON_SETUP( )                   KR920_CASE { RegionKR920RxBeaconSetup( rxBeaconSetup, outDr ); break; }
+#define KR920_SET_CONTINUOUS_WAVE( )
 #else
 #define KR920_IS_ACTIVE( )
 #define KR920_GET_PHY_PARAM( )
@@ -373,6 +385,7 @@
 #define KR920_CHANNEL_REMOVE( )
 #define KR920_APPLY_DR_OFFSET( )
 #define KR920_RX_BEACON_SETUP( )
+#define KR920_SET_CONTINUOUS_WAVE( )
 #endif
 
 #ifdef REGION_IN865
@@ -399,6 +412,7 @@
 #define IN865_CHANNEL_REMOVE( )                    IN865_CASE { return RegionIN865ChannelsRemove( channelRemove ); }
 #define IN865_APPLY_DR_OFFSET( )                   IN865_CASE { return RegionIN865ApplyDrOffset( downlinkDwellTime, dr, drOffset ); }
 #define IN865_RX_BEACON_SETUP( )                   IN865_CASE { RegionIN865RxBeaconSetup( rxBeaconSetup, outDr ); break; }
+#define IN865_SET_CONTINUOUS_WAVE( )
 #else
 #define IN865_IS_ACTIVE( )
 #define IN865_GET_PHY_PARAM( )
@@ -422,6 +436,7 @@
 #define IN865_CHANNEL_REMOVE( )
 #define IN865_APPLY_DR_OFFSET( )
 #define IN865_RX_BEACON_SETUP( )
+#define IN865_SET_CONTINUOUS_WAVE( )
 #endif
 
 #ifdef REGION_US915
@@ -448,6 +463,7 @@
 #define US915_CHANNEL_REMOVE( )                    US915_CASE { return RegionUS915ChannelsRemove( channelRemove ); }
 #define US915_APPLY_DR_OFFSET( )                   US915_CASE { return RegionUS915ApplyDrOffset( downlinkDwellTime, dr, drOffset ); }
 #define US915_RX_BEACON_SETUP( )                   US915_CASE { RegionUS915RxBeaconSetup( rxBeaconSetup, outDr ); break; }
+#define US915_SET_CONTINUOUS_WAVE( )
 #else
 #define US915_IS_ACTIVE( )
 #define US915_GET_PHY_PARAM( )
@@ -471,6 +487,7 @@
 #define US915_CHANNEL_REMOVE( )
 #define US915_APPLY_DR_OFFSET( )
 #define US915_RX_BEACON_SETUP( )
+#define US915_SET_CONTINUOUS_WAVE( )
 #endif
 
 #ifdef REGION_RU864
@@ -497,6 +514,7 @@
 #define RU864_CHANNEL_REMOVE( )                    RU864_CASE { return RegionRU864ChannelsRemove( channelRemove ); }
 #define RU864_APPLY_DR_OFFSET( )                   RU864_CASE { return RegionRU864ApplyDrOffset( downlinkDwellTime, dr, drOffset ); }
 #define RU864_RX_BEACON_SETUP( )                   RU864_CASE { RegionRU864RxBeaconSetup( rxBeaconSetup, outDr ); break; }
+#define RU864_SET_CONTINUOUS_WAVE( )
 #else
 #define RU864_IS_ACTIVE( )
 #define RU864_GET_PHY_PARAM( )
@@ -520,6 +538,7 @@
 #define RU864_CHANNEL_REMOVE( )
 #define RU864_APPLY_DR_OFFSET( )
 #define RU864_RX_BEACON_SETUP( )
+#define RU864_SET_CONTINUOUS_WAVE( )
 #endif
 
 #ifdef REGION_LA915
@@ -546,6 +565,7 @@
 #define LA915_CHANNEL_REMOVE( )                    LA915_CASE { return RegionLA915ChannelsRemove( channelRemove ); }
 #define LA915_APPLY_DR_OFFSET( )                   LA915_CASE { return RegionLA915ApplyDrOffset( downlinkDwellTime, dr, drOffset ); }
 #define LA915_RX_BEACON_SETUP( )                   LA915_CASE { RegionLA915RxBeaconSetup( rxBeaconSetup, outDr ); break; }
+#define LA915_SET_CONTINUOUS_WAVE( )
 #else
 #define LA915_IS_ACTIVE( )
 #define LA915_GET_PHY_PARAM( )
@@ -569,6 +589,7 @@
 #define LA915_CHANNEL_REMOVE( )
 #define LA915_APPLY_DR_OFFSET( )
 #define LA915_RX_BEACON_SETUP( )
+#define LA915_SET_CONTINUOUS_WAVE( )
 #endif
 
 bool RegionIsActive( LoRaMacRegion_t region )
@@ -964,6 +985,28 @@ LoRaMacStatus_t RegionChannelAdd( LoRaMacRegion_t region, ChannelAddParams_t* ch
         default:
         {
             return LORAMAC_STATUS_PARAMETER_INVALID;
+        }
+    }
+}
+
+void RegionSetContinuousWave( LoRaMacRegion_t region, ContinuousWaveParams_t* continuousWave )
+{
+    switch( region )
+    {
+        AS923_SET_CONTINUOUS_WAVE( );
+        AU915_SET_CONTINUOUS_WAVE( );
+        CN470_SET_CONTINUOUS_WAVE( );
+        CN779_SET_CONTINUOUS_WAVE( );
+        EU433_SET_CONTINUOUS_WAVE( );
+        EU868_SET_CONTINUOUS_WAVE( );
+        KR920_SET_CONTINUOUS_WAVE( );
+        IN865_SET_CONTINUOUS_WAVE( );
+        US915_SET_CONTINUOUS_WAVE( );
+        RU864_SET_CONTINUOUS_WAVE( );
+        LA915_SET_CONTINUOUS_WAVE( );
+        default:
+        {
+            break;
         }
     }
 }

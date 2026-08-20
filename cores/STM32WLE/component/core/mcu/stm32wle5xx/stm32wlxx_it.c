@@ -40,6 +40,7 @@ extern bool sched_pending;
 #include "main.h"
 #include "stm32wlxx_it.h"
 #include "uhal_uart.h"
+#include "uhal_flash.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 /* USER CODE END Includes */
@@ -103,9 +104,19 @@ void NMI_Handler(void)
 {
   /* USER CODE BEGIN NonMaskableInt_IRQn 0 */
 
+#ifndef RUI_BOOTLOADER
+  if (uhal_flash_eccd_nmi_handler())
+  {
+    NVIC_SystemReset();
+    while (1)
+    {
+    }
+  }
+#endif
+
   /* USER CODE END NonMaskableInt_IRQn 0 */
   /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
-    __HAL_RCC_APB1_FORCE_RESET();
+  __HAL_RCC_APB1_FORCE_RESET();
   __HAL_RCC_APB1_RELEASE_RESET();
 
   __HAL_RCC_APB2_FORCE_RESET();
@@ -128,7 +139,7 @@ void NMI_Handler(void)
 
   __HAL_RCC_BACKUPRESET_FORCE();
   __HAL_RCC_BACKUPRESET_RELEASE();
-NVIC_SystemReset();
+  NVIC_SystemReset();
   /* USER CODE END NonMaskableInt_IRQn 1 */
 }
 

@@ -2,6 +2,7 @@
 #include "udrv_errno.h"
 #include "udrv_flash.h"
 #include "service_nvm.h"
+#include "service_lora_nvm_journal.h"
 extern char *sw_version;
 extern char *model_id;
 extern char *cli_version;
@@ -241,11 +242,18 @@ int32_t service_nvm_set_default_config_to_nvm(void) {
 #ifdef SUPPORT_LORA
 #ifdef LORA_STACK_104
 void service_lora_mac_nvm_data_init(void) {
+#ifdef STM32WLE5xx
+    memset(&g_lora_mac_nvm_data, 0, sizeof(g_lora_mac_nvm_data));
+    if (service_lora_nvm_journal_init() != UDRV_RETURN_OK)
+    {
+        udrv_serial_log_printf("+EVT:LORA_NVM_JOURNAL_ERROR,INIT\r\n");
+    }
+#else
     udrv_flash_read(MCU_CERT_CONFIG_NVM_ADDR, sizeof(lora_mac_nvm_data_t), (uint8_t *)&g_lora_mac_nvm_data);
     if (*(uint32_t*)&g_lora_mac_nvm_data.loramac_crypto_nvm.FCntList.FCntUp == 0xFFFFFFFF) {
         memset(&g_lora_mac_nvm_data,0,sizeof(lora_mac_nvm_data_t));
     }
-    return UDRV_RETURN_OK;
+#endif
 }
 
 void service_lora_mac_nvm_data_reset(void)
@@ -290,7 +298,11 @@ int32_t service_nvm_set_cfg_to_nvm()
 #ifdef LORA_STACK_104
 int32_t service_nvm_set_lora_nvm_data_to_nvm()
 {
+#ifdef STM32WLE5xx
+    return service_lora_nvm_journal_reset_abp();
+#else
     return udrv_flash_write(MCU_CERT_CONFIG_NVM_ADDR, sizeof(lora_mac_nvm_data_t), (uint8_t *)&g_lora_mac_nvm_data);
+#endif
 }
 #endif
 #endif
@@ -1014,13 +1026,22 @@ int32_t service_nvm_set_lbt_scantime_to_nvm(uint32_t time)
 #if defined(SUPPORT_LORA) && defined(LORA_STACK_104)
 uint16_t service_nvm_get_DevNonce_from_nvm()
 {
+#ifdef STM32WLE5xx
+    return service_lora_nvm_journal_get_devnonce();
+#else
     return g_lora_mac_nvm_data.loramac_crypto_nvm.DevNonce;
+#endif
 }
 
 int32_t service_nvm_set_DevNonce_to_nvm(uint16_t devnonce)
 {
+#ifdef STM32WLE5xx
+    (void)devnonce;
+    return UDRV_RETURN_OK;
+#else
     g_lora_mac_nvm_data.loramac_crypto_nvm.DevNonce = devnonce;
     return udrv_flash_write(MCU_CERT_CONFIG_NVM_ADDR, sizeof(lora_mac_nvm_data_t), (uint8_t *)&g_lora_mac_nvm_data);
+#endif
 }
 
 

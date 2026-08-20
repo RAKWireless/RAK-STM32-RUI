@@ -10,6 +10,7 @@
 #include "udrv_system.h"
 #include "udrv_serial.h"
 #include "udrv_delay.h"
+#include "udrv_flash.h"
 #include "service_mode_cli.h"
 #include "service_battery.h"
 #include "service_nvm.h"
@@ -63,6 +64,13 @@ typedef enum {
  * 	The handler function of task
  */
 typedef void (*RAK_TASK_HANDLER) (void);
+
+typedef udrv_flash_event_t RAK_FLASH_EVENT;
+typedef udrv_flash_status_t RAK_FLASH_STATUS;
+typedef udrv_flash_callback_t RAK_FLASH_HANDLER;
+
+#define RAK_FLASH_WRITE_START UDRV_FLASH_EVENT_WRITE_START
+#define RAK_FLASH_WRITE_COMPLETE UDRV_FLASH_EVENT_WRITE_COMPLETE
 
 /**@}*/
 
@@ -993,6 +1001,39 @@ class RAKSystem {
 #else
     class flash {
       public:
+        /**@par     Description
+         *      Register a synchronous callback for all internal Flash writes.
+         *      The callback is invoked immediately before the physical
+         *      erase/program operation and after it completes.
+         * @ingroup Flash
+         * @par     Syntax
+         *  api.system.flash.registerCallback(callback)
+         * @param   callback callback handler; use NULL to unregister
+         * @return  bool
+         * @retval  TRUE for registering the callback successfully
+         * @retval  FALSE for registering the callback failure
+         * @note    Do not call an API that writes Flash from this callback.
+         * @par     Example
+         * @verbatim
+           void flashCallback(RAK_FLASH_EVENT event,
+                              const RAK_FLASH_STATUS *status)
+           {
+             Serial.printf("event=%u address=0x%08lX length=%lu result=%ld\r\n",
+                           (unsigned)event,
+                           (unsigned long)status->address,
+                           (unsigned long)status->length,
+                           (long)status->result);
+           }
+
+           void setup()
+           {
+             Serial.begin(115200);
+             api.system.flash.registerCallback(flashCallback);
+           }
+         * @endverbatim
+         */
+        bool registerCallback(RAK_FLASH_HANDLER callback);
+
         /**@par     Description
          *      Read a range of data from user flash partition.
          * @ingroup Flash

@@ -25,4 +25,19 @@ void uhal_flash_suspend(void);
 
 void uhal_flash_resume(void);
 
+#ifndef RUI_BOOTLOADER
+bool uhal_flash_eccd_nmi_handler(void);
+
+void uhal_flash_eccd_early_recovery(void);
+
+void uhal_flash_eccd_log_recovery(void);
+
+bool uhal_flash_eccd_get_pending(uint32_t *page_address,
+                                  uint32_t *fault_address);
+
+void uhal_flash_eccd_complete_lora_recovery(int32_t result);
+
+
+#endif
+
 #endif  // #ifndef _UHAL_FLASH_H_

@@ -19,6 +19,7 @@
 #include "service_mode.h"
 #include "service_mode_cli.h"
 #include "udrv_powersave.h"
+#include "uhal_flash.h"
 #include "service_debug.h"
 #ifdef SUPPORT_MULTITASK
 #include "uhal_sched.h"
@@ -334,12 +335,14 @@ void rui_init(void)
 
     HAL_Init();
     SystemClock_Config();
+    uhal_flash_eccd_early_recovery();
     MX_DMA_Init();
     udrv_timer_init();
     service_nvm_init_config();
     baudrate = service_nvm_get_baudrate_from_nvm();
     udrv_serial_init(SERIAL_UART1, baudrate, SERIAL_WORD_LEN_8, SERIAL_STOP_BIT_1, SERIAL_PARITY_DISABLE, SERIAL_TWO_WIRE_NORMAL_MODE);
     udrv_serial_init(SERIAL_UART2, baudrate, SERIAL_WORD_LEN_8, SERIAL_STOP_BIT_1, SERIAL_PARITY_DISABLE, SERIAL_TWO_WIRE_NORMAL_MODE);
+    uhal_flash_eccd_log_recovery();
 #if defined(SUPPORT_EXTFLASH)
     udrv_extflash_init();
 #endif
@@ -388,6 +391,7 @@ void rui_init(void)
     udrv_system_event_init();
 
 #ifdef SUPPORT_LORA
+    service_lora_schedule_auto_join();
 #ifdef LORA_STACK_104
     if(service_nvm_get_certi_from_nvm() == 1)
         service_lora_certification(1);

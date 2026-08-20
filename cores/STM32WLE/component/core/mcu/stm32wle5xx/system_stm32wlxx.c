@@ -214,7 +214,15 @@ void SystemInit(void)
 #if defined(USER_VECT_TAB_ADDRESS)
   /* Configure the Vector Table location add offset address ------------------*/
   SCB->VTOR = VECT_TAB_BASE_ADDRESS | VECT_TAB_OFFSET;
+#else
+  /* Relocate the vector table before .data initialization. This prevents a
+     SysTick left active by an older bootloader from using its vector table
+     after the application has started initializing RAM. */
+  SCB->VTOR = FLASH_BASE | 0x6000U;
 #endif
+  __DSB();
+  __ISB();
+
   /* FPU settings ------------------------------------------------------------*/
 #if (__FPU_PRESENT == 1) && (__FPU_USED == 1)
   SCB->CPACR |= ((3UL << (10UL*2UL))|(3UL << (11UL*2UL)));  /* set CP10 and CP11 Full Access */

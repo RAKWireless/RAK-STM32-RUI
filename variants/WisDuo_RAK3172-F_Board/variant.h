@@ -30,49 +30,50 @@ extern const uint32_t g_ADigitalPinMap[];
 #define NUM_ANALOG_INPUTS    (2u)
 #define NUM_ANALOG_OUTPUTS   (0u)
 
-#define PA0                 0//LED1
-#define PA1                 1//LED2
-#define PA2                 2//UART2_TX
-#define PA3                 3//UART2_RX
-#define PA4                 4//SPI1_NSS
-#define PA5                 5//SPI1_SCK
-#define PA6                 6//SPI1_MISO
-#define PA7                 7//SPI1_MOSI
-#define PA8                 8//IO2
-#define PA9                 9//IO6 or I2C2_SCL
-#define PA10                10//IO7 or I2C2_SDA
-#define PA11                11//I2C1_SDA
-#define PA12                12//I2C1_SCL
-#define PA13                13//SWDIO
-#define PA14                14//SWCLK
-#define PA15                15//IO5
-#define PB0                 16//PB0-VDD_TCXO(RAK3172_internal)
-#define PB1                 17// (RAK3172F)
-#define PB2                 18//IO4
-#define PB3                 19//AN0
-#define PB4                 20//AN1
-#define PB5                 21//IO1
-#define PB6                 22//UART1_TX
-#define PB7                 23//UART1_RX
-#define PB8                 24//RF_SW_EN (RAK3172F_internal)
-#define PB9                 25//SPI2NSS (RAK3172F_internal)
-#define PB10                26//SPI2SCK (RAK3172F_internal)
-#define PB11                27// (RAK3172F)
-#define PB12                28//IO3 & identify High/Low band hardware (RAK3172_internal)
-#define PB13                29// (RAK3172F)
-#define PB14                30// (RAK3172F)
-#define PB15                31// (RAK3172F)
-#define PC0                 32//EXTFLASH WP (RAK3172F_internal)
-#define PC1                 33//SPI2MOSI (RAK3172F_internal)
-#define PC2                 34//SPI2MISO (RAK3172F_internal)
-#define PC3                 35//EXTFLASH RESET (RAK3172F_internal)
-#define PC4                 36// (RAK3172F)
-#define PC5                 37// (RAK3172F)
-#define PC6                 38// (RAK3172F)
-#define PC13                45//RF_SW_CTR (RAK3172F_internal)
-#define PC14                46//PC14-OSC32_IN(RAK3172 internal)
-#define PC15                47//PC15-OSC32_OUT(RAK3172 internal)
-#define PH3                 115//BOOT0
+                               // STM32WLE5     | RAK3172  | WisBlock | Comment
+#define PA0                 0  // (GPIO)        | LED1     | LED1     |
+#define PA1                 1  // (GPIO)        | LED2     | LED2     |
+#define PA2                 2  // LPUART1_TX    | UART2_TX |          |
+#define PA3                 3  // LPUART1_RX    | UART2_RX |          |
+#define PA4                 4  // SPI1_NSS      | SPI_CS   | SPI_CS   |
+#define PA5                 5  // SPI1_SCK      | SPI_CLK  | SPI_CLK  |
+#define PA6                 6  // SPI1_MISO     | SPI_MISO | SPI_MISO |
+#define PA7                 7  // SPI1_MOSI     | SPI_MOSI | SPI_MOSI |
+#define PA8                 8  // (GPIO)        | IO2      | IO2      |
+#define PA9                 9  // (GPIO)        | IO6      | IO6      |
+#define PA10                10 // (ADC_IN6)     | IO7      | IO7      |
+#define PA11                11 // I2C2_SDA      | I2C1_SDA | I2C1_SDA |
+#define PA12                12 // I2C2_SCL      | I2C1_SCL | I2C1_SCL |
+#define PA13                13 // SWDIO         | SWDIO    |          |
+#define PA14                14 // SWCLK         | SWCLK    |          |
+#define PA15                15 // (ADC_IN11)    | IO5      | IO5      |
+#define PB0                 16 // VDD_TCXO      |          |          | TCXO
+#define PB1                 17 // (GPIO)        |          |          | (RAK3172F)
+#define PB2                 18 // (ADC_IN4)     | IO4      | IO4      |
+#define PB3                 19 // (ADC_IN2)     | AIN0     | AN0      |
+#define PB4                 20 // (ADC_IN3)     | AIN1     | AN1      | 
+#define PB5                 21 // (GPIO)        | IO1      | IO1      |
+#define PB6                 22 // USART1_TX     | UART1_TX | TXD1     |
+#define PB7                 23 // USART1_RX     | UART1_RX | RXD1     |
+#define PB8                 24 // GPIO_OUT      |          |          | RF_SW_EN (RAK3172F)
+#define PB9                 25 // SPI2_NSS      |          |          | EXTFLASH (RAK3172F)
+#define PB10                26 // SPI2_SCK      |          |          | EXTFLASH (RAK3172F)
+#define PB11                27 // (GPIO)        | IO3      |          | (RAK3172F)
+#define PB12                28 // GPIO_IN       |          |          | Identify High/Low band hardware
+#define PB13                29 // I2C3_SCL      | I2C2_SCL | I2C2_SCL | (RAK3172F)
+#define PB14                30 // I2C3_SDA      | I2C2_SDA | I2C2_SDA | (RAK3172F)
+#define PB15                31 // (GPIO)        | LED3     | LED3     | (RAK3172F)
+#define PC0                 32 // GPIO_OUT      |          |          | EXTFLASH WP (RAK3172F)
+#define PC1                 33 // SPI2_MOSI     |          |          | EXTFLASH (RAK3172F)
+#define PC2                 34 // SPI2_MISO     |          |          | EXTFLASH (RAK3172F)
+#define PC3                 35 // GPIO_OUT      |          |          | EXTFLASH RST (RAK3172F)
+#define PC4                 36 // (GPIO_OUT)    | PC4      | TXD0     | SW_UART (RAK3172F)
+#define PC5                 37 // (GPIO_IN)     | PC5      | RXD0     | SW_UART (RAK3172F)
+#define PC6                 38 // (GPIO)        |          |          | (RAK3172F)
+#define PC13                45 // GPIO_OUT      |          |          | RF_SW_CTR (RAK3172F)
+#define PC14                46 // RCC_OSC32_IN  |          |          | TCXO (RAK3172F)
+#define PC15                47 // RCC_OSC32_OUT |          |          | TCXO (RAK3172F)
+#define PH3                 115// BOOT0         | BOOT     | BOOT0    |
 
 /*
  * WisBlock Base GPIO definitions
@@ -80,7 +81,7 @@ extern const uint32_t g_ADigitalPinMap[];
 
 #define WB_IO1                 PB5          // SLOT_A SLOT_B
 #define WB_IO2                 PA8          // SLOT_A SLOT_B
-#define WB_IO3                 PB12         // SLOT_C
+#define WB_IO3                 PB11         // SLOT_C
 #define WB_IO4                 PB2          // SLOT_C
 #define WB_IO5                 PA15         // SLOT_D
 #define WB_IO6                 PA9          // SLOT_D
@@ -90,22 +91,24 @@ extern const uint32_t g_ADigitalPinMap[];
 #define WB_A1                  PB4          // IO_SLOT
 #define WB_I2C1_SDA            PA11         // SENSOR_SLOT IO_SLOT
 #define WB_I2C1_SCL            PA12         // SENSOR_SLOT IO_SLOT
-#define WB_I2C2_SDA            PA10         // IO_SLOT
-#define WB_I2C2_SCL            PA9          // IO_SLOT
+#define WB_I2C2_SDA            PB14         // IO_SLOT
+#define WB_I2C2_SCL            PB13         // IO_SLOT
 #define WB_SPI_CS              PA4          // IO_SLOT
 #define WB_SPI_CLK             PA5          // IO_SLOT
 #define WB_SPI_MISO            PA6          // IO_SLOT
 #define WB_SPI_MOSI            PA7          // IO_SLOT
-#define WB_RXD0                PB7          // IO_SLOT
-#define WB_TXD0                PB6          // IO_SLOT
-#define WB_RXD1                PA3          // SLOT_A IO_SLOT
-#define WB_TXD1                PA2          // SLOT_A IO_SLOT
+#define WB_RXD0                PC5          // IO_SLOT
+#define WB_TXD0                PC4          // IO_SLOT
+#define WB_RXD1                PB7          // SLOT_A IO_SLOT
+#define WB_TXD1                PB6          // SLOT_A IO_SLOT
 #define WB_LED1                PA0          // IO_SLOT
 #define WB_LED2                PA1          // IO_SLOT
+#define WB_LED3                PB15         // IO_SLOT
 
 // LEDs
 #define PIN_LED1 WB_LED1//PA0
 #define PIN_LED2 WB_LED2//PA1
+#define PIN_LED3 WB_LED3//PB15
 
 #define LED_BUILTIN PIN_LED1
 #define LED_CONN PIN_LED2
@@ -133,11 +136,11 @@ extern const uint32_t g_ADigitalPinMap[];
 /*
  * Serial interfaces
  */
-#define PIN_SERIAL1_RX WB_RXD0//PB7
-#define PIN_SERIAL1_TX WB_TXD0//PB6
+#define PIN_SERIAL1_RX PB7
+#define PIN_SERIAL1_TX PB6
 
-#define PIN_SERIAL2_RX WB_RXD1//PA3
-#define PIN_SERIAL2_TX WB_TXD1//PA2
+#define PIN_SERIAL2_RX PA3
+#define PIN_SERIAL2_TX PA2
 
 /*
  * SPI Interfaces
@@ -151,7 +154,7 @@ extern const uint32_t g_ADigitalPinMap[];
 /*
  * Wire Interfaces
  */
-#define WIRE_INTERFACES_COUNT 1
+#define WIRE_INTERFACES_COUNT 2
 
 #define PIN_WIRE_SDA WB_I2C1_SDA
 #define PIN_WIRE_SCL WB_I2C1_SCL

@@ -155,7 +155,7 @@ SECTIONS
 
   /* Data section into "SRAM2" Ram type memory: Backup SRAM2 dedicated to CM4 */
   . = ALIGN(8);
-  RAM2_region :
+  RAM2_region (NOLOAD) :
   {
     _sRAM2_region = .;         /* define a global symbol at section start */
     *(.RAM2_region)

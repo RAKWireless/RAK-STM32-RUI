@@ -60,10 +60,14 @@ int32_t service_lora_certification(int32_t mode)
 
         if (udrv_system_timer_create(SYSTIMER_LCT, CertifiTimerEvent, HTMR_PERIODIC) == UDRV_RETURN_OK)
         {
+#if 0
 #ifdef LORA_STACK_104
             udrv_system_timer_start(SYSTIMER_LCT, 5000, NULL);
 #else
             udrv_system_timer_start(SYSTIMER_LCT, 6000, NULL);
+#endif
+#else
+            udrv_system_timer_start(SYSTIMER_LCT, 8000, NULL);
 #endif
         }
         else
@@ -84,7 +88,7 @@ int32_t service_lora_certification(int32_t mode)
     return UDRV_RETURN_OK;
 }
 
-static void CertifiTimerEvent( void* context )
+void CertifiTimerEvent( void* context )
 {
     LORA_TEST_DEBUG("CertifiTimerEvent");
     uint8_t Port = 2;

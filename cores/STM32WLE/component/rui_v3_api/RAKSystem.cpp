@@ -232,6 +232,10 @@ int32_t RAKSystem::fs::ftell(SERVICE_FS fs, SERVICE_FS_FILE file) {
     return service_fs_ftell(fs, file);
 }
 #else
+bool RAKSystem::flash::registerCallback(RAK_FLASH_HANDLER callback) {
+    return (udrv_flash_register_callback(callback) == UDRV_RETURN_OK);
+}
+
 bool RAKSystem::flash::get(uint32_t offset, uint8_t *buff, uint32_t len) {
     if (service_nvm_read_user_data(offset, buff, len) == UDRV_RETURN_OK)
         return true;

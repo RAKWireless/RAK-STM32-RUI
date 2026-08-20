@@ -25,7 +25,7 @@ static void twimst_init(udrv_twimst_port port) {
 
     hi2c2.Instance = I2C2;
     if (hi2c2.Init.Timing == NULL) {
-        hi2c2.Init.Timing = 0x0070085C;
+        hi2c2.Init.Timing = 0x00901850;
     }
     hi2c2.Init.OwnAddress1 = 0;
     hi2c2.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
@@ -77,11 +77,11 @@ void uhal_twimst_deinit(udrv_twimst_port port) {
 
 void uhal_twimst_setup_freq(udrv_twimst_port port, uint32_t clk_Hz) {
     if (clk_Hz <= 100000) {
-        hi2c2.Init.Timing = 0x10300ADB;
+        hi2c2.Init.Timing = 0x10905F8F;
     } else if (clk_Hz <= 250000) {
-        hi2c2.Init.Timing = 0x00700D9F;
+        hi2c2.Init.Timing = 0x0090437C;
     } else {
-        hi2c2.Init.Timing = 0x0070085C;
+        hi2c2.Init.Timing = 0x00901850;
     }
 
     if (hi2c2.Instance != NULL) {

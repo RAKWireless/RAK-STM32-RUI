@@ -67,6 +67,7 @@ static int32_t Prbs9_generator(uint8_t *payload, uint8_t len);
 static void OnTxTimerEvent(void);
 static void OnTxTimerEventRandom(void);
 static void Recv_Enent(void);
+static void service_lora_prepare_radio_param(testParameter_t *radioParam);
 static RadioEvents_t RadioEvents;
 static uint8_t TestState = 0;
 extern TimerEvent_t CertifiTimer;
@@ -125,6 +126,20 @@ static void service_lora_test_full_wake_unlock_all(void) {
     }
 }
 
+static void service_lora_prepare_radio_param(testParameter_t *radioParam)
+{
+    if (radioParam->modem == MODEM_FSK)
+    {
+        radioParam->bandwidth >>= 1;   // align with service_lora_p2p_config() FSK path
+        radioParam->coderate = 0;      // unused by FSK driver
+        radioParam->fixLen = false;
+        radioParam->crcOn = true;
+        radioParam->FreqHopOn = false;
+        radioParam->HopPeriod = 0;
+        radioParam->iqInverted = false;
+    }
+}
+
 // static void service_lora_test_wake_unlock(void *m_data)
 // {
 //     service_lora_test_full_wake_unlock();
@@ -171,11 +186,15 @@ int32_t service_lora_trssi(int16_t *rssiVal)
   /* check that test is not already started*/
   if ((TestState & RX_TEST_RSSI) != RX_TEST_RSSI)
   {
+    testParameter_t radioParam;
+    memcpy1(&radioParam, &testParam, sizeof(testParameter_t));
+    service_lora_prepare_radio_param(&radioParam);
+
     TestState |= RX_TEST_RSSI;
     Radio.SetChannel(testParam.frequency);
     /* RX Continuous */
-    Radio.SetTxConfig(testParam.modem, testParam.power, testParam.fdev, testParam.bandwidth, testParam.datarate, testParam.coderate, testParam.preambleLen,
-                      testParam.fixLen, testParam.crcOn, testParam.FreqHopOn, testParam.HopPeriod, testParam.iqInverted, testParam.txTimeout);
+    Radio.SetTxConfig(radioParam.modem, radioParam.power, radioParam.fdev, radioParam.bandwidth, radioParam.datarate, radioParam.coderate, radioParam.preambleLen,
+                      radioParam.fixLen, radioParam.crcOn, radioParam.FreqHopOn, radioParam.HopPeriod, radioParam.iqInverted, radioParam.txTimeout);
     timeout = 0xFFFFFF; /* continuous Rx */
     if (testParam.lna == 0)
     {
@@ -199,7 +218,33 @@ int32_t service_lora_trssi(int16_t *rssiVal)
 
 int32_t service_lora_set_tconf(testParameter_t *Param)
 {
-  service_lora_test_full_wake_lock();
+  if (Param->modem != MODEM_FSK && Param->modem != MODEM_LORA)
+  {
+     return -UDRV_WRONG_ARG;
+  } 
+
+  if (Param->modem == MODEM_FSK)
+  {
+    if (Param->bandwidth < 4800 || Param->bandwidth > 467000)
+      return -UDRV_WRONG_ARG;
+
+    if (Param->datarate < 600 || Param->datarate > 300000)
+      return -UDRV_WRONG_ARG;
+
+    if (Param->fdev < 600 || Param->fdev > 200000)
+      return -UDRV_WRONG_ARG;
+  }
+  else
+  {
+    if (Param->bandwidth > 6)
+      return -UDRV_WRONG_ARG;
+
+    if (Param->datarate < 5 || Param->datarate > 12)
+      return -UDRV_WRONG_ARG;
+
+    if (Param->coderate < 1 || Param->coderate > 4)
+      return -UDRV_WRONG_ARG;
+  }
 
   if (Param->frequency < 150000000 || Param->frequency > 960000000)
   {
@@ -207,21 +252,6 @@ int32_t service_lora_set_tconf(testParameter_t *Param)
   }
 
   if (Param->power > 22 || Param->power < -9)
-  {
-    return -UDRV_WRONG_ARG;
-  }
-
-  if (Param->bandwidth > 6)
-  {
-    return -UDRV_WRONG_ARG;
-  }
-
-  if (Param->datarate < 5 || Param->datarate > 12)
-  {
-    return -UDRV_WRONG_ARG;
-  }
-
-  if (Param->coderate < 1 || Param->coderate > 4)
   {
     return -UDRV_WRONG_ARG;
   }
@@ -234,17 +264,7 @@ int32_t service_lora_set_tconf(testParameter_t *Param)
   {
   }
 
-  if (Param->modem > 2)
-  {
-    return -UDRV_WRONG_ARG;
-  }
-
-  if (Param->payloadLen > 256)
-  {
-    return -UDRV_WRONG_ARG;
-  }
-
-  if (Param->fdev < 4800 || Param->fdev > 467000)
+  if (Param->payloadLen == 0)
   {
     return -UDRV_WRONG_ARG;
   }
@@ -275,6 +295,10 @@ int32_t service_lora_ttx(int32_t nb_packet)
 
   if ((TestState & TX_TEST_LORA) != TX_TEST_LORA)
   {
+    testParameter_t radioParam;
+    memcpy1(&radioParam, &testParam, sizeof(testParameter_t));
+    service_lora_prepare_radio_param(&radioParam);
+
     service_lora_test_full_wake_lock();
 
     TestState |= TX_TEST_LORA;
@@ -305,8 +329,8 @@ int32_t service_lora_ttx(int32_t nb_packet)
 
     /* Launch several times payload: nb times given by user */
     Radio.SetChannel(testParam.frequency);
-    Radio.SetTxConfig(testParam.modem, testParam.power, testParam.fdev, testParam.bandwidth, testParam.datarate, testParam.coderate, testParam.preambleLen,
-                      testParam.fixLen, testParam.crcOn, testParam.FreqHopOn, testParam.HopPeriod, testParam.iqInverted, testParam.txTimeout);
+    Radio.SetTxConfig(radioParam.modem, radioParam.power, radioParam.fdev, radioParam.bandwidth, radioParam.datarate, radioParam.coderate, radioParam.preambleLen,
+                      radioParam.fixLen, radioParam.crcOn, radioParam.FreqHopOn, radioParam.HopPeriod, radioParam.iqInverted, radioParam.txTimeout);
     packet = nb_packet;
     packet_back = packet;
     TimerInit(&TxTimer, OnTxTimerEvent);
@@ -326,6 +350,10 @@ int32_t service_lora_trx(int32_t nb_packet)
   /* init of PER counter */
   if (((TestState & RX_TEST_LORA) != RX_TEST_LORA) && (nb_packet > 0))
   {
+    testParameter_t radioParam;
+    memcpy1(&radioParam, &testParam, sizeof(testParameter_t));
+    service_lora_prepare_radio_param(&radioParam);
+
     service_lora_test_full_wake_lock();
 
     TestState |= RX_TEST_LORA;
@@ -348,8 +376,8 @@ int32_t service_lora_trx(int32_t nb_packet)
     packet = nb_packet;
     packet_back = packet;
     Radio.SetChannel(testParam.frequency);
-    Radio.SetRxConfig(testParam.modem, testParam.bandwidth, testParam.datarate, testParam.coderate, testParam.bandwidthAfc, testParam.preambleLen,
-                      testParam.symbTimeout, testParam.fixLen, testParam.payloadLen, testParam.crcOn, testParam.FreqHopOn, testParam.HopPeriod, testParam.iqInverted, testParam.rxContinuous);
+    Radio.SetRxConfig(radioParam.modem, radioParam.bandwidth, radioParam.datarate, radioParam.coderate, radioParam.bandwidthAfc, radioParam.preambleLen,
+                      radioParam.symbTimeout, radioParam.fixLen, radioParam.payloadLen, radioParam.crcOn, radioParam.FreqHopOn, radioParam.HopPeriod, radioParam.iqInverted, radioParam.rxContinuous);
     Radio.Rx(RX_TIMEOUT_VALUE);
 
     return UDRV_RETURN_OK;
@@ -364,6 +392,11 @@ int32_t service_lora_tth(const testParameter_t *param)
 {
   if ((TestState & TX_TEST_LORA) != TX_TEST_LORA)
   {
+    if (param->hp_step == 0)
+    {
+      return -UDRV_WRONG_ARG;
+    }
+
     service_lora_test_full_wake_lock();
 
     TestState |= TX_TEST_LORA;
@@ -391,8 +424,60 @@ int32_t service_lora_tth(const testParameter_t *param)
     freq_start_back = testParam.freq_start;
     packet_back = testParam.nb_tx;
     Radio.SetChannel(testParam.freq_start);
-    Radio.SetTxConfig(testParam.modem, testParam.power, testParam.fdev, testParam.bandwidth, testParam.datarate, testParam.coderate, testParam.preambleLen,
-                      testParam.fixLen, testParam.crcOn, testParam.FreqHopOn, testParam.HopPeriod, testParam.iqInverted, testParam.txTimeout);
+
+    if (testParam.modem == MODEM_FSK)
+    {
+        testParameter_t radioParam;
+        memcpy1(&radioParam, &testParam, sizeof(testParameter_t));
+        service_lora_prepare_radio_param(&radioParam);
+
+        udrv_serial_log_printf("TTH modem %d\r\n", radioParam.modem);
+        udrv_serial_log_printf("TTH power %d\r\n", radioParam.power);
+        udrv_serial_log_printf("TTH fdev %d\r\n", radioParam.fdev);
+        udrv_serial_log_printf("TTH bandwidth %d\r\n", radioParam.bandwidth);
+        udrv_serial_log_printf("TTH datarate %d\r\n", radioParam.datarate);
+        udrv_serial_log_printf("TTH coderate %d\r\n", radioParam.coderate);
+        udrv_serial_log_printf("TTH preambleLen %d\r\n", radioParam.preambleLen);
+        udrv_serial_log_printf("TTH fixLen %d\r\n", radioParam.fixLen);
+        udrv_serial_log_printf("TTH crcOn %d\r\n", radioParam.crcOn);
+        udrv_serial_log_printf("TTH FreqHopOn %d\r\n", radioParam.FreqHopOn);
+        udrv_serial_log_printf("TTH HopPeriod %d\r\n", radioParam.HopPeriod);
+        udrv_serial_log_printf("TTH iqInverted %d\r\n", radioParam.iqInverted);
+        udrv_serial_log_printf("TTH txTimeout %d\r\n", radioParam.txTimeout);
+        udrv_serial_log_printf("TTH payloadLen %d\r\n", radioParam.payloadLen);
+
+        Radio.SetTxConfig(radioParam.modem, radioParam.power, radioParam.fdev,
+                          radioParam.bandwidth, radioParam.datarate,
+                          radioParam.coderate, radioParam.preambleLen,
+                          radioParam.fixLen, radioParam.crcOn,
+                          radioParam.FreqHopOn, radioParam.HopPeriod,
+                          radioParam.iqInverted, radioParam.txTimeout);
+    }
+    else
+    {
+        udrv_serial_log_printf("TTH modem %d\r\n", testParam.modem);
+        udrv_serial_log_printf("TTH power %d\r\n", testParam.power);
+        udrv_serial_log_printf("TTH fdev %d\r\n", testParam.fdev);
+        udrv_serial_log_printf("TTH bandwidth %d\r\n", testParam.bandwidth);
+        udrv_serial_log_printf("TTH datarate %d\r\n", testParam.datarate);
+        udrv_serial_log_printf("TTH coderate %d\r\n", testParam.coderate);
+        udrv_serial_log_printf("TTH preambleLen %d\r\n", testParam.preambleLen);
+        udrv_serial_log_printf("TTH fixLen %d\r\n", testParam.fixLen);
+        udrv_serial_log_printf("TTH crcOn %d\r\n", testParam.crcOn);
+        udrv_serial_log_printf("TTH FreqHopOn %d\r\n", testParam.FreqHopOn);
+        udrv_serial_log_printf("TTH HopPeriod %d\r\n", testParam.HopPeriod);
+        udrv_serial_log_printf("TTH iqInverted %d\r\n", testParam.iqInverted);
+        udrv_serial_log_printf("TTH txTimeout %d\r\n",testParam.txTimeout);
+        udrv_serial_log_printf("TTH payloadLen %d\r\n", testParam.payloadLen);
+
+        Radio.SetTxConfig(testParam.modem, testParam.power, testParam.fdev,
+                          testParam.bandwidth, testParam.datarate,
+                          testParam.coderate, testParam.preambleLen,
+                          testParam.fixLen, testParam.crcOn,
+                          testParam.FreqHopOn, testParam.HopPeriod,
+                          testParam.iqInverted, testParam.txTimeout);
+    }
+
     TimerInit(&TxTimer, OnTxTimerEvent);
     TimerSetValue(&TxTimer, 500);
     TimerStart(&TxTimer);
@@ -487,33 +572,33 @@ int32_t service_lora_trth(const testParameter_t *param)
 {
   if ((TestState & TX_TEST_LORA) != TX_TEST_LORA)
   {
+    if (param->hp_step == 0)
+    {
+      return -UDRV_WRONG_ARG;
+    }
+
     service_lora_test_full_wake_lock();
     memset(freq_seq,0,sizeof(freq_seq));
-    int j;
+    uint8_t j;
     for (freq_cnt = 0; freq_cnt < sizeof(freq_seq)/sizeof(freq_seq[0]); freq_cnt++)
     {
         if(param->freq_start + param->hp_step*freq_cnt > param->freq_stop)
         {
-            --freq_cnt;
             break;
         }
         else
             freq_seq[freq_cnt] = param->freq_start + param->hp_step*freq_cnt;
     }
     srandom(udrv_rtc_get_timestamp((RtcID_E)SYS_RTC_COUNTER_PORT));
-    for (int i = 0; i < freq_cnt; i++)
+    for (uint8_t i = freq_cnt; i > 1; i--)
     {
-        j = i + random() / (RAND_MAX / (freq_cnt - i) + 1);
-        if(j == i)
-            j = 0;
-        freq_seq[i] = freq_seq[i] ^ freq_seq[j];
-        freq_seq[j] = freq_seq[i] ^ freq_seq[j];
-        freq_seq[i] = freq_seq[i] ^ freq_seq[j];
-
-        freq_seq[j] = freq_seq[j] ^ freq_seq[freq_cnt];
-        freq_seq[freq_cnt] = freq_seq[j] ^ freq_seq[freq_cnt];
-        freq_seq[j] = freq_seq[j] ^ freq_seq[freq_cnt];
-
+        j = random() % i;
+        if (j != (i - 1))
+        {
+            uint32_t tmp = freq_seq[i - 1];
+            freq_seq[i - 1] = freq_seq[j];
+            freq_seq[j] = tmp;
+        }
     }
     //for (int i = 0; i< sizeof(freq_seq) / sizeof(freq_seq[0]);i++)
     //    udrv_serial_log_printf("freq_seq[%d]:%u \r\n",i,freq_seq[i]);
@@ -546,23 +631,54 @@ int32_t service_lora_trth(const testParameter_t *param)
     testParam.txTimeout = 1000;
 
     /* Set Radio Tx Config */
-    udrv_serial_log_printf("TRTH modem %d\r\n", testParam.modem);
-    udrv_serial_log_printf("TRTH power %d\r\n", testParam.power);
-    udrv_serial_log_printf("TRTH fdev %d\r\n", testParam.fdev);
-    udrv_serial_log_printf("TRTH bandwidth %d\r\n", testParam.bandwidth);
-    udrv_serial_log_printf("TRTH datarate %d\r\n", testParam.datarate);
-    udrv_serial_log_printf("TRTH coderate %d\r\n", testParam.coderate);
-    udrv_serial_log_printf("TRTH preambleLen %d\r\n", testParam.preambleLen);
-    udrv_serial_log_printf("TRTH fixLen %d\r\n", testParam.fixLen);
-    udrv_serial_log_printf("TRTH crcOn %d\r\n", testParam.crcOn);
-    udrv_serial_log_printf("TRTH FreqHopOn %d\r\n", testParam.FreqHopOn);
-    udrv_serial_log_printf("TRTH HopPeriod %d\r\n", testParam.HopPeriod);
-    udrv_serial_log_printf("TRTH iqInverted %d\r\n", testParam.iqInverted);
-    udrv_serial_log_printf("TRTH txTimeout %d\r\n",testParam.txTimeout);
-    udrv_serial_log_printf("TRTH payloadLen %d\r\n", testParam.payloadLen);
+    if (testParam.modem == MODEM_FSK)
+    {
+        testParameter_t radioParam;
+        memcpy1(&radioParam, &testParam, sizeof(testParameter_t));
+        service_lora_prepare_radio_param(&radioParam);
 
-    Radio.SetTxConfig(testParam.modem, testParam.power, testParam.fdev, testParam.bandwidth, testParam.datarate, testParam.coderate, testParam.preambleLen,
-                      testParam.fixLen, testParam.crcOn, testParam.FreqHopOn, testParam.HopPeriod, testParam.iqInverted, testParam.txTimeout);
+        udrv_serial_log_printf("TRTH modem %d\r\n", radioParam.modem);
+        udrv_serial_log_printf("TRTH power %d\r\n", radioParam.power);
+        udrv_serial_log_printf("TRTH fdev %d\r\n", radioParam.fdev);
+        udrv_serial_log_printf("TRTH bandwidth %d\r\n", radioParam.bandwidth);
+        udrv_serial_log_printf("TRTH datarate %d\r\n", radioParam.datarate);
+        udrv_serial_log_printf("TRTH coderate %d\r\n", radioParam.coderate);
+        udrv_serial_log_printf("TRTH preambleLen %d\r\n", radioParam.preambleLen);
+        udrv_serial_log_printf("TRTH fixLen %d\r\n", radioParam.fixLen);
+        udrv_serial_log_printf("TRTH crcOn %d\r\n", radioParam.crcOn);
+        udrv_serial_log_printf("TRTH FreqHopOn %d\r\n", radioParam.FreqHopOn);
+        udrv_serial_log_printf("TRTH HopPeriod %d\r\n", radioParam.HopPeriod);
+        udrv_serial_log_printf("TRTH iqInverted %d\r\n", radioParam.iqInverted);
+        udrv_serial_log_printf("TRTH txTimeout %d\r\n", radioParam.txTimeout);
+        udrv_serial_log_printf("TRTH payloadLen %d\r\n", radioParam.payloadLen);
+
+        Radio.SetTxConfig(radioParam.modem, radioParam.power, radioParam.fdev,
+                  radioParam.bandwidth, radioParam.datarate,
+                  radioParam.coderate, radioParam.preambleLen,
+                  radioParam.fixLen, radioParam.crcOn,
+                  radioParam.FreqHopOn, radioParam.HopPeriod,
+                  radioParam.iqInverted, radioParam.txTimeout);
+    }
+    else
+    {
+        udrv_serial_log_printf("TRTH modem %d\r\n", testParam.modem);
+        udrv_serial_log_printf("TRTH power %d\r\n", testParam.power);
+        udrv_serial_log_printf("TRTH fdev %d\r\n", testParam.fdev);
+        udrv_serial_log_printf("TRTH bandwidth %d\r\n", testParam.bandwidth);
+        udrv_serial_log_printf("TRTH datarate %d\r\n", testParam.datarate);
+        udrv_serial_log_printf("TRTH coderate %d\r\n", testParam.coderate);
+        udrv_serial_log_printf("TRTH preambleLen %d\r\n", testParam.preambleLen);
+        udrv_serial_log_printf("TRTH fixLen %d\r\n", testParam.fixLen);
+        udrv_serial_log_printf("TRTH crcOn %d\r\n", testParam.crcOn);
+        udrv_serial_log_printf("TRTH FreqHopOn %d\r\n", testParam.FreqHopOn);
+        udrv_serial_log_printf("TRTH HopPeriod %d\r\n", testParam.HopPeriod);
+        udrv_serial_log_printf("TRTH iqInverted %d\r\n", testParam.iqInverted);
+        udrv_serial_log_printf("TRTH txTimeout %d\r\n",testParam.txTimeout);
+        udrv_serial_log_printf("TRTH payloadLen %d\r\n", testParam.payloadLen);
+
+        Radio.SetTxConfig(testParam.modem, testParam.power, testParam.fdev, testParam.bandwidth, testParam.datarate, testParam.coderate, testParam.preambleLen,
+                          testParam.fixLen, testParam.crcOn, testParam.FreqHopOn, testParam.HopPeriod, testParam.iqInverted, testParam.txTimeout);
+    }
 
     TimerInit(&TxTimer, OnTxTimerEventRandom);
     TimerSetValue(&TxTimer, 2000); //Note: TxTimer period > testParam.txTimeout

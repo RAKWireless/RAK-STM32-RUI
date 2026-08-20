@@ -17,11 +17,30 @@ extern "C" {
 #include <stdbool.h>
 #include "pin_define.h"
 
+typedef enum {
+    UDRV_FLASH_EVENT_WRITE_START = 0,
+    UDRV_FLASH_EVENT_WRITE_COMPLETE,
+} udrv_flash_event_t;
+
+typedef struct {
+    uint32_t address;
+    uint32_t length;
+    int32_t result;
+} udrv_flash_status_t;
+
+typedef void (*udrv_flash_callback_t)(udrv_flash_event_t event,
+                                     const udrv_flash_status_t *status);
+
 void udrv_flash_init (void);
 
 void udrv_flash_deinit (void);
 
+int32_t udrv_flash_register_callback(udrv_flash_callback_t callback);
+
 int32_t udrv_flash_write (uint32_t addr, uint32_t len, uint8_t *buff);
+
+/** Program an already-erased, 8-byte-aligned Flash range without erasing. */
+int32_t udrv_flash_program(uint32_t addr, uint32_t len, uint8_t *buff);
 
 int32_t udrv_flash_read (uint32_t addr, uint32_t len, uint8_t *buff);
 
