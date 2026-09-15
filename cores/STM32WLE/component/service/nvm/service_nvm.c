@@ -242,7 +242,7 @@ int32_t service_nvm_set_default_config_to_nvm(void) {
 #ifdef SUPPORT_LORA
 #ifdef LORA_STACK_104
 void service_lora_mac_nvm_data_init(void) {
-#ifdef STM32WLE5xx
+#ifdef SERVICE_LORA_NVM_JOURNAL_ENABLED
     memset(&g_lora_mac_nvm_data, 0, sizeof(g_lora_mac_nvm_data));
     if (service_lora_nvm_journal_init() != UDRV_RETURN_OK)
     {
@@ -298,7 +298,7 @@ int32_t service_nvm_set_cfg_to_nvm()
 #ifdef LORA_STACK_104
 int32_t service_nvm_set_lora_nvm_data_to_nvm()
 {
-#ifdef STM32WLE5xx
+#ifdef SERVICE_LORA_NVM_JOURNAL_ENABLED
     return service_lora_nvm_journal_reset_abp();
 #else
     return udrv_flash_write(MCU_CERT_CONFIG_NVM_ADDR, sizeof(lora_mac_nvm_data_t), (uint8_t *)&g_lora_mac_nvm_data);
@@ -1026,7 +1026,7 @@ int32_t service_nvm_set_lbt_scantime_to_nvm(uint32_t time)
 #if defined(SUPPORT_LORA) && defined(LORA_STACK_104)
 uint16_t service_nvm_get_DevNonce_from_nvm()
 {
-#ifdef STM32WLE5xx
+#ifdef SERVICE_LORA_NVM_JOURNAL_ENABLED
     return service_lora_nvm_journal_get_devnonce();
 #else
     return g_lora_mac_nvm_data.loramac_crypto_nvm.DevNonce;
@@ -1035,7 +1035,7 @@ uint16_t service_nvm_get_DevNonce_from_nvm()
 
 int32_t service_nvm_set_DevNonce_to_nvm(uint16_t devnonce)
 {
-#ifdef STM32WLE5xx
+#ifdef SERVICE_LORA_NVM_JOURNAL_ENABLED
     (void)devnonce;
     return UDRV_RETURN_OK;
 #else

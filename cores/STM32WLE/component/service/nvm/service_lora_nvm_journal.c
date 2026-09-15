@@ -1,6 +1,6 @@
 #include "service_lora_nvm_journal.h"
 
-#if defined(STM32WLE5xx) && defined(SUPPORT_LORA) && defined(LORA_STACK_104)
+#ifdef SERVICE_LORA_NVM_JOURNAL_ENABLED
 
 #include <stdbool.h>
 #include <stddef.h>
@@ -10,11 +10,36 @@
 #include "mcu_basic.h"
 #include "udrv_errno.h"
 #include "udrv_flash.h"
+#if defined(STM32WLE5xx)
 #include "uhal_flash.h"
 
 #define LORA_JOURNAL_PAGE_SIZE             2048U
 #define LORA_JOURNAL_PAGE_A                MCU_CERT_CONFIG_NVM_ADDR
 #define LORA_JOURNAL_PAGE_B                (MCU_CERT_CONFIG_NVM_ADDR + LORA_JOURNAL_PAGE_SIZE)
+#define LORA_JOURNAL_LEGACY_ADDR           MCU_CERT_CONFIG_NVM_ADDR
+#define LORA_JOURNAL_LEGACY_OVERLAPS_PAGE_A 1
+#elif defined(NRF52840_XXAA)
+#define LORA_JOURNAL_PAGE_SIZE             4096U
+#define LORA_JOURNAL_PAGE_A                MCU_CERT_CONFIG_NVM_ADDR
+#define LORA_JOURNAL_PAGE_B                MCU_LORA_NVM_JOURNAL_PAGE_B_ADDR
+#define LORA_JOURNAL_LEGACY_ADDR           MCU_CERT_CONFIG_NVM_ADDR
+#define LORA_JOURNAL_LEGACY_OVERLAPS_PAGE_A 1
+#define uhal_flash_eccd_get_pending(page, address) (false)
+#define uhal_flash_eccd_complete_lora_recovery(result) ((void)(result))
+#define uhal_flash_eccd_log_recovery() ((void)0)
+#elif defined(PART_APOLLO3)
+#define LORA_JOURNAL_PAGE_SIZE             8192U
+#define LORA_JOURNAL_PAGE_A                MCU_LORA_NVM_JOURNAL_PAGE_A_ADDR
+#define LORA_JOURNAL_PAGE_B                MCU_LORA_NVM_JOURNAL_PAGE_B_ADDR
+#define LORA_JOURNAL_LEGACY_ADDR           MCU_CERT_CONFIG_NVM_ADDR
+#define LORA_JOURNAL_LEGACY_OVERLAPS_PAGE_A 0
+#define uhal_flash_eccd_get_pending(page, address) (false)
+#define uhal_flash_eccd_complete_lora_recovery(result) ((void)(result))
+#define uhal_flash_eccd_log_recovery() ((void)0)
+#else
+#error "LoRa NVM journal page layout is not defined for this MCU"
+#endif
+
 #define LORA_JOURNAL_PAGE_MAGIC            0x4C4A5047UL /* LJPG */
 #define LORA_JOURNAL_RECORD_MAGIC          0x4C4A5243UL /* LJRC */
 #define LORA_JOURNAL_FORMAT_VERSION        1UL
@@ -433,6 +458,84 @@ static bool journal_fixed_channel_region(LoRaMacRegion_t region)
            (region == LORAMAC_REGION_LA915);
 }
 
+#if defined(NRF52840_XXAA) || defined(PART_APOLLO3)
+static bool journal_legacy_crc_valid(const void *data, uint32_t length)
+{
+    uint32_t stored_crc;
+
+    if (length < sizeof(stored_crc))
+    {
+        return false;
+    }
+    memcpy(&stored_crc,
+           (const uint8_t *)data + length - sizeof(stored_crc),
+           sizeof(stored_crc));
+    return stored_crc ==
+           journal_crc32(data, length - sizeof(stored_crc));
+}
+
+static void journal_import_legacy_abp(const lora_mac_nvm_data_t *legacy)
+{
+    const LoRaMacCryptoNvmData_t *crypto = &legacy->loramac_crypto_nvm;
+    const LoRaMacNvmDataGroup1_t *mac_group1 = &legacy->loramac_macgroup1;
+    const LoRaMacNvmDataGroup2_t *mac_group2 = &legacy->loramac_macgroup2;
+
+    if ((service_nvm_get_njm_from_nvm() != SERVICE_LORA_ABP) ||
+        !journal_legacy_crc_valid(crypto, sizeof(*crypto)))
+    {
+        return;
+    }
+
+    memset(&journal.counters, 0, sizeof(journal.counters));
+    journal.counters.session_id = journal_session_id();
+    journal.counters.fcnt_up_reserved_until = crypto->FCntList.FCntUp;
+    journal.counters.nfcnt_down = crypto->FCntList.NFCntDown;
+    journal.counters.afcnt_down = crypto->FCntList.AFCntDown;
+    journal.counters.fcnt_down = crypto->FCntList.FCntDown;
+    memcpy(journal.counters.mc_fcnt_down, crypto->FCntList.McFCntDown,
+           sizeof(journal.counters.mc_fcnt_down));
+    journal.counters.last_down_fcnt = crypto->LastDownFCnt;
+    if (journal_legacy_crc_valid(mac_group1, sizeof(*mac_group1)))
+    {
+        journal.counters.last_rx_mic = mac_group1->LastRxMic;
+    }
+    journal.counters_valid = true;
+
+    if (!journal_legacy_crc_valid(mac_group2, sizeof(*mac_group2)) ||
+        journal_fixed_channel_region(mac_group2->Region))
+    {
+        return;
+    }
+
+    memset(&journal.channels, 0, sizeof(journal.channels));
+    journal.channels.session_id = journal.counters.session_id;
+    journal.channels.region = (uint8_t)mac_group2->Region;
+    journal.channels.mask_words = 0U;
+    for (uint8_t index = 0;
+         (index < REGION_NVM_MAX_NB_CHANNELS) &&
+         (journal.channels.channel_count < LORA_JOURNAL_MAX_CHANNELS);
+         index++)
+    {
+        const ChannelParams_t *source = &legacy->loramac_channels[index];
+        lora_journal_channel_t *destination;
+
+        if (source->Frequency == 0U)
+        {
+            continue;
+        }
+        destination =
+            &journal.channels.channels[journal.channels.channel_count++];
+        destination->frequency = source->Frequency;
+        destination->rx1_frequency = source->Rx1Frequency;
+        destination->index = index;
+        destination->dr_min = source->DrRange.Fields.Min;
+        destination->dr_max = source->DrRange.Fields.Max;
+        destination->band = source->Band;
+    }
+    journal.channels_valid = (journal.channels.channel_count != 0U);
+}
+#endif
+
 int32_t service_lora_nvm_journal_init(void)
 {
     lora_journal_page_header_t header_a;
@@ -555,12 +658,12 @@ int32_t service_lora_nvm_journal_init(void)
         if (bad_page != LORA_JOURNAL_PAGE_A)
         {
             uint32_t first_word =
-                *(const uint32_t *)(uintptr_t)LORA_JOURNAL_PAGE_A;
+                *(const uint32_t *)(uintptr_t)LORA_JOURNAL_LEGACY_ADDR;
             if ((first_word != 0xFFFFFFFFUL) &&
                 (first_word != LORA_JOURNAL_PAGE_MAGIC))
             {
                 memcpy(&legacy_devnonce,
-                       (const void *)(uintptr_t)(LORA_JOURNAL_PAGE_A +
+                       (const void *)(uintptr_t)(LORA_JOURNAL_LEGACY_ADDR +
                        offsetof(lora_mac_nvm_data_t, loramac_crypto_nvm) +
                        offsetof(LoRaMacCryptoNvmData_t, DevNonce)),
                        sizeof(uint16_t));
@@ -583,22 +686,34 @@ int32_t service_lora_nvm_journal_init(void)
     }
 
     memcpy(&legacy_devnonce,
-           (const void *)(uintptr_t)(LORA_JOURNAL_PAGE_A +
+           (const void *)(uintptr_t)(LORA_JOURNAL_LEGACY_ADDR +
            offsetof(lora_mac_nvm_data_t, loramac_crypto_nvm) +
            offsetof(LoRaMacCryptoNvmData_t, DevNonce)),
            sizeof(uint16_t));
     legacy_present =
-        (*(const uint32_t *)(uintptr_t)LORA_JOURNAL_PAGE_A != 0xFFFFFFFFUL) &&
-        (*(const uint32_t *)(uintptr_t)LORA_JOURNAL_PAGE_A !=
+        (*(const uint32_t *)(uintptr_t)LORA_JOURNAL_LEGACY_ADDR != 0xFFFFFFFFUL) &&
+        (*(const uint32_t *)(uintptr_t)LORA_JOURNAL_LEGACY_ADDR !=
          LORA_JOURNAL_PAGE_MAGIC);
     journal.devnonce.reserved_until =
         (legacy_present && (legacy_devnonce != 0xFFFFU)) ?
         legacy_devnonce : 0U;
     journal.devnonce_valid = true;
     journal.next_sequence = 1U;
+#if defined(NRF52840_XXAA) || defined(PART_APOLLO3)
+    if (legacy_present)
+    {
+        lora_mac_nvm_data_t legacy_nvm;
+        memcpy(&legacy_nvm,
+               (const void *)(uintptr_t)LORA_JOURNAL_LEGACY_ADDR,
+               sizeof(legacy_nvm));
+        journal_import_legacy_abp(&legacy_nvm);
+    }
+#endif
 
-    if (journal_create_page(legacy_present ? LORA_JOURNAL_PAGE_B :
-                                             LORA_JOURNAL_PAGE_A, 1U) !=
+
+    if (journal_create_page(
+            (legacy_present && LORA_JOURNAL_LEGACY_OVERLAPS_PAGE_A) ?
+            LORA_JOURNAL_PAGE_B : LORA_JOURNAL_PAGE_A, 1U) !=
         UDRV_RETURN_OK)
     {
         return -UDRV_INTERNAL_ERR;
@@ -781,11 +896,15 @@ void service_lora_nvm_journal_restore_abp(LoRaMacNvmData_t *nvm)
     if (journal.channels_valid &&
         (journal.channels.session_id == session_id) &&
         (journal.channels.region == (uint8_t)nvm->MacGroup2.Region) &&
-        (journal.channels.mask_words == REGION_NVM_CHANNELS_MASK_SIZE))
+        ((journal.channels.mask_words == 0U) ||
+         (journal.channels.mask_words == REGION_NVM_CHANNELS_MASK_SIZE)))
     {
-        memcpy(nvm->RegionGroup2.ChannelsMask,
-               journal.channels.channels_mask,
-               sizeof(journal.channels.channels_mask));
+        if (journal.channels.mask_words != 0U)
+        {
+            memcpy(nvm->RegionGroup2.ChannelsMask,
+                   journal.channels.channels_mask,
+                   sizeof(journal.channels.channels_mask));
+        }
         for (uint8_t i = 0; i < journal.channels.channel_count; i++)
         {
             const lora_journal_channel_t *source = &journal.channels.channels[i];

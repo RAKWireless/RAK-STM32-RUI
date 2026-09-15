@@ -1314,7 +1314,11 @@ bool LoRaMacClassBRxBeacon( uint8_t *payload, uint16_t size )
             if( crc0 == beaconCrc0 )
             {
                 // Copy the param field for app layer
-                Ctx.LoRaMacClassBParams.MlmeIndication->BeaconInfo.Param = ( payload[phyParam.BeaconFormat.Rfu1Size] );
+                /* Legacy CN470 has three RFU bytes and no Param semantics.
+                 * Its third RFU shares the v4.7.0 Param position. Ignore it. */
+                Ctx.LoRaMacClassBParams.MlmeIndication->BeaconInfo.Param =
+                    (*Ctx.LoRaMacClassBParams.LoRaMacRegion == LORAMAC_REGION_CN470) ? 0 :
+                    payload[phyParam.BeaconFormat.Rfu1Size];
                 // Fetch the precise time value in milliseconds that will be used for Rx ping slot delay.
                 Ctx.BeaconCtx.BeaconTimePrecision.SubSeconds = BeaconPrecTimeValue[Ctx.LoRaMacClassBParams.MlmeIndication->BeaconInfo.Param];
 

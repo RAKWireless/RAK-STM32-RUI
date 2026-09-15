@@ -4,7 +4,11 @@
 #include <stdint.h>
 #include "service_nvm.h"
 
-#if defined(STM32WLE5xx) && defined(SUPPORT_LORA) && defined(LORA_STACK_104)
+#if (defined(STM32WLE5xx) || defined(NRF52840_XXAA) || \
+     defined(PART_APOLLO3)) && \
+    defined(SUPPORT_LORA) && defined(LORA_STACK_104)
+
+#define SERVICE_LORA_NVM_JOURNAL_ENABLED 1
 
 int32_t service_lora_nvm_journal_init(void);
 int32_t service_lora_nvm_journal_reset_abp(void);

@@ -90,6 +90,34 @@ void send_cllback(void)
     LORA_TEST_DEBUG("send register ok");
 }
 
+#ifdef rak11720
+static void service_lora_p2p_finalize_radio_state(void)
+{
+    /* The application callback may have already started another TX or RX. */
+    if (lora_p2p_status.isRadioBusy == true)
+    {
+        return;
+    }
+
+    /* Resume compatible continuous RX only when no new transaction started. */
+    if (lora_p2p_status.isContinue_compatible_tx == true)
+    {
+        lora_p2p_status.isRadioBusy = true;
+        Radio.Standby();
+        Radio.Rx(0);
+        return;
+    }
+
+    /*
+     * RUI-1050 skips the generic radio suspend/resume around MCU sleep on
+     * RAK11720. Normalize the terminal state first so this remains safe if
+     * a callback already stopped RX, then put the SX1262 into warm sleep.
+     */
+    Radio.Standby();
+    Radio.Sleep();
+}
+#endif
+
 static void OnTxDone(void)
 {
     lora_p2p_status.isRadioBusy = false;
@@ -103,9 +131,13 @@ static void OnTxDone(void)
     else
         udrv_serial_log_printf("+EVT:TXFSK DONE\r\n");
 
+#ifdef rak11720
+    service_lora_p2p_finalize_radio_state();
+#endif
 
     udrv_powersave_wake_unlock();   
 
+#ifndef rak11720
     if(lora_p2p_status.isContinue_compatible_tx == true)
     {
         //65533 needs to continue receiving after sending.
@@ -114,7 +146,8 @@ static void OnTxDone(void)
         Radio.Rx(0);  
         
         return ;
-    }  
+    }
+#endif
 }
 
 static void OnRxDone(uint8_t *payload, uint16_t size, int16_t rssi, int8_t snr)
@@ -175,6 +208,9 @@ static void OnTxTimeout(void)
     if (service_get_debug_level()) {
         udrv_serial_log_printf("%s\r\n", __func__);
     }
+#ifdef rak11720
+    service_lora_p2p_finalize_radio_state();
+#endif
     udrv_powersave_wake_unlock();
 }
 
@@ -497,13 +533,17 @@ int32_t service_lora_p2p_recv(uint32_t timeout)
 
     if (timeout == 0)
     {
-        LORA_P2P_DEBUG("Radio Standby.\r\n");
+        LORA_P2P_DEBUG("Stop radio receive.\r\n");
         lora_p2p_status.isContinue = false;
         lora_p2p_status.isRadioBusy = false;
         lora_p2p_status.isContinue_no_exit = false;
         lora_p2p_status.isContinue_compatible_tx = false;
-        udrv_powersave_wake_unlock ();   
+        udrv_powersave_wake_unlock ();
+#ifdef rak11720
+        service_lora_p2p_finalize_radio_state();
+#else
         Radio.Standby();
+#endif
     }
     else if (timeout == 65535)
     {

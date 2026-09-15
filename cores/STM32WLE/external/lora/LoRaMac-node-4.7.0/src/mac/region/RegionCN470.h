@@ -165,7 +165,9 @@ extern "C"
 /*!
  * Size of RFU 1 field
  */
-#define CN470_RFU1_SIZE                             3
+/* v4.7.0 counts a separate Param byte: 2 + 1 maps the legacy 3-byte RFU.
+ * The CN470 parser ignores that third RFU byte. RFU2 remains one byte. */
+#define CN470_RFU1_SIZE                             2
 
 /*!
  * Size of RFU 2 field

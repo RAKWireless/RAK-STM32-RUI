@@ -160,6 +160,43 @@ static void service_lora_auto_join(void *m_data)
     }
 }
 
+static void service_lora_schedule_auto_join_retry(void)
+{
+    int32_t ret;
+
+    udrv_system_timer_stop(SYSTIMER_LORAWAN);
+    if ((SERVICE_LORAWAN != service_lora_get_nwm()) ||
+        !service_lora_get_join_start() ||
+        !service_lora_get_auto_join())
+    {
+        return;
+    }
+
+    if (++auto_join_retry_cnt > service_lora_get_auto_join_max_cnt())
+    {
+        auto_join_retry_cnt = 0;
+        return;
+    }
+
+    ret = udrv_system_timer_create(SYSTIMER_LORAWAN,
+                                   service_lora_auto_join,
+                                   HTMR_ONESHOT);
+    if (ret != UDRV_RETURN_OK)
+    {
+        udrv_serial_log_printf("+EVT:JOIN_FAILED_%d\r\n", __LINE__);
+        return;
+    }
+
+    ret = udrv_system_timer_start(
+        SYSTIMER_LORAWAN,
+        service_lora_get_auto_join_period() * 1000,
+        NULL);
+    if (ret != UDRV_RETURN_OK)
+    {
+        udrv_serial_log_printf("+EVT:JOIN_FAILED_%d\r\n", __LINE__);
+    }
+}
+
 int32_t service_lora_schedule_auto_join(void)
 {
     int32_t ret;
@@ -251,11 +288,10 @@ static int32_t service_lora_stop(void)
 #ifdef LORA_STACK_104
 static void OnNvmDataChange(uint16_t notifyFlags)
 {
-    MibRequestConfirm_t  mibReq;
-    mibReq.Type = MIB_NVM_CTXS;
-    LoRaMacMibGetRequestConfirm(&mibReq);
-    LoRaMacNvmData_t* nvm = mibReq.Param.Contexts;
-    if( notifyFlags == LORAMAC_NVM_NOTIFY_FLAG_NONE )
+    MibRequestConfirm_t mibReq;
+    LoRaMacNvmData_t *nvm;
+
+    if (notifyFlags == LORAMAC_NVM_NOTIFY_FLAG_NONE)
     {
         return;
     }
@@ -263,11 +299,20 @@ static void OnNvmDataChange(uint16_t notifyFlags)
     {
         return;
     }
-    if( LoRaMacStop( ) != LORAMAC_STATUS_OK )
+
+    mibReq.Type = MIB_NVM_CTXS;
+    if ((LoRaMacMibGetRequestConfirm(&mibReq) != LORAMAC_STATUS_OK) ||
+        (mibReq.Param.Contexts == NULL))
+    {
+        udrv_serial_log_printf("+EVT:LORA_NVM_JOURNAL_ERROR,MIB\r\n");
+        return;
+    }
+    nvm = mibReq.Param.Contexts;
+    if (LoRaMacStop() != LORAMAC_STATUS_OK)
     {
         return;
     }
-#ifdef STM32WLE5xx
+#ifdef SERVICE_LORA_NVM_JOURNAL_ENABLED
     if (service_lora_nvm_journal_store_abp(nvm, notifyFlags) != UDRV_RETURN_OK)
     {
         udrv_serial_log_printf("+EVT:LORA_NVM_JOURNAL_ERROR,STORE\r\n");
@@ -314,6 +359,108 @@ static void OnNvmDataChange(uint16_t notifyFlags)
 #endif
 }
 #endif
+
+typedef struct
+{
+    bool valid;
+    uint32_t frequency;
+    uint32_t rx1_frequency;
+    uint32_t rxc_frequency;
+    int8_t datarate;
+    int8_t tx_power;
+    uint32_t fcnt_up;
+} service_lora_tx_debug_t;
+
+typedef enum
+{
+    TX_DEBUG_SLOT_JOIN = 0,
+    TX_DEBUG_SLOT_DATA,
+    TX_DEBUG_SLOT_MAX
+} tx_debug_slot_t;
+
+static service_lora_tx_debug_t tx_debug[TX_DEBUG_SLOT_MAX];
+
+static void service_lora_tx_debug_capture(tx_debug_slot_t slot)
+{
+    service_lora_tx_debug_t *debug = &tx_debug[slot];
+    MibRequestConfirm_t mib_req;
+    LoRaMacRegion_t region;
+
+    debug->valid = false;
+    if (!service_get_debug_level())
+    {
+        return;
+    }
+
+    mib_req.Type = MIB_NVM_CTXS;
+    if ((LoRaMacMibGetRequestConfirm(&mib_req) != LORAMAC_STATUS_OK) ||
+        (mib_req.Param.Contexts == NULL))
+    {
+        return;
+    }
+
+    region = mib_req.Param.Contexts->MacGroup2.Region;
+    debug->frequency =
+        mib_req.Param.Contexts->RegionGroup2.Channels[last_tx_channel].Frequency;
+
+    if ((region == LORAMAC_REGION_AU915) ||
+        (region == LORAMAC_REGION_US915))
+    {
+        debug->rx1_frequency =
+            mib_req.Param.Contexts->MacGroup2.MacParamsDefaults.RxCChannel.Frequency +
+            (last_tx_channel % 8) * ((uint32_t)600000);
+    }
+    else if (region == LORAMAC_REGION_CN470)
+    {
+        debug->rx1_frequency =
+            mib_req.Param.Contexts->MacGroup2.MacParamsDefaults.RxCChannel.Frequency +
+            (last_tx_channel % 48) * ((uint32_t)200000);
+    }
+    else
+    {
+#ifdef LORA_STACK_104
+        if (mib_req.Param.Contexts->RegionGroup2.Channels[last_tx_channel].Rx1Frequency == 0)
+        {
+            debug->rx1_frequency = debug->frequency;
+        }
+        else
+        {
+            debug->rx1_frequency =
+                mib_req.Param.Contexts->RegionGroup2.Channels[last_tx_channel].Rx1Frequency;
+        }
+#else
+        debug->rx1_frequency = debug->frequency;
+#endif
+    }
+
+    debug->rxc_frequency =
+        mib_req.Param.Contexts->MacGroup2.MacParamsDefaults.RxCChannel.Frequency;
+    debug->datarate = mib_req.Param.Contexts->MacGroup1.ChannelsDatarate;
+    debug->tx_power = mib_req.Param.Contexts->MacGroup1.ChannelsTxPower;
+    debug->fcnt_up = mib_req.Param.Contexts->Crypto.FCntList.FCntUp;
+    debug->valid = true;
+}
+
+static void service_lora_tx_debug_flush(tx_debug_slot_t slot)
+{
+    service_lora_tx_debug_t *debug = &tx_debug[slot];
+
+    if (!debug->valid)
+    {
+        return;
+    }
+    debug->valid = false;
+
+    udrv_serial_log_printf("Frequency:%u\r\n", debug->frequency);
+    udrv_serial_log_printf("Rx1Frequency:%u\r\n", debug->rx1_frequency);
+    udrv_serial_log_printf("RxCFrequency:%u\r\n", debug->rxc_frequency);
+    udrv_serial_log_printf("ChannelsDatarate:%d\r\n", debug->datarate);
+    udrv_serial_log_printf("ChannelsTxPower:%d\r\n", debug->tx_power);
+    if (slot == TX_DEBUG_SLOT_DATA)
+    {
+        udrv_serial_log_printf("FCntUp:%u\r\n", debug->fcnt_up - 1U);
+    }
+}
 
 static void service_lora_beacon_acquisition(void *m_data)
 {
@@ -366,6 +513,7 @@ static void service_lora_send_null(uint8_t m_data)
 static void McpsConfirm(McpsConfirm_t *mcpsConfirm)
 {
 
+    service_lora_tx_debug_flush(TX_DEBUG_SLOT_DATA);
     if (mcpsConfirm->Status == LORAMAC_EVENT_INFO_STATUS_OK)
     {
         last_ack = mcpsConfirm->AckReceived;
@@ -426,7 +574,7 @@ static void McpsIndication(McpsIndication_t *mcpsIndication)
 {
     if (mcpsIndication->Status == LORAMAC_EVENT_INFO_STATUS_OK)
     {
-#ifdef STM32WLE5xx
+#ifdef SERVICE_LORA_NVM_JOURNAL_ENABLED
         if (service_lora_get_njm() == SERVICE_LORA_ABP)
         {
             MibRequestConfirm_t nvm_request;
@@ -578,6 +726,11 @@ static void McpsIndication(McpsIndication_t *mcpsIndication)
 static void MlmeConfirm(MlmeConfirm_t *mlmeConfirm)
 {
     LmHandlerPackagesNotify( PACKAGE_MLME_CONFIRM, mlmeConfirm );
+    if (mlmeConfirm->MlmeRequest == MLME_JOIN)
+    {
+        service_lora_tx_debug_flush(TX_DEBUG_SLOT_JOIN);
+    }
+
 
     switch (mlmeConfirm->MlmeRequest)
     {
@@ -632,24 +785,7 @@ static void MlmeConfirm(MlmeConfirm_t *mlmeConfirm)
                 }
             }
 
-            udrv_system_timer_stop(SYSTIMER_LORAWAN);
-
-
-                if (++auto_join_retry_cnt > service_lora_get_auto_join_max_cnt())
-                {
-                    auto_join_retry_cnt = 0;
-                }
-                else
-                {
-                    if (udrv_system_timer_create(SYSTIMER_LORAWAN, service_lora_auto_join, HTMR_ONESHOT) == UDRV_RETURN_OK)
-                    {
-                        udrv_system_timer_start(SYSTIMER_LORAWAN, service_lora_get_auto_join_period() * 1000, NULL);
-                    }
-                    else
-                    {
-                        udrv_serial_log_printf("+EVT:JOIN_FAILED_%d\r\n", __LINE__);
-                    }
-                }
+            service_lora_schedule_auto_join_retry();
 
             //Consider join request in join callback, so use system event.
             if (service_lora_join_callback != NULL) {
@@ -923,7 +1059,7 @@ static uint32_t crc_cal(uint8_t * data,uint32_t size)
     return calculatedCrc32;
 }
 
-#ifndef STM32WLE5xx
+#ifndef SERVICE_LORA_NVM_JOURNAL_ENABLED
 static void restore_abp_config(void)
 {
     MibRequestConfirm_t mibReq;
@@ -1157,7 +1293,7 @@ int32_t service_lora_init(SERVICE_LORA_BAND band)
 
         if(service_lora_get_njm()==SERVICE_LORA_ABP)
         {
-#ifdef STM32WLE5xx
+#ifdef SERVICE_LORA_NVM_JOURNAL_ENABLED
             service_lora_nvm_journal_restore_abp(nvm);
 #else
             restore_abp_config();
@@ -2085,13 +2221,15 @@ int32_t service_lora_join(int32_t param1, int32_t param2, int32_t param3, int32_
         mlmeReq.Req.Join.NetworkActivation = ACTIVATION_TYPE_OTAA;
 #endif
 
-#if defined(LORA_STACK_104) && defined(STM32WLE5xx)
+#ifdef SERVICE_LORA_NVM_JOURNAL_ENABLED
         mibReq.Type = MIB_NVM_CTXS;
-        LoRaMacMibGetRequestConfirm(&mibReq);
-        if (service_lora_nvm_journal_prepare_devnonce(
-                mibReq.Param.Contexts->Crypto.DevNonce) != UDRV_RETURN_OK)
+        if ((LoRaMacMibGetRequestConfirm(&mibReq) != LORAMAC_STATUS_OK) ||
+            (mibReq.Param.Contexts == NULL) ||
+            (service_lora_nvm_journal_prepare_devnonce(
+                 mibReq.Param.Contexts->Crypto.DevNonce) != UDRV_RETURN_OK))
         {
             udrv_serial_log_printf("+EVT:LORA_NVM_JOURNAL_ERROR,DEVNONCE\r\n");
+            service_lora_schedule_auto_join_retry();
             return -UDRV_INTERNAL_ERR;
         }
 #endif
@@ -2108,7 +2246,7 @@ int32_t service_lora_join(int32_t param1, int32_t param2, int32_t param3, int32_
                 class_b_state = SERVICE_LORA_CLASS_B_S0;//Initial state
             }
 #ifdef LORA_STACK_104
-#ifndef STM32WLE5xx
+#ifndef SERVICE_LORA_NVM_JOURNAL_ENABLED
             MibRequestConfirm_t mibReq;
             mibReq.Type = MIB_NVM_CTXS;
             LoRaMacMibGetRequestConfirm( &mibReq );
@@ -2124,22 +2262,7 @@ int32_t service_lora_join(int32_t param1, int32_t param2, int32_t param3, int32_
         }
         else if (status == LORAMAC_STATUS_DUTYCYCLE_RESTRICTED)
         {
-            udrv_system_timer_stop(SYSTIMER_LORAWAN);
-            if (++auto_join_retry_cnt > service_lora_get_auto_join_max_cnt())
-            {
-                auto_join_retry_cnt = 0;
-            }
-            else
-            {
-                if (udrv_system_timer_create(SYSTIMER_LORAWAN, service_lora_auto_join, HTMR_ONESHOT) == UDRV_RETURN_OK)
-                {
-                    udrv_system_timer_start(SYSTIMER_LORAWAN, service_lora_get_auto_join_period() * 1000, NULL);
-                }
-                else
-                {
-                    udrv_serial_log_printf("+EVT:JOIN_FAILED_%d\r\n", __LINE__);
-                }
-            }
+            service_lora_schedule_auto_join_retry();
             udrv_serial_log_printf("Restricted_Wait_%d_ms\r\n", mlmeReq.ReqReturn.DutyCycleWaitTime);
             return -UDRV_BUSY;
         }
@@ -2173,44 +2296,10 @@ int32_t service_lora_join(int32_t param1, int32_t param2, int32_t param3, int32_
     {
         return -UDRV_INTERNAL_ERR;
     }
-    if(service_get_debug_level())
+    service_lora_tx_debug_capture(TX_DEBUG_SLOT_JOIN);
+    if (njm == SERVICE_LORA_ABP)
     {
-        MibRequestConfirm_t  mibReq;
-        LoRaMacRegion_t region;
-        LoRaMacStatus_t status;
-
-        mibReq.Type = MIB_NVM_CTXS;
-        LoRaMacMibGetRequestConfirm(&mibReq);
-        if ((status = LoRaMacMibGetRequestConfirm(&mibReq)) == LORAMAC_STATUS_OK)
-        {
-            region = mibReq.Param.Contexts->MacGroup2.Region;
-            udrv_serial_log_printf("Frequency:%u\r\n",mibReq.Param.Contexts->RegionGroup2.Channels[last_tx_channel].Frequency);
-            if(region == LORAMAC_REGION_AU915 || region == LORAMAC_REGION_US915)
-            {
-                udrv_serial_log_printf("Rx1Frequency:%u\r\n",mibReq.Param.Contexts->MacGroup2.MacParamsDefaults.RxCChannel.Frequency + (last_tx_channel%8)*( (uint32_t) 600000 ));
-            }
-            else if (region == LORAMAC_REGION_CN470)
-            {
-                udrv_serial_log_printf("Rx1Frequency:%u\r\n",mibReq.Param.Contexts->MacGroup2.MacParamsDefaults.RxCChannel.Frequency + (last_tx_channel%48)*( (uint32_t) 200000 ));
-            }
-            else
-            {
-#ifdef LORA_STACK_104
-                if (mibReq.Param.Contexts->RegionGroup2.Channels[last_tx_channel].Rx1Frequency == 0) {
-                    udrv_serial_log_printf("Rx1Frequency:%u\r\n",mibReq.Param.Contexts->RegionGroup2.Channels[last_tx_channel].Frequency);
-                }
-                else {
-                    udrv_serial_log_printf("Rx1Frequency:%u\r\n",mibReq.Param.Contexts->RegionGroup2.Channels[last_tx_channel].Rx1Frequency);
-                }
-#else
-                udrv_serial_log_printf("Rx1Frequency:%u\r\n",mibReq.Param.Contexts->RegionGroup2.Channels[last_tx_channel].Frequency);
-#endif
-            }
-            udrv_serial_log_printf("RxCFrequency:%u\r\n",mibReq.Param.Contexts->MacGroup2.MacParamsDefaults.RxCChannel.Frequency);
-            udrv_serial_log_printf("ChannelsDatarate:%d\r\n",mibReq.Param.Contexts->MacGroup1.ChannelsDatarate);
-            udrv_serial_log_printf("ChannelsTxPower:%d\r\n",mibReq.Param.Contexts->MacGroup1.ChannelsTxPower);
-            //udrv_serial_log_printf("FCntUp:%u\r\n",mibReq.Param.Contexts->Crypto.FCntList.FCntUp);
-        }
+        service_lora_tx_debug_flush(TX_DEBUG_SLOT_JOIN);
     }
     return UDRV_RETURN_OK;
 }
@@ -2691,14 +2780,15 @@ int32_t service_lora_send(uint8_t *buff, uint32_t len, SERVICE_LORA_SEND_INFO in
         AckTimeoutRetries_info.confirm = info.confirm;
         AckTimeoutRetries_info.retry = info.retry;
     }
-#if defined(LORA_STACK_104) && defined(STM32WLE5xx)
+#ifdef SERVICE_LORA_NVM_JOURNAL_ENABLED
     if (service_lora_get_njm() == SERVICE_LORA_ABP)
     {
         MibRequestConfirm_t nvm_request;
         nvm_request.Type = MIB_NVM_CTXS;
-        LoRaMacMibGetRequestConfirm(&nvm_request);
-        if (service_lora_nvm_journal_prepare_fcnt_up(
-                nvm_request.Param.Contexts) != UDRV_RETURN_OK)
+        if ((LoRaMacMibGetRequestConfirm(&nvm_request) != LORAMAC_STATUS_OK) ||
+            (nvm_request.Param.Contexts == NULL) ||
+            (service_lora_nvm_journal_prepare_fcnt_up(
+                 nvm_request.Param.Contexts) != UDRV_RETURN_OK))
         {
             udrv_serial_log_printf("+EVT:LORA_NVM_JOURNAL_ERROR,FCNTUP\r\n");
             return -UDRV_INTERNAL_ERR;
@@ -2711,44 +2801,10 @@ int32_t service_lora_send(uint8_t *buff, uint32_t len, SERVICE_LORA_SEND_INFO in
 #ifdef LORA_STACK_104
     DutyCycleWaitTime = mcpsReq.ReqReturn.DutyCycleWaitTime;
 #endif
-    if(service_get_debug_level())
+    service_lora_tx_debug_capture(TX_DEBUG_SLOT_DATA);
+    if (status != LORAMAC_STATUS_OK)
     {
-        MibRequestConfirm_t  mibReq;
-        LoRaMacRegion_t region;
-        LoRaMacStatus_t status;
-
-        mibReq.Type = MIB_NVM_CTXS;
-        LoRaMacMibGetRequestConfirm(&mibReq);
-        if ((status = LoRaMacMibGetRequestConfirm(&mibReq)) == LORAMAC_STATUS_OK)
-        {
-            region = mibReq.Param.Contexts->MacGroup2.Region;
-            udrv_serial_log_printf("Frequency:%u\r\n",mibReq.Param.Contexts->RegionGroup2.Channels[last_tx_channel].Frequency);
-            if(region == LORAMAC_REGION_AU915 || region == LORAMAC_REGION_US915)
-            {
-                udrv_serial_log_printf("Rx1Frequency:%u\r\n",mibReq.Param.Contexts->MacGroup2.MacParamsDefaults.RxCChannel.Frequency + (last_tx_channel%8)*( (uint32_t) 600000 ));
-            }
-            else if (region == LORAMAC_REGION_CN470)
-            {
-                udrv_serial_log_printf("Rx1Frequency:%u\r\n",mibReq.Param.Contexts->MacGroup2.MacParamsDefaults.RxCChannel.Frequency + (last_tx_channel%48)*( (uint32_t) 200000 ));
-            }
-            else
-            {
-#ifdef LORA_STACK_104
-                if (mibReq.Param.Contexts->RegionGroup2.Channels[last_tx_channel].Rx1Frequency == 0) {
-                    udrv_serial_log_printf("Rx1Frequency:%u\r\n",mibReq.Param.Contexts->RegionGroup2.Channels[last_tx_channel].Frequency);
-                }
-                else {
-                    udrv_serial_log_printf("Rx1Frequency:%u\r\n",mibReq.Param.Contexts->RegionGroup2.Channels[last_tx_channel].Rx1Frequency);
-                }
-#else
-                udrv_serial_log_printf("Rx1Frequency:%u\r\n",mibReq.Param.Contexts->RegionGroup2.Channels[last_tx_channel].Frequency);
-#endif
-            }
-            udrv_serial_log_printf("RxCFrequency:%u\r\n",mibReq.Param.Contexts->MacGroup2.MacParamsDefaults.RxCChannel.Frequency);
-            udrv_serial_log_printf("ChannelsDatarate:%d\r\n",mibReq.Param.Contexts->MacGroup1.ChannelsDatarate);
-            udrv_serial_log_printf("ChannelsTxPower:%d\r\n",mibReq.Param.Contexts->MacGroup1.ChannelsTxPower);
-            udrv_serial_log_printf("FCntUp:%u\r\n",mibReq.Param.Contexts->Crypto.FCntList.FCntUp-1);
-        }
+        service_lora_tx_debug_flush(TX_DEBUG_SLOT_DATA);
     }
 
 
