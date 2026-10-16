@@ -5,7 +5,21 @@
 static UTIL_TIMER_Object_t uhal_ps_timer_id;
 
 int32_t uhal_ps_timer_create (timer_handler tmr_handler, TimerMode_E mode) {
-    if (UTIL_TIMER_Create(&uhal_ps_timer_id, 0xFFFFFFFFU, UTIL_TIMER_ONESHOT, tmr_handler, NULL) == UTIL_TIMER_OK)
+    if (tmr_handler == NULL)
+    {
+        return -UDRV_INTERNAL_ERR;
+    }
+
+    CRITICAL_SECTION_BEGIN();
+    /* An early wake can leave the shared sleep timer in the active list.
+     * Unlink it before Create clears Next, or later timers are discarded.
+     * Keep removal and recreation atomic with respect to timer interrupts.
+     */
+    UTIL_TIMER_Stop(&uhal_ps_timer_id);
+    UTIL_TIMER_Status_t status = UTIL_TIMER_Create(&uhal_ps_timer_id, 0xFFFFFFFFU, UTIL_TIMER_ONESHOT, tmr_handler, NULL);
+    CRITICAL_SECTION_END();
+
+    if (status == UTIL_TIMER_OK)
     {
         return UDRV_RETURN_OK;
     }
